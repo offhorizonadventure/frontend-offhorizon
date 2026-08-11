@@ -6,7 +6,7 @@ import { crewCount } from "@/config/team";
 /** Figures are facts about the business, so only the labels are translated. */
 const facts = [
   { value: "2014", key: "since" },
-  { value: "3", key: "countries" },
+  { value: "5", key: "countries" },
   { value: String(crewCount), key: "crew" },
 ] as const;
 

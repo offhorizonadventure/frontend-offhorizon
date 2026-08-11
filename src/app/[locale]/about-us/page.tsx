@@ -39,7 +39,7 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about-u
       "@type": "TravelAgency",
       name: siteName,
       foundingDate: "2014",
-      areaServed: ["India", "Nepal", "Bhutan"],
+      areaServed: ["India", "Nepal", "Bhutan", "Sri Lanka", "Mongolia"],
       description: t("meta.description"),
     },
   };

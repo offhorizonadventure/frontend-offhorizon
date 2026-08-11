@@ -25,9 +25,9 @@ export type Destination = {
  * Order matters: this is the left-to-right order of the arc.
  */
 export const destinations: Destination[] = [
-  { key: "mongolia", href: "/destinations/mongolia", flag: "mn", image: mongolia, tours: 3 },
-  { key: "nepal", href: "/destinations/nepal", flag: "np", image: nepal, tours: 4 },
   { key: "india", href: "/destinations/india", flag: "in", image: india, tours: 9 },
-  { key: "bhutan", href: "/destinations/bhutan", flag: "bt", image: bhutan, tours: 3 },
+  { key: "nepal", href: "/destinations/nepal", flag: "np", image: nepal, tours: 4 },
   { key: "sriLanka", href: "/destinations/sri-lanka", flag: "lk", image: sriLanka, tours: 2 },
+  { key: "bhutan", href: "/destinations/bhutan", flag: "bt", image: bhutan, tours: 3 },
+  { key: "mongolia", href: "/destinations/mongolia", flag: "mn", image: mongolia, tours: 3 },
 ];
