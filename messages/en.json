@@ -348,5 +348,21 @@
         }
       }
     }
+  },
+  "blog": {
+    "meta": {
+      "title": "Field Notes | Offhorizon Adventures",
+      "description": "Notes from the road across the Himalayas. Altitude, terrain, machines and route planning, written by the crew who run the expeditions."
+    },
+    "hero": {
+      "eyebrow": "Journal",
+      "title": "Notes from the road.",
+      "lead": "What we have learned running expeditions at altitude. Written by the people who ride the routes, not by a marketing desk."
+    },
+    "readingTime": "{minutes} min read",
+    "readPost": "Read the post",
+    "backToBlog": "All posts",
+    "writtenBy": "Written by",
+    "moreReading": "More reading"
   }
 }

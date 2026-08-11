@@ -348,5 +348,21 @@
         }
       }
     }
+  },
+  "blog": {
+    "meta": {
+      "title": "Carnet de route | Offhorizon Adventures",
+      "description": "Notes prises sur la route dans l'Himalaya. Altitude, terrain, machines et préparation d'itinéraires, écrites par l'équipe qui mène les expéditions."
+    },
+    "hero": {
+      "eyebrow": "Journal",
+      "title": "Notes prises sur la route.",
+      "lead": "Ce que nous avons appris en menant des expéditions en altitude. Écrit par ceux qui roulent sur ces itinéraires, pas par un service marketing."
+    },
+    "readingTime": "{minutes} min de lecture",
+    "readPost": "Lire l'article",
+    "backToBlog": "Tous les articles",
+    "writtenBy": "Écrit par",
+    "moreReading": "À lire aussi"
   }
 }

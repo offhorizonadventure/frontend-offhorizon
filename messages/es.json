@@ -348,5 +348,21 @@
         }
       }
     }
+  },
+  "blog": {
+    "meta": {
+      "title": "Notas de ruta | Offhorizon Adventures",
+      "description": "Notas tomadas en la carretera por el Himalaya. Altitud, terreno, máquinas y planificación de rutas, escritas por el equipo que dirige las expediciones."
+    },
+    "hero": {
+      "eyebrow": "Diario",
+      "title": "Notas tomadas en la carretera.",
+      "lead": "Lo que hemos aprendido dirigiendo expediciones en altura. Escrito por quienes recorren estas rutas, no por un departamento de marketing."
+    },
+    "readingTime": "{minutes} min de lectura",
+    "readPost": "Leer el artículo",
+    "backToBlog": "Todos los artículos",
+    "writtenBy": "Escrito por",
+    "moreReading": "Sigue leyendo"
   }
 }

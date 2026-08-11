@@ -348,5 +348,21 @@
         }
       }
     }
+  },
+  "blog": {
+    "meta": {
+      "title": "Appunti di viaggio | Offhorizon Adventures",
+      "description": "Appunti presi lungo la strada nell'Himalaya. Quota, terreno, mezzi e pianificazione degli itinerari, scritti dalla squadra che guida le spedizioni."
+    },
+    "hero": {
+      "eyebrow": "Diario",
+      "title": "Appunti presi lungo la strada.",
+      "lead": "Quello che abbiamo imparato guidando spedizioni in quota. Scritto da chi percorre questi itinerari, non da un ufficio marketing."
+    },
+    "readingTime": "{minutes} min di lettura",
+    "readPost": "Leggi l'articolo",
+    "backToBlog": "Tutti gli articoli",
+    "writtenBy": "Scritto da",
+    "moreReading": "Da leggere"
   }
 }

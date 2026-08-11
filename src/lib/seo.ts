@@ -33,6 +33,15 @@ type SeoInput = {
   type?: "website" | "article";
   publishedTime?: string;
   modifiedTime?: string;
+  /** Surfaced as the Twitter "time to read" label on articles. */
+  readingMinutes?: number;
+  /**
+   * Languages this page actually exists in. Defaults to all of them, which is
+   * right for hand-translated pages. CMS content that is not translated yet
+   * should pass the real list so hreflang does not advertise a translation
+   * that is not there.
+   */
+  availableLocales?: readonly Locale[];
   noIndex?: boolean;
 };
 
@@ -45,6 +54,8 @@ export function buildMetadata({
   type = "website",
   publishedTime,
   modifiedTime,
+  readingMinutes,
+  availableLocales = locales,
   noIndex = false,
 }: SeoInput): Metadata {
   const canonical = url(locale, path);
@@ -56,7 +67,7 @@ export function buildMetadata({
     alternates: {
       canonical,
       languages: {
-        ...Object.fromEntries(locales.map((alt) => [alt, url(alt, path)])),
+        ...Object.fromEntries(availableLocales.map((alt) => [alt, url(alt, path)])),
         "x-default": url(defaultLocale, path),
       },
     },
@@ -72,7 +83,9 @@ export function buildMetadata({
     openGraph: {
       type,
       locale: marketFor(locale).ogLocale,
-      alternateLocale: locales.filter((l) => l !== locale).map((l) => marketFor(l).ogLocale),
+      alternateLocale: availableLocales
+        .filter((l) => l !== locale)
+        .map((l) => marketFor(l).ogLocale),
       title,
       description,
       url: canonical,
@@ -86,5 +99,11 @@ export function buildMetadata({
       description,
       images: [image.url],
     },
+    ...(readingMinutes && {
+      other: {
+        "twitter:label1": "Time to read",
+        "twitter:data1": `${readingMinutes} minute${readingMinutes === 1 ? "" : "s"}`,
+      },
+    }),
   };
 }

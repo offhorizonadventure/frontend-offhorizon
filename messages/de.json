@@ -348,5 +348,21 @@
         }
       }
     }
+  },
+  "blog": {
+    "meta": {
+      "title": "Notizen von unterwegs | Offhorizon Adventures",
+      "description": "Aufzeichnungen von der Strecke im Himalaya. Höhe, Gelände, Maschinen und Routenplanung, geschrieben vom Team, das die Expeditionen führt."
+    },
+    "hero": {
+      "eyebrow": "Journal",
+      "title": "Notizen von unterwegs.",
+      "lead": "Was wir beim Führen von Expeditionen in großer Höhe gelernt haben. Geschrieben von denen, die die Routen fahren, nicht von einer Marketingabteilung."
+    },
+    "readingTime": "{minutes} Min. Lesezeit",
+    "readPost": "Beitrag lesen",
+    "backToBlog": "Alle Beiträge",
+    "writtenBy": "Geschrieben von",
+    "moreReading": "Weiterlesen"
   }
 }
