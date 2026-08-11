@@ -68,7 +68,9 @@ export async function UpcomingTours() {
             <li key={tour.key}>
               <div data-anim="up">
                 <article className="group relative overflow-hidden rounded-[26px] ring-1 ring-brand-900/10">
-                  <div className="relative aspect-[4/5]">
+                  {/* Steps down as the card widens: one column on phones needs the
+                      tallest frame, two columns from md do not. */}
+                  <div className="relative aspect-[4/5] sm:aspect-[3/2] md:aspect-[1/1]">
                     <Image
                       src={tour.image}
                       alt={tt(`${tour.key}.name`)}
