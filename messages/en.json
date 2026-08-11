@@ -262,6 +262,12 @@
         "creative": "Operations and creative",
         "technical": "Mechanics and technical crew",
         "support": "On-road support"
+      },
+      "leadFacts": {
+        "baseLabel": "Based in",
+        "base": "Manali, India",
+        "leadingLabel": "Leading since",
+        "leading": "2014"
       }
     },
     "riders": {

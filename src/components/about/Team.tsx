@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
+import { Topo } from "@/components/ui/Topo";
 import { team, type Member } from "@/config/team";
 import { cn } from "@/lib/cn";
 
@@ -32,32 +33,58 @@ export async function Team() {
           </p>
         </div>
 
-        {/* Lead, given its own wide frame */}
-        <div data-anim="up" className="mt-12 sm:mt-16">
-          <div className="grid items-end gap-6 rounded-[28px] bg-cream-50 p-6 sm:grid-cols-12 sm:gap-10 sm:p-8">
-            <div className="sm:col-span-4 lg:col-span-3">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-brand-100">
+        {/* Lead card. A small portrait next to one short line left the row
+            looking half empty, so the portrait carries more width and the name
+            is set at display scale to hold the space. */}
+        <div data-anim="up" className="relative mt-12 overflow-hidden rounded-[32px] bg-cream-50 sm:mt-16">
+          <Topo className="text-brand-800/10" rings={9} seed={12.5} />
+
+          <div className="relative grid gap-8 p-6 sm:p-9 lg:grid-cols-12 lg:items-stretch lg:gap-12 lg:p-10">
+            <div className="lg:col-span-5">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[24px] bg-brand-100 lg:h-full lg:aspect-auto lg:min-h-[26rem]">
                 <Image
                   src={lead.members[0].photo}
                   alt={lead.members[0].name}
                   fill
                   placeholder="blur"
-                  sizes="(max-width: 639px) 88vw, 260px"
+                  sizes="(max-width: 1023px) 90vw, 420px"
                   className="object-cover"
                 />
               </div>
             </div>
 
-            <div className="sm:col-span-8 lg:col-span-9 sm:pb-4">
-              <span className="text-[10.5px] font-bold tracking-[0.18em] text-ember-600 uppercase">
+            <div className="flex flex-col justify-center lg:col-span-7">
+              <span className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-600 uppercase">
+                <span aria-hidden className="h-px w-8 bg-ember-600/50" />
                 {t("groups.lead")}
               </span>
-              <p className="font-display mt-3 text-[clamp(1.5rem,3vw,2.1rem)] leading-none font-extrabold tracking-[-0.03em] text-brand-900">
+
+              <p className="font-display mt-5 text-[clamp(2rem,5vw,3.4rem)] leading-[0.98] font-extrabold tracking-[-0.04em] text-brand-900">
                 {lead.members[0].name}
               </p>
-              <p className="mt-4 max-w-md text-[14px] leading-[1.8] text-brand-800/60">
+
+              <p className="mt-6 max-w-lg text-[15px] leading-[1.85] text-pretty text-brand-800/60 sm:text-[16px]">
                 {t("leadNote")}
               </p>
+
+              <dl className="mt-9 grid max-w-md grid-cols-2 gap-px overflow-hidden rounded-2xl bg-brand-900/10">
+                <div className="bg-cream-50 p-4">
+                  <dt className="text-[10px] font-bold tracking-[0.16em] text-brand-400 uppercase">
+                    {t("leadFacts.baseLabel")}
+                  </dt>
+                  <dd className="font-display mt-1.5 text-[15px] font-bold text-brand-900">
+                    {t("leadFacts.base")}
+                  </dd>
+                </div>
+                <div className="bg-cream-50 p-4">
+                  <dt className="text-[10px] font-bold tracking-[0.16em] text-brand-400 uppercase">
+                    {t("leadFacts.leadingLabel")}
+                  </dt>
+                  <dd className="font-display mt-1.5 text-[15px] font-bold text-brand-900 tabular-nums">
+                    {t("leadFacts.leading")}
+                  </dd>
+                </div>
+              </dl>
             </div>
           </div>
         </div>

@@ -262,6 +262,12 @@
         "creative": "Operazioni e creatività",
         "technical": "Meccanica e assistenza tecnica",
         "support": "Assistenza su strada"
+      },
+      "leadFacts": {
+        "baseLabel": "Con base a",
+        "base": "Manali, India",
+        "leadingLabel": "Alla guida dal",
+        "leading": "2014"
       }
     },
     "riders": {

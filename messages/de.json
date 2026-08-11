@@ -262,6 +262,12 @@
         "creative": "Betrieb und Kreation",
         "technical": "Mechanik und Technik",
         "support": "Begleitung unterwegs"
+      },
+      "leadFacts": {
+        "baseLabel": "Ansässig in",
+        "base": "Manali, Indien",
+        "leadingLabel": "Führt seit",
+        "leading": "2014"
       }
     },
     "riders": {

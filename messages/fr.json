@@ -262,6 +262,12 @@
         "creative": "Opérations et création",
         "technical": "Mécanique et technique",
         "support": "Assistance sur la route"
+      },
+      "leadFacts": {
+        "baseLabel": "Basé à",
+        "base": "Manali, Inde",
+        "leadingLabel": "À la tête depuis",
+        "leading": "2014"
       }
     },
     "riders": {

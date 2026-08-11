@@ -262,6 +262,12 @@
         "creative": "Operaciones y creatividad",
         "technical": "Mecánica y equipo técnico",
         "support": "Apoyo en ruta"
+      },
+      "leadFacts": {
+        "baseLabel": "Con base en",
+        "base": "Manali, India",
+        "leadingLabel": "Al frente desde",
+        "leading": "2014"
       }
     },
     "riders": {
