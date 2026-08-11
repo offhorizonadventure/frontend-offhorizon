@@ -162,6 +162,16 @@
       "consultation": "Book a consultation",
       "eyebrow": "Get in touch",
       "note": "No payment required to talk to us."
+    },
+    "films": {
+      "eyebrow": "Watch",
+      "title": "Films from the road",
+      "play": "Play film",
+      "items": {
+        "himalayas": "Himalayas Motorcycle Expeditions",
+        "ladakh": "Indian Himalayas Adventure: Motorcycle Tour to Ladakh",
+        "loManthang": "Ride to Lo Manthang: Nepal's Hidden Kingdom"
+      }
     }
   },
   "footer": {

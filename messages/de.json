@@ -162,6 +162,16 @@
       "consultation": "Beratung buchen",
       "eyebrow": "Kontakt",
       "note": "Für ein Gespräch ist keine Zahlung nötig."
+    },
+    "films": {
+      "eyebrow": "Ansehen",
+      "title": "Filme von unterwegs",
+      "play": "Film abspielen",
+      "items": {
+        "himalayas": "Motorrad-Expeditionen im Himalaya",
+        "ladakh": "Abenteuer im indischen Himalaya: Motorradtour nach Ladakh",
+        "loManthang": "Fahrt nach Lo Manthang: Nepals verborgenes Königreich"
+      }
     }
   },
   "footer": {

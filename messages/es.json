@@ -162,6 +162,16 @@
       "consultation": "Reservar una consulta",
       "eyebrow": "Contacto",
       "note": "No hace falta ningún pago para hablar con nosotros."
+    },
+    "films": {
+      "eyebrow": "Ver",
+      "title": "Películas grabadas en ruta",
+      "play": "Reproducir",
+      "items": {
+        "himalayas": "Expediciones en moto por el Himalaya",
+        "ladakh": "Aventura en el Himalaya indio: tour en moto por Ladakh",
+        "loManthang": "Ruta a Lo Manthang: el reino oculto de Nepal"
+      }
     }
   },
   "footer": {

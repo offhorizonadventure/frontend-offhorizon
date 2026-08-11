@@ -162,6 +162,16 @@
       "consultation": "Prenota una consulenza",
       "eyebrow": "Contatti",
       "note": "Nessun pagamento richiesto per parlare con noi."
+    },
+    "films": {
+      "eyebrow": "Guarda",
+      "title": "Film girati in viaggio",
+      "play": "Riproduci il film",
+      "items": {
+        "himalayas": "Spedizioni in moto nell'Himalaya",
+        "ladakh": "Avventura nell'Himalaya indiano: tour in moto in Ladakh",
+        "loManthang": "Verso Lo Manthang: il regno nascosto del Nepal"
+      }
     }
   },
   "footer": {

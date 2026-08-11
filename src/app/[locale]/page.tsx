@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
 import { Experiences } from "@/components/home/Experiences";
+import { Films } from "@/components/home/Films";
 import { Hero } from "@/components/home/Hero";
 import { Partners } from "@/components/home/Partners";
 import { UpcomingTours } from "@/components/home/UpcomingTours";
@@ -24,6 +25,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <Hero />
       <Partners />
       <Experiences />
+      <Films />
       <UpcomingTours />
       <WhyDifferent />
       <BookConfidence />

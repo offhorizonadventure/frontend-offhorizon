@@ -162,6 +162,16 @@
       "consultation": "Réserver un entretien",
       "eyebrow": "Contact",
       "note": "Aucun paiement requis pour échanger avec nous."
+    },
+    "films": {
+      "eyebrow": "À voir",
+      "title": "Films tournés sur la route",
+      "play": "Lire le film",
+      "items": {
+        "himalayas": "Expéditions à moto dans l'Himalaya",
+        "ladakh": "Aventure dans l'Himalaya indien : circuit moto au Ladakh",
+        "loManthang": "Route vers Lo Manthang : le royaume caché du Népal"
+      }
     }
   },
   "footer": {
