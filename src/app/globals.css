@@ -1,0 +1,450 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand brown - 800 is the logo ink (#562101) */
+  --color-brand-50: #fbf7f4;
+  --color-brand-100: #f5ebe3;
+  --color-brand-200: #e9d4c4;
+  --color-brand-300: #d8b59b;
+  --color-brand-400: #c08e6b;
+  --color-brand-500: #a56f4a;
+  --color-brand-600: #85543a;
+  --color-brand-700: #6b3d1f;
+  --color-brand-800: #562101;
+  --color-brand-900: #451b03;
+  --color-brand-950: #2a1002;
+
+  /* Warm off-white used for menu surfaces */
+  --color-paper: #faf9f5;
+
+  /* Cream - 100 is the brand cream (#eaebdb) */
+  --color-cream-50: #f7f8f1;
+  --color-cream-100: #eaebdb;
+  --color-cream-200: #dcdec6;
+  --color-cream-300: #c8cbab;
+  --color-cream-400: #aeb289;
+
+  /* Warm accent, used sparingly for highlights and badges */
+  --color-ember-500: #b45f2b;
+  --color-ember-600: #97491c;
+
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: var(--color-brand-950);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Nothing may create a sideways scroll - off-canvas panels included. */
+html,
+body {
+  overflow-x: clip;
+}
+
+/* Transparent scrollbars everywhere - every engine, every OS. Scrolling still
+   works via wheel, touch, keyboard and drag; only the track/thumb is hidden. */
+html,
+body,
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* legacy Edge / IE */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+}
+
+/* Frosted surface shared by the navbar, its panels and the mobile drawer. */
+@utility glass {
+  background-color: color-mix(in srgb, white 72%, transparent);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+@utility glass-strong {
+  background-color: color-mix(in srgb, white 88%, transparent);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+}
+
+/* Hero copy settles in on load; stagger comes from inline animation-delay. */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-rise {
+  animation: hero-rise 900ms var(--ease-out-expo) both;
+}
+
+/* Mobile drawer. The overlay mounts only while open, so enter and exit are
+   keyframe animations rather than transitions on a permanently mounted node. */
+@keyframes drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes drawer-out {
+  from {
+    transform: none;
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes overlay-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-drawer-in {
+  animation: drawer-in 480ms var(--ease-out-expo) both;
+}
+
+.animate-drawer-out {
+  animation: drawer-out 320ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+.animate-fade-in {
+  animation: overlay-in 380ms ease-out both;
+}
+
+.animate-fade-out {
+  animation: overlay-out 300ms ease-in both;
+}
+
+/* Nav link underline: grows from the left, retracts to the right. */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0.15rem;
+  height: 1.5px;
+  background: var(--color-brand-800);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 400ms var(--ease-out-expo);
+}
+
+.nav-link:hover::after,
+.group:focus-within > .nav-link::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ---- Partner marquee ------------------------------------------------------
+   The set repeats PARTNER_REPEATS (4) times and the track travels exactly one
+   set width (25%), so the loop is seamless. Slots are a fixed width, which is
+   what makes every logo occupy the same footprint regardless of its shape.  */
+
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 38s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-25%, 0, 0);
+  }
+}
+
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+.partner-slot {
+  flex: 0 0 auto;
+  width: 13rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 2rem;
+  border-right: 1px solid color-mix(in srgb, var(--color-brand-900) 7%, transparent);
+}
+
+@media (min-width: 640px) {
+  .partner-slot {
+    width: 18rem;
+    padding-inline: 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ---- Destination gallery --------------------------------------------------
+   Below lg: a snap-scrolling rail.
+   From lg: an expanding accordion. Panels share the width via `flex-grow: 1`
+   and the hovered or focused one grows, which compresses its neighbours.
+   `flex-grow` animates, so the whole interaction is CSS and works before
+   hydration. GSAP only layers the entrance wipe and image parallax on top.  */
+
+.dg-rail {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1.5rem 1.25rem 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.dg-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.dg-item {
+  flex: 0 0 78%;
+  scroll-snap-align: center;
+  min-width: 0;
+}
+
+.dg-panel {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 28px;
+  background: var(--color-brand-100);
+}
+
+.dg-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--color-brand-950) 88%, transparent) 0%,
+    color-mix(in srgb, var(--color-brand-950) 30%, transparent) 38%,
+    transparent 68%
+  );
+}
+
+/* Vertical name is a desktop-only affordance for the collapsed state. */
+.dg-label-vertical {
+  display: none;
+}
+
+.dg-label-block {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 1.25rem;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .dg-rail {
+    gap: 1.25rem;
+    padding-inline: 2.5rem;
+  }
+
+  .dg-item {
+    flex: 0 0 46%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dg-rail {
+    gap: 0.625rem;
+    padding: 0 2rem;
+    overflow: visible;
+    height: clamp(24rem, 52vh, 31rem);
+  }
+
+  .dg-item {
+    flex: 1 1 0;
+    transition: flex-grow 850ms var(--ease-out-expo);
+  }
+
+  .dg-item:hover,
+  .dg-item:focus-within {
+    flex-grow: 2.9;
+  }
+
+  .dg-panel {
+    aspect-ratio: auto;
+    border-radius: 26px;
+  }
+
+  /* Everything the cursor is not on steps back. */
+  .dg-rail:hover .dg-item:not(:hover) .dg-panel {
+    filter: saturate(0.72) brightness(0.82);
+  }
+
+  .dg-panel {
+    transition: filter 700ms var(--ease-out-expo);
+  }
+
+  .dg-label-vertical {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    display: block;
+    writing-mode: vertical-rl;
+    transform: translateX(-50%) rotate(180deg);
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #fff;
+    white-space: nowrap;
+    opacity: 1;
+    transition:
+      opacity 400ms var(--ease-out-expo),
+      transform 600ms var(--ease-out-expo);
+  }
+
+  .dg-item:hover .dg-label-vertical,
+  .dg-item:focus-within .dg-label-vertical {
+    opacity: 0;
+    transform: translateX(-50%) rotate(180deg) translateY(-12px);
+  }
+
+  .dg-label-block {
+    padding: 1.5rem;
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 500ms var(--ease-out-expo) 120ms,
+      transform 600ms var(--ease-out-expo) 120ms;
+  }
+
+  .dg-item:hover .dg-label-block,
+  .dg-item:focus-within .dg-label-block {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+::selection {
+  background: var(--color-brand-800);
+  color: var(--color-cream-100);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-800);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Modal enter/exit. Mounted only while open, so these are keyframes rather
+   than transitions, matching the drawer. */
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes modal-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+  }
+}
+
+.animate-modal-in {
+  animation: modal-in 420ms var(--ease-out-expo) both;
+}
+
+.animate-modal-out {
+  animation: modal-out 260ms cubic-bezier(0.4, 0, 1, 1) both;
+}

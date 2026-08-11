@@ -1,0 +1,199 @@
+{
+  "meta": {
+    "title": "Offhorizon Adventures",
+    "description": "Offhorizon Adventure offre spedizioni guidate premium in moto e in 4x4 nella regione trans-himalayana. Operiamo su terreni d'alta quota"
+  },
+  "nav": {
+    "primary": "Navigazione principale",
+    "home": "Home",
+    "destinations": "Destinazioni",
+    "adventureTours": "Tour avventura",
+    "about": "Chi siamo",
+    "blog": "Blog",
+    "contact": "Contatti",
+    "cta": "Pianifica il viaggio",
+    "language": "Cambia lingua",
+    "openMenu": "Apri il menu",
+    "closeMenu": "Chiudi il menu",
+    "days": "{count, plural, one {# giorno} other {# giorni}}",
+    "viewAllDestinations": "Vedi tutte le destinazioni",
+    "allDestinationsHint": "Cinque paesi tra cui scegliere.",
+    "featured": {
+      "eyebrow": "In evidenza",
+      "title": "Spedizioni trans-himalayane",
+      "description": "Piccoli gruppi, guide esperte e un veicolo di supporto su ogni percorso d'alta quota.",
+      "cta": "Scopri tutti i tour"
+    },
+    "more": "Altro",
+    "followUs": "Seguici"
+  },
+  "destinations": {
+    "india": "India",
+    "nepal": "Nepal",
+    "indiaHimalayas": "Himalaya indiano",
+    "nepalHimalayas": "Himalaya nepalese",
+    "bhutan": "Bhutan",
+    "sriLanka": "Sri Lanka",
+    "mongolia": "Mongolia"
+  },
+  "tours": {
+    "ladakhMotorcycle": {
+      "name": "Tour in moto nel Ladakh",
+      "summary": "Khardung La e Pangong"
+    },
+    "himalayas4x4": {
+      "name": "Spedizione 4x4 nell'Himalaya indiano",
+      "summary": "Spiti e Manali in autonomia"
+    },
+    "nepalMotorcycle": {
+      "name": "Tour in moto in Nepal",
+      "summary": "Da Kathmandu al Mustang"
+    }
+  },
+  "home": {
+    "title": "Offhorizon Adventures",
+    "subtitle": "Spedizioni guidate in moto e 4x4 tra India, Nepal, Bhutan, Sri Lanka e Mongolia.",
+    "from": "Spedizioni a partire da {price}",
+    "hero": {
+      "eyebrow": "Spedizioni trans-himalayane",
+      "title": "Vai oltre il <accent>bordo della mappa</accent>",
+      "subtitle": "Viaggi guidati in moto e 4x4 in cinque paesi. Piccoli gruppi, staff esperto e assistenza completa in quota.",
+      "primaryCta": "Scopri le destinazioni",
+      "secondaryCta": "Tutti i tour"
+    },
+    "gallery": {
+      "explore": "Scopri",
+      "expeditions": "{count, plural, one {# spedizione} other {# spedizioni}}"
+    },
+    "stats": {
+      "years": "Anni di esperienza",
+      "countries": "Paesi",
+      "expeditions": "Spedizioni realizzate",
+      "rating": "Valutazione"
+    },
+    "partners": {
+      "eyebrow": "I nostri partner",
+      "note": "Lavoriamo con questi marchi e enti turistici della regione."
+    },
+    "about": {
+      "eyebrow": "Chi è Offhorizon",
+      "title": "Spedizioni guidate di alto livello in moto e 4x4 nell'Himalaya",
+      "body": "Offhorizon Adventure offre spedizioni guidate di alto livello in moto e in 4x4 con guida autonoma in tutta la regione trans-himalayana. Operiamo su terreni d'alta quota con itinerari studiati nel dettaglio, squadre di supporto professionali e gruppi ridotti. Ogni spedizione è interamente guidata, incentrata sulla sicurezza e pensata per chi vuole una vera avventura senza rinunciare a organizzazione e qualità."
+    },
+    "ways": {
+      "title": "Due modi di viaggiare con Offhorizon",
+      "count": "01 / 02",
+      "cta": "Vedi i tour",
+      "motorcycle": {
+        "name": "Spedizioni in moto",
+        "description": "Spedizioni in moto interamente guidate ad alta quota su terreni himalayani remoti. Veicolo di appoggio, assistenza meccanica e piano di sicurezza strutturato inclusi.",
+        "features": {
+          "backup": "Veicolo di appoggio",
+          "mechanic": "Assistenza meccanica",
+          "safety": "Piano di sicurezza"
+        }
+      },
+      "selfDrive": {
+        "name": "Spedizioni 4x4 con guida autonoma",
+        "description": "Spedizioni 4x4 in convoglio sugli stessi percorsi estremi. Veicolo apripista professionale, assistenza sui tratti tecnici e supporto logistico completo.",
+        "features": {
+          "lead": "Veicolo apripista",
+          "terrain": "Assistenza sui tratti tecnici",
+          "logistics": "Logistica completa"
+        }
+      }
+    },
+    "upcoming": {
+      "eyebrow": "Partenze",
+      "title": "I nostri prossimi tour avventura",
+      "viewAll": "Vedi tutti i tour",
+      "cta": "Scopri i pacchetti",
+      "reviews": "({count} recensioni)",
+      "startingAt": "Da {price} a persona"
+    },
+    "different": {
+      "eyebrow": "Perché noi",
+      "title": "Cosa rende diversa Offhorizon",
+      "items": {
+        "smallGroup": {
+          "title": "Gruppi piccoli",
+          "body": "Partecipanti limitati per garantire controllo, sicurezza e attenzione personale."
+        },
+        "support": {
+          "title": "Supporto professionale completo",
+          "body": "Capo spedizione, meccanico per i gruppi in moto, veicolo di appoggio e logistica coordinata."
+        },
+        "luxury": {
+          "title": "Avventura con comfort",
+          "body": "Sistemazioni di qualità, campi confortevoli dove serve e pianificazione curata per lasciarti godere il viaggio."
+        },
+        "execution": {
+          "title": "Esecuzione curata",
+          "body": "Niente convogli affollati. Niente programmi di corsa. Nessun compromesso."
+        }
+      }
+    },
+    "confidence": {
+      "eyebrow": "Tranquillità",
+      "title": "Prenota in tutta tranquillità",
+      "subtitle": "Condizioni flessibili. Nessun costo nascosto. Solo avventure indimenticabili.",
+      "items": {
+        "deposits": {
+          "title": "Acconti sempre validi",
+          "body": "Sposta il tuo tour quando vuoi, senza perdere l'acconto."
+        },
+        "cancellation": {
+          "title": "Cancellazione gratuita",
+          "body": "Cancella fino a 60 giorni prima della partenza con rimborso totale."
+        },
+        "reserve": {
+          "title": "Prenota con un piccolo acconto",
+          "body": "Blocca il tuo posto oggi con un piccolo acconto e salda in seguito."
+        },
+        "departures": {
+          "title": "Partenze garantite",
+          "body": "Garantiamo che la tua avventura partirà come previsto."
+        }
+      }
+    },
+    "startAdventure": {
+      "title": "Inizia la tua avventura",
+      "subtitle": "Parla con il nostro team su WhatsApp oppure prenota oggi una consulenza gratuita.",
+      "consultation": "Prenota una consulenza",
+      "eyebrow": "Contatti",
+      "note": "Nessun pagamento richiesto per parlare con noi."
+    }
+  },
+  "footer": {
+    "about": "Offhorizon Adventure è una società di spedizioni in moto e in 4x4 specializzata in viaggi guidati attraverso l'Himalaya di India, Nepal e Bhutan. Progettiamo e guidiamo spedizioni in alcune delle regioni più remote e iconiche, tra cui Ladakh, valle dello Spiti, Zanskar e Alto Mustang, con vera avventura e supporto professionale.",
+    "contactTitle": "Contatti",
+    "phone": "Telefono",
+    "email": "E-mail",
+    "officeTitle": "Il nostro ufficio",
+    "directions": "Indicazioni",
+    "resourcesTitle": "Risorse",
+    "resources": {
+      "about": "Chi siamo",
+      "terms": "Termini di servizio",
+      "privacy": "Privacy"
+    },
+    "followTitle": "Seguici",
+    "copyright": "©{year} Tutti i diritti riservati. Offhorizon Adventures.",
+    "paymentsAlt": "Pagamento sicuro, gestito da Stripe"
+  },
+  "consultation": {
+    "title": "Prenota una consulenza",
+    "subtitle": "Raccontaci cosa hai in mente e il nostro team ti risponderà.",
+    "fullName": "Nome completo",
+    "phone": "Telefono",
+    "email": "Indirizzo e-mail",
+    "message": "Messaggio",
+    "messagePlaceholder": "Quale itinerario ti interessa e in quale periodo?",
+    "submit": "Invia richiesta",
+    "sending": "Invio",
+    "successTitle": "Richiesta ricevuta",
+    "successBody": "Grazie. Il nostro team ti contatterà a breve.",
+    "close": "Chiudi",
+    "required": "Rispondiamo entro un giorno lavorativo."
+  }
+}

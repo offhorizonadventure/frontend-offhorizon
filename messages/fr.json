@@ -1,0 +1,199 @@
+{
+  "meta": {
+    "title": "Offhorizon Adventures",
+    "description": "Offhorizon Adventure propose des expéditions haut de gamme à moto et en 4x4 dans toute la région transhimalayenne. Nous opérons en haute altitude"
+  },
+  "nav": {
+    "primary": "Navigation principale",
+    "home": "Accueil",
+    "destinations": "Destinations",
+    "adventureTours": "Tours d'aventure",
+    "about": "À propos",
+    "blog": "Blog",
+    "contact": "Contact",
+    "cta": "Planifier mon voyage",
+    "language": "Changer de langue",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "days": "{count, plural, one {# jour} other {# jours}}",
+    "viewAllDestinations": "Voir toutes les destinations",
+    "allDestinationsHint": "Cinq pays au choix.",
+    "featured": {
+      "eyebrow": "À la une",
+      "title": "Expéditions transhimalayennes",
+      "description": "Petits groupes, guides expérimentés et véhicule d'assistance sur chaque itinéraire d'altitude.",
+      "cta": "Découvrir tous les circuits"
+    },
+    "more": "Plus",
+    "followUs": "Suivez-nous"
+  },
+  "destinations": {
+    "india": "Inde",
+    "nepal": "Népal",
+    "indiaHimalayas": "Himalaya indien",
+    "nepalHimalayas": "Himalaya népalais",
+    "bhutan": "Bhoutan",
+    "sriLanka": "Sri Lanka",
+    "mongolia": "Mongolie"
+  },
+  "tours": {
+    "ladakhMotorcycle": {
+      "name": "Circuit moto au Ladakh",
+      "summary": "Khardung La et Pangong"
+    },
+    "himalayas4x4": {
+      "name": "Expédition 4x4 dans l'Himalaya indien",
+      "summary": "Spiti et Manali en autonomie"
+    },
+    "nepalMotorcycle": {
+      "name": "Circuit moto au Népal",
+      "summary": "De Katmandou au Mustang"
+    }
+  },
+  "home": {
+    "title": "Offhorizon Adventures",
+    "subtitle": "Expéditions guidées à moto et en 4x4 en Inde, au Népal, au Bhoutan, au Sri Lanka et en Mongolie.",
+    "from": "Expéditions à partir de {price}",
+    "hero": {
+      "eyebrow": "Expéditions transhimalayennes",
+      "title": "Roulez au-delà des <accent>limites de la carte</accent>",
+      "subtitle": "Voyages guidés à moto et en 4x4 dans cinq pays. Petits groupes, équipe expérimentée et assistance complète en altitude.",
+      "primaryCta": "Voir les destinations",
+      "secondaryCta": "Tous les circuits"
+    },
+    "gallery": {
+      "explore": "Découvrir",
+      "expeditions": "{count, plural, one {# expédition} other {# expéditions}}"
+    },
+    "stats": {
+      "years": "Ans d'expérience",
+      "countries": "Pays",
+      "expeditions": "Expéditions menées",
+      "rating": "Note des voyageurs"
+    },
+    "partners": {
+      "eyebrow": "Nos partenaires",
+      "note": "Nous travaillons avec ces marques et offices de tourisme dans la région."
+    },
+    "about": {
+      "eyebrow": "À propos d'Offhorizon",
+      "title": "Expéditions guidées haut de gamme à moto et en 4x4 dans l'Himalaya",
+      "body": "Offhorizon Adventure propose des expéditions guidées haut de gamme à moto et en 4x4 en autonomie dans toute la région transhimalayenne. Nous opérons en haute altitude avec des itinéraires soigneusement structurés, des équipes d'assistance professionnelles et de petits groupes. Chaque expédition est entièrement guidée, axée sur la sécurité et conçue pour ceux qui veulent une vraie aventure sans renoncer à l'organisation ni à la qualité."
+    },
+    "ways": {
+      "title": "Deux façons de voyager avec Offhorizon",
+      "count": "01 / 02",
+      "cta": "Voir les circuits",
+      "motorcycle": {
+        "name": "Expéditions à moto",
+        "description": "Expéditions à moto entièrement guidées en haute altitude sur des terrains himalayens isolés. Véhicule de secours, assistance mécanique et plan de sécurité structuré inclus.",
+        "features": {
+          "backup": "Véhicule de secours",
+          "mechanic": "Assistance mécanique",
+          "safety": "Plan de sécurité"
+        }
+      },
+      "selfDrive": {
+        "name": "Expéditions 4x4 en autonomie",
+        "description": "Expéditions 4x4 en convoi sur les mêmes itinéraires extrêmes. Véhicule de tête professionnel, assistance sur terrain technique et soutien logistique complet.",
+        "features": {
+          "lead": "Véhicule de tête",
+          "terrain": "Aide sur terrain technique",
+          "logistics": "Logistique complète"
+        }
+      }
+    },
+    "upcoming": {
+      "eyebrow": "Départs",
+      "title": "Nos prochains voyages d'aventure",
+      "viewAll": "Voir tous les circuits",
+      "cta": "Voir les offres",
+      "reviews": "({count} avis)",
+      "startingAt": "À partir de {price} par personne"
+    },
+    "different": {
+      "eyebrow": "Pourquoi nous",
+      "title": "Ce qui distingue Offhorizon",
+      "items": {
+        "smallGroup": {
+          "title": "Petits groupes",
+          "body": "Nombre de participants limité pour garantir le contrôle, la sécurité et une attention personnelle."
+        },
+        "support": {
+          "title": "Assistance professionnelle complète",
+          "body": "Chef d'expédition, mécanicien pour les groupes moto, véhicule de secours et logistique coordonnée."
+        },
+        "luxury": {
+          "title": "L'aventure avec le confort",
+          "body": "Hébergements de qualité, campements confortables si nécessaire et organisation structurée pour que vous puissiez profiter du voyage."
+        },
+        "execution": {
+          "title": "Exécution soignée",
+          "body": "Pas de convois surchargés. Pas de programmes précipités. Aucun compromis."
+        }
+      }
+    },
+    "confidence": {
+      "eyebrow": "Sérénité",
+      "title": "Réservez en toute confiance",
+      "subtitle": "Conditions flexibles. Aucun frais caché. Que des aventures inoubliables.",
+      "items": {
+        "deposits": {
+          "title": "Acomptes à vie",
+          "body": "Reportez votre circuit quand vous voulez, sans pénalité sur l'acompte."
+        },
+        "cancellation": {
+          "title": "Annulation gratuite",
+          "body": "Annulez jusqu'à 60 jours avant le départ et soyez remboursé intégralement."
+        },
+        "reserve": {
+          "title": "Réservez avec un petit acompte",
+          "body": "Bloquez votre place aujourd'hui avec un petit acompte et payez le solde plus tard."
+        },
+        "departures": {
+          "title": "Départs garantis",
+          "body": "Nous garantissons que votre aventure partira comme prévu."
+        }
+      }
+    },
+    "startAdventure": {
+      "title": "Commencez votre aventure",
+      "subtitle": "Parlez à notre équipe sur WhatsApp ou réservez un entretien gratuit dès aujourd'hui.",
+      "consultation": "Réserver un entretien",
+      "eyebrow": "Contact",
+      "note": "Aucun paiement requis pour échanger avec nous."
+    }
+  },
+  "footer": {
+    "about": "Offhorizon Adventure est une société d'expéditions à moto et en 4x4 spécialisée dans les voyages guidés à travers l'Himalaya en Inde, au Népal et au Bhoutan. Nous concevons et menons des expéditions dans certaines des régions les plus reculées et emblématiques, dont le Ladakh, la vallée de Spiti, le Zanskar et le Haut Mustang, avec un véritable esprit d'aventure et un encadrement professionnel.",
+    "contactTitle": "Coordonnées",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "officeTitle": "Notre bureau",
+    "directions": "Itinéraire",
+    "resourcesTitle": "Ressources",
+    "resources": {
+      "about": "À propos",
+      "terms": "Conditions d'utilisation",
+      "privacy": "Politique de confidentialité"
+    },
+    "followTitle": "Suivez-nous",
+    "copyright": "©{year} Tous droits réservés. Offhorizon Adventures.",
+    "paymentsAlt": "Paiement sécurisé, propulsé par Stripe"
+  },
+  "consultation": {
+    "title": "Réserver un entretien",
+    "subtitle": "Dites-nous ce que vous avez en tête et notre équipe vous répondra.",
+    "fullName": "Nom complet",
+    "phone": "Téléphone",
+    "email": "Adresse e-mail",
+    "message": "Message",
+    "messagePlaceholder": "Quel itinéraire vous intéresse, et à quelle période ?",
+    "submit": "Envoyer la demande",
+    "sending": "Envoi",
+    "successTitle": "Demande reçue",
+    "successBody": "Merci. Notre équipe vous recontacte très vite.",
+    "close": "Fermer",
+    "required": "Nous répondons sous un jour ouvré."
+  }
+}

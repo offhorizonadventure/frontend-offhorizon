@@ -1,0 +1,199 @@
+{
+  "meta": {
+    "title": "Offhorizon Adventures",
+    "description": "Offhorizon Adventure delivers premium guided motorcycle and self-drive 4x4 expeditions across the Trans-Himalayan region. We operate in high-altitude terrain"
+  },
+  "nav": {
+    "primary": "Main navigation",
+    "home": "Home",
+    "destinations": "Destinations",
+    "adventureTours": "Adventure Tours",
+    "about": "About Us",
+    "blog": "Blog",
+    "contact": "Contact Us",
+    "cta": "Plan your trip",
+    "language": "Change language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "days": "{count, plural, one {# day} other {# days}}",
+    "viewAllDestinations": "View all destinations",
+    "allDestinationsHint": "Five countries to choose from.",
+    "featured": {
+      "eyebrow": "Featured",
+      "title": "Trans-Himalayan expeditions",
+      "description": "Small groups, experienced guides, and a support vehicle on every high route.",
+      "cta": "Explore all tours"
+    },
+    "more": "More",
+    "followUs": "Follow us"
+  },
+  "destinations": {
+    "india": "India",
+    "nepal": "Nepal",
+    "indiaHimalayas": "Indian Himalayas",
+    "nepalHimalayas": "Nepal Himalayas",
+    "bhutan": "Bhutan",
+    "sriLanka": "Sri Lanka",
+    "mongolia": "Mongolia"
+  },
+  "tours": {
+    "ladakhMotorcycle": {
+      "name": "Ladakh Motorcycle Tour",
+      "summary": "Khardung La & Pangong"
+    },
+    "himalayas4x4": {
+      "name": "Indian Himalayas 4x4 Expedition",
+      "summary": "Spiti & Manali self-drive"
+    },
+    "nepalMotorcycle": {
+      "name": "Nepal Motorcycle Tour",
+      "summary": "Kathmandu to Mustang"
+    }
+  },
+  "home": {
+    "title": "Offhorizon Adventures",
+    "subtitle": "Guided motorcycle and 4x4 expeditions across India, Nepal, Bhutan, Sri Lanka and Mongolia.",
+    "from": "Expeditions from {price}",
+    "hero": {
+      "eyebrow": "Trans-Himalayan expeditions",
+      "title": "Ride beyond the <accent>edge of the map</accent>",
+      "subtitle": "Guided motorcycle and self-drive 4x4 trips across five countries. Small groups, experienced crew, and full support at altitude.",
+      "primaryCta": "Explore destinations",
+      "secondaryCta": "View all tours"
+    },
+    "gallery": {
+      "explore": "Explore",
+      "expeditions": "{count, plural, one {# expedition} other {# expeditions}}"
+    },
+    "stats": {
+      "years": "Years guiding",
+      "countries": "Countries",
+      "expeditions": "Expeditions run",
+      "rating": "Rider rating"
+    },
+    "partners": {
+      "eyebrow": "Our partners",
+      "note": "We work with these brands and tourism boards across the region."
+    },
+    "about": {
+      "eyebrow": "About Offhorizon",
+      "title": "Premium Guided Motorcycle & 4x4 Expeditions Across the Himalayas",
+      "body": "Offhorizon Adventure delivers premium guided motorcycle and self-drive 4x4 expeditions across the Trans-Himalayan region. We operate in high-altitude terrain with carefully structured routes, professional support teams, and small group formats. Every expedition is fully guided, safety-focused, and built for those who want real adventure without compromising on organization or quality."
+    },
+    "ways": {
+      "title": "Two Ways to Experience With Offhorizon",
+      "count": "01 / 02",
+      "cta": "See tours",
+      "motorcycle": {
+        "name": "Motorcycle Expeditions",
+        "description": "Fully guided high-altitude motorcycle expeditions across remote Himalayan terrain. Backup vehicle, mechanic support, and structured safety planning included.",
+        "features": {
+          "backup": "Backup vehicle",
+          "mechanic": "Mechanic support",
+          "safety": "Safety planning"
+        }
+      },
+      "selfDrive": {
+        "name": "Self-Drive 4x4 Expeditions",
+        "description": "Convoy-based 4x4 expeditions across the same extreme routes. Professional lead vehicle, technical terrain assistance, and complete logistical support.",
+        "features": {
+          "lead": "Lead vehicle",
+          "terrain": "Terrain assistance",
+          "logistics": "Full logistics"
+        }
+      }
+    },
+    "upcoming": {
+      "eyebrow": "Departures",
+      "title": "Our Upcoming Adventure Tours",
+      "viewAll": "View all tours",
+      "cta": "Explore Packages",
+      "reviews": "({count} Reviews)",
+      "startingAt": "Starting at {price} per person"
+    },
+    "different": {
+      "eyebrow": "Why us",
+      "title": "What Makes Offhorizon Different",
+      "items": {
+        "smallGroup": {
+          "title": "Small Group Format",
+          "body": "Limited participants to ensure control, safety, and personal attention."
+        },
+        "support": {
+          "title": "Full Professional Support",
+          "body": "Expedition leader, mechanic for motorcycle groups, backup vehicle, and coordinated logistics."
+        },
+        "luxury": {
+          "title": "Adventure with Luxury",
+          "body": "Quality accommodations, comfortable camps where required, and structured planning so you can focus on the experience."
+        },
+        "execution": {
+          "title": "Premium Execution",
+          "body": "No overcrowded convoys. No rushed schedules. No compromises."
+        }
+      }
+    },
+    "confidence": {
+      "eyebrow": "Peace of mind",
+      "title": "Book with confidence",
+      "subtitle": "Flexible policies. No hidden charges. Just unforgettable adventures.",
+      "items": {
+        "deposits": {
+          "title": "Lifetime Deposits",
+          "body": "Reschedule your tour anytime with no deposit penalties."
+        },
+        "cancellation": {
+          "title": "Free Cancellation",
+          "body": "Cancel up to 60 days before departure for a full refund."
+        },
+        "reserve": {
+          "title": "Reserve with a Small Deposit",
+          "body": "Lock in your seat today with a small deposit and pay the balance later."
+        },
+        "departures": {
+          "title": "Guaranteed Departures",
+          "body": "We guarantee your adventure will depart as planned."
+        }
+      }
+    },
+    "startAdventure": {
+      "title": "Start Your Adventure",
+      "subtitle": "Talk to our team on WhatsApp or schedule a free consultation today.",
+      "consultation": "Book a consultation",
+      "eyebrow": "Get in touch",
+      "note": "No payment required to talk to us."
+    }
+  },
+  "footer": {
+    "about": "Offhorizon Adventure is a premium motorcycle and 4x4 expedition company specializing in guided journeys across the Himalayas of India, Nepal, and Bhutan. We design and lead expeditions through some of the most remote and iconic regions, including Ladakh, Spiti Valley, Zanskar, and Upper Mustang, delivering real adventure experiences with professional support.",
+    "contactTitle": "Contact Information",
+    "phone": "Phone",
+    "email": "Mail",
+    "officeTitle": "Visit Our Office",
+    "directions": "Get Direction",
+    "resourcesTitle": "Resources",
+    "resources": {
+      "about": "About Us",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy"
+    },
+    "followTitle": "Follow Us",
+    "copyright": "©{year} All rights reserved. Offhorizon Adventures.",
+    "paymentsAlt": "Guaranteed safe and secure checkout, powered by Stripe"
+  },
+  "consultation": {
+    "title": "Book a consultation",
+    "subtitle": "Tell us what you have in mind and our team will get back to you.",
+    "fullName": "Full name",
+    "phone": "Phone",
+    "email": "Email address",
+    "message": "Message",
+    "messagePlaceholder": "Which route are you interested in, and when?",
+    "submit": "Send request",
+    "sending": "Sending",
+    "successTitle": "Request received",
+    "successBody": "Thanks. Our team will be in touch shortly.",
+    "close": "Close",
+    "required": "We reply within one working day."
+  }
+}

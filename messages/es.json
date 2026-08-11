@@ -1,0 +1,199 @@
+{
+  "meta": {
+    "title": "Offhorizon Adventures",
+    "description": "Offhorizon Adventure ofrece expediciones guiadas premium en moto y en 4x4 por la región transhimalaya. Operamos en terrenos de gran altitud"
+  },
+  "nav": {
+    "primary": "Navegación principal",
+    "home": "Inicio",
+    "destinations": "Destinos",
+    "adventureTours": "Tours de aventura",
+    "about": "Sobre nosotros",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "cta": "Planifica tu viaje",
+    "language": "Cambiar idioma",
+    "openMenu": "Abrir el menú",
+    "closeMenu": "Cerrar el menú",
+    "days": "{count, plural, one {# día} other {# días}}",
+    "viewAllDestinations": "Ver todos los destinos",
+    "allDestinationsHint": "Cinco países para elegir.",
+    "featured": {
+      "eyebrow": "Destacado",
+      "title": "Expediciones transhimalayas",
+      "description": "Grupos reducidos, guías con experiencia y un vehículo de apoyo en cada ruta de altura.",
+      "cta": "Descubre todos los tours"
+    },
+    "more": "Más",
+    "followUs": "Síguenos"
+  },
+  "destinations": {
+    "india": "India",
+    "nepal": "Nepal",
+    "indiaHimalayas": "Himalaya indio",
+    "nepalHimalayas": "Himalaya nepalí",
+    "bhutan": "Bután",
+    "sriLanka": "Sri Lanka",
+    "mongolia": "Mongolia"
+  },
+  "tours": {
+    "ladakhMotorcycle": {
+      "name": "Tour en moto por Ladakh",
+      "summary": "Khardung La y Pangong"
+    },
+    "himalayas4x4": {
+      "name": "Expedición 4x4 por el Himalaya indio",
+      "summary": "Spiti y Manali por libre"
+    },
+    "nepalMotorcycle": {
+      "name": "Tour en moto por Nepal",
+      "summary": "De Katmandú a Mustang"
+    }
+  },
+  "home": {
+    "title": "Offhorizon Adventures",
+    "subtitle": "Expediciones guiadas en moto y 4x4 por India, Nepal, Bután, Sri Lanka y Mongolia.",
+    "from": "Expediciones desde {price}",
+    "hero": {
+      "eyebrow": "Expediciones transhimalayas",
+      "title": "Viaja más allá del <accent>borde del mapa</accent>",
+      "subtitle": "Viajes guiados en moto y 4x4 por cinco países. Grupos reducidos, equipo con experiencia y apoyo completo en altura.",
+      "primaryCta": "Descubre destinos",
+      "secondaryCta": "Todos los tours"
+    },
+    "gallery": {
+      "explore": "Descubrir",
+      "expeditions": "{count, plural, one {# expedición} other {# expediciones}}"
+    },
+    "stats": {
+      "years": "Años de experiencia",
+      "countries": "Países",
+      "expeditions": "Expediciones realizadas",
+      "rating": "Valoración"
+    },
+    "partners": {
+      "eyebrow": "Nuestros socios",
+      "note": "Trabajamos con estas marcas y oficinas de turismo de la región."
+    },
+    "about": {
+      "eyebrow": "Sobre Offhorizon",
+      "title": "Expediciones guiadas de alto nivel en moto y 4x4 por el Himalaya",
+      "body": "Offhorizon Adventure ofrece expediciones guiadas de alto nivel en moto y en 4x4 con conducción propia por toda la región transhimalaya. Operamos en terrenos de gran altitud con rutas cuidadosamente estructuradas, equipos de apoyo profesionales y grupos reducidos. Cada expedición está totalmente guiada, centrada en la seguridad y pensada para quienes buscan aventura real sin renunciar a la organización ni a la calidad."
+    },
+    "ways": {
+      "title": "Dos formas de viajar con Offhorizon",
+      "count": "01 / 02",
+      "cta": "Ver tours",
+      "motorcycle": {
+        "name": "Expediciones en moto",
+        "description": "Expediciones en moto totalmente guiadas en gran altitud por terrenos remotos del Himalaya. Vehículo de apoyo, asistencia mecánica y plan de seguridad estructurado incluidos.",
+        "features": {
+          "backup": "Vehículo de apoyo",
+          "mechanic": "Asistencia mecánica",
+          "safety": "Plan de seguridad"
+        }
+      },
+      "selfDrive": {
+        "name": "Expediciones 4x4 con conducción propia",
+        "description": "Expediciones 4x4 en convoy por las mismas rutas extremas. Vehículo guía profesional, asistencia en terreno técnico y apoyo logístico completo.",
+        "features": {
+          "lead": "Vehículo guía",
+          "terrain": "Asistencia en terreno",
+          "logistics": "Logística completa"
+        }
+      }
+    },
+    "upcoming": {
+      "eyebrow": "Salidas",
+      "title": "Nuestros próximos tours de aventura",
+      "viewAll": "Ver todos los tours",
+      "cta": "Ver paquetes",
+      "reviews": "({count} opiniones)",
+      "startingAt": "Desde {price} por persona"
+    },
+    "different": {
+      "eyebrow": "Por qué nosotros",
+      "title": "Qué hace diferente a Offhorizon",
+      "items": {
+        "smallGroup": {
+          "title": "Grupos reducidos",
+          "body": "Participantes limitados para garantizar control, seguridad y atención personal."
+        },
+        "support": {
+          "title": "Apoyo profesional completo",
+          "body": "Jefe de expedición, mecánico para los grupos en moto, vehículo de apoyo y logística coordinada."
+        },
+        "luxury": {
+          "title": "Aventura con confort",
+          "body": "Alojamientos de calidad, campamentos cómodos donde hagan falta y planificación cuidada para que disfrutes del viaje."
+        },
+        "execution": {
+          "title": "Ejecución cuidada",
+          "body": "Sin convoyes masificados. Sin horarios apresurados. Sin concesiones."
+        }
+      }
+    },
+    "confidence": {
+      "eyebrow": "Tranquilidad",
+      "title": "Reserva con confianza",
+      "subtitle": "Condiciones flexibles. Sin cargos ocultos. Solo aventuras inolvidables.",
+      "items": {
+        "deposits": {
+          "title": "Depósitos sin caducidad",
+          "body": "Cambia la fecha de tu tour cuando quieras, sin penalización sobre el depósito."
+        },
+        "cancellation": {
+          "title": "Cancelación gratuita",
+          "body": "Cancela hasta 60 días antes de la salida con reembolso completo."
+        },
+        "reserve": {
+          "title": "Reserva con un depósito pequeño",
+          "body": "Asegura tu plaza hoy con un depósito pequeño y paga el resto más adelante."
+        },
+        "departures": {
+          "title": "Salidas garantizadas",
+          "body": "Garantizamos que tu aventura saldrá según lo previsto."
+        }
+      }
+    },
+    "startAdventure": {
+      "title": "Empieza tu aventura",
+      "subtitle": "Habla con nuestro equipo por WhatsApp o reserva hoy una consulta gratuita.",
+      "consultation": "Reservar una consulta",
+      "eyebrow": "Contacto",
+      "note": "No hace falta ningún pago para hablar con nosotros."
+    }
+  },
+  "footer": {
+    "about": "Offhorizon Adventure es una empresa de expediciones en moto y 4x4 especializada en viajes guiados por el Himalaya de India, Nepal y Bután. Diseñamos y dirigimos expediciones por algunas de las regiones más remotas y emblemáticas, entre ellas Ladakh, el valle de Spiti, Zanskar y el Alto Mustang, con aventura real y apoyo profesional.",
+    "contactTitle": "Información de contacto",
+    "phone": "Teléfono",
+    "email": "Correo",
+    "officeTitle": "Visita nuestra oficina",
+    "directions": "Cómo llegar",
+    "resourcesTitle": "Recursos",
+    "resources": {
+      "about": "Sobre nosotros",
+      "terms": "Términos del servicio",
+      "privacy": "Política de privacidad"
+    },
+    "followTitle": "Síguenos",
+    "copyright": "©{year} Todos los derechos reservados. Offhorizon Adventures.",
+    "paymentsAlt": "Pago seguro, con tecnología de Stripe"
+  },
+  "consultation": {
+    "title": "Reservar una consulta",
+    "subtitle": "Cuéntanos qué tienes en mente y nuestro equipo te responderá.",
+    "fullName": "Nombre completo",
+    "phone": "Teléfono",
+    "email": "Correo electrónico",
+    "message": "Mensaje",
+    "messagePlaceholder": "¿Qué ruta te interesa y en qué fechas?",
+    "submit": "Enviar solicitud",
+    "sending": "Enviando",
+    "successTitle": "Solicitud recibida",
+    "successBody": "Gracias. Nuestro equipo se pondrá en contacto pronto.",
+    "close": "Cerrar",
+    "required": "Respondemos en un día laborable."
+  }
+}
