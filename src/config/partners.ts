@@ -16,7 +16,8 @@ export const partners: Partner[] = [
   { slug: "himachal-tourism", name: "Himachal Tourism" },
   { slug: "brb", name: "BRB" },
   { slug: "reise-moto", name: "Reise Moto" },
+  { slug: "mca-india", name: "Ministry of Corporate Affairs, Government of India" },
 ];
 
 /** How many times the strip repeats to fill wide screens and loop seamlessly. */
-export const PARTNER_REPEATS = 4;
+export const PARTNER_REPEATS = 3;
