@@ -206,5 +206,100 @@
     "successBody": "Vielen Dank. Unser Team meldet sich in Kürze.",
     "close": "Schließen",
     "required": "Wir antworten innerhalb eines Werktags."
+  },
+  "about": {
+    "meta": {
+      "title": "Über Offhorizon Adventures | Spezialisten für den Himalaya",
+      "description": "Geführte Motorrad- und 4x4-Expeditionen im Himalaya von Indien, Nepal und Bhutan. Zehn Jahre Erfahrung vor Ort, ein 16-köpfiges Team und Routen durch Ladakh, Spiti, Zanskar und Upper Mustang."
+    },
+    "hero": {
+      "eyebrow": "Über Offhorizon",
+      "title": "Himalaya-Expeditionen, <accent>richtig gemacht</accent>.",
+      "lead": "Wir planen und führen Motorrad- und 4x4-Expeditionen im Himalaya von Indien, Nepal und Bhutan. Ladakh, Spiti-Tal, Zanskar, Upper Mustang. Abgelegenes Gelände, mit der nötigen Sorgfalt organisiert.",
+      "facts": {
+        "since": "Unterwegs seit",
+        "countries": "Länder",
+        "crew": "Team vor Ort"
+      }
+    },
+    "journey": {
+      "eyebrow": "Unser Weg",
+      "title": "Angefangen hat es mit der Vermietung.",
+      "start": {
+        "title": "BRB Expeditions eröffnet in Manali",
+        "body": "Wir starteten 2014 mit <brb>BRB Expeditions</brb> und vermieteten von Manali und Bhuntar aus Motorräder und 4x4 an Reisende Richtung Ladakh, Spiti und Himachal. Seitdem sind Tausende auf unseren Maschinen unterwegs gewesen."
+      },
+      "learned": {
+        "label": "Was wir gelernt haben",
+        "title": "Dinge, die in keinem Handbuch stehen",
+        "items": {
+          "terrain": "Wie sich Himalaya-Straßen über eine Saison verändern",
+          "altitude": "Was Höhe mit Fahrern und Motoren macht",
+          "vehicles": "Wie sich eine Maschine schlägt, wenn der Asphalt endet",
+          "logistics": "Betreuung organisieren, wenn Hilfe Stunden entfernt ist"
+        }
+      },
+      "today": {
+        "label": "Heute",
+        "title": "Zwei Bereiche, eine Werkstatt",
+        "body": "Mit dem Wachstum haben wir die Arbeit geteilt, damit beide Seiten richtig und nicht halb gemacht werden."
+      },
+      "divisions": {
+        "rentalsLabel": "Bereich 01",
+        "rentals": "Vermietung und Fahrzeugbetreuung vor Ort in ganz Himachal.",
+        "expeditionsLabel": "Bereich 02",
+        "expeditions": "Geführte Motorrad- und 4x4-Expeditionen, aufgebaut auf zehn Jahren Praxis."
+      }
+    },
+    "team": {
+      "eyebrow": "Das Team",
+      "title": "Die Menschen hinter jeder Reise",
+      "body": "Eine Expedition ist nur so gut wie das Team, das sie führt. Unseres liest seit Jahren dieses Gelände, dieses Wetter und diese Maschinen, und genau das hält eine Reise im Plan, wenn die Bedingungen umschlagen.",
+      "leadNote": "Führt das Unternehmen und setzt den Maßstab für jede Expedition.",
+      "groups": {
+        "lead": "Geschäftsführung",
+        "operations": "Betrieb",
+        "creative": "Betrieb und Kreation",
+        "technical": "Mechanik und Technik",
+        "support": "Begleitung unterwegs"
+      }
+    },
+    "riders": {
+      "eyebrow": "Stimmen unserer Fahrer",
+      "title": "Den besten Bericht über unsere Arbeit schreiben nicht wir",
+      "body": "Fahrer teilen ihre Erlebnisse auf Google, TripAdvisor und Trustpilot. Lesen Sie dort, was sie über die Routen, die Landschaften und das Team sagen.",
+      "thanks": "An alle, die mit uns gefahren sind: danke. Ihre Geschichten sind der Grund, warum wir die nächste Tour planen."
+    },
+    "rewards": {
+      "eyebrow": "Vorteile für Fahrer",
+      "title": "Einmal mitgefahren und Sie gehören dazu",
+      "body": "Klare Vorteile für alle, die wiederkommen, gemeinsam buchen oder früh planen. Einfach formuliert, Bedingungen offen dabei.",
+      "items": {
+        "returning": {
+          "title": "Wiederkehrende Fahrer",
+          "body": "Auf Ihre nächste Expedition, sobald Sie eine Tour mit uns abgeschlossen haben. Gültig für alle infrage kommenden Termine."
+        },
+        "group": {
+          "title": "Gruppenbuchung",
+          "body": "Pro Person bei vier bis sechs Teilnehmern, sieben Prozent bei sieben bis zehn."
+        },
+        "early": {
+          "title": "Frühbucher",
+          "body": "Buchen Sie mindestens zwölf Monate vor Abreise. Die genaue Höhe hängt von Tour und Verfügbarkeit ab."
+        },
+        "full": {
+          "title": "Vollzahlung",
+          "body": "Auf den Grundpreis der Tour, wenn der gesamte Betrag bei Buchung beglichen wird."
+        }
+      },
+      "philosophy": "Keine Stufen, keine Punkte, kein Kleingedrucktes. Wir stecken die Arbeit in das, was eine Reise wirklich entscheidet: zuverlässige Maschinen, erfahrene Crew vor Ort, Routen, die sich lohnen, und einen Preis, den man auf einen Blick versteht.",
+      "conditionsTitle": "Gut zu wissen",
+      "conditions": {
+        "availability": "Alle Rabatte hängen von der Verfügbarkeit und den Bedingungen der jeweiligen Tour ab.",
+        "atBooking": "Rabatte müssen bei der Buchung angefragt und angewendet werden.",
+        "noStacking": "Rabatte sind nicht kombinierbar und nicht nachträglich anwendbar.",
+        "changes": "Wir können ein Angebot ohne vorherige Ankündigung ändern oder zurückziehen."
+      }
+    }
   }
 }

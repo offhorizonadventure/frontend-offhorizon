@@ -206,5 +206,100 @@
     "successBody": "Merci. Notre équipe vous recontacte très vite.",
     "close": "Fermer",
     "required": "Nous répondons sous un jour ouvré."
+  },
+  "about": {
+    "meta": {
+      "title": "À propos d'Offhorizon Adventures | Spécialistes de l'Himalaya",
+      "description": "Expéditions guidées à moto et en 4x4 dans l'Himalaya en Inde, au Népal et au Bhoutan. Dix ans d'expérience sur le terrain, une équipe de 16 personnes et des itinéraires au Ladakh, dans le Spiti, le Zanskar et le Haut Mustang."
+    },
+    "hero": {
+      "eyebrow": "À propos d'Offhorizon",
+      "title": "Des expéditions himalayennes, <accent>bien menées</accent>.",
+      "lead": "Nous concevons et encadrons des expéditions guidées à moto et en 4x4 dans l'Himalaya en Inde, au Népal et au Bhoutan. Ladakh, vallée de Spiti, Zanskar, Haut Mustang. Un terrain isolé, mené avec la rigueur qu'il exige.",
+      "facts": {
+        "since": "Sur la route depuis",
+        "countries": "Pays",
+        "crew": "Personnes sur le terrain"
+      }
+    },
+    "journey": {
+      "eyebrow": "Notre parcours",
+      "title": "Tout a commencé avec la location.",
+      "start": {
+        "title": "Ouverture de BRB Expeditions à Manali",
+        "body": "Nous avons débuté en 2014 avec <brb>BRB Expeditions</brb>, en louant motos et 4x4 depuis Manali et Bhuntar aux voyageurs partant vers le Ladakh, le Spiti et le reste de l'Himachal. Des milliers de pilotes sont partis sur nos machines depuis."
+      },
+      "learned": {
+        "label": "Ce que nous avons appris",
+        "title": "Ce qu'aucun manuel n'enseigne",
+        "items": {
+          "terrain": "Comment les routes himalayennes évoluent au fil d'une saison",
+          "altitude": "Les effets de l'altitude sur les pilotes et les moteurs",
+          "vehicles": "Le comportement d'une machine quand le bitume s'arrête",
+          "logistics": "Assurer l'assistance quand les secours sont à des heures"
+        }
+      },
+      "today": {
+        "label": "Aujourd'hui",
+        "title": "Deux divisions, un même atelier",
+        "body": "L'activité grandissant, nous l'avons séparée en deux pour que chaque volet soit mené correctement."
+      },
+      "divisions": {
+        "rentalsLabel": "Division 01",
+        "rentals": "Location et assistance véhicules dans tout l'Himachal.",
+        "expeditionsLabel": "Division 02",
+        "expeditions": "Expéditions guidées à moto et en 4x4, fondées sur dix ans de terrain."
+      }
+    },
+    "team": {
+      "eyebrow": "L'équipe",
+      "title": "Les personnes derrière chaque voyage",
+      "body": "Une expédition vaut ce que vaut l'équipe qui la mène. La nôtre passe ses années à lire ce terrain, cette météo et ces machines, ce qui permet de tenir le programme quand les conditions se dégradent.",
+      "leadNote": "Dirige l'entreprise et fixe le niveau d'exigence de chaque expédition.",
+      "groups": {
+        "lead": "Direction",
+        "operations": "Opérations",
+        "creative": "Opérations et création",
+        "technical": "Mécanique et technique",
+        "support": "Assistance sur la route"
+      }
+    },
+    "riders": {
+      "eyebrow": "La parole aux voyageurs",
+      "title": "Le meilleur compte rendu de notre travail n'est pas écrit par nous",
+      "body": "Les voyageurs racontent leur expérience sur Google, TripAdvisor et Trustpilot. Découvrez ce qu'ils disent des itinéraires, des paysages et de l'équipe qui les a accompagnés.",
+      "thanks": "À tous ceux qui ont roulé avec nous : merci. Vos récits sont la raison pour laquelle nous préparons le prochain départ."
+    },
+    "rewards": {
+      "eyebrow": "Avantages voyageurs",
+      "title": "Un premier voyage et vous faites partie de la maison",
+      "body": "Des avantages clairs pour ceux qui reviennent, qui partent à plusieurs ou qui réservent tôt. Énoncés simplement, conditions comprises.",
+      "items": {
+        "returning": {
+          "title": "Voyageur fidèle",
+          "body": "Sur votre prochaine expédition, une fois votre premier circuit terminé avec nous. Valable sur tous les départs éligibles."
+        },
+        "group": {
+          "title": "Réservation de groupe",
+          "body": "Par personne pour un groupe de quatre à six, et sept pour cent pour un groupe de sept à dix."
+        },
+        "early": {
+          "title": "Réservation anticipée",
+          "body": "Réservez au moins douze mois avant le départ. Le montant exact dépend du circuit et des disponibilités."
+        },
+        "full": {
+          "title": "Paiement intégral",
+          "body": "Sur le prix de base du circuit lorsque la totalité est réglée au moment de la réservation."
+        }
+      },
+      "philosophy": "Pas de paliers, pas de points, pas de petites lignes. Nous mettons l'effort là où se joue vraiment un voyage : des machines fiables, une équipe locale expérimentée, des itinéraires qui valent le détour et un prix lisible d'un coup d'oeil.",
+      "conditionsTitle": "Bon à savoir",
+      "conditions": {
+        "availability": "Toutes les remises dépendent des disponibilités et des conditions du circuit concerné.",
+        "atBooking": "Les remises doivent être demandées et appliquées au moment de la réservation.",
+        "noStacking": "Les remises ne sont ni cumulables ni applicables rétroactivement.",
+        "changes": "Nous pouvons modifier ou retirer une offre sans préavis."
+      }
+    }
   }
 }

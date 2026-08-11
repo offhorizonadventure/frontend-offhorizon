@@ -206,5 +206,100 @@
     "successBody": "Grazie. Il nostro team ti contatterà a breve.",
     "close": "Chiudi",
     "required": "Rispondiamo entro un giorno lavorativo."
+  },
+  "about": {
+    "meta": {
+      "title": "Chi è Offhorizon Adventures | Specialisti dell'Himalaya",
+      "description": "Spedizioni guidate in moto e 4x4 nell'Himalaya di India, Nepal e Bhutan. Dieci anni di esperienza sul campo, una squadra di 16 persone e itinerari tra Ladakh, Spiti, Zanskar e Alto Mustang."
+    },
+    "hero": {
+      "eyebrow": "Chi è Offhorizon",
+      "title": "Spedizioni himalayane, <accent>fatte bene</accent>.",
+      "lead": "Progettiamo e guidiamo spedizioni in moto e in 4x4 nell'Himalaya di India, Nepal e Bhutan. Ladakh, valle dello Spiti, Zanskar, Alto Mustang. Territori remoti, gestiti con il rigore che richiedono.",
+      "facts": {
+        "since": "In viaggio dal",
+        "countries": "Paesi",
+        "crew": "Persone sul campo"
+      }
+    },
+    "journey": {
+      "eyebrow": "Il nostro percorso",
+      "title": "Tutto è iniziato con il noleggio.",
+      "start": {
+        "title": "Apre BRB Expeditions a Manali",
+        "body": "Abbiamo iniziato nel 2014 con <brb>BRB Expeditions</brb>, noleggiando moto e 4x4 da Manali e Bhuntar a chi partiva per Ladakh, Spiti e il resto dell'Himachal. Da allora migliaia di motociclisti sono partiti con i nostri mezzi."
+      },
+      "learned": {
+        "label": "Cosa abbiamo imparato",
+        "title": "Cose che nessun manuale insegna",
+        "items": {
+          "terrain": "Come cambiano le strade himalayane nell'arco di una stagione",
+          "altitude": "Cosa fa la quota a chi guida e ai motori",
+          "vehicles": "Come tiene un mezzo quando finisce l'asfalto",
+          "logistics": "Organizzare assistenza quando i soccorsi sono a ore di distanza"
+        }
+      },
+      "today": {
+        "label": "Oggi",
+        "title": "Due divisioni, una sola officina",
+        "body": "Crescendo abbiamo diviso il lavoro in due, così ogni parte viene fatta per bene e non a metà."
+      },
+      "divisions": {
+        "rentalsLabel": "Divisione 01",
+        "rentals": "Noleggio e assistenza mezzi in tutto l'Himachal.",
+        "expeditionsLabel": "Divisione 02",
+        "expeditions": "Spedizioni guidate in moto e 4x4, costruite su dieci anni di lavoro sul campo."
+      }
+    },
+    "team": {
+      "eyebrow": "La squadra",
+      "title": "Le persone dietro ogni viaggio",
+      "body": "Una spedizione vale quanto la squadra che la conduce. La nostra passa gli anni a leggere questo terreno, questo meteo e questi mezzi, ed è ciò che tiene il programma quando le condizioni cambiano.",
+      "leadNote": "Guida l'azienda e definisce lo standard di ogni spedizione.",
+      "groups": {
+        "lead": "Direzione",
+        "operations": "Operazioni",
+        "creative": "Operazioni e creatività",
+        "technical": "Meccanica e assistenza tecnica",
+        "support": "Assistenza su strada"
+      }
+    },
+    "riders": {
+      "eyebrow": "La parola ai viaggiatori",
+      "title": "Il racconto più chiaro del nostro lavoro non lo scriviamo noi",
+      "body": "I viaggiatori condividono le loro esperienze su Google, TripAdvisor e Trustpilot. Leggete cosa dicono di itinerari, paesaggi e della squadra che li ha seguiti.",
+      "thanks": "A tutti quelli che hanno viaggiato con noi: grazie. Le vostre storie sono il motivo per cui prepariamo la prossima partenza."
+    },
+    "rewards": {
+      "eyebrow": "Vantaggi per i viaggiatori",
+      "title": "Un viaggio con noi e fai parte della famiglia",
+      "body": "Vantaggi chiari per chi torna, chi parte in gruppo o chi prenota in anticipo. Detti in modo semplice, con le condizioni in chiaro.",
+      "items": {
+        "returning": {
+          "title": "Chi torna",
+          "body": "Sulla prossima spedizione, una volta completato il primo tour con noi. Valido su tutte le partenze idonee."
+        },
+        "group": {
+          "title": "Prenotazione di gruppo",
+          "body": "A persona per gruppi da quattro a sei, e sette per cento per gruppi da sette a dieci."
+        },
+        "early": {
+          "title": "Prenotazione anticipata",
+          "body": "Prenota almeno dodici mesi prima della partenza. La cifra esatta dipende dal tour e dalla disponibilità."
+        },
+        "full": {
+          "title": "Saldo immediato",
+          "body": "Sul prezzo base del tour quando l'intero importo viene versato al momento della prenotazione."
+        }
+      },
+      "philosophy": "Niente livelli, niente punti, niente giochi di clausole. Mettiamo l'impegno dove un viaggio si decide davvero: mezzi affidabili, squadra locale esperta, itinerari che valgono la strada e un prezzo leggibile al primo sguardo.",
+      "conditionsTitle": "Da sapere",
+      "conditions": {
+        "availability": "Tutti gli sconti dipendono dalla disponibilità e dalle condizioni del tour specifico.",
+        "atBooking": "Gli sconti vanno richiesti e applicati al momento della prenotazione.",
+        "noStacking": "Gli sconti non sono cumulabili né applicabili a posteriori.",
+        "changes": "Possiamo modificare o ritirare un'offerta senza preavviso."
+      }
+    }
   }
 }

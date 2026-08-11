@@ -4,7 +4,7 @@ import { defaultLocale, locales } from "@/i18n/config";
 import { siteUrl } from "@/lib/seo";
 
 /** Add every public route here, without the locale prefix. */
-const routes = ["/"];
+const routes = ["/", "/about-us"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.flatMap((path) =>

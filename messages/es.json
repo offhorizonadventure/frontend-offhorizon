@@ -206,5 +206,100 @@
     "successBody": "Gracias. Nuestro equipo se pondrá en contacto pronto.",
     "close": "Cerrar",
     "required": "Respondemos en un día laborable."
+  },
+  "about": {
+    "meta": {
+      "title": "Sobre Offhorizon Adventures | Especialistas en el Himalaya",
+      "description": "Expediciones guiadas en moto y 4x4 por el Himalaya de India, Nepal y Bután. Diez años de experiencia sobre el terreno, un equipo de 16 personas y rutas por Ladakh, Spiti, Zanskar y el Alto Mustang."
+    },
+    "hero": {
+      "eyebrow": "Sobre Offhorizon",
+      "title": "Expediciones al Himalaya, <accent>bien hechas</accent>.",
+      "lead": "Diseñamos y guiamos expediciones en moto y en 4x4 por el Himalaya de India, Nepal y Bután. Ladakh, valle de Spiti, Zanskar, Alto Mustang. Terreno remoto, gestionado con el rigor que exige.",
+      "facts": {
+        "since": "En ruta desde",
+        "countries": "Países",
+        "crew": "Equipo sobre el terreno"
+      }
+    },
+    "journey": {
+      "eyebrow": "Nuestra trayectoria",
+      "title": "Todo empezó con el alquiler.",
+      "start": {
+        "title": "Abre BRB Expeditions en Manali",
+        "body": "Empezamos en 2014 con <brb>BRB Expeditions</brb>, alquilando motos y 4x4 desde Manali y Bhuntar a quienes salían hacia Ladakh, Spiti y el resto de Himachal. Desde entonces han salido miles de viajeros con nuestras máquinas."
+      },
+      "learned": {
+        "label": "Lo que aprendimos",
+        "title": "Cosas que ningún manual enseña",
+        "items": {
+          "terrain": "Cómo cambian las carreteras del Himalaya a lo largo de una temporada",
+          "altitude": "Qué le hace la altitud a quien conduce y al motor",
+          "vehicles": "Cómo aguanta una máquina cuando se acaba el asfalto",
+          "logistics": "Dar apoyo cuando la ayuda está a horas de distancia"
+        }
+      },
+      "today": {
+        "label": "Hoy",
+        "title": "Dos divisiones, un mismo taller",
+        "body": "Al crecer separamos el trabajo en dos, para hacer bien cada parte en lugar de hacerlas a medias."
+      },
+      "divisions": {
+        "rentalsLabel": "División 01",
+        "rentals": "Alquiler y asistencia de vehículos en todo Himachal.",
+        "expeditionsLabel": "División 02",
+        "expeditions": "Expediciones guiadas en moto y 4x4, sobre diez años de trabajo de campo."
+      }
+    },
+    "team": {
+      "eyebrow": "El equipo",
+      "title": "Las personas detrás de cada viaje",
+      "body": "Una expedición vale lo que vale el equipo que la dirige. El nuestro lleva años leyendo este terreno, este clima y estas máquinas, y eso es lo que mantiene el plan cuando cambian las condiciones.",
+      "leadNote": "Dirige la empresa y marca el nivel de cada expedición.",
+      "groups": {
+        "lead": "Dirección",
+        "operations": "Operaciones",
+        "creative": "Operaciones y creatividad",
+        "technical": "Mecánica y equipo técnico",
+        "support": "Apoyo en ruta"
+      }
+    },
+    "riders": {
+      "eyebrow": "Lo cuentan nuestros viajeros",
+      "title": "El mejor relato de nuestro trabajo no lo escribimos nosotros",
+      "body": "Los viajeros comparten su experiencia en Google, TripAdvisor y Trustpilot. Lee lo que dicen de las rutas, los paisajes y el equipo que los acompañó.",
+      "thanks": "A todos los que han viajado con nosotros: gracias. Vuestras historias son la razón por la que preparamos la siguiente salida."
+    },
+    "rewards": {
+      "eyebrow": "Ventajas para viajeros",
+      "title": "Un viaje con nosotros y ya eres de la casa",
+      "body": "Ventajas claras para quien repite, viaja en grupo o reserva con tiempo. Dichas de forma sencilla y con las condiciones a la vista.",
+      "items": {
+        "returning": {
+          "title": "Viajero que repite",
+          "body": "En tu próxima expedición, una vez completado tu primer tour con nosotros. Válido en todas las salidas elegibles."
+        },
+        "group": {
+          "title": "Reserva de grupo",
+          "body": "Por persona en grupos de cuatro a seis, y siete por ciento en grupos de siete a diez."
+        },
+        "early": {
+          "title": "Reserva anticipada",
+          "body": "Reserva al menos doce meses antes de la salida. La cifra exacta depende del tour y la disponibilidad."
+        },
+        "full": {
+          "title": "Pago completo",
+          "body": "Sobre el precio base del tour cuando se abona el importe íntegro al reservar."
+        }
+      },
+      "philosophy": "Sin niveles, sin puntos, sin letra pequeña. Ponemos el esfuerzo donde de verdad se decide un viaje: máquinas fiables, equipo local con experiencia, rutas que merecen la pena y un precio que se entiende de un vistazo.",
+      "conditionsTitle": "Conviene saber",
+      "conditions": {
+        "availability": "Todos los descuentos dependen de la disponibilidad y de las condiciones del tour concreto.",
+        "atBooking": "Los descuentos deben solicitarse y aplicarse en el momento de la reserva.",
+        "noStacking": "Los descuentos no son acumulables ni aplicables con efecto retroactivo.",
+        "changes": "Podemos modificar o retirar una oferta sin aviso previo."
+      }
+    }
   }
 }

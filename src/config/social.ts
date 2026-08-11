@@ -12,5 +12,5 @@ export const socialLinks = [
     href: "https://www.instagram.com/offhorizon",
     Icon: Instagram,
   },
-  { key: "youtube", label: "YouTube", href: "https://www.youtube.com/@offhorizon", Icon: YouTube },
+  { key: "youtube", label: "YouTube", href: "https://www.youtube.com/@Offhorizonadvenutures", Icon: YouTube },
 ] as const;

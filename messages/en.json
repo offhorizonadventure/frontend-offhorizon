@@ -206,5 +206,100 @@
     "successBody": "Thanks. Our team will be in touch shortly.",
     "close": "Close",
     "required": "We reply within one working day."
+  },
+  "about": {
+    "meta": {
+      "title": "About Offhorizon Adventures | Himalayan Expedition Specialists",
+      "description": "Guided motorcycle and 4x4 expeditions across the Himalayas of India, Nepal and Bhutan. Ten years of ground experience, a 16-strong crew, and routes through Ladakh, Spiti, Zanskar and Upper Mustang."
+    },
+    "hero": {
+      "eyebrow": "About Offhorizon",
+      "title": "Himalayan expeditions, <accent>done right</accent>.",
+      "lead": "We plan and lead guided motorcycle and 4x4 expeditions across the Himalayas of India, Nepal and Bhutan. Ladakh, Spiti Valley, Zanskar, Upper Mustang. Remote country, run with the discipline it demands.",
+      "facts": {
+        "since": "Riding since",
+        "countries": "Countries",
+        "crew": "Crew on the ground"
+      }
+    },
+    "journey": {
+      "eyebrow": "Our journey",
+      "title": "It started with rentals.",
+      "start": {
+        "title": "BRB Expeditions opens in Manali",
+        "body": "We began in 2014 with <brb>BRB Expeditions</brb>, renting motorcycles and 4x4s from Manali and Bhuntar to riders heading for Ladakh, Spiti and the wider Himachal. Thousands of riders have gone out on our machines since."
+      },
+      "learned": {
+        "label": "What we learned",
+        "title": "Things you cannot get from a manual",
+        "items": {
+          "terrain": "How Himalayan roads behave across a season",
+          "altitude": "What altitude does to riders and to engines",
+          "vehicles": "How a machine holds up once the tarmac ends",
+          "logistics": "Running support when help is hours away"
+        }
+      },
+      "today": {
+        "label": "Today",
+        "title": "Two divisions, one workshop floor",
+        "body": "As the work grew we split it in two, so each side could be done properly rather than partly."
+      },
+      "divisions": {
+        "rentalsLabel": "Division 01",
+        "rentals": "Rentals and on-ground vehicle support across Himachal.",
+        "expeditionsLabel": "Division 02",
+        "expeditions": "Guided motorcycle and 4x4 expeditions, built on that decade of ground experience."
+      }
+    },
+    "team": {
+      "eyebrow": "The crew",
+      "title": "The people behind the journey",
+      "body": "An expedition is only as good as the people running it. Ours have spent years reading this terrain, this weather and these machines, which is what keeps a trip on schedule when conditions turn.",
+      "leadNote": "Runs the business and sets the standard every expedition is measured against.",
+      "groups": {
+        "lead": "Head of the business",
+        "operations": "Operations",
+        "creative": "Operations and creative",
+        "technical": "Mechanics and technical crew",
+        "support": "On-road support"
+      }
+    },
+    "riders": {
+      "eyebrow": "Hear it from our riders",
+      "title": "The clearest account of what we do is not written by us",
+      "body": "Riders share their journeys on Google, TripAdvisor and Trustpilot. Read what they say about the routes, the landscapes and the crew who kept them moving.",
+      "thanks": "To everyone who has ridden with us: thank you. Your stories are the reason we keep planning the next one."
+    },
+    "rewards": {
+      "eyebrow": "Rider rewards",
+      "title": "Ride once and you are part of the family",
+      "body": "Straightforward benefits for riders who come back, book together, or plan early. Stated plainly, with the conditions in the open.",
+      "items": {
+        "returning": {
+          "title": "Returning rider",
+          "body": "Off your next expedition once you have completed your first tour with us. Valid on all eligible departures."
+        },
+        "group": {
+          "title": "Group booking",
+          "body": "Per rider for groups of four to six, rising to seven percent for groups of seven to ten."
+        },
+        "early": {
+          "title": "Early booking",
+          "body": "Book at least twelve months before departure. The exact figure depends on the tour and availability."
+        },
+        "full": {
+          "title": "Paid in full",
+          "body": "Off the base tour price when the whole amount is settled at the time of booking."
+        }
+      },
+      "philosophy": "No tiers, no points, no small print games. We put the effort into the things that actually decide a trip: sound machines, expert local crew, routes worth riding, and a price you can read at a glance.",
+      "conditionsTitle": "Good to know",
+      "conditions": {
+        "availability": "All discounts depend on tour availability and the conditions of that specific tour.",
+        "atBooking": "Discounts must be requested and applied at the time of booking.",
+        "noStacking": "Discounts cannot be combined, stacked, or applied after the fact.",
+        "changes": "We may change or withdraw an offer without prior notice."
+      }
+    }
   }
 }
