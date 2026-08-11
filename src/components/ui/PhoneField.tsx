@@ -93,7 +93,7 @@ export function PhoneField({
 
   return (
     <div ref={wrapper} className="relative">
-      <div className="flex h-12 items-stretch overflow-hidden rounded-xl border border-brand-900/15 bg-white transition-colors focus-within:border-brand-800">
+      <div className="flex h-12 items-stretch overflow-hidden rounded-xl border border-brand-900/15 bg-white transition-[border-color,box-shadow] focus-within:border-brand-800 focus-within:ring-[3px] focus-within:ring-brand-800/10">
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}

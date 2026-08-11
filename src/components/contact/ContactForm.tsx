@@ -44,7 +44,7 @@ export function ContactForm({ labels }: { labels: Labels }) {
   }
 
   const field =
-    "h-12 w-full rounded-xl border border-brand-900/15 bg-white px-4 text-[14px] text-brand-900 outline-none transition-colors placeholder:text-brand-800/35 focus:border-brand-800";
+    "h-12 w-full rounded-xl border border-brand-900/15 bg-white px-4 text-[14px] text-brand-900 outline-none transition-[border-color,box-shadow] placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-[3px] focus:ring-brand-800/10";
   const label = "block text-[10.5px] font-bold tracking-[0.16em] text-brand-600 uppercase";
 
   if (sent) {
@@ -82,7 +82,7 @@ export function ContactForm({ labels }: { labels: Labels }) {
         />
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="space-y-5">
         <div>
           <label htmlFor={`${id}-phone`} className={label}>
             {labels.phone}
@@ -122,7 +122,7 @@ export function ContactForm({ labels }: { labels: Labels }) {
           name="message"
           rows={6}
           placeholder={labels.messagePlaceholder}
-          className="mt-2 w-full resize-none rounded-xl border border-brand-900/15 bg-white p-4 text-[14px] leading-relaxed text-brand-900 outline-none transition-colors placeholder:text-brand-800/35 focus:border-brand-800"
+          className="mt-2 w-full resize-none rounded-xl border border-brand-900/15 bg-white p-4 text-[14px] leading-relaxed text-brand-900 outline-none transition-[border-color,box-shadow] placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-[3px] focus:ring-brand-800/10"
         />
       </div>
 

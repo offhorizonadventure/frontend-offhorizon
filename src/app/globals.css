@@ -407,6 +407,18 @@ h4 {
   border-radius: 4px;
 }
 
+/* Form controls carry their own focus state (border plus ring), so the generic
+   outline would sit outside that and read as a double border. Focus stays
+   visible; only the duplicate ring is dropped. */
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible,
+select:focus,
+select:focus-visible {
+  outline: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

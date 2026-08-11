@@ -88,7 +88,7 @@ export function ConsultationModal({
   }
 
   const field =
-    "h-12 w-full rounded-xl border border-brand-900/15 bg-white px-4 text-[14px] text-brand-900 outline-none transition-colors placeholder:text-brand-800/35 focus:border-brand-800";
+    "h-12 w-full rounded-xl border border-brand-900/15 bg-white px-4 text-[14px] text-brand-900 outline-none transition-[border-color,box-shadow] placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-[3px] focus:ring-brand-800/10";
   const label = "block text-[10.5px] font-bold tracking-[0.16em] text-brand-600 uppercase";
 
   const overlay =
@@ -166,7 +166,7 @@ export function ConsultationModal({
                   />
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-4">
                   <div>
                     <label htmlFor={`${formId}-phone`} className={label}>
                       {labels.phone}
@@ -205,7 +205,7 @@ export function ConsultationModal({
                     name="message"
                     rows={4}
                     placeholder={labels.messagePlaceholder}
-                    className="mt-2 w-full resize-none rounded-xl border border-brand-900/15 bg-white p-4 text-[14px] leading-relaxed text-brand-900 outline-none transition-colors placeholder:text-brand-800/35 focus:border-brand-800"
+                    className="mt-2 w-full resize-none rounded-xl border border-brand-900/15 bg-white p-4 text-[14px] leading-relaxed text-brand-900 outline-none transition-[border-color,box-shadow] placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-[3px] focus:ring-brand-800/10"
                   />
                 </div>
 
