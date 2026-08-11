@@ -193,6 +193,83 @@ h4 {
   transform-origin: left;
 }
 
+/* ---- Partner marquee -----------------------------------------------------
+   A full-bleed band ruled top and bottom, rather than a floating strip. The
+   set repeats PARTNER_REPEATS (4) times and the track travels exactly one set
+   width (25%), so the loop is seamless with no JavaScript. Slots are a fixed
+   width, which is what makes every logo hold the same footprint whatever its
+   shape.                                                                     */
+
+.pm-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+.pm-track {
+  display: flex;
+  width: max-content;
+  /* Slow on purpose. A quick scroll reads as a widget; this reads as a frieze. */
+  animation: pm-scroll 52s linear infinite;
+}
+
+@keyframes pm-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-25%, 0, 0);
+  }
+}
+
+.pm-marquee:hover .pm-track,
+.pm-marquee:focus-within .pm-track {
+  animation-play-state: paused;
+}
+
+.pm-slot {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  width: 15rem;
+  height: 7.5rem;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 2.5rem;
+}
+
+/* Divider stops short of the rules, which is what keeps it from looking like
+   a table and reads closer to print. */
+.pm-slot::after {
+  content: "";
+  position: absolute;
+  top: 28%;
+  right: 0;
+  bottom: 28%;
+  width: 1px;
+  background: color-mix(in srgb, var(--color-brand-900) 14%, transparent);
+}
+
+@media (min-width: 640px) {
+  .pm-slot {
+    width: 19rem;
+    height: 9rem;
+    padding-inline: 3.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pm-marquee {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .pm-track {
+    animation: none;
+  }
+}
+
 /* ---- Destination gallery --------------------------------------------------
    Below lg: a snap-scrolling rail.
    From lg: an expanding accordion. Panels share the width via `flex-grow: 1`

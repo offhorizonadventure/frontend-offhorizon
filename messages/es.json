@@ -75,11 +75,7 @@
       "eyebrow": "Nuestros socios",
       "title": "Reconocidos, autorizados y respaldados.",
       "note": "Un ministerio, una oficina de turismo regional y los fabricantes de las máquinas que usamos.",
-      "tile": {
-        "label": "Desde 2014",
-        "title": "Construido sobre diez años de trabajo de campo.",
-        "cta": "Nuestra historia"
-      }
+      "since": "Socios desde {year}"
     },
     "about": {
       "eyebrow": "Sobre Offhorizon",

@@ -75,11 +75,7 @@
       "eyebrow": "Unsere Partner",
       "title": "Anerkannt, lizenziert und unterstützt.",
       "note": "Ein Ministerium, ein staatliches Tourismusamt und die Hersteller, deren Maschinen wir fahren.",
-      "tile": {
-        "label": "Seit 2014",
-        "title": "Auf zehn Jahren Praxis aufgebaut.",
-        "cta": "Unsere Geschichte"
-      }
+      "since": "Partner seit {year}"
     },
     "about": {
       "eyebrow": "Über Offhorizon",

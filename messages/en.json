@@ -75,11 +75,7 @@
       "eyebrow": "Our partners",
       "title": "Recognised, licensed and supported.",
       "note": "A government ministry, a state tourism board and the manufacturers whose machines we run.",
-      "tile": {
-        "label": "Since 2014",
-        "title": "Built on a decade of ground experience.",
-        "cta": "Our story"
-      }
+      "since": "Partnered since {year}"
     },
     "about": {
       "eyebrow": "About Offhorizon",

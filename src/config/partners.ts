@@ -18,3 +18,6 @@ export const partners: Partner[] = [
   { slug: "reise-moto", name: "Reise Moto" },
   { slug: "mca-india", name: "Ministry of Corporate Affairs, Government of India" },
 ];
+
+/** How many times the strip repeats so the loop is seamless on wide screens. */
+export const PARTNER_REPEATS = 4;

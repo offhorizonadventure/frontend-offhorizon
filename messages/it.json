@@ -75,11 +75,7 @@
       "eyebrow": "I nostri partner",
       "title": "Riconosciuti, autorizzati e supportati.",
       "note": "Un ministero, un ente turistico regionale e i costruttori dei mezzi che utilizziamo.",
-      "tile": {
-        "label": "Dal 2014",
-        "title": "Costruito su dieci anni sul campo.",
-        "cta": "La nostra storia"
-      }
+      "since": "Partner dal {year}"
     },
     "about": {
       "eyebrow": "Chi è Offhorizon",
