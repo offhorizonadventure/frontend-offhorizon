@@ -11,7 +11,7 @@
     "about": "Über uns",
     "blog": "Blog",
     "contact": "Kontakt",
-    "cta": "Reise planen",
+    "cta": "Individuelle Touren",
     "language": "Sprache wechseln",
     "openMenu": "Menü öffnen",
     "closeMenu": "Menü schließen",
@@ -366,5 +366,70 @@
     "backToBlog": "Alle Beiträge",
     "writtenBy": "Geschrieben von",
     "moreReading": "Weiterlesen"
+  },
+  "custom": {
+    "meta": {
+      "title": "Individuelle Expeditionen | Offhorizon Adventures",
+      "description": "Sagen Sie uns, wohin Sie fahren wollen, wann und mit wem. Wir planen geführte Motorrad- und 4x4-Expeditionen nach Maß in Indien, Nepal, Bhutan, Sri Lanka und der Mongolei."
+    },
+    "hero": {
+      "eyebrow": "Individuelle Expeditionen",
+      "title": "Ihre Route, Ihre Termine, Ihre Gruppe.",
+      "lead": "Feste Termine passen nicht zu jedem. Sagen Sie uns, was Sie vorhaben, und wir bauen die Expedition darum herum und melden uns mit Plan und Preis."
+    },
+    "sections": {
+      "route": "Wohin und wann",
+      "group": "Wer fährt mit",
+      "budget": "Budget",
+      "adventure": "Ihr Abenteuer",
+      "details": "Ihre Angaben"
+    },
+    "fields": {
+      "destination": "Wohin möchten Sie",
+      "destinationPlaceholder": "Ziel auswählen",
+      "startDate": "Anreise",
+      "endDate": "Abreise",
+      "company": "Mit wem reisen Sie",
+      "companyPlaceholder": "Bitte auswählen",
+      "riders": "Fahrer",
+      "ridersHint": "Personen auf einer eigenen Maschine",
+      "pillions": "Sozius",
+      "pillionsHint": "Mitfahrende auf dem Rücksitz",
+      "decrease": "Verringern",
+      "increase": "Erhöhen",
+      "budget": "Wie hoch ist Ihr Budget",
+      "budgetHint": "Pro Person, ungefähr. Eine Spanne genügt.",
+      "message": "Erzählen Sie uns etwas über Ihr Abenteuer",
+      "messagePlaceholder": "Pässe, die Sie fahren wollen, Orte, an denen Sie halten möchten, alles, was wir einplanen sollen.",
+      "firstName": "Vorname",
+      "lastName": "Nachname"
+    },
+    "company": {
+      "solo": "Alleine",
+      "friends": "Mit Freunden",
+      "family": "Mit der Familie"
+    },
+    "submit": "Anfrage senden",
+    "successTitle": "Anfrage erhalten",
+    "successBody": "Vielen Dank. Wir sehen uns Termine und Gelände an und melden uns mit einem Plan.",
+    "aside": {
+      "title": "So entsteht eine individuelle Tour",
+      "body": "Wir lesen die Anfrage, prüfen den Zustand der Route in Ihrem Zeitfenster und schicken einen Entwurf mit Preis zurück. Gebucht wird erst, wenn Sie es sagen.",
+      "note": "Die Saison auf den hohen Pässen läuft etwa von Juni bis September. Außerhalb davon sind manche Routen gesperrt, und wir sagen es Ihnen, statt Ihnen eine Reise zu verkaufen, die nicht stattfindet."
+    },
+    "assurances": {
+      "noPayment": {
+        "title": "Anfragen kostet nichts",
+        "body": "Stellen Sie alle Fragen, bevor Sie sich festlegen."
+      },
+      "reply": {
+        "title": "Antwort innerhalb eines Werktags",
+        "body": "Vom Team, nicht von einem Autoresponder."
+      },
+      "tailored": {
+        "title": "Auf Ihre Gruppe zugeschnitten",
+        "body": "Tempo, Etappen und Stopps richten sich nach denen, die fahren."
+      }
+    }
   }
 }

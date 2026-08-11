@@ -113,7 +113,7 @@ export async function MobileMenu() {
 
       <div className="mt-auto pt-8">
         <Link
-          href="/contact-us"
+          href="/custom-expeditions"
           className="flex h-13 items-center justify-center gap-2.5 rounded-full bg-brand-800 text-[11.5px] font-bold tracking-[0.13em] text-cream-100 uppercase"
         >
           {t("cta")}

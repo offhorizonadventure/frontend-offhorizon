@@ -11,7 +11,7 @@
     "about": "About Us",
     "blog": "Blog",
     "contact": "Contact Us",
-    "cta": "Plan your trip",
+    "cta": "Custom Expeditions",
     "language": "Change language",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
@@ -366,5 +366,70 @@
     "backToBlog": "All posts",
     "writtenBy": "Written by",
     "moreReading": "More reading"
+  },
+  "custom": {
+    "meta": {
+      "title": "Custom Expeditions | Offhorizon Adventures",
+      "description": "Tell us where you want to ride, when, and who with. We build guided motorcycle and 4x4 expeditions to order across India, Nepal, Bhutan, Sri Lanka and Mongolia."
+    },
+    "hero": {
+      "eyebrow": "Custom expeditions",
+      "title": "Your route, your dates, your group.",
+      "lead": "Fixed departures do not suit everyone. Tell us what you have in mind and we will build the expedition around it, then come back with a plan and a price."
+    },
+    "sections": {
+      "route": "Where and when",
+      "group": "Who is riding",
+      "budget": "Budget",
+      "adventure": "Your adventure",
+      "details": "Your details"
+    },
+    "fields": {
+      "destination": "Where do you want to go",
+      "destinationPlaceholder": "Choose a destination",
+      "startDate": "Start date",
+      "endDate": "End date",
+      "company": "Who are you exploring with",
+      "companyPlaceholder": "Choose an option",
+      "riders": "Riders",
+      "ridersHint": "People riding their own machine",
+      "pillions": "Pillions",
+      "pillionsHint": "Passengers riding behind",
+      "decrease": "Decrease",
+      "increase": "Increase",
+      "budget": "What is your budget",
+      "budgetHint": "Per person, roughly. A range is fine.",
+      "message": "Tell us a bit more about your adventure",
+      "messagePlaceholder": "Passes you want to ride, places you want to stop, anything we should plan around.",
+      "firstName": "First name",
+      "lastName": "Last name"
+    },
+    "company": {
+      "solo": "By myself",
+      "friends": "With my friends",
+      "family": "With my family"
+    },
+    "submit": "Send my enquiry",
+    "successTitle": "Enquiry received",
+    "successBody": "Thanks. We will look at the dates and terrain and come back to you with a plan.",
+    "aside": {
+      "title": "How a custom trip comes together",
+      "body": "We read the enquiry, check what the route is doing in your window, and send back an outline with a price. Nothing is booked until you say so.",
+      "note": "Riding season in the high passes runs roughly June to September. Outside that window some routes are closed, and we will tell you rather than sell you a trip that will not run."
+    },
+    "assurances": {
+      "noPayment": {
+        "title": "No payment to enquire",
+        "body": "Ask as many questions as you like before anything is committed."
+      },
+      "reply": {
+        "title": "A reply within one working day",
+        "body": "From the operations team, not an autoresponder."
+      },
+      "tailored": {
+        "title": "Built around your group",
+        "body": "Pace, distance and stops set by who is actually riding."
+      }
+    }
   }
 }

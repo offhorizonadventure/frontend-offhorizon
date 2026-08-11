@@ -11,7 +11,7 @@
     "about": "À propos",
     "blog": "Blog",
     "contact": "Contact",
-    "cta": "Planifier mon voyage",
+    "cta": "Voyages sur mesure",
     "language": "Changer de langue",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu",
@@ -366,5 +366,70 @@
     "backToBlog": "Tous les articles",
     "writtenBy": "Écrit par",
     "moreReading": "À lire aussi"
+  },
+  "custom": {
+    "meta": {
+      "title": "Voyages sur mesure | Offhorizon Adventures",
+      "description": "Dites-nous où vous voulez rouler, quand et avec qui. Nous construisons des expéditions guidées à moto et en 4x4 en Inde, au Népal, au Bhoutan, au Sri Lanka et en Mongolie."
+    },
+    "hero": {
+      "eyebrow": "Voyages sur mesure",
+      "title": "Votre itinéraire, vos dates, votre groupe.",
+      "lead": "Les départs fixes ne conviennent pas à tout le monde. Dites-nous ce que vous avez en tête et nous construirons l'expédition autour, puis nous reviendrons avec un plan et un prix."
+    },
+    "sections": {
+      "route": "Où et quand",
+      "group": "Qui roule",
+      "budget": "Budget",
+      "adventure": "Votre aventure",
+      "details": "Vos coordonnées"
+    },
+    "fields": {
+      "destination": "Où voulez-vous aller",
+      "destinationPlaceholder": "Choisissez une destination",
+      "startDate": "Date de départ",
+      "endDate": "Date de retour",
+      "company": "Avec qui partez-vous",
+      "companyPlaceholder": "Choisissez une option",
+      "riders": "Pilotes",
+      "ridersHint": "Personnes conduisant leur propre machine",
+      "pillions": "Passagers",
+      "pillionsHint": "Personnes assises à l'arrière",
+      "decrease": "Diminuer",
+      "increase": "Augmenter",
+      "budget": "Quel est votre budget",
+      "budgetHint": "Par personne, approximativement. Une fourchette suffit.",
+      "message": "Parlez-nous un peu de votre aventure",
+      "messagePlaceholder": "Les cols que vous voulez franchir, les endroits où vous voulez vous arrêter, ce dont nous devons tenir compte.",
+      "firstName": "Prénom",
+      "lastName": "Nom"
+    },
+    "company": {
+      "solo": "Seul",
+      "friends": "Avec mes amis",
+      "family": "Avec ma famille"
+    },
+    "submit": "Envoyer ma demande",
+    "successTitle": "Demande reçue",
+    "successBody": "Merci. Nous étudions les dates et le terrain, puis nous revenons vers vous avec un plan.",
+    "aside": {
+      "title": "Comment se construit un voyage sur mesure",
+      "body": "Nous lisons la demande, vérifions l'état de l'itinéraire à cette période et vous renvoyons un déroulé avec un prix. Rien n'est réservé tant que vous ne le dites pas.",
+      "note": "La saison sur les hauts cols va environ de juin à septembre. En dehors de cette période, certains itinéraires sont fermés, et nous vous le dirons plutôt que de vous vendre un voyage qui n'aura pas lieu."
+    },
+    "assurances": {
+      "noPayment": {
+        "title": "Demander ne coûte rien",
+        "body": "Posez toutes les questions que vous voulez avant de vous engager."
+      },
+      "reply": {
+        "title": "Réponse sous un jour ouvré",
+        "body": "Par l'équipe, pas par une réponse automatique."
+      },
+      "tailored": {
+        "title": "Adapté à votre groupe",
+        "body": "Rythme, distances et arrêts définis selon ceux qui roulent."
+      }
+    }
   }
 }

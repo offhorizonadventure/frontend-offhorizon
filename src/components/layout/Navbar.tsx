@@ -25,7 +25,7 @@ export async function Navbar() {
           <LanguageSwitcher label={t("language")} />
 
           <Link
-            href="/contact-us"
+            href="/custom-expeditions"
             className="hidden h-9 items-center rounded-full bg-brand-800 px-4 text-[10.5px] font-bold tracking-[0.09em] whitespace-nowrap text-cream-100 uppercase transition-colors duration-200 hover:bg-brand-900 lg:inline-flex"
           >
             {t("cta")}

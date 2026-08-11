@@ -11,7 +11,7 @@
     "about": "Sobre nosotros",
     "blog": "Blog",
     "contact": "Contacto",
-    "cta": "Planifica tu viaje",
+    "cta": "Viajes a medida",
     "language": "Cambiar idioma",
     "openMenu": "Abrir el menú",
     "closeMenu": "Cerrar el menú",
@@ -366,5 +366,70 @@
     "backToBlog": "Todos los artículos",
     "writtenBy": "Escrito por",
     "moreReading": "Sigue leyendo"
+  },
+  "custom": {
+    "meta": {
+      "title": "Expediciones a medida | Offhorizon Adventures",
+      "description": "Cuéntanos por dónde quieres rodar, cuándo y con quién. Creamos expediciones guiadas en moto y 4x4 a medida por India, Nepal, Bután, Sri Lanka y Mongolia."
+    },
+    "hero": {
+      "eyebrow": "Expediciones a medida",
+      "title": "Tu ruta, tus fechas, tu grupo.",
+      "lead": "Las salidas fijas no le sirven a todo el mundo. Cuéntanos qué tienes en mente y montaremos la expedición a tu alrededor, y luego te enviaremos un plan y un precio."
+    },
+    "sections": {
+      "route": "Dónde y cuándo",
+      "group": "Quién viaja",
+      "budget": "Presupuesto",
+      "adventure": "Tu aventura",
+      "details": "Tus datos"
+    },
+    "fields": {
+      "destination": "Adónde quieres ir",
+      "destinationPlaceholder": "Elige un destino",
+      "startDate": "Fecha de salida",
+      "endDate": "Fecha de regreso",
+      "company": "Con quién viajas",
+      "companyPlaceholder": "Elige una opción",
+      "riders": "Conductores",
+      "ridersHint": "Personas que llevan su propia máquina",
+      "pillions": "Acompañantes",
+      "pillionsHint": "Quienes viajan detrás",
+      "decrease": "Reducir",
+      "increase": "Aumentar",
+      "budget": "Cuál es tu presupuesto",
+      "budgetHint": "Por persona, aproximado. Un rango vale.",
+      "message": "Cuéntanos un poco más sobre tu aventura",
+      "messagePlaceholder": "Los puertos que quieres subir, los sitios donde quieres parar, todo lo que debamos tener en cuenta.",
+      "firstName": "Nombre",
+      "lastName": "Apellidos"
+    },
+    "company": {
+      "solo": "Yo solo",
+      "friends": "Con mis amigos",
+      "family": "Con mi familia"
+    },
+    "submit": "Enviar mi consulta",
+    "successTitle": "Consulta recibida",
+    "successBody": "Gracias. Revisaremos las fechas y el terreno y te responderemos con un plan.",
+    "aside": {
+      "title": "Cómo se arma un viaje a medida",
+      "body": "Leemos la consulta, comprobamos cómo está la ruta en tus fechas y te devolvemos un esquema con el precio. No se reserva nada hasta que tú lo digas.",
+      "note": "La temporada en los puertos altos va aproximadamente de junio a septiembre. Fuera de esas fechas algunas rutas están cerradas, y te lo diremos en lugar de venderte un viaje que no va a salir."
+    },
+    "assurances": {
+      "noPayment": {
+        "title": "Consultar no cuesta nada",
+        "body": "Pregunta todo lo que quieras antes de comprometerte."
+      },
+      "reply": {
+        "title": "Respuesta en un día laborable",
+        "body": "Del equipo, no de una respuesta automática."
+      },
+      "tailored": {
+        "title": "Hecho para tu grupo",
+        "body": "Ritmo, distancias y paradas según quien viaja de verdad."
+      }
+    }
   }
 }

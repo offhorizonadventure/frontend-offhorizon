@@ -11,7 +11,7 @@
     "about": "Chi siamo",
     "blog": "Blog",
     "contact": "Contatti",
-    "cta": "Pianifica il viaggio",
+    "cta": "Viaggi su misura",
     "language": "Cambia lingua",
     "openMenu": "Apri il menu",
     "closeMenu": "Chiudi il menu",
@@ -366,5 +366,70 @@
     "backToBlog": "Tutti gli articoli",
     "writtenBy": "Scritto da",
     "moreReading": "Da leggere"
+  },
+  "custom": {
+    "meta": {
+      "title": "Spedizioni su misura | Offhorizon Adventures",
+      "description": "Dicci dove vuoi andare, quando e con chi. Costruiamo spedizioni guidate in moto e 4x4 su misura in India, Nepal, Bhutan, Sri Lanka e Mongolia."
+    },
+    "hero": {
+      "eyebrow": "Spedizioni su misura",
+      "title": "Il tuo itinerario, le tue date, il tuo gruppo.",
+      "lead": "Le partenze fisse non vanno bene per tutti. Dicci cosa hai in mente e costruiremo la spedizione intorno a questo, poi ti manderemo un piano e un prezzo."
+    },
+    "sections": {
+      "route": "Dove e quando",
+      "group": "Chi viaggia",
+      "budget": "Budget",
+      "adventure": "La tua avventura",
+      "details": "I tuoi dati"
+    },
+    "fields": {
+      "destination": "Dove vuoi andare",
+      "destinationPlaceholder": "Scegli una destinazione",
+      "startDate": "Data di partenza",
+      "endDate": "Data di rientro",
+      "company": "Con chi viaggi",
+      "companyPlaceholder": "Scegli un'opzione",
+      "riders": "Piloti",
+      "ridersHint": "Persone che guidano il proprio mezzo",
+      "pillions": "Passeggeri",
+      "pillionsHint": "Chi viaggia dietro",
+      "decrease": "Diminuisci",
+      "increase": "Aumenta",
+      "budget": "Qual è il tuo budget",
+      "budgetHint": "A persona, indicativamente. Va bene anche una fascia.",
+      "message": "Raccontaci qualcosa della tua avventura",
+      "messagePlaceholder": "I passi che vuoi percorrere, i posti dove vuoi fermarti, tutto quello di cui dobbiamo tenere conto.",
+      "firstName": "Nome",
+      "lastName": "Cognome"
+    },
+    "company": {
+      "solo": "Da solo",
+      "friends": "Con gli amici",
+      "family": "Con la famiglia"
+    },
+    "submit": "Invia la richiesta",
+    "successTitle": "Richiesta ricevuta",
+    "successBody": "Grazie. Valutiamo date e terreno e ti rispondiamo con un piano.",
+    "aside": {
+      "title": "Come nasce un viaggio su misura",
+      "body": "Leggiamo la richiesta, verifichiamo le condizioni dell'itinerario nel tuo periodo e ti rimandiamo una bozza con il prezzo. Niente è prenotato finché non lo dici tu.",
+      "note": "La stagione sui passi alti va indicativamente da giugno a settembre. Fuori da quel periodo alcuni itinerari sono chiusi, e te lo diremo invece di venderti un viaggio che non partirà."
+    },
+    "assurances": {
+      "noPayment": {
+        "title": "Chiedere non costa nulla",
+        "body": "Fai tutte le domande che vuoi prima di impegnarti."
+      },
+      "reply": {
+        "title": "Risposta entro un giorno lavorativo",
+        "body": "Dal team, non da una risposta automatica."
+      },
+      "tailored": {
+        "title": "Costruito sul tuo gruppo",
+        "body": "Ritmo, distanze e soste decisi da chi viaggia davvero."
+      }
+    }
   }
 }
