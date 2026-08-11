@@ -6,15 +6,10 @@ import nepal from "../../public/tours/nepal-motorcycle-tour.jpg";
 
 export type Film = {
   key: "himalayas" | "ladakh" | "loManthang";
-  /**
-   * YouTube video id, the part after `v=`.
-   *
-   * TODO: fill these in. Until then the card renders its poster and the play
-   * button is disabled, rather than opening a broken player.
-   */
+  /** YouTube video id, the part after `v=` or `youtu.be/`. */
   youtubeId: string;
-  /** Shown as a badge. Format is mm:ss. */
-  duration: string;
+  /** Single source of truth: the badge and the ISO duration both derive from this. */
+  seconds: number;
   poster: StaticImageData;
 };
 
@@ -25,7 +20,22 @@ export type Film = {
  * first load, which matters for the European markets this site targets.
  */
 export const films: Film[] = [
-  { key: "himalayas", youtubeId: "", duration: "3:12", poster: himalayas },
-  { key: "ladakh", youtubeId: "", duration: "4:05", poster: ladakh },
-  { key: "loManthang", youtubeId: "", duration: "5:28", poster: nepal },
+  { key: "himalayas", youtubeId: "p2EknuiON-8", seconds: 23, poster: himalayas },
+  { key: "ladakh", youtubeId: "8_607eplWjU", seconds: 24, poster: ladakh },
+  { key: "loManthang", youtubeId: "RnIaGC6cZic", seconds: 33, poster: nepal },
 ];
+
+/** "0:23" for the badge. */
+export const formatDuration = (seconds: number) =>
+  `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
+
+/** "PT23S" for schema.org. */
+export const isoDuration = (seconds: number) => {
+  const minutes = Math.floor(seconds / 60);
+  const rest = seconds % 60;
+  return `PT${minutes ? `${minutes}M` : ""}${rest ? `${rest}S` : ""}`;
+};
+
+/** YouTube's own thumbnail, used only inside structured data, never fetched by the page. */
+export const thumbnailUrl = (youtubeId: string) =>
+  `https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg`;

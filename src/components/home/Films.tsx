@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
 import { Topo } from "@/components/ui/Topo";
-import { films } from "@/config/videos";
+import { films, formatDuration, isoDuration, thumbnailUrl } from "@/config/videos";
 import { cn } from "@/lib/cn";
 
 import { VideoPlayer } from "./VideoPlayer";
@@ -9,9 +9,9 @@ import { VideoPlayer } from "./VideoPlayer";
 /**
  * Film strip.
  *
- * The lead film takes a wide 16:9 frame and the other two stack beside it, so
- * the row has a focal point instead of three equal thumbnails. Light section
- * with dark cards: the posters supply the contrast, which keeps the page from
+ * The lead film takes a wide frame and the other two stack beside it, so the
+ * row has a focal point instead of three equal thumbnails. Light section with
+ * dark cards: the posters supply the contrast, which keeps the page from
  * running two dark bands together.
  */
 export async function Films() {
@@ -19,9 +19,27 @@ export async function Films() {
 
   const [lead, ...rest] = films;
 
+  // VideoObject markup makes the films eligible for video results in search.
+  // Google also wants `uploadDate`, which is not in the config yet.
+  const schema = films.map((film) => ({
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: t(`items.${film.key}`),
+    description: t(`items.${film.key}`),
+    thumbnailUrl: thumbnailUrl(film.youtubeId),
+    duration: isoDuration(film.seconds),
+    embedUrl: `https://www.youtube-nocookie.com/embed/${film.youtubeId}`,
+    contentUrl: `https://www.youtube.com/watch?v=${film.youtubeId}`,
+  }));
+
   return (
     <section className="relative overflow-hidden bg-cream-50 py-20 sm:py-28">
       <Topo className="text-brand-800/12" rings={11} seed={6.2} />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
+      />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <div data-anim="up" className="max-w-2xl">
@@ -44,9 +62,10 @@ export async function Films() {
             <VideoPlayer
               youtubeId={lead.youtubeId}
               title={t(`items.${lead.key}`)}
-              duration={lead.duration}
+              duration={formatDuration(lead.seconds)}
               poster={lead.poster}
               playLabel={t("play")}
+              closeLabel={t("close")}
               featured
               sizes="(max-width: 1023px) 92vw, 640px"
             />
@@ -60,9 +79,10 @@ export async function Films() {
               <VideoPlayer
                 youtubeId={film.youtubeId}
                 title={t(`items.${film.key}`)}
-                duration={film.duration}
+                duration={formatDuration(film.seconds)}
                 poster={film.poster}
                 playLabel={t("play")}
+                closeLabel={t("close")}
                 sizes="(max-width: 1023px) 92vw, 440px"
               />
             </article>
