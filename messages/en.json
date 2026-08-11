@@ -205,7 +205,9 @@
     "successTitle": "Request received",
     "successBody": "Thanks. Our team will be in touch shortly.",
     "close": "Close",
-    "required": "We reply within one working day."
+    "required": "We reply within one working day.",
+    "countryLabel": "Country code",
+    "searchLabel": "Search countries"
   },
   "about": {
     "meta": {
@@ -305,6 +307,45 @@
         "atBooking": "Discounts must be requested and applied at the time of booking.",
         "noStacking": "Discounts cannot be combined, stacked, or applied after the fact.",
         "changes": "We may change or withdraw an offer without prior notice."
+      }
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact Offhorizon Adventures | Plan Your Himalayan Expedition",
+      "description": "Talk to the team about a guided motorcycle or 4x4 expedition across India, Nepal, Bhutan, Sri Lanka or Mongolia. Based in Manali, replying within one working day."
+    },
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Tell us where you want to ride.",
+      "lead": "Send the route you have in mind, or just the month you are free. We will come back with what is realistic, what it costs, and what the road is like at that time of year."
+    },
+    "form": {
+      "submit": "Send enquiry"
+    },
+    "direct": {
+      "title": "Prefer to talk directly?",
+      "body": "The office is in Manali, which is where most of our routes begin. Call, write, or come and find us.",
+      "phone": "Phone",
+      "email": "Email",
+      "office": "Office",
+      "follow": "Follow us"
+    },
+    "steps": {
+      "title": "What happens next",
+      "items": {
+        "reply": {
+          "title": "We reply within one working day",
+          "body": "A real person from the operations team, not an autoresponder."
+        },
+        "plan": {
+          "title": "We shape the route with you",
+          "body": "Dates, group size, machine, and what the terrain is doing that season."
+        },
+        "confirm": {
+          "title": "You confirm when you are ready",
+          "body": "A small deposit holds your seat. Nothing is charged before you decide."
+        }
       }
     }
   }

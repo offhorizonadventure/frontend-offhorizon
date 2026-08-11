@@ -47,6 +47,8 @@ export async function BookConfidence() {
     successBody: tm("successBody"),
     close: tm("close"),
     required: tm("required"),
+    countryLabel: tm("countryLabel"),
+    searchLabel: tm("searchLabel"),
   };
 
   return (

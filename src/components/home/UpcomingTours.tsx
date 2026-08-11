@@ -68,7 +68,7 @@ export async function UpcomingTours() {
             <li key={tour.key}>
               <div data-anim="up">
                 <article className="group relative overflow-hidden rounded-[26px] ring-1 ring-brand-900/10">
-                  <div className="relative aspect-[4/3]">
+                  <div className="relative aspect-[4/5]">
                     <Image
                       src={tour.image}
                       alt={tt(`${tour.key}.name`)}

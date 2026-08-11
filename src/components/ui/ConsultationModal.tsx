@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 
 import { Close } from "@/components/ui/icons";
+import { PhoneField } from "@/components/ui/PhoneField";
 import { cn } from "@/lib/cn";
 
 type Labels = {
@@ -21,6 +22,8 @@ type Labels = {
   successBody: string;
   close: string;
   required: string;
+  countryLabel: string;
+  searchLabel: string;
 };
 
 type Phase = "closed" | "open" | "closing";
@@ -168,15 +171,15 @@ export function ConsultationModal({
                     <label htmlFor={`${formId}-phone`} className={label}>
                       {labels.phone}
                     </label>
-                    <input
-                      id={`${formId}-phone`}
-                      name="phone"
-                      type="tel"
-                      required
-                      inputMode="tel"
-                      autoComplete="tel"
-                      className={`${field} mt-2`}
-                    />
+                    <div className="mt-2">
+                      <PhoneField
+                        id={`${formId}-phone`}
+                        name="phone"
+                        required
+                        countryLabel={labels.countryLabel}
+                        searchLabel={labels.searchLabel}
+                      />
+                    </div>
                   </div>
                   <div>
                     <label htmlFor={`${formId}-email`} className={label}>

@@ -205,7 +205,9 @@
     "successTitle": "Richiesta ricevuta",
     "successBody": "Grazie. Il nostro team ti contatterà a breve.",
     "close": "Chiudi",
-    "required": "Rispondiamo entro un giorno lavorativo."
+    "required": "Rispondiamo entro un giorno lavorativo.",
+    "countryLabel": "Prefisso internazionale",
+    "searchLabel": "Cerca un paese"
   },
   "about": {
     "meta": {
@@ -305,6 +307,45 @@
         "atBooking": "Gli sconti vanno richiesti e applicati al momento della prenotazione.",
         "noStacking": "Gli sconti non sono cumulabili né applicabili a posteriori.",
         "changes": "Possiamo modificare o ritirare un'offerta senza preavviso."
+      }
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contatta Offhorizon Adventures | Pianifica la tua spedizione",
+      "description": "Parla con il team di una spedizione guidata in moto o in 4x4 in India, Nepal, Bhutan, Sri Lanka o Mongolia. Sede a Manali, risposta entro un giorno lavorativo."
+    },
+    "hero": {
+      "eyebrow": "Contatti",
+      "title": "Dicci dove vuoi andare.",
+      "lead": "Mandaci l'itinerario che hai in mente, o anche solo il mese in cui sei libero. Ti diremo cosa è fattibile, quanto costa e com'è la strada in quel periodo dell'anno."
+    },
+    "form": {
+      "submit": "Invia richiesta"
+    },
+    "direct": {
+      "title": "Preferisci parlare direttamente?",
+      "body": "L'ufficio è a Manali, da dove parte la maggior parte dei nostri itinerari. Chiama, scrivi o vieni a trovarci.",
+      "phone": "Telefono",
+      "email": "E-mail",
+      "office": "Ufficio",
+      "follow": "Seguici"
+    },
+    "steps": {
+      "title": "Cosa succede dopo",
+      "items": {
+        "reply": {
+          "title": "Rispondiamo entro un giorno lavorativo",
+          "body": "Una persona vera del team operativo, non una risposta automatica."
+        },
+        "plan": {
+          "title": "Costruiamo l'itinerario con te",
+          "body": "Date, dimensione del gruppo, mezzo e condizioni del terreno in quella stagione."
+        },
+        "confirm": {
+          "title": "Confermi quando sei pronto",
+          "body": "Un piccolo acconto blocca il posto. Niente viene addebitato prima della tua decisione."
+        }
       }
     }
   }

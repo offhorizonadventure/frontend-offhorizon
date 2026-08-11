@@ -205,7 +205,9 @@
     "successTitle": "Solicitud recibida",
     "successBody": "Gracias. Nuestro equipo se pondrá en contacto pronto.",
     "close": "Cerrar",
-    "required": "Respondemos en un día laborable."
+    "required": "Respondemos en un día laborable.",
+    "countryLabel": "Prefijo del país",
+    "searchLabel": "Buscar país"
   },
   "about": {
     "meta": {
@@ -305,6 +307,45 @@
         "atBooking": "Los descuentos deben solicitarse y aplicarse en el momento de la reserva.",
         "noStacking": "Los descuentos no son acumulables ni aplicables con efecto retroactivo.",
         "changes": "Podemos modificar o retirar una oferta sin aviso previo."
+      }
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contacta con Offhorizon Adventures | Planifica tu expedición",
+      "description": "Habla con el equipo sobre una expedición guiada en moto o 4x4 por India, Nepal, Bután, Sri Lanka o Mongolia. Con base en Manali, respondemos en un día laborable."
+    },
+    "hero": {
+      "eyebrow": "Contacto",
+      "title": "Cuéntanos por dónde quieres rodar.",
+      "lead": "Envíanos la ruta que tienes en mente, o simplemente el mes en que estás libre. Te diremos qué es viable, cuánto cuesta y cómo está el camino en esa época del año."
+    },
+    "form": {
+      "submit": "Enviar consulta"
+    },
+    "direct": {
+      "title": "¿Prefieres hablar directamente?",
+      "body": "La oficina está en Manali, donde empiezan la mayoría de nuestras rutas. Llama, escribe o ven a vernos.",
+      "phone": "Teléfono",
+      "email": "Correo",
+      "office": "Oficina",
+      "follow": "Síguenos"
+    },
+    "steps": {
+      "title": "Qué pasa después",
+      "items": {
+        "reply": {
+          "title": "Respondemos en un día laborable",
+          "body": "Una persona real del equipo, no una respuesta automática."
+        },
+        "plan": {
+          "title": "Diseñamos la ruta contigo",
+          "body": "Fechas, tamaño del grupo, vehículo y estado del terreno en esa temporada."
+        },
+        "confirm": {
+          "title": "Confirmas cuando estés listo",
+          "body": "Un pequeño depósito reserva tu plaza. No se cobra nada antes de que decidas."
+        }
       }
     }
   }

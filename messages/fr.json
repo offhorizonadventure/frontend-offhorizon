@@ -205,7 +205,9 @@
     "successTitle": "Demande reçue",
     "successBody": "Merci. Notre équipe vous recontacte très vite.",
     "close": "Fermer",
-    "required": "Nous répondons sous un jour ouvré."
+    "required": "Nous répondons sous un jour ouvré.",
+    "countryLabel": "Indicatif pays",
+    "searchLabel": "Rechercher un pays"
   },
   "about": {
     "meta": {
@@ -305,6 +307,45 @@
         "atBooking": "Les remises doivent être demandées et appliquées au moment de la réservation.",
         "noStacking": "Les remises ne sont ni cumulables ni applicables rétroactivement.",
         "changes": "Nous pouvons modifier ou retirer une offre sans préavis."
+      }
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contacter Offhorizon Adventures | Préparez votre expédition",
+      "description": "Parlez à l'équipe d'une expédition guidée à moto ou en 4x4 en Inde, au Népal, au Bhoutan, au Sri Lanka ou en Mongolie. Basés à Manali, réponse sous un jour ouvré."
+    },
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Dites-nous où vous voulez rouler.",
+      "lead": "Envoyez l'itinéraire que vous avez en tête, ou simplement le mois où vous êtes libre. Nous vous dirons ce qui est réalisable, ce que cela coûte et l'état de la route à cette période."
+    },
+    "form": {
+      "submit": "Envoyer la demande"
+    },
+    "direct": {
+      "title": "Vous préférez échanger de vive voix ?",
+      "body": "Le bureau est à Manali, d'où partent la plupart de nos itinéraires. Appelez, écrivez ou passez nous voir.",
+      "phone": "Téléphone",
+      "email": "E-mail",
+      "office": "Bureau",
+      "follow": "Suivez-nous"
+    },
+    "steps": {
+      "title": "La suite",
+      "items": {
+        "reply": {
+          "title": "Réponse sous un jour ouvré",
+          "body": "Une vraie personne de l'équipe, pas une réponse automatique."
+        },
+        "plan": {
+          "title": "Nous construisons l'itinéraire avec vous",
+          "body": "Dates, taille du groupe, machine et état du terrain à cette saison."
+        },
+        "confirm": {
+          "title": "Vous confirmez quand vous le souhaitez",
+          "body": "Un petit acompte réserve votre place. Rien n'est débité avant votre décision."
+        }
       }
     }
   }

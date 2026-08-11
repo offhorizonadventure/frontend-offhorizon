@@ -205,7 +205,9 @@
     "successTitle": "Anfrage erhalten",
     "successBody": "Vielen Dank. Unser Team meldet sich in Kürze.",
     "close": "Schließen",
-    "required": "Wir antworten innerhalb eines Werktags."
+    "required": "Wir antworten innerhalb eines Werktags.",
+    "countryLabel": "Ländervorwahl",
+    "searchLabel": "Land suchen"
   },
   "about": {
     "meta": {
@@ -305,6 +307,45 @@
         "atBooking": "Rabatte müssen bei der Buchung angefragt und angewendet werden.",
         "noStacking": "Rabatte sind nicht kombinierbar und nicht nachträglich anwendbar.",
         "changes": "Wir können ein Angebot ohne vorherige Ankündigung ändern oder zurückziehen."
+      }
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Offhorizon Adventures kontaktieren | Ihre Himalaya-Expedition",
+      "description": "Sprechen Sie mit dem Team über eine geführte Motorrad- oder 4x4-Expedition in Indien, Nepal, Bhutan, Sri Lanka oder der Mongolei. Sitz in Manali, Antwort innerhalb eines Werktags."
+    },
+    "hero": {
+      "eyebrow": "Kontakt",
+      "title": "Sagen Sie uns, wohin Sie fahren wollen.",
+      "lead": "Schicken Sie uns die Route, die Sie im Kopf haben, oder einfach den Monat, in dem Sie Zeit haben. Wir sagen Ihnen, was machbar ist, was es kostet und wie die Strecke zu dieser Jahreszeit ist."
+    },
+    "form": {
+      "submit": "Anfrage senden"
+    },
+    "direct": {
+      "title": "Lieber direkt sprechen?",
+      "body": "Unser Büro liegt in Manali, wo die meisten unserer Routen beginnen. Rufen Sie an, schreiben Sie, oder kommen Sie vorbei.",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "office": "Büro",
+      "follow": "Folgen Sie uns"
+    },
+    "steps": {
+      "title": "Wie es weitergeht",
+      "items": {
+        "reply": {
+          "title": "Antwort innerhalb eines Werktags",
+          "body": "Von einer echten Person aus dem Team, nicht von einem Autoresponder."
+        },
+        "plan": {
+          "title": "Wir planen die Route gemeinsam",
+          "body": "Termine, Gruppengröße, Maschine und der Zustand des Geländes in dieser Saison."
+        },
+        "confirm": {
+          "title": "Sie bestätigen, wenn Sie so weit sind",
+          "body": "Eine kleine Anzahlung sichert Ihren Platz. Vorher wird nichts berechnet."
+        }
       }
     }
   }
