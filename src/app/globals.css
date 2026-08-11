@@ -83,6 +83,13 @@ body::-webkit-scrollbar,
   background: transparent;
 }
 
+/* Browsers give fieldset `min-inline-size: min-content`, so unlike every other
+   element it refuses to shrink below its contents and pushes its column wide
+   on narrow screens. */
+fieldset {
+  min-inline-size: 0;
+}
+
 h1,
 h2,
 h3,

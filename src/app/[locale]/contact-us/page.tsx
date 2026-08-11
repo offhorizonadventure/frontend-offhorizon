@@ -107,11 +107,11 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
       <section className="bg-cream-50 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-            <div data-anim="up" className="lg:col-span-7">
+            <div data-anim="up" className="min-w-0 lg:col-span-7">
               <ContactForm labels={labels} />
             </div>
 
-            <aside data-anim="up" className="lg:col-span-5">
+            <aside data-anim="up" className="min-w-0 lg:col-span-5">
               <h2 className="font-display text-[clamp(1.4rem,2.6vw,1.9rem)] leading-tight font-extrabold tracking-[-0.03em] text-brand-900">
                 {t("direct.title")}
               </h2>
