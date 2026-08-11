@@ -1,12 +1,12 @@
 import { getTranslations } from "next-intl/server";
 
 import { Topo } from "@/components/ui/Topo";
-import { crewCount } from "@/config/team";
+import { COUNTRY_COUNT, crewCount, FOUNDED_YEAR } from "@/config/facts";
 
 /** Figures are facts about the business, so only the labels are translated. */
 const facts = [
-  { value: "2014", key: "since" },
-  { value: "5", key: "countries" },
+  { value: String(FOUNDED_YEAR), key: "since" },
+  { value: String(COUNTRY_COUNT), key: "countries" },
   { value: String(crewCount), key: "crew" },
 ] as const;
 

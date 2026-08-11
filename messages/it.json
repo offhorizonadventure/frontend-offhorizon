@@ -66,14 +66,20 @@
       "expeditions": "{count, plural, one {# spedizione} other {# spedizioni}}"
     },
     "stats": {
-      "years": "Anni di esperienza",
+      "years": "Anni sulla strada",
       "countries": "Paesi",
-      "expeditions": "Spedizioni realizzate",
-      "rating": "Valutazione"
+      "highestPass": "Passo più alto percorso",
+      "crew": "Persone sul campo"
     },
     "partners": {
       "eyebrow": "I nostri partner",
-      "note": "Lavoriamo con questi marchi e enti turistici della regione."
+      "title": "Riconosciuti, autorizzati e supportati.",
+      "note": "Un ministero, un ente turistico regionale e i costruttori dei mezzi che utilizziamo.",
+      "tile": {
+        "label": "Dal 2014",
+        "title": "Costruito su dieci anni sul campo.",
+        "cta": "La nostra storia"
+      }
     },
     "about": {
       "eyebrow": "Chi è Offhorizon",

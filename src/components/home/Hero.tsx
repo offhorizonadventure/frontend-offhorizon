@@ -1,23 +1,29 @@
-import { getTranslations } from "next-intl/server";
+import { getFormatter, getTranslations } from "next-intl/server";
 
 import { ArrowRight, Compass } from "@/components/ui/icons";
 import { Link } from "@/i18n/navigation";
 
 import { Topo } from "@/components/ui/Topo";
+import { COUNTRY_COUNT, crewCount, HIGHEST_PASS_METRES, yearsRunning } from "@/config/facts";
 
 import { DestinationGallery } from "./DestinationGallery";
-
-/** Figures are brand facts, not copy - only the labels are translated. */
-const stats = [
-  { value: "15+", key: "years" },
-  { value: "5", key: "countries" },
-  { value: "240+", key: "expeditions" },
-  { value: "4.9", key: "rating" },
-] as const;
 
 export async function Hero() {
   const t = await getTranslations("home.hero");
   const ts = await getTranslations("home.stats");
+  const format = await getFormatter();
+
+  /**
+   * Every figure is derived from something stated elsewhere on the site, so
+   * none of them can be contradicted by the About page. Only the labels are
+   * translated; the numbers are formatted per locale.
+   */
+  const stats = [
+    { value: format.number(yearsRunning), key: "years" },
+    { value: format.number(COUNTRY_COUNT), key: "countries" },
+    { value: `${format.number(HIGHEST_PASS_METRES)} m`, key: "highestPass" },
+    { value: format.number(crewCount), key: "crew" },
+  ] as const;
 
   return (
     <section className="relative overflow-hidden bg-cream-50">

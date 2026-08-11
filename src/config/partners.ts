@@ -3,8 +3,8 @@
  * Each one is scaled by area rather than height, so a wide wordmark and a
  * square badge carry the same visual weight, and every slot is identical.
  *
- * `mono` is a brand-brown silhouette shown at rest; `color` is the original
- * artwork revealed on hover.
+ * `mono` is a brand-brown silhouette shown at rest; the unsuffixed file is the
+ * original artwork revealed on hover.
  */
 export type Partner = {
   slug: string;
@@ -18,6 +18,3 @@ export const partners: Partner[] = [
   { slug: "reise-moto", name: "Reise Moto" },
   { slug: "mca-india", name: "Ministry of Corporate Affairs, Government of India" },
 ];
-
-/** How many times the strip repeats to fill wide screens and loop seamlessly. */
-export const PARTNER_REPEATS = 3;

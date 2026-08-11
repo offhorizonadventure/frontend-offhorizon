@@ -66,14 +66,20 @@
       "expeditions": "{count, plural, one {# expedition} other {# expeditions}}"
     },
     "stats": {
-      "years": "Years guiding",
+      "years": "Years on the road",
       "countries": "Countries",
-      "expeditions": "Expeditions run",
-      "rating": "Rider rating"
+      "highestPass": "Highest pass ridden",
+      "crew": "Crew on the ground"
     },
     "partners": {
       "eyebrow": "Our partners",
-      "note": "We work with these brands and tourism boards across the region."
+      "title": "Recognised, licensed and supported.",
+      "note": "A government ministry, a state tourism board and the manufacturers whose machines we run.",
+      "tile": {
+        "label": "Since 2014",
+        "title": "Built on a decade of ground experience.",
+        "cta": "Our story"
+      }
     },
     "about": {
       "eyebrow": "About Offhorizon",

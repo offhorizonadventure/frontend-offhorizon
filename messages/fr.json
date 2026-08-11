@@ -66,14 +66,20 @@
       "expeditions": "{count, plural, one {# expédition} other {# expéditions}}"
     },
     "stats": {
-      "years": "Ans d'expérience",
+      "years": "Ans sur la route",
       "countries": "Pays",
-      "expeditions": "Expéditions menées",
-      "rating": "Note des voyageurs"
+      "highestPass": "Col le plus haut franchi",
+      "crew": "Personnes sur le terrain"
     },
     "partners": {
       "eyebrow": "Nos partenaires",
-      "note": "Nous travaillons avec ces marques et offices de tourisme dans la région."
+      "title": "Reconnus, agréés et accompagnés.",
+      "note": "Un ministère, un office de tourisme régional et les constructeurs dont nous utilisons les machines.",
+      "tile": {
+        "label": "Depuis 2014",
+        "title": "Construit sur dix ans de terrain.",
+        "cta": "Notre histoire"
+      }
     },
     "about": {
       "eyebrow": "À propos d'Offhorizon",
