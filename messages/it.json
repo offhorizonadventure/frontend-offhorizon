@@ -519,43 +519,34 @@
       },
       "regions": {
         "eyebrow": "Regioni",
-        "label": "Regione",
         "title": "Dove guidiamo in India",
-        "explore": "Scopri la regione",
-        "himalayas": {
-          "name": "Himalaya indiano",
-          "body": "Ladakh, Spiti e Zanskar. Alti passi, guadi e deserto freddo, da giugno a settembre."
-        },
-        "south": {
-          "name": "India del Sud",
-          "body": "Ghati occidentali, strade costiere e terra di templi. Ricognizione in corso per un altro tipo di viaggio, in un'altra stagione."
-        }
+        "explore": "Scopri la regione"
       },
       "why": {
         "eyebrow": "Perché noi",
         "title": "Perché guidare in India con Offhorizon",
-        "reasons": {
-          "experience": {
+        "reasons": [
+          {
             "title": "Sul posto dal 2014",
             "body": "Abbiamo iniziato come BRB Expeditions, noleggiando moto a chi partiva per queste stesse valli."
           },
-          "based": {
+          {
             "title": "Con base a Manali",
             "body": "La porta dell'Himalaya, e il punto di partenza della maggior parte dei nostri itinerari. Non lo gestiamo da un'altra città."
           },
-          "team": {
+          {
             "title": "Un team locale",
             "body": "Guide che leggono questo terreno e questo meteo perché ci vivono, non perché hanno studiato la mappa."
           },
-          "planning": {
+          {
             "title": "Pianificato, non improvvisato",
             "body": "Itinerari strutturati con acclimatamento incluso e margine sufficiente per assorbire una giornata storta."
           },
-          "support": {
+          {
             "title": "Assistenza completa",
             "body": "Capo spedizione, meccanico nei gruppi in moto, veicolo di appoggio e logistica coordinata."
           }
-        },
+        ],
         "closing": "Se la strada è chiusa, te lo diciamo prima della prenotazione, non dopo."
       },
       "cta": {
@@ -565,29 +556,45 @@
       },
       "faq": {
         "title": "Guidare in India",
-        "permits": {
-          "q": "Servono assicurazione di viaggio e permessi?",
-          "a1": "Sì. Entrambi sono obbligatori, e nessuno dei due è facoltativo.",
-          "a2": "L'assicurazione di viaggio è obbligatoria e deve coprire:",
-          "l1": "Viaggi in quota sopra i 5.000 metri",
-          "l2": "La guida della moto, che molte polizze standard escludono",
-          "l3": "L'evacuazione d'emergenza, anche in elicottero",
-          "a3": "L'Himalaya è isolato. Una copertura adeguata è ciò che separa un incidente da un problema molto costoso.",
-          "a4": "Per diverse regioni, tra cui il Ladakh, servono permessi. Li otteniamo tutti noi, ma ci servono i dati di passaporto e visto con largo anticipo."
-        },
-        "when": {
-          "q": "Qual è la stagione per guidare nell'Himalaya indiano?",
-          "a1": "In linea di massima da giugno a settembre, e i limiti di questa finestra si spostano ogni anno con la neve.",
-          "l1": "Giugno: i passi aprono, i fiumi sono gonfi per lo scioglimento",
-          "l2": "Luglio e agosto: il periodo più affidabile, anche se il monsone interessa l'avvicinamento attraverso l'Himachal",
-          "l3": "Settembre: cielo limpido e la luce migliore, con notti fredde",
-          "a2": "Fuori da questa finestra la maggior parte degli alti passi è chiusa. Se le tue date non funzionano te lo diciamo, invece di venderti un viaggio che non partirà."
-        },
-        "licence": {
-          "q": "Che patente serve per guidare in India?",
-          "a1": "Serve una patente moto valida del tuo paese più una patente internazionale, ottenuta prima di partire. In India non viene rilasciata.",
-          "a2": "Porta i documenti originali. Una foto sul telefono non basta a un controllo."
-        }
+        "items": [
+          {
+            "question": "Servono assicurazione di viaggio e permessi?",
+            "answer": [
+              "Sì. Entrambi sono obbligatori, e nessuno dei due è facoltativo.",
+              "L'assicurazione di viaggio è obbligatoria e deve coprire:"
+            ],
+            "list": [
+              "Viaggi in quota sopra i 5.000 metri",
+              "La guida della moto, che molte polizze standard escludono",
+              "L'evacuazione d'emergenza, anche in elicottero"
+            ],
+            "after": [
+              "L'Himalaya è isolato. Una copertura adeguata è ciò che separa un incidente da un problema molto costoso.",
+              "Per diverse regioni, tra cui il Ladakh, servono permessi. Li otteniamo tutti noi, ma ci servono i dati di passaporto e visto con largo anticipo."
+            ]
+          },
+          {
+            "question": "Qual è la stagione per guidare nell'Himalaya indiano?",
+            "answer": [
+              "In linea di massima da giugno a settembre, e i limiti di questa finestra si spostano ogni anno con la neve."
+            ],
+            "list": [
+              "Giugno: i passi aprono, i fiumi sono gonfi per lo scioglimento",
+              "Luglio e agosto: il periodo più affidabile, anche se il monsone interessa l'avvicinamento attraverso l'Himachal",
+              "Settembre: cielo limpido e la luce migliore, con notti fredde"
+            ],
+            "after": [
+              "Fuori da questa finestra la maggior parte degli alti passi è chiusa. Se le tue date non funzionano te lo diciamo, invece di venderti un viaggio che non partirà."
+            ]
+          },
+          {
+            "question": "Che patente serve per guidare in India?",
+            "answer": [
+              "Serve una patente moto valida del tuo paese più una patente internazionale, ottenuta prima di partire. In India non viene rilasciata.",
+              "Porta i documenti originali. Una foto sul telefono non basta a un controllo."
+            ]
+          }
+        ]
       }
     },
     "indianHimalayas": {
@@ -607,28 +614,28 @@
         "eyebrow": "Specialisti dell'Himalaya",
         "title": "Perché percorrere l'Himalaya indiano con noi",
         "body": "Questo è il terreno che conosciamo meglio. Ogni dettaglio di come gestiamo un viaggio qui nasce dall'averlo fatto male una volta e averlo corretto.",
-        "items": {
-          "altitude": {
+        "items": [
+          {
             "title": "Esperienza in alta quota",
             "body": "Anni di gruppi condotti tra i 3.000 e i 5.800 metri, dove gli errori non perdonano."
           },
-          "planning": {
+          {
             "title": "Pianificazione di alto livello",
             "body": "Itinerari, permessi, carburante e alternative risolti prima che qualcuno metta in moto."
           },
-          "crew": {
+          {
             "title": "Guide e meccanico",
             "body": "Un capo spedizione, guide e un meccanico che viaggiano con il gruppo, non a chiamata."
           },
-          "itineraries": {
+          {
             "title": "Itinerari costruiti con cura",
             "body": "Distanze decise da ciò che ha senso in quota, non da ciò che fa effetto sulla mappa."
           },
-          "safety": {
+          {
             "title": "Sicurezza prima di tutto",
             "body": "Giorni di acclimatamento, ossigeno, primo soccorso, e la regola che il gruppo scende se qualcuno non migliora."
           }
-        },
+        ],
         "closing": "Niente convogli sovraffollati. Niente programmi di corsa."
       },
       "cta": {
@@ -637,57 +644,307 @@
       },
       "faq": {
         "title": "L'Himalaya, spiegato",
-        "what": {
-          "q": "Cos'è l'Himalaya?",
-          "a1": "L'Himalaya è la catena montuosa più alta della Terra. Attraversa India, Nepal, Bhutan, Cina e Pakistan e forma la barriera tra il subcontinente indiano e l'altopiano tibetano.",
-          "a2": "La catena comprende l'Everest e più di cento cime oltre i 7.000 metri. Indo, Gange e Brahmaputra nascono qui e sostengono centinaia di milioni di persone a valle.",
-          "a3": "Per chi viaggia in moto o in 4x4, il richiamo sta nella combinazione di:",
-          "l1": "Alti passi, alcuni tra le strade più elevate del mondo",
-          "l2": "Piste remote con giorni di distanza tra un insediamento e l'altro",
-          "l3": "Paesaggi che passano dal ghiacciaio al deserto freddo nella stessa giornata",
-          "l4": "Culture induiste e buddiste vive, non conservate",
-          "a4": "Organizziamo spedizioni nell'Himalaya indiano, nepalese e bhutanese."
-        },
-        "why": {
-          "q": "Perché l'Himalaya è il posto migliore per una spedizione in moto?",
-          "a1": "Perché pochi luoghi mettono insieme tanta quota, tanto isolamento e tanta varietà in un solo viaggio.",
-          "a2": "Si trova un misto di asfalto, sterrato e fuoristrada vero, su strade che salgono oltre i 5.000 metri e attraverso zone che vedono pochissimi veicoli. Ogni regione ha il suo carattere:",
-          "l1": "Ladakh: alti passi e paesaggi aridi estremi",
-          "l2": "Valle dello Spiti: remota, ruvida e tecnicamente più dura di quanto sembri",
-          "l3": "Upper Mustang in Nepal: deserto transhimalayano e cultura tibetana",
-          "l4": "Bhutan: strade più tranquille, foresta fitta e ritmo più lento",
-          "a3": "La guida da sola giustificherebbe il viaggio. Quello di cui si parla dopo sono i monasteri, i villaggi e la scala del posto."
-        },
-        "safe": {
-          "q": "È sicuro guidare sull'Himalaya?",
-          "a1": "Sì, quando la spedizione è pianificata e assistita come si deve. Il rischio qui non è la strada, è arrivare impreparati alla quota e alle distanze.",
-          "a2": "Ogni spedizione viaggia con capo spedizione, guide, meccanico e veicolo di appoggio. Inoltre:",
-          "l1": "Giorni di acclimatamento prima di salire in quota",
-          "l2": "Controlli quotidiani su come ciascuno regge l'altitudine",
-          "l3": "Ossigeno e primo soccorso sempre a bordo",
-          "l4": "Itinerari costruiti sull'esperienza, non sulla mappa",
-          "a3": "La misura di sicurezza più efficace resta un programma con abbastanza margine perché nessuno si senta spinto a guidare stando male."
-        },
-        "difficulty": {
-          "q": "Quanto sono impegnative le spedizioni himalayane?",
-          "a1": "Da moderate a impegnative, a seconda dell'itinerario.",
-          "a2": "Da mettere in conto:",
-          "l1": "Giornate lunghe tra i 3.000 e i 5.800 metri",
-          "l2": "Un misto di asfalto scorrevole e fuoristrada vero",
-          "l3": "Meteo che può cambiare nel giro di un'ora",
-          "l4": "Tratti remoti senza carburante, cibo o segnale",
-          "a3": "Sono adatte a motociclisti con esperienza da base a intermedia e una forma fisica ragionevole. Con un itinerario strutturato e un team di supporto, la maggior parte completa il percorso senza problemi."
-        },
-        "permits": {
-          "q": "Servono assicurazione di viaggio e permessi?",
-          "a1": "Sì. Entrambi sono obbligatori per ogni spedizione himalayana.",
-          "a2": "L'assicurazione di viaggio è obbligatoria e deve coprire:",
-          "l1": "Viaggi in quota sopra i 5.000 metri",
-          "l2": "La guida della moto, che molte polizze standard escludono",
-          "l3": "L'evacuazione d'emergenza, anche in elicottero",
-          "a3": "Sono regioni isolate e l'evacuazione costa cara. Controlla le esclusioni della tua polizza invece di darle per scontate.",
-          "a4": "Per diverse regioni tra cui il Ladakh servono permessi. Li otteniamo tutti noi, ma ci servono in anticipo i dati di passaporto e visto."
-        }
+        "items": [
+          {
+            "question": "Cos'è l'Himalaya?",
+            "answer": [
+              "L'Himalaya è la catena montuosa più alta della Terra. Attraversa India, Nepal, Bhutan, Cina e Pakistan e forma la barriera tra il subcontinente indiano e l'altopiano tibetano.",
+              "La catena comprende l'Everest e più di cento cime oltre i 7.000 metri. Indo, Gange e Brahmaputra nascono qui e sostengono centinaia di milioni di persone a valle.",
+              "Per chi viaggia in moto o in 4x4, il richiamo sta nella combinazione di:"
+            ],
+            "list": [
+              "Alti passi, alcuni tra le strade più elevate del mondo",
+              "Piste remote con giorni di distanza tra un insediamento e l'altro",
+              "Paesaggi che passano dal ghiacciaio al deserto freddo nella stessa giornata",
+              "Culture induiste e buddiste vive, non conservate"
+            ],
+            "after": [
+              "Organizziamo spedizioni nell'Himalaya indiano, nepalese e bhutanese."
+            ]
+          },
+          {
+            "question": "Perché l'Himalaya è il posto migliore per una spedizione in moto?",
+            "answer": [
+              "Perché pochi luoghi mettono insieme tanta quota, tanto isolamento e tanta varietà in un solo viaggio.",
+              "Si trova un misto di asfalto, sterrato e fuoristrada vero, su strade che salgono oltre i 5.000 metri e attraverso zone che vedono pochissimi veicoli. Ogni regione ha il suo carattere:"
+            ],
+            "list": [
+              "Ladakh: alti passi e paesaggi aridi estremi",
+              "Valle dello Spiti: remota, ruvida e tecnicamente più dura di quanto sembri",
+              "Upper Mustang in Nepal: deserto transhimalayano e cultura tibetana",
+              "Bhutan: strade più tranquille, foresta fitta e ritmo più lento"
+            ],
+            "after": [
+              "La guida da sola giustificherebbe il viaggio. Quello di cui si parla dopo sono i monasteri, i villaggi e la scala del posto."
+            ]
+          },
+          {
+            "question": "È sicuro guidare sull'Himalaya?",
+            "answer": [
+              "Sì, quando la spedizione è pianificata e assistita come si deve. Il rischio qui non è la strada, è arrivare impreparati alla quota e alle distanze.",
+              "Ogni spedizione viaggia con capo spedizione, guide, meccanico e veicolo di appoggio. Inoltre:"
+            ],
+            "list": [
+              "Giorni di acclimatamento prima di salire in quota",
+              "Controlli quotidiani su come ciascuno regge l'altitudine",
+              "Ossigeno e primo soccorso sempre a bordo",
+              "Itinerari costruiti sull'esperienza, non sulla mappa"
+            ],
+            "after": [
+              "La misura di sicurezza più efficace resta un programma con abbastanza margine perché nessuno si senta spinto a guidare stando male."
+            ]
+          },
+          {
+            "question": "Quanto sono impegnative le spedizioni himalayane?",
+            "answer": [
+              "Da moderate a impegnative, a seconda dell'itinerario.",
+              "Da mettere in conto:"
+            ],
+            "list": [
+              "Giornate lunghe tra i 3.000 e i 5.800 metri",
+              "Un misto di asfalto scorrevole e fuoristrada vero",
+              "Meteo che può cambiare nel giro di un'ora",
+              "Tratti remoti senza carburante, cibo o segnale"
+            ],
+            "after": [
+              "Sono adatte a motociclisti con esperienza da base a intermedia e una forma fisica ragionevole. Con un itinerario strutturato e un team di supporto, la maggior parte completa il percorso senza problemi."
+            ]
+          },
+          {
+            "question": "Servono assicurazione di viaggio e permessi?",
+            "answer": [
+              "Sì. Entrambi sono obbligatori per ogni spedizione himalayana.",
+              "L'assicurazione di viaggio è obbligatoria e deve coprire:"
+            ],
+            "list": [
+              "Viaggi in quota sopra i 5.000 metri",
+              "La guida della moto, che molte polizze standard escludono",
+              "L'evacuazione d'emergenza, anche in elicottero"
+            ],
+            "after": [
+              "Sono regioni isolate e l'evacuazione costa cara. Controlla le esclusioni della tua polizza invece di darle per scontate.",
+              "Per diverse regioni tra cui il Ladakh servono permessi. Li otteniamo tutti noi, ma ci servono in anticipo i dati di passaporto e visto."
+            ]
+          }
+        ]
+      },
+      "card": "Ladakh, Spiti e Zanskar. Alti passi, guadi e deserto freddo, da giugno a settembre."
+    },
+    "southIndia": {
+      "shortName": "India del Sud",
+      "card": "Ghati occidentali, strade costiere e terra di templi. Ricognizione in corso per un altro tipo di viaggio, in un'altra stagione."
+    },
+    "nepal": {
+      "meta": {
+        "title": "Spedizioni in moto attraverso il Nepal | Offhorizon",
+        "description": "Spedizioni guidate in moto nell'Himalaya nepalese. Da Kathmandu all'Alto Mustang attraverso la gola della Kali Gandaki, con guide, meccanico e veicolo di appoggio."
+      },
+      "eyebrow": "Nepal",
+      "title": "Spedizioni in moto attraverso il Nepal",
+      "lead": "Da Kathmandu all'antico regno di Lo, risalendo la gola più profonda del pianeta fino al deserto transhimalayano. Il Nepal cambia scenario in una settimana più di quanto molti paesi facciano in un mese.",
+      "intro": {
+        "title": "Colline verdi a colazione, deserto tibetano a cena.",
+        "body": "Il Nepal sale da valli subtropicali alle cime più alte del pianeta in meno di 150 chilometri. Percorrerlo significa terrazzamenti, pinete, una gola con due ottomila ai lati e poi una terra ocra e spoglia che non somiglia a nient'altro nel paese.",
+        "focus": "Le nostre spedizioni attraversano l'Himalaya nepalese, da Kathmandu al Mustang risalendo la Kali Gandaki. È la stessa catena in cui lavoriamo dal 2014, letta dall'altro lato del confine."
+      },
+      "regions": {
+        "eyebrow": "Regioni",
+        "title": "Dove guidiamo in Nepal",
+        "explore": "Scopri la regione"
+      },
+      "why": {
+        "eyebrow": "Perché noi",
+        "title": "Perché guidare in Nepal con Offhorizon",
+        "reasons": [
+          {
+            "title": "Sull'Himalaya dal 2014",
+            "body": "Dieci anni di veicoli e gruppi in quota, su entrambi i lati della catena."
+          },
+          {
+            "title": "Da Kathmandu al Mustang",
+            "body": "Un solo itinerario che unisce la capitale, la gola della Kali Gandaki e la città murata di Lo Manthang."
+          },
+          {
+            "title": "Guide locali",
+            "body": "Persone che sanno da che lato della valle scende il vento del pomeriggio, perché ci guidano dentro."
+          },
+          {
+            "title": "Pianificato, non improvvisato",
+            "body": "Itinerari strutturati con acclimatamento incluso e margine sufficiente per assorbire una giornata storta."
+          },
+          {
+            "title": "Assistenza completa",
+            "body": "Capo spedizione, meccanico che viaggia con il gruppo, veicolo di appoggio e permessi gestiti da noi."
+          }
+        ],
+        "closing": "Gruppi piccoli. Meglio una buona partenza che tre affollate."
+      },
+      "cta": {
+        "title": "Inizia la tua spedizione in Nepal",
+        "body": "Scegli una partenza dal calendario, oppure dicci le tue date e costruiremo l'itinerario intorno a quelle.",
+        "imageAlt": "Un veicolo sulla strada di montagna per Muktinath, nell'Himalaya nepalese"
+      },
+      "faq": {
+        "title": "Guidare in Nepal",
+        "items": [
+          {
+            "question": "Servono permessi per guidare in Nepal?",
+            "answer": [
+              "Sì, e l'Alto Mustang ne richiede più del solito.",
+              "A seconda dell'itinerario, metti in conto:"
+            ],
+            "list": [
+              "Un permesso per area riservata per l'Alto Mustang, rilasciato solo tramite un'agenzia registrata",
+              "Un permesso per l'area di conservazione dell'Annapurna",
+              "Un visto turistico, ottenibile all'arrivo per la maggior parte delle nazionalità"
+            ],
+            "after": [
+              "Ai permessi pensiamo noi, ma quello per l'area riservata richiede tempo e i tuoi dati di passaporto e visto con largo anticipo. Se si fa tardi, l'itinerario deve cambiare."
+            ]
+          },
+          {
+            "question": "Qual è la stagione per guidare in Nepal?",
+            "answer": [
+              "Primavera e autunno sono le finestre principali, e il Mustang le allunga."
+            ],
+            "list": [
+              "Da marzo a maggio: caldo, limpido, rododendri in fiore in quota",
+              "Da giugno ad agosto: monsone su quasi tutto il paese, ma il Mustang è in ombra di pioggia e resta relativamente asciutto",
+              "Da settembre a novembre: il tempo più stabile e le vedute più nitide sulle montagne"
+            ],
+            "after": [
+              "Da dicembre a febbraio fa freddo e diversi passi prendono neve. Dicci le tue date e ti diremo onestamente se funzionano."
+            ]
+          },
+          {
+            "question": "Che patente serve per guidare in Nepal?",
+            "answer": [
+              "Una patente moto valida del tuo paese e una patente internazionale, ottenuta prima di partire.",
+              "Porta i documenti originali. Ai controlli sulla strada del Mustang li chiedono davvero."
+            ]
+          }
+        ]
+      }
+    },
+    "nepalHimalayas": {
+      "meta": {
+        "title": "Spedizioni nell'Himalaya nepalese | Da Kathmandu all'Alto Mustang",
+        "description": "Spedizioni in moto nell'Himalaya nepalese. La gola della Kali Gandaki, Muktinath e l'antico regno di Lo, con guide, meccanico e veicolo di appoggio."
+      },
+      "eyebrow": "Himalaya nepalese",
+      "shortName": "Himalaya nepalese",
+      "card": "Kathmandu, la gola della Kali Gandaki e l'Alto Mustang. Deserto transhimalayano e cultura tibetana, in primavera e in autunno.",
+      "title": "Spedizioni in moto nell'Himalaya nepalese",
+      "lead": "Fuori dalla valle di Kathmandu, su per la gola più profonda del mondo con l'Annapurna da un lato e il Dhaulagiri dall'altro, fino alla città murata di Lo Manthang.",
+      "tours": {
+        "eyebrow": "Spedizioni",
+        "title": "Le principali spedizioni nell'Himalaya nepalese"
+      },
+      "why": {
+        "eyebrow": "Specialisti dell'Himalaya",
+        "title": "Perché percorrere l'Himalaya nepalese con noi",
+        "body": "Tecnicamente non è il percorso più duro che proponiamo, ma il dislivello e l'isolamento del Mustang colgono ancora impreparati. Noi pianifichiamo per questo.",
+        "items": [
+          {
+            "title": "Esperienza in alta quota",
+            "body": "Anni di gruppi condotti sopra i 3.000 metri, dove gli errori non perdonano."
+          },
+          {
+            "title": "Permessi gestiti",
+            "body": "Il permesso per area riservata dell'Alto Mustang è pronto prima del tuo arrivo, non rincorso il giorno stesso."
+          },
+          {
+            "title": "Guide e meccanico",
+            "body": "Un capo spedizione, guide e un meccanico che viaggiano con il gruppo, non a chiamata."
+          },
+          {
+            "title": "Itinerari costruiti con cura",
+            "body": "Tempo a Kathmandu e Pokhara all'inizio, così la salita verso il Mustang non è uno shock."
+          },
+          {
+            "title": "Sicurezza prima di tutto",
+            "body": "Giorni di acclimatamento, ossigeno, primo soccorso, e la regola che il gruppo scende se qualcuno non migliora."
+          }
+        ],
+        "closing": "Niente convogli sovraffollati. Niente programmi di corsa."
+      },
+      "cta": {
+        "title": "Inizia la tua avventura nell'Himalaya nepalese",
+        "body": "Unisciti a una partenza in calendario, oppure dicci le tue date e costruiremo l'itinerario intorno a quelle."
+      },
+      "faq": {
+        "title": "Il Mustang e la Kali Gandaki",
+        "items": [
+          {
+            "question": "Cos'è l'Alto Mustang?",
+            "answer": [
+              "L'Alto Mustang è la metà settentrionale del distretto nepalese di Mustang, un'alta valle desertica che sta dietro la catena himalayana principale e si apre sull'altopiano tibetano.",
+              "È stato un regno a sé, il Lo, fino al 2008, e chiuso agli stranieri fino al 1992. Cultura, architettura e lingua sono tibetane più che nepalesi, e Lo Manthang è ancora una città murata.",
+              "Per chi guida significa:"
+            ],
+            "list": [
+              "Terra di canyon ocra quasi senza vegetazione",
+              "Strade tagliate nella roccia sopra la Kali Gandaki",
+              "Villaggi e monasteri cambiati pochissimo",
+              "Aria secca, luce dura e un vento che si alza ogni pomeriggio"
+            ],
+            "after": [
+              "È la cosa più vicina a guidare in Tibet senza attraversare il confine."
+            ]
+          },
+          {
+            "question": "Cos'è la gola della Kali Gandaki?",
+            "answer": [
+              "Il fiume Kali Gandaki passa tra Annapurna e Dhaulagiri, entrambi sopra gli 8.000 metri, e il dislivello tra le cime e il letto del fiume la rende, secondo la maggior parte delle misure, la gola più profonda della Terra.",
+              "La strada segue il letto del fiume per buona parte del percorso. Si passa dalla foresta al deserto in una sola giornata, con i due massicci proprio sopra la testa."
+            ]
+          },
+          {
+            "question": "Quanto è impegnativa la guida?",
+            "answer": [
+              "Moderata. Meno tecnica del Ladakh, ma più lunga su fondo non asfaltato."
+            ],
+            "list": [
+              "Asfalto da Kathmandu a Pokhara e oltre",
+              "Ghiaia, letto di fiume e fondo mobile a nord di Jomsom",
+              "Un forte vento contrario su per la valle quasi ogni pomeriggio",
+              "Quota tra i 3.000 e i 4.000 metri in Mustang, più in alto nelle deviazioni"
+            ],
+            "after": [
+              "Adatta a chi ha esperienza fuoristrada da base a intermedia. A stancare è il vento, non il terreno, ed è per questo che la giornata finisce presto."
+            ]
+          },
+          {
+            "question": "È sicuro guidare in Nepal?",
+            "answer": [
+              "Sì, con una spedizione assistita come si deve. I rischi sono la quota, il meteo e lo stato della strada dopo il monsone, e tutti e tre si gestiscono con la pianificazione, non con la tecnica di guida.",
+              "Ogni spedizione viaggia con capo spedizione, guide, meccanico e veicolo di appoggio. Inoltre:"
+            ],
+            "list": [
+              "Giorni di acclimatamento prima di salire in quota",
+              "Controlli quotidiani su come ciascuno regge l'altitudine",
+              "Ossigeno e primo soccorso sempre a bordo",
+              "Itinerari costruiti sull'esperienza, non sulla mappa"
+            ],
+            "after": [
+              "Il Mustang è isolato. L'evacuazione avviene in elicottero, ed è uno dei motivi per cui l'assicurazione non è facoltativa."
+            ]
+          },
+          {
+            "question": "Serve un'assicurazione di viaggio?",
+            "answer": [
+              "Sì. È obbligatoria e deve coprire:"
+            ],
+            "list": [
+              "Viaggi in quota sopra i 4.000 metri",
+              "La guida della moto, che molte polizze standard escludono",
+              "L'evacuazione d'emergenza, anche in elicottero"
+            ],
+            "after": [
+              "Controlla le esclusioni della tua polizza invece di darle per scontate. L'evacuazione in elicottero dal Mustang costa cara, e c'è chi l'ha scoperto nel modo peggiore."
+            ]
+          }
+        ]
       }
     }
   }

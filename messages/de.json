@@ -519,43 +519,34 @@
       },
       "regions": {
         "eyebrow": "Regionen",
-        "label": "Region",
         "title": "Wo wir in Indien fahren",
-        "explore": "Region entdecken",
-        "himalayas": {
-          "name": "Indischer Himalaya",
-          "body": "Ladakh, Spiti und Zanskar. Hohe Pässe, Flussdurchfahrten und Kältewüste, gefahren zwischen Juni und September."
-        },
-        "south": {
-          "name": "Südindien",
-          "body": "Westghats, Küstenstraßen und Tempelland. Erkundung läuft für eine andere Art von Reise, zu einer anderen Jahreszeit."
-        }
+        "explore": "Region entdecken"
       },
       "why": {
         "eyebrow": "Warum wir",
         "title": "Warum Sie Indien mit Offhorizon fahren sollten",
-        "reasons": {
-          "experience": {
+        "reasons": [
+          {
             "title": "Seit 2014 vor Ort",
             "body": "Wir haben als BRB Expeditions angefangen und Maschinen an alle vermietet, die in genau diese Täler aufbrachen."
           },
-          "based": {
+          {
             "title": "Sitz in Manali",
             "body": "Das Tor zum Himalaya und der Start der meisten unserer Routen. Wir steuern das nicht aus einer anderen Stadt."
           },
-          "team": {
+          {
             "title": "Ein lokales Team",
             "body": "Guides, die dieses Gelände und dieses Wetter lesen, weil sie darin leben, nicht weil sie die Karte studiert haben."
           },
-          "planning": {
+          {
             "title": "Geplant, nicht improvisiert",
             "body": "Strukturierte Routen mit eingebauter Akklimatisierung und genug Puffer für einen schlechten Tag."
           },
-          "support": {
+          {
             "title": "Volle Unterstützung",
             "body": "Expeditionsleiter, Mechaniker bei Motorradgruppen, Begleitfahrzeug und abgestimmte Logistik."
           }
-        },
+        ],
         "closing": "Wenn die Straße gesperrt ist, sagen wir es vor der Buchung, nicht danach."
       },
       "cta": {
@@ -565,29 +556,45 @@
       },
       "faq": {
         "title": "Fahren in Indien",
-        "permits": {
-          "q": "Brauche ich eine Reiseversicherung und Genehmigungen?",
-          "a1": "Ja. Beides ist erforderlich, und nichts davon ist optional.",
-          "a2": "Eine Reiseversicherung ist Pflicht und muss abdecken:",
-          "l1": "Aufenthalte über 5.000 Metern Höhe",
-          "l2": "Motorradfahren, das viele Standardpolicen ausschließen",
-          "l3": "Notfallevakuierung, auch per Hubschrauber",
-          "a3": "Der Himalaya ist abgelegen. Der richtige Schutz steht zwischen einem Zwischenfall und einem sehr teuren Problem.",
-          "a4": "Für mehrere Regionen, darunter Ladakh, sind Genehmigungen nötig. Wir besorgen sie alle, brauchen dafür aber rechtzeitig Ihre Pass- und Visadaten."
-        },
-        "when": {
-          "q": "Wann ist die Fahrsaison im indischen Himalaya?",
-          "a1": "Grob von Juni bis September, wobei sich die Ränder dieses Fensters jedes Jahr mit dem Schnee verschieben.",
-          "l1": "Juni: die Pässe öffnen, die Flüsse führen Schmelzwasser",
-          "l2": "Juli und August: am verlässlichsten, auch wenn der Monsun die Anfahrt durch Himachal betrifft",
-          "l3": "September: klarer Himmel und das beste Licht, dafür kalte Nächte",
-          "a2": "Außerhalb dieses Fensters sind die meisten hohen Pässe gesperrt. Wir sagen Ihnen, wenn Ihre Termine nicht passen, statt Ihnen eine Reise zu verkaufen, die nicht stattfindet."
-        },
-        "licence": {
-          "q": "Welchen Führerschein brauche ich in Indien?",
-          "a1": "Sie brauchen einen gültigen Motorradführerschein aus Ihrem Heimatland und einen internationalen Führerschein, ausgestellt vor der Abreise. In Indien wird er nicht ausgegeben.",
-          "a2": "Bringen Sie die Originaldokumente mit. Ein Foto auf dem Handy reicht an einer Kontrolle nicht."
-        }
+        "items": [
+          {
+            "question": "Brauche ich eine Reiseversicherung und Genehmigungen?",
+            "answer": [
+              "Ja. Beides ist erforderlich, und nichts davon ist optional.",
+              "Eine Reiseversicherung ist Pflicht und muss abdecken:"
+            ],
+            "list": [
+              "Aufenthalte über 5.000 Metern Höhe",
+              "Motorradfahren, das viele Standardpolicen ausschließen",
+              "Notfallevakuierung, auch per Hubschrauber"
+            ],
+            "after": [
+              "Der Himalaya ist abgelegen. Der richtige Schutz steht zwischen einem Zwischenfall und einem sehr teuren Problem.",
+              "Für mehrere Regionen, darunter Ladakh, sind Genehmigungen nötig. Wir besorgen sie alle, brauchen dafür aber rechtzeitig Ihre Pass- und Visadaten."
+            ]
+          },
+          {
+            "question": "Wann ist die Fahrsaison im indischen Himalaya?",
+            "answer": [
+              "Grob von Juni bis September, wobei sich die Ränder dieses Fensters jedes Jahr mit dem Schnee verschieben."
+            ],
+            "list": [
+              "Juni: die Pässe öffnen, die Flüsse führen Schmelzwasser",
+              "Juli und August: am verlässlichsten, auch wenn der Monsun die Anfahrt durch Himachal betrifft",
+              "September: klarer Himmel und das beste Licht, dafür kalte Nächte"
+            ],
+            "after": [
+              "Außerhalb dieses Fensters sind die meisten hohen Pässe gesperrt. Wir sagen Ihnen, wenn Ihre Termine nicht passen, statt Ihnen eine Reise zu verkaufen, die nicht stattfindet."
+            ]
+          },
+          {
+            "question": "Welchen Führerschein brauche ich in Indien?",
+            "answer": [
+              "Sie brauchen einen gültigen Motorradführerschein aus Ihrem Heimatland und einen internationalen Führerschein, ausgestellt vor der Abreise. In Indien wird er nicht ausgegeben.",
+              "Bringen Sie die Originaldokumente mit. Ein Foto auf dem Handy reicht an einer Kontrolle nicht."
+            ]
+          }
+        ]
       }
     },
     "indianHimalayas": {
@@ -607,28 +614,28 @@
         "eyebrow": "Himalaya-Spezialisten",
         "title": "Warum Sie den indischen Himalaya mit uns fahren sollten",
         "body": "Das ist das Gelände, das wir am besten kennen. Jeder Teil unseres Ablaufs stammt daher, dass wir es einmal schlecht gemacht und dann behoben haben.",
-        "items": {
-          "altitude": {
+        "items": [
+          {
             "title": "Erfahrung in großer Höhe",
             "body": "Jahre mit Gruppen zwischen 3.000 und 5.800 Metern, wo Fehler nicht verziehen werden."
           },
-          "planning": {
+          {
             "title": "Erstklassige Planung",
             "body": "Routen, Genehmigungen, Treibstoff und Ausweichoptionen geklärt, bevor sich ein Rad dreht."
           },
-          "crew": {
+          {
             "title": "Guides und Mechaniker",
             "body": "Ein Expeditionsleiter, Guides und ein Mechaniker fahren mit der Gruppe, nicht auf Abruf."
           },
-          "itineraries": {
+          {
             "title": "Sorgfältig gebaute Routen",
             "body": "Distanzen nach dem, was in dieser Höhe sinnvoll ist, nicht nach dem, was auf der Karte beeindruckt."
           },
-          "safety": {
+          {
             "title": "Sicherheit zuerst",
             "body": "Akklimatisierungstage, Sauerstoff, Erste Hilfe, und die Regel, dass die Gruppe absteigt, wenn es jemandem nicht besser geht."
           }
-        },
+        ],
         "closing": "Keine überfüllten Konvois. Keine gehetzten Zeitpläne."
       },
       "cta": {
@@ -637,57 +644,307 @@
       },
       "faq": {
         "title": "Der Himalaya, erklärt",
-        "what": {
-          "q": "Was ist der Himalaya?",
-          "a1": "Der Himalaya ist das höchste Gebirge der Erde. Er zieht sich durch Indien, Nepal, Bhutan, China und Pakistan und bildet die Barriere zwischen dem indischen Subkontinent und dem tibetischen Hochland.",
-          "a2": "Zum Gebirge gehören der Mount Everest und mehr als hundert Gipfel über 7.000 Metern. Indus, Ganges und Brahmaputra entspringen hier und versorgen flussabwärts Hunderte Millionen Menschen.",
-          "a3": "Für alle, die mit Motorrad oder 4x4 unterwegs sind, liegt der Reiz in der Kombination aus:",
-          "l1": "Hohen Pässen, darunter einige der höchsten Straßen der Welt",
-          "l2": "Abgelegenen Pisten mit Tagen zwischen den Siedlungen",
-          "l3": "Landschaften, die an einem Tag vom Gletscher zur Kältewüste wechseln",
-          "l4": "Gelebter hinduistischer und buddhistischer Kultur, nicht konservierter",
-          "a4": "Wir führen Expeditionen im indischen, nepalesischen und bhutanischen Himalaya."
-        },
-        "why": {
-          "q": "Warum ist der Himalaya der beste Ort für eine Motorrad-Expedition?",
-          "a1": "Weil wenige Orte so viel Höhe, so viel Abgeschiedenheit und so viel Abwechslung in einer einzigen Reise vereinen.",
-          "a2": "Es gibt eine Mischung aus Asphalt, Schotter und echtem Gelände, auf Straßen über 5.000 Meter und durch Gegenden, die kaum ein Fahrzeug sieht. Jede Region liest sich anders:",
-          "l1": "Ladakh: hohe Pässe und extreme, trockene Landschaften",
-          "l2": "Spiti-Tal: abgelegen, rau und technisch schwerer, als es aussieht",
-          "l3": "Upper Mustang in Nepal: trans-himalayische Wüste und tibetische Kultur",
-          "l4": "Bhutan: ruhigere Straßen, dichter Wald und ein langsameres Tempo",
-          "a3": "Das Fahren allein würde die Reise rechtfertigen. Worüber danach gesprochen wird, sind die Klöster, die Dörfer und die schiere Größe des Ortes."
-        },
-        "safe": {
-          "q": "Ist Fahren im Himalaya sicher?",
-          "a1": "Ja, wenn die Expedition richtig geplant und besetzt ist. Das Risiko ist hier nicht die Straße, sondern schlecht vorbereitet auf Höhe und Distanz zu treffen.",
-          "a2": "Jede Expedition fährt mit Expeditionsleiter, Guides, Mechaniker und Begleitfahrzeug. Außerdem gilt:",
-          "l1": "Akklimatisierungstage, bevor jemand hoch hinauffährt",
-          "l2": "Tägliche Kontrolle, wie jeder die Höhe verträgt",
-          "l3": "Sauerstoff und Erste Hilfe immer dabei",
-          "l4": "Routen aus Erfahrung gebaut, nicht von der Karte",
-          "a3": "Die wirksamste Sicherheitsmaßnahme ist ein Zeitplan mit genug Puffer, damit niemand sich gedrängt fühlt, krank zu fahren."
-        },
-        "difficulty": {
-          "q": "Wie schwierig sind Himalaya-Expeditionen?",
-          "a1": "Mittel bis anspruchsvoll, je nach Route.",
-          "a2": "Zu erwarten sind:",
-          "l1": "Lange Fahrtage zwischen 3.000 und 5.800 Metern",
-          "l2": "Eine Mischung aus gutem Asphalt und echtem Gelände",
-          "l3": "Wetter, das innerhalb einer Stunde umschlagen kann",
-          "l4": "Abgelegene Abschnitte ohne Treibstoff, Essen oder Empfang",
-          "a3": "Sie eignen sich für Fahrer mit einfacher bis mittlerer Erfahrung und ordentlicher Fitness. Mit strukturierter Route und Begleitteam schaffen die meisten die Strecke gut."
-        },
-        "permits": {
-          "q": "Brauche ich eine Reiseversicherung und Genehmigungen?",
-          "a1": "Ja. Beides ist für jede Himalaya-Expedition erforderlich.",
-          "a2": "Eine Reiseversicherung ist Pflicht und muss abdecken:",
-          "l1": "Aufenthalte über 5.000 Metern Höhe",
-          "l2": "Motorradfahren, das viele Standardpolicen ausschließen",
-          "l3": "Notfallevakuierung, auch per Hubschrauber",
-          "a3": "Das sind abgelegene Regionen und eine Evakuierung ist teuer. Prüfen Sie die Ausschlüsse Ihrer Police, statt es anzunehmen.",
-          "a4": "Für mehrere Regionen einschließlich Ladakh sind Genehmigungen nötig. Wir besorgen sie alle, brauchen dafür aber vorab Ihre Pass- und Visadaten."
-        }
+        "items": [
+          {
+            "question": "Was ist der Himalaya?",
+            "answer": [
+              "Der Himalaya ist das höchste Gebirge der Erde. Er zieht sich durch Indien, Nepal, Bhutan, China und Pakistan und bildet die Barriere zwischen dem indischen Subkontinent und dem tibetischen Hochland.",
+              "Zum Gebirge gehören der Mount Everest und mehr als hundert Gipfel über 7.000 Metern. Indus, Ganges und Brahmaputra entspringen hier und versorgen flussabwärts Hunderte Millionen Menschen.",
+              "Für alle, die mit Motorrad oder 4x4 unterwegs sind, liegt der Reiz in der Kombination aus:"
+            ],
+            "list": [
+              "Hohen Pässen, darunter einige der höchsten Straßen der Welt",
+              "Abgelegenen Pisten mit Tagen zwischen den Siedlungen",
+              "Landschaften, die an einem Tag vom Gletscher zur Kältewüste wechseln",
+              "Gelebter hinduistischer und buddhistischer Kultur, nicht konservierter"
+            ],
+            "after": [
+              "Wir führen Expeditionen im indischen, nepalesischen und bhutanischen Himalaya."
+            ]
+          },
+          {
+            "question": "Warum ist der Himalaya der beste Ort für eine Motorrad-Expedition?",
+            "answer": [
+              "Weil wenige Orte so viel Höhe, so viel Abgeschiedenheit und so viel Abwechslung in einer einzigen Reise vereinen.",
+              "Es gibt eine Mischung aus Asphalt, Schotter und echtem Gelände, auf Straßen über 5.000 Meter und durch Gegenden, die kaum ein Fahrzeug sieht. Jede Region liest sich anders:"
+            ],
+            "list": [
+              "Ladakh: hohe Pässe und extreme, trockene Landschaften",
+              "Spiti-Tal: abgelegen, rau und technisch schwerer, als es aussieht",
+              "Upper Mustang in Nepal: trans-himalayische Wüste und tibetische Kultur",
+              "Bhutan: ruhigere Straßen, dichter Wald und ein langsameres Tempo"
+            ],
+            "after": [
+              "Das Fahren allein würde die Reise rechtfertigen. Worüber danach gesprochen wird, sind die Klöster, die Dörfer und die schiere Größe des Ortes."
+            ]
+          },
+          {
+            "question": "Ist Fahren im Himalaya sicher?",
+            "answer": [
+              "Ja, wenn die Expedition richtig geplant und besetzt ist. Das Risiko ist hier nicht die Straße, sondern schlecht vorbereitet auf Höhe und Distanz zu treffen.",
+              "Jede Expedition fährt mit Expeditionsleiter, Guides, Mechaniker und Begleitfahrzeug. Außerdem gilt:"
+            ],
+            "list": [
+              "Akklimatisierungstage, bevor jemand hoch hinauffährt",
+              "Tägliche Kontrolle, wie jeder die Höhe verträgt",
+              "Sauerstoff und Erste Hilfe immer dabei",
+              "Routen aus Erfahrung gebaut, nicht von der Karte"
+            ],
+            "after": [
+              "Die wirksamste Sicherheitsmaßnahme ist ein Zeitplan mit genug Puffer, damit niemand sich gedrängt fühlt, krank zu fahren."
+            ]
+          },
+          {
+            "question": "Wie schwierig sind Himalaya-Expeditionen?",
+            "answer": [
+              "Mittel bis anspruchsvoll, je nach Route.",
+              "Zu erwarten sind:"
+            ],
+            "list": [
+              "Lange Fahrtage zwischen 3.000 und 5.800 Metern",
+              "Eine Mischung aus gutem Asphalt und echtem Gelände",
+              "Wetter, das innerhalb einer Stunde umschlagen kann",
+              "Abgelegene Abschnitte ohne Treibstoff, Essen oder Empfang"
+            ],
+            "after": [
+              "Sie eignen sich für Fahrer mit einfacher bis mittlerer Erfahrung und ordentlicher Fitness. Mit strukturierter Route und Begleitteam schaffen die meisten die Strecke gut."
+            ]
+          },
+          {
+            "question": "Brauche ich eine Reiseversicherung und Genehmigungen?",
+            "answer": [
+              "Ja. Beides ist für jede Himalaya-Expedition erforderlich.",
+              "Eine Reiseversicherung ist Pflicht und muss abdecken:"
+            ],
+            "list": [
+              "Aufenthalte über 5.000 Metern Höhe",
+              "Motorradfahren, das viele Standardpolicen ausschließen",
+              "Notfallevakuierung, auch per Hubschrauber"
+            ],
+            "after": [
+              "Das sind abgelegene Regionen und eine Evakuierung ist teuer. Prüfen Sie die Ausschlüsse Ihrer Police, statt es anzunehmen.",
+              "Für mehrere Regionen einschließlich Ladakh sind Genehmigungen nötig. Wir besorgen sie alle, brauchen dafür aber vorab Ihre Pass- und Visadaten."
+            ]
+          }
+        ]
+      },
+      "card": "Ladakh, Spiti und Zanskar. Hohe Pässe, Flussdurchfahrten und Kältewüste, gefahren zwischen Juni und September."
+    },
+    "southIndia": {
+      "shortName": "Südindien",
+      "card": "Westghats, Küstenstraßen und Tempelland. Erkundung läuft für eine andere Art von Reise, zu einer anderen Jahreszeit."
+    },
+    "nepal": {
+      "meta": {
+        "title": "Motorrad-Expeditionen durch Nepal | Offhorizon",
+        "description": "Geführte Motorrad-Expeditionen im nepalesischen Himalaya. Von Kathmandu nach Upper Mustang durch die Kali-Gandaki-Schlucht, mit Guides, Mechaniker und Begleitfahrzeug."
+      },
+      "eyebrow": "Nepal",
+      "title": "Motorrad-Expeditionen durch Nepal",
+      "lead": "Von Kathmandu ins alte Königreich Lo, die tiefste Schlucht der Erde hinauf und hinaus in die trans-himalayische Wüste. Nepal bringt in einer Woche mehr Szenenwechsel zusammen als die meisten Länder in einem Monat.",
+      "intro": {
+        "title": "Grüne Vorberge beim Frühstück, tibetische Wüste beim Abendessen.",
+        "body": "Nepal steigt in weniger als 150 Kilometern von subtropischen Tälern zu den höchsten Gipfeln der Welt. Fahren heißt hier Terrassenfelder, Kiefernwald, eine Flussschlucht mit Achttausendern auf beiden Seiten und dann kahles, ockerfarbenes Land, das dem Rest des Landes in nichts ähnelt.",
+        "focus": "Unsere Expeditionen führen durch den nepalesischen Himalaya, von Kathmandu die Kali Gandaki hinauf nach Mustang. Es ist dieselbe Kette, in der wir seit 2014 arbeiten, von der anderen Seite der Grenze gelesen."
+      },
+      "regions": {
+        "eyebrow": "Regionen",
+        "title": "Wo wir in Nepal fahren",
+        "explore": "Region entdecken"
+      },
+      "why": {
+        "eyebrow": "Warum wir",
+        "title": "Warum Sie Nepal mit Offhorizon fahren sollten",
+        "reasons": [
+          {
+            "title": "Im Himalaya seit 2014",
+            "body": "Ein Jahrzehnt mit Fahrzeugen und Gruppen in der Höhe, auf beiden Seiten der Kette."
+          },
+          {
+            "title": "Kathmandu bis Mustang",
+            "body": "Eine Route, die die Hauptstadt, die Kali-Gandaki-Schlucht und die Mauerstadt Lo Manthang verbindet."
+          },
+          {
+            "title": "Lokale Guides",
+            "body": "Leute, die wissen, auf welcher Talseite der Nachmittagswind herunterkommt, weil sie darin fahren."
+          },
+          {
+            "title": "Geplant, nicht improvisiert",
+            "body": "Strukturierte Routen mit eingebauter Akklimatisierung und genug Puffer für einen schlechten Tag."
+          },
+          {
+            "title": "Volle Unterstützung",
+            "body": "Expeditionsleiter, mitreisender Mechaniker, Begleitfahrzeug und erledigte Genehmigungen."
+          }
+        ],
+        "closing": "Kleine Gruppen. Lieber ein guter Termin als drei überfüllte."
+      },
+      "cta": {
+        "title": "Starten Sie Ihre Expedition in Nepal",
+        "body": "Wählen Sie einen Termin aus dem Kalender, oder nennen Sie uns Ihre Daten und wir bauen die Route darum herum.",
+        "imageAlt": "Ein Fahrzeug auf der Bergstraße nach Muktinath im nepalesischen Himalaya"
+      },
+      "faq": {
+        "title": "Fahren in Nepal",
+        "items": [
+          {
+            "question": "Brauche ich Genehmigungen, um in Nepal zu fahren?",
+            "answer": [
+              "Ja, und Upper Mustang braucht mehr als die üblichen.",
+              "Je nach Route sind zu erwarten:"
+            ],
+            "list": [
+              "Eine Sperrgebietsgenehmigung für Upper Mustang, die nur über eine registrierte Agentur ausgestellt wird",
+              "Eine Genehmigung für das Annapurna-Schutzgebiet",
+              "Ein Touristenvisum, für die meisten Nationalitäten bei Ankunft erhältlich"
+            ],
+            "after": [
+              "Wir besorgen die Genehmigungen, aber die für das Sperrgebiet dauert und braucht Ihre Pass- und Visadaten lange vor der Abreise. Zu spät, und die Route muss sich ändern."
+            ]
+          },
+          {
+            "question": "Wann ist die Fahrsaison in Nepal?",
+            "answer": [
+              "Frühjahr und Herbst sind die Hauptfenster, und Mustang dehnt sie aus."
+            ],
+            "list": [
+              "März bis Mai: warm, klar, blühende Rhododendren in der Höhe",
+              "Juni bis August: Monsun im größten Teil des Landes, aber Mustang liegt im Regenschatten und bleibt vergleichsweise trocken",
+              "September bis November: das beständigste Wetter und die klarsten Bergblicke"
+            ],
+            "after": [
+              "Dezember bis Februar ist kalt und mehrere Pässe bekommen Schnee. Nennen Sie uns Ihre Termine und wir sagen ehrlich, ob sie passen."
+            ]
+          },
+          {
+            "question": "Welchen Führerschein brauche ich in Nepal?",
+            "answer": [
+              "Einen gültigen Motorradführerschein aus Ihrem Heimatland und einen internationalen Führerschein, ausgestellt vor der Abreise.",
+              "Bringen Sie die Originaldokumente mit. Die Kontrollen auf der Mustang-Straße fragen tatsächlich danach."
+            ]
+          }
+        ]
+      }
+    },
+    "nepalHimalayas": {
+      "meta": {
+        "title": "Expeditionen im nepalesischen Himalaya | Kathmandu bis Upper Mustang",
+        "description": "Motorrad-Expeditionen im nepalesischen Himalaya. Die Kali-Gandaki-Schlucht, Muktinath und das alte Königreich Lo, mit Guides, Mechaniker und Begleitfahrzeug."
+      },
+      "eyebrow": "Nepalesischer Himalaya",
+      "shortName": "Nepalesischer Himalaya",
+      "card": "Kathmandu, die Kali-Gandaki-Schlucht und Upper Mustang. Trans-himalayische Wüste und tibetische Kultur, im Frühjahr und Herbst.",
+      "title": "Expeditionen im nepalesischen Himalaya, per Motorrad",
+      "lead": "Aus dem Kathmandutal hinaus, die tiefste Schlucht der Welt hinauf mit der Annapurna auf der einen und dem Dhaulagiri auf der anderen Seite, und hinein in die Mauerstadt Lo Manthang.",
+      "tours": {
+        "eyebrow": "Expeditionen",
+        "title": "Die wichtigsten Expeditionen im nepalesischen Himalaya"
+      },
+      "why": {
+        "eyebrow": "Himalaya-Spezialisten",
+        "title": "Warum Sie den nepalesischen Himalaya mit uns fahren sollten",
+        "body": "Technisch ist das nicht die schwerste Strecke, die wir anbieten, aber der Höhengewinn und die Abgeschiedenheit in Mustang überraschen trotzdem. Dafür planen wir.",
+        "items": [
+          {
+            "title": "Erfahrung in großer Höhe",
+            "body": "Jahre mit Gruppen über 3.000 Metern, wo Fehler nicht verziehen werden."
+          },
+          {
+            "title": "Genehmigungen erledigt",
+            "body": "Die Sperrgebietsgenehmigung für Upper Mustang liegt vor Ihrer Ankunft vor, statt am Tag selbst zusammengesucht zu werden."
+          },
+          {
+            "title": "Guides und Mechaniker",
+            "body": "Ein Expeditionsleiter, Guides und ein Mechaniker fahren mit der Gruppe, nicht auf Abruf."
+          },
+          {
+            "title": "Sorgfältig gebaute Routen",
+            "body": "Zeit in Kathmandu und Pokhara am Anfang, damit der Anstieg nach Mustang kein Schock ist."
+          },
+          {
+            "title": "Sicherheit zuerst",
+            "body": "Akklimatisierungstage, Sauerstoff, Erste Hilfe, und die Regel, dass die Gruppe absteigt, wenn es jemandem nicht besser geht."
+          }
+        ],
+        "closing": "Keine überfüllten Konvois. Keine gehetzten Zeitpläne."
+      },
+      "cta": {
+        "title": "Starten Sie Ihr Abenteuer im nepalesischen Himalaya",
+        "body": "Schließen Sie sich einem festen Termin an, oder nennen Sie uns Ihre Daten und wir bauen die Route darum herum."
+      },
+      "faq": {
+        "title": "Mustang und die Kali Gandaki",
+        "items": [
+          {
+            "question": "Was ist Upper Mustang?",
+            "answer": [
+              "Upper Mustang ist die nördliche Hälfte des nepalesischen Distrikts Mustang, ein hohes Wüstental hinter der Hauptkette des Himalaya, das sich zum tibetischen Hochland hin öffnet.",
+              "Bis 2008 war es ein eigenes Königreich, Lo, und bis 1992 für Außenstehende geschlossen. Kultur, Architektur und Sprache sind tibetisch statt nepalesisch, und Lo Manthang ist bis heute eine ummauerte Stadt.",
+              "Für Fahrende heißt das:"
+            ],
+            "list": [
+              "Ockerfarbenes Canyonland fast ohne Vegetation",
+              "In die Felswand geschlagene Straßen über der Kali Gandaki",
+              "Dörfer und Klöster, die sich kaum verändert haben",
+              "Trockene Luft, hartes Licht und ein Wind, der jeden Nachmittag auffrischt"
+            ],
+            "after": [
+              "Näher kommt man dem Fahren in Tibet nicht, ohne die Grenze zu überqueren."
+            ]
+          },
+          {
+            "question": "Was ist die Kali-Gandaki-Schlucht?",
+            "answer": [
+              "Der Fluss Kali Gandaki schneidet zwischen Annapurna und Dhaulagiri hindurch, beide über 8.000 Meter, und der Abstand zwischen Gipfeln und Flussbett macht sie nach den meisten Maßstäben zur tiefsten Schlucht der Erde.",
+              "Die Straße folgt über weite Strecken dem Flussbett. Man fährt an einem Tag aus dem Wald in die Wüste, mit beiden Massiven direkt über sich."
+            ]
+          },
+          {
+            "question": "Wie schwer ist das Fahren?",
+            "answer": [
+              "Mittel. Weniger technisch als Ladakh, aber länger auf unbefestigtem Untergrund."
+            ],
+            "list": [
+              "Asphalt von Kathmandu nach Pokhara und darüber hinaus",
+              "Schotter, Flussbett und loser Untergrund nördlich von Jomsom",
+              "An den meisten Nachmittagen kräftiger Gegenwind das Tal hinauf",
+              "In Mustang etwa 3.000 bis 4.000 Meter, auf Abstechern höher"
+            ],
+            "after": [
+              "Geeignet für Fahrende mit einfacher bis mittlerer Geländeerfahrung. Müde macht der Wind, nicht das Terrain, und deshalb endet der Fahrtag früh."
+            ]
+          },
+          {
+            "question": "Ist Fahren in Nepal sicher?",
+            "answer": [
+              "Ja, mit einer richtig besetzten Expedition. Die Risiken sind Höhe, Wetter und der Zustand der Straße nach dem Monsun, und alle drei werden durch Planung gesteuert, nicht durch fahrerisches Können.",
+              "Jede Expedition fährt mit Expeditionsleiter, Guides, Mechaniker und Begleitfahrzeug. Außerdem gilt:"
+            ],
+            "list": [
+              "Akklimatisierungstage, bevor jemand hoch hinauffährt",
+              "Tägliche Kontrolle, wie jeder die Höhe verträgt",
+              "Sauerstoff und Erste Hilfe immer dabei",
+              "Routen aus Erfahrung gebaut, nicht von der Karte"
+            ],
+            "after": [
+              "Mustang ist abgelegen. Evakuiert wird dort per Hubschrauber, was einer der Gründe ist, warum eine Versicherung nicht optional ist."
+            ]
+          },
+          {
+            "question": "Brauche ich eine Reiseversicherung?",
+            "answer": [
+              "Ja. Sie ist Pflicht und muss abdecken:"
+            ],
+            "list": [
+              "Aufenthalte über 4.000 Metern Höhe",
+              "Motorradfahren, das viele Standardpolicen ausschließen",
+              "Notfallevakuierung, auch per Hubschrauber"
+            ],
+            "after": [
+              "Prüfen Sie die Ausschlüsse Ihrer Police, statt es anzunehmen. Eine Hubschrauberevakuierung aus Mustang ist teuer, und das haben Unversicherte schon schmerzhaft gelernt."
+            ]
+          }
+        ]
       }
     }
   }

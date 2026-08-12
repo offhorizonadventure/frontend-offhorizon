@@ -519,43 +519,34 @@
       },
       "regions": {
         "eyebrow": "Regions",
-        "label": "Region",
         "title": "Where we ride in India",
-        "explore": "Explore the region",
-        "himalayas": {
-          "name": "Indian Himalayas",
-          "body": "Ladakh, Spiti and Zanskar. High passes, river crossings and cold desert, ridden between June and September."
-        },
-        "south": {
-          "name": "South India",
-          "body": "Western Ghats, coastal roads and temple country. Scouting under way for a different kind of trip, at a different time of year."
-        }
+        "explore": "Explore the region"
       },
       "why": {
         "eyebrow": "Why us",
         "title": "Why ride India with Offhorizon",
-        "reasons": {
-          "experience": {
+        "reasons": [
+          {
             "title": "On the ground since 2014",
             "body": "We started as BRB Expeditions, renting machines to riders heading into these same valleys."
           },
-          "based": {
+          {
             "title": "Based in Manali",
             "body": "The gateway to the Himalayas, and the start of most of our routes. We are not managing this from another city."
           },
-          "team": {
+          {
             "title": "A local crew",
             "body": "Guides who read this terrain and this weather because they live in it, not because they studied the map."
           },
-          "planning": {
+          {
             "title": "Planned, not improvised",
             "body": "Structured itineraries with acclimatisation built in and enough slack to absorb a bad day."
           },
-          "support": {
+          {
             "title": "Full support",
             "body": "Expedition leader, mechanic on motorcycle groups, backup vehicle and coordinated logistics."
           }
-        },
+        ],
         "closing": "If the road is closed, we will tell you before you book, not after."
       },
       "cta": {
@@ -565,29 +556,45 @@
       },
       "faq": {
         "title": "Riding in India",
-        "permits": {
-          "q": "Do I need travel insurance and permits?",
-          "a1": "Yes. Both are required, and neither is optional.",
-          "a2": "Travel insurance is mandatory and must cover:",
-          "l1": "High-altitude travel above 5,000 metres",
-          "l2": "Motorcycle riding, which many standard policies exclude",
-          "l3": "Emergency evacuation, including by helicopter",
-          "a3": "The Himalayas are remote. Proper cover is what stands between an incident and a very expensive problem.",
-          "a4": "Permits are required for several regions, including Ladakh. We arrange all of them, but we need your passport and visa details well in advance to do it."
-        },
-        "when": {
-          "q": "When is the riding season in the Indian Himalayas?",
-          "a1": "Broadly June to September, and the edges of that window move every year with the snow.",
-          "l1": "June: passes open, rivers running high from the melt",
-          "l2": "July and August: the most reliable riding, though the monsoon affects the approach through Himachal",
-          "l3": "September: clear skies and the best light, with cold nights",
-          "a2": "Outside that window most high passes are closed. We will tell you if your dates do not work rather than sell you a trip that will not run."
-        },
-        "licence": {
-          "q": "What licence do I need to ride in India?",
-          "a1": "You need a valid motorcycle licence from your home country plus an International Driving Permit, obtained before you travel. An IDP is not issued in India.",
-          "a2": "Bring the physical documents. A photograph on your phone will not satisfy a checkpoint."
-        }
+        "items": [
+          {
+            "question": "Do I need travel insurance and permits?",
+            "answer": [
+              "Yes. Both are required, and neither is optional.",
+              "Travel insurance is mandatory and must cover:"
+            ],
+            "list": [
+              "High-altitude travel above 5,000 metres",
+              "Motorcycle riding, which many standard policies exclude",
+              "Emergency evacuation, including by helicopter"
+            ],
+            "after": [
+              "The Himalayas are remote. Proper cover is what stands between an incident and a very expensive problem.",
+              "Permits are required for several regions, including Ladakh. We arrange all of them, but we need your passport and visa details well in advance to do it."
+            ]
+          },
+          {
+            "question": "When is the riding season in the Indian Himalayas?",
+            "answer": [
+              "Broadly June to September, and the edges of that window move every year with the snow."
+            ],
+            "list": [
+              "June: passes open, rivers running high from the melt",
+              "July and August: the most reliable riding, though the monsoon affects the approach through Himachal",
+              "September: clear skies and the best light, with cold nights"
+            ],
+            "after": [
+              "Outside that window most high passes are closed. We will tell you if your dates do not work rather than sell you a trip that will not run."
+            ]
+          },
+          {
+            "question": "What licence do I need to ride in India?",
+            "answer": [
+              "You need a valid motorcycle licence from your home country plus an International Driving Permit, obtained before you travel. An IDP is not issued in India.",
+              "Bring the physical documents. A photograph on your phone will not satisfy a checkpoint."
+            ]
+          }
+        ]
       }
     },
     "indianHimalayas": {
@@ -607,28 +614,28 @@
         "eyebrow": "Himalayan specialists",
         "title": "Why ride the Indian Himalayas with us",
         "body": "This is the terrain we know best. Every part of how we run a trip here comes from having done it badly once and fixed it.",
-        "items": {
-          "altitude": {
+        "items": [
+          {
             "title": "High-altitude experience",
             "body": "Years of running groups between 3,000 and 5,800 metres, where the mistakes are unforgiving."
           },
-          "planning": {
+          {
             "title": "Premium planning",
             "body": "Routes, permits, fuel and contingency worked out before anyone turns a wheel."
           },
-          "crew": {
+          {
             "title": "Guides and mechanic",
             "body": "An expedition leader, riding guides and a mechanic travelling with the group, not on call."
           },
-          "itineraries": {
+          {
             "title": "Carefully built itineraries",
             "body": "Distances set by what is sensible at altitude, not by what looks impressive on a map."
           },
-          "safety": {
+          {
             "title": "Safety first",
             "body": "Acclimatisation days, oxygen, first aid, and a rule that the group descends if a rider is not improving."
           }
-        },
+        ],
         "closing": "No overcrowded convoys. No rushed schedules."
       },
       "cta": {
@@ -637,57 +644,307 @@
       },
       "faq": {
         "title": "The Himalayas, explained",
-        "what": {
-          "q": "What are the Himalayas?",
-          "a1": "The Himalayas are the highest mountain range on earth, running across India, Nepal, Bhutan, China and Pakistan, and forming the barrier between the Indian subcontinent and the Tibetan Plateau.",
-          "a2": "The range holds Mount Everest and more than a hundred peaks above 7,000 metres. The Indus, Ganges and Brahmaputra all rise here and support hundreds of millions of people downstream.",
-          "a3": "For anyone travelling by motorcycle or 4x4, the appeal is the combination of:",
-          "l1": "High mountain passes, several of them among the highest roads in the world",
-          "l2": "Remote off-road trails with days between settlements",
-          "l3": "Landscapes that shift from glacier to cold desert within a single day",
-          "l4": "Living Hindu and Buddhist cultures, not preserved ones",
-          "a4": "We run expeditions in the Indian, Nepalese and Bhutanese Himalayas."
-        },
-        "why": {
-          "q": "Why are the Himalayas the best place for a motorcycle expedition?",
-          "a1": "Because few places combine this much altitude, this much remoteness and this much variety in a single trip.",
-          "a2": "Riders get a mix of tarmac, gravel and genuine off-road, on roads that climb past 5,000 metres and through country that sees very few vehicles. Each region reads differently:",
-          "l1": "Ladakh: high passes and extreme, arid landscapes",
-          "l2": "Spiti Valley: remote, raw and technically harder than it looks",
-          "l3": "Upper Mustang in Nepal: trans-Himalayan desert and Tibetan culture",
-          "l4": "Bhutan: quieter roads, dense forest and a slower pace",
-          "a3": "The riding alone would justify the trip. The monasteries, villages and the sheer scale of the place are what people talk about afterwards."
-        },
-        "safe": {
-          "q": "Is it safe to ride in the Himalayas?",
-          "a1": "Yes, when the expedition is planned and staffed properly. The risk here is not the road, it is being unprepared for altitude and distance.",
-          "a2": "Every expedition travels with an expedition leader, riding guides, a mechanic and a backup vehicle. We also run:",
-          "l1": "Acclimatisation days before anyone rides high",
-          "l2": "Daily checks on how each rider is coping with altitude",
-          "l3": "Oxygen and first aid carried at all times",
-          "l4": "Routes built from experience rather than from a map",
-          "a3": "The single most effective safety measure is a schedule with enough slack that nobody feels pressure to ride while unwell."
-        },
-        "difficulty": {
-          "q": "How difficult are Himalayan expeditions?",
-          "a1": "Moderate to challenging, depending on the route.",
-          "a2": "Expect:",
-          "l1": "Long riding days between 3,000 and 5,800 metres",
-          "l2": "A mix of smooth tarmac and genuine off-road",
-          "l3": "Weather that can change within an hour",
-          "l4": "Remote sections with no fuel, food or signal",
-          "a3": "They suit riders with basic to intermediate experience and reasonable fitness. With a structured itinerary and a support team, most riders complete the route comfortably."
-        },
-        "permits": {
-          "q": "Do I need travel insurance and permits?",
-          "a1": "Yes. Both are required for every Himalayan expedition.",
-          "a2": "Travel insurance is mandatory and must cover:",
-          "l1": "High-altitude travel above 5,000 metres",
-          "l2": "Motorcycle riding, which many standard policies exclude",
-          "l3": "Emergency evacuation, including by helicopter",
-          "a3": "These are remote regions and evacuation is expensive. Check the exclusions on your policy rather than assuming.",
-          "a4": "Permits are required for several regions including Ladakh. We arrange all of them, but we need your passport and visa details in advance."
-        }
+        "items": [
+          {
+            "question": "What are the Himalayas?",
+            "answer": [
+              "The Himalayas are the highest mountain range on earth, running across India, Nepal, Bhutan, China and Pakistan, and forming the barrier between the Indian subcontinent and the Tibetan Plateau.",
+              "The range holds Mount Everest and more than a hundred peaks above 7,000 metres. The Indus, Ganges and Brahmaputra all rise here and support hundreds of millions of people downstream.",
+              "For anyone travelling by motorcycle or 4x4, the appeal is the combination of:"
+            ],
+            "list": [
+              "High mountain passes, several of them among the highest roads in the world",
+              "Remote off-road trails with days between settlements",
+              "Landscapes that shift from glacier to cold desert within a single day",
+              "Living Hindu and Buddhist cultures, not preserved ones"
+            ],
+            "after": [
+              "We run expeditions in the Indian, Nepalese and Bhutanese Himalayas."
+            ]
+          },
+          {
+            "question": "Why are the Himalayas the best place for a motorcycle expedition?",
+            "answer": [
+              "Because few places combine this much altitude, this much remoteness and this much variety in a single trip.",
+              "Riders get a mix of tarmac, gravel and genuine off-road, on roads that climb past 5,000 metres and through country that sees very few vehicles. Each region reads differently:"
+            ],
+            "list": [
+              "Ladakh: high passes and extreme, arid landscapes",
+              "Spiti Valley: remote, raw and technically harder than it looks",
+              "Upper Mustang in Nepal: trans-Himalayan desert and Tibetan culture",
+              "Bhutan: quieter roads, dense forest and a slower pace"
+            ],
+            "after": [
+              "The riding alone would justify the trip. The monasteries, villages and the sheer scale of the place are what people talk about afterwards."
+            ]
+          },
+          {
+            "question": "Is it safe to ride in the Himalayas?",
+            "answer": [
+              "Yes, when the expedition is planned and staffed properly. The risk here is not the road, it is being unprepared for altitude and distance.",
+              "Every expedition travels with an expedition leader, riding guides, a mechanic and a backup vehicle. We also run:"
+            ],
+            "list": [
+              "Acclimatisation days before anyone rides high",
+              "Daily checks on how each rider is coping with altitude",
+              "Oxygen and first aid carried at all times",
+              "Routes built from experience rather than from a map"
+            ],
+            "after": [
+              "The single most effective safety measure is a schedule with enough slack that nobody feels pressure to ride while unwell."
+            ]
+          },
+          {
+            "question": "How difficult are Himalayan expeditions?",
+            "answer": [
+              "Moderate to challenging, depending on the route.",
+              "Expect:"
+            ],
+            "list": [
+              "Long riding days between 3,000 and 5,800 metres",
+              "A mix of smooth tarmac and genuine off-road",
+              "Weather that can change within an hour",
+              "Remote sections with no fuel, food or signal"
+            ],
+            "after": [
+              "They suit riders with basic to intermediate experience and reasonable fitness. With a structured itinerary and a support team, most riders complete the route comfortably."
+            ]
+          },
+          {
+            "question": "Do I need travel insurance and permits?",
+            "answer": [
+              "Yes. Both are required for every Himalayan expedition.",
+              "Travel insurance is mandatory and must cover:"
+            ],
+            "list": [
+              "High-altitude travel above 5,000 metres",
+              "Motorcycle riding, which many standard policies exclude",
+              "Emergency evacuation, including by helicopter"
+            ],
+            "after": [
+              "These are remote regions and evacuation is expensive. Check the exclusions on your policy rather than assuming.",
+              "Permits are required for several regions including Ladakh. We arrange all of them, but we need your passport and visa details in advance."
+            ]
+          }
+        ]
+      },
+      "card": "Ladakh, Spiti and Zanskar. High passes, river crossings and cold desert, ridden between June and September."
+    },
+    "southIndia": {
+      "shortName": "South India",
+      "card": "Western Ghats, coastal roads and temple country. Scouting under way for a different kind of trip, at a different time of year."
+    },
+    "nepal": {
+      "meta": {
+        "title": "Motorcycle Expeditions Across Nepal | Offhorizon",
+        "description": "Guided motorcycle expeditions in the Nepalese Himalayas. Kathmandu to Upper Mustang through the Kali Gandaki gorge, with guides, mechanic and backup vehicle."
+      },
+      "eyebrow": "Nepal",
+      "title": "Motorcycle expeditions across Nepal",
+      "lead": "Kathmandu to the old kingdom of Lo, up the deepest gorge on earth and out into trans-Himalayan desert. Nepal packs more change of scene into a week than most countries manage in a month.",
+      "intro": {
+        "title": "Green foothills at breakfast, Tibetan desert by dinner.",
+        "body": "Nepal climbs from subtropical valleys to the highest peaks on the planet in less than 150 kilometres. Riding it means terraced farmland, pine forest, a river gorge with 8,000 metre peaks on both sides, and then bare ochre country that looks nothing like the rest of the country.",
+        "focus": "Our expeditions run through the Nepalese Himalayas, from Kathmandu up the Kali Gandaki into Mustang. It is the same range we have worked since 2014, read from the other side of the border."
+      },
+      "regions": {
+        "eyebrow": "Regions",
+        "title": "Where we ride in Nepal",
+        "explore": "Explore the region"
+      },
+      "why": {
+        "eyebrow": "Why us",
+        "title": "Why ride Nepal with Offhorizon",
+        "reasons": [
+          {
+            "title": "Himalayan since 2014",
+            "body": "A decade of running vehicles and groups at altitude, on both sides of the range."
+          },
+          {
+            "title": "Kathmandu to Mustang",
+            "body": "One route that takes in the capital, the Kali Gandaki gorge and the walled city of Lo Manthang."
+          },
+          {
+            "title": "Local guides",
+            "body": "People who know which side of the valley the afternoon wind comes down, because they ride it."
+          },
+          {
+            "title": "Planned, not improvised",
+            "body": "Structured itineraries with acclimatisation built in and enough slack to absorb a bad day."
+          },
+          {
+            "title": "Full support",
+            "body": "Expedition leader, mechanic travelling with the group, backup vehicle and permits handled."
+          }
+        ],
+        "closing": "Small groups. We would rather run one good departure than three crowded ones."
+      },
+      "cta": {
+        "title": "Start your Nepal expedition",
+        "body": "Pick a departure from the calendar, or tell us the dates you have and we will build the route around them.",
+        "imageAlt": "A vehicle on the mountain road to Muktinath in the Nepalese Himalayas"
+      },
+      "faq": {
+        "title": "Riding in Nepal",
+        "items": [
+          {
+            "question": "Do I need permits to ride in Nepal?",
+            "answer": [
+              "Yes, and Upper Mustang needs more than the usual ones.",
+              "Depending on the route, expect to need:"
+            ],
+            "list": [
+              "A restricted area permit for Upper Mustang, which can only be issued through a registered agency",
+              "An Annapurna Conservation Area permit",
+              "A tourist visa, available on arrival for most nationalities"
+            ],
+            "after": [
+              "We arrange the permits, but the restricted area one takes time and needs your passport and visa details well before departure. Leave it late and the route has to change."
+            ]
+          },
+          {
+            "question": "When is the riding season in Nepal?",
+            "answer": [
+              "Spring and autumn are the main windows, and Mustang stretches them."
+            ],
+            "list": [
+              "March to May: warm, clear, rhododendron in flower at altitude",
+              "June to August: monsoon in most of the country, but Mustang sits in the rain shadow and stays comparatively dry",
+              "September to November: the most settled weather and the sharpest mountain views"
+            ],
+            "after": [
+              "December to February is cold and several passes get snow. Tell us your dates and we will say honestly whether they work."
+            ]
+          },
+          {
+            "question": "What licence do I need to ride in Nepal?",
+            "answer": [
+              "A valid motorcycle licence from your home country plus an International Driving Permit, obtained before you travel.",
+              "Bring the physical documents. Checkpoints on the Mustang road do ask."
+            ]
+          }
+        ]
+      }
+    },
+    "nepalHimalayas": {
+      "meta": {
+        "title": "Nepal Himalayas Expeditions | Kathmandu to Upper Mustang",
+        "description": "Motorcycle expeditions across the Nepalese Himalayas. The Kali Gandaki gorge, Muktinath and the old kingdom of Lo, with guides, mechanic and backup vehicle."
+      },
+      "eyebrow": "Nepal Himalayas",
+      "shortName": "Nepal Himalayas",
+      "card": "Kathmandu, the Kali Gandaki gorge and Upper Mustang. Trans-Himalayan desert and Tibetan culture, ridden in spring and autumn.",
+      "title": "Nepal Himalayas expeditions, by motorcycle",
+      "lead": "Out of the Kathmandu valley, up the deepest gorge in the world with Annapurna on one side and Dhaulagiri on the other, and into the walled city of Lo Manthang.",
+      "tours": {
+        "eyebrow": "Expeditions",
+        "title": "Top expeditions in the Nepal Himalayas"
+      },
+      "why": {
+        "eyebrow": "Himalayan specialists",
+        "title": "Why ride the Nepal Himalayas with us",
+        "body": "The riding here is not technically the hardest we run, but the altitude gain and the remoteness in Mustang still catch people out. We plan for that.",
+        "items": [
+          {
+            "title": "High-altitude experience",
+            "body": "Years of running groups above 3,000 metres, where the mistakes are unforgiving."
+          },
+          {
+            "title": "Permits handled",
+            "body": "The Upper Mustang restricted area permit is arranged before you arrive, not scrambled for on the day."
+          },
+          {
+            "title": "Guides and mechanic",
+            "body": "An expedition leader, riding guides and a mechanic travelling with the group, not on call."
+          },
+          {
+            "title": "Carefully built itineraries",
+            "body": "Time in Kathmandu and Pokhara at the front, so the climb into Mustang is not a shock."
+          },
+          {
+            "title": "Safety first",
+            "body": "Acclimatisation days, oxygen, first aid, and a rule that the group descends if a rider is not improving."
+          }
+        ],
+        "closing": "No overcrowded convoys. No rushed schedules."
+      },
+      "cta": {
+        "title": "Start your Nepal Himalayas adventure",
+        "body": "Join a scheduled departure, or tell us your dates and we will build the route around them."
+      },
+      "faq": {
+        "title": "Mustang and the Kali Gandaki",
+        "items": [
+          {
+            "question": "What is Upper Mustang?",
+            "answer": [
+              "Upper Mustang is the northern half of Nepal's Mustang district, a high desert valley that sits behind the main Himalayan range and opens onto the Tibetan Plateau.",
+              "It was a separate kingdom, Lo, until 2008, and closed to outsiders until 1992. The culture, the architecture and the language are Tibetan rather than Nepali, and Lo Manthang is still a walled city.",
+              "For a rider, it means:"
+            ],
+            "list": [
+              "Ochre canyon country with almost no vegetation",
+              "Roads cut into cliffs above the Kali Gandaki",
+              "Villages and monasteries that have changed very little",
+              "Dry air, hard light and a wind that gets up every afternoon"
+            ],
+            "after": [
+              "It is the closest thing to riding in Tibet without crossing the border."
+            ]
+          },
+          {
+            "question": "What is the Kali Gandaki gorge?",
+            "answer": [
+              "The Kali Gandaki river cuts between Annapurna and Dhaulagiri, both over 8,000 metres, and the gap between the peaks and the riverbed makes it the deepest gorge on earth by most measures.",
+              "The road follows the riverbed for much of the way. You ride out of forest into desert in a single day, with the two massifs directly overhead."
+            ]
+          },
+          {
+            "question": "How difficult is the riding?",
+            "answer": [
+              "Moderate. Less technical than Ladakh, but longer on unsealed surfaces."
+            ],
+            "list": [
+              "Sealed road from Kathmandu to Pokhara and beyond",
+              "Gravel, riverbed and loose surfaces north of Jomsom",
+              "A strong headwind up the valley most afternoons",
+              "Altitude around 3,000 to 4,000 metres in Mustang, higher on side trips"
+            ],
+            "after": [
+              "It suits riders with basic to intermediate off-road experience. The wind is what tires people, not the terrain, which is why the riding day ends early."
+            ]
+          },
+          {
+            "question": "Is it safe to ride in Nepal?",
+            "answer": [
+              "Yes, with a properly staffed expedition. The risks are altitude, weather and the state of the road after monsoon, and all three are managed by planning rather than by riding skill.",
+              "Every expedition travels with an expedition leader, riding guides, a mechanic and a backup vehicle. We also run:"
+            ],
+            "list": [
+              "Acclimatisation days before anyone rides high",
+              "Daily checks on how each rider is coping with altitude",
+              "Oxygen and first aid carried at all times",
+              "Routes built from experience rather than from a map"
+            ],
+            "after": [
+              "Mustang is remote. Evacuation from there is by helicopter, which is one reason insurance is not optional."
+            ]
+          },
+          {
+            "question": "Do I need travel insurance?",
+            "answer": [
+              "Yes. It is mandatory, and it must cover:"
+            ],
+            "list": [
+              "High-altitude travel above 4,000 metres",
+              "Motorcycle riding, which many standard policies exclude",
+              "Emergency evacuation, including by helicopter"
+            ],
+            "after": [
+              "Check the exclusions on your policy rather than assuming. Helicopter evacuation from Mustang is expensive and uninsured riders have found that out the hard way."
+            ]
+          }
+        ]
       }
     }
   }

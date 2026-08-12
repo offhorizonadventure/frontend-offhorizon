@@ -1,11 +1,11 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 
 import { Riders } from "@/components/about/Riders";
 import { CtaBand } from "@/components/destinations/CtaBand";
-import { Faq } from "@/components/destinations/Faq";
+import { Faq, type FaqItem } from "@/components/destinations/Faq";
 import { PageHero } from "@/components/destinations/PageHero";
+import { PlaceCard } from "@/components/destinations/PlaceCard";
 import { ArrowRight } from "@/components/ui/icons";
 import { Topo } from "@/components/ui/Topo";
 import { countryPages, getCountry } from "@/config/destination-pages";
@@ -15,7 +15,8 @@ import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
 import { buildMetadata, siteUrl } from "@/lib/seo";
 
-const reasons = ["experience", "based", "team", "planning", "support"] as const;
+/** A numbered point in the "why us" grid. */
+type Blurb = { title: string; body: string };
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/destinat
   const td = await getTranslations({ locale, namespace: "destinations" });
   const t = await getTranslations({
     locale,
-    namespace: page.status === "live" ? "dest.india.meta" : "dest.planned.meta",
+    namespace: page.content ? `dest.${page.content}.meta` : "dest.planned.meta",
   });
 
   return buildMetadata({
@@ -67,7 +68,7 @@ export default async function CountryPage({ params }: PageProps<"/[locale]/desti
     url: `${siteUrl}/${locale}/destinations/${page.slug}`,
   };
 
-  if (page.status === "planned") {
+  if (!page.content) {
     const tp = await getTranslations({ locale, namespace: "dest.planned" });
 
     return (
@@ -118,25 +119,9 @@ export default async function CountryPage({ params }: PageProps<"/[locale]/desti
     );
   }
 
-  const t = await getTranslations({ locale, namespace: "dest.india" });
-  const faqItems = [
-    {
-      question: t("faq.permits.q"),
-      answer: [t("faq.permits.a1"), t("faq.permits.a2")],
-      list: [t("faq.permits.l1"), t("faq.permits.l2"), t("faq.permits.l3")],
-      after: [t("faq.permits.a3"), t("faq.permits.a4")],
-    },
-    {
-      question: t("faq.when.q"),
-      answer: [t("faq.when.a1")],
-      list: [t("faq.when.l1"), t("faq.when.l2"), t("faq.when.l3")],
-      after: [t("faq.when.a2")],
-    },
-    {
-      question: t("faq.licence.q"),
-      answer: [t("faq.licence.a1"), t("faq.licence.a2")],
-    },
-  ];
+  const t = await getTranslations({ locale, namespace: `dest.${page.content}` });
+  const tr = await getTranslations({ locale, namespace: "dest" });
+  const reasons = t.raw("why.reasons") as Blurb[];
 
   return (
     <>
@@ -192,68 +177,25 @@ export default async function CountryPage({ params }: PageProps<"/[locale]/desti
           </div>
 
           <ul data-anim-group className="mt-10 grid gap-6 lg:grid-cols-2">
-            {page.regions.map((region) => (
-              <li key={region.slug}>
-                <Link
-                  href={`/destinations/${page.slug}/${region.slug}`}
-                  className="group block overflow-hidden rounded-[26px] bg-brand-950 ring-1 ring-brand-900/10 transition-transform duration-500 ease-out-expo hover:-translate-y-1"
-                >
-                  <article className="relative aspect-[16/10]">
-                    <Image
-                      src={region.hero}
-                      alt={region.heroAlt}
-                      fill
-                      placeholder="blur"
-                      sizes="(max-width: 1023px) 92vw, 560px"
-                      className="object-cover transition-transform duration-[1100ms] ease-out-expo group-hover:scale-[1.05]"
-                    />
-                    <span
-                      aria-hidden
-                      className="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/25 to-transparent"
-                    />
-                    <div className="absolute inset-x-0 bottom-0 p-6">
-                      <span className="text-[10px] font-bold tracking-[0.16em] text-ember-500 uppercase">
-                        {t("regions.label")}
-                      </span>
-                      <h3 className="font-display mt-2 text-[21px] leading-tight font-bold tracking-[-0.02em] text-white">
-                        {t("regions.himalayas.name")}
-                      </h3>
-                      <p className="mt-2 max-w-md text-[13.5px] leading-relaxed text-white/65">
-                        {t("regions.himalayas.body")}
-                      </p>
-                      <span className="mt-4 flex items-center gap-2 text-[10.5px] font-bold tracking-[0.14em] text-white uppercase">
-                        {t("regions.explore")}
-                        <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
-                      </span>
-                    </div>
-                  </article>
-                </Link>
-              </li>
-            ))}
+            {page.regions.map((region) => {
+              const live = region.status === "live";
 
-            <li className="flex flex-col justify-between rounded-[26px] border border-dashed border-brand-900/20 p-7">
-              <div>
-                <span className="text-[10px] font-bold tracking-[0.16em] text-brand-400 uppercase">
-                  {ts("planned")}
-                </span>
-                <h3 className="font-display mt-2 text-[21px] leading-tight font-bold tracking-[-0.02em] text-brand-900">
-                  {t("regions.south.name")}
-                </h3>
-                <p className="mt-2.5 max-w-md text-[13.5px] leading-relaxed text-brand-800/55">
-                  {t("regions.south.body")}
-                </p>
-              </div>
-              <Link
-                href="/custom-expeditions"
-                className="group mt-6 inline-flex items-center gap-2.5 text-[10.5px] font-bold tracking-[0.14em] text-brand-800 uppercase"
-              >
-                <span
-                  aria-hidden
-                  className="h-px w-8 bg-brand-800 transition-all duration-500 ease-out-expo group-hover:w-14"
-                />
-                {ts("registerInterest")}
-              </Link>
-            </li>
+              return (
+                <li key={region.slug}>
+                  <PlaceCard
+                    href={live ? `/destinations/${page.slug}/${region.slug}` : "/custom-expeditions"}
+                    name={tr(`${region.content}.shortName`)}
+                    image={region.image}
+                    imageAlt={region.imageAlt}
+                    body={tr(`${region.content}.card`)}
+                    badge={live ? ts("running") : ts("planned")}
+                    meta={live ? t("regions.explore") : ts("registerInterest")}
+                    frame="landscape"
+                    sizes="(max-width: 1023px) 92vw, 560px"
+                  />
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>
@@ -280,17 +222,17 @@ export default async function CountryPage({ params }: PageProps<"/[locale]/desti
           <ul data-anim-group className="mt-12 grid border-t border-l border-cream-100/12 sm:grid-cols-2 lg:grid-cols-3">
             {reasons.map((reason, index) => (
               <li
-                key={reason}
+                key={reason.title}
                 className="border-r border-b border-cream-100/12 p-7 transition-colors duration-500 hover:bg-cream-100/4"
               >
                 <span className="font-display block text-[12px] font-extrabold tracking-[0.14em] text-ember-500 tabular-nums">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display mt-4 text-[16.5px] leading-tight font-bold tracking-[-0.015em]">
-                  {t(`why.reasons.${reason}.title`)}
+                  {reason.title}
                 </h3>
                 <p className="mt-2.5 text-[13.5px] leading-[1.75] text-pretty text-cream-100/50">
-                  {t(`why.reasons.${reason}.body`)}
+                  {reason.body}
                 </p>
               </li>
             ))}
@@ -314,7 +256,7 @@ export default async function CountryPage({ params }: PageProps<"/[locale]/desti
         />
       )}
 
-      <Faq items={faqItems} eyebrow={ts("faqEyebrow")} title={t("faq.title")} />
+      <Faq items={t.raw("faq.items") as FaqItem[]} eyebrow={ts("faqEyebrow")} title={t("faq.title")} />
 
       <Riders />
     </>

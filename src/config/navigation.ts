@@ -76,7 +76,7 @@ export const mainNav: NavItem[] = [
         regions: [
           {
             key: "nepalHimalayas",
-            href: "/destinations/nepal/himalayas",
+            href: "/destinations/nepal/nepal-himalayas",
             tours: [
               {
                 key: "nepalMotorcycle",

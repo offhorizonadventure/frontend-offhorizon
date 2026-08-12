@@ -1,14 +1,11 @@
-import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
 import { PageHero } from "@/components/destinations/PageHero";
+import { PlaceCard } from "@/components/destinations/PlaceCard";
 import { Riders } from "@/components/about/Riders";
-import { ArrowRight } from "@/components/ui/icons";
-import { Flag } from "@/components/ui/Flag";
 import { Topo } from "@/components/ui/Topo";
 import { countryPages, hubHero } from "@/config/destination-pages";
 import { locales } from "@/i18n/config";
-import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
 import { buildMetadata, siteName, siteUrl } from "@/lib/seo";
 
@@ -119,45 +116,20 @@ export default async function DestinationsPage({ params }: PageProps<"/[locale]/
 
               return (
                 <li key={page.slug}>
-                  <Link
+                  <PlaceCard
                     href={`/destinations/${page.slug}`}
-                    className="group block overflow-hidden rounded-[24px] bg-brand-950 ring-1 ring-brand-900/10 transition-transform duration-500 ease-out-expo hover:-translate-y-1"
-                  >
-                    <article className="relative aspect-[4/5]">
-                      <Image
-                        src={page.destination.image}
-                        alt={page.heroAlt}
-                        fill
-                        placeholder="blur"
-                        sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 360px"
-                        className="object-cover transition-transform duration-[1100ms] ease-out-expo group-hover:scale-[1.06]"
-                      />
-                      <span
-                        aria-hidden
-                        className="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent"
-                      />
-
-                      <span className="absolute top-4 right-4 rounded-full bg-brand-950/70 px-3 py-1 text-[9.5px] font-bold tracking-[0.14em] text-cream-100/85 uppercase backdrop-blur-sm">
-                        {live ? ts("running") : ts("planned")}
-                      </span>
-
-                      <div className="absolute inset-x-0 bottom-0 p-5">
-                        <div className="flex items-center gap-2.5">
-                          <Flag country={page.destination.flag} />
-                          <h3 className="font-display text-[19px] leading-none font-bold tracking-tight text-white">
-                            {td(page.destination.key)}
-                          </h3>
-                        </div>
-
-                        <p className="mt-2.5 flex items-center justify-between gap-3 text-[10.5px] font-semibold tracking-[0.14em] text-white/65 uppercase">
-                          {live
-                            ? ts("expeditions", { count: page.destination.tours })
-                            : ts("openForEnquiries")}
-                          <ArrowRight className="-translate-x-1.5 text-white opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
-                        </p>
-                      </div>
-                    </article>
-                  </Link>
+                    name={td(page.destination.key)}
+                    image={page.destination.image}
+                    imageAlt={page.heroAlt}
+                    flag={page.destination.flag}
+                    badge={live ? ts("running") : ts("planned")}
+                    meta={
+                      live
+                        ? ts("expeditions", { count: page.destination.tours })
+                        : ts("openForEnquiries")
+                    }
+                    sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 360px"
+                  />
                 </li>
               );
             })}

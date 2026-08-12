@@ -4,22 +4,40 @@ import hubHero from "../../public/destinations/pages/hub-hero.jpg";
 import indiaAerial from "../../public/destinations/pages/india-aerial.jpg";
 import ladakhRiver from "../../public/destinations/pages/ladakh-river-crossing.jpg";
 import manaliToLeh from "../../public/destinations/pages/manali-to-leh.jpg";
-import selfDrive from "../../public/expeditions/self-drive.jpg";
+import muktinathRoad from "../../public/destinations/pages/nepal-muktinath-road.jpg";
+import mustang from "../../public/destinations/pages/nepal-mustang.jpg";
+import southIndia from "../../public/destinations/pages/south-india.jpg";
 
 import { destinations, type Destination } from "./destinations";
-import type { TourKey } from "@/i18n/keys";
+import { allPackages, type TourPackage } from "./packages";
 
 export { hubHero };
 
-export type RegionPage = {
+type RegionBase = {
   slug: string;
-  /** Namespace under `dest` in the message catalogue. */
-  content: "indianHimalayas";
-  hero: StaticImageData;
-  heroAlt: string;
-  ctaImage: StaticImageData;
-  tours: { key: TourKey; href: string; image: StaticImageData; alt: string }[];
+  image: StaticImageData;
+  imageAlt: string;
 };
+
+/**
+ * Live regions have their own page and a full namespace under `dest`. Planned
+ * ones are a card on the country page and nothing more, so the union keeps the
+ * page from asking a card-only namespace for a title it does not have.
+ */
+export type LiveRegion = RegionBase & {
+  status: "live";
+  content: "indianHimalayas" | "nepalHimalayas";
+  hero: StaticImageData;
+  ctaImage: StaticImageData;
+  tours: { tour: TourPackage; image?: StaticImageData }[];
+};
+
+export type PlannedRegion = RegionBase & {
+  status: "planned";
+  content: "southIndia";
+};
+
+export type RegionPage = LiveRegion | PlannedRegion;
 
 export type CountryPage = {
   slug: string;
@@ -31,6 +49,8 @@ export type CountryPage = {
    * page gallery already links to all five.
    */
   status: "live" | "planned";
+  /** Namespace under `dest`. Only set on live countries. */
+  content?: "india" | "nepal";
   hero: StaticImageData;
   heroAlt: string;
   ctaImage?: StaticImageData;
@@ -43,11 +63,18 @@ const byKey = (key: Destination["key"]) => {
   return match;
 };
 
+const tour = (key: TourPackage["key"]) => {
+  const match = allPackages.find((entry) => entry.key === key);
+  if (!match) throw new Error(`Unknown tour: ${key}`);
+  return match;
+};
+
 export const countryPages: CountryPage[] = [
   {
     slug: "india",
     destination: byKey("india"),
     status: "live",
+    content: "india",
     hero: ladakhRiver,
     heroAlt:
       "Motorcyclist riding through a river crossing on an off-road Ladakh tour in the Himalayas",
@@ -56,33 +83,45 @@ export const countryPages: CountryPage[] = [
       {
         slug: "indian-himalayas",
         content: "indianHimalayas",
+        status: "live",
+        image: manaliToLeh,
+        imageAlt: "The Manali to Leh road winding through the Ladakh mountains",
         hero: manaliToLeh,
-        heroAlt: "The Manali to Leh road winding through the Ladakh mountains",
         ctaImage: manaliToLeh,
         tours: [
-          {
-            key: "ladakhMotorcycle",
-            href: "/tours/ladakh-motorcycle-tour",
-            image: ladakhRiver,
-            alt: "Rider crossing a Himalayan river on the Ladakh motorcycle tour",
-          },
-          {
-            key: "himalayas4x4",
-            href: "/tours/indian-himalayas-4x4-adventure-expedition",
-            image: selfDrive,
-            alt: "Self-drive 4x4 crossing high mountain terrain in the Indian Himalayas",
-          },
+          { tour: tour("ladakhMotorcycle"), image: ladakhRiver },
+          { tour: tour("himalayas4x4") },
         ],
+      },
+      {
+        slug: "south-india",
+        content: "southIndia",
+        status: "planned",
+        image: southIndia,
+        imageAlt: "The Amba Ghat pass road climbing through the Western Ghats in southern India",
       },
     ],
   },
   {
     slug: "nepal",
     destination: byKey("nepal"),
-    status: "planned",
+    status: "live",
+    content: "nepal",
     hero: byKey("nepal").image,
     heroAlt: "The Ama Dablam massif in the Nepalese Himalayas",
-    regions: [],
+    ctaImage: muktinathRoad,
+    regions: [
+      {
+        slug: "nepal-himalayas",
+        content: "nepalHimalayas",
+        status: "live",
+        image: mustang,
+        imageAlt: "The Kali Gandaki valley cutting through the Mustang desert in Nepal",
+        hero: mustang,
+        ctaImage: muktinathRoad,
+        tours: [{ tour: tour("nepalMotorcycle") }],
+      },
+    ],
   },
   {
     slug: "bhutan",
@@ -112,14 +151,18 @@ export const countryPages: CountryPage[] = [
 
 export const getCountry = (slug: string) => countryPages.find((page) => page.slug === slug);
 
-export const getRegion = (countrySlug: string, regionSlug: string) =>
-  getCountry(countrySlug)?.regions.find((region) => region.slug === regionSlug);
+export const getRegion = (countrySlug: string, regionSlug: string) => {
+  const region = getCountry(countrySlug)?.regions.find((entry) => entry.slug === regionSlug);
+  return region?.status === "live" ? region : undefined;
+};
 
-/** Every country and region path, for static generation and the sitemap. */
+/** Every country and live region path, for static generation and the sitemap. */
 export const destinationRoutes = [
   "/destinations",
   ...countryPages.map((page) => `/destinations/${page.slug}`),
   ...countryPages.flatMap((page) =>
-    page.regions.map((region) => `/destinations/${page.slug}/${region.slug}`),
+    page.regions
+      .filter((region) => region.status === "live")
+      .map((region) => `/destinations/${page.slug}/${region.slug}`),
   ),
 ];

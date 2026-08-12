@@ -1,0 +1,92 @@
+import Image, { type StaticImageData } from "next/image";
+
+import { ArrowRight } from "@/components/ui/icons";
+import { Flag } from "@/components/ui/Flag";
+import { Link } from "@/i18n/navigation";
+
+/**
+ * Country and region card.
+ *
+ * Deliberately the same treatment as the home page gallery panel: photograph,
+ * soft scrim, name over the foot, and a ringed circular arrow that fills on
+ * hover. Countries run portrait in a three-up grid, regions run landscape in a
+ * two-up one, so the frame is the only thing that changes.
+ *
+ * Planned places get the same card rather than a placeholder tile, because a
+ * dashed box next to a photograph reads as something broken.
+ */
+export function PlaceCard({
+  href,
+  name,
+  image,
+  imageAlt,
+  badge,
+  meta,
+  body,
+  flag,
+  frame = "portrait",
+  sizes,
+}: {
+  href: string;
+  name: string;
+  image: StaticImageData;
+  imageAlt: string;
+  /** Running or planned, shown top right. */
+  badge: string;
+  /** Expedition count, or the invitation to enquire. */
+  meta: string;
+  /** Regions carry a line of description; countries do not. */
+  body?: string;
+  flag?: string;
+  frame?: "portrait" | "landscape";
+  sizes: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group block h-full overflow-hidden rounded-[28px] bg-brand-100 ring-1 ring-brand-900/10 transition-transform duration-500 ease-out-expo hover:-translate-y-1"
+    >
+      <article className={`relative ${frame === "portrait" ? "aspect-[3/4]" : "aspect-[16/10]"}`}>
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          placeholder="blur"
+          sizes={sizes}
+          className="object-cover transition-transform duration-[1400ms] ease-out-expo group-hover:scale-[1.06]"
+        />
+
+        <span
+          aria-hidden
+          className="absolute inset-0 bg-[linear-gradient(to_top,var(--color-brand-950)_0%,color-mix(in_srgb,var(--color-brand-950)_45%,transparent)_38%,transparent_72%)]"
+        />
+
+        <span className="absolute top-4 right-4 rounded-full bg-brand-950/60 px-3 py-1 text-[9.5px] font-bold tracking-[0.14em] text-cream-100/85 uppercase backdrop-blur-sm">
+          {badge}
+        </span>
+
+        <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+          <div className="flex items-center gap-2.5">
+            {flag && <Flag country={flag} />}
+            <h3 className="font-display text-[20px] leading-none font-bold tracking-[-0.02em] text-white">
+              {name}
+            </h3>
+          </div>
+
+          {body && (
+            <p className="mt-2.5 max-w-md text-[13.5px] leading-relaxed text-white/65">{body}</p>
+          )}
+
+          <div className="mt-3 flex items-center justify-between gap-4">
+            <span className="text-[10.5px] font-semibold tracking-[0.16em] text-white/70 uppercase">
+              {meta}
+            </span>
+            <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-white/12 text-white ring-1 ring-white/25 backdrop-blur-sm transition-colors duration-300 group-hover:bg-white group-hover:text-brand-900">
+              <ArrowRight />
+            </span>
+          </div>
+        </div>
+      </article>
+    </Link>
+  );
+}
