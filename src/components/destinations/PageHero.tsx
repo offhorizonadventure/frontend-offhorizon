@@ -80,14 +80,14 @@ export function PageHero({
         </span>
 
         <h1
-          className="hero-rise font-display mt-5 max-w-4xl text-[clamp(2.1rem,5vw,3.8rem)] leading-[1.04] font-extrabold tracking-[-0.04em] text-balance"
+          className="hero-rise font-display mt-5 text-[clamp(2.1rem,5vw,3.8rem)] leading-[1.04] font-extrabold tracking-[-0.04em] text-balance"
           style={{ animationDelay: "120ms" }}
         >
           {title}
         </h1>
 
         <p
-          className="hero-rise mt-6 max-w-2xl text-[15px] leading-[1.85] text-pretty text-cream-100/65 sm:text-[16.5px]"
+          className="hero-rise mt-6 text-[15px] leading-[1.85] text-pretty text-cream-100/65 sm:text-[16.5px]"
           style={{ animationDelay: "200ms" }}
         >
           {lead}
