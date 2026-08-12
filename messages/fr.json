@@ -1004,5 +1004,71 @@
       "body": "Donnez-nous vos dates, dites-nous qui vous accompagne et ce que vous en attendez, et nous construirons l'itinéraire autour de cela.",
       "imageAlt": "Vue aérienne d'une route traversant l'Himalaya indien"
     }
+  },
+  "tour": {
+    "breadcrumb": "Circuits aventure",
+    "facts": {
+      "title": "Fiche technique",
+      "location": "Pays, région",
+      "weather": "Météo",
+      "vehicle": "Véhicule d'expédition",
+      "terrain": "Type de terrain",
+      "distance": "Distance parcourue",
+      "duration": "Durée",
+      "difficulty": "Difficulté",
+      "groupSize": "Taille max du groupe"
+    },
+    "dates": {
+      "eyebrow": "Dates et tarifs",
+      "title": "Choisissez un départ",
+      "available": "Places disponibles",
+      "soldOut": "Complet",
+      "from": "À partir de",
+      "perPerson": "Prix par personne",
+      "twin": "Chambre double",
+      "solo": "Chambre simple",
+      "edition": "Édition",
+      "direction": "Sens de l'itinéraire",
+      "ledBy": "Encadré par",
+      "enquire": "Se renseigner",
+      "joinWaitlist": "Liste d'attente",
+      "disclaimer": "Les tarifs s'entendent par personne sauf mention contraire et peuvent évoluer. Les prix sont fixés en dollars américains puis convertis pour l'affichage : le montant réglé dépend donc du taux du jour. Les vols aller-retour jusqu'au point de départ ne sont pas compris. Offhorizon Adventures peut modifier ces prix sans préavis."
+    },
+    "inclusions": {
+      "eyebrow": "Le tarif",
+      "title": "Ce qui est compris, et ce qui ne l'est pas",
+      "inTitle": "Compris dans le tarif",
+      "outTitle": "Non compris"
+    },
+    "route": {
+      "title": "Carte de l'itinéraire"
+    },
+    "program": {
+      "eyebrow": "Jour par jour",
+      "title": "Programme de l'expédition",
+      "day": "Jour {day}",
+      "stay": "Hébergement",
+      "more": "En savoir plus",
+      "close": "Fermer",
+      "dayCount": "{count, plural, one {# jour} other {# jours}}",
+      "previous": "Jour précédent",
+      "next": "Jour suivant"
+    },
+    "expect": {
+      "eyebrow": "À quoi s'attendre"
+    },
+    "gallery": {
+      "eyebrow": "Le terrain",
+      "title": "Il faut le voir pour y croire",
+      "open": "Ouvrir la photo",
+      "close": "Fermer",
+      "previous": "Photo précédente",
+      "next": "Photo suivante",
+      "counter": "{current} sur {total}"
+    },
+    "cta": {
+      "title": "Roulez celui-ci avec nous",
+      "body": "Renseignez-vous sur une date de la liste, ou dites-nous quand vous pouvez partir et nous verrons ce qui convient."
+    }
   }
 }

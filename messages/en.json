@@ -1004,5 +1004,71 @@
       "body": "Tell us the dates you have, who is coming and what you want out of it, and we will build the route around that.",
       "imageAlt": "Aerial view of a road cutting through the Indian Himalayas"
     }
+  },
+  "tour": {
+    "breadcrumb": "Adventure Tours",
+    "facts": {
+      "title": "Expedition facts",
+      "location": "Country, region",
+      "weather": "Weather",
+      "vehicle": "Expedition vehicle",
+      "terrain": "Driving terrain",
+      "distance": "Driving distance",
+      "duration": "Duration",
+      "difficulty": "Expedition difficulty",
+      "groupSize": "Max group size"
+    },
+    "dates": {
+      "eyebrow": "Dates and prices",
+      "title": "Pick a departure",
+      "available": "Places available",
+      "soldOut": "Sold out",
+      "from": "From",
+      "perPerson": "Price per person",
+      "twin": "Twin",
+      "solo": "Solo",
+      "edition": "Edition",
+      "direction": "Route direction",
+      "ledBy": "Led by",
+      "enquire": "Enquire",
+      "joinWaitlist": "Join waitlist",
+      "disclaimer": "Rates are per person unless stated otherwise and may change. Prices are set in US dollars and converted for display, so the figure you pay depends on the rate on the day. Flights to and from the start point are not included. Offhorizon Adventures may revise these prices without notice."
+    },
+    "inclusions": {
+      "eyebrow": "The price",
+      "title": "What is in it, and what is not",
+      "inTitle": "In the price",
+      "outTitle": "Not in the price"
+    },
+    "route": {
+      "title": "Route map"
+    },
+    "program": {
+      "eyebrow": "Day by day",
+      "title": "Expedition program",
+      "day": "Day {day}",
+      "stay": "Where you stay",
+      "more": "More details",
+      "close": "Close",
+      "dayCount": "{count, plural, one {# day} other {# days}}",
+      "previous": "Previous day",
+      "next": "Next day"
+    },
+    "expect": {
+      "eyebrow": "What to expect"
+    },
+    "gallery": {
+      "eyebrow": "The place itself",
+      "title": "See it to believe it",
+      "open": "Open photograph",
+      "close": "Close",
+      "previous": "Previous photograph",
+      "next": "Next photograph",
+      "counter": "{current} of {total}"
+    },
+    "cta": {
+      "title": "Ride this one with us",
+      "body": "Ask about a date on the list, or tell us when you can travel and we will see what fits."
+    }
   }
 }

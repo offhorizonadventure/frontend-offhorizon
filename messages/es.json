@@ -1004,5 +1004,71 @@
       "body": "Dinos las fechas que tienes, quién viene y qué quieres sacar de ello, y construiremos la ruta alrededor de eso.",
       "imageAlt": "Vista aérea de una carretera cruzando el Himalaya indio"
     }
+  },
+  "tour": {
+    "breadcrumb": "Viajes de aventura",
+    "facts": {
+      "title": "Ficha de la expedición",
+      "location": "País, región",
+      "weather": "Clima",
+      "vehicle": "Vehículo de expedición",
+      "terrain": "Tipo de firme",
+      "distance": "Distancia recorrida",
+      "duration": "Duración",
+      "difficulty": "Dificultad",
+      "groupSize": "Grupo máximo"
+    },
+    "dates": {
+      "eyebrow": "Fechas y precios",
+      "title": "Elige una salida",
+      "available": "Plazas disponibles",
+      "soldOut": "Completa",
+      "from": "Desde",
+      "perPerson": "Precio por persona",
+      "twin": "Habitación doble",
+      "solo": "Habitación individual",
+      "edition": "Edición",
+      "direction": "Sentido de la ruta",
+      "ledBy": "Dirigida por",
+      "enquire": "Consultar",
+      "joinWaitlist": "Lista de espera",
+      "disclaimer": "Las tarifas son por persona salvo que se indique lo contrario y pueden cambiar. Los precios se fijan en dólares estadounidenses y se convierten solo para mostrarlos, así que el importe final depende del cambio del día. Los vuelos de ida y vuelta al punto de partida no están incluidos. Offhorizon Adventures puede modificar estos precios sin previo aviso."
+    },
+    "inclusions": {
+      "eyebrow": "El precio",
+      "title": "Qué incluye y qué no",
+      "inTitle": "Incluido en el precio",
+      "outTitle": "No incluido"
+    },
+    "route": {
+      "title": "Mapa de la ruta"
+    },
+    "program": {
+      "eyebrow": "Día a día",
+      "title": "Programa de la expedición",
+      "day": "Día {day}",
+      "stay": "Dónde se duerme",
+      "more": "Más detalles",
+      "close": "Cerrar",
+      "dayCount": "{count, plural, one {# día} other {# días}}",
+      "previous": "Día anterior",
+      "next": "Día siguiente"
+    },
+    "expect": {
+      "eyebrow": "Qué esperar"
+    },
+    "gallery": {
+      "eyebrow": "El sitio",
+      "title": "Hay que verlo para creerlo",
+      "open": "Abrir la foto",
+      "close": "Cerrar",
+      "previous": "Foto anterior",
+      "next": "Foto siguiente",
+      "counter": "{current} de {total}"
+    },
+    "cta": {
+      "title": "Haz esta expedición con nosotros",
+      "body": "Pregunta por una fecha de la lista, o dinos cuándo puedes viajar y vemos qué encaja."
+    }
   }
 }

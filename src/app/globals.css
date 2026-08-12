@@ -484,3 +484,49 @@ select:focus-visible {
 .animate-modal-out {
   animation: modal-out 260ms cubic-bezier(0.4, 0, 1, 1) both;
 }
+
+/* Tour itinerary rail. Held to the same container as every other section
+   rather than bleeding to the viewport edge, so the first and last cards line
+   up with the headings above them. It still scrolls; it just scrolls inside
+   the column. */
+.program-rail {
+  display: flex;
+  gap: 1rem;
+  margin-inline: auto;
+  max-width: 72rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-inline: 1.25rem;
+  padding-bottom: 0.5rem;
+  /* Without this the snap port ignores the padding and the rail settles one
+     padding-width in, so the first card never lines up with the heading. */
+  scroll-padding-inline: 1.25rem;
+}
+
+.program-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.program-item {
+  flex: 0 0 84%;
+  max-width: 20rem;
+  scroll-snap-align: center;
+  aspect-ratio: 3 / 4.4;
+  /* The open panel has a fixed amount of chrome in it, so the card needs a
+     floor or the detail has nowhere to go on a narrow phone. */
+  min-height: 25rem;
+}
+
+@media (min-width: 640px) {
+  .program-rail {
+    gap: 1.25rem;
+    padding-inline: 2rem;
+    scroll-padding-inline: 2rem;
+  }
+
+  .program-item {
+    flex-basis: 20rem;
+    scroll-snap-align: start;
+  }
+}

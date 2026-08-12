@@ -1004,5 +1004,71 @@
       "body": "Nennen Sie uns Ihre Termine, wer mitkommt und was Sie sich davon versprechen, und wir bauen die Route darum herum.",
       "imageAlt": "Luftaufnahme einer Straße durch den indischen Himalaya"
     }
+  },
+  "tour": {
+    "breadcrumb": "Abenteuertouren",
+    "facts": {
+      "title": "Eckdaten",
+      "location": "Land, Region",
+      "weather": "Wetter",
+      "vehicle": "Expeditionsfahrzeug",
+      "terrain": "Untergrund",
+      "distance": "Fahrstrecke",
+      "duration": "Dauer",
+      "difficulty": "Schwierigkeit",
+      "groupSize": "Max. Gruppengröße"
+    },
+    "dates": {
+      "eyebrow": "Termine und Preise",
+      "title": "Termin wählen",
+      "available": "Plätze frei",
+      "soldOut": "Ausgebucht",
+      "from": "Ab",
+      "perPerson": "Preis pro Person",
+      "twin": "Doppelzimmer",
+      "solo": "Einzelzimmer",
+      "edition": "Edition",
+      "direction": "Fahrtrichtung",
+      "ledBy": "Geleitet von",
+      "enquire": "Anfragen",
+      "joinWaitlist": "Warteliste",
+      "disclaimer": "Preise gelten pro Person, sofern nicht anders angegeben, und können sich ändern. Sie werden in US-Dollar festgelegt und nur zur Anzeige umgerechnet, der zu zahlende Betrag hängt also vom Tageskurs ab. Flüge zum und vom Startpunkt sind nicht enthalten. Offhorizon Adventures kann diese Preise ohne Vorankündigung anpassen."
+    },
+    "inclusions": {
+      "eyebrow": "Der Preis",
+      "title": "Was drin ist und was nicht",
+      "inTitle": "Im Preis enthalten",
+      "outTitle": "Nicht enthalten"
+    },
+    "route": {
+      "title": "Routenkarte"
+    },
+    "program": {
+      "eyebrow": "Tag für Tag",
+      "title": "Expeditionsprogramm",
+      "day": "Tag {day}",
+      "stay": "Unterkunft",
+      "more": "Mehr dazu",
+      "close": "Schließen",
+      "dayCount": "{count, plural, one {# Tag} other {# Tage}}",
+      "previous": "Vorheriger Tag",
+      "next": "Nächster Tag"
+    },
+    "expect": {
+      "eyebrow": "Was Sie erwartet"
+    },
+    "gallery": {
+      "eyebrow": "Vor Ort",
+      "title": "Man muss es gesehen haben",
+      "open": "Foto öffnen",
+      "close": "Schließen",
+      "previous": "Vorheriges Foto",
+      "next": "Nächstes Foto",
+      "counter": "{current} von {total}"
+    },
+    "cta": {
+      "title": "Fahren Sie diese Route mit uns",
+      "body": "Fragen Sie zu einem Termin aus der Liste an, oder sagen Sie uns, wann Sie können, und wir schauen, was passt."
+    }
   }
 }
