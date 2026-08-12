@@ -38,22 +38,46 @@ export function PhoneField({
   countryLabel,
 }: PhoneFieldProps) {
   const locale = useLocale() as Locale;
-  const [country, setCountry] = useState(() => marketFor(locale).flag.toUpperCase());
+  const [country, setCountry] = useState(() =>
+    marketFor(locale).flag.toUpperCase(),
+  );
   const [number, setNumber] = useState("");
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
+  /**
+   * The option list is built only once the picker has been opened, which can
+   * only happen after a click and therefore only on the client.
+   *
+   * `Intl.DisplayNames` resolves against whichever ICU build is running, and
+   * Node's does not always agree with the browser's: it returns "Hong Kong SAR
+   * China", "Macao SAR China" and "Palestinian Territories" where Chrome
+   * returns the short forms. Rendering those names during SSR produced a
+   * hydration mismatch. Deferring costs nothing visually, because the list is
+   * hidden until it is opened, and it keeps 243 list items out of the HTML of
+   * every page carrying a phone field.
+   */
+  const [everOpened, setEverOpened] = useState(false);
 
   const wrapper = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const names = useMemo(() => new Intl.DisplayNames([locale], { type: "region" }), [locale]);
+  const names = useMemo(
+    () => new Intl.DisplayNames([locale], { type: "region" }),
+    [locale],
+  );
 
   const countries = useMemo(
     () =>
-      countryCodes
-        .map((code) => ({ code, name: names.of(code) ?? code, dial: dialCodes[code] }))
-        .sort((a, b) => a.name.localeCompare(b.name, locale)),
-    [names, locale],
+      !everOpened
+        ? []
+        : countryCodes
+            .map((code) => ({
+              code,
+              name: names.of(code) ?? code,
+              dial: dialCodes[code],
+            }))
+            .sort((a, b) => a.name.localeCompare(b.name, locale)),
+    [everOpened, names, locale],
   );
 
   const filtered = useMemo(() => {
@@ -96,16 +120,24 @@ export function PhoneField({
       <div className="flex h-12 items-stretch overflow-hidden rounded-xl border border-brand-900/15 bg-white transition-[border-color,box-shadow] focus-within:border-brand-800 focus-within:ring-[3px] focus-within:ring-brand-800/10">
         <button
           type="button"
-          onClick={() => setOpen((value) => !value)}
+          onClick={() => {
+            setEverOpened(true);
+            setOpen((value) => !value);
+          }}
           aria-haspopup="listbox"
           aria-expanded={open}
           aria-label={countryLabel}
           className="flex shrink-0 items-center gap-2 border-r border-brand-900/12 px-3 transition-colors hover:bg-cream-50"
         >
           <Flag country={country} />
-          <span className="text-[13px] font-semibold text-brand-900 tabular-nums">+{dial}</span>
+          <span className="text-[13px] font-semibold text-brand-900 tabular-nums">
+            +{dial}
+          </span>
           <ChevronDown
-            className={cn("text-brand-500 transition-transform duration-300", open && "rotate-180")}
+            className={cn(
+              "text-brand-500 transition-transform duration-300",
+              open && "rotate-180",
+            )}
           />
         </button>
 
@@ -116,21 +148,29 @@ export function PhoneField({
           autoComplete="tel-national"
           required={required}
           value={number}
-          onChange={(event) => setNumber(event.target.value.replace(/[^\d\s-]/g, ""))}
+          onChange={(event) =>
+            setNumber(event.target.value.replace(/[^\d\s-]/g, ""))
+          }
           className="min-w-0 flex-1 bg-transparent px-3.5 text-[14px] text-brand-900 outline-none placeholder:text-brand-800/35"
           placeholder="00000 00000"
         />
       </div>
 
       {/* What the form handler receives. */}
-      <input type="hidden" name={name} value={number ? `+${dial}${number.replace(/\D/g, "")}` : ""} />
+      <input
+        type="hidden"
+        name={name}
+        value={number ? `+${dial}${number.replace(/\D/g, "")}` : ""}
+      />
 
       <div
         role="listbox"
         aria-label={countryLabel}
         className={cn(
           "absolute z-50 mt-2 max-h-72 w-full origin-top overflow-hidden rounded-2xl border border-brand-900/12 bg-white shadow-[0_20px_50px_-20px_rgba(42,16,2,0.35)] transition-all duration-200 ease-out-expo",
-          open ? "visible scale-100 opacity-100" : "invisible scale-95 opacity-0",
+          open
+            ? "visible scale-100 opacity-100"
+            : "invisible scale-95 opacity-0",
         )}
       >
         <div className="border-b border-brand-900/8 p-2">
@@ -159,18 +199,24 @@ export function PhoneField({
                 }}
                 className={cn(
                   "flex w-full items-center gap-2.5 px-3 py-2 text-left text-[13px] transition-colors hover:bg-cream-50",
-                  item.code === country ? "font-semibold text-brand-800" : "text-brand-900/80",
+                  item.code === country
+                    ? "font-semibold text-brand-800"
+                    : "text-brand-900/80",
                 )}
               >
                 <Flag country={item.code} />
                 <span className="min-w-0 flex-1 truncate">{item.name}</span>
-                <span className="shrink-0 text-brand-500 tabular-nums">+{item.dial}</span>
+                <span className="shrink-0 text-brand-500 tabular-nums">
+                  +{item.dial}
+                </span>
               </button>
             </li>
           ))}
 
-          {filtered.length === 0 && (
-            <li className="px-3 py-6 text-center text-[13px] text-brand-800/40">{searchLabel}</li>
+          {everOpened && filtered.length === 0 && (
+            <li className="px-3 py-6 text-center text-[13px] text-brand-800/40">
+              {searchLabel}
+            </li>
           )}
         </ul>
       </div>
