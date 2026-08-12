@@ -947,5 +947,62 @@
         ]
       }
     }
+  },
+  "adventureTours": {
+    "meta": {
+      "title": "Viajes de aventura | Expediciones en moto y 4x4 por el Himalaya",
+      "description": "Todas las salidas de Offhorizon, agrupadas por país. Expediciones guiadas en moto y 4x4 por el Himalaya indio y nepalí."
+    },
+    "eyebrow": "Viajes de aventura",
+    "title": "Todas nuestras expediciones en un solo sitio",
+    "lead": "Salidas guiadas en moto y 4x4 por el Himalaya. Una lista corta a propósito, porque solo vendemos lo que sabemos hacer bien.",
+    "heroAlt": "Moteros en una carretera de alta montaña en el Himalaya",
+    "intro": {
+      "title": "Una lista corta, y preferimos que siga siéndolo.",
+      "body": "Ahora mismo hay {count, plural, one {# salida} other {# salidas}} en la lista, entre India y Nepal. Nuestro propio equipo ha rodado cada una antes de ponerla a la venta.",
+      "focus": "Bután, Sri Lanka y Mongolia están en preparación y todavía no aparecen aquí. Si el viaje que tienes en mente no está, dinos las fechas y te diremos con honestidad si podemos construirlo."
+    },
+    "list": {
+      "eyebrow": "Salidas",
+      "title": "Elige tu expedición",
+      "note": "Agrupadas por país. Los precios son por persona y se convierten a tu moneda.",
+      "viewDestination": "Ver el destino"
+    },
+    "standards": {
+      "eyebrow": "En cada salida",
+      "title": "Lo que no cambia nunca",
+      "body": "Elijas la ruta que elijas, la forma de llevarla no cambia. Son normas de funcionamiento, no extras.",
+      "items": [
+        {
+          "title": "Un jefe de expedición",
+          "body": "Una persona responsable del grupo, de la ruta y de la decisión de dar la vuelta."
+        },
+        {
+          "title": "Un mecánico en la carretera",
+          "body": "Viaja con los grupos de moto, no espera al otro lado del teléfono."
+        },
+        {
+          "title": "Un vehículo de apoyo",
+          "body": "Lleva repuestos, equipaje y a quien ya ha tenido bastante por hoy."
+        },
+        {
+          "title": "Aclimatación incluida",
+          "body": "Días de descanso antes de los tramos altos, porque lo que acaba con los viajes es la altura."
+        },
+        {
+          "title": "Permisos gestionados",
+          "body": "Áreas restringidas y permisos de conservación listos antes de que llegues."
+        },
+        {
+          "title": "Grupos pequeños",
+          "body": "Del tamaño justo para que el equipo vea cómo va cada uno, no solo para contar cabezas."
+        }
+      ]
+    },
+    "cta": {
+      "title": "¿Nada te encaja del todo?",
+      "body": "Dinos las fechas que tienes, quién viene y qué quieres sacar de ello, y construiremos la ruta alrededor de eso.",
+      "imageAlt": "Vista aérea de una carretera cruzando el Himalaya indio"
+    }
   }
 }

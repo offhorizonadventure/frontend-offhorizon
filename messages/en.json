@@ -947,5 +947,62 @@
         ]
       }
     }
+  },
+  "adventureTours": {
+    "meta": {
+      "title": "Adventure Tours | Himalayan Motorcycle and 4x4 Expeditions",
+      "description": "Every Offhorizon departure, grouped by country. Guided motorcycle and self-drive 4x4 expeditions in the Indian and Nepalese Himalayas."
+    },
+    "eyebrow": "Adventure Tours",
+    "title": "Every expedition we run, in one place",
+    "lead": "Guided motorcycle and self-drive 4x4 departures across the Himalayas. A short list on purpose, because we only sell what we can run properly.",
+    "heroAlt": "Riders on a high mountain road in the Himalayas",
+    "intro": {
+      "title": "A short list, and we would rather keep it that way.",
+      "body": "There are {count, plural, one {# departure} other {# departures}} on the list at the moment, across India and Nepal. Every one has been ridden by our own crew before it went on sale.",
+      "focus": "Bhutan, Sri Lanka and Mongolia are in planning and are not listed yet. If the trip in your head is not here, tell us the dates and we will say honestly whether we can build it."
+    },
+    "list": {
+      "eyebrow": "Departures",
+      "title": "Choose your expedition",
+      "note": "Grouped by country. Prices are per person and convert to your local currency.",
+      "viewDestination": "See the destination"
+    },
+    "standards": {
+      "eyebrow": "Every departure",
+      "title": "What is the same on all of them",
+      "body": "Whatever route you pick, the way it is run does not change. These are operating standards, not extras.",
+      "items": [
+        {
+          "title": "An expedition leader",
+          "body": "One person responsible for the group, the route and the call to turn back."
+        },
+        {
+          "title": "A mechanic on the road",
+          "body": "Travelling with motorcycle groups rather than waiting at the end of a phone."
+        },
+        {
+          "title": "A backup vehicle",
+          "body": "Carrying spares, luggage and anyone who has had enough for the day."
+        },
+        {
+          "title": "Acclimatisation built in",
+          "body": "Rest days before the high sections, because altitude is what actually ends trips."
+        },
+        {
+          "title": "Permits arranged",
+          "body": "Restricted areas and conservation permits handled before you arrive."
+        },
+        {
+          "title": "Small groups",
+          "body": "Sized so the crew can watch how everyone is coping, not just count heads."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Nothing here quite right?",
+      "body": "Tell us the dates you have, who is coming and what you want out of it, and we will build the route around that.",
+      "imageAlt": "Aerial view of a road cutting through the Indian Himalayas"
+    }
   }
 }

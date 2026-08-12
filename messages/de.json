@@ -947,5 +947,62 @@
         ]
       }
     }
+  },
+  "adventureTours": {
+    "meta": {
+      "title": "Abenteuertouren | Motorrad- und 4x4-Expeditionen im Himalaya",
+      "description": "Alle Termine von Offhorizon, nach Ländern sortiert. Geführte Motorrad- und 4x4-Expeditionen im indischen und nepalesischen Himalaya."
+    },
+    "eyebrow": "Abenteuertouren",
+    "title": "Alle unsere Expeditionen an einem Ort",
+    "lead": "Geführte Motorrad- und 4x4-Termine quer durch den Himalaya. Eine bewusst kurze Liste, weil wir nur verkaufen, was wir auch ordentlich durchführen können.",
+    "heroAlt": "Motorradfahrer auf einer Hochgebirgsstraße im Himalaya",
+    "intro": {
+      "title": "Eine kurze Liste, und das soll sie bleiben.",
+      "body": "Derzeit stehen {count, plural, one {# Termin} other {# Termine}} auf der Liste, in Indien und Nepal. Jede Route ist von unserem eigenen Team gefahren worden, bevor sie in den Verkauf ging.",
+      "focus": "Bhutan, Sri Lanka und die Mongolei sind in Planung und stehen noch nicht hier. Wenn die Reise, die Sie im Kopf haben, fehlt, nennen Sie uns die Termine und wir sagen ehrlich, ob wir sie bauen können."
+    },
+    "list": {
+      "eyebrow": "Termine",
+      "title": "Wählen Sie Ihre Expedition",
+      "note": "Nach Ländern sortiert. Preise pro Person, umgerechnet in Ihre Währung.",
+      "viewDestination": "Zum Reiseziel"
+    },
+    "standards": {
+      "eyebrow": "Bei jedem Termin",
+      "title": "Was überall gleich ist",
+      "body": "Welche Route Sie auch wählen, an der Durchführung ändert sich nichts. Das sind Betriebsstandards, keine Extras.",
+      "items": [
+        {
+          "title": "Ein Expeditionsleiter",
+          "body": "Eine Person, die für die Gruppe, die Route und die Entscheidung zur Umkehr verantwortlich ist."
+        },
+        {
+          "title": "Ein Mechaniker unterwegs",
+          "body": "Er fährt bei Motorradgruppen mit, statt am Telefon zu warten."
+        },
+        {
+          "title": "Ein Begleitfahrzeug",
+          "body": "Für Ersatzteile, Gepäck und alle, denen der Tag gereicht hat."
+        },
+        {
+          "title": "Eingebaute Akklimatisierung",
+          "body": "Ruhetage vor den hohen Abschnitten, denn an der Höhe scheitern Reisen tatsächlich."
+        },
+        {
+          "title": "Erledigte Genehmigungen",
+          "body": "Sperrgebiete und Schutzgebietsgenehmigungen liegen vor Ihrer Ankunft vor."
+        },
+        {
+          "title": "Kleine Gruppen",
+          "body": "So bemessen, dass das Team sieht, wie es jedem geht, statt nur Köpfe zu zählen."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Nichts ganz passend dabei?",
+      "body": "Nennen Sie uns Ihre Termine, wer mitkommt und was Sie sich davon versprechen, und wir bauen die Route darum herum.",
+      "imageAlt": "Luftaufnahme einer Straße durch den indischen Himalaya"
+    }
   }
 }

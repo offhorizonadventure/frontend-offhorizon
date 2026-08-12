@@ -6,7 +6,14 @@ import { sortedPosts } from "@/config/posts";
 import { siteUrl } from "@/lib/seo";
 
 /** Add every public route here, without the locale prefix. */
-const routes = ["/", "/about-us", "/contact-us", "/custom-expeditions", "/blog"];
+const routes = [
+  "/",
+  "/about-us",
+  "/adventure-tours",
+  "/contact-us",
+  "/custom-expeditions",
+  "/blog",
+];
 
 /** Post URLs are derived, so publishing a post adds it to the sitemap. */
 const postRoutes = sortedPosts.map((post) => `/blog/${post.slug}`);

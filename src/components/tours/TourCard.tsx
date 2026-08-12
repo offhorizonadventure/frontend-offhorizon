@@ -19,12 +19,16 @@ export async function TourCard({
   tour,
   sizes,
   image,
+  headingLevel = 3,
 }: {
   tour: TourPackage;
   sizes: string;
   /** Overrides the package photo where a page needs a different crop. */
   image?: StaticImageData;
+  /** Drops to 4 where the cards sit under a country heading. */
+  headingLevel?: 3 | 4;
 }) {
+  const Heading = `h${headingLevel}` as const;
   const [t, tt, locale] = await Promise.all([
     getTranslations("home.upcoming"),
     getTranslations("tours"),
@@ -77,9 +81,9 @@ export async function TourCard({
 
         {/* Clamped rather than truncated: a tour name cut mid-word tells the
             reader nothing. */}
-        <h3 className="font-display mt-2 line-clamp-2 text-[17px] leading-tight font-bold tracking-[-0.02em] text-balance text-brand-900 @sm:text-[19px]">
+        <Heading className="font-display mt-2 line-clamp-2 text-[17px] leading-tight font-bold tracking-[-0.02em] text-balance text-brand-900 @sm:text-[19px]">
           {name}
-        </h3>
+        </Heading>
 
         <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
           <p className="text-[12.5px] text-brand-800/55">{t("startingAt", { price })}</p>

@@ -947,5 +947,62 @@
         ]
       }
     }
+  },
+  "adventureTours": {
+    "meta": {
+      "title": "Tour avventura | Spedizioni in moto e 4x4 sull'Himalaya",
+      "description": "Tutte le partenze Offhorizon, divise per paese. Spedizioni guidate in moto e 4x4 nell'Himalaya indiano e nepalese."
+    },
+    "eyebrow": "Tour avventura",
+    "title": "Tutte le nostre spedizioni in un unico posto",
+    "lead": "Partenze guidate in moto e 4x4 attraverso l'Himalaya. Un elenco volutamente breve, perché vendiamo solo ciò che sappiamo gestire bene.",
+    "heroAlt": "Motociclisti su una strada d'alta montagna nell'Himalaya",
+    "intro": {
+      "title": "Un elenco breve, e preferiamo che resti così.",
+      "body": "Al momento ci sono {count, plural, one {# partenza} other {# partenze}} in programma, tra India e Nepal. Ogni percorso è stato fatto dal nostro team prima di essere messo in vendita.",
+      "focus": "Bhutan, Sri Lanka e Mongolia sono in programma e non compaiono ancora qui. Se il viaggio che hai in mente non c'è, dicci le date e ti diremo onestamente se possiamo costruirlo."
+    },
+    "list": {
+      "eyebrow": "Partenze",
+      "title": "Scegli la tua spedizione",
+      "note": "Divise per paese. I prezzi sono a persona e convertiti nella tua valuta.",
+      "viewDestination": "Vedi la destinazione"
+    },
+    "standards": {
+      "eyebrow": "Ogni partenza",
+      "title": "Cosa non cambia mai",
+      "body": "Qualunque itinerario scegli, il modo in cui viene gestito resta lo stesso. Sono standard operativi, non extra.",
+      "items": [
+        {
+          "title": "Un capo spedizione",
+          "body": "Una persona responsabile del gruppo, del percorso e della decisione di tornare indietro."
+        },
+        {
+          "title": "Un meccanico in strada",
+          "body": "Viaggia con i gruppi in moto, non aspetta all'altro capo del telefono."
+        },
+        {
+          "title": "Un veicolo di appoggio",
+          "body": "Porta ricambi, bagagli e chi per oggi ne ha avuto abbastanza."
+        },
+        {
+          "title": "Acclimatamento incluso",
+          "body": "Giorni di riposo prima dei tratti in quota, perché è l'altitudine a far saltare i viaggi."
+        },
+        {
+          "title": "Permessi gestiti",
+          "body": "Aree riservate e permessi di conservazione pronti prima del tuo arrivo."
+        },
+        {
+          "title": "Gruppi piccoli",
+          "body": "Dimensionati perché il team veda come sta ognuno, non solo per contare le teste."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Niente che faccia davvero al caso tuo?",
+      "body": "Dicci le date che hai, chi viene con te e cosa vuoi ottenerne, e costruiremo l'itinerario intorno a questo.",
+      "imageAlt": "Veduta aerea di una strada che attraversa l'Himalaya indiano"
+    }
   }
 }

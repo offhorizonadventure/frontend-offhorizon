@@ -947,5 +947,62 @@
         ]
       }
     }
+  },
+  "adventureTours": {
+    "meta": {
+      "title": "Circuits aventure | Expéditions à moto et en 4x4 dans l'Himalaya",
+      "description": "Tous les départs Offhorizon, par pays. Expéditions guidées à moto et en 4x4 dans l'Himalaya indien et népalais."
+    },
+    "eyebrow": "Circuits aventure",
+    "title": "Toutes nos expéditions, au même endroit",
+    "lead": "Des départs guidés à moto et en 4x4 à travers l'Himalaya. Une liste courte, volontairement, parce que nous ne vendons que ce que nous savons bien faire.",
+    "heroAlt": "Des motards sur une route de haute montagne dans l'Himalaya",
+    "intro": {
+      "title": "Une liste courte, et nous préférons qu'elle le reste.",
+      "body": "Il y a pour le moment {count, plural, one {# départ} other {# départs}} au programme, entre l'Inde et le Népal. Chacun a été parcouru par notre équipe avant d'être mis en vente.",
+      "focus": "Le Bhoutan, le Sri Lanka et la Mongolie sont en préparation et ne figurent pas encore ici. Si le voyage que vous avez en tête n'y est pas, donnez-nous vos dates et nous vous dirons honnêtement si nous pouvons le construire."
+    },
+    "list": {
+      "eyebrow": "Départs",
+      "title": "Choisissez votre expédition",
+      "note": "Classés par pays. Les prix sont par personne et convertis dans votre devise.",
+      "viewDestination": "Voir la destination"
+    },
+    "standards": {
+      "eyebrow": "Chaque départ",
+      "title": "Ce qui ne change jamais",
+      "body": "Quel que soit l'itinéraire choisi, la façon dont il est encadré reste la même. Ce sont des règles de fonctionnement, pas des options.",
+      "items": [
+        {
+          "title": "Un chef d'expédition",
+          "body": "Une personne responsable du groupe, de l'itinéraire et de la décision de faire demi-tour."
+        },
+        {
+          "title": "Un mécanicien sur la route",
+          "body": "Il voyage avec les groupes moto, il n'attend pas au bout du fil."
+        },
+        {
+          "title": "Un véhicule de secours",
+          "body": "Il transporte les pièces, les bagages et ceux qui en ont assez pour la journée."
+        },
+        {
+          "title": "L'acclimatation intégrée",
+          "body": "Des jours de repos avant les sections en altitude, car c'est l'altitude qui met fin aux voyages."
+        },
+        {
+          "title": "Les permis pris en charge",
+          "body": "Zones réglementées et permis de conservation obtenus avant votre arrivée."
+        },
+        {
+          "title": "Des petits groupes",
+          "body": "Dimensionnés pour que l'équipe suive l'état de chacun, pas seulement le nombre de têtes."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Rien ne correspond tout à fait ?",
+      "body": "Donnez-nous vos dates, dites-nous qui vous accompagne et ce que vous en attendez, et nous construirons l'itinéraire autour de cela.",
+      "imageAlt": "Vue aérienne d'une route traversant l'Himalaya indien"
+    }
   }
 }
