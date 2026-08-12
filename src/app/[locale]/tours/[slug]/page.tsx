@@ -106,18 +106,17 @@ export default async function TourPage({ params }: PageProps<"/[locale]/tours/[s
       <section className="relative overflow-hidden bg-cream-50 py-18 sm:py-24">
         <Topo className="text-brand-800/12" rings={11} seed={40.9} />
 
+        {/* Title runs the width of the column and the body sits under it.
+            Boxed into a narrow half, a title this long broke over three or
+            four lines and stopped reading as a sentence. */}
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-          <div data-anim="up" className="grid gap-8 lg:grid-cols-12 lg:gap-14">
-            <div className="lg:col-span-5">
-              <h2 className="font-display text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.08] font-extrabold tracking-[-0.035em] text-balance text-brand-900">
-                {tour.place.title}
-              </h2>
-            </div>
-            <div className="lg:col-span-7 lg:pt-2">
-              <p className="text-[15px] leading-[1.85] text-pretty text-brand-800/65 sm:text-[16.5px]">
-                {tour.place.body}
-              </p>
-            </div>
+          <div data-anim="up">
+            <h2 className="font-display text-[clamp(1.75rem,4vw,3rem)] leading-[1.06] font-extrabold tracking-[-0.035em] text-balance text-brand-900">
+              {tour.place.title}
+            </h2>
+            <p className="mt-7 text-[15px] leading-[1.85] text-pretty text-brand-800/65 sm:text-[16.5px]">
+              {tour.place.body}
+            </p>
           </div>
         </div>
       </section>
