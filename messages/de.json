@@ -431,5 +431,264 @@
         "body": "Tempo, Etappen und Stopps richten sich nach denen, die fahren."
       }
     }
+  },
+  "dest": {
+    "shared": {
+      "home": "Startseite",
+      "destinations": "Reiseziele",
+      "running": "Läuft bereits",
+      "planned": "In Planung",
+      "expeditions": "{count, plural, one {# Expedition} other {# Expeditionen}}",
+      "openForEnquiries": "Anfragen möglich",
+      "viewTours": "Touren ansehen",
+      "sendEnquiry": "Anfrage senden",
+      "planTrip": "Individuelle Reise planen",
+      "registerInterest": "Interesse anmelden",
+      "viewTour": "Tour ansehen",
+      "faqEyebrow": "Vor der Abreise"
+    },
+    "hub": {
+      "meta": {
+        "title": "Reiseziele | Motorrad- und 4x4-Expeditionen im Himalaya",
+        "description": "Wo Offhorizon Adventure geführte Motorrad- und 4x4-Expeditionen durchführt. Derzeit der Himalaya in Indien und Nepal, mit Bhutan, Sri Lanka und der Mongolei in Planung."
+      },
+      "eyebrow": "Reiseziele",
+      "title": "Für das Abenteuer gebaut. Von Erfahrung geführt.",
+      "lead": "Wir planen erstklassige Motorrad- und 4x4-Expeditionen in einigen der anspruchsvollsten Landschaften der Welt. Fünf Länder, ein Planungsstandard.",
+      "heroAlt": "Eine Straße entlang eines Flusstals im indischen Himalaya",
+      "intro": {
+        "title": "Wo wir fahren, und wo wir offen sagen, dass wir es noch nicht tun.",
+        "body": "Unsere Expeditionen konzentrieren sich auf den Himalaya in Indien und Nepal, wo wir seit 2014 Fahrzeuge und Gruppen führen und das Gelände Saison für Saison kennen.",
+        "focus": "Bhutan, Sri Lanka und die Mongolei sind in Planung. Wir öffnen sie, wenn wir dort denselben Standard halten können, nicht früher. Bis dahin bauen wir gern eine individuelle Reise und sagen klar, was möglich ist und was nicht."
+      },
+      "list": {
+        "eyebrow": "Die fünf",
+        "title": "Wählen Sie ein Ziel",
+        "note": "Zwei laufen bereits, drei sind in Planung. Für jedes ist eine individuelle Anfrage möglich."
+      },
+      "approach": {
+        "eyebrow": "Unser Ansatz",
+        "title": "Wir beschränken uns nicht auf eine Art von Reise.",
+        "body": "Jede Route muss in vier Punkten bestehen. Fällt sie in einem durch, findet sie nicht statt.",
+        "pillars": {
+          "adventure": {
+            "title": "Abenteuer",
+            "body": "Echtes Gelände und echte Distanzen. Pässe, Flussdurchfahrten und Straßen, die das Wort Expedition verdienen."
+          },
+          "culture": {
+            "title": "Kultur",
+            "body": "Klöster, Dörfer und die Menschen, die in dieser Höhe leben. Mit eingeplanter Zeit zum Anhalten, nicht nur zum Durchfahren."
+          },
+          "comfort": {
+            "title": "Komfort",
+            "body": "Die beste Unterkunft, die ein Tal hat, und ein komfortables Camp, wo es sonst nichts gibt."
+          },
+          "safety": {
+            "title": "Sicherheit",
+            "body": "Akklimatisierung, Sauerstoff, Mechaniker und Begleitfahrzeug. Der Zeitplan gehört zur Sicherheitsausrüstung."
+          }
+        }
+      }
+    },
+    "planned": {
+      "meta": {
+        "title": "Expeditionen {country} | Offhorizon Adventures",
+        "description": "{country}: Motorrad- und 4x4-Expeditionen sind bei Offhorizon Adventure in Planung. Sprechen Sie uns in der Zwischenzeit auf eine individuelle Reise an."
+      },
+      "eyebrow": "In Planung",
+      "title": "{country}: auf der Karte, noch nicht im Kalender.",
+      "lead": "Wir arbeiten an diesem Ziel. Solange es nicht dem Standard entspricht, den wir im Himalaya halten, bringen wir es nicht in den Verkauf.",
+      "body": {
+        "title": "Warum wir es noch nicht verkaufen",
+        "text": "Wir führen seit {year} Fahrzeuge und Gruppen im Himalaya, und genau dieses Maß an Ortskenntnis wollen wir haben, bevor wir jemanden durch ein neues Ziel führen. Routen werden erkundet und Partner geprüft. Wenn Sie Termine im Kopf haben, sagen Sie es uns, und wir sagen ehrlich, ob wir es gut machen können."
+      },
+      "seeIndia": "Expeditionen in Indien ansehen"
+    },
+    "india": {
+      "meta": {
+        "title": "Motorrad- und 4x4-Expeditionen in Indien | Offhorizon",
+        "description": "Geführte Motorrad- und 4x4-Expeditionen im indischen Himalaya. Ladakh, Spiti und Zanskar, organisiert von Manali aus von einem Team, das seit 2014 vor Ort ist."
+      },
+      "eyebrow": "Indien",
+      "title": "Motorrad- und 4x4-Expeditionen durch Indien",
+      "lead": "Von den hohen Pässen Ladakhs bis zur Kältewüste Spitis bietet Indien die größte Bandbreite an Abenteuerrouten der Region. Die nördliche Hälfte davon fahren wir richtig.",
+      "intro": {
+        "title": "Ein Land, zwei völlig verschiedene Reisen.",
+        "body": "Indien bietet Pässe auf 5.000 Metern im Norden ebenso wie Küsten- und Kulturrouten im Süden. Das verlangt andere Maschinen, andere Jahreszeiten und andere Planung.",
+        "focus": "Unsere Expeditionen konzentrieren sich derzeit auf den indischen Himalaya im Norden, wo unsere Werkstatt, unser Team und ein Jahrzehnt Geländekenntnis sitzen. Südindien ist geplant, und wir öffnen es, wenn wir dort denselben Standard halten können."
+      },
+      "regions": {
+        "eyebrow": "Regionen",
+        "label": "Region",
+        "title": "Wo wir in Indien fahren",
+        "explore": "Region entdecken",
+        "himalayas": {
+          "name": "Indischer Himalaya",
+          "body": "Ladakh, Spiti und Zanskar. Hohe Pässe, Flussdurchfahrten und Kältewüste, gefahren zwischen Juni und September."
+        },
+        "south": {
+          "name": "Südindien",
+          "body": "Westghats, Küstenstraßen und Tempelland. Erkundung läuft für eine andere Art von Reise, zu einer anderen Jahreszeit."
+        }
+      },
+      "why": {
+        "eyebrow": "Warum wir",
+        "title": "Warum Sie Indien mit Offhorizon fahren sollten",
+        "reasons": {
+          "experience": {
+            "title": "Seit 2014 vor Ort",
+            "body": "Wir haben als BRB Expeditions angefangen und Maschinen an alle vermietet, die in genau diese Täler aufbrachen."
+          },
+          "based": {
+            "title": "Sitz in Manali",
+            "body": "Das Tor zum Himalaya und der Start der meisten unserer Routen. Wir steuern das nicht aus einer anderen Stadt."
+          },
+          "team": {
+            "title": "Ein lokales Team",
+            "body": "Guides, die dieses Gelände und dieses Wetter lesen, weil sie darin leben, nicht weil sie die Karte studiert haben."
+          },
+          "planning": {
+            "title": "Geplant, nicht improvisiert",
+            "body": "Strukturierte Routen mit eingebauter Akklimatisierung und genug Puffer für einen schlechten Tag."
+          },
+          "support": {
+            "title": "Volle Unterstützung",
+            "body": "Expeditionsleiter, Mechaniker bei Motorradgruppen, Begleitfahrzeug und abgestimmte Logistik."
+          }
+        },
+        "closing": "Wenn die Straße gesperrt ist, sagen wir es vor der Buchung, nicht danach."
+      },
+      "cta": {
+        "title": "Starten Sie Ihre Expedition in Indien",
+        "body": "Wählen Sie einen Termin aus dem Kalender, oder nennen Sie uns Ihre Daten und wir bauen die Route darum herum.",
+        "imageAlt": "Luftaufnahme einer Straße durch den indischen Himalaya"
+      },
+      "faq": {
+        "title": "Fahren in Indien",
+        "permits": {
+          "q": "Brauche ich eine Reiseversicherung und Genehmigungen?",
+          "a1": "Ja. Beides ist erforderlich, und nichts davon ist optional.",
+          "a2": "Eine Reiseversicherung ist Pflicht und muss abdecken:",
+          "l1": "Aufenthalte über 5.000 Metern Höhe",
+          "l2": "Motorradfahren, das viele Standardpolicen ausschließen",
+          "l3": "Notfallevakuierung, auch per Hubschrauber",
+          "a3": "Der Himalaya ist abgelegen. Der richtige Schutz steht zwischen einem Zwischenfall und einem sehr teuren Problem.",
+          "a4": "Für mehrere Regionen, darunter Ladakh, sind Genehmigungen nötig. Wir besorgen sie alle, brauchen dafür aber rechtzeitig Ihre Pass- und Visadaten."
+        },
+        "when": {
+          "q": "Wann ist die Fahrsaison im indischen Himalaya?",
+          "a1": "Grob von Juni bis September, wobei sich die Ränder dieses Fensters jedes Jahr mit dem Schnee verschieben.",
+          "l1": "Juni: die Pässe öffnen, die Flüsse führen Schmelzwasser",
+          "l2": "Juli und August: am verlässlichsten, auch wenn der Monsun die Anfahrt durch Himachal betrifft",
+          "l3": "September: klarer Himmel und das beste Licht, dafür kalte Nächte",
+          "a2": "Außerhalb dieses Fensters sind die meisten hohen Pässe gesperrt. Wir sagen Ihnen, wenn Ihre Termine nicht passen, statt Ihnen eine Reise zu verkaufen, die nicht stattfindet."
+        },
+        "licence": {
+          "q": "Welchen Führerschein brauche ich in Indien?",
+          "a1": "Sie brauchen einen gültigen Motorradführerschein aus Ihrem Heimatland und einen internationalen Führerschein, ausgestellt vor der Abreise. In Indien wird er nicht ausgegeben.",
+          "a2": "Bringen Sie die Originaldokumente mit. Ein Foto auf dem Handy reicht an einer Kontrolle nicht."
+        }
+      }
+    },
+    "indianHimalayas": {
+      "meta": {
+        "title": "Expeditionen im indischen Himalaya | Ladakh, Spiti und Zanskar",
+        "description": "Motorrad- und 4x4-Expeditionen im indischen Himalaya. Hochpässe in Ladakh, Spiti und Zanskar mit Guides, Mechaniker und Begleitfahrzeug."
+      },
+      "eyebrow": "Indischer Himalaya",
+      "shortName": "Indischer Himalaya",
+      "title": "Expeditionen im indischen Himalaya, per Motorrad und 4x4",
+      "lead": "Von der Hochwüste Ladakhs bis zu den abgelegenen Tälern von Spiti und Zanskar. Eine der anspruchsvollsten und lohnendsten Strecken überhaupt, mit einer Planung, die dem Gelände entspricht.",
+      "tours": {
+        "eyebrow": "Expeditionen",
+        "title": "Die wichtigsten Expeditionen im indischen Himalaya"
+      },
+      "why": {
+        "eyebrow": "Himalaya-Spezialisten",
+        "title": "Warum Sie den indischen Himalaya mit uns fahren sollten",
+        "body": "Das ist das Gelände, das wir am besten kennen. Jeder Teil unseres Ablaufs stammt daher, dass wir es einmal schlecht gemacht und dann behoben haben.",
+        "items": {
+          "altitude": {
+            "title": "Erfahrung in großer Höhe",
+            "body": "Jahre mit Gruppen zwischen 3.000 und 5.800 Metern, wo Fehler nicht verziehen werden."
+          },
+          "planning": {
+            "title": "Erstklassige Planung",
+            "body": "Routen, Genehmigungen, Treibstoff und Ausweichoptionen geklärt, bevor sich ein Rad dreht."
+          },
+          "crew": {
+            "title": "Guides und Mechaniker",
+            "body": "Ein Expeditionsleiter, Guides und ein Mechaniker fahren mit der Gruppe, nicht auf Abruf."
+          },
+          "itineraries": {
+            "title": "Sorgfältig gebaute Routen",
+            "body": "Distanzen nach dem, was in dieser Höhe sinnvoll ist, nicht nach dem, was auf der Karte beeindruckt."
+          },
+          "safety": {
+            "title": "Sicherheit zuerst",
+            "body": "Akklimatisierungstage, Sauerstoff, Erste Hilfe, und die Regel, dass die Gruppe absteigt, wenn es jemandem nicht besser geht."
+          }
+        },
+        "closing": "Keine überfüllten Konvois. Keine gehetzten Zeitpläne."
+      },
+      "cta": {
+        "title": "Starten Sie Ihr Abenteuer im indischen Himalaya",
+        "body": "Schließen Sie sich einem festen Termin an, oder nennen Sie uns Ihre Daten und wir bauen die Route darum herum."
+      },
+      "faq": {
+        "title": "Der Himalaya, erklärt",
+        "what": {
+          "q": "Was ist der Himalaya?",
+          "a1": "Der Himalaya ist das höchste Gebirge der Erde. Er zieht sich durch Indien, Nepal, Bhutan, China und Pakistan und bildet die Barriere zwischen dem indischen Subkontinent und dem tibetischen Hochland.",
+          "a2": "Zum Gebirge gehören der Mount Everest und mehr als hundert Gipfel über 7.000 Metern. Indus, Ganges und Brahmaputra entspringen hier und versorgen flussabwärts Hunderte Millionen Menschen.",
+          "a3": "Für alle, die mit Motorrad oder 4x4 unterwegs sind, liegt der Reiz in der Kombination aus:",
+          "l1": "Hohen Pässen, darunter einige der höchsten Straßen der Welt",
+          "l2": "Abgelegenen Pisten mit Tagen zwischen den Siedlungen",
+          "l3": "Landschaften, die an einem Tag vom Gletscher zur Kältewüste wechseln",
+          "l4": "Gelebter hinduistischer und buddhistischer Kultur, nicht konservierter",
+          "a4": "Wir führen Expeditionen im indischen, nepalesischen und bhutanischen Himalaya."
+        },
+        "why": {
+          "q": "Warum ist der Himalaya der beste Ort für eine Motorrad-Expedition?",
+          "a1": "Weil wenige Orte so viel Höhe, so viel Abgeschiedenheit und so viel Abwechslung in einer einzigen Reise vereinen.",
+          "a2": "Es gibt eine Mischung aus Asphalt, Schotter und echtem Gelände, auf Straßen über 5.000 Meter und durch Gegenden, die kaum ein Fahrzeug sieht. Jede Region liest sich anders:",
+          "l1": "Ladakh: hohe Pässe und extreme, trockene Landschaften",
+          "l2": "Spiti-Tal: abgelegen, rau und technisch schwerer, als es aussieht",
+          "l3": "Upper Mustang in Nepal: trans-himalayische Wüste und tibetische Kultur",
+          "l4": "Bhutan: ruhigere Straßen, dichter Wald und ein langsameres Tempo",
+          "a3": "Das Fahren allein würde die Reise rechtfertigen. Worüber danach gesprochen wird, sind die Klöster, die Dörfer und die schiere Größe des Ortes."
+        },
+        "safe": {
+          "q": "Ist Fahren im Himalaya sicher?",
+          "a1": "Ja, wenn die Expedition richtig geplant und besetzt ist. Das Risiko ist hier nicht die Straße, sondern schlecht vorbereitet auf Höhe und Distanz zu treffen.",
+          "a2": "Jede Expedition fährt mit Expeditionsleiter, Guides, Mechaniker und Begleitfahrzeug. Außerdem gilt:",
+          "l1": "Akklimatisierungstage, bevor jemand hoch hinauffährt",
+          "l2": "Tägliche Kontrolle, wie jeder die Höhe verträgt",
+          "l3": "Sauerstoff und Erste Hilfe immer dabei",
+          "l4": "Routen aus Erfahrung gebaut, nicht von der Karte",
+          "a3": "Die wirksamste Sicherheitsmaßnahme ist ein Zeitplan mit genug Puffer, damit niemand sich gedrängt fühlt, krank zu fahren."
+        },
+        "difficulty": {
+          "q": "Wie schwierig sind Himalaya-Expeditionen?",
+          "a1": "Mittel bis anspruchsvoll, je nach Route.",
+          "a2": "Zu erwarten sind:",
+          "l1": "Lange Fahrtage zwischen 3.000 und 5.800 Metern",
+          "l2": "Eine Mischung aus gutem Asphalt und echtem Gelände",
+          "l3": "Wetter, das innerhalb einer Stunde umschlagen kann",
+          "l4": "Abgelegene Abschnitte ohne Treibstoff, Essen oder Empfang",
+          "a3": "Sie eignen sich für Fahrer mit einfacher bis mittlerer Erfahrung und ordentlicher Fitness. Mit strukturierter Route und Begleitteam schaffen die meisten die Strecke gut."
+        },
+        "permits": {
+          "q": "Brauche ich eine Reiseversicherung und Genehmigungen?",
+          "a1": "Ja. Beides ist für jede Himalaya-Expedition erforderlich.",
+          "a2": "Eine Reiseversicherung ist Pflicht und muss abdecken:",
+          "l1": "Aufenthalte über 5.000 Metern Höhe",
+          "l2": "Motorradfahren, das viele Standardpolicen ausschließen",
+          "l3": "Notfallevakuierung, auch per Hubschrauber",
+          "a3": "Das sind abgelegene Regionen und eine Evakuierung ist teuer. Prüfen Sie die Ausschlüsse Ihrer Police, statt es anzunehmen.",
+          "a4": "Für mehrere Regionen einschließlich Ladakh sind Genehmigungen nötig. Wir besorgen sie alle, brauchen dafür aber vorab Ihre Pass- und Visadaten."
+        }
+      }
+    }
   }
 }

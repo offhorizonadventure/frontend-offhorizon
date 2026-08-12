@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { defaultLocale, locales } from "@/i18n/config";
+import { destinationRoutes } from "@/config/destination-pages";
 import { sortedPosts } from "@/config/posts";
 import { siteUrl } from "@/lib/seo";
 
@@ -11,7 +12,7 @@ const routes = ["/", "/about-us", "/contact-us", "/custom-expeditions", "/blog"]
 const postRoutes = sortedPosts.map((post) => `/blog/${post.slug}`);
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [...routes, ...postRoutes].flatMap((path) =>
+  return [...routes, ...destinationRoutes, ...postRoutes].flatMap((path) =>
     locales.map((locale) => ({
       url: `${siteUrl}/${locale}${path === "/" ? "" : path}`,
       lastModified: new Date(),

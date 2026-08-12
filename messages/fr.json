@@ -431,5 +431,264 @@
         "body": "Rythme, distances et arrêts définis selon ceux qui roulent."
       }
     }
+  },
+  "dest": {
+    "shared": {
+      "home": "Accueil",
+      "destinations": "Destinations",
+      "running": "En cours",
+      "planned": "En préparation",
+      "expeditions": "{count, plural, one {# expédition} other {# expéditions}}",
+      "openForEnquiries": "Ouvert aux demandes",
+      "viewTours": "Voir les circuits",
+      "sendEnquiry": "Envoyer une demande",
+      "planTrip": "Créer un voyage sur mesure",
+      "registerInterest": "Se manifester",
+      "viewTour": "Voir le circuit",
+      "faqEyebrow": "Avant de partir"
+    },
+    "hub": {
+      "meta": {
+        "title": "Destinations | Expéditions à moto et en 4x4 dans l'Himalaya",
+        "description": "Là où Offhorizon Adventure mène ses expéditions guidées à moto et en 4x4. Actuellement l'Himalaya de l'Inde et du Népal, avec le Bhoutan, le Sri Lanka et la Mongolie en préparation."
+      },
+      "eyebrow": "Destinations",
+      "title": "Conçu pour l'aventure. Guidé par l'expérience.",
+      "lead": "Nous concevons des expéditions haut de gamme à moto et en 4x4 dans certains des paysages les plus exigeants du monde. Cinq pays, un seul niveau de préparation.",
+      "heroAlt": "Une route suivant une vallée fluviale dans l'Himalaya indien",
+      "intro": {
+        "title": "Où nous roulons, et où nous ne roulons pas encore.",
+        "body": "Nos expéditions se concentrent sur l'Himalaya de l'Inde et du Népal, où nous exploitons des véhicules et encadrons des groupes depuis 2014 et où nous connaissons le terrain saison après saison.",
+        "focus": "Le Bhoutan, le Sri Lanka et la Mongolie sont en préparation. Nous les ouvrirons quand nous pourrons y appliquer le même niveau d'exigence, pas avant. En attendant, nous construisons volontiers un voyage sur mesure en disant clairement ce qui est possible ou non."
+      },
+      "list": {
+        "eyebrow": "Les cinq",
+        "title": "Choisissez une destination",
+        "note": "Deux en cours, trois en préparation. Toutes sont ouvertes à une demande sur mesure."
+      },
+      "approach": {
+        "eyebrow": "Notre approche",
+        "title": "Nous ne nous limitons pas à un seul type de voyage.",
+        "body": "Chaque itinéraire que nous construisons doit tenir sur quatre points. S'il en manque un, il ne part pas.",
+        "pillars": {
+          "adventure": {
+            "title": "Aventure",
+            "body": "Du vrai terrain et de vraies distances. Des cols, des gués et des routes qui méritent le mot expédition."
+          },
+          "culture": {
+            "title": "Culture",
+            "body": "Monastères, villages et ceux qui vivent en altitude. Du temps prévu pour s'arrêter, pas seulement passer."
+          },
+          "comfort": {
+            "title": "Confort",
+            "body": "Le meilleur hébergement disponible dans la vallée, et un campement confortable là où il n'y a rien d'autre."
+          },
+          "safety": {
+            "title": "Sécurité",
+            "body": "Acclimatation, oxygène, mécanicien et véhicule d'assistance. Le programme fait partie de l'équipement de sécurité."
+          }
+        }
+      }
+    },
+    "planned": {
+      "meta": {
+        "title": "Expéditions {country} | Offhorizon Adventures",
+        "description": "{country} : nos expéditions à moto et en 4x4 sont en préparation chez Offhorizon Adventure. Parlez-nous d'un voyage sur mesure en attendant."
+      },
+      "eyebrow": "En préparation",
+      "title": "{country} : sur la carte, pas encore au calendrier.",
+      "lead": "Nous travaillons sur cette destination. Tant qu'elle n'atteindra pas le niveau que nous tenons dans l'Himalaya, nous ne la mettrons pas en vente.",
+      "body": {
+        "title": "Pourquoi nous ne la vendons pas encore",
+        "text": "Nous exploitons des véhicules et encadrons des groupes dans l'Himalaya depuis {year}, et c'est ce niveau de connaissance du terrain que nous voulons avant de guider qui que ce soit sur une nouvelle destination. Les itinéraires sont en repérage et les partenaires évalués. Si vous avez des dates en tête, dites-le-nous et nous vous dirons honnêtement si nous pouvons bien le faire."
+      },
+      "seeIndia": "Voir les expéditions en Inde"
+    },
+    "india": {
+      "meta": {
+        "title": "Expéditions à moto et en 4x4 en Inde | Offhorizon",
+        "description": "Expéditions guidées à moto et en 4x4 dans l'Himalaya indien. Ladakh, Spiti et Zanskar, organisées depuis Manali par une équipe sur place depuis 2014."
+      },
+      "eyebrow": "Inde",
+      "title": "Expéditions à moto et en 4x4 à travers l'Inde",
+      "lead": "Des hauts cols du Ladakh au désert froid du Spiti, l'Inde offre la plus grande variété de pilotage d'aventure de la région. Nous en couvrons sérieusement la moitié nord.",
+      "intro": {
+        "title": "Un pays, deux voyages totalement différents.",
+        "body": "L'Inde propose aussi bien des cols à 5 000 mètres au nord que des routes côtières et culturelles au sud. Cela demande des machines, des saisons et une préparation différentes.",
+        "focus": "Nos expéditions se concentrent aujourd'hui sur l'Himalaya indien, au nord, là où se trouvent notre atelier, notre équipe et dix ans de connaissance du terrain. Le sud de l'Inde est prévu, et nous l'ouvrirons quand nous pourrons y tenir le même niveau."
+      },
+      "regions": {
+        "eyebrow": "Régions",
+        "label": "Région",
+        "title": "Où nous roulons en Inde",
+        "explore": "Découvrir la région",
+        "himalayas": {
+          "name": "Himalaya indien",
+          "body": "Ladakh, Spiti et Zanskar. Hauts cols, gués et désert froid, de juin à septembre."
+        },
+        "south": {
+          "name": "Inde du Sud",
+          "body": "Ghats occidentaux, routes côtières et pays des temples. Repérages en cours pour un autre type de voyage, à une autre saison."
+        }
+      },
+      "why": {
+        "eyebrow": "Pourquoi nous",
+        "title": "Pourquoi rouler en Inde avec Offhorizon",
+        "reasons": {
+          "experience": {
+            "title": "Sur le terrain depuis 2014",
+            "body": "Nous avons commencé sous le nom de BRB Expeditions, en louant des machines à ceux qui partaient dans ces mêmes vallées."
+          },
+          "based": {
+            "title": "Basés à Manali",
+            "body": "La porte de l'Himalaya, et le départ de la plupart de nos itinéraires. Nous ne pilotons pas cela depuis une autre ville."
+          },
+          "team": {
+            "title": "Une équipe locale",
+            "body": "Des guides qui lisent ce terrain et cette météo parce qu'ils y vivent, pas parce qu'ils ont étudié la carte."
+          },
+          "planning": {
+            "title": "Préparé, pas improvisé",
+            "body": "Des itinéraires structurés avec acclimatation intégrée et assez de marge pour absorber une mauvaise journée."
+          },
+          "support": {
+            "title": "Assistance complète",
+            "body": "Chef d'expédition, mécanicien sur les groupes moto, véhicule de secours et logistique coordonnée."
+          }
+        },
+        "closing": "Si la route est fermée, nous vous le dirons avant la réservation, pas après."
+      },
+      "cta": {
+        "title": "Commencez votre expédition en Inde",
+        "body": "Choisissez un départ au calendrier, ou donnez-nous vos dates et nous construirons l'itinéraire autour.",
+        "imageAlt": "Vue aérienne d'une route traversant l'Himalaya indien"
+      },
+      "faq": {
+        "title": "Rouler en Inde",
+        "permits": {
+          "q": "Ai-je besoin d'une assurance voyage et de permis ?",
+          "a1": "Oui. Les deux sont obligatoires, et aucun n'est facultatif.",
+          "a2": "L'assurance voyage est obligatoire et doit couvrir :",
+          "l1": "Les voyages en altitude au-dessus de 5 000 mètres",
+          "l2": "La conduite de moto, que beaucoup de contrats standards excluent",
+          "l3": "L'évacuation d'urgence, y compris par hélicoptère",
+          "a3": "L'Himalaya est isolé. Une bonne couverture est ce qui sépare un incident d'un problème très coûteux.",
+          "a4": "Des permis sont requis pour plusieurs régions, dont le Ladakh. Nous les obtenons tous, mais il nous faut vos informations de passeport et de visa bien à l'avance."
+        },
+        "when": {
+          "q": "Quelle est la saison pour rouler dans l'Himalaya indien ?",
+          "a1": "Globalement de juin à septembre, et les bornes de cette fenêtre bougent chaque année avec la neige.",
+          "l1": "Juin : ouverture des cols, rivières hautes à cause de la fonte",
+          "l2": "Juillet et août : la période la plus fiable, même si la mousson touche l'approche par l'Himachal",
+          "l3": "Septembre : ciel dégagé et la plus belle lumière, avec des nuits froides",
+          "a2": "En dehors de cette fenêtre, la plupart des hauts cols sont fermés. Nous vous le dirons si vos dates ne conviennent pas plutôt que de vous vendre un voyage qui ne partira pas."
+        },
+        "licence": {
+          "q": "Quel permis faut-il pour rouler en Inde ?",
+          "a1": "Il vous faut un permis moto valide de votre pays et un permis de conduire international, obtenu avant le départ. Il ne se délivre pas en Inde.",
+          "a2": "Apportez les documents physiques. Une photo sur le téléphone ne suffira pas à un contrôle."
+        }
+      }
+    },
+    "indianHimalayas": {
+      "meta": {
+        "title": "Expéditions dans l'Himalaya indien | Ladakh, Spiti et Zanskar",
+        "description": "Expéditions à moto et en 4x4 dans l'Himalaya indien. Cols d'altitude au Ladakh, dans le Spiti et le Zanskar, avec guides, mécanicien et véhicule d'assistance."
+      },
+      "eyebrow": "Himalaya indien",
+      "shortName": "Himalaya indien",
+      "title": "Expéditions dans l'Himalaya indien, à moto et en 4x4",
+      "lead": "Du désert d'altitude du Ladakh aux vallées reculées du Spiti et du Zanskar. Parmi les parcours les plus exigeants et les plus gratifiants qui soient, avec une préparation à la hauteur du terrain.",
+      "tours": {
+        "eyebrow": "Expéditions",
+        "title": "Les principales expéditions dans l'Himalaya indien"
+      },
+      "why": {
+        "eyebrow": "Spécialistes de l'Himalaya",
+        "title": "Pourquoi rouler dans l'Himalaya indien avec nous",
+        "body": "C'est le terrain que nous connaissons le mieux. Chaque détail de notre organisation vient d'une erreur commise une fois puis corrigée.",
+        "items": {
+          "altitude": {
+            "title": "Expérience de l'altitude",
+            "body": "Des années à encadrer des groupes entre 3 000 et 5 800 mètres, là où les erreurs ne pardonnent pas."
+          },
+          "planning": {
+            "title": "Préparation haut de gamme",
+            "body": "Itinéraires, permis, carburant et solutions de repli réglés avant que quiconque ne démarre."
+          },
+          "crew": {
+            "title": "Guides et mécanicien",
+            "body": "Un chef d'expédition, des guides et un mécanicien qui voyagent avec le groupe, pas au bout du fil."
+          },
+          "itineraries": {
+            "title": "Itinéraires étudiés",
+            "body": "Des distances fixées par ce qui est raisonnable en altitude, pas par ce qui impressionne sur une carte."
+          },
+          "safety": {
+            "title": "La sécurité d'abord",
+            "body": "Jours d'acclimatation, oxygène, premiers secours, et la règle que le groupe redescend si un pilote ne va pas mieux."
+          }
+        },
+        "closing": "Pas de convois surchargés. Pas de programmes précipités."
+      },
+      "cta": {
+        "title": "Commencez votre aventure dans l'Himalaya indien",
+        "body": "Rejoignez un départ programmé, ou donnez-nous vos dates et nous construirons l'itinéraire autour."
+      },
+      "faq": {
+        "title": "L'Himalaya, expliqué",
+        "what": {
+          "q": "Qu'est-ce que l'Himalaya ?",
+          "a1": "L'Himalaya est la plus haute chaîne de montagnes du monde. Elle traverse l'Inde, le Népal, le Bhoutan, la Chine et le Pakistan, et forme la barrière entre le sous-continent indien et le plateau tibétain.",
+          "a2": "La chaîne abrite l'Everest et plus de cent sommets de plus de 7 000 mètres. L'Indus, le Gange et le Brahmapoutre y prennent leur source et font vivre des centaines de millions de personnes en aval.",
+          "a3": "Pour qui voyage à moto ou en 4x4, l'attrait tient à la combinaison de :",
+          "l1": "Hauts cols, dont plusieurs parmi les routes les plus élevées du monde",
+          "l2": "Pistes isolées avec des jours entre deux villages",
+          "l3": "Des paysages qui passent du glacier au désert froid dans la même journée",
+          "l4": "Des cultures hindoue et bouddhiste vivantes, pas muséifiées",
+          "a4": "Nous menons des expéditions dans l'Himalaya indien, népalais et bhoutanais."
+        },
+        "why": {
+          "q": "Pourquoi l'Himalaya est-il le meilleur endroit pour une expédition à moto ?",
+          "a1": "Parce que peu d'endroits réunissent autant d'altitude, d'isolement et de variété dans un seul voyage.",
+          "a2": "On y trouve un mélange d'asphalte, de gravier et de vrai tout-terrain, sur des routes qui montent au-delà de 5 000 mètres dans des régions que très peu de véhicules traversent. Chaque région a son caractère :",
+          "l1": "Ladakh : hauts cols et paysages arides extrêmes",
+          "l2": "Vallée de Spiti : isolée, brute et techniquement plus dure qu'il n'y paraît",
+          "l3": "Haut Mustang au Népal : désert transhimalayen et culture tibétaine",
+          "l4": "Bhoutan : routes plus calmes, forêt dense et rythme plus lent",
+          "a3": "Le pilotage seul justifierait le voyage. Ce sont les monastères, les villages et l'échelle du lieu dont on parle après."
+        },
+        "safe": {
+          "q": "Est-il sûr de rouler dans l'Himalaya ?",
+          "a1": "Oui, quand l'expédition est préparée et encadrée correctement. Le risque ici n'est pas la route, c'est d'arriver mal préparé à l'altitude et aux distances.",
+          "a2": "Chaque expédition part avec un chef d'expédition, des guides, un mécanicien et un véhicule de secours. Nous appliquons aussi :",
+          "l1": "Des jours d'acclimatation avant toute montée en altitude",
+          "l2": "Un suivi quotidien de la façon dont chacun supporte l'altitude",
+          "l3": "Oxygène et trousse de secours emportés en permanence",
+          "l4": "Des itinéraires construits sur l'expérience, pas sur une carte",
+          "a3": "La mesure de sécurité la plus efficace reste un programme avec assez de marge pour que personne ne se sente obligé de rouler en étant malade."
+        },
+        "difficulty": {
+          "q": "Quel est le niveau de difficulté des expéditions himalayennes ?",
+          "a1": "De modéré à exigeant, selon l'itinéraire.",
+          "a2": "À prévoir :",
+          "l1": "De longues journées entre 3 000 et 5 800 mètres",
+          "l2": "Un mélange d'asphalte roulant et de vrai tout-terrain",
+          "l3": "Une météo qui peut changer en une heure",
+          "l4": "Des sections isolées sans carburant, nourriture ni réseau",
+          "a3": "Elles conviennent à des pilotes de niveau débutant à intermédiaire, en bonne condition physique. Avec un itinéraire structuré et une équipe d'assistance, la plupart terminent sans difficulté."
+        },
+        "permits": {
+          "q": "Ai-je besoin d'une assurance voyage et de permis ?",
+          "a1": "Oui. Les deux sont obligatoires pour toute expédition himalayenne.",
+          "a2": "L'assurance voyage est obligatoire et doit couvrir :",
+          "l1": "Les voyages en altitude au-dessus de 5 000 mètres",
+          "l2": "La conduite de moto, que beaucoup de contrats standards excluent",
+          "l3": "L'évacuation d'urgence, y compris par hélicoptère",
+          "a3": "Ce sont des régions isolées et l'évacuation coûte cher. Vérifiez les exclusions de votre contrat plutôt que de supposer.",
+          "a4": "Des permis sont requis pour plusieurs régions dont le Ladakh. Nous les obtenons tous, mais il nous faut vos informations de passeport et de visa à l'avance."
+        }
+      }
+    }
   }
 }

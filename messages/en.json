@@ -431,5 +431,264 @@
         "body": "Pace, distance and stops set by who is actually riding."
       }
     }
+  },
+  "dest": {
+    "shared": {
+      "home": "Home",
+      "destinations": "Destinations",
+      "running": "Running now",
+      "planned": "Planned",
+      "expeditions": "{count, plural, one {# expedition} other {# expeditions}}",
+      "openForEnquiries": "Open for enquiries",
+      "viewTours": "View adventure tours",
+      "sendEnquiry": "Send an enquiry",
+      "planTrip": "Plan a custom trip",
+      "registerInterest": "Register interest",
+      "viewTour": "View the tour",
+      "faqEyebrow": "Before you go"
+    },
+    "hub": {
+      "meta": {
+        "title": "Destinations | Himalayan Motorcycle and 4x4 Expeditions",
+        "description": "Where Offhorizon Adventure runs guided motorcycle and 4x4 expeditions. Currently the Himalayas of India and Nepal, with Bhutan, Sri Lanka and Mongolia in planning."
+      },
+      "eyebrow": "Destinations",
+      "title": "Built for adventure. Driven by experience.",
+      "lead": "We design premium motorcycle and self-drive 4x4 expeditions across some of the most demanding landscapes on earth. Five countries, one standard of planning.",
+      "heroAlt": "A road following a river valley through the Indian Himalayas",
+      "intro": {
+        "title": "Where we ride, and where we are honest about not riding yet.",
+        "body": "Our expeditions are focused on the Himalayas of India and Nepal, where we have run vehicles and groups since 2014 and know the terrain season by season.",
+        "focus": "Bhutan, Sri Lanka and Mongolia are in planning. We will open them when we can run them to the same standard, not before. Until then we are happy to build a custom trip and say plainly what is and is not possible."
+      },
+      "list": {
+        "eyebrow": "The five",
+        "title": "Choose a destination",
+        "note": "Two running now, three in planning. Every one is open for a custom enquiry."
+      },
+      "approach": {
+        "eyebrow": "Our approach",
+        "title": "We do not limit ourselves to one kind of journey.",
+        "body": "Every route we build has to hold up on four counts. If it fails one of them, it does not run.",
+        "pillars": {
+          "adventure": {
+            "title": "Adventure",
+            "body": "Real terrain and real distance. Passes, river crossings and roads that earn the word expedition."
+          },
+          "culture": {
+            "title": "Culture",
+            "body": "Monasteries, villages and the people who live at altitude. Time built in to stop, not just pass through."
+          },
+          "comfort": {
+            "title": "Comfort",
+            "body": "The best accommodation a valley has, and a comfortable camp where there is nothing else."
+          },
+          "safety": {
+            "title": "Safety",
+            "body": "Acclimatisation, oxygen, a mechanic and a backup vehicle. The schedule is part of the safety equipment."
+          }
+        }
+      }
+    },
+    "planned": {
+      "meta": {
+        "title": "{country} Expeditions | Offhorizon Adventures",
+        "description": "{country}: motorcycle and 4x4 expeditions are in planning at Offhorizon Adventure. Talk to us about a custom trip in the meantime."
+      },
+      "eyebrow": "In planning",
+      "title": "{country}: on the map, not yet on the calendar.",
+      "lead": "We are working on this one. Until it runs to the standard we hold in the Himalayas, we will not put it on sale.",
+      "body": {
+        "title": "Why we are not selling it yet",
+        "text": "We have run vehicles and groups in the Himalayas since {year}, and that is the level of ground knowledge we want before we lead anyone through somewhere new. Routes are being scouted and partners assessed. If you have dates in mind, tell us and we will say honestly whether we can do it well."
+      },
+      "seeIndia": "See India expeditions"
+    },
+    "india": {
+      "meta": {
+        "title": "Motorcycle and 4x4 Expeditions Across India | Offhorizon",
+        "description": "Guided motorcycle and self-drive 4x4 expeditions in the Indian Himalayas. Ladakh, Spiti and Zanskar, run from Manali by a team on the ground since 2014."
+      },
+      "eyebrow": "India",
+      "title": "Motorcycle and 4x4 expeditions across India",
+      "lead": "From the high passes of Ladakh to the cold desert of Spiti, India holds the widest range of adventure riding in the region. We run the northern half of it properly.",
+      "intro": {
+        "title": "One country, two entirely different rides.",
+        "body": "India offers everything from 5,000 metre passes in the north to coastal and cultural routes in the south. They demand different machines, different seasons and different planning.",
+        "focus": "Our expeditions currently focus on the Indian Himalayas in the north, which is where our workshop, our crew and a decade of terrain knowledge sit. South India is planned, and we will open it when we can run it to the same standard."
+      },
+      "regions": {
+        "eyebrow": "Regions",
+        "label": "Region",
+        "title": "Where we ride in India",
+        "explore": "Explore the region",
+        "himalayas": {
+          "name": "Indian Himalayas",
+          "body": "Ladakh, Spiti and Zanskar. High passes, river crossings and cold desert, ridden between June and September."
+        },
+        "south": {
+          "name": "South India",
+          "body": "Western Ghats, coastal roads and temple country. Scouting under way for a different kind of trip, at a different time of year."
+        }
+      },
+      "why": {
+        "eyebrow": "Why us",
+        "title": "Why ride India with Offhorizon",
+        "reasons": {
+          "experience": {
+            "title": "On the ground since 2014",
+            "body": "We started as BRB Expeditions, renting machines to riders heading into these same valleys."
+          },
+          "based": {
+            "title": "Based in Manali",
+            "body": "The gateway to the Himalayas, and the start of most of our routes. We are not managing this from another city."
+          },
+          "team": {
+            "title": "A local crew",
+            "body": "Guides who read this terrain and this weather because they live in it, not because they studied the map."
+          },
+          "planning": {
+            "title": "Planned, not improvised",
+            "body": "Structured itineraries with acclimatisation built in and enough slack to absorb a bad day."
+          },
+          "support": {
+            "title": "Full support",
+            "body": "Expedition leader, mechanic on motorcycle groups, backup vehicle and coordinated logistics."
+          }
+        },
+        "closing": "If the road is closed, we will tell you before you book, not after."
+      },
+      "cta": {
+        "title": "Start your Indian expedition",
+        "body": "Pick a departure from the calendar, or tell us the dates you have and we will build the route around them.",
+        "imageAlt": "Aerial view of a road cutting through the Indian Himalayas"
+      },
+      "faq": {
+        "title": "Riding in India",
+        "permits": {
+          "q": "Do I need travel insurance and permits?",
+          "a1": "Yes. Both are required, and neither is optional.",
+          "a2": "Travel insurance is mandatory and must cover:",
+          "l1": "High-altitude travel above 5,000 metres",
+          "l2": "Motorcycle riding, which many standard policies exclude",
+          "l3": "Emergency evacuation, including by helicopter",
+          "a3": "The Himalayas are remote. Proper cover is what stands between an incident and a very expensive problem.",
+          "a4": "Permits are required for several regions, including Ladakh. We arrange all of them, but we need your passport and visa details well in advance to do it."
+        },
+        "when": {
+          "q": "When is the riding season in the Indian Himalayas?",
+          "a1": "Broadly June to September, and the edges of that window move every year with the snow.",
+          "l1": "June: passes open, rivers running high from the melt",
+          "l2": "July and August: the most reliable riding, though the monsoon affects the approach through Himachal",
+          "l3": "September: clear skies and the best light, with cold nights",
+          "a2": "Outside that window most high passes are closed. We will tell you if your dates do not work rather than sell you a trip that will not run."
+        },
+        "licence": {
+          "q": "What licence do I need to ride in India?",
+          "a1": "You need a valid motorcycle licence from your home country plus an International Driving Permit, obtained before you travel. An IDP is not issued in India.",
+          "a2": "Bring the physical documents. A photograph on your phone will not satisfy a checkpoint."
+        }
+      }
+    },
+    "indianHimalayas": {
+      "meta": {
+        "title": "Indian Himalayas Expeditions | Ladakh, Spiti and Zanskar",
+        "description": "Motorcycle and 4x4 expeditions across the Indian Himalayas. High-altitude passes in Ladakh, Spiti and Zanskar with guides, mechanic and backup vehicle."
+      },
+      "eyebrow": "Indian Himalayas",
+      "shortName": "Indian Himalayas",
+      "title": "Indian Himalayas expeditions, by motorcycle and 4x4",
+      "lead": "From the high-altitude desert of Ladakh to the remote valleys of Spiti and Zanskar. Some of the most demanding and rewarding riding anywhere, run with planning that matches the terrain.",
+      "tours": {
+        "eyebrow": "Expeditions",
+        "title": "Top expeditions in the Indian Himalayas"
+      },
+      "why": {
+        "eyebrow": "Himalayan specialists",
+        "title": "Why ride the Indian Himalayas with us",
+        "body": "This is the terrain we know best. Every part of how we run a trip here comes from having done it badly once and fixed it.",
+        "items": {
+          "altitude": {
+            "title": "High-altitude experience",
+            "body": "Years of running groups between 3,000 and 5,800 metres, where the mistakes are unforgiving."
+          },
+          "planning": {
+            "title": "Premium planning",
+            "body": "Routes, permits, fuel and contingency worked out before anyone turns a wheel."
+          },
+          "crew": {
+            "title": "Guides and mechanic",
+            "body": "An expedition leader, riding guides and a mechanic travelling with the group, not on call."
+          },
+          "itineraries": {
+            "title": "Carefully built itineraries",
+            "body": "Distances set by what is sensible at altitude, not by what looks impressive on a map."
+          },
+          "safety": {
+            "title": "Safety first",
+            "body": "Acclimatisation days, oxygen, first aid, and a rule that the group descends if a rider is not improving."
+          }
+        },
+        "closing": "No overcrowded convoys. No rushed schedules."
+      },
+      "cta": {
+        "title": "Start your Indian Himalayas adventure",
+        "body": "Join a scheduled departure, or tell us your dates and we will build the route around them."
+      },
+      "faq": {
+        "title": "The Himalayas, explained",
+        "what": {
+          "q": "What are the Himalayas?",
+          "a1": "The Himalayas are the highest mountain range on earth, running across India, Nepal, Bhutan, China and Pakistan, and forming the barrier between the Indian subcontinent and the Tibetan Plateau.",
+          "a2": "The range holds Mount Everest and more than a hundred peaks above 7,000 metres. The Indus, Ganges and Brahmaputra all rise here and support hundreds of millions of people downstream.",
+          "a3": "For anyone travelling by motorcycle or 4x4, the appeal is the combination of:",
+          "l1": "High mountain passes, several of them among the highest roads in the world",
+          "l2": "Remote off-road trails with days between settlements",
+          "l3": "Landscapes that shift from glacier to cold desert within a single day",
+          "l4": "Living Hindu and Buddhist cultures, not preserved ones",
+          "a4": "We run expeditions in the Indian, Nepalese and Bhutanese Himalayas."
+        },
+        "why": {
+          "q": "Why are the Himalayas the best place for a motorcycle expedition?",
+          "a1": "Because few places combine this much altitude, this much remoteness and this much variety in a single trip.",
+          "a2": "Riders get a mix of tarmac, gravel and genuine off-road, on roads that climb past 5,000 metres and through country that sees very few vehicles. Each region reads differently:",
+          "l1": "Ladakh: high passes and extreme, arid landscapes",
+          "l2": "Spiti Valley: remote, raw and technically harder than it looks",
+          "l3": "Upper Mustang in Nepal: trans-Himalayan desert and Tibetan culture",
+          "l4": "Bhutan: quieter roads, dense forest and a slower pace",
+          "a3": "The riding alone would justify the trip. The monasteries, villages and the sheer scale of the place are what people talk about afterwards."
+        },
+        "safe": {
+          "q": "Is it safe to ride in the Himalayas?",
+          "a1": "Yes, when the expedition is planned and staffed properly. The risk here is not the road, it is being unprepared for altitude and distance.",
+          "a2": "Every expedition travels with an expedition leader, riding guides, a mechanic and a backup vehicle. We also run:",
+          "l1": "Acclimatisation days before anyone rides high",
+          "l2": "Daily checks on how each rider is coping with altitude",
+          "l3": "Oxygen and first aid carried at all times",
+          "l4": "Routes built from experience rather than from a map",
+          "a3": "The single most effective safety measure is a schedule with enough slack that nobody feels pressure to ride while unwell."
+        },
+        "difficulty": {
+          "q": "How difficult are Himalayan expeditions?",
+          "a1": "Moderate to challenging, depending on the route.",
+          "a2": "Expect:",
+          "l1": "Long riding days between 3,000 and 5,800 metres",
+          "l2": "A mix of smooth tarmac and genuine off-road",
+          "l3": "Weather that can change within an hour",
+          "l4": "Remote sections with no fuel, food or signal",
+          "a3": "They suit riders with basic to intermediate experience and reasonable fitness. With a structured itinerary and a support team, most riders complete the route comfortably."
+        },
+        "permits": {
+          "q": "Do I need travel insurance and permits?",
+          "a1": "Yes. Both are required for every Himalayan expedition.",
+          "a2": "Travel insurance is mandatory and must cover:",
+          "l1": "High-altitude travel above 5,000 metres",
+          "l2": "Motorcycle riding, which many standard policies exclude",
+          "l3": "Emergency evacuation, including by helicopter",
+          "a3": "These are remote regions and evacuation is expensive. Check the exclusions on your policy rather than assuming.",
+          "a4": "Permits are required for several regions including Ladakh. We arrange all of them, but we need your passport and visa details in advance."
+        }
+      }
+    }
   }
 }
