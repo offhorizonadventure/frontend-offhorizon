@@ -44,9 +44,19 @@ export function PlaceCard({
   return (
     <Link
       href={href}
-      className="group block h-full overflow-hidden rounded-[28px] bg-brand-100 ring-1 ring-brand-900/10 transition-transform duration-500 ease-out-expo hover:-translate-y-1"
+      className="group @container block h-full overflow-hidden rounded-[28px] bg-brand-100 ring-1 ring-brand-900/10 transition-transform duration-500 ease-out-expo hover:-translate-y-1"
     >
-      <article className={`relative ${frame === "portrait" ? "aspect-[3/4]" : "aspect-[16/10]"}`}>
+      {/* A region card carries a line of description, so a 16:10 frame on a
+          narrow card is shorter than its own caption. The frame stands up as
+          the card narrows. Container queries, because the card width comes
+          from the grid, not the window. */}
+      <article
+        className={`relative ${
+          frame === "portrait"
+            ? "aspect-[3/4]"
+            : "aspect-[4/5] @lg:aspect-[16/10]"
+        }`}
+      >
         <Image
           src={image}
           alt={imageAlt}
@@ -65,16 +75,18 @@ export function PlaceCard({
           {badge}
         </span>
 
-        <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+        <div className="absolute inset-x-0 bottom-0 p-5 @sm:p-6">
           <div className="flex items-center gap-2.5">
             {flag && <Flag country={flag} />}
-            <h3 className="font-display text-[20px] leading-none font-bold tracking-[-0.02em] text-white">
+            <h3 className="font-display text-[19px] leading-tight font-bold tracking-[-0.02em] text-white @sm:text-[20px]">
               {name}
             </h3>
           </div>
 
           {body && (
-            <p className="mt-2.5 max-w-md text-[13.5px] leading-relaxed text-white/65">{body}</p>
+            <p className="mt-2.5 line-clamp-2 max-w-md text-[13.5px] leading-relaxed text-white/65">
+              {body}
+            </p>
           )}
 
           <div className="mt-3 flex items-center justify-between gap-4">

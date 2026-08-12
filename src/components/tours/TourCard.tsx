@@ -37,10 +37,11 @@ export async function TourCard({
   const name = tt(`${tour.key}.name`);
 
   return (
-    <article className="group relative overflow-hidden rounded-[26px] ring-1 ring-brand-900/10">
-      {/* Steps down as the card widens: one column on phones needs the
-          tallest frame, two columns from md do not. */}
-      <div className="relative aspect-[4/5] sm:aspect-[3/2] md:aspect-[1/1]">
+    <article className="group @container relative overflow-hidden rounded-[26px] ring-1 ring-brand-900/10">
+      {/* The plate below is close to a fixed height, so a narrow card needs a
+          taller frame to stop it swallowing the photograph. Keyed off the card
+          rather than the viewport for the same reason as the plate. */}
+      <div className="relative aspect-[3/4] @xs:aspect-[4/5] @sm:aspect-[1/1]">
         <Image
           src={image ?? tour.image}
           alt={name}
@@ -51,36 +52,41 @@ export async function TourCard({
         />
       </div>
 
-      {/* Info plate floats over the foot of the photograph. */}
-      <div className="absolute inset-x-2.5 bottom-2.5 rounded-[18px] bg-white/97 p-4 backdrop-blur-sm sm:p-5">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="min-w-0">
-            <p className="flex items-center gap-2">
-              <span aria-hidden className="flex items-center gap-0.5 text-ember-500">
-                {Array.from({ length: 5 }).map((_, star) => (
-                  <Star key={star} />
-                ))}
-              </span>
-              <span className="text-[12px] font-semibold text-brand-900">
-                {decimal.format(tour.rating)}
-              </span>
-              <span className="text-[12px] text-brand-800/50">
-                {t("reviews", { count: compact.format(tour.reviews) })}
-              </span>
-            </p>
+      {/* Info plate floats over the foot of the photograph.
+          Everything here has to survive German, which runs about a third
+          longer than English, on a card that can be 280px wide. Sizing keys
+          off the card with container queries rather than the viewport,
+          because a two-up grid at 900px gives a 408px card no matter what
+          the window is doing. */}
+      <div className="absolute inset-x-2.5 bottom-2.5 rounded-[18px] bg-white/97 p-4 backdrop-blur-sm @sm:p-5">
+        {/* Wraps as whole units, so a long review count never splits across
+            the opening bracket. */}
+        <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
+          <span aria-hidden className="flex items-center gap-0.5 text-ember-500">
+            {Array.from({ length: 5 }).map((_, star) => (
+              <Star key={star} />
+            ))}
+          </span>
+          <span className="text-[12px] font-semibold text-brand-900">
+            {decimal.format(tour.rating)}
+          </span>
+          <span className="text-[12px] whitespace-nowrap text-brand-800/50">
+            {t("reviews", { count: compact.format(tour.reviews) })}
+          </span>
+        </p>
 
-            <h3 className="font-display mt-2 truncate text-[18px] leading-tight font-bold tracking-[-0.02em] text-brand-900 sm:text-[19px]">
-              {name}
-            </h3>
+        {/* Clamped rather than truncated: a tour name cut mid-word tells the
+            reader nothing. */}
+        <h3 className="font-display mt-2 line-clamp-2 text-[17px] leading-tight font-bold tracking-[-0.02em] text-balance text-brand-900 @sm:text-[19px]">
+          {name}
+        </h3>
 
-            <p className="mt-1.5 text-[12.5px] text-brand-800/55">
-              {t("startingAt", { price })}
-            </p>
-          </div>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+          <p className="text-[12.5px] text-brand-800/55">{t("startingAt", { price })}</p>
 
           <Link
             href={tour.href}
-            className="inline-flex h-11 shrink-0 items-center justify-center rounded-full border border-brand-900/20 px-5 text-[11px] font-bold tracking-[0.11em] text-brand-800 uppercase transition-colors duration-300 hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100"
+            className="inline-flex h-11 shrink-0 items-center justify-center rounded-full border border-brand-900/20 px-5 text-center text-[11px] font-bold tracking-[0.11em] text-brand-800 uppercase transition-colors duration-300 hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100"
           >
             {t("cta")}
           </Link>
