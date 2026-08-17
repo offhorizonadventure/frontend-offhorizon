@@ -3,14 +3,14 @@ import { getTranslations } from "next-intl/server";
 
 import { Riders } from "@/components/about/Riders";
 import { CtaBand } from "@/components/destinations/CtaBand";
-import { PageHero } from "@/components/destinations/PageHero";
-import { Departures } from "@/components/tour/Departures";
 import { ExpectTabs } from "@/components/tour/ExpectTabs";
-import { Facts } from "@/components/tour/Facts";
 import { Gallery } from "@/components/tour/Gallery";
+import { Highlights } from "@/components/tour/Highlights";
 import { Inclusions } from "@/components/tour/Inclusions";
+import { PriceCard } from "@/components/tour/PriceCard";
 import { Program } from "@/components/tour/Program";
 import { RouteMap } from "@/components/tour/RouteMap";
+import { TourHero } from "@/components/tour/TourHero";
 import { Topo } from "@/components/ui/Topo";
 import { getTour, tourPages } from "@/config/tour-pages";
 import { locales } from "@/i18n/config";
@@ -87,7 +87,7 @@ export default async function TourPage({ params }: PageProps<"/[locale]/tours/[s
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
       />
 
-      <PageHero
+      <TourHero
         locale={locale}
         eyebrow={tt(`${tour.package.key}.summary`)}
         title={name}
@@ -102,34 +102,41 @@ export default async function TourPage({ params }: PageProps<"/[locale]/tours/[s
         seed={40.4}
       />
 
-      {/* The place, before the logistics */}
+      <Highlights locale={locale} facts={tour.facts} highlights={tour.highlights} />
+
+      {/* The place, with the price beside it */}
       <section className="relative overflow-hidden bg-cream-50 py-18 sm:py-24">
         <Topo className="text-brand-800/12" rings={11} seed={40.9} />
 
-        {/* Title runs the width of the column and the body sits under it.
-            Boxed into a narrow half, a title this long broke over three or
-            four lines and stopped reading as a sentence. */}
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-          <div data-anim="up">
-            <h2 className="font-display text-[clamp(1.75rem,4vw,3rem)] leading-[1.06] font-extrabold tracking-[-0.035em] text-balance text-brand-900">
-              {tour.place.title}
-            </h2>
-            <p className="mt-7 text-[15px] leading-[1.85] text-pretty text-brand-800/65 sm:text-[16.5px]">
-              {tour.place.body}
-            </p>
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+            <div data-anim="up" className="lg:col-span-7">
+              <h2 className="font-display text-[clamp(1.75rem,3.6vw,2.7rem)] leading-[1.06] font-extrabold tracking-[-0.035em] text-balance text-brand-900">
+                {tour.place.title}
+              </h2>
+              <p className="mt-7 text-[15px] leading-[1.85] text-pretty text-brand-800/65 sm:text-[16.5px]">
+                {tour.place.body}
+              </p>
+            </div>
+
+            <div data-anim="up" className="lg:col-span-5">
+              <PriceCard
+                locale={locale}
+                pricing={tour.pricing}
+                tourName={name}
+                facts={tour.facts}
+                departures={tour.departures}
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <Facts locale={locale} facts={tour.facts} />
-
-      <Departures locale={locale} departures={tour.departures} />
+      <Program locale={locale} days={tour.program} />
 
       <Inclusions locale={locale} included={tour.included} excluded={tour.excluded} />
 
       <RouteMap locale={locale} image={tour.route.image} alt={tour.route.alt} />
-
-      <Program locale={locale} days={tour.program} />
 
       <ExpectTabs eyebrow={t("expect.eyebrow")} items={tour.expect} />
 

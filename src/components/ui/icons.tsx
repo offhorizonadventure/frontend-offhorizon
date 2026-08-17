@@ -1,12 +1,24 @@
 import {
   ArrowRight as LuArrowRight,
+  BedDouble as LuBedDouble,
+  Bike as LuBike,
+  CalendarDays as LuCalendarDays,
   ChevronDown as LuChevronDown,
   Compass as LuCompass,
+  DoorClosed as LuDoorClosed,
+  Gauge as LuGauge,
+  MapPin as LuMapPin,
   Menu as LuMenu,
+  Mountain as LuMountain,
+  Route as LuRoute,
   BadgeCheck as LuBadgeCheck,
   CalendarCheck as LuCalendarCheck,
   RefreshCw as LuRefreshCw,
+  ShieldCheck as LuShieldCheck,
   Star as LuStar,
+  ThermometerSun as LuThermometerSun,
+  User as LuUser,
+  Users as LuUsers,
   Wallet as LuWallet,
   X as LuX,
 } from "lucide-react";
@@ -56,6 +68,40 @@ export const RefreshDeposit = confidence(LuRefreshCw);
 export const CalendarCheck = confidence(LuCalendarCheck);
 export const Wallet = confidence(LuWallet);
 export const BadgeCheck = confidence(LuBadgeCheck);
+
+/** Price-card marks. Keyed by name so the tour config can name one in data. */
+const priceMark = (Icon: typeof LuBike) =>
+  function PriceIcon({ className = "" }: IconProps) {
+    return <Icon size={17} strokeWidth={1.6} aria-hidden className={`shrink-0 ${className}`} />;
+  };
+
+export const priceIcons = {
+  rider: priceMark(LuUser),
+  pillion: priceMark(LuUsers),
+  bike: priceMark(LuBike),
+  shield: priceMark(LuShieldCheck),
+  singleRoom: priceMark(LuDoorClosed),
+  doubleRoom: priceMark(LuBedDouble),
+};
+
+export type PriceIconName = keyof typeof priceIcons;
+
+/** Expedition-fact marks, keyed by the fact they belong to. */
+const factMark = (Icon: typeof LuBike) =>
+  function FactIcon({ className = "" }: IconProps) {
+    return <Icon size={22} strokeWidth={1.5} aria-hidden className={`shrink-0 ${className}`} />;
+  };
+
+export const factIcons = {
+  location: factMark(LuMapPin),
+  weather: factMark(LuThermometerSun),
+  vehicle: factMark(LuBike),
+  terrain: factMark(LuMountain),
+  distance: factMark(LuRoute),
+  duration: factMark(LuCalendarDays),
+  difficulty: factMark(LuGauge),
+  groupSize: factMark(LuUsers),
+};
 
 export const WhatsApp = ({ className = "" }: IconProps) => (
   <FaWhatsapp size={18} aria-hidden className={`shrink-0 ${className}`} />

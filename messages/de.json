@@ -1019,20 +1019,8 @@
       "groupSize": "Max. Gruppengröße"
     },
     "dates": {
-      "eyebrow": "Termine und Preise",
-      "title": "Termin wählen",
       "available": "Plätze frei",
-      "soldOut": "Ausgebucht",
-      "from": "Ab",
-      "perPerson": "Preis pro Person",
-      "twin": "Doppelzimmer",
-      "solo": "Einzelzimmer",
-      "edition": "Edition",
-      "direction": "Fahrtrichtung",
-      "ledBy": "Geleitet von",
-      "enquire": "Anfragen",
-      "joinWaitlist": "Warteliste",
-      "disclaimer": "Preise gelten pro Person, sofern nicht anders angegeben, und können sich ändern. Sie werden in US-Dollar festgelegt und nur zur Anzeige umgerechnet, der zu zahlende Betrag hängt also vom Tageskurs ab. Flüge zum und vom Startpunkt sind nicht enthalten. Offhorizon Adventures kann diese Preise ohne Vorankündigung anpassen."
+      "soldOut": "Ausgebucht"
     },
     "inclusions": {
       "eyebrow": "Der Preis",
@@ -1069,6 +1057,78 @@
     "cta": {
       "title": "Fahren Sie diese Route mit uns",
       "body": "Fragen Sie zu einem Termin aus der Liste an, oder sagen Sie uns, wann Sie können, und wir schauen, was passt."
+    },
+    "price": {
+      "from": "Ab",
+      "perRider": "pro Fahrer",
+      "included": "Enthalten",
+      "seeDates": "Termine ansehen",
+      "custom": "Individuelle Expedition",
+      "note": "Preise werden in US-Dollar festgelegt und nur zur Anzeige umgerechnet, der zu zahlende Betrag hängt also vom Tageskurs ab. Flüge sind nicht enthalten. Offhorizon Adventures kann diese Preise ohne Vorankündigung anpassen.",
+      "eyebrow": "Was es kostet",
+      "title": "Ein Preis, und die wenigen Posten, die darauf kommen",
+      "body": "Der Fahrerpreis deckt die Expedition selbst ab. Alles darunter ist optional: Einzelzimmer oder zusätzlichen Schutz zahlen Sie nur, wenn Sie sie wollen. Am Ende kommt nichts dazu.",
+      "datesTitle": "Abfahrtstermine"
+    },
+    "highlights": {
+      "eyebrow": "Höhepunkte",
+      "title": "Woran Sie sich erinnern werden",
+      "previous": "Vorherige Höhepunkte",
+      "next": "Weitere Höhepunkte"
+    },
+    "booking": {
+      "stepOf": "Schritt {current} von {total}",
+      "back": "Zurück",
+      "next": "Weiter",
+      "decrease": "Verringern",
+      "increase": "Erhöhen",
+      "basics": {
+        "duration": "Dauer",
+        "groupSize": "Gruppengröße",
+        "from": "Ab",
+        "perRider": "pro Fahrer"
+      },
+      "year": {
+        "title": "In welchem Jahr möchten Sie reisen?",
+        "help": "Wählen Sie ein Jahr, und wir schicken Ihnen die offenen Termine."
+      },
+      "date": {
+        "title": "Welcher Termin?",
+        "help": "Wählen Sie ein Datum, oder sagen Sie uns, dass Sie flexibel sind.",
+        "none": "Für {year} sind noch keine Termine veröffentlicht. Fragen Sie trotzdem, wir sagen Ihnen, was kommt.",
+        "soldOut": "Ausgebucht"
+      },
+      "travellers": {
+        "title": "Wer kommt mit?",
+        "help": "Eine Maschine pro Fahrer. Ein Sozius teilt die Maschine eines Fahrers.",
+        "riders": "Fahrer",
+        "ridersHint": "Alle auf einer eigenen Maschine",
+        "pillions": "Sozius",
+        "pillionsHint": "Hinter jemandem mitfahrend"
+      },
+      "extras": {
+        "title": "Noch etwas dazu?",
+        "help": "Beides ist optional. Auf null lassen, wenn Sie es nicht möchten.",
+        "insurance": "Voller Schadenschutz",
+        "insuranceHint": "Einer pro Maschine. Erlässt die Kaution.",
+        "room": "Einzelzimmer",
+        "roomHint": "Zimmer sind Doppelzimmer, sofern Sie das hier nicht nehmen.",
+        "none": "Sie können das später alles ändern. Es ist noch nichts gebucht."
+      },
+      "summary": {
+        "title": "Das haben Sie gewählt",
+        "help": "Eine Schätzung, keine Buchung. Wir bestätigen alles per E-Mail.",
+        "year": "Reise im Jahr",
+        "riders": "Fahrer",
+        "pillions": "Sozius",
+        "insurance": "Schadenschutz",
+        "room": "Einzelzimmer",
+        "total": "Geschätzte Summe",
+        "enquire": "Anfrage senden",
+        "note": "Zum heutigen Kurs aus US-Dollar umgerechnet, der Endbetrag hängt also vom Kurs am Zahltag ab. Flüge sind nicht enthalten.",
+        "dates": "Termin",
+        "flexible": "Flexibel"
+      }
     }
   }
 }

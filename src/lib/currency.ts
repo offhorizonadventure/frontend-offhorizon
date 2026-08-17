@@ -45,3 +45,17 @@ export async function getPrice(amount: number, locale: Locale) {
     return formatMoney(amount, baseCurrency, locale);
   }
 }
+
+/**
+ * Currency and rate for totals that have to be recalculated in the browser.
+ * Falls back to the base currency so a running total is never wrong or blank.
+ */
+export async function getConversion(locale: Locale): Promise<{ currency: Currency; rate: number }> {
+  const target = currencyFor(locale);
+
+  try {
+    return { currency: target, rate: await getRate(baseCurrency, target) };
+  } catch {
+    return { currency: baseCurrency, rate: 1 };
+  }
+}

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
-import { ProgramRail } from "@/components/tour/ProgramRail";
+import { Rail } from "@/components/tour/Rail";
 import { ChevronDown } from "@/components/ui/icons";
 import type { ProgramDay } from "@/config/tour-pages";
 import type { Locale } from "@/i18n/config";
@@ -43,7 +43,8 @@ export async function Program({ locale, days }: { locale: Locale; days: ProgramD
           </div>
         </div>
 
-        <ProgramRail
+        <Rail
+          className="program-rail mt-10"
           previousLabel={t("program.previous")}
           nextLabel={t("program.next")}
         >
@@ -114,7 +115,7 @@ export async function Program({ locale, days }: { locale: Locale; days: ProgramD
               </details>
             </li>
           ))}
-        </ProgramRail>
+        </Rail>
       </div>
     </section>
   );

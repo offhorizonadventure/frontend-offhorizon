@@ -5,21 +5,27 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronDown } from "@/components/ui/icons";
 
 /**
- * Scroll container for the itinerary.
+ * Horizontal scroll container, used by the itinerary and the highlights.
  *
- * The cards themselves are server rendered and passed in as children, so the
- * whole itinerary is in the HTML; this only owns the scrolling and the two
- * arrows. Arrows disable at the ends rather than wrapping, because a day by
- * day list has a real beginning and end.
+ * The cards themselves are server rendered and passed in as children, so their
+ * content is in the HTML; this only owns the scrolling and the two arrows.
+ * Arrows disable at the ends rather than wrapping, because these lists have a
+ * real beginning and end.
  */
-export function ProgramRail({
+export function Rail({
   children,
+  className,
   previousLabel,
   nextLabel,
+  tone = "dark",
 }: {
   children: ReactNode;
+  /** Class on the list itself, so each caller keeps its own card sizing. */
+  className: string;
   previousLabel: string;
   nextLabel: string;
+  /** Arrows sit on a dark band in the itinerary and a light one in highlights. */
+  tone?: "dark" | "light";
 }) {
   const rail = useRef<HTMLOListElement>(null);
   const [atStart, setAtStart] = useState(true);
@@ -56,12 +62,15 @@ export function ProgramRail({
     node.scrollBy({ left: distance * direction, behavior: "smooth" });
   };
 
-  const arrow =
-    "flex size-11 items-center justify-center rounded-full ring-1 ring-cream-100/25 text-cream-100 transition-colors duration-300 enabled:hover:bg-cream-100/10 disabled:opacity-30";
+  const arrow = `flex size-11 items-center justify-center rounded-full ring-1 transition-colors duration-300 disabled:opacity-30 ${
+    tone === "dark"
+      ? "text-cream-100 ring-cream-100/25 enabled:hover:bg-cream-100/10"
+      : "text-brand-800 ring-brand-900/20 enabled:hover:bg-brand-900/6"
+  }`;
 
   return (
     <>
-      <ol ref={rail} className="program-rail mt-10">
+      <ol ref={rail} className={className}>
         {children}
       </ol>
 

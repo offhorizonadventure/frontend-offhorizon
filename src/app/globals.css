@@ -530,3 +530,104 @@ select:focus-visible {
     scroll-snap-align: start;
   }
 }
+
+/* Tour highlights rail. Same container discipline as the itinerary rail. */
+.highlight-rail {
+  display: flex;
+  gap: 0.75rem;
+  margin-inline: auto;
+  max-width: 72rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-inline: 1.25rem;
+  padding-bottom: 0.5rem;
+  scroll-padding-inline: 1.25rem;
+}
+
+.highlight-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.highlight-item {
+  flex: 0 0 62%;
+  max-width: 16rem;
+  scroll-snap-align: start;
+  aspect-ratio: 4 / 5;
+  min-height: 16rem;
+}
+
+@media (min-width: 640px) {
+  .highlight-rail {
+    gap: 1rem;
+    padding-inline: 2rem;
+    scroll-padding-inline: 2rem;
+  }
+
+  .highlight-item {
+    flex-basis: 16rem;
+  }
+}
+
+/* Expedition facts grid.
+   One white card with real borders between the cells, rather than a tinted
+   background showing through 1px gaps. The gap trick renders unevenly at
+   fractional device pixel ratios, and the line colour cannot be set
+   independently of the card behind it.
+
+   Every rule below is deliberately `:nth-child(...)` so all of them carry the
+   same specificity and source order decides the winner. Written with a plain
+   `> *` reset instead, the narrow breakpoint's nth-child rules outrank the wide
+   breakpoint's reset and leak borders into the first row. */
+.facts-grid {
+  --facts-line: color-mix(in srgb, var(--color-brand-900) 12%, transparent);
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.facts-grid > *:nth-child(n) {
+  border-top: 0;
+  border-left: 0;
+}
+
+.facts-grid > *:nth-child(n + 2) {
+  border-top: 1px solid var(--facts-line);
+}
+
+@media (min-width: 640px) {
+  .facts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .facts-grid > *:nth-child(n) {
+    border-top: 0;
+    border-left: 0;
+  }
+
+  .facts-grid > *:nth-child(2n) {
+    border-left: 1px solid var(--facts-line);
+  }
+
+  .facts-grid > *:nth-child(n + 3) {
+    border-top: 1px solid var(--facts-line);
+  }
+}
+
+@media (min-width: 1024px) {
+  .facts-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .facts-grid > *:nth-child(n) {
+    border-top: 0;
+    border-left: 0;
+  }
+
+  .facts-grid > *:not(:nth-child(4n + 1)) {
+    border-left: 1px solid var(--facts-line);
+  }
+
+  .facts-grid > *:nth-child(n + 5) {
+    border-top: 1px solid var(--facts-line);
+  }
+}

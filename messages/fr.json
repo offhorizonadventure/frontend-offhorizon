@@ -1019,20 +1019,8 @@
       "groupSize": "Taille max du groupe"
     },
     "dates": {
-      "eyebrow": "Dates et tarifs",
-      "title": "Choisissez un départ",
       "available": "Places disponibles",
-      "soldOut": "Complet",
-      "from": "À partir de",
-      "perPerson": "Prix par personne",
-      "twin": "Chambre double",
-      "solo": "Chambre simple",
-      "edition": "Édition",
-      "direction": "Sens de l'itinéraire",
-      "ledBy": "Encadré par",
-      "enquire": "Se renseigner",
-      "joinWaitlist": "Liste d'attente",
-      "disclaimer": "Les tarifs s'entendent par personne sauf mention contraire et peuvent évoluer. Les prix sont fixés en dollars américains puis convertis pour l'affichage : le montant réglé dépend donc du taux du jour. Les vols aller-retour jusqu'au point de départ ne sont pas compris. Offhorizon Adventures peut modifier ces prix sans préavis."
+      "soldOut": "Complet"
     },
     "inclusions": {
       "eyebrow": "Le tarif",
@@ -1069,6 +1057,78 @@
     "cta": {
       "title": "Roulez celui-ci avec nous",
       "body": "Renseignez-vous sur une date de la liste, ou dites-nous quand vous pouvez partir et nous verrons ce qui convient."
+    },
+    "price": {
+      "from": "À partir de",
+      "perRider": "par pilote",
+      "included": "Compris",
+      "seeDates": "Voir les dates",
+      "custom": "Expédition sur mesure",
+      "note": "Les prix sont fixés en dollars américains puis convertis pour l'affichage : le montant réglé dépend donc du taux du jour. Les vols ne sont pas compris. Offhorizon Adventures peut modifier ces prix sans préavis.",
+      "eyebrow": "Le tarif",
+      "title": "Un prix, et les quelques options qui s'y ajoutent",
+      "body": "Le tarif pilote couvre l'expédition elle-même. Tout le reste est facultatif : vous ne payez une chambre simple ou une couverture supplémentaire que si vous les voulez. Rien n'est ajouté à la fin.",
+      "datesTitle": "Dates de départ"
+    },
+    "highlights": {
+      "eyebrow": "Temps forts",
+      "title": "Ce dont vous vous souviendrez",
+      "previous": "Temps forts précédents",
+      "next": "Plus de temps forts"
+    },
+    "booking": {
+      "stepOf": "Étape {current} sur {total}",
+      "back": "Retour",
+      "next": "Continuer",
+      "decrease": "Diminuer",
+      "increase": "Augmenter",
+      "basics": {
+        "duration": "Durée",
+        "groupSize": "Taille du groupe",
+        "from": "À partir de",
+        "perRider": "par pilote"
+      },
+      "year": {
+        "title": "En quelle année voulez-vous partir ?",
+        "help": "Choisissez une année et nous vous enverrons les départs ouverts."
+      },
+      "date": {
+        "title": "Quel départ ?",
+        "help": "Choisissez une date, ou dites-nous que vous êtes flexible et nous vous proposerons.",
+        "none": "Nous n'avons pas encore publié les départs {year}. Demandez quand même et nous vous dirons ce qui arrive.",
+        "soldOut": "Complet"
+      },
+      "travellers": {
+        "title": "Qui vous accompagne ?",
+        "help": "Une machine par pilote. Un passager partage la machine d'un pilote.",
+        "riders": "Pilotes",
+        "ridersHint": "Chacun sur sa propre machine",
+        "pillions": "Passagers",
+        "pillionsHint": "Assis derrière quelqu'un"
+      },
+      "extras": {
+        "title": "Quelque chose à ajouter ?",
+        "help": "Les deux sont facultatifs. Laissez à zéro si vous n'en voulez pas.",
+        "insurance": "Protection dommages complète",
+        "insuranceHint": "Une par machine. Supprime la caution.",
+        "room": "Chambre simple",
+        "roomHint": "Les chambres sont doubles sauf si vous prenez ceci.",
+        "none": "Vous pourrez tout modifier plus tard. Rien n'est encore réservé."
+      },
+      "summary": {
+        "title": "Voici ce que vous avez choisi",
+        "help": "Une estimation, pas une réservation. Nous confirmerons tout par e-mail.",
+        "year": "Départ en",
+        "riders": "Pilotes",
+        "pillions": "Passagers",
+        "insurance": "Protection dommages",
+        "room": "Chambres simples",
+        "total": "Total estimé",
+        "enquire": "Envoyer la demande",
+        "note": "Converti depuis le dollar américain au taux du jour : le montant final dépendra du taux au moment du paiement. Les vols ne sont pas compris.",
+        "dates": "Dates",
+        "flexible": "Flexible"
+      }
     }
   }
 }

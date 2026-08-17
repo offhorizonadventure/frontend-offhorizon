@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 type NumberStepperProps = {
   name: string;
@@ -9,6 +9,9 @@ type NumberStepperProps = {
   min?: number;
   max?: number;
   defaultValue?: number;
+  /** Supply with `onValueChange` to drive the control from the parent. */
+  value?: number;
+  onValueChange?: (value: number) => void;
   decreaseLabel: string;
   increaseLabel: string;
 };
@@ -28,13 +31,35 @@ export function NumberStepper({
   min = 0,
   max = 20,
   defaultValue = 0,
+  value: controlled,
+  onValueChange,
   decreaseLabel,
   increaseLabel,
 }: NumberStepperProps) {
-  const [value, setValue] = useState(defaultValue);
+  const [uncontrolled, setUncontrolled] = useState(defaultValue);
   const id = useId();
 
+  // Controlled when the parent passes a value, uncontrolled otherwise, so the
+  // plain form usages keep working untouched.
+  const value = controlled ?? uncontrolled;
   const clamp = (next: number) => Math.min(max, Math.max(min, next));
+
+  // Two clicks inside one tick both read the same prop and land on the same
+  // number, so steps are counted against a mirror that updates immediately
+  // rather than against the rendered value.
+  const pending = useRef(value);
+  useEffect(() => {
+    pending.current = value;
+  }, [value]);
+
+  const setValue = (next: number) => {
+    const clamped = clamp(next);
+    pending.current = clamped;
+    if (controlled === undefined) setUncontrolled(clamped);
+    onValueChange?.(clamped);
+  };
+
+  const step = (delta: number) => setValue(pending.current + delta);
 
   const button =
     "flex size-10 shrink-0 items-center justify-center rounded-full border border-brand-900/15 text-brand-800 transition-colors hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100 disabled:pointer-events-none disabled:opacity-30";
@@ -52,7 +77,7 @@ export function NumberStepper({
       <div className="mt-2.5 flex h-12 items-center justify-between rounded-xl border border-brand-900/15 bg-white px-2 transition-[border-color,box-shadow] focus-within:border-brand-800 focus-within:ring-[3px] focus-within:ring-brand-800/10">
         <button
           type="button"
-          onClick={() => setValue((current) => clamp(current - 1))}
+          onClick={() => step(-1)}
           disabled={value <= min}
           aria-label={decreaseLabel}
           className={button}
@@ -70,13 +95,13 @@ export function NumberStepper({
           min={min}
           max={max}
           value={value}
-          onChange={(event) => setValue(clamp(Number(event.target.value) || min))}
+          onChange={(event) => setValue(Number(event.target.value) || min)}
           className="w-full min-w-0 [appearance:textfield] bg-transparent text-center text-[15px] font-semibold text-brand-900 outline-none tabular-nums [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
         />
 
         <button
           type="button"
-          onClick={() => setValue((current) => clamp(current + 1))}
+          onClick={() => step(1)}
           disabled={value >= max}
           aria-label={increaseLabel}
           className={button}

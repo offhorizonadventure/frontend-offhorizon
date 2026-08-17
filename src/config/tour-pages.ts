@@ -19,6 +19,8 @@ import thiksey from "../../public/tours/demo/thiksey.jpg";
 import yak from "../../public/tours/demo/yak.jpg";
 import zanskarPeaks from "../../public/tours/demo/zanskar-peaks.jpg";
 
+import type { PriceIconName } from "@/components/ui/icons";
+
 import { allPackages, type TourPackage } from "./packages";
 
 /**
@@ -57,6 +59,27 @@ export type Departure = {
   leader: string;
 };
 
+/** One line in the price card. */
+export type PriceLine = {
+  icon: PriceIconName;
+  label: string;
+  /** Small print under the label, for the things that need a caveat. */
+  note?: string;
+  /** Per person in USD, converted at render time. Zero renders as included. */
+  amount: number;
+  /** Renders as a supplement on top of the headline price rather than a total. */
+  addon?: boolean;
+};
+
+export type PriceGroup = { title: string; lines: PriceLine[] };
+
+/** A card in the highlights rail. */
+export type Highlight = {
+  label: string;
+  image: StaticImageData;
+  alt: string;
+};
+
 export type ProgramDay = {
   day: number;
   title: string;
@@ -82,6 +105,8 @@ export type TourDetail = {
   lead: string;
   place: { title: string; body: string };
   facts: { key: FactKey; value: string }[];
+  pricing: PriceGroup[];
+  highlights: Highlight[];
   departures: Departure[];
   included: string[];
   excluded: string[];
@@ -143,6 +168,67 @@ const standardExcluded = [
   "Alcohol, laundry, tips, phone calls and anything else of a personal nature",
 ];
 
+/** Demo pricing. Shared across the tours until real figures arrive. */
+const demoPricing = (rider: number): PriceGroup[] => [
+  {
+    title: "Expedition price",
+    lines: [
+      { icon: "rider", label: "Rider", amount: rider },
+      { icon: "pillion", label: "Pillion", note: "Sharing the rider's machine", amount: 0 },
+    ],
+  },
+  {
+    title: "Machine",
+    lines: [
+      { icon: "bike", label: "RE Himalayan 450", note: "Included in the rider price", amount: 0, addon: true },
+      {
+        icon: "shield",
+        label: "Full damage protection",
+        note: "Waives the deposit on the expedition machine",
+        amount: 230.24,
+        addon: true,
+      },
+    ],
+  },
+  {
+    title: "Rooms",
+    lines: [
+      { icon: "singleRoom", label: "Single room", note: "Your own room throughout", amount: 610.07, addon: true },
+      { icon: "doubleRoom", label: "Double room", note: "For couples travelling together", amount: 1220.14, addon: true },
+    ],
+  },
+];
+
+const ladakhHighlights: Highlight[] = [
+  { label: "Khardung La", image: khardungLa, alt: "The road over Khardung La" },
+  { label: "Pangong Tso", image: pangong, alt: "Pangong Tso at first light" },
+  { label: "Nubra dunes", image: nubraDunes, alt: "Sand dunes in the Nubra valley" },
+  { label: "Post-ride camping", image: zanskarPeaks, alt: "Camp under the Zanskar peaks" },
+  { label: "Thiksey monastery", image: thiksey, alt: "Thiksey monastery above the Indus" },
+  { label: "Changthang nomads", image: yak, alt: "A yak on the Changthang plateau" },
+  { label: "Diskit gompa", image: diskit, alt: "Diskit monastery in Nubra" },
+  { label: "The Manali road", image: manaliLehRock, alt: "Rock formations on the Manali to Leh highway" },
+];
+
+const spitiHighlights: Highlight[] = [
+  { label: "Key monastery", image: keyMonastery, alt: "Key monastery on its hill in Spiti" },
+  { label: "Pin valley", image: pinValley, alt: "The Pin valley in Spiti" },
+  { label: "Kunzum La", image: kazaLosar, alt: "The road between Kaza and Losar" },
+  { label: "Chandratal camp", image: zanskarPeaks, alt: "Camp beside the lake" },
+  { label: "Pangong Tso", image: pangong, alt: "Pangong Tso at first light" },
+  { label: "Shyok river road", image: nubra, alt: "The Shyok river road into Nubra" },
+  { label: "Khardung La", image: khardungLa, alt: "The road over Khardung La" },
+];
+
+const nepalHighlights: Highlight[] = [
+  { label: "Kali Gandaki gorge", image: padumRoad, alt: "The gorge road climbing north" },
+  { label: "Lo Manthang", image: zanskarPeaks, alt: "The walled city of Lo Manthang" },
+  { label: "Muktinath", image: keyMonastery, alt: "The temple at Muktinath" },
+  { label: "Chhoser caves", image: diskit, alt: "Cave dwellings at Chhoser" },
+  { label: "Pokhara lakeside", image: pinValley, alt: "Phewa lake at Pokhara" },
+  { label: "Trans-Himalayan desert", image: nubraDunes, alt: "Bare desert north of Jomsom" },
+];
+
 export const tourPages: TourDetail[] = [
   {
     slug: "ladakh-motorcycle-tour",
@@ -164,6 +250,8 @@ export const tourPages: TourDetail[] = [
       { key: "difficulty", value: "Moderate, high altitude throughout" },
       { key: "groupSize", value: "12 riders" },
     ],
+    pricing: demoPricing(3416.39),
+    highlights: ladakhHighlights,
     departures: [
       {
         start: "2026-06-13",
@@ -345,6 +433,8 @@ export const tourPages: TourDetail[] = [
       { key: "difficulty", value: "Moderate, high altitude throughout" },
       { key: "groupSize", value: "8 vehicles" },
     ],
+    pricing: demoPricing(3980.0),
+    highlights: spitiHighlights,
     departures: [
       {
         start: "2026-06-20",
@@ -423,6 +513,8 @@ export const tourPages: TourDetail[] = [
       { key: "difficulty", value: "Moderate" },
       { key: "groupSize", value: "10 riders" },
     ],
+    pricing: demoPricing(2940.5),
+    highlights: nepalHighlights,
     departures: [
       { start: "2026-04-04", end: "2026-04-13", solo: 2450, twin: 1850, edition: "Signature", direction: "Kathmandu loop", leader: "Tushar" },
       { start: "2026-05-09", end: "2026-05-18", soldOut: true, solo: 2450, twin: 1850, edition: "Signature", direction: "Kathmandu loop", leader: "Ravi" },

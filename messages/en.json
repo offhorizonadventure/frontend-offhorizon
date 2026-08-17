@@ -1019,20 +1019,8 @@
       "groupSize": "Max group size"
     },
     "dates": {
-      "eyebrow": "Dates and prices",
-      "title": "Pick a departure",
       "available": "Places available",
-      "soldOut": "Sold out",
-      "from": "From",
-      "perPerson": "Price per person",
-      "twin": "Twin",
-      "solo": "Solo",
-      "edition": "Edition",
-      "direction": "Route direction",
-      "ledBy": "Led by",
-      "enquire": "Enquire",
-      "joinWaitlist": "Join waitlist",
-      "disclaimer": "Rates are per person unless stated otherwise and may change. Prices are set in US dollars and converted for display, so the figure you pay depends on the rate on the day. Flights to and from the start point are not included. Offhorizon Adventures may revise these prices without notice."
+      "soldOut": "Sold out"
     },
     "inclusions": {
       "eyebrow": "The price",
@@ -1069,6 +1057,78 @@
     "cta": {
       "title": "Ride this one with us",
       "body": "Ask about a date on the list, or tell us when you can travel and we will see what fits."
+    },
+    "price": {
+      "from": "From",
+      "perRider": "per rider",
+      "included": "Included",
+      "seeDates": "See dates",
+      "custom": "Custom expedition",
+      "note": "Prices are set in US dollars and converted for display, so the figure you pay depends on the rate on the day. Flights are not included. Offhorizon Adventures may revise these prices without notice.",
+      "eyebrow": "What it costs",
+      "title": "One price, and the few things that sit on top of it",
+      "body": "The rider price covers the expedition itself. Everything below it is optional, so you only pay for a single room or extra cover if you want them. Nothing is added at the end.",
+      "datesTitle": "Departure dates"
+    },
+    "highlights": {
+      "eyebrow": "Highlights",
+      "title": "What you will remember",
+      "previous": "Previous highlights",
+      "next": "More highlights"
+    },
+    "booking": {
+      "stepOf": "Step {current} of {total}",
+      "back": "Back",
+      "next": "Continue",
+      "decrease": "Decrease",
+      "increase": "Increase",
+      "basics": {
+        "duration": "Duration",
+        "groupSize": "Group size",
+        "from": "From",
+        "perRider": "per rider"
+      },
+      "year": {
+        "title": "Which year do you want to travel?",
+        "help": "Pick a year and we will send you the departures we have open."
+      },
+      "date": {
+        "title": "Which departure?",
+        "help": "Pick a date, or tell us you are flexible and we will suggest one.",
+        "none": "We have not published {year} departures yet. Ask anyway and we will tell you what is coming.",
+        "soldOut": "Sold out"
+      },
+      "travellers": {
+        "title": "Who is coming?",
+        "help": "One machine per rider. A pillion shares a rider's machine.",
+        "riders": "Riders",
+        "ridersHint": "Everyone riding their own machine",
+        "pillions": "Pillions",
+        "pillionsHint": "Riding behind someone else"
+      },
+      "extras": {
+        "title": "Anything to add?",
+        "help": "Both are optional. Leave them at zero if you do not want them.",
+        "insurance": "Full damage protection",
+        "insuranceHint": "One per machine. Waives the deposit.",
+        "room": "Single room",
+        "roomHint": "Rooms are twin sharing unless you take this.",
+        "none": "You can change any of this later. Nothing is booked yet."
+      },
+      "summary": {
+        "title": "Here is what you have chosen",
+        "help": "An estimate, not a booking. We will confirm everything by email.",
+        "year": "Travelling in",
+        "riders": "Riders",
+        "pillions": "Pillions",
+        "insurance": "Damage protection",
+        "room": "Single rooms",
+        "total": "Estimated total",
+        "enquire": "Send enquiry",
+        "note": "Converted from US dollars at today's rate, so the final figure depends on the rate on the day you pay. Flights are not included.",
+        "dates": "Dates",
+        "flexible": "Flexible"
+      }
     }
   }
 }

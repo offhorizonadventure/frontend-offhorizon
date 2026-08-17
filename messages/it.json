@@ -1019,20 +1019,8 @@
       "groupSize": "Gruppo max"
     },
     "dates": {
-      "eyebrow": "Date e prezzi",
-      "title": "Scegli una partenza",
       "available": "Posti disponibili",
-      "soldOut": "Esaurita",
-      "from": "Da",
-      "perPerson": "Prezzo a persona",
-      "twin": "Camera doppia",
-      "solo": "Camera singola",
-      "edition": "Edizione",
-      "direction": "Senso di percorrenza",
-      "ledBy": "Guidata da",
-      "enquire": "Richiedi info",
-      "joinWaitlist": "Lista d'attesa",
-      "disclaimer": "Le tariffe si intendono a persona salvo diversa indicazione e possono variare. I prezzi sono fissati in dollari statunitensi e convertiti solo per la visualizzazione, quindi l'importo pagato dipende dal cambio del giorno. I voli da e per il punto di partenza non sono inclusi. Offhorizon Adventures può modificare questi prezzi senza preavviso."
+      "soldOut": "Esaurita"
     },
     "inclusions": {
       "eyebrow": "Il prezzo",
@@ -1069,6 +1057,78 @@
     "cta": {
       "title": "Fai questa spedizione con noi",
       "body": "Chiedi informazioni su una data in elenco, oppure dicci quando puoi partire e vediamo cosa funziona."
+    },
+    "price": {
+      "from": "Da",
+      "perRider": "a pilota",
+      "included": "Incluso",
+      "seeDates": "Vedi le date",
+      "custom": "Spedizione su misura",
+      "note": "I prezzi sono fissati in dollari statunitensi e convertiti solo per la visualizzazione, quindi l'importo pagato dipende dal cambio del giorno. I voli non sono inclusi. Offhorizon Adventures può modificare questi prezzi senza preavviso.",
+      "eyebrow": "Quanto costa",
+      "title": "Un prezzo, e le poche voci che si aggiungono",
+      "body": "Il prezzo pilota copre la spedizione vera e propria. Tutto il resto è facoltativo: la camera singola o la copertura extra si pagano solo se le vuoi. Alla fine non si aggiunge nulla.",
+      "datesTitle": "Date di partenza"
+    },
+    "highlights": {
+      "eyebrow": "Da non perdere",
+      "title": "Quello che ti resterà",
+      "previous": "Elementi precedenti",
+      "next": "Altri elementi"
+    },
+    "booking": {
+      "stepOf": "Passo {current} di {total}",
+      "back": "Indietro",
+      "next": "Continua",
+      "decrease": "Diminuisci",
+      "increase": "Aumenta",
+      "basics": {
+        "duration": "Durata",
+        "groupSize": "Dimensione del gruppo",
+        "from": "Da",
+        "perRider": "a pilota"
+      },
+      "year": {
+        "title": "In che anno vuoi partire?",
+        "help": "Scegli un anno e ti manderemo le partenze disponibili."
+      },
+      "date": {
+        "title": "Quale partenza?",
+        "help": "Scegli una data, oppure dicci che sei flessibile e te ne proponiamo una.",
+        "none": "Non abbiamo ancora pubblicato le partenze del {year}. Chiedi lo stesso e ti diremo cosa arriva.",
+        "soldOut": "Esaurita"
+      },
+      "travellers": {
+        "title": "Chi viene con te?",
+        "help": "Una moto per pilota. Il passeggero divide la moto con un pilota.",
+        "riders": "Piloti",
+        "ridersHint": "Ognuno sulla propria moto",
+        "pillions": "Passeggeri",
+        "pillionsHint": "Seduti dietro a qualcuno"
+      },
+      "extras": {
+        "title": "Vuoi aggiungere qualcosa?",
+        "help": "Entrambi facoltativi. Lascia a zero se non ti servono.",
+        "insurance": "Protezione danni completa",
+        "insuranceHint": "Una per moto. Elimina il deposito.",
+        "room": "Camera singola",
+        "roomHint": "Le camere sono doppie salvo che tu scelga questa.",
+        "none": "Potrai cambiare tutto più avanti. Non hai ancora prenotato nulla."
+      },
+      "summary": {
+        "title": "Ecco cosa hai scelto",
+        "help": "Una stima, non una prenotazione. Confermeremo tutto via email.",
+        "year": "Partenza nel",
+        "riders": "Piloti",
+        "pillions": "Passeggeri",
+        "insurance": "Protezione danni",
+        "room": "Camere singole",
+        "total": "Totale stimato",
+        "enquire": "Invia la richiesta",
+        "note": "Convertito dai dollari statunitensi al cambio di oggi: l'importo finale dipende dal cambio del giorno in cui paghi. I voli non sono inclusi.",
+        "dates": "Date",
+        "flexible": "Flessibile"
+      }
     }
   }
 }
