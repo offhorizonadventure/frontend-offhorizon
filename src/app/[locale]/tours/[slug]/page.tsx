@@ -12,49 +12,71 @@ import { Program } from "@/components/tour/Program";
 import { RouteMap } from "@/components/tour/RouteMap";
 import { TourHero } from "@/components/tour/TourHero";
 import { Topo } from "@/components/ui/Topo";
-import { getTour, tourPages } from "@/config/tour-pages";
-import { locales } from "@/i18n/config";
+import { getTour, imageUrl, listDepartures } from "@/lib/catalogue";
 import { resolveLocale } from "@/i18n/params";
 import { buildMetadata, siteUrl } from "@/lib/seo";
+import {
+  departureList,
+  expectList,
+  factList,
+  galleryList,
+  highlightList,
+  pricing,
+  programmeList,
+} from "@/lib/tour-view";
+
+/**
+ * Built on first request and cached, rather than enumerated at build time.
+ *
+ * Tours are added from the admin after the site is deployed, so a list baked at
+ * build time would mean a redeploy for every new one.
+ */
+export const revalidate = 600;
+export const dynamicParams = true;
 
 export function generateStaticParams() {
-  return locales.flatMap((locale) => tourPages.map((tour) => ({ locale, slug: tour.slug })));
+  return [];
 }
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/tours/[slug]">) {
   const locale = await resolveLocale(params);
   const { slug } = await params;
-  const tour = getTour(slug);
+  const tour = await getTour(slug);
   if (!tour) return {};
 
-  const tt = await getTranslations({ locale, namespace: "tours" });
+  const hero = imageUrl(tour.hero_path);
 
   return buildMetadata({
     locale,
     path: `/tours/${tour.slug}`,
-    title: `${tt(`${tour.package.key}.name`)} | ${tt(`${tour.package.key}.summary`)}`,
-    description: tour.lead,
-    image: {
-      url: `${siteUrl}${tour.hero.src}`,
-      width: tour.hero.width,
-      height: tour.hero.height,
-      alt: tour.heroAlt,
-      type: "image/jpeg",
-    },
+    title: tour.title,
+    description: tour.lead ?? "",
+    image: hero
+      ? { url: hero, width: 1600, height: 1000, alt: tour.hero_alt ?? tour.title, type: "image/webp" }
+      : undefined,
   });
 }
 
 export default async function TourPage({ params }: PageProps<"/[locale]/tours/[slug]">) {
   const locale = await resolveLocale(params);
   const { slug } = await params;
-  const tour = getTour(slug);
+  const tour = await getTour(slug);
   if (!tour) notFound();
 
   const t = await getTranslations({ locale, namespace: "tour" });
-  const tt = await getTranslations({ locale, namespace: "tours" });
   const ts = await getTranslations({ locale, namespace: "dest.shared" });
 
-  const name = tt(`${tour.package.key}.name`);
+  const departures = await listDepartures(tour.id);
+
+  const name = tour.title;
+  const hero = imageUrl(tour.hero_path);
+  const facts = factList(tour);
+  const highlights = highlightList(tour);
+  const programme = programmeList(tour);
+  const gallery = galleryList(tour);
+  const expect = expectList(tour);
+  const routeMap = imageUrl(tour.route_map_path);
+  const priceGroups = pricing(tour, departures);
 
   /**
    * TouristTrip with the itinerary as an ItemList. No `offers`: the prices in
@@ -65,13 +87,12 @@ export default async function TourPage({ params }: PageProps<"/[locale]/tours/[s
     "@context": "https://schema.org",
     "@type": "TouristTrip",
     name,
-    description: tour.lead,
+    description: tour.lead ?? undefined,
     url: `${siteUrl}/${locale}/tours/${tour.slug}`,
-    touristType: tt(`${tour.package.key}.summary`),
     itinerary: {
       "@type": "ItemList",
-      numberOfItems: tour.program.length,
-      itemListElement: tour.program.map((day) => ({
+      numberOfItems: programme.length,
+      itemListElement: programme.map((day) => ({
         "@type": "ListItem",
         position: day.day,
         name: day.title,
@@ -89,11 +110,11 @@ export default async function TourPage({ params }: PageProps<"/[locale]/tours/[s
 
       <TourHero
         locale={locale}
-        eyebrow={tt(`${tour.package.key}.summary`)}
+        eyebrow={t("breadcrumb")}
         title={name}
-        lead={tour.lead}
-        image={tour.hero}
-        imageAlt={tour.heroAlt}
+        lead={tour.lead ?? ""}
+        image={hero ?? ""}
+        imageAlt={tour.hero_alt ?? name}
         crumbs={[
           { label: ts("home"), href: "/" },
           { label: t("breadcrumb"), href: "/adventure-tours" },
@@ -102,7 +123,7 @@ export default async function TourPage({ params }: PageProps<"/[locale]/tours/[s
         seed={40.4}
       />
 
-      <Highlights locale={locale} facts={tour.facts} highlights={tour.highlights} />
+      <Highlights locale={locale} facts={facts} highlights={highlights} />
 
       {/* The place, with the price beside it */}
       <section className="relative overflow-hidden bg-cream-50 py-18 sm:py-24">
@@ -112,38 +133,45 @@ export default async function TourPage({ params }: PageProps<"/[locale]/tours/[s
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
             <div data-anim="up" className="lg:col-span-7">
               <h2 className="font-display text-[clamp(1.75rem,3.6vw,2.7rem)] leading-[1.06] font-extrabold tracking-[-0.035em] text-balance text-brand-900">
-                {tour.place.title}
+                {tour.place_title}
               </h2>
               <p className="mt-7 text-[15px] leading-[1.85] text-pretty text-brand-800/65 sm:text-[16.5px]">
-                {tour.place.body}
+                {tour.place_body}
               </p>
             </div>
 
             <div data-anim="up" className="lg:col-span-5">
               <PriceCard
                 locale={locale}
-                pricing={tour.pricing}
+                pricing={priceGroups}
                 tourName={name}
-                facts={tour.facts}
-                departures={tour.departures}
+                facts={facts}
+                departures={departureList(departures)}
               />
             </div>
           </div>
         </div>
       </section>
 
-      <Program locale={locale} days={tour.program} />
+      {/* Each section is dropped when the tour has nothing in it, rather than
+          rendering an empty heading over blank space. */}
+      {programme.length > 0 && <Program locale={locale} days={programme} />}
 
-      <Inclusions locale={locale} included={tour.included} excluded={tour.excluded} />
+      {(tour.included.length > 0 || tour.excluded.length > 0) && (
+        <Inclusions locale={locale} included={tour.included} excluded={tour.excluded} />
+      )}
 
-      <RouteMap locale={locale} image={tour.route.image} alt={tour.route.alt} />
+      {routeMap && (
+        <RouteMap locale={locale} image={routeMap} alt={tour.route_map_alt ?? ""} />
+      )}
 
-      <ExpectTabs eyebrow={t("expect.eyebrow")} items={tour.expect} />
+      {expect.length > 0 && <ExpectTabs eyebrow={t("expect.eyebrow")} items={expect} />}
 
+      {gallery.length > 0 && (
       <Gallery
         eyebrow={t("gallery.eyebrow")}
         title={t("gallery.title")}
-        items={tour.gallery}
+        items={gallery}
         labels={{
           open: t("gallery.open"),
           close: t("gallery.close"),
@@ -152,12 +180,13 @@ export default async function TourPage({ params }: PageProps<"/[locale]/tours/[s
           counter: t.raw("gallery.counter") as string,
         }}
       />
+      )}
 
       <CtaBand
         title={t("cta.title")}
         body={t("cta.body")}
-        image={tour.hero}
-        imageAlt={tour.heroAlt}
+        image={hero ?? ""}
+        imageAlt={tour.hero_alt ?? name}
         primary={{ label: ts("sendEnquiry"), href: "/custom-expeditions" }}
         secondary={{ label: t("breadcrumb"), href: "/adventure-tours" }}
       />

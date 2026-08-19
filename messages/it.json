@@ -34,7 +34,8 @@
     "nepalHimalayas": "Himalaya nepalese",
     "bhutan": "Bhutan",
     "sriLanka": "Sri Lanka",
-    "mongolia": "Mongolia"
+    "mongolia": "Mongolia",
+    "plannedShort": "In programma"
   },
   "tours": {
     "ladakhMotorcycle": {
@@ -161,7 +162,7 @@
     "startAdventure": {
       "title": "Inizia la tua avventura",
       "subtitle": "Parla con il nostro team su WhatsApp oppure prenota oggi una consulenza gratuita.",
-      "consultation": "Prenota una consulenza",
+      "consultation": "Richiesta rapida",
       "eyebrow": "Contatti",
       "note": "Nessun pagamento richiesto per parlare con noi."
     },
@@ -195,7 +196,7 @@
     "paymentsAlt": "Pagamento sicuro, gestito da Stripe"
   },
   "consultation": {
-    "title": "Prenota una consulenza",
+    "title": "Richiesta rapida",
     "subtitle": "Raccontaci cosa hai in mente e il nostro team ti risponderà.",
     "fullName": "Nome completo",
     "phone": "Telefono",
@@ -209,7 +210,8 @@
     "close": "Chiudi",
     "required": "Rispondiamo entro un giorno lavorativo.",
     "countryLabel": "Prefisso internazionale",
-    "searchLabel": "Cerca un paese"
+    "searchLabel": "Cerca un paese",
+    "trigger": "Richiesta rapida"
   },
   "about": {
     "meta": {
@@ -362,6 +364,7 @@
       "lead": "Quello che abbiamo imparato guidando spedizioni in quota. Scritto da chi percorre questi itinerari, non da un ufficio marketing."
     },
     "readingTime": "{minutes} min di lettura",
+    "empty": "Ancora nessun articolo. Torna presto.",
     "readPost": "Leggi l'articolo",
     "backToBlog": "Tutti gli articoli",
     "writtenBy": "Scritto da",
@@ -394,7 +397,7 @@
       "riders": "Piloti",
       "ridersHint": "Persone che guidano il proprio mezzo",
       "pillions": "Passeggeri",
-      "pillionsHint": "Chi viaggia dietro",
+      "pillionsHint": "Uno per moto, seduto dietro",
       "decrease": "Diminuisci",
       "increase": "Aumenta",
       "budget": "Qual è il tuo budget",
@@ -402,7 +405,19 @@
       "message": "Raccontaci qualcosa della tua avventura",
       "messagePlaceholder": "I passi che vuoi percorrere, i posti dove vuoi fermarti, tutto quello di cui dobbiamo tenere conto.",
       "firstName": "Nome",
-      "lastName": "Cognome"
+      "lastName": "Cognome",
+      "travelMode": "Come vuoi viaggiare",
+      "modeMotorcycle": "In moto",
+      "modeVehicle": "In 4x4",
+      "vehicleChoice": "Quale veicolo",
+      "vehicleOwn": "Portiamo il nostro",
+      "vehicleOwnHint": "Guidi il tuo 4x4. Prezzo a persona.",
+      "vehicleOurs": "Usare uno dei vostri",
+      "vehicleOursHint": "Forniamo noi il veicolo. Prezzo a persona.",
+      "people": "Persone in viaggio",
+      "peopleHint": "Tutti nel veicolo, conducenti compresi",
+      "vehiclesNote": "{count, plural, one {# veicolo} other {# veicoli}}, con quattro posti ciascuno.",
+      "vehicleDailyNote": "I nostri veicoli si pagano a giornata, oltre al prezzo a persona. Confermiamo la tariffa giornaliera insieme al preventivo."
     },
     "company": {
       "solo": "Da solo",
@@ -1096,7 +1111,9 @@
         "title": "Quale partenza?",
         "help": "Scegli una data, oppure dicci che sei flessibile e te ne proponiamo una.",
         "none": "Non abbiamo ancora pubblicato le partenze del {year}. Chiedi lo stesso e ti diremo cosa arriva.",
-        "soldOut": "Esaurita"
+        "soldOut": "Esaurita",
+        "places": "{count} posti",
+        "custom": "Su misura"
       },
       "travellers": {
         "title": "Chi viene con te?",
@@ -1129,6 +1146,72 @@
         "dates": "Date",
         "flexible": "Flessibile"
       }
+    }
+  },
+  "auth": {
+    "trigger": "Accedi",
+    "close": "Chiudi",
+    "show": "Mostra",
+    "hide": "Nascondi",
+    "or": "o",
+    "google": "Google",
+    "facebook": "Facebook",
+    "email": "Email",
+    "emailPlaceholder": "tu@esempio.it",
+    "password": "Password",
+    "name": "Nome completo",
+    "namePlaceholder": "Il tuo nome",
+    "phone": "Telefono",
+    "countryLabel": "Prefisso paese",
+    "searchLabel": "Cerca paesi",
+    "menu": {
+      "account": "Il mio profilo",
+      "bookings": "Le mie prenotazioni",
+      "payments": "I miei pagamenti",
+      "signOut": "Esci"
+    },
+    "login": {
+      "eyebrow": "Il tuo account",
+      "title": "Bentornato.",
+      "lead": "Accedi per vedere le tue richieste e le spedizioni prenotate.",
+      "submit": "Accedi",
+      "forgot": "Password dimenticata?",
+      "noAccount": "Non hai ancora un account?",
+      "join": "Creane uno"
+    },
+    "register": {
+      "eyebrow": "Unisciti a noi",
+      "title": "Crea un account.",
+      "lead": "Richieste, date e documenti in un unico posto.",
+      "submit": "Crea account",
+      "terms": "Creando un account accetti i nostri termini e l'informativa sulla privacy.",
+      "check": "Controlla l'email per confermare l'indirizzo, poi accedi.",
+      "haveAccount": "Hai già un account?",
+      "signIn": "Accedi"
+    },
+    "forgot": {
+      "eyebrow": "Password",
+      "title": "Reimposta la password.",
+      "lead": "Dicci l'indirizzo del tuo account e ti invieremo un link per sceglierne una nuova.",
+      "submit": "Invia il link",
+      "back": "Torna all'accesso",
+      "sent": "Se a quell'indirizzo corrisponde un account, il link è in arrivo."
+    },
+    "update": {
+      "eyebrow": "Password",
+      "title": "Imposta una nuova password.",
+      "lead": "Scegli qualcosa che non hai già usato su questo account.",
+      "submit": "Salva password",
+      "password": "Nuova password",
+      "confirm": "Conferma password",
+      "rule": "Almeno otto caratteri."
+    }
+  },
+  "catalogue": {
+    "empty": {
+      "title": "Nessuna data fissata per ora.",
+      "body": "Stiamo ancora definendo le date. Dicci quando vuoi partire e costruiamo la spedizione su misura.",
+      "cta": "Pianifica una spedizione su misura"
     }
   }
 }

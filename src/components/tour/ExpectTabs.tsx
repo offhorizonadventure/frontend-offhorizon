@@ -1,6 +1,8 @@
 "use client";
 
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
+
+import { blurOf, type ImageSource } from "@/lib/image-source";
 import { useId, useState } from "react";
 
 export type ExpectItem = {
@@ -8,7 +10,7 @@ export type ExpectItem = {
   tab: string;
   title: string;
   body: string;
-  image: StaticImageData;
+  image: ImageSource;
 };
 
 /**
@@ -33,8 +35,9 @@ export function ExpectTabs({ eyebrow, items }: { eyebrow: string; items: ExpectI
           src={item.image}
           alt=""
           fill
-          placeholder="blur"
+          {...blurOf(item.image)}
           sizes="100vw"
+          quality={90}
           priority={index === 0}
           className={`-z-10 object-cover transition-opacity duration-700 ${
             index === active ? "opacity-100" : "opacity-0"

@@ -1,15 +1,31 @@
 import { getTranslations } from "next-intl/server";
 
-import { TourCard } from "@/components/tours/TourCard";
-import { upcomingPackages } from "@/config/packages";
+import { DbTourCard } from "@/components/tours/DbTourCard";
+import { EmptyTours } from "@/components/tours/EmptyTours";
 import { Link } from "@/i18n/navigation";
+import { featuredCards } from "@/lib/catalogue-cards";
 
 /**
- * Upcoming departures. The card itself lives in `TourCard`, because the
+ * Upcoming departures. The card itself lives in `DbTourCard`, because the
  * destination pages show the same thing.
+ *
+ * Which two appear is decided in the admin by the featured switch. With nothing
+ * featured it falls back to the newest two rather than showing an empty band,
+ * and with nothing published at all it says so and offers a custom expedition.
  */
 export async function UpcomingTours() {
   const t = await getTranslations("home.upcoming");
+  const cards = await featuredCards(2);
+
+  if (cards.length === 0) {
+    return (
+      <section className="bg-white py-20 sm:py-28">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8">
+          <EmptyTours />
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="bg-white py-20 sm:py-28">
@@ -40,10 +56,10 @@ export async function UpcomingTours() {
         </div>
 
         <ul data-anim-group className="mt-10 grid gap-6 sm:mt-12 md:grid-cols-2">
-          {upcomingPackages.map((tour) => (
-            <li key={tour.key}>
+          {cards.map((card) => (
+            <li key={card.tour.id}>
               <div data-anim="up">
-                <TourCard tour={tour} sizes="(max-width: 767px) 92vw, 560px" />
+                <DbTourCard {...card} sizes="(max-width: 767px) 92vw, 560px" />
               </div>
             </li>
           ))}

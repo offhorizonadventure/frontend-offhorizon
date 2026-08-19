@@ -13,10 +13,13 @@ import { FOUNDED_YEAR } from "@/config/facts";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
+import { runningByCountry } from "@/lib/catalogue-counts";
 import { buildMetadata, siteUrl } from "@/lib/seo";
 
 /** A numbered point in the "why us" grid. */
 type Blurb = { title: string; body: string };
+
+export const revalidate = 600;
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -59,6 +62,9 @@ export default async function CountryPage({ params }: PageProps<"/[locale]/desti
     { label: ts("destinations"), href: "/destinations" },
     { label: name },
   ];
+
+  const { counts } = await runningByCountry();
+  const running = counts.get(page.slug) ?? 0;
 
   const schema = {
     "@context": "https://schema.org",
@@ -178,7 +184,10 @@ export default async function CountryPage({ params }: PageProps<"/[locale]/desti
 
           <ul data-anim-group className="mt-10 grid gap-6 lg:grid-cols-2">
             {page.regions.map((region) => {
-              const live = region.status === "live";
+              // A region is running when the country it belongs to has tours
+              // with dates on them; the config only says whether the region has
+              // its own written page.
+              const live = region.status === "live" && running > 0;
 
               return (
                 <li key={region.slug}>

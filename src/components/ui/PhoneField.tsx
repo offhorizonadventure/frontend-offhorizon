@@ -16,6 +16,10 @@ type PhoneFieldProps = {
   required?: boolean;
   searchLabel: string;
   countryLabel: string;
+  /** Two letter country for the dial code, e.g. "IN". Defaults to the market. */
+  defaultCountry?: string;
+  /** The national part, without the dial code. */
+  defaultNumber?: string;
 };
 
 /**
@@ -36,12 +40,14 @@ export function PhoneField({
   required,
   searchLabel,
   countryLabel,
+  defaultCountry,
+  defaultNumber = "",
 }: PhoneFieldProps) {
   const locale = useLocale() as Locale;
-  const [country, setCountry] = useState(() =>
-    marketFor(locale).flag.toUpperCase(),
+  const [country, setCountry] = useState(
+    () => defaultCountry?.toUpperCase() ?? marketFor(locale).flag.toUpperCase(),
   );
-  const [number, setNumber] = useState("");
+  const [number, setNumber] = useState(defaultNumber);
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   /**

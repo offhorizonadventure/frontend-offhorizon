@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import adventureImage from "../../../public/cta/adventure-bg.jpg";
 
@@ -11,7 +11,9 @@ import {
   Wallet,
 } from "@/components/ui/icons";
 import { Topo } from "@/components/ui/Topo";
-import { ConsultationModal } from "@/components/ui/ConsultationModal";
+import { QuickEnquiryModal } from "@/components/ui/QuickEnquiryModal";
+import { quickEnquiryLabels } from "@/components/ui/QuickEnquiry";
+import type { Locale } from "@/i18n/config";
 
 const guarantees = [
   { key: "deposits", Icon: RefreshDeposit },
@@ -30,26 +32,9 @@ const guarantees = [
 export async function BookConfidence() {
   const t = await getTranslations("home.confidence");
   const tc = await getTranslations("home.startAdventure");
-  const tm = await getTranslations("consultation");
+  const locale = (await getLocale()) as Locale;
 
-  const modalLabels = {
-    trigger: tc("consultation"),
-    title: tm("title"),
-    subtitle: tm("subtitle"),
-    fullName: tm("fullName"),
-    phone: tm("phone"),
-    email: tm("email"),
-    message: tm("message"),
-    messagePlaceholder: tm("messagePlaceholder"),
-    submit: tm("submit"),
-    sending: tm("sending"),
-    successTitle: tm("successTitle"),
-    successBody: tm("successBody"),
-    close: tm("close"),
-    required: tm("required"),
-    countryLabel: tm("countryLabel"),
-    searchLabel: tm("searchLabel"),
-  };
+  const modalLabels = await quickEnquiryLabels(locale);
 
   return (
     <section className="relative overflow-hidden bg-brand-950 py-20 text-cream-100 sm:py-28">
@@ -109,13 +94,13 @@ export async function BookConfidence() {
                 {tc("subtitle")}
               </p>
 
-              <ConsultationModal
+              <QuickEnquiryModal
                 labels={modalLabels}
                 className="group mt-8 inline-flex h-13 items-center justify-center gap-2.5 rounded-full bg-brand-800 px-8 text-[11.5px] font-bold tracking-[0.13em] text-cream-100 uppercase transition-colors duration-300 hover:bg-brand-900"
               >
                 {tc("consultation")}
                 <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
-              </ConsultationModal>
+              </QuickEnquiryModal>
 
               <p className="mt-4 text-[12px] text-brand-800/45">{tc("note")}</p>
             </div>

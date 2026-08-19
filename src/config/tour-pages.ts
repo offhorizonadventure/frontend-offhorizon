@@ -1,5 +1,7 @@
 import type { StaticImageData } from "next/image";
 
+import type { ImageSource } from "@/lib/image-source";
+
 import diskit from "../../public/tours/demo/diskit.jpg";
 import enfield from "../../public/tours/demo/enfield.jpg";
 import kazaLosar from "../../public/tours/demo/kaza-losar.jpg";
@@ -51,6 +53,8 @@ export type Departure = {
   start: string;
   end: string;
   soldOut?: boolean;
+  /** Places on this departure. Null where the number is not published. */
+  seats?: number | null;
   /** Per person, in USD, converted at render time. */
   solo: number;
   twin: number;
@@ -76,7 +80,7 @@ export type PriceGroup = { title: string; lines: PriceLine[] };
 /** A card in the highlights rail. */
 export type Highlight = {
   label: string;
-  image: StaticImageData;
+  image: ImageSource;
   alt: string;
 };
 
@@ -85,7 +89,7 @@ export type ProgramDay = {
   title: string;
   stay?: string;
   body: string;
-  image: StaticImageData;
+  image: ImageSource;
 };
 
 export type ExpectPanel = {
@@ -93,7 +97,7 @@ export type ExpectPanel = {
   tab: string;
   title: string;
   body: string;
-  image: StaticImageData;
+  image: ImageSource;
 };
 
 export type TourDetail = {

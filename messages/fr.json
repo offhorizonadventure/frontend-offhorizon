@@ -34,7 +34,8 @@
     "nepalHimalayas": "Himalaya népalais",
     "bhutan": "Bhoutan",
     "sriLanka": "Sri Lanka",
-    "mongolia": "Mongolie"
+    "mongolia": "Mongolie",
+    "plannedShort": "En préparation"
   },
   "tours": {
     "ladakhMotorcycle": {
@@ -161,7 +162,7 @@
     "startAdventure": {
       "title": "Commencez votre aventure",
       "subtitle": "Parlez à notre équipe sur WhatsApp ou réservez un entretien gratuit dès aujourd'hui.",
-      "consultation": "Réserver un entretien",
+      "consultation": "Demande rapide",
       "eyebrow": "Contact",
       "note": "Aucun paiement requis pour échanger avec nous."
     },
@@ -195,7 +196,7 @@
     "paymentsAlt": "Paiement sécurisé, propulsé par Stripe"
   },
   "consultation": {
-    "title": "Réserver un entretien",
+    "title": "Demande rapide",
     "subtitle": "Dites-nous ce que vous avez en tête et notre équipe vous répondra.",
     "fullName": "Nom complet",
     "phone": "Téléphone",
@@ -209,7 +210,8 @@
     "close": "Fermer",
     "required": "Nous répondons sous un jour ouvré.",
     "countryLabel": "Indicatif pays",
-    "searchLabel": "Rechercher un pays"
+    "searchLabel": "Rechercher un pays",
+    "trigger": "Demande rapide"
   },
   "about": {
     "meta": {
@@ -362,6 +364,7 @@
       "lead": "Ce que nous avons appris en menant des expéditions en altitude. Écrit par ceux qui roulent sur ces itinéraires, pas par un service marketing."
     },
     "readingTime": "{minutes} min de lecture",
+    "empty": "Pas encore d'articles. Revenez bientôt.",
     "readPost": "Lire l'article",
     "backToBlog": "Tous les articles",
     "writtenBy": "Écrit par",
@@ -394,7 +397,7 @@
       "riders": "Pilotes",
       "ridersHint": "Personnes conduisant leur propre machine",
       "pillions": "Passagers",
-      "pillionsHint": "Personnes assises à l'arrière",
+      "pillionsHint": "Un par machine, assis derrière",
       "decrease": "Diminuer",
       "increase": "Augmenter",
       "budget": "Quel est votre budget",
@@ -402,7 +405,19 @@
       "message": "Parlez-nous un peu de votre aventure",
       "messagePlaceholder": "Les cols que vous voulez franchir, les endroits où vous voulez vous arrêter, ce dont nous devons tenir compte.",
       "firstName": "Prénom",
-      "lastName": "Nom"
+      "lastName": "Nom",
+      "travelMode": "Comment voulez-vous voyager",
+      "modeMotorcycle": "À moto",
+      "modeVehicle": "En 4x4",
+      "vehicleChoice": "Quel véhicule",
+      "vehicleOwn": "Nous venons avec le nôtre",
+      "vehicleOwnHint": "Vous conduisez votre propre 4x4. Tarif par personne.",
+      "vehicleOurs": "Utiliser un des vôtres",
+      "vehicleOursHint": "Nous fournissons le véhicule. Tarif par personne.",
+      "people": "Personnes qui voyagent",
+      "peopleHint": "Tout le monde dans le véhicule, conducteurs compris",
+      "vehiclesNote": "{count, plural, one {# véhicule} other {# véhicules}}, à quatre places chacun.",
+      "vehicleDailyNote": "Nos véhicules sont facturés à la journée, en plus du tarif par personne. Nous confirmons le tarif journalier avec votre devis."
     },
     "company": {
       "solo": "Seul",
@@ -1096,7 +1111,9 @@
         "title": "Quel départ ?",
         "help": "Choisissez une date, ou dites-nous que vous êtes flexible et nous vous proposerons.",
         "none": "Nous n'avons pas encore publié les départs {year}. Demandez quand même et nous vous dirons ce qui arrive.",
-        "soldOut": "Complet"
+        "soldOut": "Complet",
+        "places": "{count} places",
+        "custom": "Sur mesure"
       },
       "travellers": {
         "title": "Qui vous accompagne ?",
@@ -1129,6 +1146,72 @@
         "dates": "Dates",
         "flexible": "Flexible"
       }
+    }
+  },
+  "auth": {
+    "trigger": "Se connecter",
+    "close": "Fermer",
+    "show": "Afficher",
+    "hide": "Masquer",
+    "or": "ou",
+    "google": "Google",
+    "facebook": "Facebook",
+    "email": "E-mail",
+    "emailPlaceholder": "vous@exemple.fr",
+    "password": "Mot de passe",
+    "name": "Nom complet",
+    "namePlaceholder": "Votre nom",
+    "phone": "Téléphone",
+    "countryLabel": "Indicatif pays",
+    "searchLabel": "Rechercher un pays",
+    "menu": {
+      "account": "Mon profil",
+      "bookings": "Mes réservations",
+      "payments": "Mes paiements",
+      "signOut": "Se déconnecter"
+    },
+    "login": {
+      "eyebrow": "Votre compte",
+      "title": "Bon retour.",
+      "lead": "Connectez-vous pour retrouver vos demandes et les expéditions réservées.",
+      "submit": "Se connecter",
+      "forgot": "Mot de passe oublié ?",
+      "noAccount": "Pas encore de compte ?",
+      "join": "En créer un"
+    },
+    "register": {
+      "eyebrow": "Rejoignez-nous",
+      "title": "Créer un compte.",
+      "lead": "Vos demandes, vos dates et vos documents au même endroit.",
+      "submit": "Créer le compte",
+      "terms": "En créant un compte, vous acceptez nos conditions et notre politique de confidentialité.",
+      "check": "Vérifiez votre e-mail pour confirmer l'adresse, puis connectez-vous.",
+      "haveAccount": "Vous avez déjà un compte ?",
+      "signIn": "Se connecter"
+    },
+    "forgot": {
+      "eyebrow": "Mot de passe",
+      "title": "Réinitialiser le mot de passe.",
+      "lead": "Indiquez l'adresse de votre compte et nous enverrons un lien pour en choisir un nouveau.",
+      "submit": "Envoyer le lien",
+      "back": "Retour à la connexion",
+      "sent": "Si un compte existe pour cette adresse, le lien est en route."
+    },
+    "update": {
+      "eyebrow": "Mot de passe",
+      "title": "Choisir un nouveau mot de passe.",
+      "lead": "Prenez quelque chose que vous n'avez pas déjà utilisé sur ce compte.",
+      "submit": "Enregistrer",
+      "password": "Nouveau mot de passe",
+      "confirm": "Confirmer le mot de passe",
+      "rule": "Au moins huit caractères."
+    }
+  },
+  "catalogue": {
+    "empty": {
+      "title": "Pas encore de dates pour cette expédition.",
+      "body": "Les dates ne sont pas encore fixées. Dites-nous quand vous voulez rouler et nous construirons l'expédition autour.",
+      "cta": "Planifier une expédition sur mesure"
     }
   }
 }

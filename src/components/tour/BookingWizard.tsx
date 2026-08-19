@@ -14,13 +14,19 @@ export type BookingLabels = {
   increase: string;
   basics: { duration: string; groupSize: string; from: string; perRider: string };
   year: { title: string; help: string };
-  date: { title: string; help: string; none: string; soldOut: string };
+  date: { title: string; help: string; none: string; soldOut: string; places: string; custom: string };
   travellers: { title: string; help: string; riders: string; ridersHint: string; pillions: string; pillionsHint: string };
   extras: { title: string; help: string; insurance: string; insuranceHint: string; room: string; roomHint: string; none: string };
   summary: { title: string; help: string; year: string; dates: string; flexible: string; riders: string; pillions: string; insurance: string; room: string; total: string; enquire: string; note: string };
 };
 
-export type Departure = { start: string; end: string; soldOut?: boolean };
+export type Departure = {
+  start: string;
+  end: string;
+  soldOut?: boolean;
+  /** Places on this departure. Null where the number is not published. */
+  seats?: number | null;
+};
 
 export type BookingProps = {
   tourName: string;
@@ -112,14 +118,11 @@ export function BookingWizard({
   // extras cannot be left stranded above their own maximum.
   const maxInsurance = riders;
   const maxRooms = riders + pillions;
-  const canContinue =
-    step === 0
-      ? year !== null
-      : step === 1
-        ? // Nothing to pick in a year with no published departures, so the step
-          // must not become a dead end.
-          departure !== null || options.length === 0
-        : true;
+  // A year with nothing published cannot be continued through: there is no
+  // date to price, and walking a reader into a total for a trip that has no
+  // dates is worse than sending them to the custom expedition form.
+  const noDates = step === 1 && options.length === 0;
+  const canContinue = step === 0 ? year !== null : step === 1 ? departure !== null : true;
 
   // Changing the year invalidates whatever date was picked under the old one.
   const changeYear = (next: number) => {
@@ -243,24 +246,36 @@ export function BookingWizard({
                   <button
                     key={option.start}
                     type="button"
+                    disabled={option.soldOut}
                     onClick={() => setDeparture(option.start)}
                     aria-pressed={selected}
                     className={`flex items-center justify-between gap-3 rounded-xl border px-5 py-3.5 text-left transition-colors duration-200 ${
                       selected
                         ? "border-brand-800 bg-brand-800 text-cream-100"
-                        : "border-brand-900/15 bg-white text-brand-900 hover:border-brand-800/50"
+                        : option.soldOut
+                          ? "cursor-not-allowed border-brand-900/10 bg-brand-900/4 text-brand-900/40"
+                          : "border-brand-900/15 bg-white text-brand-900 hover:border-brand-800/50"
                     }`}
                   >
                     <span className="font-display text-[14px] leading-snug font-bold tracking-[-0.015em] tabular-nums">
                       {dateRange.formatRange(new Date(option.start), new Date(option.end))}
                     </span>
-                    {option.soldOut && (
+
+                    {/* Sold out wins over a seat count: a departure that is full
+                        has no places left to advertise, whatever its size. */}
+                    {(option.soldOut || option.seats) && (
                       <span
                         className={`text-[9.5px] font-bold tracking-[0.14em] whitespace-nowrap uppercase ${
-                          selected ? "text-cream-100/60" : "text-brand-800/40"
+                          selected
+                            ? "text-cream-100/60"
+                            : option.soldOut
+                              ? "text-brand-800/40"
+                              : "text-ember-600"
                         }`}
                       >
-                        {labels.date.soldOut}
+                        {option.soldOut
+                          ? labels.date.soldOut
+                          : labels.date.places.replace("{count}", String(option.seats))}
                       </span>
                     )}
                   </button>
@@ -419,7 +434,18 @@ export function BookingWizard({
           </button>
         )}
 
-        {step < STEPS.length - 1 ? (
+        {noDates ? (
+          // Nothing to price for this year, so the way forward is the custom
+          // expedition form rather than three more steps of a total nobody can
+          // book.
+          <Link
+            href="/custom-expeditions"
+            className="group flex h-12 flex-1 items-center justify-center gap-2.5 rounded-full bg-brand-800 px-4 text-[11px] font-bold tracking-[0.1em] text-nowrap text-cream-100 uppercase transition-colors duration-300 hover:bg-brand-900"
+          >
+            {labels.date.custom}
+            <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
+        ) : step < STEPS.length - 1 ? (
           <button
             type="button"
             onClick={() => setStep((current) => current + 1)}

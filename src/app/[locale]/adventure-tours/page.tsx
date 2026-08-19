@@ -3,7 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { Riders } from "@/components/about/Riders";
 import { CtaBand } from "@/components/destinations/CtaBand";
 import { PageHero } from "@/components/destinations/PageHero";
-import { TourCard } from "@/components/tours/TourCard";
+import { DbTourCard } from "@/components/tours/DbTourCard";
+import { EmptyTours } from "@/components/tours/EmptyTours";
 import { ArrowRight } from "@/components/ui/icons";
 import { Flag } from "@/components/ui/Flag";
 import { Topo } from "@/components/ui/Topo";
@@ -13,23 +14,17 @@ import indiaAerial from "../../../../public/destinations/pages/india-aerial.jpg"
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
+import { listDepartures, listTours, priceFrom } from "@/lib/catalogue";
 import { buildMetadata, siteName, siteUrl } from "@/lib/seo";
 
 /**
- * Every departure we sell, grouped by country.
- *
- * The list is derived from the destination config rather than kept separately,
- * so a tour cannot appear here and be missing from its region page, or the
- * reverse. Today that means India and Nepal, which is all we run.
+ * Countries in the order the destination arc uses, so the page reads the same
+ * way as the rest of the site. A country with no published tour is simply not
+ * a heading here.
  */
-const groups = countryPages
-  .map((page) => ({
-    page,
-    tours: page.regions.flatMap((region) => (region.status === "live" ? region.tours : [])),
-  }))
-  .filter((group) => group.tours.length > 0);
+const COUNTRY_ORDER = ["india", "nepal", "sri-lanka", "bhutan", "mongolia"] as const;
 
-const tourCount = groups.reduce((total, group) => total + group.tours.length, 0);
+export const revalidate = 600;
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -53,10 +48,30 @@ export default async function AdventureToursPage({
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "adventureTours" });
   const td = await getTranslations({ locale, namespace: "destinations" });
-  const tt = await getTranslations({ locale, namespace: "tours" });
   const ts = await getTranslations({ locale, namespace: "dest.shared" });
 
   const standards = t.raw("standards.items") as { title: string; body: string }[];
+
+  const [tours, departures] = await Promise.all([listTours(), listDepartures()]);
+  const tourCount = tours.length;
+
+  // One card needs its tour, its cheapest dated price and the currency that
+  // price is in, so the three are gathered once rather than per card.
+  const cards = tours.map((tour) => {
+    const dated = departures.filter((departure) => departure.tour_id === tour.id);
+
+    return {
+      tour,
+      priceFrom: priceFrom(dated),
+      currency: dated[0]?.currency ?? "USD",
+    };
+  });
+
+  const groups = COUNTRY_ORDER.map((country) => ({
+    country,
+    page: countryPages.find((entry) => entry.slug === country),
+    cards: cards.filter((card) => card.tour.country === country),
+  })).filter((group) => group.cards.length > 0 && group.page);
 
   /**
    * ItemList of the departures. Deliberately no `offers`: the prices in the
@@ -73,18 +88,16 @@ export default async function AdventureToursPage({
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: tourCount,
-      itemListElement: groups
-        .flatMap((group) => group.tours)
-        .map(({ tour }, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          item: {
-            "@type": "TouristTrip",
-            name: tt(`${tour.key}.name`),
-            description: tt(`${tour.key}.summary`),
-            url: `${siteUrl}/${locale}${tour.href}`,
-          },
-        })),
+      itemListElement: cards.map(({ tour }, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "TouristTrip",
+          name: tour.title,
+          description: tour.lead ?? undefined,
+          url: `${siteUrl}/${locale}/tours/${tour.slug}`,
+        },
+      })),
     },
   };
 
@@ -148,24 +161,26 @@ export default async function AdventureToursPage({
           </div>
 
           <div className="mt-12 space-y-14">
-            {groups.map(({ page, tours }) => (
-              <div key={page.slug}>
+            {groups.length === 0 && <EmptyTours />}
+
+            {groups.map(({ country, page, cards: group }) => (
+              <div key={country}>
                 <div
                   data-anim="up"
                   className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-b border-brand-900/12 pb-5"
                 >
                   <h3 className="flex items-center gap-3">
-                    <Flag country={page.destination.flag} />
+                    <Flag country={page!.destination.flag} />
                     <span className="font-display text-[21px] leading-none font-bold tracking-[-0.02em] text-brand-900">
-                      {td(page.destination.key)}
+                      {td(page!.destination.key)}
                     </span>
                     <span className="text-[11px] font-semibold tracking-[0.14em] text-brand-800/45 uppercase">
-                      {ts("expeditions", { count: tours.length })}
+                      {ts("expeditions", { count: group.length })}
                     </span>
                   </h3>
 
                   <Link
-                    href={`/destinations/${page.slug}`}
+                    href={`/destinations/${page!.slug}`}
                     className="group inline-flex items-center gap-2 text-[10.5px] font-bold tracking-[0.14em] text-brand-800 uppercase"
                   >
                     {t("list.viewDestination")}
@@ -174,12 +189,11 @@ export default async function AdventureToursPage({
                 </div>
 
                 <ul data-anim-group className="mt-8 grid gap-6 md:grid-cols-2">
-                  {tours.map(({ tour, image }) => (
-                    <li key={tour.key}>
+                  {group.map((card) => (
+                    <li key={card.tour.id}>
                       <div data-anim="up">
-                        <TourCard
-                          tour={tour}
-                          image={image}
+                        <DbTourCard
+                          {...card}
                           headingLevel={4}
                           sizes="(max-width: 767px) 92vw, 560px"
                         />

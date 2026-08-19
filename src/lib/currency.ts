@@ -35,14 +35,17 @@ export function formatMoney(amount: number, currency: Currency, locale: Locale) 
  * Falls back to the base currency if the rate lookup fails, so a price is
  * never rendered wrong or missing.
  */
-export async function getPrice(amount: number, locale: Locale) {
+export async function getPrice(amount: number, locale: Locale, from?: string) {
+  // `from` is the currency the price was authored in, which a departure carries
+  // on its row: an expedition quoted in euros must not be read as dollars.
+  const source = (from?.toUpperCase() as Currency) ?? baseCurrency;
   const target = currencyFor(locale);
 
   try {
-    const rate = await getRate(baseCurrency, target);
+    const rate = await getRate(source, target);
     return formatMoney(Math.round(amount * rate), target, locale);
   } catch {
-    return formatMoney(amount, baseCurrency, locale);
+    return formatMoney(amount, source, locale);
   }
 }
 

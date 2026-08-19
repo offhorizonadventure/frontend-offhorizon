@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 import { LOCALE_COOKIE, isLocale, localeFor } from "@/i18n/config";
+import { refreshSession } from "@/lib/supabase/proxy";
 
 const GEO_HEADERS = ["x-vercel-ip-country", "cf-ipcountry", "cloudfront-viewer-country"];
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
@@ -16,10 +17,14 @@ function detectLocale(request: NextRequest) {
   return localeFor(null);
 }
 
-export default function proxy(request: NextRequest) {
+export default async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  if (isLocale(pathname.split("/")[1])) return NextResponse.next();
+  // Already on a locale path: nothing to redirect, but the session still has to
+  // be refreshed, or an expiring token is never rotated while someone browses.
+  if (isLocale(pathname.split("/")[1])) {
+    return refreshSession(request, NextResponse.next({ request }));
+  }
 
   const locale = detectLocale(request);
   const url = request.nextUrl.clone();

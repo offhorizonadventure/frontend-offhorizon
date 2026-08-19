@@ -1,5 +1,7 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
+import { AccountDialog } from "@/components/auth/AccountDialog";
+import type { Locale } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
 
 import { DesktopNav } from "./DesktopNav";
@@ -10,7 +12,7 @@ import { MobileMenu } from "./MobileMenu";
 import { NavShell } from "./NavShell";
 
 export async function Navbar() {
-  const t = await getTranslations("nav");
+  const [t, locale] = await Promise.all([getTranslations("nav"), getLocale()]);
 
   return (
     <NavShell>
@@ -23,6 +25,8 @@ export async function Navbar() {
 
         <div className="flex items-center gap-1.5">
           <LanguageSwitcher label={t("language")} />
+
+          <AccountDialog locale={locale as Locale} />
 
           <Link
             href="/custom-expeditions"

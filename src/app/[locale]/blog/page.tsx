@@ -3,7 +3,7 @@ import { getFormatter, getTranslations } from "next-intl/server";
 
 import { ArrowRight } from "@/components/ui/icons";
 import { Topo } from "@/components/ui/Topo";
-import { sortedPosts } from "@/config/posts";
+import { imageUrl, listPosts, readingMinutes } from "@/lib/blog";
 import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
@@ -12,6 +12,14 @@ import { buildMetadata, siteName, siteUrl } from "@/lib/seo";
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
+
+/**
+ * Rebuilt at most every ten minutes.
+ *
+ * The journal is read far more often than it is written, so serving a cached
+ * page and refreshing it in the background beats querying on every visit.
+ */
+export const revalidate = 600;
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/blog">) {
   const locale = await resolveLocale(params);
@@ -30,7 +38,8 @@ export default async function BlogPage({ params }: PageProps<"/[locale]/blog">) 
   const t = await getTranslations({ locale, namespace: "blog" });
   const format = await getFormatter({ locale });
 
-  const [featured, ...rest] = sortedPosts;
+  const posts = await listPosts();
+  const [featured, ...rest] = posts;
 
   const schema = {
     "@context": "https://schema.org",
@@ -39,10 +48,10 @@ export default async function BlogPage({ params }: PageProps<"/[locale]/blog">) 
     description: t("meta.description"),
     url: `${siteUrl}/${locale}/blog`,
     publisher: { "@type": "Organization", name: siteName },
-    blogPost: sortedPosts.map((post) => ({
+    blogPost: posts.map((post) => ({
       "@type": "BlogPosting",
       headline: post.title,
-      datePublished: post.publishedAt,
+      datePublished: post.published_at ?? post.updated_at,
       url: `${siteUrl}/${locale}/blog/${post.slug}`,
     })),
   };
@@ -88,7 +97,12 @@ export default async function BlogPage({ params }: PageProps<"/[locale]/blog">) 
 
       <section className="bg-cream-50 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          {!featured && (
+            <p className="py-16 text-center text-[15px] text-brand-800/55">{t("empty")}</p>
+          )}
+
           {/* Latest post gets the full width; the rest fall into a grid. */}
+          {featured && (
           <article data-anim="up">
             <Link
               href={`/blog/${featured.slug}`}
@@ -96,24 +110,27 @@ export default async function BlogPage({ params }: PageProps<"/[locale]/blog">) 
             >
               <div className="lg:col-span-7">
                 <div className="relative aspect-[16/11] overflow-hidden rounded-[26px] bg-brand-100 ring-1 ring-brand-900/10">
-                  <Image
-                    src={featured.cover}
-                    alt={featured.coverAlt}
-                    fill
-                    priority
-                    placeholder="blur"
-                    sizes="(max-width: 1023px) 92vw, 640px"
-                    className="object-cover transition-transform duration-[1100ms] ease-out-expo group-hover:scale-[1.04]"
-                  />
+                  {imageUrl(featured.cover_path) && (
+                    <Image
+                      src={imageUrl(featured.cover_path)!}
+                      alt={featured.cover_alt ?? ""}
+                      fill
+                      priority
+                      sizes="(max-width: 1023px) 92vw, 640px"
+                      className="object-cover transition-transform duration-[1100ms] ease-out-expo group-hover:scale-[1.04]"
+                    />
+                  )}
                 </div>
               </div>
 
               <div className="lg:col-span-5">
                 <div className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.16em] uppercase">
-                  <span className="text-ember-600">{featured.category}</span>
+                  <span className="text-ember-600">
+                    {date(featured.published_at ?? featured.updated_at)}
+                  </span>
                   <span aria-hidden className="size-1 rounded-full bg-brand-300" />
                   <span className="text-brand-500">
-                    {t("readingTime", { minutes: featured.readingMinutes })}
+                    {t("readingTime", { minutes: readingMinutes(featured.body) })}
                   </span>
                 </div>
 
@@ -124,24 +141,6 @@ export default async function BlogPage({ params }: PageProps<"/[locale]/blog">) 
                 <p className="mt-4 text-[15px] leading-[1.8] text-pretty text-brand-800/60">
                   {featured.excerpt}
                 </p>
-
-                <div className="mt-7 flex items-center gap-3">
-                  <span className="relative size-10 overflow-hidden rounded-full bg-brand-100">
-                    <Image
-                      src={featured.author.photo}
-                      alt=""
-                      fill
-                      sizes="40px"
-                      className="object-cover"
-                    />
-                  </span>
-                  <span className="text-[13px] leading-tight">
-                    <span className="block font-semibold text-brand-900">
-                      {featured.author.name}
-                    </span>
-                    <span className="block text-brand-800/50">{date(featured.publishedAt)}</span>
-                  </span>
-                </div>
 
                 <span className="mt-7 inline-flex items-center gap-2.5 text-[11px] font-bold tracking-[0.14em] text-brand-800 uppercase">
                   <span
@@ -154,6 +153,7 @@ export default async function BlogPage({ params }: PageProps<"/[locale]/blog">) 
               </div>
             </Link>
           </article>
+          )}
 
           {rest.length > 0 && (
             <ul
@@ -164,21 +164,24 @@ export default async function BlogPage({ params }: PageProps<"/[locale]/blog">) 
                 <li key={post.slug}>
                   <Link href={`/blog/${post.slug}`} className="group block">
                     <div className="relative aspect-[16/11] overflow-hidden rounded-[20px] bg-brand-100 ring-1 ring-brand-900/10">
-                      <Image
-                        src={post.cover}
-                        alt={post.coverAlt}
-                        fill
-                        placeholder="blur"
-                        sizes="(max-width: 767px) 92vw, (max-width: 1023px) 46vw, 360px"
-                        className="object-cover transition-transform duration-[900ms] ease-out-expo group-hover:scale-[1.05]"
-                      />
+                      {imageUrl(post.cover_path) && (
+                        <Image
+                          src={imageUrl(post.cover_path)!}
+                          alt={post.cover_alt ?? ""}
+                          fill
+                          sizes="(max-width: 767px) 92vw, (max-width: 1023px) 46vw, 360px"
+                          className="object-cover transition-transform duration-[900ms] ease-out-expo group-hover:scale-[1.05]"
+                        />
+                      )}
                     </div>
 
                     <div className="mt-5 flex items-center gap-3 text-[10px] font-bold tracking-[0.16em] uppercase">
-                      <span className="text-ember-600">{post.category}</span>
+                      <span className="text-ember-600">
+                        {date(post.published_at ?? post.updated_at)}
+                      </span>
                       <span aria-hidden className="size-1 rounded-full bg-brand-300" />
                       <span className="text-brand-500">
-                        {t("readingTime", { minutes: post.readingMinutes })}
+                        {t("readingTime", { minutes: readingMinutes(post.body) })}
                       </span>
                     </div>
 

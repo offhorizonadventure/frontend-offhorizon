@@ -76,7 +76,7 @@ export async function PriceCard({
     locale,
     // "12 riders" and the like; fall back to a sane cap when it does not parse.
     maxRiders: Number(groupSize.match(/\d+/)?.[0]) || 12,
-    departures: departures.map(({ start, end, soldOut }) => ({ start, end, soldOut })),
+    departures: departures.map(({ start, end, soldOut, seats }) => ({ start, end, soldOut, seats })),
     labels: messages.tour.booking,
   };
 

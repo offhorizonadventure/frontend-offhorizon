@@ -1,4 +1,6 @@
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
+
+import { blurOf, type ImageSource } from "@/lib/image-source";
 
 import { ArrowRight } from "@/components/ui/icons";
 import { Link } from "@/i18n/navigation";
@@ -20,7 +22,7 @@ export function CtaBand({
 }: {
   title: string;
   body: string;
-  image: StaticImageData;
+  image: ImageSource;
   imageAlt: string;
   primary: { label: string; href: string };
   secondary: { label: string; href: string };
@@ -38,8 +40,9 @@ export function CtaBand({
                 src={image}
                 alt={imageAlt}
                 fill
-                placeholder="blur"
+                {...blurOf(image)}
                 sizes="(max-width: 1023px) 100vw, 460px"
+                quality={90}
                 className="object-cover"
               />
               <span

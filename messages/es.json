@@ -34,7 +34,8 @@
     "nepalHimalayas": "Himalaya nepalí",
     "bhutan": "Bután",
     "sriLanka": "Sri Lanka",
-    "mongolia": "Mongolia"
+    "mongolia": "Mongolia",
+    "plannedShort": "En preparación"
   },
   "tours": {
     "ladakhMotorcycle": {
@@ -161,7 +162,7 @@
     "startAdventure": {
       "title": "Empieza tu aventura",
       "subtitle": "Habla con nuestro equipo por WhatsApp o reserva hoy una consulta gratuita.",
-      "consultation": "Reservar una consulta",
+      "consultation": "Consulta rápida",
       "eyebrow": "Contacto",
       "note": "No hace falta ningún pago para hablar con nosotros."
     },
@@ -195,7 +196,7 @@
     "paymentsAlt": "Pago seguro, con tecnología de Stripe"
   },
   "consultation": {
-    "title": "Reservar una consulta",
+    "title": "Consulta rápida",
     "subtitle": "Cuéntanos qué tienes en mente y nuestro equipo te responderá.",
     "fullName": "Nombre completo",
     "phone": "Teléfono",
@@ -209,7 +210,8 @@
     "close": "Cerrar",
     "required": "Respondemos en un día laborable.",
     "countryLabel": "Prefijo del país",
-    "searchLabel": "Buscar país"
+    "searchLabel": "Buscar país",
+    "trigger": "Consulta rápida"
   },
   "about": {
     "meta": {
@@ -362,6 +364,7 @@
       "lead": "Lo que hemos aprendido dirigiendo expediciones en altura. Escrito por quienes recorren estas rutas, no por un departamento de marketing."
     },
     "readingTime": "{minutes} min de lectura",
+    "empty": "Todavía no hay entradas. Vuelve pronto.",
     "readPost": "Leer el artículo",
     "backToBlog": "Todos los artículos",
     "writtenBy": "Escrito por",
@@ -394,7 +397,7 @@
       "riders": "Conductores",
       "ridersHint": "Personas que llevan su propia máquina",
       "pillions": "Acompañantes",
-      "pillionsHint": "Quienes viajan detrás",
+      "pillionsHint": "Uno por moto, detrás del piloto",
       "decrease": "Reducir",
       "increase": "Aumentar",
       "budget": "Cuál es tu presupuesto",
@@ -402,7 +405,19 @@
       "message": "Cuéntanos un poco más sobre tu aventura",
       "messagePlaceholder": "Los puertos que quieres subir, los sitios donde quieres parar, todo lo que debamos tener en cuenta.",
       "firstName": "Nombre",
-      "lastName": "Apellidos"
+      "lastName": "Apellidos",
+      "travelMode": "Cómo quieres viajar",
+      "modeMotorcycle": "En moto",
+      "modeVehicle": "En 4x4",
+      "vehicleChoice": "Qué vehículo",
+      "vehicleOwn": "Llevamos el nuestro",
+      "vehicleOwnHint": "Conduces tu propio 4x4. Precio por persona.",
+      "vehicleOurs": "Usar uno de los vuestros",
+      "vehicleOursHint": "Nosotros ponemos el vehículo. Precio por persona.",
+      "people": "Personas que viajan",
+      "peopleHint": "Todos los del vehículo, conductores incluidos",
+      "vehiclesNote": "{count, plural, one {# vehículo} other {# vehículos}}, de cuatro plazas cada uno.",
+      "vehicleDailyNote": "Nuestros vehículos se cobran por día, además del precio por persona. Confirmamos la tarifa diaria con tu presupuesto."
     },
     "company": {
       "solo": "Yo solo",
@@ -1096,7 +1111,9 @@
         "title": "¿Qué salida?",
         "help": "Elige una fecha, o dinos que eres flexible y te propondremos una.",
         "none": "Todavía no hemos publicado las salidas de {year}. Pregunta igualmente y te contamos qué viene.",
-        "soldOut": "Completa"
+        "soldOut": "Completa",
+        "places": "{count} plazas",
+        "custom": "A medida"
       },
       "travellers": {
         "title": "¿Quién viene?",
@@ -1129,6 +1146,72 @@
         "dates": "Fechas",
         "flexible": "Flexible"
       }
+    }
+  },
+  "auth": {
+    "trigger": "Iniciar sesión",
+    "close": "Cerrar",
+    "show": "Mostrar",
+    "hide": "Ocultar",
+    "or": "o",
+    "google": "Google",
+    "facebook": "Facebook",
+    "email": "Correo",
+    "emailPlaceholder": "tu@ejemplo.com",
+    "password": "Contraseña",
+    "name": "Nombre completo",
+    "namePlaceholder": "Tu nombre",
+    "phone": "Teléfono",
+    "countryLabel": "Código de país",
+    "searchLabel": "Buscar países",
+    "menu": {
+      "account": "Mi perfil",
+      "bookings": "Mis reservas",
+      "payments": "Mis pagos",
+      "signOut": "Cerrar sesión"
+    },
+    "login": {
+      "eyebrow": "Tu cuenta",
+      "title": "Bienvenido de nuevo.",
+      "lead": "Inicia sesión para ver tus consultas y las expediciones que has reservado.",
+      "submit": "Iniciar sesión",
+      "forgot": "¿Olvidaste tu contraseña?",
+      "noAccount": "¿Aún no tienes cuenta?",
+      "join": "Crear una"
+    },
+    "register": {
+      "eyebrow": "Únete",
+      "title": "Crea una cuenta.",
+      "lead": "Ten tus consultas, fechas y documentos en un solo sitio.",
+      "submit": "Crear cuenta",
+      "terms": "Al crear una cuenta aceptas nuestros términos y la política de privacidad.",
+      "check": "Revisa tu correo para confirmar la dirección y luego inicia sesión.",
+      "haveAccount": "¿Ya tienes cuenta?",
+      "signIn": "Iniciar sesión"
+    },
+    "forgot": {
+      "eyebrow": "Contraseña",
+      "title": "Restablece tu contraseña.",
+      "lead": "Dinos la dirección de tu cuenta y te enviaremos un enlace para crear una nueva.",
+      "submit": "Enviar el enlace",
+      "back": "Volver a iniciar sesión",
+      "sent": "Si esa dirección tiene una cuenta, el enlace ya va en camino."
+    },
+    "update": {
+      "eyebrow": "Contraseña",
+      "title": "Crea una contraseña nueva.",
+      "lead": "Elige algo que no hayas usado antes en esta cuenta.",
+      "submit": "Guardar contraseña",
+      "password": "Nueva contraseña",
+      "confirm": "Confirmar contraseña",
+      "rule": "Al menos ocho caracteres."
+    }
+  },
+  "catalogue": {
+    "empty": {
+      "title": "Todavía no hay fechas para esta ruta.",
+      "body": "Seguimos fijando las fechas. Dinos cuándo quieres rodar y montamos la expedición a tu medida.",
+      "cta": "Planear una expedición a medida"
     }
   }
 }

@@ -50,6 +50,10 @@ export const Close = ({ className = "" }: IconProps) => (
   <LuX size={20} strokeWidth={1.75} aria-hidden className={`shrink-0 ${className}`} />
 );
 
+export const UserRound = ({ className = "" }: IconProps) => (
+  <LuUser size={16} strokeWidth={1.75} aria-hidden className={`shrink-0 ${className}`} />
+);
+
 export const Compass = ({ className = "" }: IconProps) => (
   <LuCompass size={16} strokeWidth={1.75} aria-hidden className={`shrink-0 ${className}`} />
 );

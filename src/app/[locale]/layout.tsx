@@ -6,6 +6,7 @@ import "../globals.css";
 import { ScrollMotion } from "@/components/motion/ScrollMotion";
 import { Navbar } from "@/components/layout/Navbar";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { QuickEnquiryButton } from "@/components/ui/QuickEnquiry";
 import { locales } from "@/i18n/config";
 import { resolveLocale } from "@/i18n/params";
 import { fontVariables } from "@/lib/fonts";
@@ -33,6 +34,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
           <Navbar />
           <main className="flex-1">{children}</main>
           <SiteFooter />
+          <QuickEnquiryButton locale={locale} />
         </NextIntlClientProvider>
       </body>
     </html>

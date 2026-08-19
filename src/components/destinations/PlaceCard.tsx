@@ -63,6 +63,7 @@ export function PlaceCard({
           fill
           placeholder="blur"
           sizes={sizes}
+          quality={90}
           className="object-cover transition-transform duration-[1400ms] ease-out-expo group-hover:scale-[1.06]"
         />
 

@@ -34,7 +34,8 @@
     "nepalHimalayas": "Nepalesischer Himalaya",
     "bhutan": "Bhutan",
     "sriLanka": "Sri Lanka",
-    "mongolia": "Mongolei"
+    "mongolia": "Mongolei",
+    "plannedShort": "Geplant"
   },
   "tours": {
     "ladakhMotorcycle": {
@@ -161,7 +162,7 @@
     "startAdventure": {
       "title": "Starten Sie Ihr Abenteuer",
       "subtitle": "Sprechen Sie mit unserem Team auf WhatsApp oder vereinbaren Sie heute ein kostenloses Gespräch.",
-      "consultation": "Beratung buchen",
+      "consultation": "Kurze Anfrage",
       "eyebrow": "Kontakt",
       "note": "Für ein Gespräch ist keine Zahlung nötig."
     },
@@ -195,7 +196,7 @@
     "paymentsAlt": "Sicherer Bezahlvorgang, unterstützt von Stripe"
   },
   "consultation": {
-    "title": "Beratung buchen",
+    "title": "Kurze Anfrage",
     "subtitle": "Sagen Sie uns, was Sie vorhaben, und unser Team meldet sich bei Ihnen.",
     "fullName": "Vollständiger Name",
     "phone": "Telefon",
@@ -209,7 +210,8 @@
     "close": "Schließen",
     "required": "Wir antworten innerhalb eines Werktags.",
     "countryLabel": "Ländervorwahl",
-    "searchLabel": "Land suchen"
+    "searchLabel": "Land suchen",
+    "trigger": "Kurze Anfrage"
   },
   "about": {
     "meta": {
@@ -362,6 +364,7 @@
       "lead": "Was wir beim Führen von Expeditionen in großer Höhe gelernt haben. Geschrieben von denen, die die Routen fahren, nicht von einer Marketingabteilung."
     },
     "readingTime": "{minutes} Min. Lesezeit",
+    "empty": "Noch keine Beiträge. Schauen Sie bald wieder vorbei.",
     "readPost": "Beitrag lesen",
     "backToBlog": "Alle Beiträge",
     "writtenBy": "Geschrieben von",
@@ -394,7 +397,7 @@
       "riders": "Fahrer",
       "ridersHint": "Personen auf einer eigenen Maschine",
       "pillions": "Sozius",
-      "pillionsHint": "Mitfahrende auf dem Rücksitz",
+      "pillionsHint": "Einer pro Maschine, hinten mitfahrend",
       "decrease": "Verringern",
       "increase": "Erhöhen",
       "budget": "Wie hoch ist Ihr Budget",
@@ -402,7 +405,19 @@
       "message": "Erzählen Sie uns etwas über Ihr Abenteuer",
       "messagePlaceholder": "Pässe, die Sie fahren wollen, Orte, an denen Sie halten möchten, alles, was wir einplanen sollen.",
       "firstName": "Vorname",
-      "lastName": "Nachname"
+      "lastName": "Nachname",
+      "travelMode": "Wie möchten Sie reisen",
+      "modeMotorcycle": "Mit dem Motorrad",
+      "modeVehicle": "Mit dem 4x4",
+      "vehicleChoice": "Wessen Fahrzeug",
+      "vehicleOwn": "Wir bringen unser eigenes mit",
+      "vehicleOwnHint": "Sie fahren Ihren eigenen 4x4. Preis pro Person.",
+      "vehicleOurs": "Eines von Ihnen nutzen",
+      "vehicleOursHint": "Wir stellen das Expeditionsfahrzeug. Preis pro Person.",
+      "people": "Mitreisende Personen",
+      "peopleHint": "Alle im Fahrzeug, Fahrer eingeschlossen",
+      "vehiclesNote": "{count, plural, one {# Fahrzeug} other {# Fahrzeuge}}, mit je vier Plätzen.",
+      "vehicleDailyNote": "Unsere Fahrzeuge werden zusätzlich zum Preis pro Person tageweise berechnet. Den Tagessatz bestätigen wir mit Ihrem Angebot."
     },
     "company": {
       "solo": "Alleine",
@@ -1096,7 +1111,9 @@
         "title": "Welcher Termin?",
         "help": "Wählen Sie ein Datum, oder sagen Sie uns, dass Sie flexibel sind.",
         "none": "Für {year} sind noch keine Termine veröffentlicht. Fragen Sie trotzdem, wir sagen Ihnen, was kommt.",
-        "soldOut": "Ausgebucht"
+        "soldOut": "Ausgebucht",
+        "places": "{count} Plätze",
+        "custom": "Auf Anfrage"
       },
       "travellers": {
         "title": "Wer kommt mit?",
@@ -1129,6 +1146,72 @@
         "dates": "Termin",
         "flexible": "Flexibel"
       }
+    }
+  },
+  "auth": {
+    "trigger": "Anmelden",
+    "close": "Schließen",
+    "show": "Zeigen",
+    "hide": "Verbergen",
+    "or": "oder",
+    "google": "Google",
+    "facebook": "Facebook",
+    "email": "E-Mail",
+    "emailPlaceholder": "du@beispiel.de",
+    "password": "Passwort",
+    "name": "Vollständiger Name",
+    "namePlaceholder": "Ihr Name",
+    "phone": "Telefon",
+    "countryLabel": "Ländervorwahl",
+    "searchLabel": "Länder suchen",
+    "menu": {
+      "account": "Mein Profil",
+      "bookings": "Meine Buchungen",
+      "payments": "Meine Zahlungen",
+      "signOut": "Abmelden"
+    },
+    "login": {
+      "eyebrow": "Ihr Konto",
+      "title": "Willkommen zurück.",
+      "lead": "Melden Sie sich an, um Ihre Anfragen und gebuchten Expeditionen zu sehen.",
+      "submit": "Anmelden",
+      "forgot": "Passwort vergessen?",
+      "noAccount": "Noch kein Konto?",
+      "join": "Jetzt erstellen"
+    },
+    "register": {
+      "eyebrow": "Mitmachen",
+      "title": "Konto erstellen.",
+      "lead": "Anfragen, Termine und Unterlagen an einem Ort.",
+      "submit": "Konto erstellen",
+      "terms": "Mit der Erstellung eines Kontos stimmen Sie unseren Bedingungen und der Datenschutzerklärung zu.",
+      "check": "Bestätigen Sie die Adresse per E-Mail und melden Sie sich dann an.",
+      "haveAccount": "Sie haben bereits ein Konto?",
+      "signIn": "Anmelden"
+    },
+    "forgot": {
+      "eyebrow": "Passwort",
+      "title": "Passwort zurücksetzen.",
+      "lead": "Nennen Sie uns die Adresse Ihres Kontos und wir senden einen Link für ein neues Passwort.",
+      "submit": "Link senden",
+      "back": "Zurück zur Anmeldung",
+      "sent": "Wenn zu dieser Adresse ein Konto gehört, ist der Link unterwegs."
+    },
+    "update": {
+      "eyebrow": "Passwort",
+      "title": "Neues Passwort festlegen.",
+      "lead": "Wählen Sie etwas, das Sie für dieses Konto noch nicht verwendet haben.",
+      "submit": "Passwort speichern",
+      "password": "Neues Passwort",
+      "confirm": "Passwort bestätigen",
+      "rule": "Mindestens acht Zeichen."
+    }
+  },
+  "catalogue": {
+    "empty": {
+      "title": "Noch keine festen Termine.",
+      "body": "Die Termine stehen noch nicht fest. Sagen Sie uns, wann Sie fahren möchten, und wir bauen die Expedition darum herum.",
+      "cta": "Individuelle Expedition planen"
     }
   }
 }

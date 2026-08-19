@@ -7,9 +7,12 @@ import { Topo } from "@/components/ui/Topo";
 import { countryPages, hubHero } from "@/config/destination-pages";
 import { locales } from "@/i18n/config";
 import { resolveLocale } from "@/i18n/params";
+import { runningByCountry } from "@/lib/catalogue-counts";
 import { buildMetadata, siteName, siteUrl } from "@/lib/seo";
 
 const pillars = ["adventure", "culture", "comfort", "safety"] as const;
+
+export const revalidate = 600;
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -32,6 +35,7 @@ export default async function DestinationsPage({ params }: PageProps<"/[locale]/
   const t = await getTranslations({ locale, namespace: "dest.hub" });
   const td = await getTranslations({ locale, namespace: "destinations" });
   const ts = await getTranslations({ locale, namespace: "dest.shared" });
+  const { counts } = await runningByCountry();
 
   const schema = {
     "@context": "https://schema.org",
@@ -112,7 +116,11 @@ export default async function DestinationsPage({ params }: PageProps<"/[locale]/
 
           <ul data-anim-group className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {countryPages.map((page) => {
-              const live = page.status === "live";
+              // Running or planned is a fact about the catalogue now, not a flag
+              // in a config file: a country is running when it has a published
+              // tour with a dated departure on it.
+              const count = counts.get(page.slug) ?? 0;
+              const live = count > 0;
 
               return (
                 <li key={page.slug}>
@@ -125,7 +133,7 @@ export default async function DestinationsPage({ params }: PageProps<"/[locale]/
                     badge={live ? ts("running") : ts("planned")}
                     meta={
                       live
-                        ? ts("expeditions", { count: page.destination.tours })
+                        ? ts("expeditions", { count })
                         : ts("openForEnquiries")
                     }
                     sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 360px"

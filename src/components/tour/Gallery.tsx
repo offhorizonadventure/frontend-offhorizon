@@ -1,11 +1,16 @@
 "use client";
 
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
+
+import { blurOf, type ImageSource } from "@/lib/image-source";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { ChevronDown, Close } from "@/components/ui/icons";
 
-export type GalleryItem = { image: StaticImageData; alt: string };
+export type GalleryItem = { image: ImageSource; alt: string };
+
+/** A stable key for either kind of source. */
+const keyOf = (image: ImageSource) => (typeof image === "string" ? image : image.src);
 
 /**
  * Photo gallery with a lightbox.
@@ -82,7 +87,7 @@ export function Gallery({
 
         <ul data-anim-group className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           {items.map((item, position) => (
-            <li key={item.image.src + position}>
+            <li key={keyOf(item.image) + position}>
               <button
                 type="button"
                 ref={(node) => {
@@ -96,8 +101,9 @@ export function Gallery({
                   src={item.image}
                   alt={item.alt}
                   fill
-                  placeholder="blur"
+                  {...blurOf(item.image)}
                   sizes="(max-width: 639px) 46vw, (max-width: 1023px) 46vw, 280px"
+                  quality={90}
                   className="object-cover transition-transform duration-[1100ms] ease-out-expo group-hover:scale-[1.06]"
                 />
                 <span
@@ -153,11 +159,18 @@ export function Gallery({
 
             <figure className="relative flex min-h-0 flex-1 flex-col items-center">
               <Image
-                key={current.image.src}
+                key={keyOf(current.image)}
                 src={current.image}
                 alt={current.alt}
-                placeholder="blur"
+                {...blurOf(current.image)}
+                // A bundled import brings its own dimensions; a URL from
+                // storage does not, and Next needs a pair either way. These are
+                // the intrinsic ratio, not the rendered size, which
+                // `object-contain` decides.
+                width={1600}
+                height={1200}
                 sizes="(max-width: 767px) 92vw, 70vw"
+                quality={90}
                 className="max-h-full w-auto rounded-2xl object-contain"
               />
               <figcaption className="mt-4 max-w-xl text-center text-[12.5px] text-balance text-cream-100/55">
@@ -178,7 +191,7 @@ export function Gallery({
           <div className="relative flex gap-2 overflow-x-auto px-5 py-5 [scrollbar-width:none] sm:px-8 [&::-webkit-scrollbar]:hidden">
             {items.map((item, position) => (
               <button
-                key={item.image.src + position}
+                key={keyOf(item.image) + position}
                 type="button"
                 onClick={() => setIndex(position)}
                 aria-label={item.alt}
@@ -194,6 +207,7 @@ export function Gallery({
                   alt=""
                   fill
                   sizes="64px"
+                  quality={90}
                   className="object-cover"
                 />
               </button>

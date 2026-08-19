@@ -1,4 +1,6 @@
 import Image from "next/image";
+
+import { blurOf } from "@/lib/image-source";
 import { getTranslations } from "next-intl/server";
 
 import { Facts } from "@/components/tour/Facts";
@@ -68,8 +70,9 @@ export async function Highlights({
                 src={highlight.image}
                 alt={highlight.alt}
                 fill
-                placeholder="blur"
+                {...blurOf(highlight.image)}
                 sizes="(max-width: 639px) 62vw, 260px"
+                quality={90}
                 className="object-cover transition-transform duration-[1100ms] ease-out-expo group-hover:scale-[1.06]"
               />
               <span

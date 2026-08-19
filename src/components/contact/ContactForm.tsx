@@ -1,9 +1,11 @@
 "use client";
 
+import { useLocale } from "next-intl";
 import { useId, useState } from "react";
 
 import { ArrowRight } from "@/components/ui/icons";
 import { PhoneField } from "@/components/ui/PhoneField";
+import { submitQuickEnquiry } from "@/lib/enquiries";
 
 type Labels = {
   fullName: string;
@@ -23,23 +25,39 @@ type Labels = {
 /**
  * Enquiry form.
  *
- * Shares `PhoneField` with the consultation modal so the country picker and
+ * Shares `PhoneField` with the quick enquiry modal so the country picker and
  * the submitted value format stay identical across both entry points.
  */
 export function ContactForm({ labels }: { labels: Labels }) {
+  const locale = useLocale();
   const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
   const id = useId();
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setPending(true);
+    const data = new FormData(event.currentTarget);
 
-    // TODO: post to the real enquiry endpoint. Nothing is sent yet; this only
-    // shows the confirmation state so the flow can be reviewed.
-    await new Promise((resolve) => setTimeout(resolve, 700));
+    setPending(true);
+    setError(null);
+
+    const result = await submitQuickEnquiry({
+      source: "Contact form",
+      locale,
+      fullName: String(data.get("fullName") ?? ""),
+      email: String(data.get("email") ?? ""),
+      phone: [data.get("dialCode"), data.get("phone")].filter(Boolean).join(" ").trim(),
+      message: String(data.get("message") ?? ""),
+    });
 
     setPending(false);
+
+    if (!result.ok) {
+      setError(result.error);
+      return;
+    }
+
     setSent(true);
   }
 
@@ -125,6 +143,16 @@ export function ContactForm({ labels }: { labels: Labels }) {
           className="mt-2 w-full resize-none rounded-xl border border-brand-900/15 bg-white p-4 text-[14px] leading-relaxed text-brand-900 outline-none transition-[border-color,box-shadow] placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-[3px] focus:ring-brand-800/10"
         />
       </div>
+
+      {/* A failed send must not look like a successful one. */}
+      {error && (
+        <p
+          role="alert"
+          className="rounded-xl border border-red-600/25 bg-red-600/8 px-4 py-3 text-[13px] leading-snug text-red-800"
+        >
+          {error}
+        </p>
+      )}
 
       <button
         type="submit"

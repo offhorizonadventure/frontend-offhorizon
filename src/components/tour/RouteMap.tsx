@@ -1,4 +1,6 @@
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
+
+import { blurOf, type ImageSource } from "@/lib/image-source";
 import { getTranslations } from "next-intl/server";
 
 import { Topo } from "@/components/ui/Topo";
@@ -11,7 +13,7 @@ export async function RouteMap({
   alt,
 }: {
   locale: Locale;
-  image: StaticImageData;
+  image: ImageSource;
   alt: string;
 }) {
   const t = await getTranslations({ locale, namespace: "tour" });
@@ -28,12 +30,20 @@ export async function RouteMap({
           {t("route.title")}
         </h2>
 
+        {/* A bundled import brings its own dimensions; a URL from storage does
+            not, and Next needs a pair either way. These set the ratio the
+            browser reserves space at, not the rendered size: the image is
+            `w-full h-auto`, so a taller map simply gets a taller box after it
+            loads. */}
         <Image
           data-anim="wipe"
           src={image}
           alt={alt}
-          placeholder="blur"
+          {...blurOf(image)}
+          width={2000}
+          height={1400}
           sizes="(max-width: 1023px) 92vw, 1100px"
+          quality={90}
           className="mt-8 h-auto w-full object-contain"
         />
       </div>

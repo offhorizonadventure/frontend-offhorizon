@@ -1,11 +1,13 @@
 "use client";
 
+import { useLocale } from "next-intl";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 
 import { Close } from "@/components/ui/icons";
 import { PhoneField } from "@/components/ui/PhoneField";
 import { cn } from "@/lib/cn";
+import { submitQuickEnquiry } from "@/lib/enquiries";
 
 type Labels = {
   trigger: string;
@@ -29,7 +31,7 @@ type Labels = {
 type Phase = "closed" | "open" | "closing";
 
 /**
- * Consultation request dialog.
+ * Quick enquiry dialog.
  *
  * Portalled to <body> for the same reason the nav drawer is: an ancestor with
  * `backdrop-filter` would otherwise become the containing block for a fixed
@@ -38,7 +40,7 @@ type Phase = "closed" | "open" | "closing";
  * Mounted only while open, so nothing is reachable by tab or scroll when it is
  * shut, and enter/exit run as keyframes with unmount on `animationend`.
  */
-export function ConsultationModal({
+export function QuickEnquiryModal({
   labels,
   className,
   children,
@@ -47,9 +49,11 @@ export function ConsultationModal({
   className?: string;
   children?: ReactNode;
 }) {
+  const locale = useLocale();
   const [phase, setPhase] = useState<Phase>("closed");
   const [sent, setSent] = useState(false);
   const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const formId = useId();
@@ -77,13 +81,30 @@ export function ConsultationModal({
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setPending(true);
+    const form = event.currentTarget;
+    const data = new FormData(form);
 
-    // TODO: post to the real enquiry endpoint. Nothing is sent yet; this only
-    // shows the confirmation state so the flow can be reviewed.
-    await new Promise((resolve) => setTimeout(resolve, 600));
+    setPending(true);
+    setError(null);
+
+    const result = await submitQuickEnquiry({
+      source: "Quick enquiry",
+      locale,
+      fullName: String(data.get("fullName") ?? ""),
+      email: String(data.get("email") ?? ""),
+      // The dial code is a separate control, so the two halves are joined here
+      // rather than stored apart.
+      phone: [data.get("dialCode"), data.get("phone")].filter(Boolean).join(" ").trim(),
+      message: String(data.get("message") ?? ""),
+    });
 
     setPending(false);
+
+    if (!result.ok) {
+      setError(result.error);
+      return;
+    }
+
     setSent(true);
   }
 
@@ -208,6 +229,15 @@ export function ConsultationModal({
                     className="mt-2 w-full resize-none rounded-xl border border-brand-900/15 bg-white p-4 text-[14px] leading-relaxed text-brand-900 outline-none transition-[border-color,box-shadow] placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-[3px] focus:ring-brand-800/10"
                   />
                 </div>
+
+                {error && (
+                  <p
+                    role="alert"
+                    className="rounded-xl border border-red-600/25 bg-red-600/8 px-4 py-3 text-[13px] leading-snug text-red-800"
+                  >
+                    {error}
+                  </p>
+                )}
 
                 <button
                   type="submit"

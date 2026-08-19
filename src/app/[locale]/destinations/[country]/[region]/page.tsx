@@ -5,11 +5,13 @@ import { Riders } from "@/components/about/Riders";
 import { CtaBand } from "@/components/destinations/CtaBand";
 import { Faq, type FaqItem } from "@/components/destinations/Faq";
 import { PageHero } from "@/components/destinations/PageHero";
-import { TourCard } from "@/components/tours/TourCard";
+import { DbTourCard } from "@/components/tours/DbTourCard";
+import { EmptyTours } from "@/components/tours/EmptyTours";
 import { Topo } from "@/components/ui/Topo";
 import { countryPages, getCountry, getRegion } from "@/config/destination-pages";
 import { locales } from "@/i18n/config";
 import { resolveLocale } from "@/i18n/params";
+import { regionCards } from "@/lib/catalogue-cards";
 import { buildMetadata, siteUrl } from "@/lib/seo";
 
 /** A numbered point in the "why us" grid. */
@@ -56,6 +58,10 @@ export default async function RegionPage({
   const ts = await getTranslations({ locale, namespace: "dest.shared" });
   const t = await getTranslations({ locale, namespace: `dest.${region.content}` });
   const strengths = t.raw("why.items") as Blurb[];
+
+  // Only this region's tours: the Indian Himalayas page should not list a
+  // South India ride.
+  const cards = await regionCards(countrySlug, regionSlug);
 
   const schema = {
     "@context": "https://schema.org",
@@ -104,15 +110,17 @@ export default async function RegionPage({
             </h2>
           </div>
 
+          {cards.length === 0 && (
+            <div className="mt-10">
+              <EmptyTours />
+            </div>
+          )}
+
           <ul data-anim-group className="mt-10 grid gap-6 md:grid-cols-2">
-            {region.tours.map(({ tour, image }) => (
-              <li key={tour.key}>
+            {cards.map((card) => (
+              <li key={card.tour.id}>
                 <div data-anim="up">
-                  <TourCard
-                    tour={tour}
-                    image={image}
-                    sizes="(max-width: 767px) 92vw, 560px"
-                  />
+                  <DbTourCard {...card} sizes="(max-width: 767px) 92vw, 560px" />
                 </div>
               </li>
             ))}

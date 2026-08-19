@@ -1,4 +1,6 @@
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
+
+import { blurOf, type ImageSource } from "@/lib/image-source";
 
 import { Breadcrumbs, type Crumb } from "@/components/destinations/Breadcrumbs";
 import { Topo } from "@/components/ui/Topo";
@@ -25,7 +27,7 @@ export function PageHero({
   eyebrow: string;
   title: string;
   lead: string;
-  image?: StaticImageData;
+  image?: ImageSource;
   imageAlt?: string;
   crumbs: Crumb[];
   locale: Locale;
@@ -40,7 +42,7 @@ export function PageHero({
             alt={imageAlt ?? ""}
             fill
             priority
-            placeholder="blur"
+            {...blurOf(image)}
             sizes="100vw"
             className="object-cover"
           />

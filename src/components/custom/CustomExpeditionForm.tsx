@@ -1,9 +1,12 @@
 "use client";
 
+import { useLocale, useTranslations } from "next-intl";
 import { useId, useState } from "react";
 
 import { ArrowRight } from "@/components/ui/icons";
 import { NumberStepper } from "@/components/ui/NumberStepper";
+import { submitCustomEnquiry, vehiclesFor } from "@/lib/enquiries";
+import { currencyFor, type Locale } from "@/i18n/config";
 import { PhoneField } from "@/components/ui/PhoneField";
 
 type Option = { value: string; label: string };
@@ -20,6 +23,16 @@ export type FormLabels = {
   ridersHint: string;
   pillions: string;
   pillionsHint: string;
+  travelMode: string;
+  modeMotorcycle: string;
+  modeVehicle: string;
+  vehicleChoice: string;
+  vehicleOwn: string;
+  vehicleOwnHint: string;
+  vehicleOurs: string;
+  vehicleOursHint: string;
+  people: string;
+  peopleHint: string;
   decrease: string;
   increase: string;
   budgetLabel: string;
@@ -55,20 +68,73 @@ type Props = {
  * actually needs to quote.
  */
 export function CustomExpeditionForm({ labels, destinations, company, currencySymbol }: Props) {
+  const locale = useLocale();
+  // Read straight from the catalogue: an ICU plural cannot be prebuilt on the
+  // server and handed over, because a function cannot cross into a client
+  // component.
+  const t = useTranslations("custom.fields");
+  const currencyCode = currencyFor(locale as Locale);
   const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
   const [startDate, setStartDate] = useState("");
+
+  // How the party is counted. A motorcycle trip counts riders and pillions; a
+  // 4x4 counts people, and the vehicles follow from that.
+  const [mode, setMode] = useState<"motorcycle" | "vehicle">("motorcycle");
+
+  // One pillion per machine, so pillions can never exceed riders. Controlled so
+  // dropping the riders takes the pillions down with it rather than leaving an
+  // impossible pair on screen.
+  const [riders, setRiders] = useState(1);
+  const [pillions, setPillions] = useState(0);
+  const [vehicleChoice, setVehicleChoice] = useState<"own" | "ours">("ours");
+  const [people, setPeople] = useState(2);
+  const vehicles = vehiclesFor(people);
+
   const id = useId();
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setPending(true);
+    const data = new FormData(event.currentTarget);
 
-    // TODO: post to the real enquiry endpoint. Nothing is sent yet; this only
-    // shows the confirmation state so the flow can be reviewed.
-    await new Promise((resolve) => setTimeout(resolve, 700));
+    setPending(true);
+    setError(null);
+
+    const shared = {
+      source: "Custom expeditions",
+      locale,
+      firstName: String(data.get("firstName") ?? ""),
+      lastName: String(data.get("lastName") ?? ""),
+      email: String(data.get("email") ?? ""),
+      phone: [data.get("dialCode"), data.get("phone")].filter(Boolean).join(" ").trim(),
+      message: String(data.get("message") ?? ""),
+      destination: String(data.get("destination") ?? ""),
+      startDate: String(data.get("startDate") ?? "") || null,
+      endDate: String(data.get("endDate") ?? "") || null,
+      travellingWith: String(data.get("company") ?? ""),
+      budgetAmount: Number(data.get("budget")) || null,
+      budgetCurrency: currencyCode,
+    };
+
+    const result = await submitCustomEnquiry(
+      mode === "motorcycle"
+        ? {
+            ...shared,
+            partyModel: "motorcycle",
+            riders,
+            pillions,
+          }
+        : { ...shared, partyModel: "vehicle", vehicleChoice, people },
+    );
 
     setPending(false);
+
+    if (!result.ok) {
+      setError(result.error);
+      return;
+    }
+
     setSent(true);
   }
 
@@ -203,26 +269,129 @@ export function CustomExpeditionForm({ labels, destinations, company, currencySy
             </select>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2">
-            <NumberStepper
-              name="riders"
-              label={labels.riders}
-              hint={labels.ridersHint}
-              min={1}
-              defaultValue={1}
-              decreaseLabel={labels.decrease}
-              increaseLabel={labels.increase}
-            />
-            <NumberStepper
-              name="pillions"
-              label={labels.pillions}
-              hint={labels.pillionsHint}
-              min={0}
-              defaultValue={0}
-              decreaseLabel={labels.decrease}
-              increaseLabel={labels.increase}
-            />
+          {/* How the party is counted depends on the machine. A motorcycle
+              trip is riders and pillions; a 4x4 is people, and the vehicles
+              follow from that rather than being typed in, so four seats per
+              vehicle cannot be exceeded. */}
+          <div>
+            <span className={label}>{labels.travelMode}</span>
+            <div className="mt-2.5 grid gap-2.5 sm:grid-cols-2">
+              {(
+                [
+                  ["motorcycle", labels.modeMotorcycle],
+                  ["vehicle", labels.modeVehicle],
+                ] as const
+              ).map(([value, text]) => (
+                <button
+                  key={value}
+                  type="button"
+                  onClick={() => setMode(value)}
+                  aria-pressed={mode === value}
+                  className={`h-12 rounded-xl border px-4 text-left text-[14px] transition-colors ${
+                    mode === value
+                      ? "border-brand-800 bg-brand-800 text-cream-100"
+                      : "border-brand-900/15 bg-white text-brand-900 hover:border-brand-800/40"
+                  }`}
+                >
+                  {text}
+                </button>
+              ))}
+            </div>
           </div>
+
+          {mode === "motorcycle" ? (
+            <div className="grid gap-5 sm:grid-cols-2">
+              <NumberStepper
+                name="riders"
+                label={labels.riders}
+                hint={labels.ridersHint}
+                min={1}
+                max={40}
+                value={riders}
+                onValueChange={(next) => {
+                  setRiders(next);
+                  setPillions((current) => Math.min(current, next));
+                }}
+                decreaseLabel={labels.decrease}
+                increaseLabel={labels.increase}
+              />
+              <NumberStepper
+                name="pillions"
+                label={labels.pillions}
+                hint={labels.pillionsHint}
+                min={0}
+                max={riders}
+                value={pillions}
+                onValueChange={setPillions}
+                decreaseLabel={labels.decrease}
+                increaseLabel={labels.increase}
+              />
+            </div>
+          ) : (
+            <>
+              <div>
+                <span className={label}>{labels.vehicleChoice}</span>
+                <div className="mt-2.5 grid gap-2.5 sm:grid-cols-2">
+                  {(
+                    [
+                      ["ours", labels.vehicleOurs, labels.vehicleOursHint],
+                      ["own", labels.vehicleOwn, labels.vehicleOwnHint],
+                    ] as const
+                  ).map(([value, text, hint]) => (
+                    <button
+                      key={value}
+                      type="button"
+                      onClick={() => setVehicleChoice(value)}
+                      aria-pressed={vehicleChoice === value}
+                      className={`rounded-xl border px-4 py-3 text-left transition-colors ${
+                        vehicleChoice === value
+                          ? "border-brand-800 bg-brand-800 text-cream-100"
+                          : "border-brand-900/15 bg-white text-brand-900 hover:border-brand-800/40"
+                      }`}
+                    >
+                      <span className="block text-[14px] font-semibold">{text}</span>
+                      <span
+                        className={`mt-0.5 block text-[12px] leading-snug ${
+                          vehicleChoice === value ? "text-cream-100/70" : "text-brand-800/50"
+                        }`}
+                      >
+                        {hint}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <NumberStepper
+                  name="people"
+                  label={labels.people}
+                  hint={labels.peopleHint}
+                  min={1}
+                  max={40}
+                  value={people}
+                  onValueChange={setPeople}
+                  decreaseLabel={labels.decrease}
+                  increaseLabel={labels.increase}
+                />
+
+                {vehicleChoice === "ours" && (
+                  <div className="flex items-end">
+                    <p className="rounded-xl bg-brand-900/6 px-4 py-3 text-[13px] leading-snug text-brand-800/70">
+                      {t("vehiclesNote", { count: vehicles })}
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {vehicleChoice === "ours" && (
+                <p className="flex gap-2.5 rounded-xl border border-brand-800/20 bg-brand-800/5 px-4 py-3 text-[12.5px] leading-relaxed text-brand-800/75">
+                  <span aria-hidden className="mt-[0.6em] size-1.5 shrink-0 rounded-full bg-brand-800/50" />
+                  {t("vehicleDailyNote")}
+                </p>
+              )}
+            </>
+          )}
         </>,
       )}
 
@@ -333,6 +502,16 @@ export function CustomExpeditionForm({ labels, destinations, company, currencySy
             </div>
           </div>
         </>,
+      )}
+
+      {/* A failed send must not look like a successful one. */}
+      {error && (
+        <p
+          role="alert"
+          className="rounded-xl border border-red-600/25 bg-red-600/8 px-4 py-3 text-[13px] leading-snug text-red-800"
+        >
+          {error}
+        </p>
       )}
 
       <div className="border-t border-brand-900/12 pt-7">
