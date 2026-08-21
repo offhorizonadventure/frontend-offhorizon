@@ -2,13 +2,7 @@ import { listPosts } from "@/lib/blog";
 import { listTours } from "@/lib/catalogue";
 import { siteName, siteUrl } from "@/lib/seo";
 
-/**
- * llms.txt: what this site is, for a model reading it rather than a crawler.
- *
- * The convention is a short plain-language summary and a list of the pages
- * worth reading, in Markdown, at the root. Generated rather than written so a
- * tour published this morning is in it this afternoon.
- */
+/** llms.txt: what this site is, for a model reading it rather than a crawler. */
 export const revalidate = 3600;
 
 export async function GET() {

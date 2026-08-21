@@ -17,10 +17,7 @@ export function Logo({ height = 40, variant = "brand", className = "" }: LogoPro
     <Link
       href="/"
       aria-label={siteName}
-      // `shrink-0`: the bar is a flex row, and in French and Spanish the
-      // navigation is wide enough that the browser starts taking the space
-      // back from the first item. `w-auto` gives it no width to defend, so the
-      // logo was squashed from a 4.7 ratio to 2.7 rather than the row wrapping.
+      // `shrink-0`: the bar is a flex row, and in French and Spanish the navigation is wide enough that the browser starts taking the space back from the first item.
       className={`inline-flex shrink-0 items-center ${className}`}
     >
       <Image

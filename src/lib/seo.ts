@@ -12,13 +12,7 @@ export const siteName = "Offhorizon Adventures";
 const defaultDescription =
   "Guided motorcycle and self-drive 4x4 expeditions across the Himalayas. Small groups, prepared machines, a mechanic on every departure.";
 
-/**
- * Search results cut a title around 60 characters and a description around 155.
- *
- * A page title arrives here without the company name, and gets it appended only
- * while there is room: "Ladakh Motorcycle Tour | Offhorizon Adventures" fits,
- * and a longer headline is better off spending those characters on itself.
- */
+/** Search results cut a title around 60 characters and a description around 155. */
 const TITLE_LIMIT = 60;
 
 const withBrand = (title: string) =>
@@ -63,12 +57,7 @@ type SeoInput = {
   noIndex?: boolean;
   /** Added to the defaults, not instead of them. */
   keywords?: string[];
-  /**
-   * Off on the layout, which sits under every page.
-   *
-   * A page states its own canonical and its own languages. The layout doing it
-   * too put two identical sets of hreflang links in every head.
-   */
+  /** Off on the layout, which sits under every page. */
   alternates?: boolean;
 };
 

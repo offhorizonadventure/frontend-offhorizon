@@ -6,13 +6,7 @@ import nepal from "../../public/tours/nepal-motorcycle-tour.jpg";
 
 import type { TourKey } from "@/i18n/keys";
 
-/**
- * A tour as the navigation menu knows it.
- *
- * The catalogue itself lives in the database; this is only what the mega menu
- * needs to draw a link before any query has run. Prices and ratings are not
- * here, because inventing them once was enough.
- */
+/** A tour as the navigation menu knows it. */
 export type TourPackage = {
   key: TourKey;
   href: string;

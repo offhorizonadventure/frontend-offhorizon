@@ -15,6 +15,7 @@ import { RouteMap } from "@/components/tour/RouteMap";
 import { TourHero } from "@/components/tour/TourHero";
 import { Topo } from "@/components/ui/Topo";
 import { countryName, getTour, imageUrl, listDepartures } from "@/lib/catalogue";
+import { translate } from "@/lib/translated";
 import { resolveLocale } from "@/i18n/params";
 import { buildMetadata, siteUrl } from "@/lib/seo";
 import {
@@ -33,8 +34,10 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }: PageProps<"/[locale]/adventure/[slug]">) {
   const locale = await resolveLocale(params);
   const { slug } = await params;
-  const tour = await getTour(slug);
-  if (!tour) return {};
+  const source = await getTour(slug);
+  if (!source) return {};
+
+  const tour = translate(source, locale);
 
   const hero = imageUrl(tour.hero_path);
 
@@ -61,8 +64,11 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/adventur
 export default async function TourPage({ params }: PageProps<"/[locale]/adventure/[slug]">) {
   const locale = await resolveLocale(params);
   const { slug } = await params;
-  const tour = await getTour(slug);
-  if (!tour) notFound();
+  const source = await getTour(slug);
+  if (!source) notFound();
+
+  // English rows with the translated fields laid over them, so a tour that is half translated shows the half that is done.
+  const tour = translate(source, locale);
 
   const t = await getTranslations({ locale, namespace: "tour" });
   const ts = await getTranslations({ locale, namespace: "dest.shared" });

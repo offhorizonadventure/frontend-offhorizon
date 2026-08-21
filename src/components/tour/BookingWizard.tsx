@@ -167,8 +167,7 @@ export function BookingWizard({
   const fleet = chosen?.kind === "4x4" ? (chosen.vehicles ?? []) : [];
   const picked = fleet.find((option) => option.id === vehicle) ?? null;
 
-  // Someone driving their own car pays for the expedition and nothing for a
-  // vehicle, so the daily rate simply drops out of the total.
+  // Someone driving their own car pays for the expedition and nothing for a vehicle, so the daily rate simply drops out of the total.
   const vehicleCost = picked ? picked.perDay * days : 0;
 
   const total =
