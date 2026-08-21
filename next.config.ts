@@ -5,6 +5,53 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
 
+  /**
+   * Headers every response carries.
+   *
+   * `X-Robots-Tag` says the same thing the robots meta tag says, but in the
+   * response itself: crawlers that fetch a PDF, an image or a sitemap never see
+   * the HTML, so the meta tag cannot reach them. The two have to agree, and
+   * both say index and follow with full snippets and large image previews.
+   *
+   * The rest are the ordinary protections. None of them affects indexing; they
+   * are here because a site handling sign in and payment details should not
+   * wait for a launch checklist to set them.
+   */
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+          },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
+        ],
+      },
+      {
+        // The account area is per visitor and has nothing to index. This is the
+        // one place the header disagrees with the default above.
+        source: "/:locale/account{/:path}*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+      {
+        source: "/:locale/reset-password",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+    ];
+  },
+
   images: {
     formats: ["image/avif", "image/webp"],
     /**

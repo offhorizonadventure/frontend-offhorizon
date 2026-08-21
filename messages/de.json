@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Offhorizon Adventures",
-    "description": "Offhorizon Adventure bietet erstklassige geführte Motorrad- und 4x4-Selbstfahrer-Expeditionen in der trans-himalayischen Region. Wir operieren in großer Höhe"
+    "title": "Offhorizon Adventures | Motorrad- und 4x4-Touren im Himalaya",
+    "description": "Geführte Motorrad- und 4x4-Expeditionen durch Ladakh, Spiti und Nepal. Kleine Gruppen, vorbereitete Maschinen und ein Mechaniker bei jeder Abfahrt."
   },
   "nav": {
     "primary": "Hauptnavigation",
@@ -215,8 +215,8 @@
   },
   "about": {
     "meta": {
-      "title": "Über Offhorizon Adventures | Spezialisten für den Himalaya",
-      "description": "Geführte Motorrad- und 4x4-Expeditionen in fünf Ländern: Indien, Nepal, Bhutan, Sri Lanka und die Mongolei. Zehn Jahre Erfahrung vor Ort, ein 16-köpfiges Team und Routen durch Ladakh, Spiti, Zanskar und Upper Mustang."
+      "title": "Über Offhorizon Adventures | Himalaya-Expeditionen",
+      "description": "Geführte Motorrad- und 4x4-Expeditionen in Indien, Nepal, Bhutan, Sri Lanka und der Mongolei. Zehn Jahre Erfahrung, ein 16-köpfiges Team."
     },
     "hero": {
       "eyebrow": "Über Offhorizon",
@@ -316,8 +316,8 @@
   },
   "contact": {
     "meta": {
-      "title": "Offhorizon Adventures kontaktieren | Ihre Himalaya-Expedition",
-      "description": "Sprechen Sie mit dem Team über eine geführte Motorrad- oder 4x4-Expedition in Indien, Nepal, Bhutan, Sri Lanka oder der Mongolei. Sitz in Manali, Antwort innerhalb eines Werktags."
+      "title": "Kontakt Offhorizon Adventures | Manali, Indien",
+      "description": "Sprechen Sie mit dem Team über eine geführte Motorrad- oder 4x4-Expedition. Sitz in Manali, Antwort innerhalb eines Werktags."
     },
     "hero": {
       "eyebrow": "Kontakt",
@@ -373,7 +373,7 @@
   "custom": {
     "meta": {
       "title": "Individuelle Expeditionen | Offhorizon Adventures",
-      "description": "Sagen Sie uns, wohin Sie fahren wollen, wann und mit wem. Wir planen geführte Motorrad- und 4x4-Expeditionen nach Maß in Indien, Nepal, Bhutan, Sri Lanka und der Mongolei."
+      "description": "Sagen Sie uns, wohin Sie fahren möchten, wann und mit wem. Wir bauen die Expedition darum herum und melden uns mit Plan und Preis."
     },
     "hero": {
       "eyebrow": "Individuelle Expeditionen",
@@ -465,7 +465,7 @@
     "hub": {
       "meta": {
         "title": "Reiseziele | Motorrad- und 4x4-Expeditionen im Himalaya",
-        "description": "Wo Offhorizon Adventure geführte Motorrad- und 4x4-Expeditionen durchführt. Derzeit der Himalaya in Indien und Nepal, mit Bhutan, Sri Lanka und der Mongolei in Planung."
+        "description": "Wo wir geführte Expeditionen fahren: der Himalaya in Indien und Nepal, mit Bhutan, Sri Lanka und der Mongolei in Planung."
       },
       "eyebrow": "Reiseziele",
       "title": "Für das Abenteuer gebaut. Von Erfahrung geführt.",
@@ -522,7 +522,7 @@
     "india": {
       "meta": {
         "title": "Motorrad- und 4x4-Expeditionen in Indien | Offhorizon",
-        "description": "Geführte Motorrad- und 4x4-Expeditionen im indischen Himalaya. Ladakh, Spiti und Zanskar, organisiert von Manali aus von einem Team, das seit 2014 vor Ort ist."
+        "description": "Geführte Motorrad- und 4x4-Expeditionen durch Ladakh, Spiti und Zanskar. Kleine Gruppen, vorbereitete Maschinen, Mechaniker dabei."
       },
       "eyebrow": "Indien",
       "title": "Motorrad- und 4x4-Expeditionen durch Indien",
@@ -614,7 +614,7 @@
     },
     "indianHimalayas": {
       "meta": {
-        "title": "Expeditionen im indischen Himalaya | Ladakh, Spiti und Zanskar",
+        "title": "Indischer Himalaya per Motorrad | Ladakh, Spiti",
         "description": "Motorrad- und 4x4-Expeditionen im indischen Himalaya. Hochpässe in Ladakh, Spiti und Zanskar mit Guides, Mechaniker und Begleitfahrzeug."
       },
       "eyebrow": "Indischer Himalaya",
@@ -749,7 +749,7 @@
     "nepal": {
       "meta": {
         "title": "Motorrad-Expeditionen durch Nepal | Offhorizon",
-        "description": "Geführte Motorrad-Expeditionen im nepalesischen Himalaya. Von Kathmandu nach Upper Mustang durch die Kali-Gandaki-Schlucht, mit Guides, Mechaniker und Begleitfahrzeug."
+        "description": "Geführte Motorradexpeditionen in Nepal: Mustang, Annapurna und Hochgebirgspisten, mit Mechaniker und Begleitfahrzeug."
       },
       "eyebrow": "Nepal",
       "title": "Motorrad-Expeditionen durch Nepal",
@@ -838,8 +838,8 @@
     },
     "nepalHimalayas": {
       "meta": {
-        "title": "Expeditionen im nepalesischen Himalaya | Kathmandu bis Upper Mustang",
-        "description": "Motorrad-Expeditionen im nepalesischen Himalaya. Die Kali-Gandaki-Schlucht, Muktinath und das alte Königreich Lo, mit Guides, Mechaniker und Begleitfahrzeug."
+        "title": "Nepalesischer Himalaya per Motorrad | Mustang",
+        "description": "Der nepalesische Himalaya auf dem Motorrad: Upper Mustang, Muktinath und Pässe über 4.000 Metern, in kleinen Gruppen."
       },
       "eyebrow": "Nepalesischer Himalaya",
       "shortName": "Nepalesischer Himalaya",

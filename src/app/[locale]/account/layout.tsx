@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
+
 import { redirect } from "next/navigation";
 
 import { AccountNav } from "@/components/account/AccountNav";
 import { Topo } from "@/components/ui/Topo";
 import { getProfile } from "@/lib/profile";
+
+/** Never indexed: every page here is one person's own. */
+export function generateMetadata(): Metadata {
+  return { title: "Your account", robots: { index: false, follow: false } };
+}
 
 /** The account area, behind the session. */
 export default async function AccountLayout({ children }: { children: React.ReactNode }) {

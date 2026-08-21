@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Offhorizon Adventures",
-    "description": "Offhorizon Adventure offre spedizioni guidate premium in moto e in 4x4 nella regione trans-himalayana. Operiamo su terreni d'alta quota"
+    "title": "Offhorizon Adventures | Tour in moto e 4x4 sull'Himalaya",
+    "description": "Spedizioni guidate in moto e 4x4 tra Ladakh, Spiti e Nepal. Gruppi piccoli, mezzi preparati e un meccanico a ogni partenza."
   },
   "nav": {
     "primary": "Navigazione principale",
@@ -215,8 +215,8 @@
   },
   "about": {
     "meta": {
-      "title": "Chi è Offhorizon Adventures | Specialisti dell'Himalaya",
-      "description": "Spedizioni guidate in moto e 4x4 in cinque paesi: India, Nepal, Bhutan, Sri Lanka e Mongolia. Dieci anni di esperienza sul campo, una squadra di 16 persone e itinerari tra Ladakh, Spiti, Zanskar e Alto Mustang."
+      "title": "Chi siamo | Offhorizon Adventures, Himalaya",
+      "description": "Spedizioni guidate in moto e 4x4 in India, Nepal, Bhutan, Sri Lanka e Mongolia. Dieci anni sul campo e una squadra di 16 persone."
     },
     "hero": {
       "eyebrow": "Chi è Offhorizon",
@@ -316,8 +316,8 @@
   },
   "contact": {
     "meta": {
-      "title": "Contatta Offhorizon Adventures | Pianifica la tua spedizione",
-      "description": "Parla con il team di una spedizione guidata in moto o in 4x4 in India, Nepal, Bhutan, Sri Lanka o Mongolia. Sede a Manali, risposta entro un giorno lavorativo."
+      "title": "Contatti Offhorizon Adventures | Manali, India",
+      "description": "Parla con il team di una spedizione guidata in moto o 4x4. Sede a Manali, risposta entro un giorno lavorativo."
     },
     "hero": {
       "eyebrow": "Contatti",
@@ -750,7 +750,7 @@
     "nepal": {
       "meta": {
         "title": "Spedizioni in moto attraverso il Nepal | Offhorizon",
-        "description": "Spedizioni guidate in moto nell'Himalaya nepalese. Da Kathmandu all'Alto Mustang attraverso la gola della Kali Gandaki, con guide, meccanico e veicolo di appoggio."
+        "description": "Spedizioni guidate in moto in Nepal: Mustang, Annapurna e piste d'alta quota, con meccanico e veicolo di supporto."
       },
       "eyebrow": "Nepal",
       "title": "Spedizioni in moto attraverso il Nepal",
@@ -839,8 +839,8 @@
     },
     "nepalHimalayas": {
       "meta": {
-        "title": "Spedizioni nell'Himalaya nepalese | Da Kathmandu all'Alto Mustang",
-        "description": "Spedizioni in moto nell'Himalaya nepalese. La gola della Kali Gandaki, Muktinath e l'antico regno di Lo, con guide, meccanico e veicolo di appoggio."
+        "title": "Himalaya nepalese in moto | Mustang e Annapurna",
+        "description": "L'Himalaya nepalese in moto: Alto Mustang, Muktinath e passi oltre i 4.000 metri, in gruppi piccoli."
       },
       "eyebrow": "Himalaya nepalese",
       "shortName": "Himalaya nepalese",

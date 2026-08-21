@@ -17,6 +17,8 @@ import { buildMetadata, siteUrl } from "@/lib/seo";
 /** A numbered point in the "why us" grid. */
 type Blurb = { title: string; body: string };
 
+export const revalidate = 600;
+
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
     countryPages.flatMap((page) =>

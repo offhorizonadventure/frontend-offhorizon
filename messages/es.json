@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Offhorizon Adventures",
-    "description": "Offhorizon Adventure ofrece expediciones guiadas premium en moto y en 4x4 por la región transhimalaya. Operamos en terrenos de gran altitud"
+    "title": "Offhorizon Adventures | Rutas en moto y 4x4 por el Himalaya",
+    "description": "Expediciones guiadas en moto y 4x4 por Ladakh, Spiti y Nepal. Grupos pequeños, vehículos preparados y un mecánico en cada salida."
   },
   "nav": {
     "primary": "Navegación principal",
@@ -215,8 +215,8 @@
   },
   "about": {
     "meta": {
-      "title": "Sobre Offhorizon Adventures | Especialistas en el Himalaya",
-      "description": "Expediciones guiadas en moto y 4x4 por cinco países: India, Nepal, Bután, Sri Lanka y Mongolia. Diez años de experiencia sobre el terreno, un equipo de 16 personas y rutas por Ladakh, Spiti, Zanskar y el Alto Mustang."
+      "title": "Sobre Offhorizon Adventures | Himalaya",
+      "description": "Expediciones guiadas en moto y 4x4 por India, Nepal, Bután, Sri Lanka y Mongolia. Diez años sobre el terreno y un equipo de 16 personas."
     },
     "hero": {
       "eyebrow": "Sobre Offhorizon",
@@ -316,8 +316,8 @@
   },
   "contact": {
     "meta": {
-      "title": "Contacta con Offhorizon Adventures | Planifica tu expedición",
-      "description": "Habla con el equipo sobre una expedición guiada en moto o 4x4 por India, Nepal, Bután, Sri Lanka o Mongolia. Con base en Manali, respondemos en un día laborable."
+      "title": "Contacto Offhorizon Adventures | Manali, India",
+      "description": "Habla con el equipo sobre una expedición guiada en moto o 4x4. Con base en Manali, respondemos en un día laborable."
     },
     "hero": {
       "eyebrow": "Contacto",
@@ -465,7 +465,7 @@
     "hub": {
       "meta": {
         "title": "Destinos | Expediciones en moto y 4x4 por el Himalaya",
-        "description": "Dónde organiza Offhorizon Adventure sus expediciones guiadas en moto y 4x4. Ahora mismo el Himalaya de India y Nepal, con Bután, Sri Lanka y Mongolia en preparación."
+        "description": "Dónde organizamos expediciones guiadas: el Himalaya de India y Nepal, con Bután, Sri Lanka y Mongolia en preparación."
       },
       "eyebrow": "Destinos",
       "title": "Hecho para la aventura. Guiado por la experiencia.",
@@ -836,8 +836,8 @@
     },
     "nepalHimalayas": {
       "meta": {
-        "title": "Expediciones por el Himalaya nepalí | De Katmandú al Alto Mustang",
-        "description": "Expediciones en moto por el Himalaya nepalí. El desfiladero del Kali Gandaki, Muktinath y el antiguo reino de Lo, con guías, mecánico y vehículo de apoyo."
+        "title": "Himalaya nepalí en moto | Mustang y Annapurna",
+        "description": "El Himalaya nepalí en moto: Alto Mustang, Muktinath y puertos por encima de los 4.000 metros, en grupos pequeños."
       },
       "eyebrow": "Himalaya nepalí",
       "shortName": "Himalaya nepalí",
@@ -954,7 +954,7 @@
   },
   "adventureTours": {
     "meta": {
-      "title": "Viajes de aventura | Expediciones en moto y 4x4 por el Himalaya",
+      "title": "Todas las expediciones | Offhorizon Adventures",
       "description": "Todas las salidas de Offhorizon, agrupadas por país. Expediciones guiadas en moto y 4x4 por el Himalaya indio y nepalí."
     },
     "eyebrow": "Viajes de aventura",

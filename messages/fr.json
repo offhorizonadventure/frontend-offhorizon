@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Offhorizon Adventures",
-    "description": "Offhorizon Adventure propose des expéditions haut de gamme à moto et en 4x4 dans toute la région transhimalayenne. Nous opérons en haute altitude"
+    "title": "Offhorizon Adventures | Motos et 4x4 dans l'Himalaya",
+    "description": "Expéditions guidées à moto et en 4x4 au Ladakh, au Spiti et au Népal. Petits groupes, machines préparées et un mécanicien à chaque départ."
   },
   "nav": {
     "primary": "Navigation principale",
@@ -215,8 +215,8 @@
   },
   "about": {
     "meta": {
-      "title": "À propos d'Offhorizon Adventures | Spécialistes de l'Himalaya",
-      "description": "Expéditions guidées à moto et en 4x4 dans cinq pays : Inde, Népal, Bhoutan, Sri Lanka et Mongolie. Dix ans d'expérience sur le terrain, une équipe de 16 personnes et des itinéraires au Ladakh, dans le Spiti, le Zanskar et le Haut Mustang."
+      "title": "À propos d'Offhorizon Adventures | Himalaya",
+      "description": "Expéditions guidées à moto et en 4x4 en Inde, au Népal, au Bhoutan, au Sri Lanka et en Mongolie. Dix ans sur le terrain, une équipe de 16 personnes."
     },
     "hero": {
       "eyebrow": "À propos d'Offhorizon",
@@ -316,8 +316,8 @@
   },
   "contact": {
     "meta": {
-      "title": "Contacter Offhorizon Adventures | Préparez votre expédition",
-      "description": "Parlez à l'équipe d'une expédition guidée à moto ou en 4x4 en Inde, au Népal, au Bhoutan, au Sri Lanka ou en Mongolie. Basés à Manali, réponse sous un jour ouvré."
+      "title": "Contact Offhorizon Adventures | Manali, Inde",
+      "description": "Parlez à l'équipe d'une expédition guidée à moto ou en 4x4. Basés à Manali, réponse sous un jour ouvré."
     },
     "hero": {
       "eyebrow": "Contact",
@@ -373,7 +373,7 @@
   "custom": {
     "meta": {
       "title": "Voyages sur mesure | Offhorizon Adventures",
-      "description": "Dites-nous où vous voulez rouler, quand et avec qui. Nous construisons des expéditions guidées à moto et en 4x4 en Inde, au Népal, au Bhoutan, au Sri Lanka et en Mongolie."
+      "description": "Dites-nous où vous voulez rouler, quand et avec qui. Nous construisons l'expédition autour et revenons avec un plan et un prix."
     },
     "hero": {
       "eyebrow": "Voyages sur mesure",
@@ -465,7 +465,7 @@
     "hub": {
       "meta": {
         "title": "Destinations | Expéditions à moto et en 4x4 dans l'Himalaya",
-        "description": "Là où Offhorizon Adventure mène ses expéditions guidées à moto et en 4x4. Actuellement l'Himalaya de l'Inde et du Népal, avec le Bhoutan, le Sri Lanka et la Mongolie en préparation."
+        "description": "Où nous organisons nos expéditions guidées : l'Himalaya indien et népalais, avec le Bhoutan, le Sri Lanka et la Mongolie en préparation."
       },
       "eyebrow": "Destinations",
       "title": "Conçu pour l'aventure. Guidé par l'expérience.",
@@ -614,7 +614,7 @@
     },
     "indianHimalayas": {
       "meta": {
-        "title": "Expéditions dans l'Himalaya indien | Ladakh, Spiti et Zanskar",
+        "title": "Himalaya indien à moto | Ladakh, Spiti, Zanskar",
         "description": "Expéditions à moto et en 4x4 dans l'Himalaya indien. Cols d'altitude au Ladakh, dans le Spiti et le Zanskar, avec guides, mécanicien et véhicule d'assistance."
       },
       "eyebrow": "Himalaya indien",
@@ -747,7 +747,7 @@
     "nepal": {
       "meta": {
         "title": "Expéditions à moto au Népal | Offhorizon",
-        "description": "Expéditions guidées à moto dans l'Himalaya népalais. De Katmandou au Haut Mustang par les gorges de la Kali Gandaki, avec guides, mécanicien et véhicule d'assistance."
+        "description": "Expéditions guidées à moto au Népal : Mustang, Annapurnas et les pistes de haute altitude, avec mécanicien et véhicule d'assistance."
       },
       "eyebrow": "Népal",
       "title": "Expéditions à moto à travers le Népal",
@@ -838,8 +838,8 @@
     },
     "nepalHimalayas": {
       "meta": {
-        "title": "Expéditions dans l'Himalaya népalais | De Katmandou au Haut Mustang",
-        "description": "Expéditions à moto dans l'Himalaya népalais. Les gorges de la Kali Gandaki, Muktinath et l'ancien royaume de Lo, avec guides, mécanicien et véhicule d'assistance."
+        "title": "Himalaya népalais à moto | Mustang et Annapurnas",
+        "description": "L'Himalaya népalais à moto : Haut-Mustang, Muktinath et les cols au-dessus de 4 000 mètres, en petits groupes."
       },
       "eyebrow": "Himalaya népalais",
       "shortName": "Himalaya népalais",
@@ -958,7 +958,7 @@
   },
   "adventureTours": {
     "meta": {
-      "title": "Circuits aventure | Expéditions à moto et en 4x4 dans l'Himalaya",
+      "title": "Toutes nos expéditions | Offhorizon Adventures",
       "description": "Tous les départs Offhorizon, par pays. Expéditions guidées à moto et en 4x4 dans l'Himalaya indien et népalais."
     },
     "eyebrow": "Circuits aventure",
