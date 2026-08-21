@@ -4,8 +4,7 @@ import { createClient } from "./supabase";
 export const SEATS_PER_VEHICLE = 4;
 
 /** Vehicles needed to carry a party. Derived, never typed in, so the cap holds. */
-export const vehiclesFor = (people: number) =>
-  Math.max(1, Math.ceil(people / SEATS_PER_VEHICLE));
+export const vehiclesFor = (people: number) => Math.max(1, Math.ceil(people / SEATS_PER_VEHICLE));
 
 export type QuickEnquiryInput = {
   source: string;
@@ -41,14 +40,16 @@ const FAILED = "We could not send that. Please try again, or email us directly."
 
 export async function submitQuickEnquiry(input: QuickEnquiryInput): Promise<SubmitResult> {
   try {
-    const { error } = await createClient().from("quick_enquiries").insert({
-      source: input.source,
-      locale: input.locale,
-      full_name: input.fullName,
-      email: input.email,
-      phone: input.phone || null,
-      message: input.message || null,
-    });
+    const { error } = await createClient()
+      .from("quick_enquiries")
+      .insert({
+        source: input.source,
+        locale: input.locale,
+        full_name: input.fullName,
+        email: input.email,
+        phone: input.phone || null,
+        message: input.message || null,
+      });
 
     return error ? { ok: false, error: FAILED } : { ok: true };
   } catch {
@@ -68,8 +69,7 @@ export async function submitCustomEnquiry(input: CustomEnquiryInput): Promise<Su
           party_model: "vehicle" as const,
           vehicle_choice: input.vehicleChoice,
           people: input.people,
-          // Recomputed here rather than trusted from the form, so the stored
-          // figure always satisfies the four-per-vehicle rule.
+          // Recomputed here rather than trusted from the form, so the stored figure always satisfies the four-per-vehicle rule.
           vehicles: vehiclesFor(input.people),
         };
 

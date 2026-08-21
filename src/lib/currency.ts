@@ -1,25 +1,50 @@
-import { currencyFor, defaultCurrency, type Currency, type Locale } from "@/i18n/config";
+import { cookies } from "next/headers";
 
-const ENDPOINT = "https://api.frankfurter.dev/v1/latest";
-const REVALIDATE = 60 * 60 * 12; // ECB publishes once per working day.
+import {
+  COUNTRY_COOKIE,
+  currencyFor,
+  currencyForCountry,
+  defaultCurrency,
+  defaultLocale,
+  type Currency,
+  type Locale,
+} from "@/i18n/config";
+
+/** Exchange rates, from a feed with more than Europe in it. */
+const ENDPOINT = "https://open.er-api.com/v6/latest";
+const REVALIDATE = 60 * 60 * 12;
 
 /** Currency prices are authored in. */
 export const baseCurrency = defaultCurrency;
 
+/** The currency to quote a visitor in. */
+export async function currencyForVisitor(locale: Locale): Promise<Currency> {
+  if (locale !== defaultLocale) return currencyFor(locale);
+
+  try {
+    const country = (await cookies()).get(COUNTRY_COOKIE)?.value;
+    return currencyForCountry(country);
+  } catch {
+    // Called from somewhere with no request behind it, such as a statically generated page.
+    return defaultCurrency;
+  }
+}
+
 export async function getRate(from: Currency, to: Currency): Promise<number> {
   if (from === to) return 1;
 
-  const response = await fetch(`${ENDPOINT}?base=${from}&symbols=${to}`, {
+  // Cached for half a day and shared across every visitor, so a page showing twenty prices makes no requests at all after the first.
+  const response = await fetch(`${ENDPOINT}/${from}`, {
     next: { revalidate: REVALIDATE, tags: ["fx"] },
   });
 
-  if (!response.ok) throw new Error(`Frankfurter ${from}->${to}: ${response.status}`);
+  if (!response.ok) throw new Error(`Rates ${from}->${to}: ${response.status}`);
 
-  const { rates } = (await response.json()) as { rates: Record<string, number> };
+  const { rates } = (await response.json()) as { rates?: Record<string, number> };
   const rate = rates?.[to];
 
-  if (!Number.isFinite(rate)) throw new Error(`Frankfurter ${from}->${to}: missing rate`);
-  return rate;
+  if (!Number.isFinite(rate)) throw new Error(`Rates ${from}->${to}: missing rate`);
+  return rate as number;
 }
 
 export function formatMoney(amount: number, currency: Currency, locale: Locale) {
@@ -30,16 +55,11 @@ export function formatMoney(amount: number, currency: Currency, locale: Locale) 
   }).format(amount);
 }
 
-/**
- * Converts a base-currency amount into the visitor's currency and formats it.
- * Falls back to the base currency if the rate lookup fails, so a price is
- * never rendered wrong or missing.
- */
+/** Converts a base-currency amount into the visitor's currency and formats it. */
 export async function getPrice(amount: number, locale: Locale, from?: string) {
-  // `from` is the currency the price was authored in, which a departure carries
-  // on its row: an expedition quoted in euros must not be read as dollars.
+  // `from` is the currency the price was authored in, which a departure carries on its row: an expedition quoted in euros must not be read as dollars.
   const source = (from?.toUpperCase() as Currency) ?? baseCurrency;
-  const target = currencyFor(locale);
+  const target = await currencyForVisitor(locale);
 
   try {
     const rate = await getRate(source, target);
@@ -49,12 +69,9 @@ export async function getPrice(amount: number, locale: Locale, from?: string) {
   }
 }
 
-/**
- * Currency and rate for totals that have to be recalculated in the browser.
- * Falls back to the base currency so a running total is never wrong or blank.
- */
+/** Currency and rate for totals that have to be recalculated in the browser. */
 export async function getConversion(locale: Locale): Promise<{ currency: Currency; rate: number }> {
-  const target = currencyFor(locale);
+  const target = await currencyForVisitor(locale);
 
   try {
     return { currency: target, rate: await getRate(baseCurrency, target) };

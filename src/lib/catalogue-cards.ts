@@ -12,8 +12,7 @@ export function toCards(tours: Tour[], departures: Awaited<ReturnType<typeof lis
     return {
       tour,
       priceFrom: priceFrom(dated),
-      // Whichever currency the departures are quoted in. Mixed currencies on one
-      // tour would be a data problem, not something to paper over here.
+      // Whichever currency the departures are quoted in.
       currency: dated[0]?.currency ?? "USD",
     };
   });
@@ -29,13 +28,7 @@ export async function countryCards(country: string): Promise<Card[]> {
   return cards.filter((card) => card.tour.country === country);
 }
 
-/**
- * The tours on one region page.
- *
- * A tour with no region set still belongs to the country, so it is shown on
- * every region of it rather than nowhere: an unfiled tour should be too visible
- * rather than invisible.
- */
+/** The tours on one region page. */
 export async function regionCards(country: string, region: string): Promise<Card[]> {
   const cards = await countryCards(country);
   return cards.filter((card) => !card.tour.region || card.tour.region === region);

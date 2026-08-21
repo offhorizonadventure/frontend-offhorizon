@@ -4,18 +4,7 @@ import type { Provider } from "@supabase/supabase-js";
 
 import { createClient } from "@/lib/supabase/client";
 
-/**
- * Signing in, joining, and the two password journeys.
- *
- * Run in the browser rather than through server actions, because Supabase sets
- * the session on the client and the SSR helper syncs it to cookies from there.
- * That also means an OAuth redirect comes back to a page rather than to an
- * action, which is what the callback route is for.
- *
- * Every function returns the same small result: an error message a person can
- * read, or nothing. Supabase's own messages are passed through, since they are
- * already written for the person typing rather than for the log.
- */
+/** Signing in, joining, and the two password journeys. */
 
 export type AuthResult = { error: string | null };
 
@@ -41,10 +30,7 @@ export async function signUp(
     email,
     password,
     options: {
-      // Carried in metadata only so the database trigger can copy it into the
-      // profile row the moment the account is created. Nothing here is trusted
-      // for permissions: roles live in `app_metadata`, which a user cannot
-      // write to, and the profile is what the site reads afterwards.
+      // Carried in metadata only so the database trigger can copy it into the profile row the moment the account is created.
       data: { full_name: profile.name, phone: profile.phone },
       emailRedirectTo: callback("/account"),
     },
@@ -53,13 +39,7 @@ export async function signUp(
   return { error: error?.message ?? null };
 }
 
-/**
- * Google and Facebook.
- *
- * The provider has to be enabled in the Supabase dashboard first, with the
- * callback below registered on its side. Nothing about the button changes
- * between the two; only the provider name does.
- */
+/** Google and Facebook. */
 export async function signInWith(provider: Provider): Promise<AuthResult> {
   const supabase = createClient();
 
@@ -71,17 +51,12 @@ export async function signInWith(provider: Provider): Promise<AuthResult> {
   return { error: error?.message ?? null };
 }
 
-/**
- * Sends the reset link.
- *
- * The answer is the same whether or not the address has an account: telling a
- * stranger which addresses are registered is a way of enumerating your users.
- */
+/** Sends the reset link. */
 export async function requestPasswordReset(email: string): Promise<AuthResult> {
   const supabase = createClient();
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: callback("/account?reset=1"),
+    redirectTo: callback("/reset-password"),
   });
 
   return { error: error?.message ?? null };
@@ -99,18 +74,8 @@ export async function signOut(): Promise<void> {
   await supabase.auth.signOut();
 }
 
-/**
- * Saves the account holder's own details.
- *
- * Written to `profiles`, which is ours and which row level security limits to
- * the row belonging to the signed in account. The auth metadata is updated too,
- * only so the name is there for anything reading the session directly; the
- * profile is what the site reads.
- */
-export async function updateProfile(profile: {
-  name: string;
-  phone: string;
-}): Promise<AuthResult> {
+/** Saves the account holder's own details. */
+export async function updateProfile(profile: { name: string; phone: string }): Promise<AuthResult> {
   const supabase = createClient();
 
   const { data, error: sessionError } = await supabase.auth.getUser();

@@ -2,17 +2,7 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 
-/**
- * GSAP enhancement for the destination gallery.
- *
- * Two effects, both optional: panels wipe in from the bottom with a stagger
- * out from the centre, and the image inside each frame drifts on scroll for
- * parallax. The drift is applied to an inset wrapper, never to the panel
- * itself, so it cannot fight the CSS accordion that owns the layout.
- *
- * GSAP is imported after mount so it stays out of the first load, and the
- * whole thing is skipped for reduced motion.
- */
+/** GSAP enhancement for the destination gallery. */
 export function GalleryMotion({ children }: { children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
 

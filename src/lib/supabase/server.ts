@@ -5,13 +5,7 @@ import { cookies } from "next/headers";
 
 import { SUPABASE_PUBLISHABLE_KEY, SUPABASE_URL } from "./env";
 
-/**
- * Supabase on the server, reading the session from cookies.
- *
- * The `setAll` catch is deliberate: a Server Component may not write cookies,
- * and the proxy has already refreshed the session for this request, so there is
- * nothing to do and nothing to report.
- */
+/** Supabase on the server, reading the session from cookies. */
 export async function createClient() {
   const store = await cookies();
 
@@ -31,12 +25,7 @@ export async function createClient() {
   });
 }
 
-/**
- * The signed in visitor, or null.
- *
- * `getUser()` rather than `getSession()`: it revalidates the token with the
- * auth server, where `getSession` only decodes whatever cookie was sent.
- */
+/** The signed in visitor, or null. */
 export async function getUser() {
   const supabase = await createClient();
   const { data } = await supabase.auth.getUser();

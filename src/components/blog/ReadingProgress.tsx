@@ -2,13 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-/**
- * Thin progress bar pinned under the navbar.
- *
- * Reads scroll position against the article's own height rather than the whole
- * document, so it reaches 100% at the end of the piece instead of somewhere in
- * the footer. Measurement is throttled to one frame.
- */
+/** Thin progress bar pinned under the navbar. */
 export function ReadingProgress({ target }: { target: string }) {
   const [progress, setProgress] = useState(0);
 
@@ -47,12 +41,9 @@ export function ReadingProgress({ target }: { target: string }) {
   }, [target]);
 
   return (
-    <div
-      aria-hidden
-      className="fixed inset-x-0 top-0 z-40 h-[3px] bg-transparent"
-    >
+    <div aria-hidden className="fixed inset-x-0 top-0 z-40 h-[3px] bg-transparent">
       <div
-        className="h-full origin-left bg-ember-500 transition-transform duration-150 ease-out"
+        className="bg-ember-500 h-full origin-left transition-transform duration-150 ease-out"
         style={{ transform: `scaleX(${progress})` }}
       />
     </div>

@@ -1,12 +1,4 @@
 // Generated from libphonenumber-js, filtered against flagcdn's supported list.
-// Do not edit by hand.
-//
-// Only this map ships to the browser. libphonenumber-js stays a devDependency,
-// which keeps its metadata (roughly 28kb gzipped) out of the client bundle
-// while the codes themselves stay accurate.
-//
-// Excluded: AC, TA. flagcdn serves no flag for them, so the
-// picker would show a broken image next to the dial code.
 
 export const dialCodes: Record<string, string> = {
   AD: "376",

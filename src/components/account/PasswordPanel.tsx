@@ -6,14 +6,7 @@ import { Field, Panel, PrimaryButton, fieldClass } from "@/components/account/pa
 import { signIn, updatePassword } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/client";
 
-/**
- * Changing the password.
- *
- * Supabase will change it from a live session without asking for the old one,
- * which is not good enough on a shared or left-open browser. The current
- * password is checked first by signing in with it, and only then is the new one
- * set.
- */
+/** Changing the password. */
 export function PasswordPanel() {
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -67,7 +60,7 @@ export function PasswordPanel() {
         )}
 
         {saved && (
-          <p className="rounded-xl bg-brand-800/8 px-4 py-3 text-[13px] text-brand-900/75">
+          <p className="bg-brand-800/8 text-brand-900/75 rounded-xl px-4 py-3 text-[13px]">
             Password updated.
           </p>
         )}

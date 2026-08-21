@@ -4,23 +4,17 @@ import { useRouter } from "next/navigation";
 import { useId, useState, type FormEvent } from "react";
 
 import { AuthShell, type Phase } from "@/components/auth/AuthShell";
-import { Field, PasswordField, PrimaryButton, SocialButtons, fieldClass } from "@/components/auth/fields";
-import { PhoneField } from "@/components/ui/PhoneField";
 import {
-  requestPasswordReset,
-  signIn,
-  signInWith,
-  signUp,
-  updatePassword,
-} from "@/lib/auth";
+  Field,
+  PasswordField,
+  PrimaryButton,
+  SocialButtons,
+  fieldClass,
+} from "@/components/auth/fields";
+import { PhoneField } from "@/components/ui/PhoneField";
+import { requestPasswordReset, signIn, signInWith, signUp, updatePassword } from "@/lib/auth";
 
-/**
- * Which of the four screens the dialog is showing.
- *
- * One dialog, four views, rather than four dialogs: signing in, joining and
- * resetting a password are the same conversation, and closing one to open
- * another loses whatever was typed and flashes the page behind.
- */
+/** Which of the four screens the dialog is showing. */
 export type AuthView = "login" | "register" | "forgot" | "update";
 
 export type AuthLabels = {
@@ -39,7 +33,15 @@ export type AuthLabels = {
   countryLabel: string;
   searchLabel: string;
 
-  login: { eyebrow: string; title: string; lead: string; submit: string; forgot: string; noAccount: string; join: string };
+  login: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    submit: string;
+    forgot: string;
+    noAccount: string;
+    join: string;
+  };
   register: {
     eyebrow: string;
     title: string;
@@ -50,7 +52,14 @@ export type AuthLabels = {
     haveAccount: string;
     signIn: string;
   };
-  forgot: { eyebrow: string; title: string; lead: string; submit: string; back: string; sent: string };
+  forgot: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    submit: string;
+    back: string;
+    sent: string;
+  };
   update: {
     eyebrow: string;
     title: string;
@@ -65,17 +74,7 @@ export type AuthLabels = {
 const linkClass =
   "font-semibold text-brand-900 underline decoration-ember-500/50 underline-offset-[3px] transition-colors hover:decoration-ember-500";
 
-/**
- * The account dialog.
- *
- * Controlled from outside rather than owning its own trigger: whatever opens it
- * lives in the navigation bar, and a component cannot be handed a render
- * function across the server boundary.
- *
- * Design only for now: nothing is submitted anywhere. The forms are marked up
- * as real forms with the right autocomplete hints, so wiring them to Supabase
- * later is a matter of adding an action, not rebuilding the screen.
- */
+/** The account dialog. */
 export function AuthModal({
   labels,
   onClose,
@@ -86,9 +85,7 @@ export function AuthModal({
   onClose: () => void;
   view?: AuthView;
 }) {
-  // Mounted only while open, so it starts open and unmounts itself on the way
-  // out. Deriving the phase from a prop instead would mean syncing state in an
-  // effect, and the exit animation would never get to play.
+  // Mounted only while open, so it starts open and unmounts itself on the way out.
   const [phase, setPhase] = useState<Phase>("open");
   const [view, setView] = useState<AuthView>(initialView);
   const [pending, setPending] = useState(false);
@@ -146,8 +143,7 @@ export function AuthModal({
       return;
     }
 
-    // Signed in: the page has to be re-rendered on the server for the navigation
-    // bar and the account pages to see the new session.
+    // Signed in: the page has to be re-rendered on the server for the navigation bar and the account pages to see the new session.
     setPhase("closing");
     router.refresh();
   }
@@ -220,7 +216,7 @@ export function AuthModal({
           )}
 
           {done && (
-            <p className="rounded-xl bg-brand-800/8 px-4 py-3 text-[13px] leading-relaxed text-brand-900/75">
+            <p className="bg-brand-800/8 text-brand-900/75 rounded-xl px-4 py-3 text-[13px] leading-relaxed">
               {done}
             </p>
           )}
@@ -319,12 +315,10 @@ export function AuthModal({
           <PrimaryButton pending={pending}>{copy.submit}</PrimaryButton>
 
           {view === "register" && (
-            <p className="text-center text-[12px] leading-relaxed text-brand-800/50">
+            <p className="text-brand-800/50 text-center text-[12px] leading-relaxed">
               {labels.register.terms}
             </p>
           )}
-
-
         </form>
       </AuthShell>
     </>

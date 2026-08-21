@@ -20,12 +20,11 @@ const defaultImage = {
   type: "image/png",
 };
 
-const url = (locale: Locale, path: string) =>
-  `${siteUrl}/${locale}${path === "/" ? "" : path}`;
+const url = (locale: Locale, path: string) => `${siteUrl}/${locale}${path === "/" ? "" : path}`;
 
 type SeoInput = {
   locale: Locale;
-  /** Path without the locale prefix, e.g. "/tours/ladakh". */
+  /** Path without the locale prefix, e.g. "/adventure/ladakh". */
   path?: string;
   title?: string;
   description?: string;
@@ -35,12 +34,7 @@ type SeoInput = {
   modifiedTime?: string;
   /** Surfaced as the Twitter "time to read" label on articles. */
   readingMinutes?: number;
-  /**
-   * Languages this page actually exists in. Defaults to all of them, which is
-   * right for hand-translated pages. CMS content that is not translated yet
-   * should pass the real list so hreflang does not advertise a translation
-   * that is not there.
-   */
+  /** Languages this page actually exists in. */
   availableLocales?: readonly Locale[];
   noIndex?: boolean;
 };

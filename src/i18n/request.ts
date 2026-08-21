@@ -15,12 +15,7 @@ const bundled: Record<Locale, () => Promise<{ default: Catalogue }>> = {
   es: () => import("../../messages/es.json"),
 };
 
-/**
- * In dev, read the catalogue off disk instead of importing it. The bundler
- * caches JSON modules and does not reliably invalidate them when the file
- * changes, which otherwise leaves you staring at raw message keys until you
- * restart the dev server. Production always uses the bundled imports.
- */
+/** In dev, read the catalogue off disk instead of importing it. */
 async function loadMessages(locale: Locale): Promise<Catalogue> {
   if (process.env.NODE_ENV === "development") {
     const [{ readFile }, { join }] = await Promise.all([

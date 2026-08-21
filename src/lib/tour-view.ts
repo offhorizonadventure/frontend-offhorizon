@@ -2,15 +2,7 @@ import "server-only";
 
 import type { Departure, Tour } from "@/lib/catalogue";
 import { imageUrl } from "@/lib/catalogue";
-import type { FactKey, PriceGroup } from "@/config/tour-pages";
-
-/**
- * Turning database rows into what the tour page components already take.
- *
- * The page was built against a config file; the shapes it expects are perfectly
- * good, so this maps onto them rather than rewriting eight components. Where
- * the database says nothing, the section is dropped rather than rendered empty.
- */
+import type { FactKey, PriceGroup } from "@/lib/tour-types";
 
 /** The admin stores snake_case; the page's icons and labels are camelCase. */
 const FACT_KEYS: Record<string, FactKey> = {
@@ -24,18 +16,7 @@ const FACT_KEYS: Record<string, FactKey> = {
   group_size: "groupSize",
 };
 
-/**
- * Two facts are stored as bare numbers and read badly on their own.
- *
- * Distance gets a tolerance mark, because a route length is a plan rather than
- * a measurement: detours, closures and fuel runs all move it. Duration is shown
- * as days and nights, which is the pair a traveller books flights and hotels
- * against; eleven nights sit inside twelve days, so the second number is always
- * one fewer.
- *
- * Both leave a value alone if the editor has already written it out, so typing
- * "± 1,800 km" or "12 days, 11 nights" is not doubled up.
- */
+/** Two facts are stored as bare numbers and read badly on their own. */
 function present(key: FactKey, value: string): string {
   if (key === "distance") {
     return /^[±~+]/.test(value) ? value : `± ${value}`;
@@ -56,14 +37,7 @@ export const factList = (tour: Tour): { key: FactKey; value: string }[] =>
     .filter((fact) => fact.value)
     .map((fact) => ({ ...fact, value: present(fact.key, fact.value) }));
 
-/**
- * The price card, built from the cheapest departure.
- *
- * A tour can run at several prices across a season. The card says "from", so it
- * quotes the cheapest and lets the dates drawer show the rest. A line with no
- * price is left out entirely: an empty row reads as a missing feature rather
- * than as an unpriced one.
- */
+/** The price card, built from the cheapest departure. */
 export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
   const cheapest = [...departures]
     .filter((departure) => departure.rider_price !== null)
@@ -83,7 +57,8 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
       title: "Expedition price",
       lines: [
         { icon: "rider", label: "Rider", amount: cheapest.rider_price ?? 0 },
-        ...(cheapest.pillion_price !== null
+        // A zero is not "included": these are options a tour either offers or does not, and a price of nothing on a room nobody can book is a promise the trip cannot keep.
+        ...(cheapest.pillion_price
           ? [
               {
                 icon: "pillion" as const,
@@ -109,7 +84,7 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
           },
         ]
       : []),
-    ...(cheapest.damage_protection_price !== null
+    ...(cheapest.damage_protection_price
       ? [
           {
             icon: "shield" as const,
@@ -124,7 +99,7 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
 
   if (machineLines.length) groups.push({ title: "Machine", lines: machineLines });
 
-  if (cheapest.single_room_price !== null) {
+  if (cheapest.single_room_price) {
     groups.push({
       title: "Rooms",
       lines: [
@@ -151,12 +126,21 @@ export const departureList = (departures: Departure[]) =>
   departures.map((departure) => ({
     start: departure.start_date,
     end: departure.end_date,
-    // A departure with nothing left is sold out whether or not the switch has
-    // been thrown, so the two are settled here rather than on the card.
+    // A departure with nothing left is sold out whether or not the switch has been thrown, so the two are settled here rather than on the card.
     soldOut: departure.sold_out || left(departure) === 0,
     solo: departure.rider_price ?? 0,
     twin: departure.pillion_price ?? 0,
     seats: left(departure),
+    kind: departure.kind,
+    // Only the ones with a rate: a car with no daily price cannot be totalled, and offering it would produce a quote that is quietly wrong.
+    vehicles: departure.vehicles
+      .filter((vehicle) => vehicle.per_day_price)
+      .map((vehicle) => ({
+        id: vehicle.id,
+        name: vehicle.name,
+        seats: vehicle.seats ?? 4,
+        perDay: vehicle.per_day_price as number,
+      })),
     edition: departure.edition ?? "",
     direction: departure.direction ?? "",
     leader: departure.leader ?? "",
@@ -185,28 +169,20 @@ export const programmeList = (tour: Tour) =>
 export const galleryList = (tour: Tour) =>
   tour.gallery.map((image) => ({ image: imageUrl(image.path)!, alt: image.alt }));
 
-/**
- * The what-to-expect panels, each behind a different photograph.
- *
- * The pictures come from the tour's own gallery, spread evenly across it rather
- * than taken from the front: four tabs pulling the first four shots would show
- * four versions of the same afternoon, since a gallery is usually uploaded in
- * the order it was taken.
- *
- * Spread, not random. A fresh pick on every render would change under a reader
- * mid-page and would differ between the server and the browser; this gives the
- * same variety and stays put. The hero stands in when there is no gallery.
- */
+/** The what-to-expect panels, each behind a different photograph. */
 export const expectList = (tour: Tour) => {
   const gallery = tour.gallery.map((image) => imageUrl(image.path)!).filter(Boolean);
   const hero = imageUrl(tour.hero_path) ?? "";
 
-  const stride = gallery.length > tour.expect.length
-    ? Math.floor(gallery.length / tour.expect.length)
-    : 1;
+  // Fisher-Yates over a copy: `sort(() => Math.random() - 0.5)` is the usual shortcut and is not an even shuffle, which shows as the same photograph turning up in the first panel far too often.
+  const shuffled = [...gallery];
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swap = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[swap]] = [shuffled[swap], shuffled[index]];
+  }
 
   return tour.expect.map((panel, index) => ({
     ...panel,
-    image: gallery.length ? gallery[(index * stride) % gallery.length] : hero,
+    image: shuffled.length ? shuffled[index % shuffled.length] : hero,
   }));
 };

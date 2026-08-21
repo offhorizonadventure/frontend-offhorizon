@@ -12,13 +12,7 @@ import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
 import { buildMetadata, siteName, siteUrl } from "@/lib/seo";
 
-/**
- * Built on first request and cached, rather than enumerated at build time.
- *
- * Posts are written after the site is deployed, and a list baked at build time
- * would mean a redeploy for every article. `dynamicParams` lets an unknown slug
- * render once and then be served from the cache like any other.
- */
+/** Built on first request and cached, rather than enumerated at build time. */
 export const revalidate = 600;
 export const dynamicParams = true;
 
@@ -87,7 +81,7 @@ export default async function PostPage({ params }: PageProps<"/[locale]/blog/[sl
       <ReadingProgress target="#post-body" />
 
       <article>
-        <header className="relative overflow-hidden bg-brand-950 pt-32 pb-14 text-cream-100 sm:pt-40 sm:pb-16">
+        <header className="bg-brand-950 text-cream-100 relative overflow-hidden pt-32 pb-14 sm:pt-40 sm:pb-16">
           <Topo className="text-cream-100/12" rings={15} seed={16.2} />
           <div
             aria-hidden
@@ -97,7 +91,7 @@ export default async function PostPage({ params }: PageProps<"/[locale]/blog/[sl
           <div className="relative mx-auto max-w-4xl px-5 sm:px-8">
             <Link
               href="/blog"
-              className="group inline-flex items-center gap-2.5 text-[10.5px] font-bold tracking-[0.16em] text-cream-100/50 uppercase transition-colors hover:text-cream-100"
+              className="group text-cream-100/50 hover:text-cream-100 inline-flex items-center gap-2.5 text-[10.5px] font-bold tracking-[0.16em] uppercase transition-colors"
             >
               <ArrowRight className="rotate-180 transition-transform duration-300 group-hover:-translate-x-1" />
               {t("backToBlog")}
@@ -107,7 +101,7 @@ export default async function PostPage({ params }: PageProps<"/[locale]/blog/[sl
               <span className="text-ember-500">
                 <time dateTime={publishedAt}>{published}</time>
               </span>
-              <span aria-hidden className="size-1 rounded-full bg-cream-100/30" />
+              <span aria-hidden className="bg-cream-100/30 size-1 rounded-full" />
               <span className="text-cream-100/45">
                 {t("readingTime", { minutes: readingMinutes(post.body) })}
               </span>
@@ -117,18 +111,17 @@ export default async function PostPage({ params }: PageProps<"/[locale]/blog/[sl
               {post.title}
             </h1>
 
-            <p className="mt-6 max-w-2xl text-[16px] leading-[1.8] text-pretty text-cream-100/60 sm:text-[17px]">
+            <p className="text-cream-100/60 mt-6 max-w-2xl text-[16px] leading-[1.8] text-pretty sm:text-[17px]">
               {post.excerpt}
             </p>
-
           </div>
         </header>
 
         {/* Cover straddles the header and the body. */}
-        <div className="relative bg-cream-50">
-          <div aria-hidden className="absolute inset-x-0 top-0 h-1/2 bg-brand-950" />
+        <div className="bg-cream-50 relative">
+          <div aria-hidden className="bg-brand-950 absolute inset-x-0 top-0 h-1/2" />
           <div className="relative mx-auto max-w-5xl px-5 sm:px-8">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-[24px] bg-brand-100 ring-1 ring-brand-950/10">
+            <div className="bg-brand-100 ring-brand-950/10 relative aspect-[16/9] overflow-hidden rounded-[24px] ring-1">
               {imageUrl(post.cover_path) && (
                 <Image
                   src={imageUrl(post.cover_path)!}
@@ -146,7 +139,6 @@ export default async function PostPage({ params }: PageProps<"/[locale]/blog/[sl
         <div id="post-body" className="bg-cream-50 py-14 sm:py-20">
           <div className="mx-auto max-w-5xl px-5 sm:px-8">
             <RichBody doc={post.body} />
-
           </div>
         </div>
       </article>
@@ -154,25 +146,25 @@ export default async function PostPage({ params }: PageProps<"/[locale]/blog/[sl
       {others.length > 0 && (
         <section className="bg-white py-16 sm:py-20">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
-            <h2 className="font-display text-[11px] font-bold tracking-[0.2em] text-brand-700 uppercase">
+            <h2 className="font-display text-brand-700 text-[11px] font-bold tracking-[0.2em] uppercase">
               {t("moreReading")}
             </h2>
             <ul data-anim-group className="mt-7 grid gap-8 md:grid-cols-3">
               {others.map((item) => (
                 <li key={item.slug}>
                   <Link href={`/blog/${item.slug}`} className="group block">
-                    <div className="relative aspect-[16/11] overflow-hidden rounded-[18px] bg-brand-100">
+                    <div className="bg-brand-100 relative aspect-[16/11] overflow-hidden rounded-[18px]">
                       {imageUrl(item.cover_path) && (
                         <Image
                           src={imageUrl(item.cover_path)!}
                           alt={item.cover_alt ?? ""}
                           fill
                           sizes="(max-width: 767px) 92vw, 360px"
-                          className="object-cover transition-transform duration-[900ms] ease-out-expo group-hover:scale-[1.05]"
+                          className="ease-out-expo object-cover transition-transform duration-[900ms] group-hover:scale-[1.05]"
                         />
                       )}
                     </div>
-                    <h3 className="font-display mt-4 text-[16px] leading-tight font-bold tracking-[-0.02em] text-brand-900">
+                    <h3 className="font-display text-brand-900 mt-4 text-[16px] leading-tight font-bold tracking-[-0.02em]">
                       {item.title}
                     </h3>
                   </Link>

@@ -21,17 +21,7 @@ type VideoPlayerProps = {
 
 type Phase = "closed" | "open" | "closing";
 
-/**
- * Poster card that opens the film in a lightbox.
- *
- * Two reasons it is not played inline: the card is small, so YouTube's own
- * title bar and controls end up covering most of the frame, and the branded
- * chrome sits badly inside the site's own card design. A wide overlay gives
- * the footage the room it needs and leaves the grid intact.
- *
- * It stays a facade either way. No iframe, player script or cookie exists
- * until the visitor presses play, so the click is also the consent moment.
- */
+/** Poster card that opens the film in a lightbox. */
 export function VideoPlayer({
   youtubeId,
   title,
@@ -73,7 +63,7 @@ export function VideoPlayer({
         <div
           onClick={() => setPhase("closing")}
           className={cn(
-            "absolute inset-0 bg-brand-950/90 backdrop-blur-lg",
+            "bg-brand-950/90 absolute inset-0 backdrop-blur-lg",
             isOpen ? "animate-fade-in" : "animate-fade-out",
           )}
         />
@@ -94,7 +84,7 @@ export function VideoPlayer({
           )}
         >
           <div className="flex items-center justify-between gap-4 pb-3">
-            <p className="font-display truncate text-[14px] font-bold tracking-[-0.01em] text-cream-100 sm:text-[16px]">
+            <p className="font-display text-cream-100 truncate text-[14px] font-bold tracking-[-0.01em] sm:text-[16px]">
               {title}
             </p>
             <button
@@ -102,13 +92,13 @@ export function VideoPlayer({
               type="button"
               onClick={() => setPhase("closing")}
               aria-label={closeLabel}
-              className="flex size-10 shrink-0 items-center justify-center rounded-full border border-cream-100/25 text-cream-100 transition-colors hover:bg-cream-100 hover:text-brand-950"
+              className="border-cream-100/25 text-cream-100 hover:bg-cream-100 hover:text-brand-950 flex size-10 shrink-0 items-center justify-center rounded-full border transition-colors"
             >
               <Close />
             </button>
           </div>
 
-          <div className="relative aspect-video overflow-hidden rounded-2xl bg-black ring-1 ring-cream-100/15">
+          <div className="ring-cream-100/15 relative aspect-video overflow-hidden rounded-2xl bg-black ring-1">
             {isOpen && (
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
@@ -139,12 +129,12 @@ export function VideoPlayer({
           fill
           placeholder="blur"
           sizes={sizes}
-          className="object-cover transition-transform duration-[1200ms] ease-out-expo group-hover/v:scale-[1.05]"
+          className="ease-out-expo object-cover transition-transform duration-[1200ms] group-hover/v:scale-[1.05]"
         />
 
         <span
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-t from-brand-950/80 via-brand-950/15 to-brand-950/5"
+          className="from-brand-950/80 via-brand-950/15 to-brand-950/5 absolute inset-0 bg-gradient-to-t"
         />
 
         {/* Solid disc rather than a frosted one: a translucent blur over
@@ -154,8 +144,8 @@ export function VideoPlayer({
           className={cn(
             "absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full",
             "bg-cream-50 shadow-[0_8px_28px_-6px_rgba(42,16,2,0.55)]",
-            "transition-[transform,background-color] duration-400 ease-out-expo",
-            "group-hover/v:scale-[1.08] group-hover/v:bg-ember-500",
+            "ease-out-expo transition-[transform,background-color] duration-400",
+            "group-hover/v:bg-ember-500 group-hover/v:scale-[1.08]",
             featured ? "size-16 sm:size-[4.5rem]" : "size-13",
           )}
         >
@@ -164,7 +154,7 @@ export function VideoPlayer({
             viewBox="0 0 16 16"
             width={featured ? 22 : 17}
             height={featured ? 22 : 17}
-            className="translate-x-[6%] fill-brand-900 transition-colors duration-400 group-hover/v:fill-cream-50"
+            className="fill-brand-900 group-hover/v:fill-cream-50 translate-x-[6%] transition-colors duration-400"
           >
             <path d="M3.4 1.9a.9.9 0 0 1 1.36-.77l8.4 5.1a.9.9 0 0 1 0 1.54l-8.4 5.1a.9.9 0 0 1-1.36-.77z" />
           </svg>
@@ -173,14 +163,14 @@ export function VideoPlayer({
         <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 sm:p-6">
           <span
             className={cn(
-              "font-display min-w-0 leading-tight font-bold tracking-[-0.02em] text-white text-pretty",
+              "font-display min-w-0 leading-tight font-bold tracking-[-0.02em] text-pretty text-white",
               featured ? "text-[19px] sm:text-[23px]" : "text-[15px]",
             )}
           >
             {title}
           </span>
 
-          <span className="shrink-0 rounded-full bg-brand-950/65 px-2.5 py-1 text-[11px] font-semibold text-white/90 tabular-nums backdrop-blur-sm">
+          <span className="bg-brand-950/65 shrink-0 rounded-full px-2.5 py-1 text-[11px] font-semibold text-white/90 tabular-nums backdrop-blur-sm">
             {duration}
           </span>
         </span>

@@ -4,17 +4,7 @@ import { ArrowRight } from "@/components/ui/icons";
 import { Flag } from "@/components/ui/Flag";
 import { Link } from "@/i18n/navigation";
 
-/**
- * Country and region card.
- *
- * Deliberately the same treatment as the home page gallery panel: photograph,
- * soft scrim, name over the foot, and a ringed circular arrow that fills on
- * hover. Countries run portrait in a three-up grid, regions run landscape in a
- * two-up one, so the frame is the only thing that changes.
- *
- * Planned places get the same card rather than a placeholder tile, because a
- * dashed box next to a photograph reads as something broken.
- */
+/** Country and region card. */
 export function PlaceCard({
   href,
   name,
@@ -44,7 +34,7 @@ export function PlaceCard({
   return (
     <Link
       href={href}
-      className="group @container block h-full overflow-hidden rounded-[28px] bg-brand-100 ring-1 ring-brand-900/10 transition-transform duration-500 ease-out-expo hover:-translate-y-1"
+      className="group bg-brand-100 ring-brand-900/10 ease-out-expo @container block h-full overflow-hidden rounded-[28px] ring-1 transition-transform duration-500 hover:-translate-y-1"
     >
       {/* A region card carries a line of description, so a 16:10 frame on a
           narrow card is shorter than its own caption. The frame stands up as
@@ -52,9 +42,7 @@ export function PlaceCard({
           from the grid, not the window. */}
       <article
         className={`relative ${
-          frame === "portrait"
-            ? "aspect-[3/4]"
-            : "aspect-[4/5] @lg:aspect-[16/10]"
+          frame === "portrait" ? "aspect-[3/4]" : "aspect-[4/5] @lg:aspect-[16/10]"
         }`}
       >
         <Image
@@ -64,7 +52,7 @@ export function PlaceCard({
           placeholder="blur"
           sizes={sizes}
           quality={90}
-          className="object-cover transition-transform duration-[1400ms] ease-out-expo group-hover:scale-[1.06]"
+          className="ease-out-expo object-cover transition-transform duration-[1400ms] group-hover:scale-[1.06]"
         />
 
         <span
@@ -72,7 +60,7 @@ export function PlaceCard({
           className="absolute inset-0 bg-[linear-gradient(to_top,var(--color-brand-950)_0%,color-mix(in_srgb,var(--color-brand-950)_45%,transparent)_38%,transparent_72%)]"
         />
 
-        <span className="absolute top-4 right-4 rounded-full bg-brand-950/60 px-3 py-1 text-[9.5px] font-bold tracking-[0.14em] text-cream-100/85 uppercase backdrop-blur-sm">
+        <span className="bg-brand-950/60 text-cream-100/85 absolute top-4 right-4 rounded-full px-3 py-1 text-[9.5px] font-bold tracking-[0.14em] uppercase backdrop-blur-sm">
           {badge}
         </span>
 
@@ -94,7 +82,7 @@ export function PlaceCard({
             <span className="text-[10.5px] font-semibold tracking-[0.16em] text-white/70 uppercase">
               {meta}
             </span>
-            <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-white/12 text-white ring-1 ring-white/25 backdrop-blur-sm transition-colors duration-300 group-hover:bg-white group-hover:text-brand-900">
+            <span className="group-hover:text-brand-900 flex size-9 shrink-0 items-center justify-center rounded-full bg-white/12 text-white ring-1 ring-white/25 backdrop-blur-sm transition-colors duration-300 group-hover:bg-white">
               <ArrowRight />
             </span>
           </div>

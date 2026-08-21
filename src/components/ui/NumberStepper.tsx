@@ -16,14 +16,7 @@ type NumberStepperProps = {
   increaseLabel: string;
 };
 
-/**
- * Increment and decrement control.
- *
- * The count is a real focusable input rather than a plain span, so it can be
- * typed into and read by assistive tech, with `role="spinbutton"` semantics
- * coming from the native number type. The buttons disable at the bounds
- * instead of silently refusing, so the limit is visible.
- */
+/** Increment and decrement control. */
 export function NumberStepper({
   name,
   label,
@@ -39,14 +32,11 @@ export function NumberStepper({
   const [uncontrolled, setUncontrolled] = useState(defaultValue);
   const id = useId();
 
-  // Controlled when the parent passes a value, uncontrolled otherwise, so the
-  // plain form usages keep working untouched.
+  // Controlled when the parent passes a value, uncontrolled otherwise, so the plain form usages keep working untouched.
   const value = controlled ?? uncontrolled;
   const clamp = (next: number) => Math.min(max, Math.max(min, next));
 
-  // Two clicks inside one tick both read the same prop and land on the same
-  // number, so steps are counted against a mirror that updates immediately
-  // rather than against the rendered value.
+  // Two clicks inside one tick both read the same prop and land on the same number, so steps are counted against a mirror that updates immediately rather than against the rendered value.
   const pending = useRef(value);
   useEffect(() => {
     pending.current = value;
@@ -68,13 +58,13 @@ export function NumberStepper({
     <div>
       <label
         htmlFor={id}
-        className="block text-[10.5px] font-bold tracking-[0.16em] text-brand-600 uppercase"
+        className="text-brand-600 block text-[10.5px] font-bold tracking-[0.16em] uppercase"
       >
         {label}
       </label>
-      {hint && <p className="mt-1 text-[12px] text-brand-800/45">{hint}</p>}
+      {hint && <p className="text-brand-800/45 mt-1 text-[12px]">{hint}</p>}
 
-      <div className="mt-2.5 flex h-12 items-center justify-between rounded-xl border border-brand-900/15 bg-white px-2 transition-[border-color,box-shadow] focus-within:border-brand-800 focus-within:ring-[3px] focus-within:ring-brand-800/10">
+      <div className="border-brand-900/15 focus-within:border-brand-800 focus-within:ring-brand-800/10 mt-2.5 flex h-12 items-center justify-between rounded-xl border bg-white px-2 transition-[border-color,box-shadow] focus-within:ring-[3px]">
         <button
           type="button"
           onClick={() => step(-1)}
@@ -96,7 +86,7 @@ export function NumberStepper({
           max={max}
           value={value}
           onChange={(event) => setValue(Number(event.target.value) || min)}
-          className="w-full min-w-0 [appearance:textfield] bg-transparent text-center text-[15px] font-semibold text-brand-900 outline-none tabular-nums [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+          className="text-brand-900 w-full min-w-0 [appearance:textfield] bg-transparent text-center text-[15px] font-semibold tabular-nums outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
         />
 
         <button

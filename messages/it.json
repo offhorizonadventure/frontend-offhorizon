@@ -673,9 +673,7 @@
               "Paesaggi che passano dal ghiacciaio al deserto freddo nella stessa giornata",
               "Culture induiste e buddiste vive, non conservate"
             ],
-            "after": [
-              "Organizziamo spedizioni nell'Himalaya indiano, nepalese e bhutanese."
-            ]
+            "after": ["Organizziamo spedizioni nell'Himalaya indiano, nepalese e bhutanese."]
           },
           {
             "question": "Perché l'Himalaya è il posto migliore per una spedizione in moto?",
@@ -819,9 +817,7 @@
           },
           {
             "question": "Qual è la stagione per guidare in Nepal?",
-            "answer": [
-              "Primavera e autunno sono le finestre principali, e il Mustang le allunga."
-            ],
+            "answer": ["Primavera e autunno sono le finestre principali, e il Mustang le allunga."],
             "list": [
               "Da marzo a maggio: caldo, limpido, rododendri in fiore in quota",
               "Da giugno ad agosto: monsone su quasi tutto il paese, ma il Mustang è in ombra di pioggia e resta relativamente asciutto",
@@ -903,9 +899,7 @@
               "Villaggi e monasteri cambiati pochissimo",
               "Aria secca, luce dura e un vento che si alza ogni pomeriggio"
             ],
-            "after": [
-              "È la cosa più vicina a guidare in Tibet senza attraversare il confine."
-            ]
+            "after": ["È la cosa più vicina a guidare in Tibet senza attraversare il confine."]
           },
           {
             "question": "Cos'è la gola della Kali Gandaki?",
@@ -916,9 +910,7 @@
           },
           {
             "question": "Quanto è impegnativa la guida?",
-            "answer": [
-              "Moderata. Meno tecnica del Ladakh, ma più lunga su fondo non asfaltato."
-            ],
+            "answer": ["Moderata. Meno tecnica del Ladakh, ma più lunga su fondo non asfaltato."],
             "list": [
               "Asfalto da Kathmandu a Pokhara e oltre",
               "Ghiaia, letto di fiume e fondo mobile a nord di Jomsom",
@@ -947,9 +939,7 @@
           },
           {
             "question": "Serve un'assicurazione di viaggio?",
-            "answer": [
-              "Sì. È obbligatoria e deve coprire:"
-            ],
+            "answer": ["Sì. È obbligatoria e deve coprire:"],
             "list": [
               "Viaggi in quota sopra i 4.000 metri",
               "La guida della moto, che molte polizze standard escludono",
@@ -1083,7 +1073,8 @@
       "eyebrow": "Quanto costa",
       "title": "Un prezzo, e le poche voci che si aggiungono",
       "body": "Il prezzo pilota copre la spedizione vera e propria. Tutto il resto è facoltativo: la camera singola o la copertura extra si pagano solo se le vuoi. Alla fine non si aggiunge nulla.",
-      "datesTitle": "Date di partenza"
+      "datesTitle": "Date di partenza",
+      "noDates": "Le date non sono ancora fissate. Dicci quando vuoi partire e la costruiamo su misura."
     },
     "highlights": {
       "eyebrow": "Da non perdere",
@@ -1132,6 +1123,14 @@
         "roomHint": "Le camere sono doppie salvo che tu scelga questa.",
         "none": "Potrai cambiare tutto più avanti. Non hai ancora prenotato nulla."
       },
+      "vehicle": {
+        "title": "Il tuo mezzo",
+        "help": "Noleggiato per i {days} giorni della spedizione e condiviso da chi ci viaggia.",
+        "seats": "{count} posti",
+        "perDay": "al giorno",
+        "total": "per il viaggio",
+        "none": "Porti la tua auto? Salta questo passaggio e scrivilo nella richiesta."
+      },
       "summary": {
         "title": "Ecco cosa hai scelto",
         "help": "Una stima, non una prenotazione. Confermeremo tutto via email.",
@@ -1140,12 +1139,23 @@
         "pillions": "Passeggeri",
         "insurance": "Protezione danni",
         "room": "Camere singole",
+        "vehicle": "Mezzo",
         "total": "Totale stimato",
         "enquire": "Invia la richiesta",
         "note": "Convertito dai dollari statunitensi al cambio di oggi: l'importo finale dipende dal cambio del giorno in cui paghi. I voli non sono inclusi.",
         "dates": "Date",
         "flexible": "Flessibile"
       }
+    },
+    "more": "Leggi di più",
+    "less": "Leggi meno",
+    "fleet": {
+      "eyebrow": "La flotta",
+      "title": "I mezzi che partono con te",
+      "lead": "Ognuno è noleggiato per tutta la spedizione, {days} giorni sulla partenza più breve, e condiviso da chi ci viaggia.",
+      "seats": "{count} posti",
+      "perDay": "al giorno",
+      "forTrip": "{total} per {days} giorni"
     }
   },
   "auth": {
@@ -1205,6 +1215,16 @@
       "password": "Nuova password",
       "confirm": "Conferma password",
       "rule": "Almeno otto caratteri."
+    },
+    "reset": {
+      "title": "Imposta una nuova password.",
+      "lead": "Scegli qualcosa che non hai già usato su questo account.",
+      "expiredTitle": "Il link è scaduto.",
+      "expiredLead": "I link valgono una volta sola e durano un'ora. Chiedine uno nuovo dall'accesso.",
+      "startAgain": "Torna al sito",
+      "saving": "Salvataggio…",
+      "mismatch": "Le due password non coincidono.",
+      "tooShort": "Usa almeno otto caratteri."
     }
   },
   "catalogue": {

@@ -5,13 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { UserRound } from "@/components/ui/icons";
 import { Link } from "@/i18n/navigation";
 
-/**
- * The account control in the navigation bar.
- *
- * Signed out it opens the dialog; signed in it drops a short menu. There is no
- * session yet, so it renders the signed out state and the menu is here for the
- * shape of the thing rather than for use.
- */
+/** The account control in the navigation bar. */
 export function AccountMenu({
   signIn,
   account,
@@ -34,17 +28,7 @@ export function AccountMenu({
   const [open, setOpen] = useState(false);
   const wrapper = useRef<HTMLDivElement>(null);
 
-  /**
-   * Closes on a click elsewhere or on Escape, and not on the pointer leaving.
-   *
-   * It opened on a click, so it has to close on one: a menu that vanishes when
-   * the pointer strays cannot be reached with a trackpad, and cannot be used at
-   * all from a keyboard or a touchscreen, where there is no leave event to
-   * speak of.
-   *
-   * `pointerdown` rather than `click`, so a press outside dismisses before the
-   * thing underneath reacts.
-   */
+  /** Closes on a click elsewhere or on Escape, and not on the pointer leaving. */
   useEffect(() => {
     if (!open) return;
 
@@ -70,7 +54,7 @@ export function AccountMenu({
       <button
         type="button"
         onClick={onSignIn}
-        className="inline-flex h-9 items-center gap-2 rounded-full border border-brand-900/15 px-3.5 text-[10.5px] font-bold tracking-[0.09em] whitespace-nowrap text-brand-900 uppercase transition-colors duration-200 hover:border-brand-900/35 hover:bg-brand-900/5"
+        className="border-brand-900/15 text-brand-900 hover:border-brand-900/35 hover:bg-brand-900/5 inline-flex h-9 items-center gap-2 rounded-full border px-3.5 text-[10.5px] font-bold tracking-[0.09em] whitespace-nowrap uppercase transition-colors duration-200"
       >
         <UserRound />
         <span className="hidden sm:inline">{signIn}</span>
@@ -88,7 +72,7 @@ export function AccountMenu({
         aria-expanded={open}
         aria-haspopup="menu"
         onClick={() => setOpen((on) => !on)}
-        className="grid size-9 place-items-center rounded-full bg-brand-800 text-cream-100 transition-colors hover:bg-brand-900"
+        className="bg-brand-800 text-cream-100 hover:bg-brand-900 grid size-9 place-items-center rounded-full transition-colors"
       >
         <UserRound />
       </button>
@@ -96,7 +80,7 @@ export function AccountMenu({
       {open && (
         <div
           role="menu"
-          className="absolute right-0 z-50 mt-2 w-48 overflow-hidden rounded-2xl border border-brand-900/10 bg-white py-1.5 shadow-xl shadow-brand-950/10"
+          className="border-brand-900/10 shadow-brand-950/10 absolute right-0 z-50 mt-2 w-48 overflow-hidden rounded-2xl border bg-white py-1.5 shadow-xl"
           onClick={() => setOpen(false)}
         >
           <Link href="/account" className={item}>
@@ -112,7 +96,7 @@ export function AccountMenu({
           <button
             type="button"
             onClick={onSignOut}
-            className={`${item} w-full border-t border-brand-900/8 text-left`}
+            className={`${item} border-brand-900/8 w-full border-t text-left`}
           >
             {signOutLabel}
           </button>

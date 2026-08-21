@@ -11,6 +11,6 @@ export type Experience = {
 
 /** The two formats every expedition is offered in. Order sets the 01 / 02 index. */
 export const experiences: Experience[] = [
-  { key: "motorcycle", href: "/tours?format=motorcycle", image: motorcycle },
-  { key: "selfDrive", href: "/tours?format=self-drive", image: selfDrive },
+  { key: "motorcycle", href: "/adventure-tours?format=motorcycle", image: motorcycle },
+  { key: "selfDrive", href: "/adventure-tours?format=self-drive", image: selfDrive },
 ];

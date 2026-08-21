@@ -1,12 +1,4 @@
-/**
- * Procedural topographic contours.
- *
- * The logo mark is filled with contour lines, so the same language is used as
- * the site's background motif. Each ring is a closed path whose radius is
- * perturbed by a few sine harmonics, whichgives the irregular, nested look of
- * a real contour map. Deterministic, so server and client render identically,
- * and it is inline SVG so it costs no request.
- */
+/** Procedural topographic contours. */
 
 type TopoProps = {
   /** Number of nested contour lines. */
@@ -30,7 +22,9 @@ function contour(cx: number, cy: number, radius: number, seed: number, squash: n
       0.02 * Math.sin(13 * t + seed * 3.1);
 
     const r = radius * wobble;
-    points.push(`${(cx + r * squash * Math.cos(t)).toFixed(1)},${(cy + r * Math.sin(t)).toFixed(1)}`);
+    points.push(
+      `${(cx + r * squash * Math.cos(t)).toFixed(1)},${(cy + r * Math.sin(t)).toFixed(1)}`,
+    );
   }
 
   return `M${points.join("L")}Z`;

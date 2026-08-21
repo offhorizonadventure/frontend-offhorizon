@@ -59,8 +59,7 @@ export default async function RegionPage({
   const t = await getTranslations({ locale, namespace: `dest.${region.content}` });
   const strengths = t.raw("why.items") as Blurb[];
 
-  // Only this region's tours: the Indian Himalayas page should not list a
-  // South India ride.
+  // Only this region's tours: the Indian Himalayas page should not list a South India ride.
   const cards = await regionCards(countrySlug, regionSlug);
 
   const schema = {
@@ -96,16 +95,16 @@ export default async function RegionPage({
       />
 
       {/* Tours available in this region */}
-      <section className="relative overflow-hidden bg-cream-50 py-18 sm:py-24">
+      <section className="bg-cream-50 relative overflow-hidden py-18 sm:py-24">
         <Topo className="text-brand-800/12" rings={11} seed={25.3} />
 
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
           <div data-anim="up">
-            <span className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-500 uppercase">
-              <span aria-hidden className="h-px w-8 bg-ember-500/60" />
+            <span className="text-ember-500 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase">
+              <span aria-hidden className="bg-ember-500/60 h-px w-8" />
               {t("tours.eyebrow")}
             </span>
-            <h2 className="font-display mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance text-brand-900">
+            <h2 className="font-display text-brand-900 mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance">
               {t("tours.title")}
             </h2>
           </div>
@@ -129,7 +128,7 @@ export default async function RegionPage({
       </section>
 
       {/* Why ride the region with us */}
-      <section className="relative overflow-hidden bg-brand-950 py-18 text-cream-100 sm:py-24">
+      <section className="bg-brand-950 text-cream-100 relative overflow-hidden py-18 sm:py-24">
         <Topo className="text-cream-100/10" rings={15} seed={26.1} />
         <div
           aria-hidden
@@ -138,32 +137,35 @@ export default async function RegionPage({
 
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
           <div data-anim="up" className="max-w-2xl">
-            <span className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-500 uppercase">
-              <span aria-hidden className="h-px w-8 bg-ember-500/60" />
+            <span className="text-ember-500 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase">
+              <span aria-hidden className="bg-ember-500/60 h-px w-8" />
               {t("why.eyebrow")}
             </span>
             <h2 className="font-display mt-5 text-[clamp(1.7rem,3.4vw,2.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance">
               {t("why.title")}
             </h2>
-            <p className="mt-4 text-[15px] leading-[1.8] text-cream-100/55">{t("why.body")}</p>
+            <p className="text-cream-100/55 mt-4 text-[15px] leading-[1.8]">{t("why.body")}</p>
           </div>
 
-          <ul data-anim-group className="mt-12 grid gap-px overflow-hidden rounded-3xl bg-cream-100/12 sm:grid-cols-2 lg:grid-cols-3">
+          <ul
+            data-anim-group
+            className="bg-cream-100/12 mt-12 grid gap-px overflow-hidden rounded-3xl sm:grid-cols-2 lg:grid-cols-3"
+          >
             {strengths.map((strength, index) => (
               <li key={strength.title} className="bg-brand-950 p-7">
-                <span className="font-display block text-[12px] font-extrabold tracking-[0.14em] text-ember-500 tabular-nums">
+                <span className="font-display text-ember-500 block text-[12px] font-extrabold tracking-[0.14em] tabular-nums">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display mt-4 text-[16.5px] leading-tight font-bold tracking-[-0.015em]">
                   {strength.title}
                 </h3>
-                <p className="mt-2.5 text-[13.5px] leading-[1.75] text-pretty text-cream-100/50">
+                <p className="text-cream-100/50 mt-2.5 text-[13.5px] leading-[1.75] text-pretty">
                   {strength.body}
                 </p>
               </li>
             ))}
             <li className="bg-brand-900 p-7">
-              <p className="font-display text-[15px] leading-snug font-bold tracking-[-0.015em] text-cream-100/90">
+              <p className="font-display text-cream-100/90 text-[15px] leading-snug font-bold tracking-[-0.015em]">
                 {t("why.closing")}
               </p>
             </li>
@@ -180,7 +182,11 @@ export default async function RegionPage({
         secondary={{ label: ts("sendEnquiry"), href: "/custom-expeditions" }}
       />
 
-      <Faq items={t.raw("faq.items") as FaqItem[]} eyebrow={ts("faqEyebrow")} title={t("faq.title")} />
+      <Faq
+        items={t.raw("faq.items") as FaqItem[]}
+        eyebrow={ts("faqEyebrow")}
+        title={t("faq.title")}
+      />
 
       <Riders />
     </>

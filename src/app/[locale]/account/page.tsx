@@ -8,11 +8,7 @@ import { getUser } from "@/lib/supabase/server";
 export default async function ProfilePage() {
   const [user, profile] = await Promise.all([getUser(), getProfile()]);
 
-  /**
-   * An account signed in through Google or Facebook has no password here to
-   * change, and offering to reset one would send a mail that cannot help. The
-   * provider owns the credentials; we only hold the session.
-   */
+  /** An account signed in through Google or Facebook has no password here to change, and offering to reset one would send a mail that cannot help. */
   const providers = (user?.app_metadata?.providers as string[] | undefined) ?? [];
   const hasPassword = providers.includes("email");
   const social = providers.filter((provider) => provider !== "email");

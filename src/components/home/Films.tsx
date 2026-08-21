@@ -6,21 +6,13 @@ import { cn } from "@/lib/cn";
 
 import { VideoPlayer } from "./VideoPlayer";
 
-/**
- * Film strip.
- *
- * The lead film takes a wide frame and the other two stack beside it, so the
- * row has a focal point instead of three equal thumbnails. Light section with
- * dark cards: the posters supply the contrast, which keeps the page from
- * running two dark bands together.
- */
+/** Film strip. */
 export async function Films() {
   const t = await getTranslations("home.films");
 
   const [lead, ...rest] = films;
 
   // VideoObject markup makes the films eligible for video results in search.
-  // Google also wants `uploadDate`, which is not in the config yet.
   const schema = films.map((film) => ({
     "@context": "https://schema.org",
     "@type": "VideoObject",
@@ -33,7 +25,7 @@ export async function Films() {
   }));
 
   return (
-    <section className="relative overflow-hidden bg-cream-50 py-20 sm:py-28">
+    <section className="bg-cream-50 relative overflow-hidden py-20 sm:py-28">
       <Topo className="text-brand-800/12" rings={11} seed={6.2} />
 
       <script
@@ -43,11 +35,11 @@ export async function Films() {
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <div data-anim="up" className="max-w-2xl">
-          <span className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-500 uppercase">
-            <span aria-hidden className="h-px w-8 bg-ember-500/60" />
+          <span className="text-ember-500 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase">
+            <span aria-hidden className="bg-ember-500/60 h-px w-8" />
             {t("eyebrow")}
           </span>
-          <h2 className="font-display mt-5 text-[clamp(1.85rem,3.6vw,2.9rem)] leading-[1.08] font-extrabold tracking-[-0.03em] text-balance text-brand-900">
+          <h2 className="font-display text-brand-900 mt-5 text-[clamp(1.85rem,3.6vw,2.9rem)] leading-[1.08] font-extrabold tracking-[-0.03em] text-balance">
             {t("title")}
           </h2>
         </div>
@@ -55,7 +47,7 @@ export async function Films() {
         <div data-anim-group className="mt-11 grid gap-4 sm:mt-14 lg:grid-cols-12">
           <article
             className={cn(
-              "relative overflow-hidden rounded-[24px] bg-brand-950 ring-1 ring-brand-900/10",
+              "bg-brand-950 ring-brand-900/10 relative overflow-hidden rounded-[24px] ring-1",
               "aspect-video lg:col-span-7 lg:row-span-2 lg:aspect-auto",
             )}
           >
@@ -74,7 +66,7 @@ export async function Films() {
           {rest.map((film) => (
             <article
               key={film.key}
-              className="relative aspect-video overflow-hidden rounded-[24px] bg-brand-950 ring-1 ring-brand-900/10 lg:col-span-5"
+              className="bg-brand-950 ring-brand-900/10 relative aspect-video overflow-hidden rounded-[24px] ring-1 lg:col-span-5"
             >
               <VideoPlayer
                 youtubeId={film.youtubeId}

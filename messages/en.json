@@ -673,9 +673,7 @@
               "Landscapes that shift from glacier to cold desert within a single day",
               "Living Hindu and Buddhist cultures, not preserved ones"
             ],
-            "after": [
-              "We run expeditions in the Indian, Nepalese and Bhutanese Himalayas."
-            ]
+            "after": ["We run expeditions in the Indian, Nepalese and Bhutanese Himalayas."]
           },
           {
             "question": "Why are the Himalayas the best place for a motorcycle expedition?",
@@ -711,10 +709,7 @@
           },
           {
             "question": "How difficult are Himalayan expeditions?",
-            "answer": [
-              "Moderate to challenging, depending on the route.",
-              "Expect:"
-            ],
+            "answer": ["Moderate to challenging, depending on the route.", "Expect:"],
             "list": [
               "Long riding days between 3,000 and 5,800 metres",
               "A mix of smooth tarmac and genuine off-road",
@@ -819,9 +814,7 @@
           },
           {
             "question": "When is the riding season in Nepal?",
-            "answer": [
-              "Spring and autumn are the main windows, and Mustang stretches them."
-            ],
+            "answer": ["Spring and autumn are the main windows, and Mustang stretches them."],
             "list": [
               "March to May: warm, clear, rhododendron in flower at altitude",
               "June to August: monsoon in most of the country, but Mustang sits in the rain shadow and stays comparatively dry",
@@ -903,9 +896,7 @@
               "Villages and monasteries that have changed very little",
               "Dry air, hard light and a wind that gets up every afternoon"
             ],
-            "after": [
-              "It is the closest thing to riding in Tibet without crossing the border."
-            ]
+            "after": ["It is the closest thing to riding in Tibet without crossing the border."]
           },
           {
             "question": "What is the Kali Gandaki gorge?",
@@ -916,9 +907,7 @@
           },
           {
             "question": "How difficult is the riding?",
-            "answer": [
-              "Moderate. Less technical than Ladakh, but longer on unsealed surfaces."
-            ],
+            "answer": ["Moderate. Less technical than Ladakh, but longer on unsealed surfaces."],
             "list": [
               "Sealed road from Kathmandu to Pokhara and beyond",
               "Gravel, riverbed and loose surfaces north of Jomsom",
@@ -947,9 +936,7 @@
           },
           {
             "question": "Do I need travel insurance?",
-            "answer": [
-              "Yes. It is mandatory, and it must cover:"
-            ],
+            "answer": ["Yes. It is mandatory, and it must cover:"],
             "list": [
               "High-altitude travel above 4,000 metres",
               "Motorcycle riding, which many standard policies exclude",
@@ -1083,7 +1070,8 @@
       "eyebrow": "What it costs",
       "title": "One price, and the few things that sit on top of it",
       "body": "The rider price covers the expedition itself. Everything below it is optional, so you only pay for a single room or extra cover if you want them. Nothing is added at the end.",
-      "datesTitle": "Departure dates"
+      "datesTitle": "Departure dates",
+      "noDates": "Dates for this expedition are not set yet. Tell us when you want to ride and we will build it around you."
     },
     "highlights": {
       "eyebrow": "Highlights",
@@ -1132,6 +1120,14 @@
         "roomHint": "Rooms are twin sharing unless you take this.",
         "none": "You can change any of this later. Nothing is booked yet."
       },
+      "vehicle": {
+        "title": "Your vehicle",
+        "help": "Hired for the {days} days of the expedition and shared between the people in it.",
+        "seats": "{count} seats",
+        "perDay": "a day",
+        "total": "for the trip",
+        "none": "Bringing your own car? Skip this and tell us in the enquiry."
+      },
       "summary": {
         "title": "Here is what you have chosen",
         "help": "An estimate, not a booking. We will confirm everything by email.",
@@ -1140,12 +1136,23 @@
         "pillions": "Pillions",
         "insurance": "Damage protection",
         "room": "Single rooms",
+        "vehicle": "Vehicle",
         "total": "Estimated total",
         "enquire": "Send enquiry",
         "note": "Converted from US dollars at today's rate, so the final figure depends on the rate on the day you pay. Flights are not included.",
         "dates": "Dates",
         "flexible": "Flexible"
       }
+    },
+    "more": "Read more",
+    "less": "Read less",
+    "fleet": {
+      "eyebrow": "The fleet",
+      "title": "The cars that go out with you",
+      "lead": "Each is hired for the length of the expedition, {days} days on the shortest departure, and shared between the people in it.",
+      "seats": "{count} seats",
+      "perDay": "a day",
+      "forTrip": "{total} for {days} days"
     }
   },
   "auth": {
@@ -1205,6 +1212,16 @@
       "password": "New password",
       "confirm": "Confirm password",
       "rule": "At least eight characters."
+    },
+    "reset": {
+      "title": "Set a new password.",
+      "lead": "Choose something you have not used on this account before.",
+      "expiredTitle": "That link has expired.",
+      "expiredLead": "Reset links can be used once and last an hour. Ask for a new one from the sign in box.",
+      "startAgain": "Back to the site",
+      "saving": "Saving…",
+      "mismatch": "The two passwords do not match.",
+      "tooShort": "Use at least eight characters."
     }
   },
   "catalogue": {

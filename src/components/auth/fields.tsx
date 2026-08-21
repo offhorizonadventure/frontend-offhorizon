@@ -27,18 +27,12 @@ export function Field({
         {label}
       </label>
       {children(id)}
-      {hint && <p className="text-[12px] text-brand-800/50">{hint}</p>}
+      {hint && <p className="text-brand-800/50 text-[12px]">{hint}</p>}
     </div>
   );
 }
 
-/**
- * A password box with a reveal.
- *
- * Typing a password blind is where most sign in failures come from, and a
- * dialog that cannot show what was typed just sends people back to the reset
- * screen.
- */
+/** A password box with a reveal. */
 export function PasswordField({
   label,
   name,
@@ -73,7 +67,7 @@ export function PasswordField({
           <button
             type="button"
             onClick={() => setVisible((on) => !on)}
-            className="absolute top-1/2 right-3 -translate-y-1/2 text-[11px] font-bold tracking-[0.12em] text-brand-700 uppercase transition-colors hover:text-brand-900"
+            className="text-brand-700 hover:text-brand-900 absolute top-1/2 right-3 -translate-y-1/2 text-[11px] font-bold tracking-[0.12em] uppercase transition-colors"
           >
             {visible ? hideLabel : showLabel}
           </button>
@@ -94,19 +88,14 @@ export function PrimaryButton({
     <button
       type="submit"
       disabled={pending}
-      className="h-12 w-full rounded-full bg-brand-800 text-[11px] font-bold tracking-[0.14em] text-cream-100 uppercase transition-colors duration-300 hover:bg-brand-900 disabled:pointer-events-none disabled:opacity-50"
+      className="bg-brand-800 text-cream-100 hover:bg-brand-900 h-12 w-full rounded-full text-[11px] font-bold tracking-[0.14em] uppercase transition-colors duration-300 disabled:pointer-events-none disabled:opacity-50"
     >
       {children}
     </button>
   );
 }
 
-/**
- * Google and Facebook, above the email form rather than below it.
- *
- * Someone who has an account with one of these wants it in the first glance;
- * putting them under a password field asks everyone to read the long way first.
- */
+/** Google and Facebook, above the email form rather than below it. */
 export function SocialButtons({
   google,
   facebook,
@@ -147,11 +136,11 @@ export function SocialButtons({
       </div>
 
       <div className="flex items-center gap-4">
-        <span aria-hidden className="h-px flex-1 bg-brand-900/12" />
-        <span className="text-[10.5px] font-bold tracking-[0.16em] text-brand-800/40 uppercase">
+        <span aria-hidden className="bg-brand-900/12 h-px flex-1" />
+        <span className="text-brand-800/40 text-[10.5px] font-bold tracking-[0.16em] uppercase">
           {divider}
         </span>
-        <span aria-hidden className="h-px flex-1 bg-brand-900/12" />
+        <span aria-hidden className="bg-brand-900/12 h-px flex-1" />
       </div>
     </>
   );

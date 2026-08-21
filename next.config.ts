@@ -4,6 +4,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
+
   images: {
     formats: ["image/avif", "image/webp"],
     /**
@@ -21,9 +22,8 @@ const nextConfig: NextConfig = {
       // than opening every https origin.
       {
         protocol: "https",
-        hostname: new URL(
-          process.env.NEXT_PUBLIC_SUPABASE_URL ?? "https://placeholder.supabase.co",
-        ).hostname,
+        hostname: new URL(process.env.NEXT_PUBLIC_SUPABASE_URL ?? "https://placeholder.supabase.co")
+          .hostname,
         pathname: "/storage/v1/object/public/**",
       },
     ],

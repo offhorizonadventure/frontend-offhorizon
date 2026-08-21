@@ -19,13 +19,13 @@ export async function RouteMap({
   const t = await getTranslations({ locale, namespace: "tour" });
 
   return (
-    <section className="relative overflow-hidden bg-cream-50 py-18 sm:py-24">
+    <section className="bg-cream-50 relative overflow-hidden py-18 sm:py-24">
       <Topo className="text-brand-800/12" rings={12} seed={44.7} />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <h2
           data-anim="up"
-          className="font-display text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-brand-900"
+          className="font-display text-brand-900 text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1] font-extrabold tracking-[-0.03em]"
         >
           {t("route.title")}
         </h2>

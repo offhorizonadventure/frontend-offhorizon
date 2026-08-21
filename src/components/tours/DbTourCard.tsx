@@ -14,18 +14,7 @@ export type CardTour = {
   currency: string;
 };
 
-/**
- * Tour card, from the database.
- *
- * Same card as before, with two differences that come from the data rather than
- * from a redesign:
- *
- * * The rating row is only drawn when a rating has been entered. Five stars
- *   nobody has given is worse than no stars.
- * * A tour with no dated departure says so instead of quoting a price. The
- *   admin decides which it is by whether anyone has scheduled it, and the card
- *   reads "Planned" until someone does.
- */
+/** Tour card, from the database. */
 export async function DbTourCard({
   tour,
   priceFrom,
@@ -50,8 +39,8 @@ export async function DbTourCard({
   const hero = imageUrl(tour.hero_path);
 
   return (
-    <article className="group @container relative overflow-hidden rounded-[26px] ring-1 ring-brand-900/10">
-      <div className="relative aspect-[3/4] bg-brand-100 @xs:aspect-[4/5] @sm:aspect-[1/1]">
+    <article className="group ring-brand-900/10 @container relative overflow-hidden rounded-[26px] ring-1">
+      <div className="bg-brand-100 relative aspect-[3/4] @xs:aspect-[4/5] @sm:aspect-[1/1]">
         {hero && (
           <Image
             src={hero}
@@ -59,7 +48,7 @@ export async function DbTourCard({
             fill
             sizes={sizes}
             quality={90}
-            className="object-cover transition-transform duration-[1100ms] ease-out-expo group-hover:scale-[1.04]"
+            className="ease-out-expo object-cover transition-transform duration-[1100ms] group-hover:scale-[1.04]"
           />
         )}
       </div>
@@ -67,34 +56,34 @@ export async function DbTourCard({
       <div className="absolute inset-x-2.5 bottom-2.5 rounded-[18px] bg-white/97 p-4 backdrop-blur-sm @sm:p-5">
         {tour.rating !== null && (
           <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <span aria-hidden className="flex items-center gap-0.5 text-ember-500">
+            <span aria-hidden className="text-ember-500 flex items-center gap-0.5">
               {Array.from({ length: 5 }).map((_, star) => (
                 <Star key={star} />
               ))}
             </span>
-            <span className="text-[12px] font-semibold text-brand-900">
+            <span className="text-brand-900 text-[12px] font-semibold">
               {decimal.format(tour.rating)}
             </span>
             {tour.reviews !== null && (
-              <span className="text-[12px] whitespace-nowrap text-brand-800/50">
+              <span className="text-brand-800/50 text-[12px] whitespace-nowrap">
                 {t("reviews", { count: compact.format(tour.reviews) })}
               </span>
             )}
           </p>
         )}
 
-        <Heading className="font-display mt-2 line-clamp-2 text-[17px] leading-tight font-bold tracking-[-0.02em] text-balance text-brand-900 @sm:text-[19px]">
+        <Heading className="font-display text-brand-900 mt-2 line-clamp-2 text-[17px] leading-tight font-bold tracking-[-0.02em] text-balance @sm:text-[19px]">
           {tour.title}
         </Heading>
 
         <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
-          <p className="text-[12.5px] text-brand-800/55">
+          <p className="text-brand-800/55 text-[12.5px]">
             {price ? t("startingAt", { price }) : ts("planned")}
           </p>
 
           <Link
-            href={`/tours/${tour.slug}`}
-            className="inline-flex h-11 shrink-0 items-center justify-center rounded-full border border-brand-900/20 px-5 text-center text-[11px] font-bold tracking-[0.11em] text-brand-800 uppercase transition-colors duration-300 hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100"
+            href={`/adventure/${tour.slug}`}
+            className="border-brand-900/20 text-brand-800 hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100 inline-flex h-11 shrink-0 items-center justify-center rounded-full border px-5 text-center text-[11px] font-bold tracking-[0.11em] uppercase transition-colors duration-300"
           >
             {t("cta")}
           </Link>

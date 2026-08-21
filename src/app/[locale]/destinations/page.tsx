@@ -74,21 +74,21 @@ export default async function DestinationsPage({ params }: PageProps<"/[locale]/
       />
 
       {/* Positioning: what we run, and where we are honest about not running yet. */}
-      <section className="relative overflow-hidden bg-cream-50 py-18 sm:py-24">
+      <section className="bg-cream-50 relative overflow-hidden py-18 sm:py-24">
         <Topo className="text-brand-800/12" rings={11} seed={19.4} />
 
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
           <div data-anim="up" className="grid gap-8 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-6">
-              <h2 className="font-display text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance text-brand-900">
+              <h2 className="font-display text-brand-900 text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance">
                 {t("intro.title")}
               </h2>
             </div>
             <div className="space-y-4 lg:col-span-6 lg:pt-2">
-              <p className="text-[15px] leading-[1.85] text-pretty text-brand-800/65 sm:text-[16px]">
+              <p className="text-brand-800/65 text-[15px] leading-[1.85] text-pretty sm:text-[16px]">
                 {t("intro.body")}
               </p>
-              <p className="text-[15px] leading-[1.85] text-pretty text-brand-800/65 sm:text-[16px]">
+              <p className="text-brand-800/65 text-[15px] leading-[1.85] text-pretty sm:text-[16px]">
                 {t("intro.focus")}
               </p>
             </div>
@@ -99,26 +99,27 @@ export default async function DestinationsPage({ params }: PageProps<"/[locale]/
       {/* The five countries */}
       <section className="bg-white py-18 sm:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
-          <div data-anim="up" className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div
+            data-anim="up"
+            className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"
+          >
             <div>
-              <span className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-500 uppercase">
-                <span aria-hidden className="h-px w-8 bg-ember-500/60" />
+              <span className="text-ember-500 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase">
+                <span aria-hidden className="bg-ember-500/60 h-px w-8" />
                 {t("list.eyebrow")}
               </span>
-              <h2 className="font-display mt-5 text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-brand-900">
+              <h2 className="font-display text-brand-900 mt-5 text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1] font-extrabold tracking-[-0.03em]">
                 {t("list.title")}
               </h2>
             </div>
-            <p className="max-w-xs text-[13.5px] leading-relaxed text-brand-800/55 sm:text-right">
+            <p className="text-brand-800/55 max-w-xs text-[13.5px] leading-relaxed sm:text-right">
               {t("list.note")}
             </p>
           </div>
 
           <ul data-anim-group className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {countryPages.map((page) => {
-              // Running or planned is a fact about the catalogue now, not a flag
-              // in a config file: a country is running when it has a published
-              // tour with a dated departure on it.
+              // Running or planned is a fact about the catalogue now, not a flag in a config file: a country is running when it has a published tour with a dated departure on it.
               const count = counts.get(page.slug) ?? 0;
               const live = count > 0;
 
@@ -131,11 +132,7 @@ export default async function DestinationsPage({ params }: PageProps<"/[locale]/
                     imageAlt={page.heroAlt}
                     flag={page.destination.flag}
                     badge={live ? ts("running") : ts("planned")}
-                    meta={
-                      live
-                        ? ts("expeditions", { count })
-                        : ts("openForEnquiries")
-                    }
+                    meta={live ? ts("expeditions", { count }) : ts("openForEnquiries")}
                     sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 360px"
                   />
                 </li>
@@ -146,7 +143,7 @@ export default async function DestinationsPage({ params }: PageProps<"/[locale]/
       </section>
 
       {/* How we build a trip */}
-      <section className="relative overflow-hidden bg-brand-950 py-18 text-cream-100 sm:py-24">
+      <section className="bg-brand-950 text-cream-100 relative overflow-hidden py-18 sm:py-24">
         <Topo className="text-cream-100/10" rings={14} seed={20.7} />
         <div
           aria-hidden
@@ -155,29 +152,29 @@ export default async function DestinationsPage({ params }: PageProps<"/[locale]/
 
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
           <div data-anim="up" className="max-w-2xl">
-            <span className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-500 uppercase">
-              <span aria-hidden className="h-px w-8 bg-ember-500/60" />
+            <span className="text-ember-500 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase">
+              <span aria-hidden className="bg-ember-500/60 h-px w-8" />
               {t("approach.eyebrow")}
             </span>
             <h2 className="font-display mt-5 text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance">
               {t("approach.title")}
             </h2>
-            <p className="mt-4 text-[15px] leading-[1.8] text-cream-100/55">{t("approach.body")}</p>
+            <p className="text-cream-100/55 mt-4 text-[15px] leading-[1.8]">{t("approach.body")}</p>
           </div>
 
           <ul
             data-anim-group
-            className="mt-12 grid gap-px overflow-hidden rounded-3xl bg-cream-100/12 sm:grid-cols-2 lg:grid-cols-4"
+            className="bg-cream-100/12 mt-12 grid gap-px overflow-hidden rounded-3xl sm:grid-cols-2 lg:grid-cols-4"
           >
             {pillars.map((pillar, index) => (
               <li key={pillar} className="bg-brand-950 p-7">
-                <span className="font-display block text-[13px] font-extrabold tracking-[0.14em] text-ember-500 tabular-nums">
+                <span className="font-display text-ember-500 block text-[13px] font-extrabold tracking-[0.14em] tabular-nums">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display mt-5 text-[17px] leading-tight font-bold tracking-[-0.015em]">
                   {t(`approach.pillars.${pillar}.title`)}
                 </h3>
-                <p className="mt-2.5 text-[13.5px] leading-[1.75] text-pretty text-cream-100/50">
+                <p className="text-cream-100/50 mt-2.5 text-[13.5px] leading-[1.75] text-pretty">
                   {t(`approach.pillars.${pillar}.body`)}
                 </p>
               </li>

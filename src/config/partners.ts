@@ -1,11 +1,4 @@
-/**
- * Logos are pre-normalized into a shared 600x200 box (see public/partners).
- * Each one is scaled by area rather than height, so a wide wordmark and a
- * square badge carry the same visual weight, and every slot is identical.
- *
- * `mono` is a brand-brown silhouette shown at rest; the unsuffixed file is the
- * original artwork revealed on hover.
- */
+/** Logos are pre-normalized into a shared 600x200 box (see public/partners). */
 export type Partner = {
   slug: string;
   name: string;

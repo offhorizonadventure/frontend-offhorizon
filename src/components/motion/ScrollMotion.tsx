@@ -2,28 +2,7 @@
 
 import { useEffect } from "react";
 
-/**
- * The site's single scroll-animation engine.
- *
- * Mounted once in the layout. Every animated element opts in with a data
- * attribute rather than wrapping itself in its own observer component:
- *
- *   data-anim="up"      fade and rise
- *   data-anim="wipe"    clip-path wipe from the bottom edge
- *   data-anim-group     stagger the element's animated children together
- *   data-parallax="8"   scrubbed drift, value is yPercent
- *
- * Why one engine: `ScrollTrigger.batch` groups elements that enter together
- * into a single tween, so a page with dozens of animated blocks still costs
- * one ScrollTrigger pass instead of dozens of IntersectionObservers.
- *
- * Why `gsap.from` rather than a CSS "hidden until seen" class: if the GSAP
- * chunk fails to load, the markup is simply visible. Nothing can strand
- * content in a hidden state.
- *
- * The whole module is imported after mount, so it never blocks first paint,
- * and it is skipped entirely for reduced-motion users.
- */
+/** The site's single scroll-animation engine. */
 export function ScrollMotion() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;

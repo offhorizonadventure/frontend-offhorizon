@@ -5,10 +5,7 @@ import nepal from "../../public/destinations/nepal.jpg";
 
 import type { DestinationKey, NavKey, TourKey } from "@/i18n/keys";
 
-/**
- * Navigation tree. Keys are checked against the English catalogue at build
- * time, so a nav entry can never ship without its translation.
- */
+/** Navigation tree. */
 
 export type Tour = {
   key: TourKey;
@@ -32,8 +29,7 @@ export type Country = {
 };
 
 export type NavItem =
-  | { key: NavKey; href: string }
-  | { key: NavKey; href: string; countries: Country[] };
+  { key: NavKey; href: string } | { key: NavKey; href: string; countries: Country[] };
 
 export const hasMegaMenu = (item: NavItem): item is Extract<NavItem, { countries: Country[] }> =>
   "countries" in item;
@@ -55,13 +51,13 @@ export const mainNav: NavItem[] = [
             tours: [
               {
                 key: "ladakhMotorcycle",
-                href: "/tours/ladakh-motorcycle-tour",
+                href: "/adventure/ladakh-motorcycle-tour",
                 days: 12,
                 image: india,
               },
               {
                 key: "himalayas4x4",
-                href: "/tours/indian-himalayas-4x4-adventure-expedition",
+                href: "/adventure/indian-himalayas-4x4-adventure-expedition",
                 days: 14,
                 image: india,
               },
@@ -80,7 +76,7 @@ export const mainNav: NavItem[] = [
             tours: [
               {
                 key: "nepalMotorcycle",
-                href: "/tours/nepal-motorcycle-tour",
+                href: "/adventure/nepal-motorcycle-tour",
                 days: 10,
                 image: nepal,
               },

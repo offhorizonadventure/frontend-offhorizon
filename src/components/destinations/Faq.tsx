@@ -14,15 +14,7 @@ export type FaqItem = {
   children?: ReactNode;
 };
 
-/**
- * FAQ accordion with FAQPage structured data.
- *
- * Native <details>, so it expands with no JavaScript and the answers are in
- * the HTML whether or not a visitor opens them. That matters twice over:
- * crawlers read the whole answer, and the FAQPage markup makes these eligible
- * for expandable results in search, which is the main reason this content is
- * worth structuring rather than leaving as prose.
- */
+/** FAQ accordion with FAQPage structured data. */
 export function Faq({
   items,
   title,
@@ -55,24 +47,27 @@ export function Faq({
       <div className="mx-auto max-w-4xl px-5 sm:px-8">
         <div data-anim="up">
           {eyebrow && (
-            <span className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-500 uppercase">
-              <span aria-hidden className="h-px w-8 bg-ember-500/60" />
+            <span className="text-ember-500 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase">
+              <span aria-hidden className="bg-ember-500/60 h-px w-8" />
               {eyebrow}
             </span>
           )}
-          <h2 className="font-display mt-5 text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance text-brand-900">
+          <h2 className="font-display text-brand-900 mt-5 text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance">
             {title}
           </h2>
         </div>
 
-        <div data-anim-group className="mt-10 divide-y divide-brand-900/12 border-y border-brand-900/12">
+        <div
+          data-anim-group
+          className="divide-brand-900/12 border-brand-900/12 mt-10 divide-y border-y"
+        >
           {items.map((item) => (
             <details key={item.question} className="group">
               <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-6 [&::-webkit-details-marker]:hidden">
-                <h3 className="font-display text-[16.5px] leading-snug font-bold tracking-[-0.015em] text-balance text-brand-900 sm:text-[18px]">
+                <h3 className="font-display text-brand-900 text-[16.5px] leading-snug font-bold tracking-[-0.015em] text-balance sm:text-[18px]">
                   {item.question}
                 </h3>
-                <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-brand-900/6 text-brand-700 transition-colors duration-300 group-open:bg-brand-800 group-open:text-cream-100">
+                <span className="bg-brand-900/6 text-brand-700 group-open:bg-brand-800 group-open:text-cream-100 mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full transition-colors duration-300">
                   <ChevronDown className="transition-transform duration-300 group-open:rotate-180" />
                 </span>
               </summary>
@@ -81,7 +76,7 @@ export function Faq({
                 {item.answer.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="text-[14.5px] leading-[1.85] text-pretty text-brand-900/70"
+                    className="text-brand-900/70 text-[14.5px] leading-[1.85] text-pretty"
                   >
                     {paragraph}
                   </p>
@@ -92,11 +87,11 @@ export function Faq({
                     {item.list.map((entry) => (
                       <li
                         key={entry}
-                        className="flex gap-3 text-[14px] leading-[1.8] text-brand-900/70"
+                        className="text-brand-900/70 flex gap-3 text-[14px] leading-[1.8]"
                       >
                         <span
                           aria-hidden
-                          className="mt-[0.65em] size-1.5 shrink-0 rounded-full bg-ember-500"
+                          className="bg-ember-500 mt-[0.65em] size-1.5 shrink-0 rounded-full"
                         />
                         {entry}
                       </li>
@@ -107,7 +102,7 @@ export function Faq({
                 {item.after?.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="text-[14.5px] leading-[1.85] text-pretty text-brand-900/70"
+                    className="text-brand-900/70 text-[14.5px] leading-[1.85] text-pretty"
                   >
                     {paragraph}
                   </p>

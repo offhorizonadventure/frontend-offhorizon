@@ -1,11 +1,6 @@
 import type { ReactNode } from "react";
 
-/**
- * The pieces the four account screens share.
- *
- * Design only: nothing here submits, and the sample rows are marked as such in
- * the pages that use them.
- */
+/** The pieces the four account screens share. */
 
 export function Panel({
   title,
@@ -19,13 +14,13 @@ export function Panel({
   children: ReactNode;
 }) {
   return (
-    <section className="rounded-[24px] bg-paper p-6 ring-1 ring-brand-900/10 sm:p-8">
+    <section className="bg-paper ring-brand-900/10 rounded-[24px] p-6 ring-1 sm:p-8">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h2 className="font-display text-[19px] leading-tight font-bold tracking-[-0.02em] text-brand-900">
+          <h2 className="font-display text-brand-900 text-[19px] leading-tight font-bold tracking-[-0.02em]">
             {title}
           </h2>
-          {lead && <p className="mt-2 text-[13.5px] text-brand-800/60">{lead}</p>}
+          {lead && <p className="text-brand-800/60 mt-2 text-[13.5px]">{lead}</p>}
         </div>
         {action}
       </div>
@@ -54,7 +49,7 @@ export function PrimaryButton({ children }: { children: ReactNode }) {
   return (
     <button
       type="submit"
-      className="h-12 rounded-full bg-brand-800 px-8 text-[11px] font-bold tracking-[0.14em] text-cream-100 uppercase transition-colors duration-300 hover:bg-brand-900"
+      className="bg-brand-800 text-cream-100 hover:bg-brand-900 h-12 rounded-full px-8 text-[11px] font-bold tracking-[0.14em] uppercase transition-colors duration-300"
     >
       {children}
     </button>
@@ -82,7 +77,7 @@ export function Pill({ tone, children }: { tone: keyof typeof TONES; children: R
 /** Every screen here is a mock, and says so rather than looking live. */
 export function DemoNote({ children }: { children: ReactNode }) {
   return (
-    <p className="mt-6 rounded-xl bg-brand-900/5 px-4 py-3 text-[12.5px] leading-relaxed text-brand-800/60">
+    <p className="bg-brand-900/5 text-brand-800/60 mt-6 rounded-xl px-4 py-3 text-[12.5px] leading-relaxed">
       {children}
     </p>
   );

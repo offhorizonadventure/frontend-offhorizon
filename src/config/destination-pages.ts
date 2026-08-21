@@ -19,11 +19,7 @@ type RegionBase = {
   imageAlt: string;
 };
 
-/**
- * Live regions have their own page and a full namespace under `dest`. Planned
- * ones are a card on the country page and nothing more, so the union keeps the
- * page from asking a card-only namespace for a title it does not have.
- */
+/** Live regions have their own page and a full namespace under `dest`. */
 export type LiveRegion = RegionBase & {
   status: "live";
   content: "indianHimalayas" | "nepalHimalayas";
@@ -43,11 +39,7 @@ export type CountryPage = {
   slug: string;
   /** Matches the key used by the `destinations` message namespace. */
   destination: Destination;
-  /**
-   * `live` countries have their own written page. `planned` ones are on the
-   * roadmap and get a short honest page instead of a 404, because the home
-   * page gallery already links to all five.
-   */
+  /** `live` countries have their own written page. */
   status: "live" | "planned";
   /** Namespace under `dest`. Only set on live countries. */
   content?: "india" | "nepal";

@@ -4,18 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const LOADER = "https://cdn.trustindex.io/loader.js?9760b397813d982b0366a95fa48";
 
-/**
- * Trustindex review widget.
- *
- * Injected into its own container rather than dropped in the document head.
- * The loader renders the widget where its own <script> element sits, so it has
- * to be appended inside the target element or the reviews end up at the foot of
- * the page.
- *
- * It is also held back until the section is close to the viewport. This is a
- * third-party bundle that would otherwise be fetched on every page load, and
- * the reviews sit a long way down the page.
- */
+/** Trustindex review widget. */
 export function TrustIndex() {
   const container = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);

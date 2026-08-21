@@ -2,14 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 
 import { createClient } from "@/lib/supabase/server";
 
-/**
- * Where OAuth and the emailed links land.
- *
- * Supabase sends a one-time code here; exchanging it sets the session cookies,
- * and only then is the visitor sent on. The `next` parameter is checked to be a
- * path on this site: an open redirect on a sign-in callback is how people get
- * phished into handing over a live session.
- */
+/** Where OAuth and the emailed links land. */
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = request.nextUrl;
 

@@ -5,14 +5,7 @@ import { siteUrl } from "@/lib/seo";
 
 export type Crumb = { label: string; href?: string };
 
-/**
- * Breadcrumb trail plus its structured data.
- *
- * These pages nest three deep (destinations, country, region), which search
- * engines cannot infer from the URL alone. The BreadcrumbList markup is what
- * turns the result into a readable path instead of a bare URL, and the visible
- * trail gives a visitor arriving from search a way back up.
- */
+/** Breadcrumb trail plus its structured data. */
 export function Breadcrumbs({
   crumbs,
   locale,

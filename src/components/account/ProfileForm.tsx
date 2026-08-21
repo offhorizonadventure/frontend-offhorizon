@@ -8,13 +8,7 @@ import { PhoneField } from "@/components/ui/PhoneField";
 import { updateProfile } from "@/lib/auth";
 import { splitPhone } from "@/lib/phone";
 
-/**
- * Name and phone on the account.
- *
- * The email address is shown but not editable: changing it means confirming the
- * new one before the old one stops working, which is a journey of its own and
- * not a field on a settings page.
- */
+/** Name and phone on the account. */
 export function ProfileForm({
   email,
   name,
@@ -24,13 +18,10 @@ export function ProfileForm({
   name: string;
   phone: string;
 }) {
-  // Nothing about an account requires a number, but every departure does: it is
-  // how we reach someone about weather, a permit or a changed start time.
+  // Nothing about an account requires a number, but every departure does: it is how we reach someone about weather, a permit or a changed start time.
   const missingPhone = !phone.trim();
 
-  // The dial code is part of the stored number, so it has to be handed back to
-  // the picker: without it the field reopens on the visitor's own country and
-  // saving would rewrite a +91 number as +1.
+  // The dial code is part of the stored number, so it has to be handed back to the picker: without it the field reopens on the visitor's own country and saving would rewrite a +91 number as +1.
   const dialled = splitPhone(phone);
   const router = useRouter();
   const [pending, setPending] = useState(false);
@@ -72,13 +63,13 @@ export function ProfileForm({
         )}
 
         {saved && (
-          <p className="rounded-xl bg-brand-800/8 px-4 py-3 text-[13px] text-brand-900/75">
+          <p className="bg-brand-800/8 text-brand-900/75 rounded-xl px-4 py-3 text-[13px]">
             Saved.
           </p>
         )}
 
         {missingPhone && !saved && (
-          <p className="rounded-xl bg-ember-500/10 px-4 py-3 text-[13px] leading-relaxed text-brand-900/75">
+          <p className="bg-ember-500/10 text-brand-900/75 rounded-xl px-4 py-3 text-[13px] leading-relaxed">
             Add a phone number. It is how we reach you about weather, permits or a changed start
             time, and signing in with Google or Facebook does not give us one.
           </p>
@@ -90,7 +81,7 @@ export function ProfileForm({
           </Field>
 
           <div className="space-y-2">
-            <span className="block text-[10.5px] font-bold tracking-[0.16em] text-brand-600 uppercase">
+            <span className="text-brand-600 block text-[10.5px] font-bold tracking-[0.16em] uppercase">
               Phone
             </span>
             <PhoneField
@@ -108,11 +99,11 @@ export function ProfileForm({
           <input
             value={email}
             readOnly
-            className={`${fieldClass} cursor-not-allowed bg-brand-900/5 text-brand-800/60`}
+            className={`${fieldClass} bg-brand-900/5 text-brand-800/60 cursor-not-allowed`}
           />
         </Field>
 
-        <p className="-mt-3 text-[12px] text-brand-800/50">
+        <p className="text-brand-800/50 -mt-3 text-[12px]">
           Changing the address on an account means confirming the new one first, so it is not done
           here.
         </p>

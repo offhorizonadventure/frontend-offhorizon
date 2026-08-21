@@ -19,10 +19,7 @@ import hobSurya from "../../public/team/hob-st.jpg";
 
 export type Member = { name: string; photo: StaticImageData };
 
-/**
- * Crew grouped by function. `group` keys resolve against `about.team.groups`,
- * so the role headings translate while the names stay as written.
- */
+/** Crew grouped by function. */
 export type TeamGroup = {
   key: "lead" | "operations" | "creative" | "technical" | "support";
   members: Member[];

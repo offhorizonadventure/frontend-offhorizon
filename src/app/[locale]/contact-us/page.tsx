@@ -75,7 +75,7 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
       />
 
-      <section className="relative overflow-hidden bg-brand-950 pt-32 pb-16 text-cream-100 sm:pt-40 sm:pb-20">
+      <section className="bg-brand-950 text-cream-100 relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-20">
         <Topo className="text-cream-100/12" rings={15} seed={13.7} />
         <div
           aria-hidden
@@ -83,8 +83,8 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
         />
 
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-          <span className="hero-rise flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-500 uppercase">
-            <span aria-hidden className="h-px w-8 bg-ember-500/60" />
+          <span className="hero-rise text-ember-500 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase">
+            <span aria-hidden className="bg-ember-500/60 h-px w-8" />
             {t("hero.eyebrow")}
           </span>
 
@@ -96,7 +96,7 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
           </h1>
 
           <p
-            className="hero-rise mt-6 max-w-xl text-[15px] leading-[1.85] text-pretty text-cream-100/60 sm:text-[16px]"
+            className="hero-rise text-cream-100/60 mt-6 max-w-xl text-[15px] leading-[1.85] text-pretty sm:text-[16px]"
             style={{ animationDelay: "160ms" }}
           >
             {t("hero.lead")}
@@ -112,24 +112,24 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
             </div>
 
             <aside data-anim="up" className="min-w-0 lg:col-span-5">
-              <h2 className="font-display text-[clamp(1.4rem,2.6vw,1.9rem)] leading-tight font-extrabold tracking-[-0.03em] text-brand-900">
+              <h2 className="font-display text-brand-900 text-[clamp(1.4rem,2.6vw,1.9rem)] leading-tight font-extrabold tracking-[-0.03em]">
                 {t("direct.title")}
               </h2>
-              <p className="mt-3 text-[14.5px] leading-[1.8] text-brand-800/60">
+              <p className="text-brand-800/60 mt-3 text-[14.5px] leading-[1.8]">
                 {t("direct.body")}
               </p>
 
-              <ul className="mt-7 space-y-px overflow-hidden rounded-2xl bg-brand-900/10">
+              <ul className="bg-brand-900/10 mt-7 space-y-px overflow-hidden rounded-2xl">
                 <li>
                   <a
                     href={`tel:${contact.phone}`}
-                    className="group flex items-center justify-between gap-4 bg-cream-50 px-5 py-4 transition-colors hover:bg-white"
+                    className="group bg-cream-50 flex items-center justify-between gap-4 px-5 py-4 transition-colors hover:bg-white"
                   >
                     <span>
-                      <span className="block text-[10px] font-bold tracking-[0.16em] text-brand-400 uppercase">
+                      <span className="text-brand-400 block text-[10px] font-bold tracking-[0.16em] uppercase">
                         {t("direct.phone")}
                       </span>
-                      <span className="font-display mt-1 block text-[15px] font-bold text-brand-900">
+                      <span className="font-display text-brand-900 mt-1 block text-[15px] font-bold">
                         {contact.phone}
                       </span>
                     </span>
@@ -139,17 +139,17 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
                 <li>
                   <a
                     href={`mailto:${contact.email}`}
-                    className="group flex items-center justify-between gap-4 bg-cream-50 px-5 py-4 transition-colors hover:bg-white"
+                    className="group bg-cream-50 flex items-center justify-between gap-4 px-5 py-4 transition-colors hover:bg-white"
                   >
                     <span className="min-w-0">
-                      <span className="block text-[10px] font-bold tracking-[0.16em] text-brand-400 uppercase">
+                      <span className="text-brand-400 block text-[10px] font-bold tracking-[0.16em] uppercase">
                         {t("direct.email")}
                       </span>
-                      <span className="font-display mt-1 block truncate text-[15px] font-bold text-brand-900">
+                      <span className="font-display text-brand-900 mt-1 block truncate text-[15px] font-bold">
                         {contact.email}
                       </span>
                     </span>
-                    <ArrowRight className="shrink-0 text-brand-400 transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight className="text-brand-400 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
                   </a>
                 </li>
                 <li>
@@ -157,13 +157,13 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
                     href={contact.directionsUrl}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="group flex items-start justify-between gap-4 bg-cream-50 px-5 py-4 transition-colors hover:bg-white"
+                    className="group bg-cream-50 flex items-start justify-between gap-4 px-5 py-4 transition-colors hover:bg-white"
                   >
                     <span>
-                      <span className="block text-[10px] font-bold tracking-[0.16em] text-brand-400 uppercase">
+                      <span className="text-brand-400 block text-[10px] font-bold tracking-[0.16em] uppercase">
                         {t("direct.office")}
                       </span>
-                      <span className="mt-1 block text-[14px] leading-relaxed font-medium text-brand-900">
+                      <span className="text-brand-900 mt-1 block text-[14px] leading-relaxed font-medium">
                         {contact.addressLines.map((line) => (
                           <span key={line} className="block">
                             {line}
@@ -171,27 +171,27 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
                         ))}
                       </span>
                     </span>
-                    <ArrowRight className="mt-1 shrink-0 text-brand-400 transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight className="text-brand-400 mt-1 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
                   </a>
                 </li>
               </ul>
 
               {/* What happens after the form is sent */}
-              <div className="mt-9 rounded-2xl border border-brand-900/12 p-6">
-                <h3 className="text-[10.5px] font-bold tracking-[0.18em] text-brand-500 uppercase">
+              <div className="border-brand-900/12 mt-9 rounded-2xl border p-6">
+                <h3 className="text-brand-500 text-[10.5px] font-bold tracking-[0.18em] uppercase">
                   {t("steps.title")}
                 </h3>
                 <ol className="mt-5 space-y-5">
                   {steps.map((step, index) => (
                     <li key={step} className="flex gap-4">
-                      <span className="font-display flex size-7 shrink-0 items-center justify-center rounded-full bg-brand-800 text-[11px] font-bold text-cream-100 tabular-nums">
+                      <span className="font-display bg-brand-800 text-cream-100 flex size-7 shrink-0 items-center justify-center rounded-full text-[11px] font-bold tabular-nums">
                         {index + 1}
                       </span>
                       <span>
-                        <span className="font-display block text-[14.5px] font-bold text-brand-900">
+                        <span className="font-display text-brand-900 block text-[14.5px] font-bold">
                           {t(`steps.items.${step}.title`)}
                         </span>
-                        <span className="mt-1 block text-[13px] leading-relaxed text-brand-800/55">
+                        <span className="text-brand-800/55 mt-1 block text-[13px] leading-relaxed">
                           {t(`steps.items.${step}.body`)}
                         </span>
                       </span>
@@ -201,7 +201,7 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
               </div>
 
               <div className="mt-9">
-                <h3 className="text-[10.5px] font-bold tracking-[0.18em] text-brand-500 uppercase">
+                <h3 className="text-brand-500 text-[10.5px] font-bold tracking-[0.18em] uppercase">
                   {t("direct.follow")}
                 </h3>
                 <ul className="mt-4 flex items-center gap-2.5">
@@ -212,7 +212,7 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
                         target="_blank"
                         rel="noreferrer noopener"
                         aria-label={label}
-                        className="flex size-11 items-center justify-center rounded-full border border-brand-900/15 text-brand-800 transition-colors duration-300 hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100"
+                        className="border-brand-900/15 text-brand-800 hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100 flex size-11 items-center justify-center rounded-full border transition-colors duration-300"
                       >
                         <Icon />
                       </a>

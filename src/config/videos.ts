@@ -13,12 +13,7 @@ export type Film = {
   poster: StaticImageData;
 };
 
-/**
- * Films are embedded through a facade (see `VideoPlayer`): the poster is a
- * local image and nothing is requested from Google until the visitor presses
- * play. That keeps the section free of third-party JavaScript and cookies on
- * first load, which matters for the European markets this site targets.
- */
+/** Films are embedded through a facade (see `VideoPlayer`): the poster is a local image and nothing is requested from Google until the visitor presses... */
 export const films: Film[] = [
   { key: "himalayas", youtubeId: "p2EknuiON-8", seconds: 23, poster: himalayas },
   { key: "ladakh", youtubeId: "8_607eplWjU", seconds: 24, poster: ladakh },

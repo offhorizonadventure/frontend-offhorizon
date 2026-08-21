@@ -9,17 +9,7 @@ import { Link } from "@/i18n/navigation";
 
 import { GalleryMotion } from "./GalleryMotion";
 
-/**
- * Destination gallery.
- *
- * Desktop is an expanding accordion: every panel shares the width until one is
- * hovered or focused, which grows it and compresses the rest. That is pure CSS
- * (`flex-grow` is animatable), so it works before hydration and needs no JS.
- * Below lg it falls back to a snap-scrolling rail, since an accordion has no
- * room to breathe on a phone.
- *
- * GSAP only adds the entrance wipe and the parallax drift inside each frame.
- */
+/** Destination gallery. */
 /** `/destinations/india` carries the same slug the tours are filed under. */
 const slugOf = (href: string) => href.split("/").pop() ?? "";
 
@@ -43,13 +33,11 @@ export async function DestinationGallery() {
                   alt={td(destination.key)}
                   fill
                   placeholder="blur"
-                  // The gallery sits above the fold, and the GSAP entrance clips
-                  // each panel to zero area, which would defer a lazy load until
-                  // after the wipe. Eager keeps them ready and helps LCP.
+                  // The gallery sits above the fold, and the GSAP entrance clips each panel to zero area, which would defer a lazy load until after the wipe.
                   priority
                   sizes="(max-width: 767px) 78vw, (max-width: 1023px) 46vw, 40vw"
                   quality={90}
-                  className="object-cover transition-transform duration-[1400ms] ease-out-expo group-hover:scale-[1.06]"
+                  className="ease-out-expo object-cover transition-transform duration-[1400ms] group-hover:scale-[1.06]"
                 />
               </span>
 
@@ -79,7 +67,7 @@ export async function DestinationGallery() {
                       <>{td("plannedShort")}</>
                     )}
                   </span>
-                  <span className="flex size-9 items-center justify-center rounded-full bg-white/12 text-white ring-1 ring-white/25 backdrop-blur-sm transition-colors duration-300 group-hover:bg-white group-hover:text-brand-900">
+                  <span className="group-hover:text-brand-900 flex size-9 items-center justify-center rounded-full bg-white/12 text-white ring-1 ring-white/25 backdrop-blur-sm transition-colors duration-300 group-hover:bg-white">
                     <ArrowRight />
                   </span>
                 </span>

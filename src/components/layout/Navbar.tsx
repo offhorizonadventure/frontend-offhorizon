@@ -21,7 +21,7 @@ export async function Navbar() {
       <div className="flex items-center gap-3 lg:gap-4">
         <DesktopNav />
 
-        <span aria-hidden className="hidden h-5 w-px bg-brand-900/12 lg:block" />
+        <span aria-hidden className="bg-brand-900/12 hidden h-5 w-px lg:block" />
 
         <div className="flex items-center gap-1.5">
           <LanguageSwitcher label={t("language")} />
@@ -30,7 +30,7 @@ export async function Navbar() {
 
           <Link
             href="/custom-expeditions"
-            className="hidden h-9 items-center rounded-full bg-brand-800 px-4 text-[10.5px] font-bold tracking-[0.09em] whitespace-nowrap text-cream-100 uppercase transition-colors duration-200 hover:bg-brand-900 lg:inline-flex"
+            className="bg-brand-800 text-cream-100 hover:bg-brand-900 hidden h-9 items-center rounded-full px-4 text-[10.5px] font-bold tracking-[0.09em] whitespace-nowrap uppercase transition-colors duration-200 lg:inline-flex"
           >
             {t("cta")}
           </Link>

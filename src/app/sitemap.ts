@@ -14,8 +14,7 @@ const routes = [
   "/contact-us",
   "/custom-expeditions",
   "/blog",
-  // Given to Meta as the data deletion instructions URL, so it has to stay
-  // reachable and indexed.
+  // Given to Meta as the data deletion instructions URL, so it has to stay reachable and indexed.
   "/account-deletion",
 ];
 
@@ -26,12 +25,11 @@ const routes = [
 export const revalidate = 600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Both lists come from the database, so publishing either puts it in the
-  // sitemap without a redeploy.
+  // Both lists come from the database, so publishing either puts it in the sitemap without a redeploy.
   const [posts, tours] = await Promise.all([listPosts(), listTours()]);
 
   const postRoutes = posts.map((post) => `/blog/${post.slug}`);
-  const tourRoutes = tours.map((tour) => `/tours/${tour.slug}`);
+  const tourRoutes = tours.map((tour) => `/adventure/${tour.slug}`);
 
   return [...routes, ...destinationRoutes, ...tourRoutes, ...postRoutes].flatMap((path) =>
     locales.map((locale) => ({

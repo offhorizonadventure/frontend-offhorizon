@@ -1,12 +1,6 @@
 import { DemoNote, Panel, Pill } from "@/components/account/parts";
 
-/**
- * Sample rows.
- *
- * The receipt column is a link rather than a generated PDF: Razorpay issues a
- * receipt for every captured payment and hosts it, so linking to theirs means
- * one less document to build, store and keep correct.
- */
+/** Sample rows. */
 const PAYMENTS = [
   {
     booking: "OFH-2026-0148",
@@ -43,7 +37,7 @@ const cell = "px-4 py-4 align-top text-[13.5px] text-brand-900/80";
 export default function PaymentsPage() {
   return (
     <Panel title="My payments" lead="Every payment against your bookings, newest first.">
-      <div className="overflow-x-auto rounded-[18px] ring-1 ring-brand-900/10">
+      <div className="ring-brand-900/10 overflow-x-auto rounded-[18px] ring-1">
         <table className="w-full min-w-[46rem] border-collapse bg-white text-left">
           <thead className="bg-brand-900/4">
             <tr>
@@ -59,17 +53,17 @@ export default function PaymentsPage() {
             {PAYMENTS.map((payment) => (
               <tr
                 key={payment.receipt}
-                className="border-t border-brand-900/8 transition-colors hover:bg-brand-900/3"
+                className="border-brand-900/8 hover:bg-brand-900/3 border-t transition-colors"
               >
                 <td className={`${cell} font-mono text-[12.5px] whitespace-nowrap`}>
                   {payment.booking}
                 </td>
                 <td className={cell}>
                   {payment.tour}
-                  <span className="mt-1 block text-[12px] text-brand-800/45">{payment.method}</span>
+                  <span className="text-brand-800/45 mt-1 block text-[12px]">{payment.method}</span>
                 </td>
                 <td className={`${cell} whitespace-nowrap`}>{payment.date}</td>
-                <td className={`${cell} text-right font-semibold tabular-nums whitespace-nowrap`}>
+                <td className={`${cell} text-right font-semibold whitespace-nowrap tabular-nums`}>
                   {payment.amount}
                   <span className="mt-1.5 block">
                     <Pill tone={payment.status}>
@@ -80,7 +74,7 @@ export default function PaymentsPage() {
                 <td className={cell}>
                   <button
                     type="button"
-                    className="text-[12.5px] font-semibold text-brand-900 underline decoration-ember-500/50 underline-offset-[3px] transition-colors hover:decoration-ember-500"
+                    className="text-brand-900 decoration-ember-500/50 hover:decoration-ember-500 text-[12.5px] font-semibold underline underline-offset-[3px] transition-colors"
                   >
                     Download
                   </button>

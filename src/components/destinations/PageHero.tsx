@@ -6,14 +6,7 @@ import { Breadcrumbs, type Crumb } from "@/components/destinations/Breadcrumbs";
 import { Topo } from "@/components/ui/Topo";
 import type { Locale } from "@/i18n/config";
 
-/**
- * Destination page header.
- *
- * The photograph sits behind the type rather than beside it, because these
- * pages are selling a place and the landscape has to arrive first. A heavy
- * scrim keeps the headline legible over whatever the image happens to be
- * doing, and the topo lines carry the brand through the dark band.
- */
+/** Destination page header. */
 export function PageHero({
   eyebrow,
   title,
@@ -34,7 +27,7 @@ export function PageHero({
   seed?: number;
 }) {
   return (
-    <section className="relative overflow-hidden bg-brand-950 text-cream-100">
+    <section className="bg-brand-950 text-cream-100 relative overflow-hidden">
       {image && (
         <>
           <Image
@@ -52,13 +45,13 @@ export function PageHero({
               the photograph is doing toward the palette. */}
           <span
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/70 to-brand-950/45"
+            className="from-brand-950 via-brand-950/70 to-brand-950/45 absolute inset-0 bg-gradient-to-t"
           />
           <span
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-r from-brand-950/80 via-brand-950/35 to-transparent"
+            className="from-brand-950/80 via-brand-950/35 absolute inset-0 bg-gradient-to-r to-transparent"
           />
-          <span aria-hidden className="absolute inset-0 bg-brand-950/15 mix-blend-multiply" />
+          <span aria-hidden className="bg-brand-950/15 absolute inset-0 mix-blend-multiply" />
         </>
       )}
 
@@ -74,10 +67,10 @@ export function PageHero({
         </div>
 
         <span
-          className="hero-rise mt-8 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-500 uppercase"
+          className="hero-rise text-ember-500 mt-8 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase"
           style={{ animationDelay: "60ms" }}
         >
-          <span aria-hidden className="h-px w-8 bg-ember-500/60" />
+          <span aria-hidden className="bg-ember-500/60 h-px w-8" />
           {eyebrow}
         </span>
 
@@ -89,7 +82,7 @@ export function PageHero({
         </h1>
 
         <p
-          className="hero-rise mt-6 text-[15px] leading-[1.85] text-pretty text-cream-100/65 sm:text-[16.5px]"
+          className="hero-rise text-cream-100/65 mt-6 text-[15px] leading-[1.85] text-pretty sm:text-[16.5px]"
           style={{ animationDelay: "200ms" }}
         >
           {lead}

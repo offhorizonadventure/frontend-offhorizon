@@ -22,12 +22,7 @@ type Labels = {
   searchLabel: string;
 };
 
-/**
- * Enquiry form.
- *
- * Shares `PhoneField` with the quick enquiry modal so the country picker and
- * the submitted value format stay identical across both entry points.
- */
+/** Enquiry form. */
 export function ContactForm({ labels }: { labels: Labels }) {
   const locale = useLocale();
   const [pending, setPending] = useState(false);
@@ -67,14 +62,14 @@ export function ContactForm({ labels }: { labels: Labels }) {
 
   if (sent) {
     return (
-      <div className="flex min-h-[26rem] flex-col items-center justify-center rounded-[28px] bg-paper p-10 text-center ring-1 ring-brand-900/10">
-        <span className="flex size-14 items-center justify-center rounded-full bg-ember-500/15 text-ember-600">
+      <div className="bg-paper ring-brand-900/10 flex min-h-[26rem] flex-col items-center justify-center rounded-[28px] p-10 text-center ring-1">
+        <span className="bg-ember-500/15 text-ember-600 flex size-14 items-center justify-center rounded-full">
           <ArrowRight className="size-6 -rotate-45" />
         </span>
-        <h2 className="font-display mt-6 text-[24px] font-extrabold tracking-[-0.025em] text-brand-900">
+        <h2 className="font-display text-brand-900 mt-6 text-[24px] font-extrabold tracking-[-0.025em]">
           {labels.successTitle}
         </h2>
-        <p className="mt-3 max-w-xs text-[14px] leading-relaxed text-brand-800/60">
+        <p className="text-brand-800/60 mt-3 max-w-xs text-[14px] leading-relaxed">
           {labels.successBody}
         </p>
       </div>
@@ -84,7 +79,7 @@ export function ContactForm({ labels }: { labels: Labels }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-5 rounded-[28px] bg-paper p-6 ring-1 ring-brand-900/10 sm:p-8"
+      className="bg-paper ring-brand-900/10 space-y-5 rounded-[28px] p-6 ring-1 sm:p-8"
     >
       <div>
         <label htmlFor={`${id}-name`} className={label}>
@@ -140,7 +135,7 @@ export function ContactForm({ labels }: { labels: Labels }) {
           name="message"
           rows={6}
           placeholder={labels.messagePlaceholder}
-          className="mt-2 w-full resize-none rounded-xl border border-brand-900/15 bg-white p-4 text-[14px] leading-relaxed text-brand-900 outline-none transition-[border-color,box-shadow] placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-[3px] focus:ring-brand-800/10"
+          className="border-brand-900/15 text-brand-900 placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-brand-800/10 mt-2 w-full resize-none rounded-xl border bg-white p-4 text-[14px] leading-relaxed transition-[border-color,box-shadow] outline-none focus:ring-[3px]"
         />
       </div>
 
@@ -157,7 +152,7 @@ export function ContactForm({ labels }: { labels: Labels }) {
       <button
         type="submit"
         disabled={pending}
-        className="group flex h-13 w-full items-center justify-center gap-2.5 rounded-full bg-brand-800 text-[11.5px] font-bold tracking-[0.13em] text-cream-100 uppercase transition-colors hover:bg-brand-900 disabled:opacity-60"
+        className="group bg-brand-800 text-cream-100 hover:bg-brand-900 flex h-13 w-full items-center justify-center gap-2.5 rounded-full text-[11.5px] font-bold tracking-[0.13em] uppercase transition-colors disabled:opacity-60"
       >
         {pending ? labels.sending : labels.submit}
         {!pending && (
@@ -165,7 +160,7 @@ export function ContactForm({ labels }: { labels: Labels }) {
         )}
       </button>
 
-      <p className="text-center text-[11.5px] text-brand-800/40">{labels.required}</p>
+      <p className="text-brand-800/40 text-center text-[11.5px]">{labels.required}</p>
     </form>
   );
 }

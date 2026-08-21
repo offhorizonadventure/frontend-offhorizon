@@ -8,17 +8,7 @@ import { cn } from "@/lib/cn";
 
 export type Phase = "closed" | "open" | "closing";
 
-/**
- * The frame the four account dialogs share.
- *
- * Portalled to <body> for the same reason the enquiry modal is: an ancestor
- * with `backdrop-filter` becomes the containing block for a fixed overlay and
- * shrinks it to that ancestor's box. Mounted only while open, so nothing inside
- * is reachable by tab or scroll when it is shut.
- *
- * It owns the chrome and the behaviour. What goes inside is the only thing that
- * differs between signing in, joining, and the two password screens.
- */
+/** The frame the four account dialogs share. */
 export function AuthShell({
   phase,
   onPhaseChange,
@@ -70,7 +60,7 @@ export function AuthShell({
       <div
         onClick={() => onPhaseChange("closing")}
         className={cn(
-          "absolute inset-0 bg-brand-950/60 backdrop-blur-md",
+          "bg-brand-950/60 absolute inset-0 backdrop-blur-md",
           isOpen ? "animate-fade-in" : "animate-fade-out",
         )}
       />
@@ -83,7 +73,7 @@ export function AuthShell({
           if (phase === "closing") onPhaseChange("closed");
         }}
         className={cn(
-          "relative max-h-[92dvh] w-full max-w-md overflow-y-auto rounded-t-[28px] bg-paper p-6 sm:rounded-[28px] sm:p-8",
+          "bg-paper relative max-h-[92dvh] w-full max-w-md overflow-y-auto rounded-t-[28px] p-6 sm:rounded-[28px] sm:p-8",
           isOpen ? "animate-modal-in" : "animate-modal-out",
         )}
       >
@@ -92,29 +82,29 @@ export function AuthShell({
           type="button"
           onClick={() => onPhaseChange("closing")}
           aria-label={closeLabel}
-          className="absolute top-5 right-5 grid size-9 place-items-center rounded-full text-brand-800/50 transition-colors hover:bg-brand-900/6 hover:text-brand-900"
+          className="text-brand-800/50 hover:bg-brand-900/6 hover:text-brand-900 absolute top-5 right-5 grid size-9 place-items-center rounded-full transition-colors"
         >
           <Close />
         </button>
 
-        <span className="flex items-center gap-2.5 text-[10px] font-bold tracking-[0.2em] text-ember-600 uppercase">
-          <span aria-hidden className="h-px w-6 bg-ember-500/60" />
+        <span className="text-ember-600 flex items-center gap-2.5 text-[10px] font-bold tracking-[0.2em] uppercase">
+          <span aria-hidden className="bg-ember-500/60 h-px w-6" />
           {eyebrow}
         </span>
 
         <h2
           id={titleId}
-          className="font-display mt-4 text-[clamp(1.4rem,3.4vw,1.8rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance text-brand-900"
+          className="font-display text-brand-900 mt-4 text-[clamp(1.4rem,3.4vw,1.8rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance"
         >
           {title}
         </h2>
 
-        <p className="mt-3 text-[13.5px] leading-[1.7] text-pretty text-brand-800/60">{lead}</p>
+        <p className="text-brand-800/60 mt-3 text-[13.5px] leading-[1.7] text-pretty">{lead}</p>
 
         <div className="mt-7">{children}</div>
 
         {footer && (
-          <div className="mt-7 border-t border-brand-900/10 pt-5 text-center text-[13px] text-brand-800/60">
+          <div className="border-brand-900/10 text-brand-800/60 mt-7 border-t pt-5 text-center text-[13px]">
             {footer}
           </div>
         )}

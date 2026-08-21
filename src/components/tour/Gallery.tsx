@@ -12,16 +12,7 @@ export type GalleryItem = { image: ImageSource; alt: string };
 /** A stable key for either kind of source. */
 const keyOf = (image: ImageSource) => (typeof image === "string" ? image : image.src);
 
-/**
- * Photo gallery with a lightbox.
- *
- * The grid is plain server-rendered markup as far as the browser is concerned;
- * the lightbox only mounts once something is opened, so the closed state costs
- * nothing but the click handlers.
- *
- * Arrow keys and Escape work, focus is returned to the thumbnail that opened
- * it, and the page behind is locked while it is up.
- */
+/** Photo gallery with a lightbox. */
 export function Gallery({
   eyebrow,
   title,
@@ -45,7 +36,10 @@ export function Gallery({
   }, []);
 
   const step = useCallback(
-    (delta: number) => setIndex((current) => (current === null ? null : (current + delta + items.length) % items.length)),
+    (delta: number) =>
+      setIndex((current) =>
+        current === null ? null : (current + delta + items.length) % items.length,
+      ),
     [items.length],
   );
 
@@ -58,8 +52,7 @@ export function Gallery({
       if (event.key === "ArrowLeft") step(-1);
     };
 
-    // Locking the body rather than the html element, so the scrollbar gutter
-    // does not disappear and shift the page underneath.
+    // Locking the body rather than the html element, so the scrollbar gutter does not disappear and shift the page underneath.
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
@@ -76,11 +69,11 @@ export function Gallery({
     <section className="bg-white py-18 sm:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div data-anim="up">
-          <span className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-500 uppercase">
-            <span aria-hidden className="h-px w-8 bg-ember-500/60" />
+          <span className="text-ember-500 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase">
+            <span aria-hidden className="bg-ember-500/60 h-px w-8" />
             {eyebrow}
           </span>
-          <h2 className="font-display mt-5 text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-brand-900">
+          <h2 className="font-display text-brand-900 mt-5 text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1] font-extrabold tracking-[-0.03em]">
             {title}
           </h2>
         </div>
@@ -95,7 +88,7 @@ export function Gallery({
                 }}
                 onClick={() => setIndex(position)}
                 aria-label={`${labels.open}: ${item.alt}`}
-                className="group relative block aspect-[4/3] w-full overflow-hidden rounded-[18px] bg-brand-100 ring-1 ring-brand-900/10 transition-transform duration-500 ease-out-expo hover:-translate-y-1 focus-visible:-translate-y-1"
+                className="group bg-brand-100 ring-brand-900/10 ease-out-expo relative block aspect-[4/3] w-full overflow-hidden rounded-[18px] ring-1 transition-transform duration-500 hover:-translate-y-1 focus-visible:-translate-y-1"
               >
                 <Image
                   src={item.image}
@@ -104,11 +97,11 @@ export function Gallery({
                   {...blurOf(item.image)}
                   sizes="(max-width: 639px) 46vw, (max-width: 1023px) 46vw, 280px"
                   quality={90}
-                  className="object-cover transition-transform duration-[1100ms] ease-out-expo group-hover:scale-[1.06]"
+                  className="ease-out-expo object-cover transition-transform duration-[1100ms] group-hover:scale-[1.06]"
                 />
                 <span
                   aria-hidden
-                  className="absolute inset-0 bg-brand-950/0 transition-colors duration-300 group-hover:bg-brand-950/15"
+                  className="bg-brand-950/0 group-hover:bg-brand-950/15 absolute inset-0 transition-colors duration-300"
                 />
               </button>
             </li>
@@ -121,7 +114,7 @@ export function Gallery({
           role="dialog"
           aria-modal="true"
           aria-label={title}
-          className="fixed inset-0 z-90 flex flex-col bg-brand-950/97 backdrop-blur-sm"
+          className="bg-brand-950/97 fixed inset-0 z-90 flex flex-col backdrop-blur-sm"
         >
           {/* Backdrop click closes. Sits under the controls. */}
           <button
@@ -132,7 +125,7 @@ export function Gallery({
           />
 
           <div className="relative flex items-center justify-between px-5 py-5 sm:px-8">
-            <p className="text-[11px] font-bold tracking-[0.16em] text-cream-100/50 uppercase tabular-nums">
+            <p className="text-cream-100/50 text-[11px] font-bold tracking-[0.16em] uppercase tabular-nums">
               {labels.counter
                 .replace("{current}", String(index + 1))
                 .replace("{total}", String(items.length))}
@@ -141,7 +134,7 @@ export function Gallery({
               type="button"
               onClick={close}
               aria-label={labels.close}
-              className="flex size-11 items-center justify-center rounded-full text-cream-100 ring-1 ring-cream-100/25 transition-colors duration-300 hover:bg-cream-100/10"
+              className="text-cream-100 ring-cream-100/25 hover:bg-cream-100/10 flex size-11 items-center justify-center rounded-full ring-1 transition-colors duration-300"
             >
               <Close />
             </button>
@@ -152,7 +145,7 @@ export function Gallery({
               type="button"
               onClick={() => step(-1)}
               aria-label={labels.previous}
-              className="flex size-11 shrink-0 items-center justify-center rounded-full text-cream-100 ring-1 ring-cream-100/25 transition-colors duration-300 hover:bg-cream-100/10"
+              className="text-cream-100 ring-cream-100/25 hover:bg-cream-100/10 flex size-11 shrink-0 items-center justify-center rounded-full ring-1 transition-colors duration-300"
             >
               <ChevronDown className="rotate-90" />
             </button>
@@ -163,17 +156,14 @@ export function Gallery({
                 src={current.image}
                 alt={current.alt}
                 {...blurOf(current.image)}
-                // A bundled import brings its own dimensions; a URL from
-                // storage does not, and Next needs a pair either way. These are
-                // the intrinsic ratio, not the rendered size, which
-                // `object-contain` decides.
+                // A bundled import brings its own dimensions; a URL from storage does not, and Next needs a pair either way.
                 width={1600}
                 height={1200}
                 sizes="(max-width: 767px) 92vw, 70vw"
                 quality={90}
                 className="max-h-full w-auto rounded-2xl object-contain"
               />
-              <figcaption className="mt-4 max-w-xl text-center text-[12.5px] text-balance text-cream-100/55">
+              <figcaption className="text-cream-100/55 mt-4 max-w-xl text-center text-[12.5px] text-balance">
                 {current.alt}
               </figcaption>
             </figure>
@@ -182,13 +172,13 @@ export function Gallery({
               type="button"
               onClick={() => step(1)}
               aria-label={labels.next}
-              className="flex size-11 shrink-0 items-center justify-center rounded-full text-cream-100 ring-1 ring-cream-100/25 transition-colors duration-300 hover:bg-cream-100/10"
+              className="text-cream-100 ring-cream-100/25 hover:bg-cream-100/10 flex size-11 shrink-0 items-center justify-center rounded-full ring-1 transition-colors duration-300"
             >
               <ChevronDown className="-rotate-90" />
             </button>
           </div>
 
-          <div className="relative flex gap-2 overflow-x-auto px-5 py-5 [scrollbar-width:none] sm:px-8 [&::-webkit-scrollbar]:hidden">
+          <div className="relative flex [scrollbar-width:none] gap-2 overflow-x-auto px-5 py-5 sm:px-8 [&::-webkit-scrollbar]:hidden">
             {items.map((item, position) => (
               <button
                 key={keyOf(item.image) + position}
@@ -198,7 +188,7 @@ export function Gallery({
                 aria-current={position === index}
                 className={`relative size-14 shrink-0 overflow-hidden rounded-lg transition-opacity duration-300 sm:size-16 ${
                   position === index
-                    ? "opacity-100 ring-2 ring-ember-500"
+                    ? "ring-ember-500 opacity-100 ring-2"
                     : "opacity-45 hover:opacity-80"
                 }`}
               >

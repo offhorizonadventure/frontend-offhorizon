@@ -673,9 +673,7 @@
               "Paisajes que pasan del glaciar al desierto frío en una misma jornada",
               "Culturas hindú y budista vivas, no conservadas"
             ],
-            "after": [
-              "Organizamos expediciones en el Himalaya indio, nepalí y butanés."
-            ]
+            "after": ["Organizamos expediciones en el Himalaya indio, nepalí y butanés."]
           },
           {
             "question": "¿Por qué el Himalaya es el mejor sitio para una expedición en moto?",
@@ -711,10 +709,7 @@
           },
           {
             "question": "¿Qué dificultad tienen las expediciones al Himalaya?",
-            "answer": [
-              "De moderada a exigente, según la ruta.",
-              "Hay que contar con:"
-            ],
+            "answer": ["De moderada a exigente, según la ruta.", "Hay que contar con:"],
             "list": [
               "Jornadas largas entre 3.000 y 5.800 metros",
               "Una mezcla de buen asfalto y off-road de verdad",
@@ -819,9 +814,7 @@
           },
           {
             "question": "¿Cuándo es la temporada para rodar en Nepal?",
-            "answer": [
-              "Primavera y otoño son las ventanas principales, y el Mustang las alarga."
-            ],
+            "answer": ["Primavera y otoño son las ventanas principales, y el Mustang las alarga."],
             "list": [
               "De marzo a mayo: templado, despejado, rododendros en flor en altura",
               "De junio a agosto: monzón en casi todo el país, pero el Mustang queda a sotavento y se mantiene relativamente seco",
@@ -903,9 +896,7 @@
               "Pueblos y monasterios que han cambiado muy poco",
               "Aire seco, luz dura y un viento que se levanta cada tarde"
             ],
-            "after": [
-              "Es lo más parecido a rodar en el Tíbet sin cruzar la frontera."
-            ]
+            "after": ["Es lo más parecido a rodar en el Tíbet sin cruzar la frontera."]
           },
           {
             "question": "¿Qué es el desfiladero del Kali Gandaki?",
@@ -947,9 +938,7 @@
           },
           {
             "question": "¿Necesito seguro de viaje?",
-            "answer": [
-              "Sí. Es obligatorio y debe cubrir:"
-            ],
+            "answer": ["Sí. Es obligatorio y debe cubrir:"],
             "list": [
               "Viajes en altura por encima de 4.000 metros",
               "La conducción de moto, que muchas pólizas estándar excluyen",
@@ -1083,7 +1072,8 @@
       "eyebrow": "Lo que cuesta",
       "title": "Un precio, y las pocas cosas que se suman",
       "body": "El precio de piloto cubre la expedición en sí. Todo lo demás es opcional: solo pagas la habitación individual o la cobertura extra si las quieres. Al final no se añade nada.",
-      "datesTitle": "Fechas de salida"
+      "datesTitle": "Fechas de salida",
+      "noDates": "Todavía no hay fechas para esta expedición. Dinos cuándo quieres rodar y la montamos a tu medida."
     },
     "highlights": {
       "eyebrow": "Lo más destacado",
@@ -1132,6 +1122,14 @@
         "roomHint": "Las habitaciones son dobles salvo que elijas esta.",
         "none": "Podrás cambiarlo todo más adelante. Todavía no has reservado nada."
       },
+      "vehicle": {
+        "title": "Tu vehículo",
+        "help": "Alquilado para los {days} días de la expedición y compartido entre quienes viajan en él.",
+        "seats": "{count} plazas",
+        "perDay": "al día",
+        "total": "por el viaje",
+        "none": "¿Traes tu propio coche? Sáltate esto y dínoslo en la consulta."
+      },
       "summary": {
         "title": "Esto es lo que has elegido",
         "help": "Una estimación, no una reserva. Lo confirmaremos todo por correo.",
@@ -1140,12 +1138,23 @@
         "pillions": "Pasajeros",
         "insurance": "Protección de daños",
         "room": "Habitaciones individuales",
+        "vehicle": "Vehículo",
         "total": "Total estimado",
         "enquire": "Enviar consulta",
         "note": "Convertido de dólares estadounidenses al cambio de hoy, así que el importe final depende del cambio el día que pagues. Los vuelos no están incluidos.",
         "dates": "Fechas",
         "flexible": "Flexible"
       }
+    },
+    "more": "Leer más",
+    "less": "Leer menos",
+    "fleet": {
+      "eyebrow": "La flota",
+      "title": "Los coches que salen contigo",
+      "lead": "Cada uno se alquila para toda la expedición, {days} días en la salida más corta, y se comparte entre quienes viajan en él.",
+      "seats": "{count} plazas",
+      "perDay": "al día",
+      "forTrip": "{total} por {days} días"
     }
   },
   "auth": {
@@ -1205,6 +1214,16 @@
       "password": "Nueva contraseña",
       "confirm": "Confirmar contraseña",
       "rule": "Al menos ocho caracteres."
+    },
+    "reset": {
+      "title": "Crea una contraseña nueva.",
+      "lead": "Elige algo que no hayas usado antes en esta cuenta.",
+      "expiredTitle": "Ese enlace ha caducado.",
+      "expiredLead": "Los enlaces sirven una vez y duran una hora. Pide otro desde el inicio de sesión.",
+      "startAgain": "Volver al sitio",
+      "saving": "Guardando…",
+      "mismatch": "Las dos contraseñas no coinciden.",
+      "tooShort": "Usa al menos ocho caracteres."
     }
   },
   "catalogue": {

@@ -34,9 +34,9 @@ export default function BookingsPage() {
         {BOOKINGS.map((booking) => (
           <li
             key={booking.id}
-            className="group grid gap-5 rounded-[20px] bg-white p-4 ring-1 ring-brand-900/8 transition-shadow hover:ring-brand-900/20 sm:grid-cols-[10rem_1fr_auto] sm:items-center"
+            className="group ring-brand-900/8 hover:ring-brand-900/20 grid gap-5 rounded-[20px] bg-white p-4 ring-1 transition-shadow sm:grid-cols-[10rem_1fr_auto] sm:items-center"
           >
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[14px] bg-brand-100 sm:aspect-[4/3]">
+            <div className="bg-brand-100 relative aspect-[4/3] overflow-hidden rounded-[14px] sm:aspect-[4/3]">
               <Image
                 src={booking.image}
                 alt=""
@@ -52,22 +52,22 @@ export default function BookingsPage() {
                 <Pill tone={booking.status}>
                   {booking.status === "confirmed" ? "Confirmed" : "Awaiting balance"}
                 </Pill>
-                <span className="font-mono text-[11.5px] text-brand-800/45">{booking.id}</span>
+                <span className="text-brand-800/45 font-mono text-[11.5px]">{booking.id}</span>
               </div>
 
-              <h3 className="font-display mt-2.5 text-[17px] leading-tight font-bold tracking-[-0.02em] text-brand-900">
+              <h3 className="font-display text-brand-900 mt-2.5 text-[17px] leading-tight font-bold tracking-[-0.02em]">
                 {booking.tour}
               </h3>
 
-              <p className="mt-1.5 text-[13.5px] text-brand-800/60">
+              <p className="text-brand-800/60 mt-1.5 text-[13.5px]">
                 {booking.dates} · {booking.riders}
               </p>
-              <p className="mt-1 text-[13px] text-brand-800/45">{booking.balance}</p>
+              <p className="text-brand-800/45 mt-1 text-[13px]">{booking.balance}</p>
             </div>
 
             <button
               type="button"
-              className="inline-flex h-11 items-center gap-2.5 justify-self-start rounded-full border border-brand-900/20 px-5 text-[10.5px] font-bold tracking-[0.12em] text-brand-800 uppercase transition-colors hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100 sm:justify-self-auto"
+              className="border-brand-900/20 text-brand-800 hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100 inline-flex h-11 items-center gap-2.5 justify-self-start rounded-full border px-5 text-[10.5px] font-bold tracking-[0.12em] uppercase transition-colors sm:justify-self-auto"
             >
               View
               <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />

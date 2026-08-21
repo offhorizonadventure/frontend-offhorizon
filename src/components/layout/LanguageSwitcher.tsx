@@ -23,10 +23,7 @@ type LanguageSwitcherProps = {
   variant?: "menu" | "row";
 };
 
-/**
- * Client-side only for `usePathname()` - the markup is still server-rendered
- * and every option is a real localized <a>, so crawlers follow them.
- */
+/** Client-side only for `usePathname()` - the markup is still server-rendered and every option is a real localized <a>, so crawlers follow them. */
 export function LanguageSwitcher({ label, variant = "menu" }: LanguageSwitcherProps) {
   const pathname = usePathname();
   const active = useLocale() as Locale;
@@ -85,10 +82,10 @@ export function LanguageSwitcher({ label, variant = "menu" }: LanguageSwitcherPr
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label={label}
-        className="flex h-9 items-center gap-1.5 rounded-full px-2.5 transition-colors hover:bg-cream-100"
+        className="hover:bg-cream-100 flex h-9 items-center gap-1.5 rounded-full px-2.5 transition-colors"
       >
         <Flag country={marketFor(active).flag} />
-        <span className="text-[11px] font-bold tracking-[0.1em] text-brand-800 uppercase">
+        <span className="text-brand-800 text-[11px] font-bold tracking-[0.1em] uppercase">
           {active}
         </span>
         <ChevronDown
@@ -99,7 +96,7 @@ export function LanguageSwitcher({ label, variant = "menu" }: LanguageSwitcherPr
       <div
         role="menu"
         className={cn(
-          "absolute right-0 z-50 mt-3 w-48 origin-top-right rounded-2xl border border-brand-900/10 bg-white p-1.5 transition-all duration-200 ease-out-expo",
+          "border-brand-900/10 ease-out-expo absolute right-0 z-50 mt-3 w-48 origin-top-right rounded-2xl border bg-white p-1.5 transition-all duration-200",
           open ? "visible scale-100 opacity-100" : "invisible scale-95 opacity-0",
         )}
       >
@@ -114,8 +111,8 @@ export function LanguageSwitcher({ label, variant = "menu" }: LanguageSwitcherPr
             aria-current={locale === active ? "true" : undefined}
             onClick={() => setOpen(false)}
             className={cn(
-              "flex items-center gap-2.5 rounded-xl px-2.5 py-2 text-[13px] transition-colors hover:bg-cream-100",
-              locale === active ? "font-bold text-brand-800" : "font-medium text-brand-900/80",
+              "hover:bg-cream-100 flex items-center gap-2.5 rounded-xl px-2.5 py-2 text-[13px] transition-colors",
+              locale === active ? "text-brand-800 font-bold" : "text-brand-900/80 font-medium",
             )}
           >
             <Flag country={marketFor(locale).flag} />

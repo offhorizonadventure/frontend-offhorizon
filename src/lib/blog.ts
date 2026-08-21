@@ -2,17 +2,7 @@ import "server-only";
 
 import { createClient } from "@supabase/supabase-js";
 
-/**
- * The journal, read from Supabase.
- *
- * Read only and unauthenticated. Row level security only ever returns posts
- * whose status is published, so a draft cannot reach the site even if its
- * address is guessed.
- *
- * The document is stored as the editor's node tree rather than HTML, so nothing
- * an author types can inject markup into the page: every node is rendered by a
- * component that decides what it is allowed to be.
- */
+/** The journal, read from Supabase. */
 
 export type RichNode = {
   type?: string;
@@ -45,12 +35,7 @@ const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 export const imageUrl = (path: string | null | undefined) =>
   path && url ? `${url}/storage/v1/object/public/${BUCKET}/${path}` : null;
 
-/**
- * Returns null rather than throwing when Supabase is not configured.
- *
- * The journal is one section of a site that is otherwise static, and a missing
- * environment variable should cost the journal, not every page.
- */
+/** Returns null rather than throwing when Supabase is not configured. */
 function client() {
   if (!url || !key) return null;
 

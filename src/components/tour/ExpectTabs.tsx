@@ -13,22 +13,13 @@ export type ExpectItem = {
   image: ImageSource;
 };
 
-/**
- * What to expect.
- *
- * Full bleed photograph with the copy sitting on it and a ruled tab strip
- * above. Every panel is rendered and only hidden, so the text is in the HTML
- * for crawlers and the images are decoded before the tab is clicked.
- *
- * Client side only because a tab strip needs a selection; it is a handful of
- * bytes and no library.
- */
+/** What to expect. */
 export function ExpectTabs({ eyebrow, items }: { eyebrow: string; items: ExpectItem[] }) {
   const [active, setActive] = useState(0);
   const id = useId();
 
   return (
-    <section className="relative isolate overflow-hidden bg-brand-950 text-cream-100">
+    <section className="bg-brand-950 text-cream-100 relative isolate overflow-hidden">
       {items.map((item, index) => (
         <Image
           key={item.key}
@@ -46,15 +37,15 @@ export function ExpectTabs({ eyebrow, items }: { eyebrow: string; items: ExpectI
       ))}
       <span
         aria-hidden
-        className="absolute inset-0 -z-10 bg-gradient-to-t from-brand-950 via-brand-950/70 to-brand-950/45 sm:bg-gradient-to-r sm:from-brand-950 sm:via-brand-950/70 sm:to-brand-950/20"
+        className="from-brand-950 via-brand-950/70 to-brand-950/45 sm:from-brand-950 sm:via-brand-950/70 sm:to-brand-950/20 absolute inset-0 -z-10 bg-gradient-to-t sm:bg-gradient-to-r"
       />
 
       <div className="mx-auto max-w-6xl px-5 py-18 sm:px-8 sm:py-28">
         <h2
           data-anim="up"
-          className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-500 uppercase"
+          className="text-ember-500 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase"
         >
-          <span aria-hidden className="h-px w-8 bg-ember-500/60" />
+          <span aria-hidden className="bg-ember-500/60 h-px w-8" />
           {eyebrow}
         </h2>
 
@@ -62,7 +53,7 @@ export function ExpectTabs({ eyebrow, items }: { eyebrow: string; items: ExpectI
         <div
           role="tablist"
           aria-label={eyebrow}
-          className="-mx-5 mt-8 flex gap-6 overflow-x-auto px-5 [scrollbar-width:none] sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden"
+          className="-mx-5 mt-8 flex [scrollbar-width:none] gap-6 overflow-x-auto px-5 sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden"
         >
           {items.map((item, index) => (
             <button
@@ -96,7 +87,7 @@ export function ExpectTabs({ eyebrow, items }: { eyebrow: string; items: ExpectI
               <h3 className="font-display text-[clamp(1.5rem,3vw,2.2rem)] leading-[1.1] font-extrabold tracking-[-0.035em] text-balance">
                 {item.title}
               </h3>
-              <p className="mt-5 text-[15px] leading-[1.85] text-pretty text-cream-100/70 sm:text-[16px]">
+              <p className="text-cream-100/70 mt-5 text-[15px] leading-[1.85] text-pretty sm:text-[16px]">
                 {item.body}
               </p>
             </div>

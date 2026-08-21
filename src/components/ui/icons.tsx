@@ -24,14 +24,7 @@ import {
 } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa6";
 
-/**
- * Single place the app gets its icons from.
- *
- * UI glyphs come from lucide-react. Brand marks come from react-icons, since
- * lucide dropped brand icons in v1. The wrappers only pin a default size and
- * stroke so call sites stay tidy; any `className` (including Tailwind `size-*`)
- * still wins, because CSS beats the SVG width/height attributes.
- */
+/** Single place the app gets its icons from. */
 type IconProps = { className?: string };
 
 export const ChevronDown = ({ className = "" }: IconProps) => (

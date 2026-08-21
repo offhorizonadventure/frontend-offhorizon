@@ -16,19 +16,7 @@ type MobileDrawerProps = {
 
 type Phase = "closed" | "open" | "closing";
 
-/**
- * Right-hand slide-over menu.
- *
- * Two things matter here:
- *
- * 1. The overlay is portalled to <body>. The navbar sets `backdrop-filter`,
- *    which makes it the containing block for fixed descendants, so an overlay
- *    rendered in place would size itself to the navbar pill instead of the
- *    viewport.
- * 2. It is only in the DOM while open, so nothing can show through or be
- *    scrolled to when closed. Enter and exit are keyframes, and the node
- *    unmounts on the exit animation's `animationend`.
- */
+/** Right-hand slide-over menu. */
 export function MobileDrawer({ labels, children }: MobileDrawerProps) {
   const [phase, setPhase] = useState<Phase>("closed");
   const pathname = usePathname();
@@ -63,51 +51,52 @@ export function MobileDrawer({ labels, children }: MobileDrawerProps) {
     };
   }, [isOpen]);
 
-  const overlay = phase === "closed" ? null : (
-    <div className="fixed inset-0 z-9999 flex lg:hidden">
-      <div
-        onClick={() => setPhase("closing")}
-        className={cn(
-          "absolute inset-0 bg-brand-950/55 backdrop-blur-md",
-          isOpen ? "animate-fade-in" : "animate-fade-out",
-        )}
-      />
+  const overlay =
+    phase === "closed" ? null : (
+      <div className="fixed inset-0 z-9999 flex lg:hidden">
+        <div
+          onClick={() => setPhase("closing")}
+          className={cn(
+            "bg-brand-950/55 absolute inset-0 backdrop-blur-md",
+            isOpen ? "animate-fade-in" : "animate-fade-out",
+          )}
+        />
 
-      <aside
-        id="site-menu"
-        role="dialog"
-        aria-modal="true"
-        aria-label={labels.title}
-        onAnimationEnd={() => {
-          if (phase === "closing") {
-            setPhase("closed");
-            triggerRef.current?.focus();
-          }
-        }}
-        className={cn(
-          "relative ml-auto flex h-dvh w-[90%] max-w-[26rem] flex-col overflow-hidden bg-paper",
-          isOpen ? "animate-drawer-in" : "animate-drawer-out",
-        )}
-      >
-        <div className="relative flex shrink-0 items-center justify-between px-6 py-7">
-          <Logo height={36} />
-          <button
-            ref={closeRef}
-            type="button"
-            onClick={() => setPhase("closing")}
-            aria-label={labels.close}
-            className="flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-900/6 text-brand-800 transition-colors hover:bg-brand-900/12"
-          >
-            <Close />
-          </button>
-        </div>
+        <aside
+          id="site-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label={labels.title}
+          onAnimationEnd={() => {
+            if (phase === "closing") {
+              setPhase("closed");
+              triggerRef.current?.focus();
+            }
+          }}
+          className={cn(
+            "bg-paper relative ml-auto flex h-dvh w-[90%] max-w-[26rem] flex-col overflow-hidden",
+            isOpen ? "animate-drawer-in" : "animate-drawer-out",
+          )}
+        >
+          <div className="relative flex shrink-0 items-center justify-between px-6 py-7">
+            <Logo height={36} />
+            <button
+              ref={closeRef}
+              type="button"
+              onClick={() => setPhase("closing")}
+              aria-label={labels.close}
+              className="bg-brand-900/6 text-brand-800 hover:bg-brand-900/12 flex size-10 shrink-0 items-center justify-center rounded-full transition-colors"
+            >
+              <Close />
+            </button>
+          </div>
 
-        <div className="mx-6 border-t border-brand-900/10" />
+          <div className="border-brand-900/10 mx-6 border-t" />
 
-        <div className="flex-1 overflow-y-auto overscroll-contain px-6 pb-8">{children}</div>
-      </aside>
-    </div>
-  );
+          <div className="flex-1 overflow-y-auto overscroll-contain px-6 pb-8">{children}</div>
+        </aside>
+      </div>
+    );
 
   return (
     <>
@@ -118,7 +107,7 @@ export function MobileDrawer({ labels, children }: MobileDrawerProps) {
         aria-label={labels.open}
         aria-expanded={isOpen}
         aria-controls="site-menu"
-        className="flex size-9 items-center justify-center rounded-full text-brand-800 transition-colors hover:bg-cream-100 lg:hidden"
+        className="text-brand-800 hover:bg-cream-100 flex size-9 items-center justify-center rounded-full transition-colors lg:hidden"
       >
         <Menu />
       </button>

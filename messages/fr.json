@@ -673,9 +673,7 @@
               "Des paysages qui passent du glacier au désert froid dans la même journée",
               "Des cultures hindoue et bouddhiste vivantes, pas muséifiées"
             ],
-            "after": [
-              "Nous menons des expéditions dans l'Himalaya indien, népalais et bhoutanais."
-            ]
+            "after": ["Nous menons des expéditions dans l'Himalaya indien, népalais et bhoutanais."]
           },
           {
             "question": "Pourquoi l'Himalaya est-il le meilleur endroit pour une expédition à moto ?",
@@ -711,10 +709,7 @@
           },
           {
             "question": "Quel est le niveau de difficulté des expéditions himalayennes ?",
-            "answer": [
-              "De modéré à exigeant, selon l'itinéraire.",
-              "À prévoir :"
-            ],
+            "answer": ["De modéré à exigeant, selon l'itinéraire.", "À prévoir :"],
             "list": [
               "De longues journées entre 3 000 et 5 800 mètres",
               "Un mélange d'asphalte roulant et de vrai tout-terrain",
@@ -947,9 +942,7 @@
           },
           {
             "question": "Ai-je besoin d'une assurance voyage ?",
-            "answer": [
-              "Oui. Elle est obligatoire et doit couvrir :"
-            ],
+            "answer": ["Oui. Elle est obligatoire et doit couvrir :"],
             "list": [
               "Les voyages en altitude au-dessus de 4 000 mètres",
               "La conduite de moto, que beaucoup de contrats standards excluent",
@@ -1083,7 +1076,8 @@
       "eyebrow": "Le tarif",
       "title": "Un prix, et les quelques options qui s'y ajoutent",
       "body": "Le tarif pilote couvre l'expédition elle-même. Tout le reste est facultatif : vous ne payez une chambre simple ou une couverture supplémentaire que si vous les voulez. Rien n'est ajouté à la fin.",
-      "datesTitle": "Dates de départ"
+      "datesTitle": "Dates de départ",
+      "noDates": "Les dates ne sont pas encore fixées. Dites-nous quand vous voulez rouler et nous l'organiserons autour de vous."
     },
     "highlights": {
       "eyebrow": "Temps forts",
@@ -1132,6 +1126,14 @@
         "roomHint": "Les chambres sont doubles sauf si vous prenez ceci.",
         "none": "Vous pourrez tout modifier plus tard. Rien n'est encore réservé."
       },
+      "vehicle": {
+        "title": "Votre véhicule",
+        "help": "Loué pour les {days} jours de l'expédition et partagé entre ses occupants.",
+        "seats": "{count} places",
+        "perDay": "par jour",
+        "total": "pour le voyage",
+        "none": "Vous venez avec votre véhicule ? Passez cette étape et dites-le nous dans la demande."
+      },
       "summary": {
         "title": "Voici ce que vous avez choisi",
         "help": "Une estimation, pas une réservation. Nous confirmerons tout par e-mail.",
@@ -1140,12 +1142,23 @@
         "pillions": "Passagers",
         "insurance": "Protection dommages",
         "room": "Chambres simples",
+        "vehicle": "Véhicule",
         "total": "Total estimé",
         "enquire": "Envoyer la demande",
         "note": "Converti depuis le dollar américain au taux du jour : le montant final dépendra du taux au moment du paiement. Les vols ne sont pas compris.",
         "dates": "Dates",
         "flexible": "Flexible"
       }
+    },
+    "more": "Lire la suite",
+    "less": "Lire moins",
+    "fleet": {
+      "eyebrow": "La flotte",
+      "title": "Les véhicules qui partent avec vous",
+      "lead": "Chacun est loué pour la durée de l'expédition, {days} jours sur le départ le plus court, et partagé entre ses occupants.",
+      "seats": "{count} places",
+      "perDay": "par jour",
+      "forTrip": "{total} pour {days} jours"
     }
   },
   "auth": {
@@ -1205,6 +1218,16 @@
       "password": "Nouveau mot de passe",
       "confirm": "Confirmer le mot de passe",
       "rule": "Au moins huit caractères."
+    },
+    "reset": {
+      "title": "Définissez un nouveau mot de passe.",
+      "lead": "Choisissez quelque chose que vous n'avez pas déjà utilisé sur ce compte.",
+      "expiredTitle": "Ce lien a expiré.",
+      "expiredLead": "Un lien sert une fois et reste valable une heure. Demandez-en un nouveau depuis la connexion.",
+      "startAgain": "Retour au site",
+      "saving": "Enregistrement…",
+      "mismatch": "Les deux mots de passe ne correspondent pas.",
+      "tooShort": "Utilisez au moins huit caractères."
     }
   },
   "catalogue": {

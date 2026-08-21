@@ -14,10 +14,63 @@ export type BookingLabels = {
   increase: string;
   basics: { duration: string; groupSize: string; from: string; perRider: string };
   year: { title: string; help: string };
-  date: { title: string; help: string; none: string; soldOut: string; places: string; custom: string };
-  travellers: { title: string; help: string; riders: string; ridersHint: string; pillions: string; pillionsHint: string };
-  extras: { title: string; help: string; insurance: string; insuranceHint: string; room: string; roomHint: string; none: string };
-  summary: { title: string; help: string; year: string; dates: string; flexible: string; riders: string; pillions: string; insurance: string; room: string; total: string; enquire: string; note: string };
+  date: {
+    title: string;
+    help: string;
+    none: string;
+    soldOut: string;
+    places: string;
+    custom: string;
+  };
+  travellers: {
+    title: string;
+    help: string;
+    riders: string;
+    ridersHint: string;
+    pillions: string;
+    pillionsHint: string;
+  };
+  extras: {
+    title: string;
+    help: string;
+    insurance: string;
+    insuranceHint: string;
+    room: string;
+    roomHint: string;
+    none: string;
+  };
+  vehicle: {
+    title: string;
+    help: string;
+    seats: string;
+    perDay: string;
+    total: string;
+    none: string;
+  };
+  summary: {
+    title: string;
+    help: string;
+    year: string;
+    dates: string;
+    flexible: string;
+    riders: string;
+    pillions: string;
+    insurance: string;
+    room: string;
+    vehicle: string;
+    total: string;
+    enquire: string;
+    note: string;
+  };
+};
+
+/** A car on offer for a 4x4 departure. */
+export type WizardVehicle = {
+  id: string;
+  name: string;
+  seats: number;
+  /** In the base currency, converted here like every other figure. */
+  perDay: number;
 };
 
 export type Departure = {
@@ -26,6 +79,9 @@ export type Departure = {
   soldOut?: boolean;
   /** Places on this departure. Null where the number is not published. */
   seats?: number | null;
+  kind?: "motorbike" | "4x4";
+  /** Empty on a motorbike departure, which has one machine for everyone. */
+  vehicles?: WizardVehicle[];
 };
 
 export type BookingProps = {
@@ -44,17 +100,7 @@ export type BookingProps = {
 
 const STEPS = ["year", "date", "travellers", "extras", "summary"] as const;
 
-/**
- * Multi-step booking enquiry.
- *
- * One question per step, because the answers depend on each other: the number
- * of machines to insure cannot exceed the riders, and the rooms cannot exceed
- * the people. Asking everything on one screen means validating those
- * relationships after the fact instead of just bounding the next control.
- *
- * The running total is computed here rather than fetched, so it updates as the
- * steppers move. The rate comes in from the server with the rest of the props.
- */
+/** Multi-step booking enquiry. */
 export function BookingWizard({
   tourName,
   duration,
@@ -74,6 +120,7 @@ export function BookingWizard({
   const [pillions, setPillions] = useState(0);
   const [insurance, setInsurance] = useState(0);
   const [rooms, setRooms] = useState(0);
+  const [vehicle, setVehicle] = useState<string | null>(null);
 
   // Current year plus the two after it.
   const years = useMemo(() => {
@@ -106,21 +153,27 @@ export function BookingWizard({
 
   const chosen = options.find((option) => option.start === departure) ?? null;
 
+  /** A car is hired for the whole trip, so its cost is the daily rate times the days on the road. */
+  const days = chosen
+    ? Math.round((new Date(chosen.end).getTime() - new Date(chosen.start).getTime()) / 86_400_000) +
+      1
+    : 0;
+
+  const fleet = chosen?.kind === "4x4" ? (chosen.vehicles ?? []) : [];
+  const picked = fleet.find((option) => option.id === vehicle) ?? null;
+  const vehicleCost = picked ? picked.perDay * days : 0;
+
   const total =
     riders * prices.rider +
     pillions * prices.pillion +
     insurance * prices.insurance +
-    rooms * prices.room;
+    rooms * prices.room +
+    vehicleCost;
 
-  // Bounds that keep the answers consistent with each other: you cannot insure
-  // more machines than you have riders, or book more single rooms than people.
-  // Clamped when the driving number changes rather than during render, so the
-  // extras cannot be left stranded above their own maximum.
+  // Bounds that keep the answers consistent with each other: you cannot insure more machines than you have riders, or book more single rooms than people.
   const maxInsurance = riders;
   const maxRooms = riders + pillions;
-  // A year with nothing published cannot be continued through: there is no
-  // date to price, and walking a reader into a total for a trip that has no
-  // dates is worse than sending them to the custom expedition form.
+  // A year with nothing published cannot be continued through: there is no date to price, and walking a reader into a total for a trip that has no dates is worse than sending them to the custom expedition form.
   const noDates = step === 1 && options.length === 0;
   const canContinue = step === 0 ? year !== null : step === 1 ? departure !== null : true;
 
@@ -128,6 +181,13 @@ export function BookingWizard({
   const changeYear = (next: number) => {
     setYear(next);
     setDeparture(null);
+    setVehicle(null);
+  };
+
+  // And a different date may run a different set of cars.
+  const changeDeparture = (start: string) => {
+    setDeparture(start);
+    setVehicle(null);
   };
 
   const changeRiders = (next: number) => {
@@ -149,28 +209,28 @@ export function BookingWizard({
   return (
     <div className="flex h-full flex-col">
       {/* Basics, always on show. */}
-      <div className="border-b border-brand-900/12 pb-5">
-        <p className="font-display text-[15px] leading-snug font-bold tracking-[-0.015em] text-brand-900">
+      <div className="border-brand-900/12 border-b pb-5">
+        <p className="font-display text-brand-900 text-[15px] leading-snug font-bold tracking-[-0.015em]">
           {tourName}
         </p>
         <dl className="mt-3 flex flex-wrap gap-x-6 gap-y-2">
           <div>
-            <dt className="text-[9.5px] font-bold tracking-[0.16em] text-brand-800/45 uppercase">
+            <dt className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.16em] uppercase">
               {labels.basics.duration}
             </dt>
-            <dd className="mt-0.5 text-[13px] font-semibold text-brand-900">{duration}</dd>
+            <dd className="text-brand-900 mt-0.5 text-[13px] font-semibold">{duration}</dd>
           </div>
           <div>
-            <dt className="text-[9.5px] font-bold tracking-[0.16em] text-brand-800/45 uppercase">
+            <dt className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.16em] uppercase">
               {labels.basics.groupSize}
             </dt>
-            <dd className="mt-0.5 text-[13px] font-semibold text-brand-900">{groupSize}</dd>
+            <dd className="text-brand-900 mt-0.5 text-[13px] font-semibold">{groupSize}</dd>
           </div>
           <div>
-            <dt className="text-[9.5px] font-bold tracking-[0.16em] text-brand-800/45 uppercase">
+            <dt className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.16em] uppercase">
               {labels.basics.from}
             </dt>
-            <dd className="mt-0.5 text-[13px] font-semibold text-brand-900 tabular-nums">
+            <dd className="text-brand-900 mt-0.5 text-[13px] font-semibold tabular-nums">
               {price(prices.rider)}
             </dd>
           </div>
@@ -179,8 +239,10 @@ export function BookingWizard({
 
       {/* Progress */}
       <div className="flex items-center gap-3 pt-5">
-        <span className="text-[9.5px] font-bold tracking-[0.16em] text-brand-800/45 uppercase">
-          {labels.stepOf.replace("{current}", String(step + 1)).replace("{total}", String(STEPS.length))}
+        <span className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.16em] uppercase">
+          {labels.stepOf
+            .replace("{current}", String(step + 1))
+            .replace("{total}", String(STEPS.length))}
         </span>
         <span aria-hidden className="flex flex-1 gap-1">
           {STEPS.map((name, index) => (
@@ -197,10 +259,10 @@ export function BookingWizard({
       <div className="flex-1 overflow-y-auto py-6">
         {step === 0 && (
           <fieldset>
-            <legend className="font-display text-[17px] leading-snug font-bold tracking-[-0.02em] text-brand-900">
+            <legend className="font-display text-brand-900 text-[17px] leading-snug font-bold tracking-[-0.02em]">
               {labels.year.title}
             </legend>
-            <p className="mt-1.5 text-[12.5px] text-brand-800/50">{labels.year.help}</p>
+            <p className="text-brand-800/50 mt-1.5 text-[12.5px]">{labels.year.help}</p>
 
             <div className="mt-5 grid gap-2.5">
               {years.map((option) => (
@@ -212,7 +274,7 @@ export function BookingWizard({
                   className={`flex h-13 items-center justify-between rounded-xl border px-5 text-left transition-colors duration-200 ${
                     year === option
                       ? "border-brand-800 bg-brand-800 text-cream-100"
-                      : "border-brand-900/15 bg-white text-brand-900 hover:border-brand-800/50"
+                      : "border-brand-900/15 text-brand-900 hover:border-brand-800/50 bg-white"
                   }`}
                 >
                   <span className="font-display text-[17px] font-bold tracking-[-0.02em] tabular-nums">
@@ -227,13 +289,13 @@ export function BookingWizard({
 
         {step === 1 && (
           <fieldset>
-            <legend className="font-display text-[17px] leading-snug font-bold tracking-[-0.02em] text-brand-900">
+            <legend className="font-display text-brand-900 text-[17px] leading-snug font-bold tracking-[-0.02em]">
               {labels.date.title}
             </legend>
-            <p className="mt-1.5 text-[12.5px] text-brand-800/50">{labels.date.help}</p>
+            <p className="text-brand-800/50 mt-1.5 text-[12.5px]">{labels.date.help}</p>
 
             {options.length === 0 && (
-              <p className="mt-5 rounded-xl bg-brand-900/4 px-4 py-3.5 text-[12.5px] leading-relaxed text-brand-800/60">
+              <p className="bg-brand-900/4 text-brand-800/60 mt-5 rounded-xl px-4 py-3.5 text-[12.5px] leading-relaxed">
                 {labels.date.none.replace("{year}", String(year))}
               </p>
             )}
@@ -247,14 +309,14 @@ export function BookingWizard({
                     key={option.start}
                     type="button"
                     disabled={option.soldOut}
-                    onClick={() => setDeparture(option.start)}
+                    onClick={() => changeDeparture(option.start)}
                     aria-pressed={selected}
                     className={`flex items-center justify-between gap-3 rounded-xl border px-5 py-3.5 text-left transition-colors duration-200 ${
                       selected
                         ? "border-brand-800 bg-brand-800 text-cream-100"
                         : option.soldOut
-                          ? "cursor-not-allowed border-brand-900/10 bg-brand-900/4 text-brand-900/40"
-                          : "border-brand-900/15 bg-white text-brand-900 hover:border-brand-800/50"
+                          ? "border-brand-900/10 bg-brand-900/4 text-brand-900/40 cursor-not-allowed"
+                          : "border-brand-900/15 text-brand-900 hover:border-brand-800/50 bg-white"
                     }`}
                   >
                     <span className="font-display text-[14px] leading-snug font-bold tracking-[-0.015em] tabular-nums">
@@ -281,17 +343,16 @@ export function BookingWizard({
                   </button>
                 );
               })}
-
             </div>
           </fieldset>
         )}
 
         {step === 2 && (
           <fieldset className="space-y-5">
-            <legend className="font-display text-[17px] leading-snug font-bold tracking-[-0.02em] text-brand-900">
+            <legend className="font-display text-brand-900 text-[17px] leading-snug font-bold tracking-[-0.02em]">
               {labels.travellers.title}
             </legend>
-            <p className="-mt-4 text-[12.5px] text-brand-800/50">{labels.travellers.help}</p>
+            <p className="text-brand-800/50 -mt-4 text-[12.5px]">{labels.travellers.help}</p>
 
             <NumberStepper
               name="riders"
@@ -321,10 +382,59 @@ export function BookingWizard({
 
         {step === 3 && (
           <fieldset className="space-y-5">
-            <legend className="font-display text-[17px] leading-snug font-bold tracking-[-0.02em] text-brand-900">
+            <legend className="font-display text-brand-900 text-[17px] leading-snug font-bold tracking-[-0.02em]">
               {labels.extras.title}
             </legend>
-            <p className="-mt-4 text-[12.5px] text-brand-800/50">{labels.extras.help}</p>
+            <p className="text-brand-800/50 -mt-4 text-[12.5px]">{labels.extras.help}</p>
+
+            {fleet.length > 0 && (
+              <div className="border-brand-900/10 space-y-3 border-b pb-6">
+                <p className="text-brand-800/55 text-[11px] font-bold tracking-[0.14em] uppercase">
+                  {labels.vehicle.title}
+                </p>
+                <p className="text-brand-800/50 -mt-1 text-[12.5px]">
+                  {labels.vehicle.help.replace("{days}", String(days))}
+                </p>
+
+                <div className="grid gap-2.5">
+                  {fleet.map((option) => {
+                    const selected = vehicle === option.id;
+
+                    return (
+                      <button
+                        key={option.id}
+                        type="button"
+                        onClick={() => setVehicle(selected ? null : option.id)}
+                        aria-pressed={selected}
+                        className={`flex items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left transition-colors duration-200 ${
+                          selected
+                            ? "border-brand-800 bg-brand-800 text-cream-100"
+                            : "border-brand-900/15 text-brand-900 hover:border-brand-800/50 bg-white"
+                        }`}
+                      >
+                        <span className="min-w-0">
+                          <span className="block text-[13.5px] font-semibold">{option.name}</span>
+                          <span
+                            className={`block text-[11.5px] ${
+                              selected ? "text-cream-100/60" : "text-brand-800/50"
+                            }`}
+                          >
+                            {labels.vehicle.seats.replace("{count}", String(option.seats))} ·{" "}
+                            {price(option.perDay)} {labels.vehicle.perDay}
+                          </span>
+                        </span>
+
+                        <span className="shrink-0 text-[13px] font-bold tabular-nums">
+                          {price(option.perDay * days)}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <p className="text-brand-800/45 text-[11.5px]">{labels.vehicle.none}</p>
+              </div>
+            )}
 
             <NumberStepper
               name="insurance"
@@ -350,18 +460,18 @@ export function BookingWizard({
               increaseLabel={labels.increase}
             />
 
-            <p className="text-[12px] text-brand-800/45">{labels.extras.none}</p>
+            <p className="text-brand-800/45 text-[12px]">{labels.extras.none}</p>
           </fieldset>
         )}
 
         {step === 4 && (
           <div>
-            <h3 className="font-display text-[17px] leading-snug font-bold tracking-[-0.02em] text-brand-900">
+            <h3 className="font-display text-brand-900 text-[17px] leading-snug font-bold tracking-[-0.02em]">
               {labels.summary.title}
             </h3>
-            <p className="mt-1.5 text-[12.5px] text-brand-800/50">{labels.summary.help}</p>
+            <p className="text-brand-800/50 mt-1.5 text-[12.5px]">{labels.summary.help}</p>
 
-            <dl className="mt-5 divide-y divide-brand-900/10 border-y border-brand-900/10">
+            <dl className="divide-brand-900/10 border-brand-900/10 mt-5 divide-y border-y">
               <div className={rowClass}>
                 <dt className={labelClass}>{labels.summary.year}</dt>
                 <dd className={valueClass}>{year}</dd>
@@ -396,6 +506,14 @@ export function BookingWizard({
                   </dd>
                 </div>
               )}
+              {picked && (
+                <div className={rowClass}>
+                  <dt className={labelClass}>{labels.summary.vehicle}</dt>
+                  <dd className={valueClass}>
+                    {picked.name} · {price(vehicleCost)}
+                  </dd>
+                </div>
+              )}
               {rooms > 0 && (
                 <div className={rowClass}>
                   <dt className={labelClass}>{labels.summary.room}</dt>
@@ -407,15 +525,15 @@ export function BookingWizard({
             </dl>
 
             <div className="mt-5 flex items-baseline justify-between gap-4">
-              <span className="text-[10.5px] font-bold tracking-[0.16em] text-brand-800/45 uppercase">
+              <span className="text-brand-800/45 text-[10.5px] font-bold tracking-[0.16em] uppercase">
                 {labels.summary.total}
               </span>
-              <span className="font-display text-[24px] leading-none font-extrabold tracking-[-0.03em] text-brand-900 tabular-nums">
+              <span className="font-display text-brand-900 text-[24px] leading-none font-extrabold tracking-[-0.03em] tabular-nums">
                 {price(total)}
               </span>
             </div>
 
-            <p className="mt-4 text-[11px] leading-relaxed text-brand-800/45">
+            <p className="text-brand-800/45 mt-4 text-[11px] leading-relaxed">
               {labels.summary.note}
             </p>
           </div>
@@ -423,24 +541,22 @@ export function BookingWizard({
       </div>
 
       {/* Navigation */}
-      <div className="flex gap-2.5 border-t border-brand-900/12 pt-5">
+      <div className="border-brand-900/12 flex gap-2.5 border-t pt-5">
         {step > 0 && (
           <button
             type="button"
             onClick={() => setStep((current) => current - 1)}
-            className="flex h-12 flex-1 items-center justify-center rounded-full border border-brand-900/20 text-[11px] font-bold tracking-[0.12em] text-brand-800 uppercase transition-colors duration-300 hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100"
+            className="border-brand-900/20 text-brand-800 hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100 flex h-12 flex-1 items-center justify-center rounded-full border text-[11px] font-bold tracking-[0.12em] uppercase transition-colors duration-300"
           >
             {labels.back}
           </button>
         )}
 
         {noDates ? (
-          // Nothing to price for this year, so the way forward is the custom
-          // expedition form rather than three more steps of a total nobody can
-          // book.
+          // Nothing to price for this year, so the way forward is the custom expedition form rather than three more steps of a total nobody can book.
           <Link
             href="/custom-expeditions"
-            className="group flex h-12 flex-1 items-center justify-center gap-2.5 rounded-full bg-brand-800 px-4 text-[11px] font-bold tracking-[0.1em] text-nowrap text-cream-100 uppercase transition-colors duration-300 hover:bg-brand-900"
+            className="group bg-brand-800 text-cream-100 hover:bg-brand-900 flex h-12 flex-1 items-center justify-center gap-2.5 rounded-full px-4 text-[11px] font-bold tracking-[0.1em] text-nowrap uppercase transition-colors duration-300"
           >
             {labels.date.custom}
             <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -450,7 +566,7 @@ export function BookingWizard({
             type="button"
             onClick={() => setStep((current) => current + 1)}
             disabled={!canContinue}
-            className="group flex h-12 flex-1 items-center justify-center gap-2.5 rounded-full bg-brand-800 text-[11px] font-bold tracking-[0.12em] text-cream-100 uppercase transition-colors duration-300 hover:bg-brand-900 disabled:pointer-events-none disabled:opacity-40"
+            className="group bg-brand-800 text-cream-100 hover:bg-brand-900 flex h-12 flex-1 items-center justify-center gap-2.5 rounded-full text-[11px] font-bold tracking-[0.12em] uppercase transition-colors duration-300 disabled:pointer-events-none disabled:opacity-40"
           >
             {labels.next}
             <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -458,7 +574,7 @@ export function BookingWizard({
         ) : (
           <Link
             href="/custom-expeditions"
-            className="group flex h-12 flex-1 items-center justify-center gap-2.5 rounded-full bg-brand-800 text-[11px] font-bold tracking-[0.12em] text-cream-100 uppercase transition-colors duration-300 hover:bg-brand-900"
+            className="group bg-brand-800 text-cream-100 hover:bg-brand-900 flex h-12 flex-1 items-center justify-center gap-2.5 rounded-full text-[11px] font-bold tracking-[0.12em] uppercase transition-colors duration-300"
           >
             {labels.summary.enquire}
             <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />

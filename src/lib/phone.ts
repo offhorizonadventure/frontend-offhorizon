@@ -1,19 +1,6 @@
 import { countryCodes, dialCodes } from "@/config/dial-codes";
 
-/**
- * Splits a stored `+<code><number>` back into a country and a national number.
- *
- * The number is kept as one string in the database, which is what a person
- * dials and what any telephony service wants. The picker needs the two halves
- * apart, and there is no separator to split on, so the dial code is matched by
- * prefix.
- *
- * Longest match wins, and that matters: +1 covers the United States, but +1 268
- * is Antigua. Sorting by length means the more specific code is tried first.
- * Several countries genuinely share a code (+1 for the US and Canada, +7 for
- * Russia and Kazakhstan), so this returns the first of them and lets the person
- * change it; there is nothing in the number itself to tell them apart.
- */
+/** Splits a stored `+<code><number>` back into a country and a national number. */
 const BY_LENGTH = [...countryCodes].sort(
   (a, b) => (dialCodes[b]?.length ?? 0) - (dialCodes[a]?.length ?? 0),
 );

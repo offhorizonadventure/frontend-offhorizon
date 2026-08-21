@@ -4,14 +4,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import { ChevronDown } from "@/components/ui/icons";
 
-/**
- * Horizontal scroll container, used by the itinerary and the highlights.
- *
- * The cards themselves are server rendered and passed in as children, so their
- * content is in the HTML; this only owns the scrolling and the two arrows.
- * Arrows disable at the ends rather than wrapping, because these lists have a
- * real beginning and end.
- */
+/** Horizontal scroll container, used by the itinerary and the highlights. */
 export function Rail({
   children,
   className,

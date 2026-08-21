@@ -5,17 +5,7 @@ type FlagProps = {
   className?: string;
 };
 
-/**
- * Country flag from flagcdn.com.
- *
- * `object-contain` inside a fixed box, not `object-cover`: flag ratios vary a
- * lot (Sri Lanka is 2:1, Nepal is a pennant), and cover was slicing the top
- * and bottom off the wider ones. Contain keeps every flag whole while the box
- * stays a constant size so rows still line up.
- *
- * Deliberately a plain <img>: these are tiny pre-optimised PNGs, so routing
- * them through the image optimizer would cost a request to save nothing.
- */
+/** Country flag from flagcdn.com. */
 export function Flag({ country, alt, className = "" }: FlagProps) {
   const code = country.toLowerCase();
 

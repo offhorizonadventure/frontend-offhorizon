@@ -4,7 +4,8 @@ import { CustomExpeditionForm } from "@/components/custom/CustomExpeditionForm";
 import { BadgeCheck, CalendarCheck, Wallet } from "@/components/ui/icons";
 import { Topo } from "@/components/ui/Topo";
 import { destinations } from "@/config/destinations";
-import { currencyFor, locales, type Locale } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { currencyForVisitor } from "@/lib/currency";
 import { resolveLocale } from "@/i18n/params";
 import { buildMetadata, siteName, siteUrl } from "@/lib/seo";
 
@@ -31,11 +32,11 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/custom-e
   });
 }
 
-/** Symbol only, so the budget field reads "€" rather than "€0.00". */
-function currencySymbol(locale: Locale) {
+/** Symbol only, so the budget field reads "₹" rather than "₹0.00". */
+async function currencySymbol(locale: Locale) {
   const parts = new Intl.NumberFormat(locale, {
     style: "currency",
-    currency: currencyFor(locale),
+    currency: await currencyForVisitor(locale),
   }).formatToParts(0);
 
   return parts.find((part) => part.type === "currency")?.value ?? "";
@@ -112,7 +113,7 @@ export default async function CustomExpeditionsPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
       />
 
-      <section className="relative overflow-hidden bg-brand-950 pt-32 pb-16 text-cream-100 sm:pt-40 sm:pb-20">
+      <section className="bg-brand-950 text-cream-100 relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-20">
         <Topo className="text-cream-100/12" rings={16} seed={17.5} />
         <div
           aria-hidden
@@ -120,8 +121,8 @@ export default async function CustomExpeditionsPage({
         />
 
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-          <span className="hero-rise flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-500 uppercase">
-            <span aria-hidden className="h-px w-8 bg-ember-500/60" />
+          <span className="hero-rise text-ember-500 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase">
+            <span aria-hidden className="bg-ember-500/60 h-px w-8" />
             {t("hero.eyebrow")}
           </span>
 
@@ -133,7 +134,7 @@ export default async function CustomExpeditionsPage({
           </h1>
 
           <p
-            className="hero-rise mt-6 max-w-xl text-[15px] leading-[1.85] text-pretty text-cream-100/60 sm:text-[16px]"
+            className="hero-rise text-cream-100/60 mt-6 max-w-xl text-[15px] leading-[1.85] text-pretty sm:text-[16px]"
             style={{ animationDelay: "160ms" }}
           >
             {t("hero.lead")}
@@ -147,7 +148,8 @@ export default async function CustomExpeditionsPage({
             <div data-anim="up" className="min-w-0 lg:col-span-7">
               <CustomExpeditionForm
                 labels={labels}
-                currencySymbol={currencySymbol(locale)}
+                currencySymbol={await currencySymbol(locale)}
+                currency={await currencyForVisitor(locale)}
                 destinations={destinations.map((destination) => ({
                   value: destination.key,
                   label: td(destination.key),
@@ -160,24 +162,24 @@ export default async function CustomExpeditionsPage({
             </div>
 
             <aside data-anim="up" className="min-w-0 lg:col-span-5">
-              <h2 className="font-display text-[clamp(1.4rem,2.6vw,1.9rem)] leading-tight font-extrabold tracking-[-0.03em] text-brand-900">
+              <h2 className="font-display text-brand-900 text-[clamp(1.4rem,2.6vw,1.9rem)] leading-tight font-extrabold tracking-[-0.03em]">
                 {t("aside.title")}
               </h2>
-              <p className="mt-3 text-[14.5px] leading-[1.8] text-brand-800/60">
+              <p className="text-brand-800/60 mt-3 text-[14.5px] leading-[1.8]">
                 {t("aside.body")}
               </p>
 
-              <ul className="mt-8 space-y-px overflow-hidden rounded-2xl bg-brand-900/10">
+              <ul className="bg-brand-900/10 mt-8 space-y-px overflow-hidden rounded-2xl">
                 {assurances.map(({ key, Icon }) => (
-                  <li key={key} className="flex items-start gap-4 bg-cream-50 px-5 py-5">
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-800/8 text-ember-600">
+                  <li key={key} className="bg-cream-50 flex items-start gap-4 px-5 py-5">
+                    <span className="bg-brand-800/8 text-ember-600 flex size-10 shrink-0 items-center justify-center rounded-full">
                       <Icon />
                     </span>
                     <span>
-                      <span className="font-display block text-[14.5px] font-bold text-brand-900">
+                      <span className="font-display text-brand-900 block text-[14.5px] font-bold">
                         {t(`assurances.${key}.title`)}
                       </span>
-                      <span className="mt-1 block text-[13px] leading-relaxed text-brand-800/55">
+                      <span className="text-brand-800/55 mt-1 block text-[13px] leading-relaxed">
                         {t(`assurances.${key}.body`)}
                       </span>
                     </span>
@@ -185,7 +187,7 @@ export default async function CustomExpeditionsPage({
                 ))}
               </ul>
 
-              <p className="mt-8 border-t border-brand-900/12 pt-6 text-[13px] leading-relaxed text-brand-800/50">
+              <p className="border-brand-900/12 text-brand-800/50 mt-8 border-t pt-6 text-[13px] leading-relaxed">
                 {t("aside.note")}
               </p>
             </aside>

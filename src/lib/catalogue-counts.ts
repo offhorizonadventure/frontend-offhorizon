@@ -2,14 +2,7 @@ import "server-only";
 
 import { listDepartures, listTours, type Tour } from "@/lib/catalogue";
 
-/**
- * How many running expeditions each country has.
- *
- * "Running" means a published tour with at least one dated departure still
- * ahead. A tour that exists but has never been scheduled is not something a
- * visitor can book, so counting it would make the card promise more than the
- * site can deliver.
- */
+/** How many running expeditions each country has. */
 export async function runningByCountry(): Promise<{
   counts: Map<string, number>;
   tours: Tour[];

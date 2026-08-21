@@ -69,11 +69,11 @@ do not have.
 One engine, `src/components/motion/ScrollMotion.tsx`, mounted once in the
 layout. Elements opt in with data attributes:
 
-| Attribute | Effect |
-| --- | --- |
-| `data-anim="up"` | fade and rise |
-| `data-anim="wipe"` | clip-path wipe from the bottom |
-| `data-anim-group` | stagger the element's children |
+| Attribute           | Effect                              |
+| ------------------- | ----------------------------------- |
+| `data-anim="up"`    | fade and rise                       |
+| `data-anim="wipe"`  | clip-path wipe from the bottom      |
+| `data-anim-group`   | stagger the element's children      |
 | `data-parallax="8"` | scrubbed drift, value is `yPercent` |
 
 `ScrollTrigger.batch` groups elements entering together into a single tween.

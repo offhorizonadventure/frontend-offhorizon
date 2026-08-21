@@ -2,17 +2,7 @@ import "server-only";
 
 import { createClient } from "@supabase/supabase-js";
 
-/**
- * Tours and their departures, read from Supabase.
- *
- * Read only and unauthenticated. Row level security returns published rows
- * only, so a draft tour cannot reach the site even if its address is guessed.
- *
- * This replaces the tour half of `config/tour-pages.ts`. The written copy that
- * is still translated (headings, labels, the standing sections of a page) stays
- * in the message files; what an editor types in the admin arrives in one
- * language, which is the language it was typed in.
- */
+/** Tours and their departures, read from Supabase. */
 
 const BUCKET = "tours";
 
@@ -61,6 +51,8 @@ export type Tour = {
   facts: Facts;
   included: string[];
   excluded: string[];
+  included_items: Inclusion[];
+  excluded_items: Inclusion[];
   route_map_path: string | null;
   route_map_alt: string | null;
   expect: ExpectPanel[];
@@ -70,6 +62,20 @@ export type Tour = {
   rating: number | null;
   reviews: number | null;
 };
+
+/** A car on a 4x4 expedition. */
+export type Vehicle = {
+  id: string;
+  name: string;
+  per_day_price: number | null;
+  seats: number | null;
+  image_path: string | null;
+  image_alt: string | null;
+  notes: string | null;
+};
+
+export const fleetImageUrl = (path: string | null | undefined) =>
+  path && url ? `${url}/storage/v1/object/public/fleet/${path}` : null;
 
 export type Departure = {
   id: string;
@@ -90,23 +96,39 @@ export type Departure = {
   notes: string | null;
   kind: "motorbike" | "4x4";
   bike_name: string | null;
+  /** The cars this expedition runs, in the order the admin put them. */
+  vehicles: Vehicle[];
 };
 
-/**
- * Strips a wrapping pair of quotes.
- *
- * Inclusion lines are often pasted in already quoted, and the quotes are part
- * of how they were written down, not part of the sentence.
- */
+/** Strips a wrapping pair of quotes. */
 const unquote = (line: string) => line.replace(/^["“]([\s\S]*)["”]$/, "$1").trim();
 
 const cleanList = (lines: string[] | null | undefined) =>
   (lines ?? []).map(unquote).filter(Boolean);
 
+/** One line of what is in the price, or what is not. */
+export type Inclusion = { title: string; body: string };
+
+const asInclusions = (items: unknown, lines: string[] | null | undefined): Inclusion[] => {
+  const rows = (items ?? []) as Inclusion[];
+
+  // Unquoted on the way out, like the plain lines: several were typed with quote marks around them, and the migration copied them across as they were.
+  if (rows.length) {
+    return rows
+      .map((row) => ({ title: unquote(row.title ?? ""), body: unquote(row.body ?? "") }))
+      .filter((row) => row.title);
+  }
+
+  return cleanList(lines).map((title) => ({ title, body: "" }));
+};
+
 const shape = (row: Record<string, unknown>): Tour => ({
   ...(row as unknown as Tour),
   included: cleanList(row.included as string[]),
   excluded: cleanList(row.excluded as string[]),
+  // Tours written before inclusions had descriptions fall back to their single lines, each becoming a title with nothing behind it.
+  included_items: asInclusions(row.included_items, row.included as string[]),
+  excluded_items: asInclusions(row.excluded_items, row.excluded as string[]),
   facts: (row.facts ?? {}) as Facts,
   expect: (row.expect ?? []) as ExpectPanel[],
   highlights: (row.highlights ?? []) as Highlight[],
@@ -142,12 +164,7 @@ export async function getTour(slug: string): Promise<Tour | null> {
   return data ? shape(data) : null;
 }
 
-/**
- * Published departures, soonest first, past ones dropped.
- *
- * A date that has been and gone is not a departure anyone can book, and a list
- * that still shows last June reads as a site nobody maintains.
- */
+/** Published departures, soonest first, finished ones dropped. */
 export async function listDepartures(tourId?: string): Promise<Departure[]> {
   const supabase = client();
   if (!supabase) return [];
@@ -155,15 +172,31 @@ export async function listDepartures(tourId?: string): Promise<Departure[]> {
   const today = new Date().toISOString().slice(0, 10);
   let query = supabase
     .from("departures")
-    .select("*")
+    // The join is read as a nested select rather than a second round trip.
+    .select("*, departure_vehicles(position, vehicles(*))")
     .eq("status", "published")
-    .gte("start_date", today)
+    .gte("end_date", today)
     .order("start_date");
 
   if (tourId) query = query.eq("tour_id", tourId);
 
   const { data, error } = await query;
-  return error ? [] : ((data ?? []) as Departure[]);
+  if (error) return [];
+
+  type Link = { position: number; vehicles: Vehicle | null };
+
+  return (data ?? []).map((row) => {
+    const links = ((row as { departure_vehicles?: Link[] }).departure_vehicles ?? [])
+      .slice()
+      .sort((a, b) => a.position - b.position);
+
+    return {
+      ...(row as unknown as Departure),
+      vehicles: links
+        .map((link) => link.vehicles)
+        .filter((vehicle): vehicle is Vehicle => Boolean(vehicle)),
+    };
+  });
 }
 
 /** The cheapest rider price on offer, which is what "from" means on a card. */

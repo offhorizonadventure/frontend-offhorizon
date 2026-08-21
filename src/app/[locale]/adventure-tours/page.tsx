@@ -17,11 +17,7 @@ import { resolveLocale } from "@/i18n/params";
 import { listDepartures, listTours, priceFrom } from "@/lib/catalogue";
 import { buildMetadata, siteName, siteUrl } from "@/lib/seo";
 
-/**
- * Countries in the order the destination arc uses, so the page reads the same
- * way as the rest of the site. A country with no published tour is simply not
- * a heading here.
- */
+/** Countries in the order the destination arc uses, so the page reads the same way as the rest of the site. */
 const COUNTRY_ORDER = ["india", "nepal", "sri-lanka", "bhutan", "mongolia"] as const;
 
 export const revalidate = 600;
@@ -55,8 +51,7 @@ export default async function AdventureToursPage({
   const [tours, departures] = await Promise.all([listTours(), listDepartures()]);
   const tourCount = tours.length;
 
-  // One card needs its tour, its cheapest dated price and the currency that
-  // price is in, so the three are gathered once rather than per card.
+  // One card needs its tour, its cheapest dated price and the currency that price is in, so the three are gathered once rather than per card.
   const cards = tours.map((tour) => {
     const dated = departures.filter((departure) => departure.tour_id === tour.id);
 
@@ -73,11 +68,7 @@ export default async function AdventureToursPage({
     cards: cards.filter((card) => card.tour.country === country),
   })).filter((group) => group.cards.length > 0 && group.page);
 
-  /**
-   * ItemList of the departures. Deliberately no `offers`: the prices in the
-   * config are placeholders, and a wrong price in structured data can end up
-   * shown in search results.
-   */
+  /** ItemList of the departures. */
   const schema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -95,7 +86,7 @@ export default async function AdventureToursPage({
           "@type": "TouristTrip",
           name: tour.title,
           description: tour.lead ?? undefined,
-          url: `${siteUrl}/${locale}/tours/${tour.slug}`,
+          url: `${siteUrl}/${locale}/adventure/${tour.slug}`,
         },
       })),
     },
@@ -120,21 +111,21 @@ export default async function AdventureToursPage({
       />
 
       {/* What is on the list, and what is honestly not */}
-      <section className="relative overflow-hidden bg-cream-50 py-18 sm:py-24">
+      <section className="bg-cream-50 relative overflow-hidden py-18 sm:py-24">
         <Topo className="text-brand-800/12" rings={11} seed={32.1} />
 
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
           <div data-anim="up" className="grid gap-8 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-6">
-              <h2 className="font-display text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance text-brand-900">
+              <h2 className="font-display text-brand-900 text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance">
                 {t("intro.title")}
               </h2>
             </div>
             <div className="space-y-4 lg:col-span-6 lg:pt-2">
-              <p className="text-[15px] leading-[1.85] text-pretty text-brand-800/65 sm:text-[16px]">
+              <p className="text-brand-800/65 text-[15px] leading-[1.85] text-pretty sm:text-[16px]">
                 {t("intro.body", { count: tourCount })}
               </p>
-              <p className="text-[15px] leading-[1.85] text-pretty text-brand-800/65 sm:text-[16px]">
+              <p className="text-brand-800/65 text-[15px] leading-[1.85] text-pretty sm:text-[16px]">
                 {t("intro.focus")}
               </p>
             </div>
@@ -145,17 +136,20 @@ export default async function AdventureToursPage({
       {/* The departures, grouped by country */}
       <section className="bg-white py-18 sm:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
-          <div data-anim="up" className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div
+            data-anim="up"
+            className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"
+          >
             <div>
-              <span className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-500 uppercase">
-                <span aria-hidden className="h-px w-8 bg-ember-500/60" />
+              <span className="text-ember-500 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase">
+                <span aria-hidden className="bg-ember-500/60 h-px w-8" />
                 {t("list.eyebrow")}
               </span>
-              <h2 className="font-display mt-5 text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-brand-900">
+              <h2 className="font-display text-brand-900 mt-5 text-[clamp(1.7rem,3.4vw,2.6rem)] leading-[1.1] font-extrabold tracking-[-0.03em]">
                 {t("list.title")}
               </h2>
             </div>
-            <p className="max-w-xs text-[13.5px] leading-relaxed text-brand-800/55 sm:text-right">
+            <p className="text-brand-800/55 max-w-xs text-[13.5px] leading-relaxed sm:text-right">
               {t("list.note")}
             </p>
           </div>
@@ -167,21 +161,21 @@ export default async function AdventureToursPage({
               <div key={country}>
                 <div
                   data-anim="up"
-                  className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-b border-brand-900/12 pb-5"
+                  className="border-brand-900/12 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-b pb-5"
                 >
                   <h3 className="flex items-center gap-3">
                     <Flag country={page!.destination.flag} />
-                    <span className="font-display text-[21px] leading-none font-bold tracking-[-0.02em] text-brand-900">
+                    <span className="font-display text-brand-900 text-[21px] leading-none font-bold tracking-[-0.02em]">
                       {td(page!.destination.key)}
                     </span>
-                    <span className="text-[11px] font-semibold tracking-[0.14em] text-brand-800/45 uppercase">
+                    <span className="text-brand-800/45 text-[11px] font-semibold tracking-[0.14em] uppercase">
                       {ts("expeditions", { count: group.length })}
                     </span>
                   </h3>
 
                   <Link
                     href={`/destinations/${page!.slug}`}
-                    className="group inline-flex items-center gap-2 text-[10.5px] font-bold tracking-[0.14em] text-brand-800 uppercase"
+                    className="group text-brand-800 inline-flex items-center gap-2 text-[10.5px] font-bold tracking-[0.14em] uppercase"
                   >
                     {t("list.viewDestination")}
                     <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -210,7 +204,7 @@ export default async function AdventureToursPage({
       {/* How every departure is run. Operating standards, not commercial
           inclusions, so nothing here promises something a package might not
           carry. */}
-      <section className="relative overflow-hidden bg-brand-950 py-18 text-cream-100 sm:py-24">
+      <section className="bg-brand-950 text-cream-100 relative overflow-hidden py-18 sm:py-24">
         <Topo className="text-cream-100/10" rings={14} seed={33.4} />
         <div
           aria-hidden
@@ -219,29 +213,31 @@ export default async function AdventureToursPage({
 
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
           <div data-anim="up" className="max-w-2xl">
-            <span className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-500 uppercase">
-              <span aria-hidden className="h-px w-8 bg-ember-500/60" />
+            <span className="text-ember-500 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase">
+              <span aria-hidden className="bg-ember-500/60 h-px w-8" />
               {t("standards.eyebrow")}
             </span>
             <h2 className="font-display mt-5 text-[clamp(1.7rem,3.4vw,2.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance">
               {t("standards.title")}
             </h2>
-            <p className="mt-4 text-[15px] leading-[1.8] text-cream-100/55">{t("standards.body")}</p>
+            <p className="text-cream-100/55 mt-4 text-[15px] leading-[1.8]">
+              {t("standards.body")}
+            </p>
           </div>
 
           <ul
             data-anim-group
-            className="mt-12 grid gap-px overflow-hidden rounded-3xl bg-cream-100/12 sm:grid-cols-2 lg:grid-cols-3"
+            className="bg-cream-100/12 mt-12 grid gap-px overflow-hidden rounded-3xl sm:grid-cols-2 lg:grid-cols-3"
           >
             {standards.map((item, index) => (
               <li key={item.title} className="bg-brand-950 p-7">
-                <span className="font-display block text-[12px] font-extrabold tracking-[0.14em] text-ember-500 tabular-nums">
+                <span className="font-display text-ember-500 block text-[12px] font-extrabold tracking-[0.14em] tabular-nums">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display mt-4 text-[16.5px] leading-tight font-bold tracking-[-0.015em]">
                   {item.title}
                 </h3>
-                <p className="mt-2.5 text-[13.5px] leading-[1.75] text-pretty text-cream-100/50">
+                <p className="text-cream-100/50 mt-2.5 text-[13.5px] leading-[1.75] text-pretty">
                   {item.body}
                 </p>
               </li>

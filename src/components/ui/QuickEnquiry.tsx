@@ -3,12 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { QuickEnquiryModal } from "@/components/ui/QuickEnquiryModal";
 import type { Locale } from "@/i18n/config";
 
-/**
- * Builds the modal's labels from the catalogue.
- *
- * Exported so the in-page buttons and the floating one stay on one source: the
- * label set is long enough that a second copy would drift.
- */
+/** Builds the modal's labels from the catalogue. */
 export async function quickEnquiryLabels(locale: Locale) {
   const t = await getTranslations({ locale, namespace: "consultation" });
 
@@ -32,13 +27,7 @@ export async function quickEnquiryLabels(locale: Locale) {
   };
 }
 
-/**
- * Floating quick enquiry button, present on every page.
- *
- * Bottom right on a desktop, and bottom centre on a phone so it sits clear of
- * the thumb reaching for browser chrome. `z-90` keeps it under the nav drawer
- * and the gallery lightbox, both of which are full screen and should cover it.
- */
+/** Floating quick enquiry button, present on every page. */
 export async function QuickEnquiryButton({ locale }: { locale: Locale }) {
   const labels = await quickEnquiryLabels(locale);
 
@@ -46,11 +35,11 @@ export async function QuickEnquiryButton({ locale }: { locale: Locale }) {
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-90 flex justify-center p-4 sm:inset-x-auto sm:right-6 sm:bottom-6 sm:p-0">
       <QuickEnquiryModal
         labels={labels}
-        className="pointer-events-auto inline-flex h-12 items-center gap-2.5 rounded-full bg-brand-800 px-6 text-[11.5px] font-bold tracking-[0.13em] text-cream-100 uppercase shadow-lg shadow-brand-950/25 transition-colors duration-300 hover:bg-brand-900"
+        className="bg-brand-800 text-cream-100 shadow-brand-950/25 hover:bg-brand-900 pointer-events-auto inline-flex h-12 items-center gap-2.5 rounded-full px-6 text-[11.5px] font-bold tracking-[0.13em] uppercase shadow-lg transition-colors duration-300"
       >
         <span
           aria-hidden
-          className="size-2 rounded-full bg-ember-500 shadow-[0_0_0_4px] shadow-ember-500/20"
+          className="bg-ember-500 shadow-ember-500/20 size-2 rounded-full shadow-[0_0_0_4px]"
         />
         {labels.trigger}
       </QuickEnquiryModal>

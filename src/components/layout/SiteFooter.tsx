@@ -14,22 +14,16 @@ const resources = [
   { key: "privacy", href: "/privacy-policy" },
 ] as const;
 
-/**
- * Site footer.
- *
- * Three columns over a ruled baseline, closing on a legal row. Headings sit on
- * hairline rules rather than in boxes, which keeps the density down and reads
- * closer to print than a stack of cards.
- */
+/** Site footer. */
 export async function SiteFooter() {
   const t = await getTranslations("footer");
 
   const heading =
     "font-display flex items-center gap-3 text-[11px] font-bold tracking-[0.2em] text-cream-100/45 uppercase";
-  const rule = <span aria-hidden className="h-px flex-1 bg-cream-100/12" />;
+  const rule = <span aria-hidden className="bg-cream-100/12 h-px flex-1" />;
 
   return (
-    <footer className="relative overflow-hidden bg-brand-950 text-cream-100">
+    <footer className="bg-brand-950 text-cream-100 relative overflow-hidden">
       <Topo className="text-cream-100/8" rings={13} seed={7.3} />
 
       <div className="relative mx-auto max-w-6xl px-5 pt-16 pb-8 sm:px-8 sm:pt-20">
@@ -46,7 +40,7 @@ export async function SiteFooter() {
               />
             </Link>
 
-            <p className="mt-6 max-w-md text-[14px] leading-[1.85] text-pretty text-cream-100/50">
+            <p className="text-cream-100/50 mt-6 max-w-md text-[14px] leading-[1.85] text-pretty">
               {t("about")}
             </p>
           </div>
@@ -61,9 +55,9 @@ export async function SiteFooter() {
               <li>
                 <a
                   href={`tel:${contact.phone}`}
-                  className="group inline-flex items-center gap-3 text-[14.5px] text-cream-100/75 transition-colors hover:text-cream-100"
+                  className="group text-cream-100/75 hover:text-cream-100 inline-flex items-center gap-3 text-[14.5px] transition-colors"
                 >
-                  <span className="text-[11px] font-semibold tracking-[0.14em] text-cream-100/35 uppercase">
+                  <span className="text-cream-100/35 text-[11px] font-semibold tracking-[0.14em] uppercase">
                     {t("phone")}
                   </span>
                   <span className="underline-offset-4 group-hover:underline">{contact.phone}</span>
@@ -72,9 +66,9 @@ export async function SiteFooter() {
               <li>
                 <a
                   href={`mailto:${contact.email}`}
-                  className="group inline-flex items-center gap-3 text-[14.5px] text-cream-100/75 transition-colors hover:text-cream-100"
+                  className="group text-cream-100/75 hover:text-cream-100 inline-flex items-center gap-3 text-[14.5px] transition-colors"
                 >
-                  <span className="text-[11px] font-semibold tracking-[0.14em] text-cream-100/35 uppercase">
+                  <span className="text-cream-100/35 text-[11px] font-semibold tracking-[0.14em] uppercase">
                     {t("email")}
                   </span>
                   <span className="underline-offset-4 group-hover:underline">{contact.email}</span>
@@ -87,7 +81,7 @@ export async function SiteFooter() {
               {rule}
             </h2>
 
-            <address className="mt-4 text-[14.5px] leading-[1.7] text-cream-100/60 not-italic">
+            <address className="text-cream-100/60 mt-4 text-[14.5px] leading-[1.7] not-italic">
               {contact.addressLines.map((line) => (
                 <span key={line} className="block">
                   {line}
@@ -99,7 +93,7 @@ export async function SiteFooter() {
               href={contact.directionsUrl}
               target="_blank"
               rel="noreferrer noopener"
-              className="group mt-5 inline-flex h-11 items-center gap-2.5 rounded-full border border-cream-100/25 px-5 text-[10.5px] font-bold tracking-[0.14em] text-cream-100 uppercase transition-colors duration-300 hover:border-cream-100 hover:bg-cream-100 hover:text-brand-950"
+              className="group border-cream-100/25 text-cream-100 hover:border-cream-100 hover:bg-cream-100 hover:text-brand-950 mt-5 inline-flex h-11 items-center gap-2.5 rounded-full border px-5 text-[10.5px] font-bold tracking-[0.14em] uppercase transition-colors duration-300"
             >
               {t("directions")}
               <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -117,11 +111,11 @@ export async function SiteFooter() {
                 <li key={item.key}>
                   <Link
                     href={item.href}
-                    className="group inline-flex items-center gap-2.5 py-1.5 text-[14.5px] text-cream-100/70 transition-colors hover:text-cream-100"
+                    className="group text-cream-100/70 hover:text-cream-100 inline-flex items-center gap-2.5 py-1.5 text-[14.5px] transition-colors"
                   >
                     <span
                       aria-hidden
-                      className="h-px w-0 bg-ember-500 transition-all duration-400 ease-out-expo group-hover:w-5"
+                      className="bg-ember-500 ease-out-expo h-px w-0 transition-all duration-400 group-hover:w-5"
                     />
                     {t(`resources.${item.key}`)}
                   </Link>
@@ -142,7 +136,7 @@ export async function SiteFooter() {
                     target="_blank"
                     rel="noreferrer noopener"
                     aria-label={label}
-                    className="flex size-11 items-center justify-center rounded-full border border-cream-100/20 text-cream-100/80 transition-colors duration-300 hover:border-ember-500 hover:bg-ember-500 hover:text-brand-950"
+                    className="border-cream-100/20 text-cream-100/80 hover:border-ember-500 hover:bg-ember-500 hover:text-brand-950 flex size-11 items-center justify-center rounded-full border transition-colors duration-300"
                   >
                     <Icon />
                   </a>
@@ -152,8 +146,8 @@ export async function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col-reverse items-center gap-6 border-t border-cream-100/12 pt-7 sm:mt-16 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-[12px] text-cream-100/40">
+        <div className="border-cream-100/12 mt-14 flex flex-col-reverse items-center gap-6 border-t pt-7 sm:mt-16 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-cream-100/40 text-[12px]">
             {t("copyright", { year: new Date().getFullYear() })}
           </p>
 

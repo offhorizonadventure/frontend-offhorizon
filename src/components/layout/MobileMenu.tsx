@@ -13,10 +13,7 @@ const rowClass =
 const primary = mainNav.filter((item) => !isSecondary(item));
 const more = mainNav.filter(isSecondary);
 
-/**
- * Drawer contents. Server-rendered; the destinations section is a native
- * <details>, so it expands with no JavaScript.
- */
+/** Drawer contents. */
 export async function MobileMenu() {
   const [t, td, tt] = await Promise.all([
     getTranslations("nav"),
@@ -27,14 +24,14 @@ export async function MobileMenu() {
   const plainLink = (item: NavItem) => (
     <Link href={item.href} className={rowClass}>
       {t(item.key)}
-      <ArrowRight className="size-4 shrink-0 text-brand-400" />
+      <ArrowRight className="text-brand-400 size-4 shrink-0" />
     </Link>
   );
 
   return (
     <div className="flex min-h-full flex-col">
       <nav aria-label={t("primary")}>
-        <ul className="divide-y divide-brand-900/10">
+        <ul className="divide-brand-900/10 divide-y">
           {primary.map((item) => (
             <li key={item.key}>
               {hasMegaMenu(item) ? (
@@ -43,7 +40,7 @@ export async function MobileMenu() {
                     className={`${rowClass} cursor-pointer list-none [&::-webkit-details-marker]:hidden`}
                   >
                     {t(item.key)}
-                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-brand-900/6 transition-colors group-open:bg-brand-800 group-open:text-paper">
+                    <span className="bg-brand-900/6 group-open:bg-brand-800 group-open:text-paper flex size-8 shrink-0 items-center justify-center rounded-full transition-colors">
                       <ChevronDown className="transition-transform duration-300 group-open:rotate-180" />
                     </span>
                   </summary>
@@ -53,7 +50,7 @@ export async function MobileMenu() {
                       <div key={country.key}>
                         <Link
                           href={country.href}
-                          className="flex items-center gap-2.5 text-[10.5px] font-bold tracking-[0.16em] text-brand-500 uppercase"
+                          className="text-brand-500 flex items-center gap-2.5 text-[10.5px] font-bold tracking-[0.16em] uppercase"
                         >
                           <Flag country={country.flag} />
                           {td(country.key)}
@@ -65,7 +62,7 @@ export async function MobileMenu() {
                               <li key={tour.key}>
                                 <Link
                                   href={tour.href}
-                                  className="flex items-center gap-3.5 rounded-2xl bg-white p-2.5 ring-1 ring-brand-900/8"
+                                  className="ring-brand-900/8 flex items-center gap-3.5 rounded-2xl bg-white p-2.5 ring-1"
                                 >
                                   <span className="relative size-12 shrink-0 overflow-hidden rounded-xl">
                                     <Image
@@ -77,14 +74,15 @@ export async function MobileMenu() {
                                     />
                                   </span>
                                   <span className="min-w-0 flex-1">
-                                    <span className="block text-[13.5px] leading-snug font-semibold text-brand-900">
+                                    <span className="text-brand-900 block text-[13.5px] leading-snug font-semibold">
                                       {tt(`${tour.key}.name`)}
                                     </span>
-                                    <span className="mt-0.5 block text-[11.5px] text-brand-600/70">
-                                      {t("days", { count: tour.days })} · {tt(`${tour.key}.summary`)}
+                                    <span className="text-brand-600/70 mt-0.5 block text-[11.5px]">
+                                      {t("days", { count: tour.days })} ·{" "}
+                                      {tt(`${tour.key}.summary`)}
                                     </span>
                                   </span>
-                                  <ArrowRight className="shrink-0 text-brand-400" />
+                                  <ArrowRight className="text-brand-400 shrink-0" />
                                 </Link>
                               </li>
                             )),
@@ -101,10 +99,10 @@ export async function MobileMenu() {
           ))}
         </ul>
 
-        <p className="pt-7 pb-1 text-[10.5px] font-bold tracking-[0.18em] text-brand-500 uppercase">
+        <p className="text-brand-500 pt-7 pb-1 text-[10.5px] font-bold tracking-[0.18em] uppercase">
           {t("more")}
         </p>
-        <ul className="divide-y divide-brand-900/10 border-t border-brand-900/10">
+        <ul className="divide-brand-900/10 border-brand-900/10 divide-y border-t">
           {more.map((item) => (
             <li key={item.key}>{plainLink(item)}</li>
           ))}
@@ -114,14 +112,14 @@ export async function MobileMenu() {
       <div className="mt-auto pt-8">
         <Link
           href="/custom-expeditions"
-          className="flex h-13 items-center justify-center gap-2.5 rounded-full bg-brand-800 text-[11.5px] font-bold tracking-[0.13em] text-cream-100 uppercase"
+          className="bg-brand-800 text-cream-100 flex h-13 items-center justify-center gap-2.5 rounded-full text-[11.5px] font-bold tracking-[0.13em] uppercase"
         >
           {t("cta")}
           <ArrowRight />
         </Link>
 
-        <div className="mt-6 border-t border-brand-900/10 pt-6">
-          <p className="text-[10.5px] font-bold tracking-[0.18em] text-brand-500 uppercase">
+        <div className="border-brand-900/10 mt-6 border-t pt-6">
+          <p className="text-brand-500 text-[10.5px] font-bold tracking-[0.18em] uppercase">
             {t("followUs")}
           </p>
           <ul className="mt-3.5 flex items-center gap-2.5">
@@ -132,7 +130,7 @@ export async function MobileMenu() {
                   target="_blank"
                   rel="noreferrer noopener"
                   aria-label={label}
-                  className="flex size-11 items-center justify-center rounded-full border border-brand-900/12 text-brand-800 transition-colors hover:border-brand-800 hover:bg-brand-800 hover:text-paper"
+                  className="border-brand-900/12 text-brand-800 hover:border-brand-800 hover:bg-brand-800 hover:text-paper flex size-11 items-center justify-center rounded-full border transition-colors"
                 >
                   <Icon />
                 </a>

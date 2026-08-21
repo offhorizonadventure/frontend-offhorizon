@@ -8,18 +8,7 @@ import { ChevronDown, Close } from "@/components/ui/icons";
 
 type Phase = "closed" | "open" | "closing";
 
-/**
- * Departure dates in a slide-over.
- *
- * Portalled to <body> for the same reason the nav drawer is: an ancestor with
- * `backdrop-filter` becomes the containing block for fixed descendants, so an
- * overlay rendered in place would size itself to that ancestor rather than the
- * viewport. It is only in the DOM while open, and the exit keyframe unmounts it
- * on `animationend`.
- *
- * Holds the booking wizard, which is why it is a slide-over rather than a
- * disclosure in the card: the steps need room and a scroll of their own.
- */
+/** Departure dates in a slide-over. */
 export function DatesDrawer({
   label,
   title,
@@ -60,7 +49,7 @@ export function DatesDrawer({
         ref={triggerRef}
         type="button"
         onClick={() => setPhase("open")}
-        className="group flex h-12 w-full items-center justify-center gap-2.5 rounded-full bg-brand-800 text-[11px] font-bold tracking-[0.12em] text-cream-100 uppercase transition-colors duration-300 hover:bg-brand-900"
+        className="group bg-brand-800 text-cream-100 hover:bg-brand-900 flex h-12 w-full items-center justify-center gap-2.5 rounded-full text-[11px] font-bold tracking-[0.12em] uppercase transition-colors duration-300"
       >
         {label}
         <ChevronDown className="-rotate-90" />
@@ -84,25 +73,25 @@ export function DatesDrawer({
               type="button"
               aria-label={title}
               onClick={() => setPhase("closing")}
-              className={`absolute inset-0 cursor-default bg-brand-950/60 backdrop-blur-sm ${
+              className={`bg-brand-950/60 absolute inset-0 cursor-default backdrop-blur-sm ${
                 phase === "closing" ? "animate-fade-out" : "animate-fade-in"
               }`}
             />
 
             <aside
-              className={`absolute inset-y-0 right-0 flex w-full max-w-[26rem] flex-col bg-cream-50 shadow-2xl ${
+              className={`bg-cream-50 absolute inset-y-0 right-0 flex w-full max-w-[26rem] flex-col shadow-2xl ${
                 phase === "closing" ? "animate-drawer-out" : "animate-drawer-in"
               }`}
             >
-              <header className="flex items-center justify-between gap-4 border-b border-brand-900/12 px-6 py-5">
-                <h2 className="font-display text-[17px] leading-none font-bold tracking-[-0.02em] text-brand-900">
+              <header className="border-brand-900/12 flex items-center justify-between gap-4 border-b px-6 py-5">
+                <h2 className="font-display text-brand-900 text-[17px] leading-none font-bold tracking-[-0.02em]">
                   {title}
                 </h2>
                 <button
                   ref={closeRef}
                   type="button"
                   onClick={() => setPhase("closing")}
-                  className="flex size-10 items-center justify-center rounded-full text-brand-800 ring-1 ring-brand-900/15 transition-colors duration-300 hover:bg-brand-900/6"
+                  className="text-brand-800 ring-brand-900/15 hover:bg-brand-900/6 flex size-10 items-center justify-center rounded-full ring-1 transition-colors duration-300"
                 >
                   <Close />
                 </button>

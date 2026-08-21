@@ -6,49 +6,35 @@ import nepal from "../../public/tours/nepal-motorcycle-tour.jpg";
 
 import type { TourKey } from "@/i18n/keys";
 
+/**
+ * A tour as the navigation menu knows it.
+ *
+ * The catalogue itself lives in the database; this is only what the mega menu
+ * needs to draw a link before any query has run. Prices and ratings are not
+ * here, because inventing them once was enough.
+ */
 export type TourPackage = {
   key: TourKey;
   href: string;
   image: StaticImageData;
-  rating: number;
-  reviews: number;
-  /**
-   * Per person, in `baseCurrency` (USD). Converted at render time to whatever
-   * suits the visitor's market. TODO: replace with real pricing.
-   */
-  priceFrom: number;
 };
 
-/**
- * Every package we sell. The home page shows the first two; the destination
- * pages pick out whichever belong to the region being read.
- *
- * TODO: ratings, review counts and prices are all placeholders.
- */
+/** Every package we sell. */
 export const allPackages: TourPackage[] = [
   {
     key: "ladakhMotorcycle",
-    href: "/tours/ladakh-motorcycle-tour",
+    href: "/adventure/ladakh-motorcycle-tour",
     image: ladakh,
-    rating: 5,
-    reviews: 2800,
-    priceFrom: 2150,
   },
   {
     key: "himalayas4x4",
-    href: "/tours/indian-himalayas-4x4-adventure-expedition",
+    href: "/adventure/indian-himalayas-4x4-adventure-expedition",
     image: selfDrive,
-    rating: 4.9,
-    reviews: 640,
-    priceFrom: 2400,
   },
   {
     key: "nepalMotorcycle",
-    href: "/tours/nepal-motorcycle-tour",
+    href: "/adventure/nepal-motorcycle-tour",
     image: nepal,
-    rating: 4.9,
-    reviews: 1400,
-    priceFrom: 1850,
   },
 ];
 

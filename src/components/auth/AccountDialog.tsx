@@ -5,17 +5,9 @@ import type { AuthLabels } from "@/components/auth/AuthModal";
 import type { Locale } from "@/i18n/config";
 import { getUser } from "@/lib/supabase/server";
 
-/**
- * The account control with its labels already resolved.
- *
- * A server component so the copy is translated on the server and the client
- * bundle carries the dialog but not five languages of strings.
- */
+/** The account control with its labels already resolved. */
 export async function AccountDialog({ locale }: { locale: Locale }) {
-  const [t, user] = await Promise.all([
-    getTranslations({ locale, namespace: "auth" }),
-    getUser(),
-  ]);
+  const [t, user] = await Promise.all([getTranslations({ locale, namespace: "auth" }), getUser()]);
 
   const labels: AuthLabels = {
     close: t("close"),

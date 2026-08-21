@@ -22,9 +22,7 @@ type Blurb = { title: string; body: string };
 export const revalidate = 600;
 
 export function generateStaticParams() {
-  return locales.flatMap((locale) =>
-    countryPages.map((page) => ({ locale, country: page.slug })),
-  );
+  return locales.flatMap((locale) => countryPages.map((page) => ({ locale, country: page.slug })));
 }
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/destinations/[country]">) {
@@ -47,7 +45,9 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/destinat
   });
 }
 
-export default async function CountryPage({ params }: PageProps<"/[locale]/destinations/[country]">) {
+export default async function CountryPage({
+  params,
+}: PageProps<"/[locale]/destinations/[country]">) {
   const locale = await resolveLocale(params);
   const { country: slug } = await params;
   const page = getCountry(slug);
@@ -90,28 +90,28 @@ export default async function CountryPage({ params }: PageProps<"/[locale]/desti
           seed={21.6}
         />
 
-        <section className="relative overflow-hidden bg-cream-50 py-18 sm:py-24">
+        <section className="bg-cream-50 relative overflow-hidden py-18 sm:py-24">
           <Topo className="text-brand-800/12" rings={10} seed={22.4} />
           <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
             <div data-anim="up">
-              <h2 className="font-display text-[clamp(1.6rem,3.2vw,2.3rem)] leading-[1.12] font-extrabold tracking-[-0.03em] text-balance text-brand-900">
+              <h2 className="font-display text-brand-900 text-[clamp(1.6rem,3.2vw,2.3rem)] leading-[1.12] font-extrabold tracking-[-0.03em] text-balance">
                 {tp("body.title")}
               </h2>
-              <p className="mx-auto mt-5 max-w-xl text-[15px] leading-[1.85] text-pretty text-brand-800/65">
+              <p className="text-brand-800/65 mx-auto mt-5 max-w-xl text-[15px] leading-[1.85] text-pretty">
                 {tp("body.text", { country: name, year: String(FOUNDED_YEAR) })}
               </p>
 
               <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link
                   href="/custom-expeditions"
-                  className="group inline-flex h-13 items-center justify-center gap-2.5 rounded-full bg-brand-800 px-7 text-[11.5px] font-bold tracking-[0.12em] text-cream-100 uppercase transition-colors hover:bg-brand-900"
+                  className="group bg-brand-800 text-cream-100 hover:bg-brand-900 inline-flex h-13 items-center justify-center gap-2.5 rounded-full px-7 text-[11.5px] font-bold tracking-[0.12em] uppercase transition-colors"
                 >
                   {ts("planTrip")}
                   <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href="/destinations/india"
-                  className="inline-flex h-13 items-center justify-center rounded-full border border-brand-900/15 px-7 text-[11.5px] font-bold tracking-[0.12em] text-brand-800 uppercase transition-colors hover:bg-white"
+                  className="border-brand-900/15 text-brand-800 inline-flex h-13 items-center justify-center rounded-full border px-7 text-[11.5px] font-bold tracking-[0.12em] uppercase transition-colors hover:bg-white"
                 >
                   {tp("seeIndia")}
                 </Link>
@@ -147,21 +147,21 @@ export default async function CountryPage({ params }: PageProps<"/[locale]/desti
         seed={21.6}
       />
 
-      <section className="relative overflow-hidden bg-cream-50 py-18 sm:py-24">
+      <section className="bg-cream-50 relative overflow-hidden py-18 sm:py-24">
         <Topo className="text-brand-800/12" rings={11} seed={22.9} />
 
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
           <div data-anim="up" className="grid gap-8 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-6">
-              <h2 className="font-display text-[clamp(1.7rem,3.4vw,2.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance text-brand-900">
+              <h2 className="font-display text-brand-900 text-[clamp(1.7rem,3.4vw,2.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance">
                 {t("intro.title")}
               </h2>
             </div>
             <div className="space-y-4 lg:col-span-6 lg:pt-2">
-              <p className="text-[15px] leading-[1.85] text-pretty text-brand-800/65 sm:text-[16px]">
+              <p className="text-brand-800/65 text-[15px] leading-[1.85] text-pretty sm:text-[16px]">
                 {t("intro.body")}
               </p>
-              <p className="text-[15px] leading-[1.85] text-pretty text-brand-800/65 sm:text-[16px]">
+              <p className="text-brand-800/65 text-[15px] leading-[1.85] text-pretty sm:text-[16px]">
                 {t("intro.focus")}
               </p>
             </div>
@@ -173,26 +173,26 @@ export default async function CountryPage({ params }: PageProps<"/[locale]/desti
       <section className="bg-white py-18 sm:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <div data-anim="up">
-            <span className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-500 uppercase">
-              <span aria-hidden className="h-px w-8 bg-ember-500/60" />
+            <span className="text-ember-500 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase">
+              <span aria-hidden className="bg-ember-500/60 h-px w-8" />
               {t("regions.eyebrow")}
             </span>
-            <h2 className="font-display mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance text-brand-900">
+            <h2 className="font-display text-brand-900 mt-5 max-w-2xl text-[clamp(1.7rem,3.4vw,2.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance">
               {t("regions.title")}
             </h2>
           </div>
 
           <ul data-anim-group className="mt-10 grid gap-6 lg:grid-cols-2">
             {page.regions.map((region) => {
-              // A region is running when the country it belongs to has tours
-              // with dates on them; the config only says whether the region has
-              // its own written page.
+              // A region is running when the country it belongs to has tours with dates on them; the config only says whether the region has its own written page.
               const live = region.status === "live" && running > 0;
 
               return (
                 <li key={region.slug}>
                   <PlaceCard
-                    href={live ? `/destinations/${page.slug}/${region.slug}` : "/custom-expeditions"}
+                    href={
+                      live ? `/destinations/${page.slug}/${region.slug}` : "/custom-expeditions"
+                    }
                     name={tr(`${region.content}.shortName`)}
                     image={region.image}
                     imageAlt={region.imageAlt}
@@ -210,7 +210,7 @@ export default async function CountryPage({ params }: PageProps<"/[locale]/desti
       </section>
 
       {/* Why ride here with us */}
-      <section className="relative overflow-hidden bg-brand-950 py-18 text-cream-100 sm:py-24">
+      <section className="bg-brand-950 text-cream-100 relative overflow-hidden py-18 sm:py-24">
         <Topo className="text-cream-100/10" rings={14} seed={23.8} />
         <div
           aria-hidden
@@ -219,8 +219,8 @@ export default async function CountryPage({ params }: PageProps<"/[locale]/desti
 
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
           <div data-anim="up" className="max-w-2xl">
-            <span className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-500 uppercase">
-              <span aria-hidden className="h-px w-8 bg-ember-500/60" />
+            <span className="text-ember-500 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase">
+              <span aria-hidden className="bg-ember-500/60 h-px w-8" />
               {t("why.eyebrow")}
             </span>
             <h2 className="font-display mt-5 text-[clamp(1.7rem,3.4vw,2.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance">
@@ -228,25 +228,28 @@ export default async function CountryPage({ params }: PageProps<"/[locale]/desti
             </h2>
           </div>
 
-          <ul data-anim-group className="mt-12 grid border-t border-l border-cream-100/12 sm:grid-cols-2 lg:grid-cols-3">
+          <ul
+            data-anim-group
+            className="border-cream-100/12 mt-12 grid border-t border-l sm:grid-cols-2 lg:grid-cols-3"
+          >
             {reasons.map((reason, index) => (
               <li
                 key={reason.title}
-                className="border-r border-b border-cream-100/12 p-7 transition-colors duration-500 hover:bg-cream-100/4"
+                className="border-cream-100/12 hover:bg-cream-100/4 border-r border-b p-7 transition-colors duration-500"
               >
-                <span className="font-display block text-[12px] font-extrabold tracking-[0.14em] text-ember-500 tabular-nums">
+                <span className="font-display text-ember-500 block text-[12px] font-extrabold tracking-[0.14em] tabular-nums">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display mt-4 text-[16.5px] leading-tight font-bold tracking-[-0.015em]">
                   {reason.title}
                 </h3>
-                <p className="mt-2.5 text-[13.5px] leading-[1.75] text-pretty text-cream-100/50">
+                <p className="text-cream-100/50 mt-2.5 text-[13.5px] leading-[1.75] text-pretty">
                   {reason.body}
                 </p>
               </li>
             ))}
-            <li className="border-r border-b border-cream-100/12 bg-cream-100/6 p-7">
-              <p className="font-display text-[15px] leading-snug font-bold tracking-[-0.015em] text-cream-100/90">
+            <li className="border-cream-100/12 bg-cream-100/6 border-r border-b p-7">
+              <p className="font-display text-cream-100/90 text-[15px] leading-snug font-bold tracking-[-0.015em]">
                 {t("why.closing")}
               </p>
             </li>
@@ -265,7 +268,11 @@ export default async function CountryPage({ params }: PageProps<"/[locale]/desti
         />
       )}
 
-      <Faq items={t.raw("faq.items") as FaqItem[]} eyebrow={ts("faqEyebrow")} title={t("faq.title")} />
+      <Faq
+        items={t.raw("faq.items") as FaqItem[]}
+        eyebrow={ts("faqEyebrow")}
+        title={t("faq.title")}
+      />
 
       <Riders />
     </>

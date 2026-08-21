@@ -7,13 +7,7 @@ import { AccountMenu } from "@/components/auth/AccountMenu";
 import { AuthModal, type AuthLabels } from "@/components/auth/AuthModal";
 import { signOut } from "@/lib/auth";
 
-/**
- * The navigation bar's account control and the dialog it opens.
- *
- * One client component holding both, because the trigger has to set the state
- * the dialog reads. Splitting them would mean handing a callback across the
- * server boundary, which React does not allow.
- */
+/** The navigation bar's account control and the dialog it opens. */
 export function AccountControl({
   labels,
   menu,
@@ -40,8 +34,7 @@ export function AccountControl({
         onSignIn={() => setOpen(true)}
         onSignOut={async () => {
           await signOut();
-          // The navigation bar and the account pages are server rendered, so
-          // they only notice the session has gone on a refresh.
+          // The navigation bar and the account pages are server rendered, so they only notice the session has gone on a refresh.
           router.refresh();
         }}
         signIn={menu.signIn}

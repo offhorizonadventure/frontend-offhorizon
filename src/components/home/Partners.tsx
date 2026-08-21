@@ -3,19 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { PARTNER_REPEATS, partners } from "@/config/partners";
 import { FOUNDED_YEAR } from "@/config/facts";
 
-/**
- * Partner frieze.
- *
- * The heading sits in the container, then the logos run in a full-bleed band
- * ruled top and bottom. Edge to edge with hairline rules is what separates
- * this from a boxed widget: it reads as a frieze across the page rather than
- * a component dropped onto it.
- *
- * Motion is CSS only. The set repeats PARTNER_REPEATS times and the track
- * slides exactly one set width, so the loop is seamless with no JavaScript.
- * It pauses on hover and on keyboard focus, and holds still for reduced
- * motion.
- */
+/** Partner frieze. */
 export async function Partners() {
   const t = await getTranslations("home.partners");
 
@@ -27,18 +15,18 @@ export async function Partners() {
           className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"
         >
           <div>
-            <span className="flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] text-ember-600 uppercase">
-              <span aria-hidden className="h-px w-8 bg-ember-600/50" />
+            <span className="text-ember-600 flex items-center gap-3 text-[10.5px] font-bold tracking-[0.2em] uppercase">
+              <span aria-hidden className="bg-ember-600/50 h-px w-8" />
               {t("eyebrow")}
             </span>
-            <h2 className="font-display mt-4 max-w-lg text-[clamp(1.4rem,2.8vw,2rem)] leading-[1.12] font-extrabold tracking-[-0.03em] text-balance text-brand-900">
+            <h2 className="font-display text-brand-900 mt-4 max-w-lg text-[clamp(1.4rem,2.8vw,2rem)] leading-[1.12] font-extrabold tracking-[-0.03em] text-balance">
               {t("title")}
             </h2>
           </div>
 
           <div className="sm:text-right">
-            <p className="max-w-xs text-[13.5px] leading-relaxed text-brand-800/55">{t("note")}</p>
-            <p className="mt-3 text-[10px] font-bold tracking-[0.18em] text-brand-500 uppercase tabular-nums">
+            <p className="text-brand-800/55 max-w-xs text-[13.5px] leading-relaxed">{t("note")}</p>
+            <p className="text-brand-500 mt-3 text-[10px] font-bold tracking-[0.18em] uppercase tabular-nums">
               {t("since", { year: FOUNDED_YEAR })}
             </p>
           </div>
@@ -46,7 +34,7 @@ export async function Partners() {
       </div>
 
       {/* Full bleed: the band runs to both edges of the viewport. */}
-      <div className="mt-11 border-y border-brand-900/12 sm:mt-14">
+      <div className="border-brand-900/12 mt-11 border-y sm:mt-14">
         <div className="pm-marquee">
           <ul className="pm-track">
             {Array.from({ length: PARTNER_REPEATS }).flatMap((_, pass) =>

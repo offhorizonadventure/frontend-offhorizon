@@ -711,10 +711,7 @@
           },
           {
             "question": "Wie schwierig sind Himalaya-Expeditionen?",
-            "answer": [
-              "Mittel bis anspruchsvoll, je nach Route.",
-              "Zu erwarten sind:"
-            ],
+            "answer": ["Mittel bis anspruchsvoll, je nach Route.", "Zu erwarten sind:"],
             "list": [
               "Lange Fahrtage zwischen 3.000 und 5.800 Metern",
               "Eine Mischung aus gutem Asphalt und echtem Gelände",
@@ -819,9 +816,7 @@
           },
           {
             "question": "Wann ist die Fahrsaison in Nepal?",
-            "answer": [
-              "Frühjahr und Herbst sind die Hauptfenster, und Mustang dehnt sie aus."
-            ],
+            "answer": ["Frühjahr und Herbst sind die Hauptfenster, und Mustang dehnt sie aus."],
             "list": [
               "März bis Mai: warm, klar, blühende Rhododendren in der Höhe",
               "Juni bis August: Monsun im größten Teil des Landes, aber Mustang liegt im Regenschatten und bleibt vergleichsweise trocken",
@@ -903,9 +898,7 @@
               "Dörfer und Klöster, die sich kaum verändert haben",
               "Trockene Luft, hartes Licht und ein Wind, der jeden Nachmittag auffrischt"
             ],
-            "after": [
-              "Näher kommt man dem Fahren in Tibet nicht, ohne die Grenze zu überqueren."
-            ]
+            "after": ["Näher kommt man dem Fahren in Tibet nicht, ohne die Grenze zu überqueren."]
           },
           {
             "question": "Was ist die Kali-Gandaki-Schlucht?",
@@ -947,9 +940,7 @@
           },
           {
             "question": "Brauche ich eine Reiseversicherung?",
-            "answer": [
-              "Ja. Sie ist Pflicht und muss abdecken:"
-            ],
+            "answer": ["Ja. Sie ist Pflicht und muss abdecken:"],
             "list": [
               "Aufenthalte über 4.000 Metern Höhe",
               "Motorradfahren, das viele Standardpolicen ausschließen",
@@ -1083,7 +1074,8 @@
       "eyebrow": "Was es kostet",
       "title": "Ein Preis, und die wenigen Posten, die darauf kommen",
       "body": "Der Fahrerpreis deckt die Expedition selbst ab. Alles darunter ist optional: Einzelzimmer oder zusätzlichen Schutz zahlen Sie nur, wenn Sie sie wollen. Am Ende kommt nichts dazu.",
-      "datesTitle": "Abfahrtstermine"
+      "datesTitle": "Abfahrtstermine",
+      "noDates": "Die Termine stehen noch nicht fest. Sagen Sie uns, wann Sie fahren möchten, und wir richten die Expedition danach aus."
     },
     "highlights": {
       "eyebrow": "Höhepunkte",
@@ -1132,6 +1124,14 @@
         "roomHint": "Zimmer sind Doppelzimmer, sofern Sie das hier nicht nehmen.",
         "none": "Sie können das später alles ändern. Es ist noch nichts gebucht."
       },
+      "vehicle": {
+        "title": "Ihr Fahrzeug",
+        "help": "Für die {days} Tage der Expedition gemietet und von den Insassen geteilt.",
+        "seats": "{count} Sitze",
+        "perDay": "pro Tag",
+        "total": "für die Reise",
+        "none": "Eigenes Fahrzeug? Überspringen Sie das und schreiben Sie es in die Anfrage."
+      },
       "summary": {
         "title": "Das haben Sie gewählt",
         "help": "Eine Schätzung, keine Buchung. Wir bestätigen alles per E-Mail.",
@@ -1140,12 +1140,23 @@
         "pillions": "Sozius",
         "insurance": "Schadenschutz",
         "room": "Einzelzimmer",
+        "vehicle": "Fahrzeug",
         "total": "Geschätzte Summe",
         "enquire": "Anfrage senden",
         "note": "Zum heutigen Kurs aus US-Dollar umgerechnet, der Endbetrag hängt also vom Kurs am Zahltag ab. Flüge sind nicht enthalten.",
         "dates": "Termin",
         "flexible": "Flexibel"
       }
+    },
+    "more": "Mehr lesen",
+    "less": "Weniger lesen",
+    "fleet": {
+      "eyebrow": "Der Fuhrpark",
+      "title": "Die Fahrzeuge, die mitfahren",
+      "lead": "Jedes wird für die Dauer der Expedition gemietet, {days} Tage bei der kürzesten Abfahrt, und von den Insassen geteilt.",
+      "seats": "{count} Sitze",
+      "perDay": "pro Tag",
+      "forTrip": "{total} für {days} Tage"
     }
   },
   "auth": {
@@ -1205,6 +1216,16 @@
       "password": "Neues Passwort",
       "confirm": "Passwort bestätigen",
       "rule": "Mindestens acht Zeichen."
+    },
+    "reset": {
+      "title": "Neues Passwort festlegen.",
+      "lead": "Wählen Sie etwas, das Sie für dieses Konto noch nicht verwendet haben.",
+      "expiredTitle": "Dieser Link ist abgelaufen.",
+      "expiredLead": "Links lassen sich einmal verwenden und gelten eine Stunde. Fordern Sie über die Anmeldung einen neuen an.",
+      "startAgain": "Zurück zur Website",
+      "saving": "Wird gespeichert…",
+      "mismatch": "Die beiden Passwörter stimmen nicht überein.",
+      "tooShort": "Mindestens acht Zeichen verwenden."
     }
   },
   "catalogue": {

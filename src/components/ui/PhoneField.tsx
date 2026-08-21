@@ -22,18 +22,7 @@ type PhoneFieldProps = {
   defaultNumber?: string;
 };
 
-/**
- * Phone input with a country dial-code picker.
- *
- * Country names come from `Intl.DisplayNames`, so the list is translated into
- * whichever language the visitor is browsing without shipping five name
- * tables. The dial codes are generated from libphonenumber-js at build time
- * (see `config/dial-codes.ts`), so only about 4kb of data reaches the browser
- * instead of the library's full metadata.
- *
- * The visible input holds the national number; a hidden field carries the full
- * `+<code><number>` string, which is what a form handler actually wants.
- */
+/** Phone input with a country dial-code picker. */
 export function PhoneField({
   id,
   name,
@@ -50,27 +39,13 @@ export function PhoneField({
   const [number, setNumber] = useState(defaultNumber);
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
-  /**
-   * The option list is built only once the picker has been opened, which can
-   * only happen after a click and therefore only on the client.
-   *
-   * `Intl.DisplayNames` resolves against whichever ICU build is running, and
-   * Node's does not always agree with the browser's: it returns "Hong Kong SAR
-   * China", "Macao SAR China" and "Palestinian Territories" where Chrome
-   * returns the short forms. Rendering those names during SSR produced a
-   * hydration mismatch. Deferring costs nothing visually, because the list is
-   * hidden until it is opened, and it keeps 243 list items out of the HTML of
-   * every page carrying a phone field.
-   */
+  /** The option list is built only once the picker has been opened, which can only happen after a click and therefore only on the client. */
   const [everOpened, setEverOpened] = useState(false);
 
   const wrapper = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const names = useMemo(
-    () => new Intl.DisplayNames([locale], { type: "region" }),
-    [locale],
-  );
+  const names = useMemo(() => new Intl.DisplayNames([locale], { type: "region" }), [locale]);
 
   const countries = useMemo(
     () =>
@@ -123,7 +98,7 @@ export function PhoneField({
 
   return (
     <div ref={wrapper} className="relative">
-      <div className="flex h-12 items-stretch overflow-hidden rounded-xl border border-brand-900/15 bg-white transition-[border-color,box-shadow] focus-within:border-brand-800 focus-within:ring-[3px] focus-within:ring-brand-800/10">
+      <div className="border-brand-900/15 focus-within:border-brand-800 focus-within:ring-brand-800/10 flex h-12 items-stretch overflow-hidden rounded-xl border bg-white transition-[border-color,box-shadow] focus-within:ring-[3px]">
         <button
           type="button"
           onClick={() => {
@@ -133,17 +108,12 @@ export function PhoneField({
           aria-haspopup="listbox"
           aria-expanded={open}
           aria-label={countryLabel}
-          className="flex shrink-0 items-center gap-2 border-r border-brand-900/12 px-3 transition-colors hover:bg-cream-50"
+          className="border-brand-900/12 hover:bg-cream-50 flex shrink-0 items-center gap-2 border-r px-3 transition-colors"
         >
           <Flag country={country} />
-          <span className="text-[13px] font-semibold text-brand-900 tabular-nums">
-            +{dial}
-          </span>
+          <span className="text-brand-900 text-[13px] font-semibold tabular-nums">+{dial}</span>
           <ChevronDown
-            className={cn(
-              "text-brand-500 transition-transform duration-300",
-              open && "rotate-180",
-            )}
+            className={cn("text-brand-500 transition-transform duration-300", open && "rotate-180")}
           />
         </button>
 
@@ -154,10 +124,8 @@ export function PhoneField({
           autoComplete="tel-national"
           required={required}
           value={number}
-          onChange={(event) =>
-            setNumber(event.target.value.replace(/[^\d\s-]/g, ""))
-          }
-          className="min-w-0 flex-1 bg-transparent px-3.5 text-[14px] text-brand-900 outline-none placeholder:text-brand-800/35"
+          onChange={(event) => setNumber(event.target.value.replace(/[^\d\s-]/g, ""))}
+          className="text-brand-900 placeholder:text-brand-800/35 min-w-0 flex-1 bg-transparent px-3.5 text-[14px] outline-none"
           placeholder="00000 00000"
         />
       </div>
@@ -173,13 +141,11 @@ export function PhoneField({
         role="listbox"
         aria-label={countryLabel}
         className={cn(
-          "absolute z-50 mt-2 max-h-72 w-full origin-top overflow-hidden rounded-2xl border border-brand-900/12 bg-white shadow-[0_20px_50px_-20px_rgba(42,16,2,0.35)] transition-all duration-200 ease-out-expo",
-          open
-            ? "visible scale-100 opacity-100"
-            : "invisible scale-95 opacity-0",
+          "border-brand-900/12 ease-out-expo absolute z-50 mt-2 max-h-72 w-full origin-top overflow-hidden rounded-2xl border bg-white shadow-[0_20px_50px_-20px_rgba(42,16,2,0.35)] transition-all duration-200",
+          open ? "visible scale-100 opacity-100" : "invisible scale-95 opacity-0",
         )}
       >
-        <div className="border-b border-brand-900/8 p-2">
+        <div className="border-brand-900/8 border-b p-2">
           <input
             ref={searchRef}
             type="text"
@@ -187,7 +153,7 @@ export function PhoneField({
             onChange={(event) => setQuery(event.target.value)}
             placeholder={searchLabel}
             aria-label={searchLabel}
-            className="h-9 w-full rounded-lg bg-cream-50 px-3 text-[13px] text-brand-900 outline-none placeholder:text-brand-800/35"
+            className="bg-cream-50 text-brand-900 placeholder:text-brand-800/35 h-9 w-full rounded-lg px-3 text-[13px] outline-none"
           />
         </div>
 
@@ -204,25 +170,19 @@ export function PhoneField({
                   setQuery("");
                 }}
                 className={cn(
-                  "flex w-full items-center gap-2.5 px-3 py-2 text-left text-[13px] transition-colors hover:bg-cream-50",
-                  item.code === country
-                    ? "font-semibold text-brand-800"
-                    : "text-brand-900/80",
+                  "hover:bg-cream-50 flex w-full items-center gap-2.5 px-3 py-2 text-left text-[13px] transition-colors",
+                  item.code === country ? "text-brand-800 font-semibold" : "text-brand-900/80",
                 )}
               >
                 <Flag country={item.code} />
                 <span className="min-w-0 flex-1 truncate">{item.name}</span>
-                <span className="shrink-0 text-brand-500 tabular-nums">
-                  +{item.dial}
-                </span>
+                <span className="text-brand-500 shrink-0 tabular-nums">+{item.dial}</span>
               </button>
             </li>
           ))}
 
           {everOpened && filtered.length === 0 && (
-            <li className="px-3 py-6 text-center text-[13px] text-brand-800/40">
-              {searchLabel}
-            </li>
+            <li className="text-brand-800/40 px-3 py-6 text-center text-[13px]">{searchLabel}</li>
           )}
         </ul>
       </div>

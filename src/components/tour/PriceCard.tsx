@@ -3,22 +3,12 @@ import { getMessages, getTranslations } from "next-intl/server";
 import type { BookingLabels } from "@/components/tour/BookingWizard";
 import { DatesDrawer } from "@/components/tour/DatesDrawer";
 import { ArrowRight, priceIcons } from "@/components/ui/icons";
-import type { Departure, FactKey, PriceGroup } from "@/config/tour-pages";
+import type { Departure, FactKey, PriceGroup } from "@/lib/tour-types";
 import type { Locale } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
 import { getConversion, getPrice } from "@/lib/currency";
 
-/**
- * Price card in the hero.
- *
- * The headline figure is the only number set large; everything below it is a
- * supplement, marked with a plus so it reads as "on top of that" rather than
- * as a competing total. Anything costing nothing says so in words, because a
- * column of "$0" makes a page look broken rather than generous.
- *
- * The dates button opens a slide-over rather than expanding in place, so the
- * card keeps its height and the list has room of its own.
- */
+/** Price card in the hero. */
 export async function PriceCard({
   locale,
   pricing,
@@ -33,6 +23,7 @@ export async function PriceCard({
   departures: Departure[];
 }) {
   const t = await getTranslations({ locale, namespace: "tour" });
+  const ts = await getTranslations({ locale, namespace: "dest.shared" });
   const { currency, rate } = await getConversion(locale);
 
   // `t.raw` is typed for leaf keys, and the wizard wants a whole subtree.
@@ -76,42 +67,62 @@ export async function PriceCard({
     locale,
     // "12 riders" and the like; fall back to a sane cap when it does not parse.
     maxRiders: Number(groupSize.match(/\d+/)?.[0]) || 12,
-    departures: departures.map(({ start, end, soldOut, seats }) => ({ start, end, soldOut, seats })),
+    departures: departures.map(({ start, end, soldOut, seats, kind, vehicles }) => ({
+      start,
+      end,
+      soldOut,
+      seats,
+      kind,
+      vehicles,
+    })),
     labels: messages.tour.booking,
   };
 
   return (
-    <div className="rounded-[26px] bg-cream-50/97 p-6 shadow-2xl shadow-brand-950/30 ring-1 ring-cream-100/20 backdrop-blur-md sm:p-7">
-      {/* Headline price */}
-      <p className="text-[9.5px] font-bold tracking-[0.18em] text-brand-800/50 uppercase">
-        {t("price.from")}
-      </p>
-      <p className="mt-2 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
-        <span className="font-display text-[clamp(1.9rem,4vw,2.4rem)] leading-none font-extrabold tracking-[-0.035em] text-brand-900 tabular-nums">
-          {headline?.price}
-        </span>
-        <span className="text-[12px] font-semibold text-brand-800/55">
-          {t("price.perRider")}
-        </span>
-      </p>
+    <div className="bg-cream-50/97 shadow-brand-950/30 ring-cream-100/20 rounded-[26px] p-6 shadow-2xl ring-1 backdrop-blur-md sm:p-7">
+      {/* Headline price, or an honest line where there is nothing to quote.
+          An empty "from" over a blank space reads as a page that failed to
+          load, which is worse than saying the dates are not set. */}
+      {headline?.price ? (
+        <>
+          <p className="text-brand-800/50 text-[9.5px] font-bold tracking-[0.18em] uppercase">
+            {t("price.from")}
+          </p>
+          <p className="mt-2 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+            <span className="font-display text-brand-900 text-[clamp(1.9rem,4vw,2.4rem)] leading-none font-extrabold tracking-[-0.035em] tabular-nums">
+              {headline.price}
+            </span>
+            <span className="text-brand-800/55 text-[12px] font-semibold">
+              {t("price.perRider")}
+            </span>
+          </p>
+        </>
+      ) : (
+        <>
+          <p className="text-brand-800/50 text-[9.5px] font-bold tracking-[0.18em] uppercase">
+            {ts("planned")}
+          </p>
+          <p className="text-brand-800/65 mt-2 text-[14px] leading-relaxed">{t("price.noDates")}</p>
+        </>
+      )}
 
-      <div className="mt-6 space-y-6 border-t border-brand-900/12 pt-6">
+      <div className="border-brand-900/12 mt-6 space-y-6 border-t pt-6">
         {groups.map((group) => (
           <div key={group.title}>
-            <h3 className="text-[9.5px] font-bold tracking-[0.18em] text-brand-800/45 uppercase">
+            <h3 className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.18em] uppercase">
               {group.title}
             </h3>
 
             <ul className="mt-3 space-y-2.5">
               {group.lines.map((line) => (
                 <li key={line.label} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-brand-900/6 text-brand-700">
+                  <span className="bg-brand-900/6 text-brand-700 mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full">
                     <line.Icon />
                   </span>
 
                   <span className="min-w-0 flex-1">
                     <span className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
-                      <span className="font-display text-[14px] leading-snug font-bold tracking-[-0.01em] text-brand-900">
+                      <span className="font-display text-brand-900 text-[14px] leading-snug font-bold tracking-[-0.01em]">
                         {line.label}
                       </span>
                       <span
@@ -131,7 +142,7 @@ export async function PriceCard({
                     </span>
 
                     {line.note && (
-                      <span className="mt-0.5 block text-[11.5px] leading-snug text-brand-800/50">
+                      <span className="text-brand-800/50 mt-0.5 block text-[11.5px] leading-snug">
                         {line.note}
                       </span>
                     )}
@@ -143,23 +154,19 @@ export async function PriceCard({
         ))}
       </div>
 
-      <div className="mt-6 flex flex-col gap-2.5 border-t border-brand-900/12 pt-6">
-        <DatesDrawer
-          label={t("price.seeDates")}
-          title={t("price.datesTitle")}
-          booking={booking}
-        />
+      <div className="border-brand-900/12 mt-6 flex flex-col gap-2.5 border-t pt-6">
+        <DatesDrawer label={t("price.seeDates")} title={t("price.datesTitle")} booking={booking} />
 
         <Link
           href="/custom-expeditions"
-          className="group flex h-12 items-center justify-center gap-2.5 rounded-full border border-brand-900/20 text-[11px] font-bold tracking-[0.12em] text-brand-800 uppercase transition-colors duration-300 hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100"
+          className="group border-brand-900/20 text-brand-800 hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100 flex h-12 items-center justify-center gap-2.5 rounded-full border text-[11px] font-bold tracking-[0.12em] uppercase transition-colors duration-300"
         >
           {t("price.custom")}
           <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </div>
 
-      <p className="mt-4 text-[10.5px] leading-[1.6] text-brand-800/40">{t("price.note")}</p>
+      <p className="text-brand-800/40 mt-4 text-[10.5px] leading-[1.6]">{t("price.note")}</p>
     </div>
   );
 }

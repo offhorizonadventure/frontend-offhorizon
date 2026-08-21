@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import "../globals.css";
 
 import { ScrollMotion } from "@/components/motion/ScrollMotion";
+import { CountryProbe } from "@/components/ui/CountryProbe";
 import { Navbar } from "@/components/layout/Navbar";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { QuickEnquiryButton } from "@/components/ui/QuickEnquiry";
@@ -28,9 +29,10 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
 
   return (
     <html lang={locale} className={`${fontVariables} h-full`}>
-      <body className="flex min-h-full flex-col bg-cream-50">
+      <body className="bg-cream-50 flex min-h-full flex-col">
         <NextIntlClientProvider>
           <ScrollMotion />
+          <CountryProbe />
           <Navbar />
           <main className="flex-1">{children}</main>
           <SiteFooter />
