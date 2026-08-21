@@ -1132,7 +1132,9 @@
         "seats": "{count} places",
         "perDay": "par jour",
         "total": "pour le voyage",
-        "none": "Vous venez avec votre véhicule ? Passez cette étape et dites-le nous dans la demande."
+        "own": "Je viens avec mon propre véhicule",
+        "ownHint": "Vous conduisez le vôtre, nous organisons la route autour.",
+        "noCharge": "Sans frais"
       },
       "summary": {
         "title": "Voici ce que vous avez choisi",

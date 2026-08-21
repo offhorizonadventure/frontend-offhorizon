@@ -8,7 +8,6 @@ export const partners: Partner[] = [
   { slug: "royal-enfield", name: "Royal Enfield" },
   { slug: "himachal-tourism", name: "Himachal Tourism" },
   { slug: "brb", name: "BRB" },
-  { slug: "reise-moto", name: "Reise Moto" },
   { slug: "mca-india", name: "Ministry of Corporate Affairs, Government of India" },
 ];
 

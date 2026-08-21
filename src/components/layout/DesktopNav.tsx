@@ -79,7 +79,7 @@ async function MegaPanel({ countries }: { countries: Country[] }) {
                         <span className="relative size-12 shrink-0 overflow-hidden rounded-xl">
                           <Image
                             src={tour.image}
-                            alt=""
+                            alt={tt(`${tour.key}.name`)}
                             fill
                             sizes="48px"
                             className="object-cover transition-transform duration-500 group-hover/t:scale-110"

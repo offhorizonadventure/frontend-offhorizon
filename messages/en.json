@@ -1126,7 +1126,9 @@
         "seats": "{count} seats",
         "perDay": "a day",
         "total": "for the trip",
-        "none": "Bringing your own car? Skip this and tell us in the enquiry."
+        "own": "I am bringing my own car",
+        "ownHint": "You drive yours; we run the route around it.",
+        "noCharge": "No charge"
       },
       "summary": {
         "title": "Here is what you have chosen",

@@ -194,7 +194,7 @@ export function Gallery({
               >
                 <Image
                   src={item.image}
-                  alt=""
+                  alt={item.alt}
                   fill
                   sizes="64px"
                   quality={90}

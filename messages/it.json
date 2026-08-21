@@ -1129,7 +1129,9 @@
         "seats": "{count} posti",
         "perDay": "al giorno",
         "total": "per il viaggio",
-        "none": "Porti la tua auto? Salta questo passaggio e scrivilo nella richiesta."
+        "own": "Porto la mia auto",
+        "ownHint": "Guidi la tua e costruiamo il percorso attorno.",
+        "noCharge": "Nessun costo"
       },
       "summary": {
         "title": "Ecco cosa hai scelto",

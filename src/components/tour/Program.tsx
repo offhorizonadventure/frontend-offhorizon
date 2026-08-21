@@ -56,7 +56,7 @@ export async function Program({ locale, days }: { locale: Locale; days: ProgramD
                 <summary className="relative flex h-full cursor-pointer list-none flex-col justify-between p-6 [&::-webkit-details-marker]:hidden">
                   <Image
                     src={day.image}
-                    alt=""
+                    alt={day.title}
                     fill
                     {...blurOf(day.image)}
                     sizes="(max-width: 639px) 84vw, 320px"

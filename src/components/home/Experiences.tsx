@@ -86,7 +86,7 @@ export async function Experiences() {
                     <span className="relative block aspect-[4/3]">
                       <Image
                         src={experience.image}
-                        alt=""
+                        alt={tw(`${experience.key}.name`)}
                         fill
                         placeholder="blur"
                         sizes="(max-width: 1023px) 92vw, 640px"

@@ -1128,7 +1128,9 @@
         "seats": "{count} plazas",
         "perDay": "al día",
         "total": "por el viaje",
-        "none": "¿Traes tu propio coche? Sáltate esto y dínoslo en la consulta."
+        "own": "Llevo mi propio coche",
+        "ownHint": "Conduces el tuyo y montamos la ruta a su alrededor.",
+        "noCharge": "Sin coste"
       },
       "summary": {
         "title": "Esto es lo que has elegido",

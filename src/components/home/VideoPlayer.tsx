@@ -125,7 +125,7 @@ export function VideoPlayer({
       >
         <Image
           src={poster}
-          alt=""
+          alt={title}
           fill
           placeholder="blur"
           sizes={sizes}

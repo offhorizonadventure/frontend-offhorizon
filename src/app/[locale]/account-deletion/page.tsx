@@ -1,4 +1,5 @@
 import { Topo } from "@/components/ui/Topo";
+import { contact } from "@/config/contact";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
 import { buildMetadata } from "@/lib/seo";
@@ -76,10 +77,10 @@ export default function AccountDeletionPage() {
             <p className="text-brand-800/65 mt-5 text-[14px] leading-[1.8]">
               Prefer to ask? Email{" "}
               <a
-                href="mailto:hello@offhorizon.com?subject=Account%20deletion"
+                href={`mailto:${contact.email}?subject=Account%20deletion`}
                 className="text-brand-900 decoration-ember-500/50 font-semibold underline underline-offset-[3px]"
               >
-                hello@offhorizon.com
+                {contact.email}
               </a>{" "}
               from the address on the account and we will do it within 30 days.
             </p>
@@ -122,10 +123,10 @@ export default function AccountDeletionPage() {
           <p className="border-brand-900/10 text-brand-800/60 border-t pt-8 text-[14px]">
             Questions about any of this go to{" "}
             <a
-              href="mailto:hello@offhorizon.com"
+              href={`mailto:${contact.email}`}
               className="text-brand-900 decoration-ember-500/50 font-semibold underline underline-offset-[3px]"
             >
-              hello@offhorizon.com
+              {contact.email}
             </a>
             , or through the{" "}
             <Link

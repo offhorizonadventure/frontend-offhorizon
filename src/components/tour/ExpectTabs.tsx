@@ -24,7 +24,7 @@ export function ExpectTabs({ eyebrow, items }: { eyebrow: string; items: ExpectI
         <Image
           key={item.key}
           src={item.image}
-          alt=""
+          alt={item.title}
           fill
           {...blurOf(item.image)}
           sizes="100vw"

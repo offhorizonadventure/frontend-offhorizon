@@ -45,7 +45,9 @@ export type BookingLabels = {
     seats: string;
     perDay: string;
     total: string;
-    none: string;
+    own: string;
+    ownHint: string;
+    noCharge: string;
   };
   summary: {
     title: string;
@@ -72,6 +74,9 @@ export type WizardVehicle = {
   /** In the base currency, converted here like every other figure. */
   perDay: number;
 };
+
+/** Chosen when someone is driving their own car, which costs nothing here. */
+export const OWN_CAR = "own";
 
 export type Departure = {
   start: string;
@@ -161,6 +166,9 @@ export function BookingWizard({
 
   const fleet = chosen?.kind === "4x4" ? (chosen.vehicles ?? []) : [];
   const picked = fleet.find((option) => option.id === vehicle) ?? null;
+
+  // Someone driving their own car pays for the expedition and nothing for a
+  // vehicle, so the daily rate simply drops out of the total.
   const vehicleCost = picked ? picked.perDay * days : 0;
 
   const total =
@@ -397,6 +405,34 @@ export function BookingWizard({
                 </p>
 
                 <div className="grid gap-2.5">
+                  <button
+                    type="button"
+                    onClick={() => setVehicle(OWN_CAR)}
+                    aria-pressed={vehicle === OWN_CAR}
+                    className={`flex items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left transition-colors duration-200 ${
+                      vehicle === OWN_CAR
+                        ? "border-brand-800 bg-brand-800 text-cream-100"
+                        : "border-brand-900/15 text-brand-900 hover:border-brand-800/50 bg-white"
+                    }`}
+                  >
+                    <span className="min-w-0">
+                      <span className="block text-[13.5px] font-semibold">
+                        {labels.vehicle.own}
+                      </span>
+                      <span
+                        className={`block text-[11.5px] ${
+                          vehicle === OWN_CAR ? "text-cream-100/60" : "text-brand-800/50"
+                        }`}
+                      >
+                        {labels.vehicle.ownHint}
+                      </span>
+                    </span>
+
+                    <span className="shrink-0 text-[13px] font-bold">
+                      {labels.vehicle.noCharge}
+                    </span>
+                  </button>
+
                   {fleet.map((option) => {
                     const selected = vehicle === option.id;
 
@@ -431,8 +467,6 @@ export function BookingWizard({
                     );
                   })}
                 </div>
-
-                <p className="text-brand-800/45 text-[11.5px]">{labels.vehicle.none}</p>
               </div>
             )}
 
@@ -506,11 +540,11 @@ export function BookingWizard({
                   </dd>
                 </div>
               )}
-              {picked && (
+              {vehicle && (
                 <div className={rowClass}>
                   <dt className={labelClass}>{labels.summary.vehicle}</dt>
                   <dd className={valueClass}>
-                    {picked.name} · {price(vehicleCost)}
+                    {picked ? `${picked.name} · ${price(vehicleCost)}` : labels.vehicle.own}
                   </dd>
                 </div>
               )}

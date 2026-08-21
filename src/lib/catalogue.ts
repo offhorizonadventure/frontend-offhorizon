@@ -23,6 +23,17 @@ export type CountrySlug = "india" | "nepal" | "bhutan" | "sri-lanka" | "mongolia
 
 export type Facts = Partial<Record<string, string>>;
 
+const COUNTRY_NAMES: Record<CountrySlug, string> = {
+  india: "India",
+  nepal: "Nepal",
+  bhutan: "Bhutan",
+  "sri-lanka": "Sri Lanka",
+  mongolia: "Mongolia",
+};
+
+export const countryName = (slug: string | null | undefined) =>
+  COUNTRY_NAMES[slug as CountrySlug] ?? null;
+
 export type ExpectPanel = { key: string; tab: string; title: string; body: string };
 export type Highlight = { path: string | null; label: string; alt: string };
 export type ProgrammeDay = {
@@ -49,8 +60,6 @@ export type Tour = {
   place_title: string | null;
   place_body: string | null;
   facts: Facts;
-  included: string[];
-  excluded: string[];
   included_items: Inclusion[];
   excluded_items: Inclusion[];
   route_map_path: string | null;
@@ -103,32 +112,20 @@ export type Departure = {
 /** Strips a wrapping pair of quotes. */
 const unquote = (line: string) => line.replace(/^["“]([\s\S]*)["”]$/, "$1").trim();
 
-const cleanList = (lines: string[] | null | undefined) =>
-  (lines ?? []).map(unquote).filter(Boolean);
-
 /** One line of what is in the price, or what is not. */
 export type Inclusion = { title: string; body: string };
 
-const asInclusions = (items: unknown, lines: string[] | null | undefined): Inclusion[] => {
-  const rows = (items ?? []) as Inclusion[];
-
-  // Unquoted on the way out, like the plain lines: several were typed with quote marks around them, and the migration copied them across as they were.
-  if (rows.length) {
-    return rows
-      .map((row) => ({ title: unquote(row.title ?? ""), body: unquote(row.body ?? "") }))
-      .filter((row) => row.title);
-  }
-
-  return cleanList(lines).map((title) => ({ title, body: "" }));
-};
+// Unquoted on the way out: inclusion lines are often pasted in already quoted,
+// and the quotes are part of how they were written down, not of the sentence.
+const asInclusions = (items: unknown): Inclusion[] =>
+  ((items ?? []) as Inclusion[])
+    .map((row) => ({ title: unquote(row.title ?? ""), body: unquote(row.body ?? "") }))
+    .filter((row) => row.title);
 
 const shape = (row: Record<string, unknown>): Tour => ({
   ...(row as unknown as Tour),
-  included: cleanList(row.included as string[]),
-  excluded: cleanList(row.excluded as string[]),
-  // Tours written before inclusions had descriptions fall back to their single lines, each becoming a title with nothing behind it.
-  included_items: asInclusions(row.included_items, row.included as string[]),
-  excluded_items: asInclusions(row.excluded_items, row.excluded as string[]),
+  included_items: asInclusions(row.included_items),
+  excluded_items: asInclusions(row.excluded_items),
   facts: (row.facts ?? {}) as Facts,
   expect: (row.expect ?? []) as ExpectPanel[],
   highlights: (row.highlights ?? []) as Highlight[],

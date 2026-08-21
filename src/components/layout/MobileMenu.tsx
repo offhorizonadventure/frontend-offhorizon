@@ -67,7 +67,7 @@ export async function MobileMenu() {
                                   <span className="relative size-12 shrink-0 overflow-hidden rounded-xl">
                                     <Image
                                       src={tour.image}
-                                      alt=""
+                                      alt={tt(`${tour.key}.name`)}
                                       fill
                                       sizes="48px"
                                       className="object-cover"

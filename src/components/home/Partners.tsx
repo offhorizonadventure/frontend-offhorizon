@@ -58,7 +58,7 @@ export async function Partners() {
                     />
                     <img
                       src={`/partners/${partner.slug}.png`}
-                      alt=""
+                      alt={partner.name}
                       aria-hidden
                       width={600}
                       height={200}

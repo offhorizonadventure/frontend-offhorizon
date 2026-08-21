@@ -1,0 +1,62 @@
+import { listPosts } from "@/lib/blog";
+import { listTours } from "@/lib/catalogue";
+import { siteName, siteUrl } from "@/lib/seo";
+
+/**
+ * llms.txt: what this site is, for a model reading it rather than a crawler.
+ *
+ * The convention is a short plain-language summary and a list of the pages
+ * worth reading, in Markdown, at the root. Generated rather than written so a
+ * tour published this morning is in it this afternoon.
+ */
+export const revalidate = 3600;
+
+export async function GET() {
+  const [tours, posts] = await Promise.all([listTours(), listPosts()]);
+
+  const body = [
+    `# ${siteName}`,
+    "",
+    "> Guided motorcycle and self-drive 4x4 expeditions across the Himalayas and Central Asia.",
+    "> Small groups, prepared machines, a mechanic on every departure. Based in Manali,",
+    "> India, running expeditions in India, Nepal, Bhutan, Sri Lanka and Mongolia.",
+    "",
+    "The site is published in English, French, German, Italian and Spanish. Every path",
+    "below is prefixed with a language code, for example /en/adventure-tours.",
+    "",
+    "## Expeditions",
+    "",
+    ...tours.map((tour) => {
+      const summary = tour.lead?.split(". ")[0] ?? "";
+      return `- [${tour.title}](${siteUrl}/en/adventure/${tour.slug}): ${summary}`;
+    }),
+    "",
+    "## Journal",
+    "",
+    ...posts
+      .slice(0, 20)
+      .map((post) => `- [${post.title}](${siteUrl}/en/blog/${post.slug}): ${post.excerpt ?? ""}`),
+    "",
+    "## Pages",
+    "",
+    `- [Destinations](${siteUrl}/en/destinations): the five countries, and which are running`,
+    `- [All expeditions](${siteUrl}/en/adventure-tours): every dated departure`,
+    `- [Custom expeditions](${siteUrl}/en/custom-expeditions): trips built to order`,
+    `- [About us](${siteUrl}/en/about-us): who runs these`,
+    `- [Contact](${siteUrl}/en/contact-us)`,
+    "",
+    "## Notes",
+    "",
+    "- Prices are quoted per person and converted into the visitor's currency at",
+    "  the daily rate, so figures on a page are not fixed amounts.",
+    "- A tour with no dated departure is marked planned rather than bookable.",
+    "",
+  ].join("\n");
+
+  return new Response(body, {
+    headers: {
+      "content-type": "text/plain; charset=utf-8",
+      "cache-control": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
+    },
+  });
+}

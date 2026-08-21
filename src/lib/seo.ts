@@ -10,7 +10,31 @@ export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://offhorizon.
 export const siteName = "Offhorizon Adventures";
 
 const defaultDescription =
-  "Offhorizon Adventure delivers premium guided motorcycle and self-drive 4x4 expeditions across the Trans-Himalayan region. We operate in high-altitude terrain";
+  "Guided motorcycle and self-drive 4x4 expeditions across the Himalayas. Small groups, prepared machines, a mechanic on every departure.";
+
+/**
+ * Search results cut a title around 60 characters and a description around 155.
+ *
+ * A page title arrives here without the company name, and gets it appended only
+ * while there is room: "Ladakh Motorcycle Tour | Offhorizon Adventures" fits,
+ * and a longer headline is better off spending those characters on itself.
+ */
+const TITLE_LIMIT = 60;
+
+const withBrand = (title: string) =>
+  title === siteName || title.includes(siteName) || `${title} | ${siteName}`.length > TITLE_LIMIT
+    ? title
+    : `${title} | ${siteName}`;
+
+/** What the site is about, for the pages that do not name their own subject. */
+const defaultKeywords = [
+  "motorcycle expeditions",
+  "Himalayan motorcycle tour",
+  "Ladakh motorcycle tour",
+  "4x4 self drive expedition",
+  "guided adventure tours India",
+  "Nepal motorcycle tour",
+];
 
 const defaultImage = {
   url: "https://offhorizon.com/wp-content/uploads/2026/03/OffHorizon_Adventures_Logo2.png",
@@ -37,6 +61,15 @@ type SeoInput = {
   /** Languages this page actually exists in. */
   availableLocales?: readonly Locale[];
   noIndex?: boolean;
+  /** Added to the defaults, not instead of them. */
+  keywords?: string[];
+  /**
+   * Off on the layout, which sits under every page.
+   *
+   * A page states its own canonical and its own languages. The layout doing it
+   * too put two identical sets of hreflang links in every head.
+   */
+  alternates?: boolean;
 };
 
 export function buildMetadata({
@@ -51,20 +84,30 @@ export function buildMetadata({
   readingMinutes,
   availableLocales = locales,
   noIndex = false,
+  keywords = [],
+  alternates = true,
 }: SeoInput): Metadata {
   const canonical = url(locale, path);
+  const fullTitle = withBrand(title);
 
   return {
     metadataBase: new URL(siteUrl),
-    title,
+    title: fullTitle,
     description,
-    alternates: {
-      canonical,
-      languages: {
-        ...Object.fromEntries(availableLocales.map((alt) => [alt, url(alt, path)])),
-        "x-default": url(defaultLocale, path),
+    keywords: [...keywords, ...defaultKeywords],
+    applicationName: siteName,
+    publisher: siteName,
+    authors: [{ name: siteName, url: siteUrl }],
+    creator: siteName,
+    ...(alternates && {
+      alternates: {
+        canonical,
+        languages: {
+          ...Object.fromEntries(availableLocales.map((alt) => [alt, url(alt, path)])),
+          "x-default": url(defaultLocale, path),
+        },
       },
-    },
+    }),
     robots: noIndex
       ? { index: false, follow: false }
       : {
@@ -80,7 +123,7 @@ export function buildMetadata({
       alternateLocale: availableLocales
         .filter((l) => l !== locale)
         .map((l) => marketFor(l).ogLocale),
-      title,
+      title: fullTitle,
       description,
       url: canonical,
       siteName,
@@ -89,7 +132,7 @@ export function buildMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: fullTitle,
       description,
       images: [image.url],
     },

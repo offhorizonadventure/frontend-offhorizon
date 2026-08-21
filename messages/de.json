@@ -1130,7 +1130,9 @@
         "seats": "{count} Sitze",
         "perDay": "pro Tag",
         "total": "für die Reise",
-        "none": "Eigenes Fahrzeug? Überspringen Sie das und schreiben Sie es in die Anfrage."
+        "own": "Ich bringe mein eigenes Fahrzeug mit",
+        "ownHint": "Sie fahren Ihres, wir planen die Route darum herum.",
+        "noCharge": "Kostenlos"
       },
       "summary": {
         "title": "Das haben Sie gewählt",

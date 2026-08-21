@@ -14,7 +14,7 @@ import { Program } from "@/components/tour/Program";
 import { RouteMap } from "@/components/tour/RouteMap";
 import { TourHero } from "@/components/tour/TourHero";
 import { Topo } from "@/components/ui/Topo";
-import { getTour, imageUrl, listDepartures } from "@/lib/catalogue";
+import { countryName, getTour, imageUrl, listDepartures } from "@/lib/catalogue";
 import { resolveLocale } from "@/i18n/params";
 import { buildMetadata, siteUrl } from "@/lib/seo";
 import {
@@ -42,7 +42,10 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/adventur
     locale,
     path: `/adventure/${tour.slug}`,
     title: tour.title,
-    description: tour.lead ?? "",
+    description: (tour.lead ?? "").slice(0, 155),
+    keywords: [tour.title, countryName(tour.country) ?? "", "motorcycle expedition"].filter(
+      Boolean,
+    ),
     image: hero
       ? {
           url: hero,

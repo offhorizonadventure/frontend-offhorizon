@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import "../globals.css";
 
 import { ScrollMotion } from "@/components/motion/ScrollMotion";
+import { SiteSchema } from "@/components/seo/SiteSchema";
 import { CountryProbe } from "@/components/ui/CountryProbe";
 import { Navbar } from "@/components/layout/Navbar";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -21,7 +22,12 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">) {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "meta" });
 
-  return buildMetadata({ locale, title: t("title"), description: t("description") });
+  return buildMetadata({
+    locale,
+    title: t("title"),
+    description: t("description"),
+    alternates: false,
+  });
 }
 
 export default async function LocaleLayout({ children, params }: LayoutProps<"/[locale]">) {
@@ -31,6 +37,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
     <html lang={locale} className={`${fontVariables} h-full`}>
       <body className="bg-cream-50 flex min-h-full flex-col">
         <NextIntlClientProvider>
+          <SiteSchema locale={locale} />
           <ScrollMotion />
           <CountryProbe />
           <Navbar />
