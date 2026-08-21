@@ -35,20 +35,55 @@
     "bhutan": "Bután",
     "sriLanka": "Sri Lanka",
     "mongolia": "Mongolia",
-    "plannedShort": "En preparación"
+    "plannedShort": "En preparación",
+    "easternHimalayas": "Himalaya oriental",
+    "hillCountry": "Tierras altas y costa",
+    "steppeGobi": "Estepa y Gobi"
   },
   "tours": {
-    "ladakhMotorcycle": {
-      "name": "Tour en moto por Ladakh",
-      "summary": "Khardung La y Pangong"
+    "greatHimalayanTraverse": {
+      "name": "La gran travesía del Himalaya",
+      "summary": "Spiti, Zanskar y Umling La"
+    },
+    "himalayanExpedition": {
+      "name": "Expedición al Himalaya",
+      "summary": "Spiti y la carretera de Kinnaur"
+    },
+    "ladakhCircuit": {
+      "name": "El circuito de Ladakh",
+      "summary": "Umling La y Tso Moriri"
     },
     "himalayas4x4": {
       "name": "Expedición 4x4 por el Himalaya indio",
-      "summary": "Spiti y Manali por libre"
+      "summary": "Spiti y Manali, al volante"
     },
-    "nepalMotorcycle": {
-      "name": "Tour en moto por Nepal",
-      "summary": "De Katmandú a Mustang"
+    "upperMustang": {
+      "name": "Alto Mustang en moto",
+      "summary": "Lo Manthang y Kali Gandaki"
+    },
+    "lowerMustang": {
+      "name": "Bajo Mustang en moto",
+      "summary": "Muktinath y Kagbeni"
+    },
+    "nepal4x4": {
+      "name": "Expedición 4x4 por Nepal",
+      "summary": "Mustang y Annapurna, al volante"
+    },
+    "bhutanMotorcycle": {
+      "name": "Bután en moto",
+      "summary": "Nido del Tigre y Chele La"
+    },
+    "sriLankaMotorcycle": {
+      "name": "Sri Lanka en moto",
+      "summary": "Ella, Sigiriya y las tierras altas"
+    },
+    "mongoliaMotorcycle": {
+      "name": "Mongolia en moto",
+      "summary": "Desierto de Gobi y valle del Orkhon"
+    },
+    "mongolia4x4": {
+      "name": "Expedición 4x4 por Mongolia",
+      "summary": "Desierto de Gobi y montes Altái"
     }
   },
   "home": {
@@ -950,6 +985,248 @@
           }
         ]
       }
+    },
+    "bhutan": {
+      "meta": {
+        "title": "Expediciones en moto por Bután | Offhorizon",
+        "description": "Expediciones guiadas en moto por Bután. Paro, Timbu, el puerto de Dochula y el valle de Punakha, con guías, mecánico, vehículo de apoyo y permisos incluidos."
+      },
+      "eyebrow": "Bután",
+      "title": "Expediciones en moto por Bután",
+      "lead": "De Paro a Punakha por el puerto de Dochula y luego al este, hacia valles que casi ningún visitante llega a ver. Bután es pequeño, verde y empinado, y las carreteras siguen los ríos en lugar de la línea recta.",
+      "intro": {
+        "title": "El Himalaya oriental, a otro ritmo.",
+        "body": "Bután está en el extremo húmedo de la cordillera. En vez del desierto de altura de Ladakh hay bosque de pinos y rododendros, nubes metidas en los valles hasta media mañana y puertos llenos de banderas de oración a 3.000 metros. No es una conducción extrema, pero casi todo son curvas.",
+        "focus": "Nuestra ruta recorre los valles del oeste y del centro, de Paro y Timbu a Punakha por Dochula y después hacia Phobjikha y Bumthang. Aquí todo visitante viaja con un operador autorizado, así que el papeleo forma parte del viaje y no es algo de última hora."
+      },
+      "regions": {
+        "eyebrow": "Regiones",
+        "title": "Dónde rodamos en Bután",
+        "explore": "Ver la región"
+      },
+      "why": {
+        "eyebrow": "Por qué nosotros",
+        "title": "Por qué rodar Bután con Offhorizon",
+        "reasons": [
+          {
+            "title": "En el Himalaya desde 2014",
+            "body": "Diez años moviendo grupos y vehículos en altura, en cuatro países de la misma cordillera."
+          },
+          {
+            "title": "Permisos resueltos",
+            "body": "Bután exige operador autorizado, visado y una tasa diaria. Lo gestionamos todo antes de que aterrices."
+          },
+          {
+            "title": "Guías locales",
+            "body": "Guías butaneses que saben a qué hora entrar en un dzong y saben explicarte lo que estás viendo."
+          },
+          {
+            "title": "Apoyo completo",
+            "body": "Jefe de expedición, mecánico que viaja con el grupo y vehículo de apoyo con repuestos y equipaje."
+          }
+        ],
+        "closing": "Grupos pequeños. Preferimos una salida buena a tres salidas llenas."
+      },
+      "cta": {
+        "title": "Empieza tu expedición a Bután",
+        "body": "Elige una salida del calendario, o dinos tus fechas y montamos la ruta alrededor de ellas.",
+        "imageAlt": "El dzong de Punakha en la confluencia de los ríos Pho Chhu y Mo Chhu, en Bután"
+      },
+      "faq": {
+        "title": "Rodar en Bután",
+        "items": [
+          {
+            "question": "¿Puedo llevar mi propia moto a Bután?",
+            "answer": [
+              "Los visitantes extranjeros ruedan con un operador autorizado, y la mayoría de nuestros pilotos usan una de nuestras motos.",
+              "Si quieres llevar la tuya, necesitarás:"
+            ],
+            "list": [
+              "Un permiso de importación temporal para la moto, solicitado con antelación",
+              "Un permiso de ruta que cubra cada distrito por el que pases",
+              "Un seguro de responsabilidad civil válido en Bután"
+            ],
+            "after": [
+              "Dínoslo pronto si es lo que quieres. Se puede hacer, pero cambia los plazos y el papeleo."
+            ]
+          },
+          {
+            "question": "¿Cuál es la temporada para rodar en Bután?",
+            "answer": ["Primavera y otoño, a uno y otro lado del monzón."],
+            "list": [
+              "De marzo a mayo: rododendros en flor, días templados, algo de calima",
+              "De junio a agosto: lluvias fuertes de monzón y desprendimientos en la carretera este-oeste",
+              "De septiembre a noviembre: el cielo más limpio del año y la temporada de festivales"
+            ],
+            "after": [
+              "En invierno se puede rodar por los valles bajos, pero los puertos altos se llenan de nieve. Mándanos tus fechas y te diremos con franqueza si funcionan."
+            ]
+          }
+        ]
+      }
+    },
+    "easternHimalayas": {
+      "shortName": "Himalaya oriental",
+      "card": "Paro, Timbu, el puerto de Dochula y el valle de Punakha. Puertos boscosos, dzongs y carreteras tranquilas, en primavera y otoño."
+    },
+    "sriLanka": {
+      "meta": {
+        "title": "Viajes en moto por Sri Lanka | Offhorizon",
+        "description": "Viajes guiados en moto por Sri Lanka. La región montañosa, Sigiriya, Ella y la costa sur, con guías, mecánico y vehículo de apoyo en cada salida."
+      },
+      "eyebrow": "Sri Lanka",
+      "title": "Viajes en moto por Sri Lanka",
+      "lead": "Plantaciones de té por encima de los 1.800 metros, antiguas fortalezas de roca y una carretera de costa que se recorre con el mar al lado todo el tiempo. Sri Lanka es el contrapeso cálido de una temporada himalaya.",
+      "intro": {
+        "title": "Una isla pequeña con tres climas encima.",
+        "body": "Puedes salir de la costa por la mañana con treinta grados y ponerte la chaqueta en el país del té a la hora de comer. Las carreteras de montaña entre Kandy, Nuwara Eliya y Ella son estrechas, frescas y verdes, y los tramos de costa del sur son lo más fácil que hay.",
+        "focus": "Nuestra ruta une el triángulo cultural en torno a Sigiriya, las montañas centrales y la costa sur. Es una buena primera expedición, y una buena ocasión para llevar acompañante."
+      },
+      "regions": {
+        "eyebrow": "Regiones",
+        "title": "Dónde rodamos en Sri Lanka",
+        "explore": "Ver la región"
+      },
+      "why": {
+        "eyebrow": "Por qué nosotros",
+        "title": "Por qué rodar Sri Lanka con Offhorizon",
+        "reasons": [
+          {
+            "title": "Rutas que hemos rodado",
+            "body": "No es una línea trazada sobre un mapa en una oficina. Cada jornada se ha rodado antes de llegar a ti."
+          },
+          {
+            "title": "Carreteras, no autovías",
+            "body": "La isla se cruza rápido y se disfruta mucho más despacio. Nosotros vamos por la montaña."
+          },
+          {
+            "title": "Guías locales",
+            "body": "Guías cingaleses que saben qué pista de plantación está abierta y dónde merece la pena parar a comer."
+          },
+          {
+            "title": "Apoyo completo",
+            "body": "Jefe de expedición, mecánico que viaja con el grupo y vehículo de apoyo con repuestos y equipaje."
+          }
+        ],
+        "closing": "Grupos pequeños. Preferimos una salida buena a tres salidas llenas."
+      },
+      "cta": {
+        "title": "Empieza tu viaje a Sri Lanka",
+        "body": "Elige una salida del calendario, o dinos tus fechas y montamos la ruta alrededor de ellas.",
+        "imageAlt": "Plantación de té en las laderas sobre Nuwara Eliya, en la región montañosa de Sri Lanka"
+      },
+      "faq": {
+        "title": "Rodar en Sri Lanka",
+        "items": [
+          {
+            "question": "¿Qué permiso necesito para rodar en Sri Lanka?",
+            "answer": [
+              "Un permiso de moto de tu país, un permiso internacional de conducción y un reconocimiento local.",
+              "El reconocimiento local lo emite en Colombo la Automobile Association of Ceylon a partir de tu permiso internacional. Nos ocupamos de ello a tu llegada, pero trae los documentos en papel."
+            ]
+          },
+          {
+            "question": "¿Cuál es la temporada para rodar en Sri Lanka?",
+            "answer": [
+              "Dos monzones golpean lados opuestos de la isla, así que casi siempre hay una zona seca."
+            ],
+            "list": [
+              "De diciembre a marzo: lo mejor para las costas sur y oeste y para la montaña",
+              "De mayo a septiembre: lluvioso en el suroeste, seco en el norte y el este",
+              "Abril y octubre: meses de cambio, tiempo variable en todas partes"
+            ],
+            "after": [
+              "Nuestras salidas están en la ventana de diciembre a marzo. Mándanos otras fechas y te diremos qué es probable que haga el tiempo."
+            ]
+          }
+        ]
+      }
+    },
+    "hillCountry": {
+      "shortName": "Región montañosa",
+      "card": "Kandy, Nuwara Eliya y Ella, con Sigiriya y la costa sur a cada lado. Plantaciones de té, carreteras de montaña estrechas y calor en invierno."
+    },
+    "mongolia": {
+      "meta": {
+        "title": "Expediciones en moto y 4x4 por Mongolia | Offhorizon",
+        "description": "Expediciones guiadas en moto y 4x4 por Mongolia. La estepa, el Gobi y el Altái, con guías, mecánico, vehículo de apoyo y equipo de campamento a bordo."
+      },
+      "eyebrow": "Mongolia",
+      "title": "Expediciones en moto y 4x4 por Mongolia",
+      "lead": "Pradera hasta el horizonte, arena y roca en el Gobi y glaciares en el Altái. Fuera de la capital casi no hay asfalto, y por eso precisamente se va.",
+      "intro": {
+        "title": "El país con menos carreteras y más conducción.",
+        "body": "En cuanto dejas Ulán Bator la carretera se convierte en un haz de pistas que van más o menos en la misma dirección, y elegir entre ellas es el trabajo del día. Las distancias son largas, los repostajes quedan lejos y se acampa donde se acaba la luz.",
+        "focus": "Aquí llevamos una expedición en moto y otra en 4x4, por la estepa central y hacia el sur en el Gobi, con el Altái como opción más larga. Es lo más remoto de nuestro calendario y está planificado como tal."
+      },
+      "regions": {
+        "eyebrow": "Regiones",
+        "title": "Dónde rodamos en Mongolia",
+        "explore": "Ver la región"
+      },
+      "why": {
+        "eyebrow": "Por qué nosotros",
+        "title": "Por qué rodar Mongolia con Offhorizon",
+        "reasons": [
+          {
+            "title": "Aislamiento planificado",
+            "body": "Combustible, agua, repuestos y comida calculados para días en los que no hay nada que comprar."
+          },
+          {
+            "title": "Navegación que aguanta",
+            "body": "Tracks grabados, comunicación por satélite y un jefe que sabe cuál de las pistas pasa de verdad."
+          },
+          {
+            "title": "Guías locales",
+            "body": "Guías y conductores mongoles criados aquí, que saben por dónde se vadea el río."
+          },
+          {
+            "title": "Apoyo completo",
+            "body": "Jefe de expedición, mecánico y vehículo de apoyo con el campamento, los repuestos y el equipaje."
+          }
+        ],
+        "closing": "Grupos pequeños. Preferimos una salida buena a tres salidas llenas."
+      },
+      "cta": {
+        "title": "Empieza tu expedición a Mongolia",
+        "body": "Elige una salida del calendario, o dinos tus fechas y montamos la ruta alrededor de ellas.",
+        "imageAlt": "Gers y pradera abierta en la estepa mongola"
+      },
+      "faq": {
+        "title": "Rodar en Mongolia",
+        "items": [
+          {
+            "question": "¿Es difícil conducir en Mongolia?",
+            "answer": [
+              "No es técnico, pero es largo, suelto y cansado. Espera grava, arena, tramos de chapa ondulada y vadeos.",
+              "Tienes que estar cómodo fuera del asfalto todo el día y ser capaz de levantar una moto. No es el sitio para aprender, y te lo diremos si la expedición no es para ti."
+            ]
+          },
+          {
+            "question": "¿Dónde dormimos?",
+            "answer": ["Una mezcla, y el reparto cambia según la ruta."],
+            "list": [
+              "Campamentos de gers donde los hay, es decir casi todas las noches en la estepa central",
+              "Tiendas que lleva el vehículo de apoyo en los tramos más remotos",
+              "Hoteles al principio y al final del viaje, en Ulán Bator"
+            ],
+            "after": [
+              "Merece la pena traer un saco de dormir para frío. La estepa baja casi a cero incluso en verano."
+            ]
+          },
+          {
+            "question": "¿Cuál es la temporada para rodar en Mongolia?",
+            "answer": [
+              "De junio a septiembre, y esa ventana no se mueve.",
+              "Julio y agosto son los meses más cálidos y más verdes. Junio y septiembre son más fríos y más tranquilos. Fuera de ahí el suelo se hiela y las pistas no se pueden pasar."
+            ]
+          }
+        ]
+      }
+    },
+    "steppeGobi": {
+      "shortName": "Estepa y Gobi",
+      "card": "Estepa central, Gobi y Altái. Casi nada de asfalto, jornadas largas por pista y campamento donde se acaba la luz."
     }
   },
   "adventureTours": {

@@ -1,15 +1,21 @@
 import type { StaticImageData } from "next/image";
 
+import bhutanCta from "../../public/destinations/pages/bhutan-punakha.webp";
 import hubHero from "../../public/destinations/pages/hub-hero.jpg";
 import indiaAerial from "../../public/destinations/pages/india-aerial.jpg";
 import ladakhRiver from "../../public/destinations/pages/ladakh-river-crossing.jpg";
 import manaliToLeh from "../../public/destinations/pages/manali-to-leh.jpg";
+import mongoliaCta from "../../public/destinations/pages/mongolia-steppe.webp";
 import muktinathRoad from "../../public/destinations/pages/nepal-muktinath-road.jpg";
 import mustang from "../../public/destinations/pages/nepal-mustang.jpg";
 import southIndia from "../../public/destinations/pages/south-india.jpg";
+import sriLankaCta from "../../public/destinations/pages/sri-lanka-tea.webp";
+
+import bhutanRegion from "../../public/tours/menu/bhutan-motorcycle.webp";
+import mongoliaRegion from "../../public/tours/menu/mongolia-motorcycle.webp";
+import sriLankaRegion from "../../public/tours/menu/sri-lanka-motorcycle.webp";
 
 import { destinations, type Destination } from "./destinations";
-import { allPackages, type TourPackage } from "./packages";
 
 export { hubHero };
 
@@ -25,12 +31,11 @@ export type LiveRegion = RegionBase & {
   content: "indianHimalayas" | "nepalHimalayas";
   hero: StaticImageData;
   ctaImage: StaticImageData;
-  tours: { tour: TourPackage; image?: StaticImageData }[];
 };
 
 export type PlannedRegion = RegionBase & {
   status: "planned";
-  content: "southIndia";
+  content: "southIndia" | "easternHimalayas" | "hillCountry" | "steppeGobi";
 };
 
 export type RegionPage = LiveRegion | PlannedRegion;
@@ -42,7 +47,7 @@ export type CountryPage = {
   /** `live` countries have their own written page. */
   status: "live" | "planned";
   /** Namespace under `dest`. Only set on live countries. */
-  content?: "india" | "nepal";
+  content?: "india" | "nepal" | "bhutan" | "sriLanka" | "mongolia";
   hero: StaticImageData;
   heroAlt: string;
   ctaImage?: StaticImageData;
@@ -52,12 +57,6 @@ export type CountryPage = {
 const byKey = (key: Destination["key"]) => {
   const match = destinations.find((destination) => destination.key === key);
   if (!match) throw new Error(`Unknown destination: ${key}`);
-  return match;
-};
-
-const tour = (key: TourPackage["key"]) => {
-  const match = allPackages.find((entry) => entry.key === key);
-  if (!match) throw new Error(`Unknown tour: ${key}`);
   return match;
 };
 
@@ -80,10 +79,6 @@ export const countryPages: CountryPage[] = [
         imageAlt: "The Manali to Leh road winding through the Ladakh mountains",
         hero: manaliToLeh,
         ctaImage: manaliToLeh,
-        tours: [
-          { tour: tour("ladakhMotorcycle"), image: ladakhRiver },
-          { tour: tour("himalayas4x4") },
-        ],
       },
       {
         slug: "south-india",
@@ -111,33 +106,62 @@ export const countryPages: CountryPage[] = [
         imageAlt: "The Kali Gandaki valley cutting through the Mustang desert in Nepal",
         hero: mustang,
         ctaImage: muktinathRoad,
-        tours: [{ tour: tour("nepalMotorcycle") }],
       },
     ],
   },
   {
     slug: "bhutan",
     destination: byKey("bhutan"),
-    status: "planned",
+    status: "live",
+    content: "bhutan",
     hero: byKey("bhutan").image,
     heroAlt: "Paro Taktsang monastery on the cliffs above the Paro valley in Bhutan",
-    regions: [],
+    ctaImage: bhutanCta,
+    regions: [
+      {
+        slug: "eastern-himalayas",
+        content: "easternHimalayas",
+        status: "planned",
+        image: bhutanRegion,
+        imageAlt: "The road climbing towards Paro Taktsang in the Bhutanese Himalayas",
+      },
+    ],
   },
   {
     slug: "sri-lanka",
     destination: byKey("sriLanka"),
-    status: "planned",
+    status: "live",
+    content: "sriLanka",
     hero: byKey("sriLanka").image,
     heroAlt: "Sigiriya rock fortress rising above the Sri Lankan forest",
-    regions: [],
+    ctaImage: sriLankaCta,
+    regions: [
+      {
+        slug: "hill-country",
+        content: "hillCountry",
+        status: "planned",
+        image: sriLankaRegion,
+        imageAlt: "Sigiriya rock fortress seen from the surrounding forest in Sri Lanka",
+      },
+    ],
   },
   {
     slug: "mongolia",
     destination: byKey("mongolia"),
-    status: "planned",
+    status: "live",
+    content: "mongolia",
     hero: byKey("mongolia").image,
     heroAlt: "Open desert landscape in the Gobi, Mongolia",
-    regions: [],
+    ctaImage: mongoliaCta,
+    regions: [
+      {
+        slug: "steppe-gobi",
+        content: "steppeGobi",
+        status: "planned",
+        image: mongoliaRegion,
+        imageAlt: "Gers and open grassland on the Mongolian steppe",
+      },
+    ],
   },
 ];
 

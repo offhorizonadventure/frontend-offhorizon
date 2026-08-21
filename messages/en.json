@@ -35,20 +35,55 @@
     "bhutan": "Bhutan",
     "sriLanka": "Sri Lanka",
     "mongolia": "Mongolia",
-    "plannedShort": "Planned"
+    "plannedShort": "Planned",
+    "easternHimalayas": "Eastern Himalayas",
+    "hillCountry": "Hill Country & Coast",
+    "steppeGobi": "Steppe & Gobi"
   },
   "tours": {
-    "ladakhMotorcycle": {
-      "name": "Ladakh Motorcycle Tour",
-      "summary": "Khardung La & Pangong"
+    "greatHimalayanTraverse": {
+      "name": "The Great Himalayan Traverse",
+      "summary": "Spiti, Zanskar & Umling La"
+    },
+    "himalayanExpedition": {
+      "name": "Himalayan Expedition",
+      "summary": "Spiti & the Kinnaur road"
+    },
+    "ladakhCircuit": {
+      "name": "The Ladakh Circuit",
+      "summary": "Umling La & Tso Moriri"
     },
     "himalayas4x4": {
       "name": "Indian Himalayas 4x4 Expedition",
       "summary": "Spiti & Manali self-drive"
     },
-    "nepalMotorcycle": {
-      "name": "Nepal Motorcycle Tour",
-      "summary": "Kathmandu to Mustang"
+    "upperMustang": {
+      "name": "Upper Mustang Motorcycle Tour",
+      "summary": "Lo Manthang & Kali Gandaki"
+    },
+    "lowerMustang": {
+      "name": "Lower Mustang Motorcycle Tour",
+      "summary": "Muktinath & Kagbeni"
+    },
+    "nepal4x4": {
+      "name": "Nepal 4x4 Expedition",
+      "summary": "Mustang & Annapurna self-drive"
+    },
+    "bhutanMotorcycle": {
+      "name": "Bhutan Motorcycle Tour",
+      "summary": "Tiger's Nest & Chele La"
+    },
+    "sriLankaMotorcycle": {
+      "name": "Sri Lanka Motorcycle Tour",
+      "summary": "Ella, Sigiriya & the Hill Country"
+    },
+    "mongoliaMotorcycle": {
+      "name": "Mongolia Motorcycle Tour",
+      "summary": "Gobi Desert & Orkhon Valley"
+    },
+    "mongolia4x4": {
+      "name": "Mongolia 4x4 Expedition",
+      "summary": "Gobi Desert & Altai Mountains"
     }
   },
   "home": {
@@ -948,6 +983,248 @@
           }
         ]
       }
+    },
+    "bhutan": {
+      "meta": {
+        "title": "Motorcycle Expeditions Across Bhutan | Offhorizon",
+        "description": "Guided motorcycle expeditions in Bhutan. Paro, Thimphu, the Dochula pass and the Punakha valley, with guides, mechanic, backup vehicle and permits handled."
+      },
+      "eyebrow": "Bhutan",
+      "title": "Motorcycle expeditions across Bhutan",
+      "lead": "Paro to Punakha over the Dochula pass, then east into valleys most visitors never reach. Bhutan is small, green and steep, and the roads were built to follow the rivers rather than to save time.",
+      "intro": {
+        "title": "The eastern Himalaya, at a slower pace.",
+        "body": "Bhutan sits at the wet end of the range. Instead of the bare high desert of Ladakh you get pine and rhododendron forest, cloud sitting in the valleys until mid morning, and passes strung with prayer flags at 3,000 metres. The riding is not extreme, but it is nearly all corners.",
+        "focus": "Our route runs the western and central valleys, from Paro and Thimphu over Dochula into Punakha and on towards Phobjikha and Bumthang. Every visitor here travels with a licensed operator, so the paperwork is part of the trip rather than an afterthought."
+      },
+      "regions": {
+        "eyebrow": "Regions",
+        "title": "Where we ride in Bhutan",
+        "explore": "Explore the region"
+      },
+      "why": {
+        "eyebrow": "Why us",
+        "title": "Why ride Bhutan with Offhorizon",
+        "reasons": [
+          {
+            "title": "Himalayan since 2014",
+            "body": "A decade of running groups and vehicles at altitude, across four countries in the same range."
+          },
+          {
+            "title": "Permits handled",
+            "body": "Bhutan requires a licensed operator, a visa and a daily levy. We arrange all of it before you land."
+          },
+          {
+            "title": "Local guides",
+            "body": "Bhutanese guides who can get you into a dzong at the right hour and tell you what you are looking at."
+          },
+          {
+            "title": "Full support",
+            "body": "Expedition leader, mechanic riding with the group and a backup vehicle carrying spares and luggage."
+          }
+        ],
+        "closing": "Small groups. We would rather run one good departure than three crowded ones."
+      },
+      "cta": {
+        "title": "Start your Bhutan expedition",
+        "body": "Pick a departure from the calendar, or tell us the dates you have and we will build the route around them.",
+        "imageAlt": "Punakha Dzong at the meeting of the Pho Chhu and Mo Chhu rivers in Bhutan"
+      },
+      "faq": {
+        "title": "Riding in Bhutan",
+        "items": [
+          {
+            "question": "Can I ride my own motorcycle in Bhutan?",
+            "answer": [
+              "Foreign visitors ride with a licensed operator, and most of our riders take one of our bikes.",
+              "If you want to bring your own, expect to arrange:"
+            ],
+            "list": [
+              "A temporary import permit for the motorcycle, applied for in advance",
+              "A route permit covering every district you pass through",
+              "Third party insurance valid inside Bhutan"
+            ],
+            "after": [
+              "Tell us early if this is what you want. It is possible, but it changes the timeline and the paperwork."
+            ]
+          },
+          {
+            "question": "When is the riding season in Bhutan?",
+            "answer": ["Spring and autumn, either side of the monsoon."],
+            "list": [
+              "March to May: rhododendron in flower, warm days, some haze",
+              "June to August: heavy monsoon rain and landslides on the east west highway",
+              "September to November: the clearest skies of the year and the main festival season"
+            ],
+            "after": [
+              "Winter riding is possible in the lower valleys but the high passes get snow. Send us your dates and we will say honestly whether they work."
+            ]
+          }
+        ]
+      }
+    },
+    "easternHimalayas": {
+      "shortName": "Eastern Himalaya",
+      "card": "Paro, Thimphu, the Dochula pass and the Punakha valley. Forested passes, dzongs and quiet roads, ridden in spring and autumn."
+    },
+    "sriLanka": {
+      "meta": {
+        "title": "Motorcycle Tours Across Sri Lanka | Offhorizon",
+        "description": "Guided motorcycle tours in Sri Lanka. The hill country, Sigiriya, Ella and the south coast, with guides, mechanic and a backup vehicle on every departure."
+      },
+      "eyebrow": "Sri Lanka",
+      "title": "Motorcycle tours across Sri Lanka",
+      "lead": "Tea estates above 1,800 metres, ancient rock forts, and a coast road you can ride with the sea on one side the whole way. Sri Lanka is the warm counterweight to a Himalayan season.",
+      "intro": {
+        "title": "A small island with three climates on it.",
+        "body": "You can leave the coast in the morning at thirty degrees and be pulling on a jacket in the tea country by lunch. The hill roads between Kandy, Nuwara Eliya and Ella are tight, cool and green, and the coastal stretches in the south are as easy as riding gets.",
+        "focus": "Our route links the cultural triangle around Sigiriya, the central hill country, and the southern coast. It is a good first expedition, and a good one to bring a pillion on."
+      },
+      "regions": {
+        "eyebrow": "Regions",
+        "title": "Where we ride in Sri Lanka",
+        "explore": "Explore the region"
+      },
+      "why": {
+        "eyebrow": "Why us",
+        "title": "Why ride Sri Lanka with Offhorizon",
+        "reasons": [
+          {
+            "title": "Routes we have ridden",
+            "body": "No line drawn on a map in an office. Every day of this one has been ridden before you get it."
+          },
+          {
+            "title": "Roads, not highways",
+            "body": "The island is easy to cross quickly and much better slowly. We take the hill roads."
+          },
+          {
+            "title": "Local guides",
+            "body": "Sri Lankan guides who know which estate road is open and where lunch is actually worth stopping for."
+          },
+          {
+            "title": "Full support",
+            "body": "Expedition leader, mechanic travelling with the group and a backup vehicle carrying spares and luggage."
+          }
+        ],
+        "closing": "Small groups. We would rather run one good departure than three crowded ones."
+      },
+      "cta": {
+        "title": "Start your Sri Lanka tour",
+        "body": "Pick a departure from the calendar, or tell us the dates you have and we will build the route around them.",
+        "imageAlt": "Tea plantation on the slopes above Nuwara Eliya in the Sri Lankan hill country"
+      },
+      "faq": {
+        "title": "Riding in Sri Lanka",
+        "items": [
+          {
+            "question": "What licence do I need to ride in Sri Lanka?",
+            "answer": [
+              "A motorcycle licence from home, an International Driving Permit, and a local recognition permit.",
+              "The local permit is issued in Colombo by the Automobile Association of Ceylon against your IDP. We handle it on arrival, but bring the physical documents with you."
+            ]
+          },
+          {
+            "question": "When is the riding season in Sri Lanka?",
+            "answer": [
+              "Two monsoons hit opposite sides of the island, so something is usually dry."
+            ],
+            "list": [
+              "December to March: best for the south and west coasts and the hill country",
+              "May to September: wet in the southwest, dry in the north and east",
+              "April and October: the changeover months, mixed weather anywhere"
+            ],
+            "after": [
+              "Our departures sit in the December to March window. Send us other dates and we will tell you what the weather is likely to do."
+            ]
+          }
+        ]
+      }
+    },
+    "hillCountry": {
+      "shortName": "Hill Country",
+      "card": "Kandy, Nuwara Eliya and Ella, with Sigiriya and the south coast either side. Tea estates, tight mountain roads and warm winter riding."
+    },
+    "mongolia": {
+      "meta": {
+        "title": "Motorcycle and 4x4 Expeditions Across Mongolia | Offhorizon",
+        "description": "Guided motorcycle and 4x4 expeditions in Mongolia. The steppe, the Gobi and the Altai, with guides, mechanic, support vehicle and camp equipment carried."
+      },
+      "eyebrow": "Mongolia",
+      "title": "Motorcycle and 4x4 expeditions across Mongolia",
+      "lead": "Grassland to the horizon, sand and rock in the Gobi, and glaciers in the Altai. Mongolia has almost no tarmac outside the capital, which is the entire point of going.",
+      "intro": {
+        "title": "The country with the fewest roads and the most riding.",
+        "body": "Once you leave Ulaanbaatar the road becomes a set of tracks going roughly the same way, and choosing between them is the day's work. Distances are long, fuel stops are far apart, and you camp where the light runs out.",
+        "focus": "We run both a motorcycle expedition and a 4x4 expedition here, through the central steppe and south into the Gobi, with the Altai as the longer option. This is the most remote thing on our calendar and it is planned that way."
+      },
+      "regions": {
+        "eyebrow": "Regions",
+        "title": "Where we ride in Mongolia",
+        "explore": "Explore the region"
+      },
+      "why": {
+        "eyebrow": "Why us",
+        "title": "Why ride Mongolia with Offhorizon",
+        "reasons": [
+          {
+            "title": "Remote by design",
+            "body": "Fuel, water, spares and food planned around days where there is nothing to buy."
+          },
+          {
+            "title": "Navigation that works",
+            "body": "Tracked routes, satellite communication and a leader who knows which braid of the track goes through."
+          },
+          {
+            "title": "Local guides",
+            "body": "Mongolian guides and drivers who grew up on this ground and know where the river is fordable."
+          },
+          {
+            "title": "Full support",
+            "body": "Expedition leader, mechanic, support vehicle carrying camp equipment, spares and luggage."
+          }
+        ],
+        "closing": "Small groups. We would rather run one good departure than three crowded ones."
+      },
+      "cta": {
+        "title": "Start your Mongolia expedition",
+        "body": "Pick a departure from the calendar, or tell us the dates you have and we will build the route around them.",
+        "imageAlt": "Gers and open grassland on the Mongolian steppe"
+      },
+      "faq": {
+        "title": "Riding in Mongolia",
+        "items": [
+          {
+            "question": "How hard is the riding in Mongolia?",
+            "answer": [
+              "Not technical, but long, loose and tiring. Expect gravel, sand, corrugations and river crossings.",
+              "You should be comfortable riding off tarmac all day and picking a bike up. It is not the place to learn, and we will say so if the expedition is not right for you."
+            ]
+          },
+          {
+            "question": "Where do we sleep?",
+            "answer": ["A mix, and the balance shifts with the route."],
+            "list": [
+              "Ger camps where there are any, which is most nights on the central steppe",
+              "Tents carried in the support vehicle on the remote sections",
+              "Hotels at either end of the trip in Ulaanbaatar"
+            ],
+            "after": [
+              "Sleeping bags rated for cold nights are worth bringing. The steppe drops close to freezing even in summer."
+            ]
+          },
+          {
+            "question": "When is the riding season in Mongolia?",
+            "answer": [
+              "June to September, and that window is firm.",
+              "July and August are the warmest and the greenest. June and September are colder and quieter. Outside those months the ground freezes and the tracks are not passable."
+            ]
+          }
+        ]
+      }
+    },
+    "steppeGobi": {
+      "shortName": "Steppe and Gobi",
+      "card": "Central steppe, the Gobi and the Altai. Almost no tarmac, long days on tracks, and camping where the light runs out."
     }
   },
   "adventureTours": {

@@ -35,20 +35,55 @@
     "bhutan": "Bhoutan",
     "sriLanka": "Sri Lanka",
     "mongolia": "Mongolie",
-    "plannedShort": "En préparation"
+    "plannedShort": "En préparation",
+    "easternHimalayas": "Himalaya oriental",
+    "hillCountry": "Collines et littoral",
+    "steppeGobi": "Steppe et Gobi"
   },
   "tours": {
-    "ladakhMotorcycle": {
-      "name": "Circuit moto au Ladakh",
-      "summary": "Khardung La et Pangong"
+    "greatHimalayanTraverse": {
+      "name": "La grande traversée de l'Himalaya",
+      "summary": "Spiti, Zanskar et Umling La"
+    },
+    "himalayanExpedition": {
+      "name": "Expédition himalayenne",
+      "summary": "Spiti et la route du Kinnaur"
+    },
+    "ladakhCircuit": {
+      "name": "Le circuit du Ladakh",
+      "summary": "Umling La et Tso Moriri"
     },
     "himalayas4x4": {
       "name": "Expédition 4x4 dans l'Himalaya indien",
-      "summary": "Spiti et Manali en autonomie"
+      "summary": "Spiti et Manali, au volant"
     },
-    "nepalMotorcycle": {
-      "name": "Circuit moto au Népal",
-      "summary": "De Katmandou au Mustang"
+    "upperMustang": {
+      "name": "Haut Mustang à moto",
+      "summary": "Lo Manthang et Kali Gandaki"
+    },
+    "lowerMustang": {
+      "name": "Bas Mustang à moto",
+      "summary": "Muktinath et Kagbeni"
+    },
+    "nepal4x4": {
+      "name": "Expédition 4x4 au Népal",
+      "summary": "Mustang et Annapurnas, au volant"
+    },
+    "bhutanMotorcycle": {
+      "name": "Bhoutan à moto",
+      "summary": "Tanière du Tigre et Chele La"
+    },
+    "sriLankaMotorcycle": {
+      "name": "Sri Lanka à moto",
+      "summary": "Ella, Sigiriya et le pays des collines"
+    },
+    "mongoliaMotorcycle": {
+      "name": "Mongolie à moto",
+      "summary": "Désert de Gobi et vallée de l'Orkhon"
+    },
+    "mongolia4x4": {
+      "name": "Expédition 4x4 en Mongolie",
+      "summary": "Désert de Gobi et monts Altaï"
     }
   },
   "home": {
@@ -954,6 +989,248 @@
           }
         ]
       }
+    },
+    "bhutan": {
+      "meta": {
+        "title": "Expéditions moto à travers le Bhoutan | Offhorizon",
+        "description": "Expéditions moto guidées au Bhoutan. Paro, Thimphou, le col de Dochula et la vallée de Punakha, avec guides, mécanicien, véhicule d'assistance et permis pris en charge."
+      },
+      "eyebrow": "Bhoutan",
+      "title": "Expéditions moto à travers le Bhoutan",
+      "lead": "De Paro à Punakha par le col de Dochula, puis vers l'est dans des vallées que la plupart des visiteurs ne voient jamais. Le Bhoutan est petit, vert et pentu, et les routes suivent les rivières plutôt que la ligne droite.",
+      "intro": {
+        "title": "L'Himalaya oriental, à un rythme plus lent.",
+        "body": "Le Bhoutan se trouve du côté humide de la chaîne. À la place du haut désert nu du Ladakh, vous avez des forêts de pins et de rhododendrons, des nuages posés dans les vallées jusqu'au milieu de la matinée, et des cols couverts de drapeaux de prière à 3 000 mètres. Le pilotage n'a rien d'extrême, mais tout est en virages.",
+        "focus": "Notre itinéraire parcourt les vallées de l'ouest et du centre, de Paro et Thimphou jusqu'à Punakha par Dochula, puis vers Phobjikha et Bumthang. Ici, chaque visiteur voyage avec un opérateur agréé, donc les formalités font partie du voyage et ne sont pas une arrière-pensée."
+      },
+      "regions": {
+        "eyebrow": "Régions",
+        "title": "Où nous roulons au Bhoutan",
+        "explore": "Découvrir la région"
+      },
+      "why": {
+        "eyebrow": "Pourquoi nous",
+        "title": "Pourquoi rouler au Bhoutan avec Offhorizon",
+        "reasons": [
+          {
+            "title": "Dans l'Himalaya depuis 2014",
+            "body": "Dix ans à mener des groupes et des véhicules en altitude, dans quatre pays de la même chaîne."
+          },
+          {
+            "title": "Permis pris en charge",
+            "body": "Le Bhoutan exige un opérateur agréé, un visa et une taxe journalière. Nous réglons tout avant votre arrivée."
+          },
+          {
+            "title": "Guides locaux",
+            "body": "Des guides bhoutanais capables de vous faire entrer dans un dzong à la bonne heure et de vous dire ce que vous regardez."
+          },
+          {
+            "title": "Assistance complète",
+            "body": "Chef d'expédition, mécanicien qui roule avec le groupe et véhicule d'assistance transportant pièces et bagages."
+          }
+        ],
+        "closing": "Petits groupes. Nous préférons un bon départ à trois départs surchargés."
+      },
+      "cta": {
+        "title": "Lancez votre expédition au Bhoutan",
+        "body": "Choisissez une date dans le calendrier, ou donnez-nous les vôtres et nous construirons l'itinéraire autour.",
+        "imageAlt": "Le dzong de Punakha à la confluence des rivières Pho Chhu et Mo Chhu, au Bhoutan"
+      },
+      "faq": {
+        "title": "Rouler au Bhoutan",
+        "items": [
+          {
+            "question": "Puis-je rouler avec ma propre moto au Bhoutan ?",
+            "answer": [
+              "Les visiteurs étrangers roulent avec un opérateur agréé, et la plupart de nos pilotes prennent l'une de nos motos.",
+              "Si vous voulez amener la vôtre, prévoyez d'obtenir :"
+            ],
+            "list": [
+              "Un permis d'importation temporaire pour la moto, demandé à l'avance",
+              "Un permis de circulation couvrant chaque district traversé",
+              "Une assurance responsabilité civile valable au Bhoutan"
+            ],
+            "after": [
+              "Dites-le-nous tôt si c'est ce que vous souhaitez. C'est possible, mais cela change le calendrier et les démarches."
+            ]
+          },
+          {
+            "question": "Quelle est la saison pour rouler au Bhoutan ?",
+            "answer": ["Le printemps et l'automne, de part et d'autre de la mousson."],
+            "list": [
+              "De mars à mai : rhododendrons en fleurs, journées douces, un peu de brume",
+              "De juin à août : fortes pluies de mousson et glissements de terrain sur l'axe est-ouest",
+              "De septembre à novembre : le ciel le plus clair de l'année et la principale saison des festivals"
+            ],
+            "after": [
+              "Rouler en hiver est possible dans les vallées basses, mais les hauts cols reçoivent de la neige. Envoyez-nous vos dates et nous vous dirons franchement si elles fonctionnent."
+            ]
+          }
+        ]
+      }
+    },
+    "easternHimalayas": {
+      "shortName": "Himalaya oriental",
+      "card": "Paro, Thimphou, le col de Dochula et la vallée de Punakha. Cols boisés, dzongs et routes tranquilles, au printemps et à l'automne."
+    },
+    "sriLanka": {
+      "meta": {
+        "title": "Voyages moto à travers le Sri Lanka | Offhorizon",
+        "description": "Voyages moto guidés au Sri Lanka. Le pays des collines, Sigiriya, Ella et la côte sud, avec guides, mécanicien et véhicule d'assistance à chaque départ."
+      },
+      "eyebrow": "Sri Lanka",
+      "title": "Voyages moto à travers le Sri Lanka",
+      "lead": "Des plantations de thé au-dessus de 1 800 mètres, d'anciennes forteresses de rocher et une route côtière que l'on suit avec la mer à côté de soi tout du long. Le Sri Lanka est le contrepoids chaud d'une saison himalayenne.",
+      "intro": {
+        "title": "Une petite île avec trois climats dessus.",
+        "body": "Vous pouvez quitter la côte le matin par trente degrés et enfiler une veste dans le pays du thé à midi. Les routes de montagne entre Kandy, Nuwara Eliya et Ella sont étroites, fraîches et vertes, et les portions côtières du sud sont ce qu'il y a de plus facile à rouler.",
+        "focus": "Notre itinéraire relie le triangle culturel autour de Sigiriya, les collines du centre et la côte sud. C'est une bonne première expédition, et une bonne occasion d'emmener un passager."
+      },
+      "regions": {
+        "eyebrow": "Régions",
+        "title": "Où nous roulons au Sri Lanka",
+        "explore": "Découvrir la région"
+      },
+      "why": {
+        "eyebrow": "Pourquoi nous",
+        "title": "Pourquoi rouler au Sri Lanka avec Offhorizon",
+        "reasons": [
+          {
+            "title": "Des itinéraires que nous avons roulés",
+            "body": "Pas un trait tracé sur une carte dans un bureau. Chaque journée a été roulée avant de vous être proposée."
+          },
+          {
+            "title": "Des routes, pas des voies rapides",
+            "body": "L'île se traverse vite et se vit beaucoup mieux lentement. Nous prenons les routes de montagne."
+          },
+          {
+            "title": "Guides locaux",
+            "body": "Des guides sri-lankais qui savent quelle piste de plantation est ouverte et où le déjeuner vaut vraiment l'arrêt."
+          },
+          {
+            "title": "Assistance complète",
+            "body": "Chef d'expédition, mécanicien qui voyage avec le groupe et véhicule d'assistance transportant pièces et bagages."
+          }
+        ],
+        "closing": "Petits groupes. Nous préférons un bon départ à trois départs surchargés."
+      },
+      "cta": {
+        "title": "Lancez votre voyage au Sri Lanka",
+        "body": "Choisissez une date dans le calendrier, ou donnez-nous les vôtres et nous construirons l'itinéraire autour.",
+        "imageAlt": "Plantation de thé sur les pentes au-dessus de Nuwara Eliya, dans les collines du Sri Lanka"
+      },
+      "faq": {
+        "title": "Rouler au Sri Lanka",
+        "items": [
+          {
+            "question": "Quel permis faut-il pour rouler au Sri Lanka ?",
+            "answer": [
+              "Un permis moto de votre pays, un permis de conduire international et une reconnaissance locale.",
+              "Ce document local est délivré à Colombo par l'Automobile Association of Ceylon sur présentation de votre permis international. Nous nous en occupons à l'arrivée, mais apportez les documents papier."
+            ]
+          },
+          {
+            "question": "Quelle est la saison pour rouler au Sri Lanka ?",
+            "answer": [
+              "Deux moussons touchent des côtés opposés de l'île, donc il y a presque toujours une région au sec."
+            ],
+            "list": [
+              "De décembre à mars : idéal pour les côtes sud et ouest et pour les collines",
+              "De mai à septembre : humide au sud-ouest, sec au nord et à l'est",
+              "Avril et octobre : mois de transition, météo variable partout"
+            ],
+            "after": [
+              "Nos départs se situent dans la fenêtre de décembre à mars. Envoyez-nous d'autres dates et nous vous dirons ce que la météo fera probablement."
+            ]
+          }
+        ]
+      }
+    },
+    "hillCountry": {
+      "shortName": "Pays des collines",
+      "card": "Kandy, Nuwara Eliya et Ella, avec Sigiriya et la côte sud de part et d'autre. Plantations de thé, routes de montagne serrées et chaleur en hiver."
+    },
+    "mongolia": {
+      "meta": {
+        "title": "Expéditions moto et 4x4 à travers la Mongolie | Offhorizon",
+        "description": "Expéditions moto et 4x4 guidées en Mongolie. La steppe, le Gobi et l'Altaï, avec guides, mécanicien, véhicule d'assistance et matériel de campement transporté."
+      },
+      "eyebrow": "Mongolie",
+      "title": "Expéditions moto et 4x4 à travers la Mongolie",
+      "lead": "De la steppe jusqu'à l'horizon, du sable et de la roche dans le Gobi, des glaciers dans l'Altaï. La Mongolie n'a presque pas de bitume en dehors de la capitale, et c'est tout l'intérêt d'y aller.",
+      "intro": {
+        "title": "Le pays avec le moins de routes et le plus de pilotage.",
+        "body": "Une fois Oulan-Bator quittée, la route devient un faisceau de pistes qui vont à peu près dans la même direction, et choisir entre elles est le travail de la journée. Les distances sont longues, les stations-service très espacées, et l'on campe là où la lumière s'arrête.",
+        "focus": "Nous menons ici une expédition moto et une expédition 4x4, par la steppe centrale et vers le sud dans le Gobi, avec l'Altaï comme option plus longue. C'est ce que notre calendrier a de plus isolé, et c'est préparé en conséquence."
+      },
+      "regions": {
+        "eyebrow": "Régions",
+        "title": "Où nous roulons en Mongolie",
+        "explore": "Découvrir la région"
+      },
+      "why": {
+        "eyebrow": "Pourquoi nous",
+        "title": "Pourquoi rouler en Mongolie avec Offhorizon",
+        "reasons": [
+          {
+            "title": "L'isolement, pensé à l'avance",
+            "body": "Carburant, eau, pièces et nourriture prévus pour des journées où il n'y a rien à acheter."
+          },
+          {
+            "title": "Une navigation qui tient",
+            "body": "Traces enregistrées, communication satellite et un chef qui sait laquelle des pistes passe vraiment."
+          },
+          {
+            "title": "Guides locaux",
+            "body": "Des guides et chauffeurs mongols qui ont grandi ici et savent où la rivière est guéable."
+          },
+          {
+            "title": "Assistance complète",
+            "body": "Chef d'expédition, mécanicien et véhicule d'assistance transportant le campement, les pièces et les bagages."
+          }
+        ],
+        "closing": "Petits groupes. Nous préférons un bon départ à trois départs surchargés."
+      },
+      "cta": {
+        "title": "Lancez votre expédition en Mongolie",
+        "body": "Choisissez une date dans le calendrier, ou donnez-nous les vôtres et nous construirons l'itinéraire autour.",
+        "imageAlt": "Yourtes et prairie ouverte sur la steppe mongole"
+      },
+      "faq": {
+        "title": "Rouler en Mongolie",
+        "items": [
+          {
+            "question": "Le pilotage est-il difficile en Mongolie ?",
+            "answer": [
+              "Pas technique, mais long, meuble et fatigant. Attendez-vous à du gravier, du sable, de la tôle ondulée et des passages de rivière.",
+              "Vous devez être à l'aise hors bitume toute la journée et capable de relever une moto. Ce n'est pas l'endroit pour apprendre, et nous vous le dirons si l'expédition ne vous convient pas."
+            ]
+          },
+          {
+            "question": "Où dort-on ?",
+            "answer": ["Un mélange, et l'équilibre change selon l'itinéraire."],
+            "list": [
+              "Camps de yourtes là où il y en a, soit la plupart des nuits sur la steppe centrale",
+              "Tentes transportées par le véhicule d'assistance sur les portions isolées",
+              "Hôtels au début et à la fin du voyage, à Oulan-Bator"
+            ],
+            "after": [
+              "Un sac de couchage prévu pour le froid vaut la peine d'être emporté. La steppe descend près de zéro même en été."
+            ]
+          },
+          {
+            "question": "Quelle est la saison pour rouler en Mongolie ?",
+            "answer": [
+              "De juin à septembre, et cette fenêtre ne bouge pas.",
+              "Juillet et août sont les mois les plus chauds et les plus verts. Juin et septembre sont plus froids et plus calmes. En dehors, le sol gèle et les pistes ne passent plus."
+            ]
+          }
+        ]
+      }
+    },
+    "steppeGobi": {
+      "shortName": "Steppe et Gobi",
+      "card": "Steppe centrale, Gobi et Altaï. Presque pas de bitume, de longues journées sur les pistes, et le campement là où la lumière s'arrête."
     }
   },
   "adventureTours": {

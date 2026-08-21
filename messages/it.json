@@ -35,20 +35,55 @@
     "bhutan": "Bhutan",
     "sriLanka": "Sri Lanka",
     "mongolia": "Mongolia",
-    "plannedShort": "In programma"
+    "plannedShort": "In programma",
+    "easternHimalayas": "Himalaya orientale",
+    "hillCountry": "Colline e costa",
+    "steppeGobi": "Steppa e Gobi"
   },
   "tours": {
-    "ladakhMotorcycle": {
-      "name": "Tour in moto nel Ladakh",
-      "summary": "Khardung La e Pangong"
+    "greatHimalayanTraverse": {
+      "name": "La grande traversata dell'Himalaya",
+      "summary": "Spiti, Zanskar e Umling La"
+    },
+    "himalayanExpedition": {
+      "name": "Spedizione himalayana",
+      "summary": "Spiti e la strada del Kinnaur"
+    },
+    "ladakhCircuit": {
+      "name": "Il circuito del Ladakh",
+      "summary": "Umling La e Tso Moriri"
     },
     "himalayas4x4": {
       "name": "Spedizione 4x4 nell'Himalaya indiano",
-      "summary": "Spiti e Manali in autonomia"
+      "summary": "Spiti e Manali, alla guida"
     },
-    "nepalMotorcycle": {
-      "name": "Tour in moto in Nepal",
-      "summary": "Da Kathmandu al Mustang"
+    "upperMustang": {
+      "name": "Alto Mustang in moto",
+      "summary": "Lo Manthang e Kali Gandaki"
+    },
+    "lowerMustang": {
+      "name": "Basso Mustang in moto",
+      "summary": "Muktinath e Kagbeni"
+    },
+    "nepal4x4": {
+      "name": "Spedizione 4x4 in Nepal",
+      "summary": "Mustang e Annapurna, alla guida"
+    },
+    "bhutanMotorcycle": {
+      "name": "Bhutan in moto",
+      "summary": "Nido della Tigre e Chele La"
+    },
+    "sriLankaMotorcycle": {
+      "name": "Sri Lanka in moto",
+      "summary": "Ella, Sigiriya e le colline"
+    },
+    "mongoliaMotorcycle": {
+      "name": "Mongolia in moto",
+      "summary": "Deserto del Gobi e valle dell'Orkhon"
+    },
+    "mongolia4x4": {
+      "name": "Spedizione 4x4 in Mongolia",
+      "summary": "Deserto del Gobi e monti Altai"
     }
   },
   "home": {
@@ -951,6 +986,248 @@
           }
         ]
       }
+    },
+    "bhutan": {
+      "meta": {
+        "title": "Spedizioni in moto attraverso il Bhutan | Offhorizon",
+        "description": "Spedizioni in moto guidate in Bhutan. Paro, Thimphu, il passo di Dochula e la valle di Punakha, con guide, meccanico, veicolo di supporto e permessi inclusi."
+      },
+      "eyebrow": "Bhutan",
+      "title": "Spedizioni in moto attraverso il Bhutan",
+      "lead": "Da Paro a Punakha per il passo di Dochula, poi a est in valli che quasi nessun visitatore raggiunge. Il Bhutan è piccolo, verde e ripido, e le strade seguono i fiumi invece della linea più breve.",
+      "intro": {
+        "title": "L'Himalaya orientale, a un ritmo più lento.",
+        "body": "Il Bhutan sta sul lato umido della catena. Al posto dell'altopiano desertico del Ladakh trovi foreste di pini e rododendri, nuvole ferme nelle valli fino a metà mattina e passi coperti di bandiere di preghiera a 3.000 metri. Non è guida estrema, ma è quasi tutta curva.",
+        "focus": "Il nostro itinerario percorre le valli occidentali e centrali, da Paro e Thimphu a Punakha attraverso Dochula e poi verso Phobjikha e Bumthang. Qui ogni visitatore viaggia con un operatore autorizzato, quindi la burocrazia fa parte del viaggio e non è un ripensamento."
+      },
+      "regions": {
+        "eyebrow": "Regioni",
+        "title": "Dove guidiamo in Bhutan",
+        "explore": "Scopri la regione"
+      },
+      "why": {
+        "eyebrow": "Perché noi",
+        "title": "Perché guidare il Bhutan con Offhorizon",
+        "reasons": [
+          {
+            "title": "Sull'Himalaya dal 2014",
+            "body": "Dieci anni di gruppi e mezzi in quota, in quattro paesi della stessa catena."
+          },
+          {
+            "title": "Permessi gestiti",
+            "body": "Il Bhutan richiede un operatore autorizzato, un visto e una tassa giornaliera. Sistemiamo tutto prima del tuo arrivo."
+          },
+          {
+            "title": "Guide locali",
+            "body": "Guide bhutanesi che sanno a che ora entrare in un dzong e sanno raccontarti cosa stai guardando."
+          },
+          {
+            "title": "Supporto completo",
+            "body": "Capo spedizione, meccanico che viaggia con il gruppo e veicolo di supporto con ricambi e bagagli."
+          }
+        ],
+        "closing": "Gruppi piccoli. Preferiamo una partenza fatta bene a tre partenze affollate."
+      },
+      "cta": {
+        "title": "Inizia la tua spedizione in Bhutan",
+        "body": "Scegli una partenza dal calendario, oppure dicci le tue date e costruiremo l'itinerario intorno a quelle.",
+        "imageAlt": "Il dzong di Punakha alla confluenza dei fiumi Pho Chhu e Mo Chhu, in Bhutan"
+      },
+      "faq": {
+        "title": "Guidare in Bhutan",
+        "items": [
+          {
+            "question": "Posso guidare la mia moto in Bhutan?",
+            "answer": [
+              "I visitatori stranieri viaggiano con un operatore autorizzato, e quasi tutti i nostri partecipanti usano una delle nostre moto.",
+              "Se vuoi portare la tua, serviranno:"
+            ],
+            "list": [
+              "Un permesso di importazione temporanea per la moto, richiesto in anticipo",
+              "Un permesso di percorso per ogni distretto attraversato",
+              "Un'assicurazione di responsabilità civile valida in Bhutan"
+            ],
+            "after": [
+              "Dicci per tempo se è questo che vuoi. Si può fare, ma cambia i tempi e le pratiche."
+            ]
+          },
+          {
+            "question": "Qual è la stagione per guidare in Bhutan?",
+            "answer": ["Primavera e autunno, prima e dopo il monsone."],
+            "list": [
+              "Da marzo a maggio: rododendri in fiore, giornate miti, un po' di foschia",
+              "Da giugno ad agosto: pioggia monsonica intensa e frane sulla strada est-ovest",
+              "Da settembre a novembre: il cielo più limpido dell'anno e la stagione dei festival"
+            ],
+            "after": [
+              "D'inverno si guida nelle valli basse, ma sui passi alti c'è neve. Mandaci le tue date e ti diremo onestamente se funzionano."
+            ]
+          }
+        ]
+      }
+    },
+    "easternHimalayas": {
+      "shortName": "Himalaya orientale",
+      "card": "Paro, Thimphu, il passo di Dochula e la valle di Punakha. Passi boscosi, dzong e strade tranquille, in primavera e in autunno."
+    },
+    "sriLanka": {
+      "meta": {
+        "title": "Viaggi in moto attraverso lo Sri Lanka | Offhorizon",
+        "description": "Viaggi in moto guidati in Sri Lanka. La regione collinare, Sigiriya, Ella e la costa sud, con guide, meccanico e veicolo di supporto a ogni partenza."
+      },
+      "eyebrow": "Sri Lanka",
+      "title": "Viaggi in moto attraverso lo Sri Lanka",
+      "lead": "Piantagioni di tè sopra i 1.800 metri, antiche fortezze di roccia e una strada costiera che si percorre con il mare a fianco per tutto il tempo. Lo Sri Lanka è il contrappeso caldo di una stagione himalayana.",
+      "intro": {
+        "title": "Un'isola piccola con tre climi sopra.",
+        "body": "Puoi lasciare la costa la mattina con trenta gradi e infilarti la giacca nel paese del tè all'ora di pranzo. Le strade di montagna tra Kandy, Nuwara Eliya ed Ella sono strette, fresche e verdi, e i tratti costieri del sud sono la guida più rilassata che ci sia.",
+        "focus": "Il nostro itinerario collega il triangolo culturale intorno a Sigiriya, le colline centrali e la costa meridionale. È una buona prima spedizione, e una buona occasione per portare un passeggero."
+      },
+      "regions": {
+        "eyebrow": "Regioni",
+        "title": "Dove guidiamo in Sri Lanka",
+        "explore": "Scopri la regione"
+      },
+      "why": {
+        "eyebrow": "Perché noi",
+        "title": "Perché guidare lo Sri Lanka con Offhorizon",
+        "reasons": [
+          {
+            "title": "Percorsi che abbiamo guidato",
+            "body": "Non una linea tracciata su una mappa in ufficio. Ogni giornata è stata percorsa prima di arrivare a te."
+          },
+          {
+            "title": "Strade, non superstrade",
+            "body": "L'isola si attraversa in fretta e si vive molto meglio piano. Noi prendiamo le strade di montagna."
+          },
+          {
+            "title": "Guide locali",
+            "body": "Guide singalesi che sanno quale strada di piantagione è aperta e dove vale davvero la pena fermarsi a pranzo."
+          },
+          {
+            "title": "Supporto completo",
+            "body": "Capo spedizione, meccanico che viaggia con il gruppo e veicolo di supporto con ricambi e bagagli."
+          }
+        ],
+        "closing": "Gruppi piccoli. Preferiamo una partenza fatta bene a tre partenze affollate."
+      },
+      "cta": {
+        "title": "Inizia il tuo viaggio in Sri Lanka",
+        "body": "Scegli una partenza dal calendario, oppure dicci le tue date e costruiremo l'itinerario intorno a quelle.",
+        "imageAlt": "Piantagione di tè sui pendii sopra Nuwara Eliya, nella regione collinare dello Sri Lanka"
+      },
+      "faq": {
+        "title": "Guidare in Sri Lanka",
+        "items": [
+          {
+            "question": "Che patente serve per guidare in Sri Lanka?",
+            "answer": [
+              "Una patente per moto del tuo paese, un permesso di guida internazionale e un riconoscimento locale.",
+              "Il riconoscimento locale viene rilasciato a Colombo dall'Automobile Association of Ceylon sulla base del permesso internazionale. Ce ne occupiamo all'arrivo, ma porta con te i documenti cartacei."
+            ]
+          },
+          {
+            "question": "Qual è la stagione per guidare in Sri Lanka?",
+            "answer": [
+              "Due monsoni colpiscono lati opposti dell'isola, quindi da qualche parte è quasi sempre asciutto."
+            ],
+            "list": [
+              "Da dicembre a marzo: il periodo migliore per le coste sud e ovest e per le colline",
+              "Da maggio a settembre: piovoso a sud-ovest, asciutto a nord e a est",
+              "Aprile e ottobre: mesi di passaggio, tempo variabile ovunque"
+            ],
+            "after": [
+              "Le nostre partenze stanno nella finestra da dicembre a marzo. Mandaci altre date e ti diremo cosa farà probabilmente il tempo."
+            ]
+          }
+        ]
+      }
+    },
+    "hillCountry": {
+      "shortName": "Regione collinare",
+      "card": "Kandy, Nuwara Eliya ed Ella, con Sigiriya e la costa sud ai due lati. Piantagioni di tè, strade di montagna strette e caldo d'inverno."
+    },
+    "mongolia": {
+      "meta": {
+        "title": "Spedizioni in moto e 4x4 attraverso la Mongolia | Offhorizon",
+        "description": "Spedizioni in moto e 4x4 guidate in Mongolia. La steppa, il Gobi e l'Altai, con guide, meccanico, veicolo di supporto e attrezzatura da campo al seguito."
+      },
+      "eyebrow": "Mongolia",
+      "title": "Spedizioni in moto e 4x4 attraverso la Mongolia",
+      "lead": "Praterie fino all'orizzonte, sabbia e roccia nel Gobi, ghiacciai nell'Altai. Fuori dalla capitale l'asfalto quasi non esiste, ed è esattamente il motivo per cui ci si va.",
+      "intro": {
+        "title": "Il paese con meno strade e più guida.",
+        "body": "Appena lasci Ulaanbaatar la strada diventa un fascio di piste che vanno più o meno nella stessa direzione, e scegliere tra loro è il lavoro della giornata. Le distanze sono lunghe, i rifornimenti lontani, e si campeggia dove finisce la luce.",
+        "focus": "Qui organizziamo una spedizione in moto e una in 4x4, attraverso la steppa centrale e verso sud nel Gobi, con l'Altai come opzione più lunga. È la cosa più remota del nostro calendario, ed è pianificata come tale."
+      },
+      "regions": {
+        "eyebrow": "Regioni",
+        "title": "Dove guidiamo in Mongolia",
+        "explore": "Scopri la regione"
+      },
+      "why": {
+        "eyebrow": "Perché noi",
+        "title": "Perché guidare la Mongolia con Offhorizon",
+        "reasons": [
+          {
+            "title": "Isolamento pianificato",
+            "body": "Carburante, acqua, ricambi e cibo calcolati per giornate in cui non c'è nulla da comprare."
+          },
+          {
+            "title": "Navigazione che regge",
+            "body": "Tracce registrate, comunicazione satellitare e un capo spedizione che sa quale pista passa davvero."
+          },
+          {
+            "title": "Guide locali",
+            "body": "Guide e autisti mongoli cresciuti qui, che sanno dove il fiume si può guadare."
+          },
+          {
+            "title": "Supporto completo",
+            "body": "Capo spedizione, meccanico e veicolo di supporto con attrezzatura da campo, ricambi e bagagli."
+          }
+        ],
+        "closing": "Gruppi piccoli. Preferiamo una partenza fatta bene a tre partenze affollate."
+      },
+      "cta": {
+        "title": "Inizia la tua spedizione in Mongolia",
+        "body": "Scegli una partenza dal calendario, oppure dicci le tue date e costruiremo l'itinerario intorno a quelle.",
+        "imageAlt": "Ger e praterie aperte nella steppa mongola"
+      },
+      "faq": {
+        "title": "Guidare in Mongolia",
+        "items": [
+          {
+            "question": "Quanto è difficile guidare in Mongolia?",
+            "answer": [
+              "Non è tecnica, ma è lunga, sconnessa e stancante. Aspettati ghiaia, sabbia, tratti ondulati e guadi.",
+              "Devi essere a tuo agio fuori dall'asfalto per tutto il giorno e in grado di rialzare una moto. Non è il posto dove imparare, e te lo diremo se la spedizione non fa per te."
+            ]
+          },
+          {
+            "question": "Dove si dorme?",
+            "answer": ["Un misto, e l'equilibrio cambia con l'itinerario."],
+            "list": [
+              "Campi di ger dove ci sono, quindi quasi tutte le notti nella steppa centrale",
+              "Tende trasportate dal veicolo di supporto nei tratti più isolati",
+              "Hotel all'inizio e alla fine del viaggio, a Ulaanbaatar"
+            ],
+            "after": [
+              "Vale la pena portare un sacco a pelo da freddo. Nella steppa si arriva vicino allo zero anche d'estate."
+            ]
+          },
+          {
+            "question": "Qual è la stagione per guidare in Mongolia?",
+            "answer": [
+              "Da giugno a settembre, e questa finestra non si sposta.",
+              "Luglio e agosto sono i mesi più caldi e più verdi. Giugno e settembre sono più freddi e più tranquilli. Fuori da questi mesi il terreno gela e le piste non sono percorribili."
+            ]
+          }
+        ]
+      }
+    },
+    "steppeGobi": {
+      "shortName": "Steppa e Gobi",
+      "card": "Steppa centrale, Gobi e Altai. Quasi niente asfalto, giornate lunghe sulle piste e campo dove finisce la luce."
     }
   },
   "adventureTours": {

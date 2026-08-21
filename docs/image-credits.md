@@ -41,3 +41,26 @@ obligations while they are on the site.
 † Timothy A. Gonsalves asks to be contacted before commercial use. CC BY-SA 4.0
 does not require it, but honour the request or swap these three out when the
 real photography lands.
+
+## Menu and country page photographs
+
+Downloaded by `scripts/fetch-menu-images.mjs` and
+`scripts/fetch-country-images.mjs`. Same rule as above: the CC BY and
+CC BY-SA files need a visible credit before launch, the CC0 ones do not.
+
+| File                                              | Subject                                           | Author                 | Licence                                                         | Source                                                                                                   |
+| ------------------------------------------------- | ------------------------------------------------- | ---------------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `public/tours/menu/great-himalayan-traverse.webp` | Road Padum Zanskar Range Jun24 A7CR 00818         | Timothy A. Gonsalves † | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)  | [Commons](https://commons.wikimedia.org/wiki/File:Road_Padum_Zanskar_Range_Jun24_A7CR_00818.jpg)         |
+| `public/tours/menu/himalayan-expedition.webp`     | Leo Spiti NH505 Himachal Jun18 D72 6785           | Timothy A. Gonsalves † | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)  | [Commons](https://commons.wikimedia.org/wiki/File:Leo_Spiti_NH505_Himachal_Jun18_D72_6785.jpg)           |
+| `public/tours/menu/ladakh-circuit.webp`           | UMLING LA                                         | Amit.bothate           | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)  | [Commons](https://commons.wikimedia.org/wiki/File:UMLING_LA.jpg)                                         |
+| `public/tours/menu/indian-himalayas-4x4.webp`     | Chander Tal, Spiti, Himachal Pradesh              | Poojilsharma07         | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Chander_Tal,_Spiti,_Himachal_Pradesh.jpg)              |
+| `public/tours/menu/upper-mustang.webp`            | Mustang-Lo Manthang-14-Dachausflug-2015-gje       | Gerd Eichmann          | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)  | [Commons](https://commons.wikimedia.org/wiki/File:Mustang-Lo_Manthang-14-Dachausflug-2015-gje.jpg)       |
+| `public/tours/menu/lower-mustang.webp`            | Muktinath Valley, Mountains, Nepal                | Vyacheslav Argenberg   | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0)        | [Commons](https://commons.wikimedia.org/wiki/File:Muktinath_Valley,_Mountains,_Nepal.jpg)                |
+| `public/tours/menu/nepal-4x4.webp`                | Bos grunniens at Letdar on Annapurna Circuit      | travelwayoflife        | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0)  | [Commons](https://commons.wikimedia.org/wiki/File:Bos_grunniens_at_Letdar_on_Annapurna_Circuit.jpg)      |
+| `public/tours/menu/bhutan-motorcycle.webp`        | Taktsang Monastery, Bhutan 06                     | Bernard Gagnon         | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)  | [Commons](https://commons.wikimedia.org/wiki/File:Taktsang_Monastery,_Bhutan_06.jpg)                     |
+| `public/tours/menu/sri-lanka-motorcycle.webp`     | Sigiriya Sri Lanka Löwenfelsen                    | CaCo789                | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)  | [Commons](https://commons.wikimedia.org/wiki/File:Sigiriya_Sri_Lanka_L%C3%B6wenfelsen.jpg)               |
+| `public/tours/menu/mongolia-motorcycle.webp`      | Yurt in Gobi Desert                               | Bernard Gagnon         | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Yurt_in_Gobi_Desert.jpg)                               |
+| `public/tours/menu/mongolia-4x4.webp`             | Trekking at Altai Tavan Bogd Mountain - panoramio | Mongolia Expeditions…  | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0)        | [Commons](https://commons.wikimedia.org/wiki/File:Trekking_at_Altai_Tavan_Bogd_Mountain_-_panoramio.jpg) |
+| `public/destinations/pages/bhutan-punakha.webp`   | Punakha Dzong, Bhutan 11                          | Bernard Gagnon         | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)  | [Commons](https://commons.wikimedia.org/wiki/File:Punakha_Dzong,_Bhutan_11.jpg)                          |
+| `public/destinations/pages/sri-lanka-tea.webp`    | Tea-plantation Nuwara Eliya-2567                  | Bergentroll            | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Tea-plantation_Nuwara_Eliya-2567.jpg)                  |
+| `public/destinations/pages/mongolia-steppe.webp`  | Mongolian nature steppe house                     | Orgio89                | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Mongolian_nature_steppe_house.jpg)                     |

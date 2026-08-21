@@ -35,20 +35,55 @@
     "bhutan": "Bhutan",
     "sriLanka": "Sri Lanka",
     "mongolia": "Mongolei",
-    "plannedShort": "Geplant"
+    "plannedShort": "Geplant",
+    "easternHimalayas": "Östlicher Himalaya",
+    "hillCountry": "Hochland und Küste",
+    "steppeGobi": "Steppe und Gobi"
   },
   "tours": {
-    "ladakhMotorcycle": {
-      "name": "Motorradtour durch Ladakh",
-      "summary": "Khardung La & Pangong"
+    "greatHimalayanTraverse": {
+      "name": "Die große Himalaya-Durchquerung",
+      "summary": "Spiti, Zanskar und Umling La"
+    },
+    "himalayanExpedition": {
+      "name": "Himalaya-Expedition",
+      "summary": "Spiti und die Kinnaur-Straße"
+    },
+    "ladakhCircuit": {
+      "name": "Die Ladakh-Runde",
+      "summary": "Umling La und Tso Moriri"
     },
     "himalayas4x4": {
       "name": "4x4-Expedition im indischen Himalaya",
-      "summary": "Spiti & Manali selbst fahren"
+      "summary": "Spiti und Manali, selbst am Steuer"
     },
-    "nepalMotorcycle": {
-      "name": "Motorradtour durch Nepal",
-      "summary": "Kathmandu bis Mustang"
+    "upperMustang": {
+      "name": "Oberes Mustang mit dem Motorrad",
+      "summary": "Lo Manthang und Kali Gandaki"
+    },
+    "lowerMustang": {
+      "name": "Unteres Mustang mit dem Motorrad",
+      "summary": "Muktinath und Kagbeni"
+    },
+    "nepal4x4": {
+      "name": "4x4-Expedition in Nepal",
+      "summary": "Mustang und Annapurna, selbst am Steuer"
+    },
+    "bhutanMotorcycle": {
+      "name": "Bhutan mit dem Motorrad",
+      "summary": "Tigernest und Chele La"
+    },
+    "sriLankaMotorcycle": {
+      "name": "Sri Lanka mit dem Motorrad",
+      "summary": "Ella, Sigiriya und das Hochland"
+    },
+    "mongoliaMotorcycle": {
+      "name": "Mongolei mit dem Motorrad",
+      "summary": "Wüste Gobi und Orchon-Tal"
+    },
+    "mongolia4x4": {
+      "name": "4x4-Expedition in der Mongolei",
+      "summary": "Wüste Gobi und Altai-Gebirge"
     }
   },
   "home": {
@@ -952,6 +987,248 @@
           }
         ]
       }
+    },
+    "bhutan": {
+      "meta": {
+        "title": "Motorradexpeditionen durch Bhutan | Offhorizon",
+        "description": "Geführte Motorradexpeditionen in Bhutan. Paro, Thimphu, der Dochula-Pass und das Punakha-Tal, mit Guides, Mechaniker, Begleitfahrzeug und allen Genehmigungen."
+      },
+      "eyebrow": "Bhutan",
+      "title": "Motorradexpeditionen durch Bhutan",
+      "lead": "Von Paro über den Dochula-Pass nach Punakha und weiter nach Osten in Täler, die kaum ein Besucher sieht. Bhutan ist klein, grün und steil, und die Straßen folgen den Flüssen statt der kürzesten Linie.",
+      "intro": {
+        "title": "Der östliche Himalaya, in ruhigerem Tempo.",
+        "body": "Bhutan liegt am feuchten Ende der Kette. Statt der kahlen Hochwüste Ladakhs gibt es Kiefern- und Rhododendronwald, Wolken, die bis zum späten Vormittag in den Tälern hängen, und Pässe voller Gebetsfahnen auf 3.000 Metern. Das Fahren ist nicht extrem, aber fast alles ist Kurve.",
+        "focus": "Unsere Route führt durch die westlichen und zentralen Täler, von Paro und Thimphu über Dochula nach Punakha und weiter Richtung Phobjikha und Bumthang. Jeder Besucher reist hier mit einem lizenzierten Veranstalter, die Formalitäten gehören also zur Reise und sind kein Nachgedanke."
+      },
+      "regions": {
+        "eyebrow": "Regionen",
+        "title": "Wo wir in Bhutan fahren",
+        "explore": "Region ansehen"
+      },
+      "why": {
+        "eyebrow": "Warum wir",
+        "title": "Warum Bhutan mit Offhorizon",
+        "reasons": [
+          {
+            "title": "Im Himalaya seit 2014",
+            "body": "Zehn Jahre mit Gruppen und Fahrzeugen in der Höhe, in vier Ländern derselben Kette."
+          },
+          {
+            "title": "Genehmigungen erledigt",
+            "body": "Bhutan verlangt einen lizenzierten Veranstalter, ein Visum und eine Tagesabgabe. Wir regeln alles vor der Landung."
+          },
+          {
+            "title": "Einheimische Guides",
+            "body": "Bhutanische Guides, die Sie zur richtigen Stunde in einen Dzong bringen und erklären, was Sie sehen."
+          },
+          {
+            "title": "Volle Betreuung",
+            "body": "Expeditionsleiter, mitfahrender Mechaniker und Begleitfahrzeug mit Ersatzteilen und Gepäck."
+          }
+        ],
+        "closing": "Kleine Gruppen. Uns ist ein guter Termin lieber als drei überfüllte."
+      },
+      "cta": {
+        "title": "Starten Sie Ihre Bhutan-Expedition",
+        "body": "Wählen Sie einen Termin aus dem Kalender, oder nennen Sie uns Ihre Daten und wir bauen die Route darum herum.",
+        "imageAlt": "Der Punakha-Dzong am Zusammenfluss von Pho Chhu und Mo Chhu in Bhutan"
+      },
+      "faq": {
+        "title": "Fahren in Bhutan",
+        "items": [
+          {
+            "question": "Kann ich mit meinem eigenen Motorrad in Bhutan fahren?",
+            "answer": [
+              "Ausländische Gäste fahren mit einem lizenzierten Veranstalter, und die meisten unserer Fahrer nehmen eines unserer Motorräder.",
+              "Wenn Sie Ihr eigenes mitbringen wollen, brauchen Sie:"
+            ],
+            "list": [
+              "Eine vorab beantragte vorübergehende Einfuhrgenehmigung für das Motorrad",
+              "Eine Routengenehmigung für jeden durchfahrenen Distrikt",
+              "Eine in Bhutan gültige Haftpflichtversicherung"
+            ],
+            "after": [
+              "Sagen Sie uns früh Bescheid, wenn Sie das möchten. Es geht, verändert aber Zeitplan und Papierkram."
+            ]
+          },
+          {
+            "question": "Wann ist die Saison in Bhutan?",
+            "answer": ["Frühjahr und Herbst, jeweils vor und nach dem Monsun."],
+            "list": [
+              "März bis Mai: blühende Rhododendren, milde Tage, etwas Dunst",
+              "Juni bis August: schwerer Monsunregen und Erdrutsche auf der Ost-West-Straße",
+              "September bis November: der klarste Himmel des Jahres und die wichtigste Festivalzeit"
+            ],
+            "after": [
+              "Im Winter lässt sich in den tieferen Tälern fahren, auf den hohen Pässen liegt aber Schnee. Schicken Sie uns Ihre Daten, wir sagen Ihnen ehrlich, ob sie passen."
+            ]
+          }
+        ]
+      }
+    },
+    "easternHimalayas": {
+      "shortName": "Östlicher Himalaya",
+      "card": "Paro, Thimphu, der Dochula-Pass und das Punakha-Tal. Bewaldete Pässe, Dzongs und ruhige Straßen, im Frühjahr und Herbst."
+    },
+    "sriLanka": {
+      "meta": {
+        "title": "Motorradreisen durch Sri Lanka | Offhorizon",
+        "description": "Geführte Motorradreisen in Sri Lanka. Das Hochland, Sigiriya, Ella und die Südküste, mit Guides, Mechaniker und Begleitfahrzeug bei jedem Termin."
+      },
+      "eyebrow": "Sri Lanka",
+      "title": "Motorradreisen durch Sri Lanka",
+      "lead": "Teegärten über 1.800 Metern, alte Felsenfestungen und eine Küstenstraße, auf der das Meer die ganze Zeit neben Ihnen liegt. Sri Lanka ist das warme Gegengewicht zu einer Himalaya-Saison.",
+      "intro": {
+        "title": "Eine kleine Insel mit drei Klimazonen.",
+        "body": "Sie können die Küste morgens bei dreißig Grad verlassen und mittags im Teeland die Jacke anziehen. Die Bergstraßen zwischen Kandy, Nuwara Eliya und Ella sind eng, kühl und grün, und die Küstenabschnitte im Süden sind so entspannt, wie Fahren nur sein kann.",
+        "focus": "Unsere Route verbindet das Kulturdreieck um Sigiriya, das zentrale Hochland und die Südküste. Eine gute erste Expedition, und eine gute, um jemanden auf dem Sozius mitzunehmen."
+      },
+      "regions": {
+        "eyebrow": "Regionen",
+        "title": "Wo wir in Sri Lanka fahren",
+        "explore": "Region ansehen"
+      },
+      "why": {
+        "eyebrow": "Warum wir",
+        "title": "Warum Sri Lanka mit Offhorizon",
+        "reasons": [
+          {
+            "title": "Selbst gefahrene Routen",
+            "body": "Keine Linie, die im Büro auf eine Karte gezeichnet wurde. Jeder Tag ist gefahren, bevor Sie ihn bekommen."
+          },
+          {
+            "title": "Straßen statt Schnellstraßen",
+            "body": "Die Insel lässt sich schnell durchqueren und ist langsam viel besser. Wir nehmen die Bergstraßen."
+          },
+          {
+            "title": "Einheimische Guides",
+            "body": "Sri-lankische Guides, die wissen, welcher Plantagenweg offen ist und wo sich der Halt zum Essen lohnt."
+          },
+          {
+            "title": "Volle Betreuung",
+            "body": "Expeditionsleiter, mitreisender Mechaniker und Begleitfahrzeug mit Ersatzteilen und Gepäck."
+          }
+        ],
+        "closing": "Kleine Gruppen. Uns ist ein guter Termin lieber als drei überfüllte."
+      },
+      "cta": {
+        "title": "Starten Sie Ihre Sri-Lanka-Reise",
+        "body": "Wählen Sie einen Termin aus dem Kalender, oder nennen Sie uns Ihre Daten und wir bauen die Route darum herum.",
+        "imageAlt": "Teeplantage an den Hängen oberhalb von Nuwara Eliya im Hochland Sri Lankas"
+      },
+      "faq": {
+        "title": "Fahren in Sri Lanka",
+        "items": [
+          {
+            "question": "Welchen Führerschein brauche ich in Sri Lanka?",
+            "answer": [
+              "Einen Motorradführerschein von zu Hause, einen internationalen Führerschein und eine örtliche Anerkennung.",
+              "Die örtliche Anerkennung stellt die Automobile Association of Ceylon in Colombo gegen Ihren internationalen Führerschein aus. Wir erledigen das bei der Ankunft, bringen Sie die Papierdokumente mit."
+            ]
+          },
+          {
+            "question": "Wann ist die Saison in Sri Lanka?",
+            "answer": [
+              "Zwei Monsune treffen gegenüberliegende Seiten der Insel, also ist fast immer irgendwo trocken."
+            ],
+            "list": [
+              "Dezember bis März: am besten für Süd- und Westküste und das Hochland",
+              "Mai bis September: nass im Südwesten, trocken im Norden und Osten",
+              "April und Oktober: Übergangsmonate, überall gemischtes Wetter"
+            ],
+            "after": [
+              "Unsere Termine liegen im Fenster von Dezember bis März. Schicken Sie uns andere Daten und wir sagen Ihnen, was das Wetter wahrscheinlich macht."
+            ]
+          }
+        ]
+      }
+    },
+    "hillCountry": {
+      "shortName": "Hochland",
+      "card": "Kandy, Nuwara Eliya und Ella, mit Sigiriya und der Südküste zu beiden Seiten. Teegärten, enge Bergstraßen und Wärme im Winter."
+    },
+    "mongolia": {
+      "meta": {
+        "title": "Motorrad- und 4x4-Expeditionen durch die Mongolei | Offhorizon",
+        "description": "Geführte Motorrad- und 4x4-Expeditionen in der Mongolei. Steppe, Gobi und Altai, mit Guides, Mechaniker, Begleitfahrzeug und mitgeführter Campausrüstung."
+      },
+      "eyebrow": "Mongolei",
+      "title": "Motorrad- und 4x4-Expeditionen durch die Mongolei",
+      "lead": "Grasland bis zum Horizont, Sand und Fels in der Gobi, Gletscher im Altai. Außerhalb der Hauptstadt gibt es fast keinen Asphalt, und genau deswegen fährt man hin.",
+      "intro": {
+        "title": "Das Land mit den wenigsten Straßen und dem meisten Fahren.",
+        "body": "Sobald Ulan-Bator hinter Ihnen liegt, wird aus der Straße ein Bündel von Spuren, die ungefähr in dieselbe Richtung führen, und die Wahl zwischen ihnen ist die Arbeit des Tages. Die Strecken sind lang, Tankstellen weit auseinander, und man campt dort, wo das Licht ausgeht.",
+        "focus": "Wir fahren hier eine Motorradexpedition und eine 4x4-Expedition, durch die zentrale Steppe und nach Süden in die Gobi, mit dem Altai als längerer Variante. Das ist das Abgelegenste in unserem Kalender, und so ist es auch geplant."
+      },
+      "regions": {
+        "eyebrow": "Regionen",
+        "title": "Wo wir in der Mongolei fahren",
+        "explore": "Region ansehen"
+      },
+      "why": {
+        "eyebrow": "Warum wir",
+        "title": "Warum die Mongolei mit Offhorizon",
+        "reasons": [
+          {
+            "title": "Abgeschiedenheit mit Plan",
+            "body": "Kraftstoff, Wasser, Ersatzteile und Essen kalkuliert für Tage, an denen es nichts zu kaufen gibt."
+          },
+          {
+            "title": "Navigation, die trägt",
+            "body": "Aufgezeichnete Tracks, Satellitenkommunikation und ein Leiter, der weiß, welche Spur wirklich durchgeht."
+          },
+          {
+            "title": "Einheimische Guides",
+            "body": "Mongolische Guides und Fahrer, die hier aufgewachsen sind und wissen, wo der Fluss durchfahrbar ist."
+          },
+          {
+            "title": "Volle Betreuung",
+            "body": "Expeditionsleiter, Mechaniker und Begleitfahrzeug mit Campausrüstung, Ersatzteilen und Gepäck."
+          }
+        ],
+        "closing": "Kleine Gruppen. Uns ist ein guter Termin lieber als drei überfüllte."
+      },
+      "cta": {
+        "title": "Starten Sie Ihre Mongolei-Expedition",
+        "body": "Wählen Sie einen Termin aus dem Kalender, oder nennen Sie uns Ihre Daten und wir bauen die Route darum herum.",
+        "imageAlt": "Jurten und offenes Grasland in der mongolischen Steppe"
+      },
+      "faq": {
+        "title": "Fahren in der Mongolei",
+        "items": [
+          {
+            "question": "Wie schwer ist das Fahren in der Mongolei?",
+            "answer": [
+              "Nicht technisch, aber lang, lose und anstrengend. Rechnen Sie mit Schotter, Sand, Wellblechpisten und Flussdurchfahrten.",
+              "Sie sollten den ganzen Tag abseits von Asphalt fahren und ein Motorrad aufheben können. Zum Lernen ist das nicht der richtige Ort, und wir sagen es Ihnen, wenn die Expedition nicht zu Ihnen passt."
+            ]
+          },
+          {
+            "question": "Wo schlafen wir?",
+            "answer": ["Gemischt, und das Verhältnis hängt von der Route ab."],
+            "list": [
+              "Jurtencamps, wo es welche gibt, also die meisten Nächte in der zentralen Steppe",
+              "Zelte aus dem Begleitfahrzeug auf den abgelegenen Abschnitten",
+              "Hotels am Anfang und Ende der Reise in Ulan-Bator"
+            ],
+            "after": [
+              "Ein Schlafsack für kalte Nächte lohnt sich. Die Steppe geht auch im Sommer fast auf null."
+            ]
+          },
+          {
+            "question": "Wann ist die Saison in der Mongolei?",
+            "answer": [
+              "Juni bis September, und dieses Fenster steht fest.",
+              "Juli und August sind am wärmsten und grünsten. Juni und September sind kälter und ruhiger. Außerhalb friert der Boden und die Spuren sind nicht befahrbar."
+            ]
+          }
+        ]
+      }
+    },
+    "steppeGobi": {
+      "shortName": "Steppe und Gobi",
+      "card": "Zentrale Steppe, Gobi und Altai. Fast kein Asphalt, lange Tage auf Pisten, und Camp dort, wo das Licht ausgeht."
     }
   },
   "adventureTours": {

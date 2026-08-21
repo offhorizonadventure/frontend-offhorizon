@@ -24,7 +24,7 @@ export async function DesktopNav() {
                 {t(item.key)}
                 <ChevronDown className="mt-px transition-transform duration-300 group-focus-within:rotate-180 group-hover:rotate-180" />
               </Link>
-              <div className="ease-out-expo invisible absolute top-full left-1/2 z-40 w-[min(50rem,calc(100vw-3rem))] -translate-x-1/2 translate-y-2 pt-4 opacity-0 transition-all duration-300 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+              <div className="ease-out-expo invisible absolute top-full left-1/2 z-40 w-[min(62rem,calc(100vw-3rem))] -translate-x-1/2 translate-y-2 pt-4 opacity-0 transition-all duration-300 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                 <MegaPanel countries={item.countries} />
               </div>
             </li>
@@ -50,9 +50,9 @@ async function MegaPanel({ countries }: { countries: Country[] }) {
 
   return (
     <div className="border-brand-900/10 overflow-hidden rounded-3xl border bg-white">
-      <div className="grid grid-cols-[1fr_1fr] gap-8 p-7">
+      <div className="columns-3 gap-9 p-7">
         {countries.map((country) => (
-          <section key={country.key}>
+          <section key={country.key} className="mb-7 break-inside-avoid last:mb-0">
             <Link
               href={country.href}
               className="group/c border-brand-900/8 inline-flex items-center gap-2.5 border-b pb-3"
