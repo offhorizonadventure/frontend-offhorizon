@@ -17,6 +17,8 @@ export function DestinationsMenu({
   children: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
+  // The bar shrinks once the page is scrolled, so the gap is measured on click.
+  const [top, setTop] = useState(96);
   const pathname = usePathname();
   const first = useRef(true);
 
@@ -59,7 +61,11 @@ export function DestinationsMenu({
     <>
       <button
         type="button"
-        onClick={() => setOpen((value) => !value)}
+        onClick={() => {
+          const bar = document.querySelector("header > div");
+          if (bar) setTop(Math.round(bar.getBoundingClientRect().bottom) + 12);
+          setOpen((value) => !value);
+        }}
         aria-expanded={open}
         className="nav-link text-brand-900/75 hover:text-brand-800 relative flex h-8 cursor-pointer items-center gap-1 text-[11px] font-semibold tracking-[0.08em] whitespace-nowrap uppercase transition-colors duration-200"
       >
@@ -80,8 +86,14 @@ export function DestinationsMenu({
               className="bg-brand-950/45 absolute inset-0 cursor-default backdrop-blur-sm"
             />
 
-            <div className="absolute inset-x-0 top-0 flex justify-center px-3 pt-[7.25rem] sm:px-6">
-              <div className="animate-panel-in bg-paper border-brand-900/8 relative max-h-[calc(100dvh-8.5rem)] w-full max-w-6xl overflow-y-auto rounded-[28px] border p-7 shadow-[0_30px_70px_-30px_rgba(31,12,4,0.45)] sm:p-9">
+            <div
+              style={{ paddingTop: top }}
+              className="absolute inset-x-0 top-0 flex justify-center px-3 sm:px-6"
+            >
+              <div
+                style={{ maxHeight: `calc(100dvh - ${top + 24}px)` }}
+                className="animate-panel-in bg-paper border-brand-900/8 relative w-full max-w-6xl overflow-y-auto rounded-[28px] border p-7 shadow-[0_30px_70px_-30px_rgba(31,12,4,0.45)] sm:p-9"
+              >
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
