@@ -70,7 +70,7 @@ export function CustomExpeditionForm({
   currency,
 }: Props) {
   const locale = useLocale();
-  // Read straight from the catalogue: an ICU plural cannot be prebuilt on the server and handed over, because a function cannot cross into a client component.
+  // Read from the catalogue: an ICU plural cannot cross into a client component.
   const t = useTranslations("custom.fields");
   // Passed in from the server, which is the only side that knows where the visitor is.
   const currencyCode = currency;
@@ -266,10 +266,8 @@ export function CustomExpeditionForm({
             </select>
           </div>
 
-          {/* How the party is counted depends on the machine. A motorcycle
-              trip is riders and pillions; a 4x4 is people, and the vehicles
-              follow from that rather than being typed in, so four seats per
-              vehicle cannot be exceeded. */}
+          {/* A motorcycle trip counts riders and pillions; a 4x4 counts people
+              and derives the vehicles, so four seats each cannot be exceeded. */}
           <div>
             <span className={label}>{labels.travelMode}</span>
             <div className="mt-2.5 grid gap-2.5 sm:grid-cols-2">

@@ -32,11 +32,11 @@ export function NumberStepper({
   const [uncontrolled, setUncontrolled] = useState(defaultValue);
   const id = useId();
 
-  // Controlled when the parent passes a value, uncontrolled otherwise, so the plain form usages keep working untouched.
+  // Controlled when the parent passes a value, uncontrolled otherwise.
   const value = controlled ?? uncontrolled;
   const clamp = (next: number) => Math.min(max, Math.max(min, next));
 
-  // Two clicks inside one tick both read the same prop and land on the same number, so steps are counted against a mirror that updates immediately rather than against the rendered value.
+  // Two clicks in one tick read the same prop, so steps count against a mirror.
   const pending = useRef(value);
   useEffect(() => {
     pending.current = value;

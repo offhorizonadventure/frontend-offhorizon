@@ -13,7 +13,7 @@ export type Film = {
   poster: StaticImageData;
 };
 
-/** Films are embedded through a facade (see `VideoPlayer`): the poster is a local image and nothing is requested from Google until the visitor presses... */
+/** Embedded through a facade (see `VideoPlayer`): nothing reaches Google until play. */
 export const films: Film[] = [
   { key: "himalayas", youtubeId: "p2EknuiON-8", seconds: 23, poster: himalayas },
   { key: "ladakh", youtubeId: "8_607eplWjU", seconds: 24, poster: ladakh },

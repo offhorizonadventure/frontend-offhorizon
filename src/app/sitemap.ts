@@ -14,14 +14,13 @@ const routes = [
   "/contact-us",
   "/custom-expeditions",
   "/blog",
+  "/terms-of-service",
+  "/privacy-policy",
   // Given to Meta as the data deletion instructions URL, so it has to stay reachable and indexed.
   "/account-deletion",
 ];
 
-/**
- * Rebuilt on the same schedule as the journal, so publishing a post puts it in
- * the sitemap without a redeploy.
- */
+/** Same schedule as the journal, so publishing adds to the sitemap. */
 export const revalidate = 600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

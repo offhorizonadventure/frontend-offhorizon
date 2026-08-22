@@ -69,7 +69,7 @@ export default async function TourPage({ params }: PageProps<"/[locale]/adventur
   const source = await getTour(slug);
   if (!source) notFound();
 
-  // English rows with the translated fields laid over them, so a tour that is half translated shows the half that is done.
+  // Translated fields laid over the English rows, field by field.
   const tour = translate(source, locale);
 
   const t = await getTranslations({ locale, namespace: "tour" });

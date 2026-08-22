@@ -48,11 +48,9 @@ export async function Program({ locale, days }: { locale: Locale; days: ProgramD
           {days.map((day) => (
             <li key={day.day} className="program-item">
               <details className="group/day bg-brand-950 relative block h-full overflow-hidden rounded-[24px]">
-                {/* Everything lives inside the summary. A closed <details>
-                    hides every child that is not the summary, so a photograph
-                    left outside it would only appear once the card was opened,
-                    and the summary is the only thing that can close a
-                    <details> without JavaScript. */}
+                {/* Everything lives inside the summary: a closed <details>
+                    hides anything else, and only the summary can close it
+                    without JavaScript. */}
                 <summary className="relative flex h-full cursor-pointer list-none flex-col justify-between p-6 [&::-webkit-details-marker]:hidden">
                   <Image
                     src={day.image}

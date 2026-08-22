@@ -44,7 +44,7 @@ export function ResetPasswordForm({
 
     if (result.error) return setError(result.error);
 
-    // Replace, not push: the reset link is spent, and Back should not return to a form that can no longer do anything.
+    // Replace, not push: the reset link is spent and Back must not return to it.
     router.replace("/account?password=changed");
     router.refresh();
   }

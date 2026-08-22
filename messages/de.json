@@ -1514,5 +1514,196 @@
       "body": "Die Termine stehen noch nicht fest. Sagen Sie uns, wann Sie fahren möchten, und wir bauen die Expedition darum herum.",
       "cta": "Individuelle Expedition planen"
     }
+  },
+  "legal": {
+    "updated": "Zuletzt aktualisiert am {date}",
+    "questions": "Fragen dazu richten Sie an",
+    "orThrough": "oder über das",
+    "contactForm": "Kontaktformular",
+    "prevail": "Diese Seite ist zur Bequemlichkeit übersetzt. Weichen Übersetzung und englische Fassung voneinander ab, gilt die englische Fassung.",
+    "terms": {
+      "eyebrow": "Bedingungen",
+      "title": "Allgemeine Geschäftsbedingungen",
+      "lead": "Die Vereinbarung zwischen Ihnen und Offhorizon Adventures, wenn Sie eine Expedition buchen. In klarem Deutsch und kurz genug, um sie zu lesen.",
+      "meta": {
+        "title": "Allgemeine Geschäftsbedingungen | Offhorizon Adventures",
+        "description": "Buchungsbedingungen für Expeditionen von Offhorizon Adventures: Zahlung, Stornierung, unsere Leistungen, was Sie mitbringen und was gilt, wenn eine Route geändert werden muss."
+      },
+      "sections": [
+        {
+          "title": "Mit wem Sie buchen",
+          "body": [
+            "Offhorizon Adventures führt geführte Motorrad- und 4x4-Expeditionen durch, mit Sitz in Log Huts Rd, Siyal, Manali, Himachal Pradesh 175131, Indien. In diesen Bedingungen meint wir Offhorizon Adventures, und Sie meint die buchende Person und alle auf der Buchung genannten Personen.",
+            "Mit der Buchung bestätigen Sie, dass Sie diese Bedingungen gelesen und im Namen aller Teilnehmenden Ihrer Gruppe angenommen haben."
+          ]
+        },
+        {
+          "title": "Buchung und Zahlung",
+          "body": [
+            "Eine Buchung ist bestätigt, sobald wir sie Ihnen schriftlich bestätigt haben und die Anzahlung bei uns eingegangen ist. Bis beides erfolgt ist, ist der Platz nicht reserviert.",
+            "Die Preise sind in US-Dollar festgelegt. Andere Währungen werden zum Tageskurs nur zur Orientierung angezeigt, der tatsächlich gezahlte Betrag hängt also vom Kurs zum Zahlungszeitpunkt ab. Flüge sind nie enthalten."
+          ],
+          "list": [
+            "Die Anzahlung ist bei Buchung fällig und sichert Ihren Platz",
+            "Der Restbetrag ist 45 Tage vor Abreise fällig, bei Buchung innerhalb von 45 Tagen sofort in voller Höhe",
+            "Geht der Restbetrag nicht fristgerecht ein, können wir die Buchung als von Ihnen storniert behandeln"
+          ]
+        },
+        {
+          "title": "Änderungen Ihrer Buchung",
+          "body": [
+            "Sagen Sie uns so früh wie möglich Bescheid, dann tun wir, was möglich ist. Ein Wechsel auf einen anderen Termin derselben Expedition ist mehr als 45 Tage vorher meist machbar, abhängig von freien Plätzen und von Kosten, die wir für Sie bereits übernommen haben.",
+            "Eine Namensänderung ist in der Regel unproblematisch, Genehmigungen für Sperrgebiete werden jedoch auf einen Reisepass ausgestellt und lassen sich nicht immer rechtzeitig neu ausstellen."
+          ]
+        },
+        {
+          "title": "Wenn Sie stornieren",
+          "body": [
+            "Stornierungen müssen uns schriftlich erreichen. Maßgeblich ist der Tag, an dem Ihre schriftliche Mitteilung bei uns eingeht.",
+            "Anzahlungen werden nicht erstattet, da sie Genehmigungen, Reservierungen und Fahrzeugbindungen bezahlen, die unmittelbar nach Ihrer Buchung anfallen."
+          ],
+          "list": [
+            "Mehr als 60 Tage vor Abreise: die Anzahlung wird einbehalten, alles Übrige erstattet",
+            "60 bis 30 Tage: 50 Prozent des Gesamtbetrags werden einbehalten",
+            "29 bis 15 Tage: 75 Prozent des Gesamtbetrags werden einbehalten",
+            "Innerhalb von 15 Tagen oder bei Nichterscheinen: keine Erstattung"
+          ]
+        },
+        {
+          "title": "Wenn wir ändern oder absagen",
+          "body": [
+            "Bergrouten ändern sich. Erdrutsche, Schnee, gesperrte Pässe, Wetter und behördliche Entscheidungen liegen außerhalb unserer Kontrolle, und Ihre Expeditionsleitung kann Route, Reihenfolge der Tage oder Unterkünfte anpassen, damit die Gruppe sicher weiterkommt. Wir streben stets eine Expedition gleichwertigen Standards an.",
+            "Sagen wir eine Expedition aus einem von uns zu vertretenden Grund vollständig ab, können Sie die volle Erstattung oder den Wechsel auf einen anderen Termin wählen. Jede Expedition braucht eine Mindestteilnehmerzahl; wird sie nicht erreicht, informieren wir Sie mindestens 30 Tage vor Abreise und bieten dieselbe Wahl an."
+          ]
+        },
+        {
+          "title": "Was Sie mitbringen müssen",
+          "body": [
+            "Einiges können nur Sie selbst besorgen, und ohne das dürfen Sie nicht fahren. Prüfen Sie es früh und nicht erst in der Woche davor."
+          ],
+          "list": [
+            "Einen gültigen Motorradführerschein Ihres Heimatlandes und einen internationalen Führerschein, beides als Papierdokument",
+            "Einen Reisepass, der nach Ihrem Rückreisedatum noch mindestens sechs Monate gültig ist, und das passende Visum",
+            "Eine Reiseversicherung, die Motorradfahren, Fahren abseits befestigter Straßen und Bergung in den Höhen Ihrer Route abdeckt",
+            "Ihre eigene Schutzkleidung, sofern nicht schriftlich anders vereinbart"
+          ]
+        },
+        {
+          "title": "Fahren, Risiko und Gruppe",
+          "body": [
+            "Fahren in der Höhe auf unbefestigten Bergstraßen birgt ein Risiko, das keine Planung beseitigt. Sie nehmen in Kenntnis dessen teil und sind dafür verantwortlich, im Rahmen Ihres Könnens zu fahren und in fahrtauglicher Verfassung anzureisen.",
+            "Die Entscheidung der Expeditionsleitung ist endgültig, wenn es um Sicherheit, Routenänderungen und die Weiterfahrt einzelner Teilnehmender geht. Wir können jemanden ohne Erstattung von einer Expedition ausschließen, wenn er gefährlich fährt, unter Alkohol- oder Drogeneinfluss fährt oder die Gruppe durch sein Verhalten gefährdet."
+          ]
+        },
+        {
+          "title": "Unsere Haftung",
+          "body": [
+            "Wir haften dafür, die in Ihrer Bestätigung beschriebene Expedition mit angemessener Sorgfalt und Sachkunde durchzuführen. Wir haften nicht für Schäden oder Verletzungen durch Ihr eigenes Verhalten, durch Dritte ohne Bezug zur Expedition oder durch Ereignisse, die wir weder vorhersehen noch vermeiden konnten, darunter Wetter, Erdrutsch, Straßensperrung, Streik, Unruhen und behördliche Entscheidungen.",
+            "Nichts in diesen Bedingungen beschränkt die Haftung für Tod oder Körperverletzung durch unsere Fahrlässigkeit oder für alles Weitere, was gesetzlich nicht beschränkt werden kann."
+          ]
+        },
+        {
+          "title": "Beschwerden, Recht und Gerichtsstand",
+          "body": [
+            "Wenn etwas nicht stimmt, sagen Sie es Ihrer Expeditionsleitung noch unterwegs, dort lässt es sich meist lösen. Ist das nicht möglich, schreiben Sie uns innerhalb von 28 Tagen nach Ihrer Rückkehr; wir antworten innerhalb von 28 Tagen.",
+            "Diese Bedingungen unterliegen indischem Recht, zuständig sind die Gerichte von Himachal Pradesh."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "eyebrow": "Datenschutz",
+      "title": "Datenschutzerklärung",
+      "lead": "Was wir erheben, wenn Sie anfragen, buchen oder ein Konto anlegen, warum wir es speichern und wie Sie eine Kopie oder die Löschung erhalten.",
+      "meta": {
+        "title": "Datenschutzerklärung | Offhorizon Adventures",
+        "description": "Wie Offhorizon Adventures personenbezogene Daten erhebt, nutzt und schützt, mit wem wir sie teilen, wie lange wir sie speichern und wie Sie Ihre Rechte ausüben."
+      },
+      "sections": [
+        {
+          "title": "Was wir erheben",
+          "body": [
+            "Nur das, was wir brauchen, um Ihnen zu antworten und Ihre Expedition durchzuführen. Wir kaufen keine Adresslisten und verkaufen nichts über Sie."
+          ],
+          "list": [
+            "Ihre Kontaktdaten: Name, E-Mail-Adresse, Telefonnummer und Land",
+            "Den Inhalt Ihrer Anfragen: Termine, Routen und Fragen, die Sie uns schicken",
+            "Buchungsdaten: die Reisenden der Buchung, Termine, Zimmer- und Fahrzeugwahl sowie Führerschein- und Passdaten, wo eine Genehmigung sie verlangt",
+            "Kontodaten, falls Sie ein Konto anlegen, einschließlich der Anmeldung über Google oder Facebook",
+            "Technische Daten, die Ihr Browser sendet: IP-Adresse, Gerät und besuchte Seiten"
+          ]
+        },
+        {
+          "title": "Wofür wir sie nutzen",
+          "body": [
+            "Um Anfragen zu beantworten, Angebote zu machen und Buchungen zu bestätigen, die für Ihre Route nötigen Genehmigungen zu beantragen, Zahlungen abzuwickeln und Sie über Änderungen an Ihrem Termin zu informieren.",
+            "Außerdem nutzen wir anonyme, zusammengefasste Zahlen, um zu sehen, welche Seiten gelesen werden. Das sagt uns, worüber wir als Nächstes schreiben, und identifiziert Sie nicht."
+          ]
+        },
+        {
+          "title": "Die Rechtsgrundlage",
+          "body": [
+            "Für Anfragen und Buchungen verarbeiten wir Ihre Daten, weil das für Maßnahmen auf Ihre Anfrage hin und für die Erfüllung unseres Vertrags mit Ihnen erforderlich ist.",
+            "Für Genehmigungen und für aufbewahrungspflichtige Unterlagen stützen wir uns auf gesetzliche Pflichten. Für alles Weitere, etwa Werbemails, stützen wir uns auf Ihre Einwilligung, die Sie jederzeit ohne Angabe von Gründen widerrufen können."
+          ]
+        },
+        {
+          "title": "Wer sonst Einblick hat",
+          "body": [
+            "Nur die Stellen, die für die Durchführung der Expedition nötig sind, und nur so viel, wie sie brauchen."
+          ],
+          "list": [
+            "Hotels, Gasthäuser und Camps auf Ihrer Route, für die Zimmer auf Ihren Namen",
+            "Behörden, die Genehmigungen für Sperrgebiete und Routen ausstellen",
+            "Unser Zahlungsdienstleister, der Kartendaten direkt verarbeitet, sodass wir sie nie speichern",
+            "Supabase, wo unsere Datenbank und die Anmeldung laufen, sowie unser E-Mail-Anbieter",
+            "Berufliche Berater oder Behörden, soweit das Gesetz es verlangt"
+          ]
+        },
+        {
+          "title": "Wo und wie lange gespeichert wird",
+          "body": [
+            "Die Daten liegen auf Servern unserer Hosting-Anbieter, die innerhalb oder außerhalb Ihres Landes stehen können. Verlassen Daten den Europäischen Wirtschaftsraum, stützen wir uns auf die Standardvertragsklauseln.",
+            "Anfragen werden zwei Jahre aufbewahrt. Buchungsunterlagen, Rechnungen und Zahlungsbelege werden acht Jahre aufbewahrt, wie es das indische Steuerrecht verlangt. Kontodaten bleiben bis zur Löschung des Kontos gespeichert."
+          ]
+        },
+        {
+          "title": "Ihre Rechte",
+          "body": [
+            "Sie können eine Kopie Ihrer Daten verlangen, deren Berichtigung oder Löschung fordern, der Nutzung widersprechen oder die Übertragung an einen Dritten verlangen. Wir antworten innerhalb von 30 Tagen, kostenlos.",
+            "Ihr Konto können Sie jederzeit selbst im Konto löschen. Wenn Sie in der Europäischen Union oder im Vereinigten Königreich leben, können Sie sich außerdem bei Ihrer nationalen Datenschutzbehörde beschweren."
+          ]
+        },
+        {
+          "title": "Cookies und Browser-Speicher",
+          "body": [
+            "Wir setzen keine Werbe-Cookies ein und verfolgen Sie nicht über andere Websites hinweg.",
+            "Ihr Browser speichert die gewählte Sprache und, wenn Sie auf Englisch lesen, das einmal erkannte Land, damit Preise in Ihrer Währung erscheinen. Die Anmeldung legt eine Sitzung an, damit Sie angemeldet bleiben. Das Leeren des Browser-Speichers entfernt all das."
+          ]
+        },
+        {
+          "title": "Änderungen und Kontakt",
+          "body": [
+            "Ändert sich diese Erklärung, aktualisieren wir das Datum oben auf dieser Seite und informieren Sie direkt, wenn die Änderung die Nutzung bereits übermittelter Daten betrifft.",
+            "Die für den Datenschutz verantwortliche Person bei Offhorizon Adventures erreichen Sie unter Log Huts Rd, Siyal, Manali, Himachal Pradesh 175131, Indien, oder per E-Mail."
+          ]
+        }
+      ]
+    }
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Diese Straße führt nicht weiter.",
+    "lead": "Die gesuchte Seite gibt es hier nicht. Vielleicht wurde sie verschoben, vielleicht ist der Link alt. Hier geht es zurück.",
+    "links": {
+      "home": "Zurück zur Startseite",
+      "tours": "Alle Expeditionen",
+      "destinations": "Reiseziele",
+      "contact": "Schreiben Sie uns"
+    },
+    "meta": {
+      "title": "Seite nicht gefunden | Offhorizon Adventures",
+      "description": "Die gesuchte Seite gibt es hier nicht."
+    }
   }
 }

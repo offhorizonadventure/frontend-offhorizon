@@ -23,7 +23,7 @@ type LanguageSwitcherProps = {
   variant?: "menu" | "row";
 };
 
-/** Client-side only for `usePathname()` - the markup is still server-rendered and every option is a real localized <a>, so crawlers follow them. */
+/** Client only for `usePathname()`; every option is a real localized link. */
 export function LanguageSwitcher({ label, variant = "menu" }: LanguageSwitcherProps) {
   const pathname = usePathname();
   const active = useLocale() as Locale;

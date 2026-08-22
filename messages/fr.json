@@ -1516,5 +1516,196 @@
       "body": "Les dates ne sont pas encore fixées. Dites-nous quand vous voulez rouler et nous construirons l'expédition autour.",
       "cta": "Planifier une expédition sur mesure"
     }
+  },
+  "legal": {
+    "updated": "Dernière mise à jour le {date}",
+    "questions": "Toute question à ce sujet peut être adressée à",
+    "orThrough": "ou via le",
+    "contactForm": "formulaire de contact",
+    "prevail": "Cette page est traduite pour votre confort. En cas de divergence entre une traduction et la version anglaise, la version anglaise fait foi.",
+    "terms": {
+      "eyebrow": "Conditions",
+      "title": "Conditions générales",
+      "lead": "L'accord entre vous et Offhorizon Adventures lorsque vous réservez une expédition. En français clair, et assez court pour être lu.",
+      "meta": {
+        "title": "Conditions générales | Offhorizon Adventures",
+        "description": "Conditions de réservation des expéditions Offhorizon Adventures : paiement, annulation, ce que nous fournissons, ce que vous apportez, et ce qui se passe si un itinéraire doit changer."
+      },
+      "sections": [
+        {
+          "title": "Avec qui vous réservez",
+          "body": [
+            "Offhorizon Adventures organise des expéditions guidées à moto et en 4x4 depuis Log Huts Rd, Siyal, Manali, Himachal Pradesh 175131, Inde. Dans ces conditions, nous désigne Offhorizon Adventures, et vous désigne la personne qui réserve ainsi que toutes les personnes inscrites sur la réservation.",
+            "Réserver une expédition signifie que vous avez lu ces conditions et que vous les acceptez au nom de tous les participants de votre groupe."
+          ]
+        },
+        {
+          "title": "Réservation et paiement",
+          "body": [
+            "Une réservation est confirmée lorsque nous vous l'avons confirmée par écrit et que l'acompte nous est parvenu. Tant que ces deux conditions ne sont pas remplies, la place n'est pas retenue.",
+            "Les prix sont fixés en dollars américains. Les autres devises sont affichées à titre indicatif au taux du jour, donc le montant réellement payé dépend du taux au moment du paiement. Les vols ne sont jamais inclus."
+          ],
+          "list": [
+            "L'acompte est dû au moment de la réservation et retient votre place",
+            "Le solde est dû 45 jours avant le départ, ou en totalité à la réservation si vous réservez à moins de 45 jours",
+            "Si le solde n'est pas réglé à l'échéance, nous pouvons considérer la réservation comme annulée par vous"
+          ]
+        },
+        {
+          "title": "Modifier votre réservation",
+          "body": [
+            "Prévenez-nous le plus tôt possible et nous ferons ce que nous pouvons. Passer sur un autre départ de la même expédition est généralement possible à plus de 45 jours, sous réserve de disponibilité et des frais déjà engagés pour vous.",
+            "Un changement de nom est normalement simple, mais les permis de zones réglementées sont délivrés au vu d'un passeport et ne peuvent pas toujours être réémis à temps."
+          ]
+        },
+        {
+          "title": "Si vous annulez",
+          "body": [
+            "Les annulations doivent nous parvenir par écrit. La date retenue est celle de réception de votre courrier.",
+            "Les acomptes ne sont pas remboursables, car ils couvrent les permis, les réservations et l'immobilisation des véhicules effectués dès votre réservation."
+          ],
+          "list": [
+            "Plus de 60 jours avant le départ : l'acompte est conservé, le reste est remboursé",
+            "De 60 à 30 jours : 50 pour cent du total est conservé",
+            "De 29 à 15 jours : 75 pour cent du total est conservé",
+            "À moins de 15 jours ou en cas d'absence : aucun remboursement"
+          ]
+        },
+        {
+          "title": "Si nous modifions ou annulons",
+          "body": [
+            "Les itinéraires de montagne changent. Glissements de terrain, neige, cols fermés, météo et décisions administratives échappent à notre contrôle, et votre chef d'expédition peut modifier l'itinéraire, l'ordre des journées ou les hébergements pour que le groupe avance en sécurité. Nous viserons toujours une expédition de niveau équivalent.",
+            "Si nous annulons purement et simplement une expédition pour une raison qui dépend de nous, vous pouvez choisir le remboursement intégral ou un transfert sur un autre départ. Chaque expédition exige un nombre minimum de participants ; si ce nombre n'est pas atteint, nous vous préviendrons au moins 30 jours avant le départ et vous proposerons le même choix."
+          ]
+        },
+        {
+          "title": "Ce que vous devez apporter",
+          "body": [
+            "Certaines choses ne dépendent que de vous, et sans elles vous ne pouvez pas rouler. Vérifiez-les tôt plutôt que la semaine précédente."
+          ],
+          "list": [
+            "Un permis moto valide de votre pays et un permis de conduire international, tous deux en version papier",
+            "Un passeport valable au moins six mois après votre date de retour, et le visa correspondant",
+            "Une assurance voyage couvrant la moto, la conduite hors route et l'évacuation aux altitudes de votre itinéraire",
+            "Votre propre équipement de pilotage, sauf accord écrit contraire"
+          ]
+        },
+        {
+          "title": "Pilotage, risque et vie de groupe",
+          "body": [
+            "Rouler en altitude sur des routes de montagne non revêtues comporte un risque qu'aucune préparation ne supprime. Vous participez en connaissance de cause et il vous appartient de rouler dans les limites de votre niveau et de vous présenter en condition.",
+            "La décision du chef d'expédition est sans appel en matière de sécurité, de changement d'itinéraire et de poursuite d'un participant. Nous pouvons exclure quelqu'un d'une expédition, sans remboursement, en cas de conduite dangereuse, de conduite sous l'emprise d'alcool ou de stupéfiants, ou de comportement mettant le groupe en danger."
+          ]
+        },
+        {
+          "title": "Notre responsabilité",
+          "body": [
+            "Nous sommes tenus d'organiser l'expédition décrite dans votre confirmation avec soin et compétence. Nous ne sommes pas responsables des dommages ou blessures causés par vos propres actes, par un tiers étranger à l'expédition, ou par des événements que nous ne pouvions ni prévoir ni éviter, notamment la météo, les glissements de terrain, les routes coupées, les grèves, les troubles civils et les décisions des autorités.",
+            "Rien dans ces conditions ne limite la responsabilité en cas de décès ou de blessure causés par notre négligence, ni pour tout ce qui ne peut être limité par la loi."
+          ]
+        },
+        {
+          "title": "Réclamations, droit applicable et juridiction",
+          "body": [
+            "Si quelque chose ne va pas, dites-le à votre chef d'expédition pendant le voyage, moment où cela peut généralement être réglé. Si le problème persiste, écrivez-nous dans les 28 jours suivant votre retour et nous répondrons sous 28 jours.",
+            "Ces conditions sont régies par le droit indien, et les tribunaux de l'Himachal Pradesh sont compétents."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "eyebrow": "Confidentialité",
+      "title": "Politique de confidentialité",
+      "lead": "Ce que nous collectons quand vous nous écrivez, réservez ou créez un compte, pourquoi nous le conservons, et comment en obtenir une copie ou la suppression.",
+      "meta": {
+        "title": "Politique de confidentialité | Offhorizon Adventures",
+        "description": "Comment Offhorizon Adventures collecte, utilise et protège vos données personnelles, avec qui nous les partageons, combien de temps nous les conservons et comment exercer vos droits."
+      },
+      "sections": [
+        {
+          "title": "Ce que nous collectons",
+          "body": [
+            "Uniquement ce dont nous avons besoin pour vous répondre et organiser votre expédition. Nous n'achetons pas de fichiers et nous ne vendons rien vous concernant."
+          ],
+          "list": [
+            "Vos coordonnées : nom, adresse e-mail, numéro de téléphone et pays",
+            "Le contenu de vos demandes : dates, itinéraires et questions que vous nous envoyez",
+            "Les détails de réservation : voyageurs inscrits, dates, choix de chambre et de véhicule, données de permis et de passeport lorsqu'une autorisation l'exige",
+            "Les données de compte si vous en créez un, y compris votre connexion Google ou Facebook",
+            "Les données techniques transmises par votre navigateur : adresse IP, appareil et pages consultées"
+          ]
+        },
+        {
+          "title": "Pourquoi nous les utilisons",
+          "body": [
+            "Pour répondre aux demandes, établir des devis et confirmer les réservations, demander les permis nécessaires à votre itinéraire, encaisser les paiements et vous informer des changements sur un départ auquel vous participez.",
+            "Nous utilisons aussi des chiffres agrégés et anonymes pour voir quelles pages sont lues, ce qui nous indique quoi écrire ensuite. Cela ne permet pas de vous identifier."
+          ]
+        },
+        {
+          "title": "La base juridique",
+          "body": [
+            "Pour les demandes et les réservations, nous traitons vos données parce que c'est nécessaire à des mesures prises à votre demande et à l'exécution de notre contrat avec vous.",
+            "Pour les permis et pour les registres que nous devons conserver, nous nous appuyons sur nos obligations légales. Pour le reste, comme les e-mails d'information, nous nous appuyons sur votre consentement, que vous pouvez retirer à tout moment sans avoir à vous justifier."
+          ]
+        },
+        {
+          "title": "Qui d'autre y a accès",
+          "body": [
+            "Uniquement les personnes nécessaires à la réalisation de l'expédition, et seulement ce dont elles ont besoin."
+          ],
+          "list": [
+            "Hôtels, maisons d'hôtes et camps de votre itinéraire, pour les chambres à votre nom",
+            "Les administrations qui délivrent les permis de zones réglementées et d'itinéraire",
+            "Notre prestataire de paiement, qui traite les données de carte directement, de sorte que nous ne les détenons jamais",
+            "Supabase, qui héberge notre base de données et la connexion, ainsi que notre prestataire d'e-mail",
+            "Des conseils professionnels ou des autorités lorsque la loi l'exige"
+          ]
+        },
+        {
+          "title": "Où elles sont conservées, et combien de temps",
+          "body": [
+            "Les données sont hébergées sur les serveurs de nos prestataires, qui peuvent se trouver dans votre pays ou en dehors. Lorsque des données quittent l'Espace économique européen, nous nous appuyons sur les clauses contractuelles types.",
+            "Les demandes sont conservées deux ans. Les dossiers de réservation, factures et justificatifs de paiement sont conservés huit ans, durée exigée par le droit fiscal indien. Les données de compte sont conservées jusqu'à la suppression du compte."
+          ]
+        },
+        {
+          "title": "Vos droits",
+          "body": [
+            "Vous pouvez demander une copie de ce que nous détenons, sa rectification, sa suppression, vous opposer à son utilisation ou demander son transfert à un tiers. Nous répondons sous 30 jours et sans frais.",
+            "Vous pouvez supprimer votre compte vous-même à tout moment depuis votre espace. Si vous résidez dans l'Union européenne ou au Royaume-Uni, vous pouvez également saisir votre autorité nationale de protection des données."
+          ]
+        },
+        {
+          "title": "Cookies et stockage du navigateur",
+          "body": [
+            "Nous n'utilisons pas de cookies publicitaires et nous ne vous suivons pas sur d'autres sites.",
+            "Votre navigateur conserve la langue que vous avez choisie et, si vous lisez en anglais, le pays détecté une seule fois afin d'afficher les prix dans votre devise. La connexion enregistre une session pour vous garder connecté. Vider le stockage de votre navigateur efface tout cela."
+          ]
+        },
+        {
+          "title": "Modifications et contact",
+          "body": [
+            "Si cette politique change, nous mettrons à jour la date en haut de cette page, et nous vous préviendrons directement si le changement concerne l'utilisation de données que vous nous avez déjà confiées.",
+            "Le responsable des données chez Offhorizon Adventures peut être joint à Log Huts Rd, Siyal, Manali, Himachal Pradesh 175131, Inde, ou par e-mail."
+          ]
+        }
+      ]
+    }
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Cette route ne passe pas.",
+    "lead": "La page demandée n'est pas ici. Elle a peut-être été déplacée, ou le lien est ancien. Voici le chemin du retour.",
+    "links": {
+      "home": "Retour à l'accueil",
+      "tours": "Toutes les expéditions",
+      "destinations": "Destinations",
+      "contact": "Nous écrire"
+    },
+    "meta": {
+      "title": "Page introuvable | Offhorizon Adventures",
+      "description": "La page demandée n'est pas ici."
+    }
   }
 }

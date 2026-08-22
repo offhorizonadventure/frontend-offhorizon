@@ -28,7 +28,7 @@ export async function Facts({
           {facts.map((fact) => {
             const Icon = factIcons[fact.key];
 
-            // Centred, not top aligned: the values run to one or two lines, and top alignment left twice as much slack under the short ones as under the long ones.
+            // Centred, not top aligned: the values run to one or two lines.
             return (
               <div key={fact.key} className="flex items-center gap-3.5 p-6">
                 <span className="text-ember-500">

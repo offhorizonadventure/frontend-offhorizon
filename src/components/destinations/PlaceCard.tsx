@@ -36,10 +36,9 @@ export function PlaceCard({
       href={href}
       className="group bg-brand-100 ring-brand-900/10 ease-out-expo @container block h-full overflow-hidden rounded-[28px] ring-1 transition-transform duration-500 hover:-translate-y-1"
     >
-      {/* A region card carries a line of description, so a 16:10 frame on a
-          narrow card is shorter than its own caption. The frame stands up as
-          the card narrows. Container queries, because the card width comes
-          from the grid, not the window. */}
+      {/* The frame stands up as the card narrows, or a 16:10 picture ends up
+          shorter than its own caption. Container queries: the width comes from
+          the grid, not the window. */}
       <article
         className={`relative ${
           frame === "portrait" ? "aspect-[3/4]" : "aspect-[4/5] @lg:aspect-[16/10]"

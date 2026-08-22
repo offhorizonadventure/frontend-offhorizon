@@ -1512,5 +1512,194 @@
       "body": "Seguimos fijando las fechas. Dinos cuándo quieres rodar y montamos la expedición a tu medida.",
       "cta": "Planear una expedición a medida"
     }
+  },
+  "legal": {
+    "updated": "Última actualización: {date}",
+    "questions": "Cualquier duda sobre esto va a",
+    "orThrough": "o a través del",
+    "contactForm": "formulario de contacto",
+    "prevail": "Esta página está traducida por comodidad. Si una traducción y la versión en inglés no coinciden, prevalece la versión en inglés.",
+    "terms": {
+      "eyebrow": "Condiciones",
+      "title": "Términos y condiciones",
+      "lead": "El acuerdo entre tú y Offhorizon Adventures cuando reservas una expedición. En español claro y lo bastante corto para leerlo.",
+      "meta": {
+        "title": "Términos y condiciones | Offhorizon Adventures",
+        "description": "Condiciones de reserva de las expediciones de Offhorizon Adventures: pago, cancelación, qué incluimos, qué traes tú y qué pasa si hay que cambiar una ruta."
+      },
+      "sections": [
+        {
+          "title": "Con quién reservas",
+          "body": [
+            "Offhorizon Adventures organiza expediciones guiadas en moto y en 4x4 desde Log Huts Rd, Siyal, Manali, Himachal Pradesh 175131, India. En estas condiciones, nosotros significa Offhorizon Adventures, y tú significa la persona que reserva y todas las personas incluidas en la reserva.",
+            "Reservar una expedición significa que has leído estas condiciones y las aceptas en nombre de todo tu grupo."
+          ]
+        },
+        {
+          "title": "Reserva y pago",
+          "body": [
+            "Una reserva queda confirmada cuando te lo hemos confirmado por escrito y el depósito nos ha llegado. Hasta que ocurran las dos cosas, la plaza no está guardada.",
+            "Los precios se fijan en dólares estadounidenses. Otras monedas se muestran de forma orientativa al cambio del día, así que la cifra que pagas depende del cambio en el momento del cobro. Los vuelos nunca están incluidos."
+          ],
+          "list": [
+            "El depósito se paga al reservar y guarda tu plaza",
+            "El resto se paga 45 días antes de la salida, o completo al reservar si reservas dentro de esos 45 días",
+            "Si el resto no llega en la fecha prevista podemos tratar la reserva como cancelada por ti"
+          ]
+        },
+        {
+          "title": "Cambiar tu reserva",
+          "body": [
+            "Dínoslo cuanto antes y haremos lo que podamos. Pasar a otra salida de la misma expedición suele ser posible a más de 45 días, según las plazas y los costes ya comprometidos por ti.",
+            "Un cambio de nombre normalmente es sencillo, pero los permisos de zonas restringidas se emiten contra un pasaporte y no siempre pueden reemitirse a tiempo."
+          ]
+        },
+        {
+          "title": "Si cancelas tú",
+          "body": [
+            "Las cancelaciones deben llegarnos por escrito. Vale la fecha en que recibimos tu aviso escrito.",
+            "Los depósitos no se devuelven, porque pagan permisos, reservas y bloqueo de vehículos que se hacen en cuanto reservas."
+          ],
+          "list": [
+            "Más de 60 días antes de la salida: se retiene el depósito y se devuelve el resto",
+            "De 60 a 30 días: se retiene el 50 por ciento del total",
+            "De 29 a 15 días: se retiene el 75 por ciento del total",
+            "Dentro de los 15 días o si no te presentas: sin devolución"
+          ]
+        },
+        {
+          "title": "Si cambiamos o cancelamos nosotros",
+          "body": [
+            "Las rutas de montaña cambian. Desprendimientos, nieve, puertos cerrados, meteorología y decisiones de la administración están fuera de nuestro control, y tu jefe de expedición puede alterar la ruta, el orden de los días o el alojamiento para que el grupo siga avanzando con seguridad. Siempre buscaremos una expedición del mismo nivel.",
+            "Si cancelamos una expedición por completo por un motivo que depende de nosotros, puedes elegir la devolución íntegra o el cambio a otra salida. Cada expedición necesita un número mínimo de participantes; si no se alcanza te avisaremos al menos 30 días antes de la salida y te ofreceremos la misma elección."
+          ]
+        },
+        {
+          "title": "Lo que tienes que traer",
+          "body": [
+            "Hay cosas que solo puedes conseguir tú, y sin ellas no puedes rodar. Revísalas pronto y no la semana antes."
+          ],
+          "list": [
+            "Un permiso de moto válido de tu país y un permiso internacional de conducción, ambos en papel",
+            "Un pasaporte con al menos seis meses de validez después de la fecha de regreso, y el visado correcto",
+            "Un seguro de viaje que cubra moto, conducción fuera de asfalto y evacuación a las altitudes de tu ruta",
+            "Tu propio equipamiento de conducción, salvo que acordemos otra cosa por escrito"
+          ]
+        },
+        {
+          "title": "Conducción, riesgo y grupo",
+          "body": [
+            "Rodar en altura por carreteras de montaña sin asfaltar tiene un riesgo que ninguna planificación elimina. Participas sabiéndolo y eres responsable de rodar dentro de tu nivel y de presentarte en condiciones.",
+            "La decisión del jefe de expedición es firme en materia de seguridad, cambios de ruta y continuidad de un participante. Podemos apartar a alguien de una expedición, sin devolución, por conducción peligrosa, por conducir bajo los efectos del alcohol o las drogas, o por comportamientos que pongan en riesgo al grupo."
+          ]
+        },
+        {
+          "title": "Nuestra responsabilidad",
+          "body": [
+            "Somos responsables de llevar a cabo la expedición descrita en tu confirmación con diligencia y competencia razonables. No respondemos de daños o lesiones causados por tus propios actos, por terceros ajenos a la expedición, o por hechos que no podíamos prever ni evitar, como la meteorología, desprendimientos, cortes de carretera, huelgas, disturbios y decisiones de las autoridades.",
+            "Nada en estas condiciones limita la responsabilidad por muerte o lesiones personales causadas por nuestra negligencia, ni por cualquier otra cosa que la ley no permita limitar."
+          ]
+        },
+        {
+          "title": "Reclamaciones, ley y jurisdicción",
+          "body": [
+            "Si algo va mal, díselo a tu jefe de expedición mientras estás en ruta, que es cuando suele poder arreglarse. Si no se resuelve allí, escríbenos dentro de los 28 días siguientes a tu regreso y responderemos en 28 días.",
+            "Estas condiciones se rigen por la ley de India, y los tribunales de Himachal Pradesh son los competentes."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "eyebrow": "Privacidad",
+      "title": "Política de privacidad",
+      "lead": "Qué recogemos cuando nos escribes, reservas o creas una cuenta, por qué lo guardamos y cómo pedir una copia o que lo borremos.",
+      "meta": {
+        "title": "Política de privacidad | Offhorizon Adventures",
+        "description": "Cómo Offhorizon Adventures recoge, usa y protege tus datos personales, con quién los compartimos, cuánto tiempo los guardamos y cómo ejercer tus derechos."
+      },
+      "sections": [
+        {
+          "title": "Qué recogemos",
+          "body": [
+            "Solo lo que necesitamos para responderte y para llevar a cabo tu expedición. No compramos listas y no vendemos nada sobre ti."
+          ],
+          "list": [
+            "Tus datos de contacto: nombre, correo electrónico, teléfono y país",
+            "El contenido de tus consultas: fechas, rutas y preguntas que nos envías",
+            "Los datos de la reserva: viajeros incluidos, fechas, elección de habitación y vehículo, y datos de permiso de conducir y pasaporte cuando un permiso los exige",
+            "Los datos de la cuenta si creas una, incluido el acceso con Google o Facebook",
+            "Los datos técnicos que envía tu navegador: dirección IP, dispositivo y páginas visitadas"
+          ]
+        },
+        {
+          "title": "Para qué los usamos",
+          "body": [
+            "Para responder consultas, presupuestar y confirmar reservas, solicitar los permisos que necesita tu ruta, cobrar los pagos y avisarte de los cambios en la salida en la que vas.",
+            "También usamos cifras agregadas y anónimas para ver qué páginas se leen, lo que nos dice sobre qué escribir después. Eso no te identifica."
+          ]
+        },
+        {
+          "title": "La base legal",
+          "body": [
+            "Para consultas y reservas tratamos tus datos porque es necesario para atender tu solicitud y para cumplir el contrato contigo.",
+            "Para los permisos y para los registros que debemos conservar nos basamos en obligaciones legales. Para lo demás, como los correos informativos, nos basamos en tu consentimiento, que puedes retirar cuando quieras sin dar explicaciones."
+          ]
+        },
+        {
+          "title": "Quién más los ve",
+          "body": ["Solo quien hace falta para realizar la expedición, y solo lo que necesita."],
+          "list": [
+            "Hoteles, casas de huéspedes y campamentos de tu ruta, para las habitaciones a tu nombre",
+            "Las administraciones que emiten los permisos de zonas restringidas y de ruta",
+            "Nuestro proveedor de pagos, que trata los datos de la tarjeta directamente, de modo que nosotros nunca los guardamos",
+            "Supabase, donde están nuestra base de datos y el acceso, y nuestro proveedor de correo",
+            "Asesores profesionales o autoridades cuando la ley lo exige"
+          ]
+        },
+        {
+          "title": "Dónde se guardan y cuánto tiempo",
+          "body": [
+            "Los datos están en servidores de nuestros proveedores de alojamiento, que pueden estar dentro o fuera de tu país. Cuando los datos salen del Espacio Económico Europeo nos apoyamos en las cláusulas contractuales tipo.",
+            "Las consultas se guardan dos años. Los expedientes de reserva, facturas y justificantes de pago se guardan ocho años, que es lo que exige la normativa fiscal india. Los datos de la cuenta se guardan hasta que la borras."
+          ]
+        },
+        {
+          "title": "Tus derechos",
+          "body": [
+            "Puedes pedir una copia de lo que tenemos, que lo corrijamos, que lo borremos, oponerte a su uso o pedir que lo enviemos a un tercero. Respondemos en 30 días y sin coste.",
+            "Puedes borrar tu cuenta tú mismo en cualquier momento desde tu cuenta. Si estás en la Unión Europea o en el Reino Unido, también puedes reclamar ante tu autoridad nacional de protección de datos."
+          ]
+        },
+        {
+          "title": "Cookies y almacenamiento del navegador",
+          "body": [
+            "No usamos cookies publicitarias ni te seguimos por otros sitios.",
+            "Tu navegador guarda el idioma que elegiste y, si lees en inglés, el país detectado una sola vez para mostrar los precios en tu moneda. Al iniciar sesión se guarda una sesión para mantenerte dentro. Borrar el almacenamiento del navegador elimina todo eso."
+          ]
+        },
+        {
+          "title": "Cambios y cómo localizarnos",
+          "body": [
+            "Si esta política cambia actualizaremos la fecha al principio de la página, y te avisaremos directamente si el cambio afecta al uso de datos que ya nos diste.",
+            "El responsable de datos de Offhorizon Adventures está en Log Huts Rd, Siyal, Manali, Himachal Pradesh 175131, India, o disponible por correo electrónico."
+          ]
+        }
+      ]
+    }
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Por aquí no se pasa.",
+    "lead": "La página que buscabas no está aquí. Puede que se haya movido o que el enlace sea antiguo. Por aquí se vuelve.",
+    "links": {
+      "home": "Volver al inicio",
+      "tours": "Todas las expediciones",
+      "destinations": "Destinos",
+      "contact": "Escríbenos"
+    },
+    "meta": {
+      "title": "Página no encontrada | Offhorizon Adventures",
+      "description": "La página que buscabas no está aquí."
+    }
   }
 }

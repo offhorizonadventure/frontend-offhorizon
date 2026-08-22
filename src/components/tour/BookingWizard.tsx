@@ -167,7 +167,7 @@ export function BookingWizard({
   const fleet = chosen?.kind === "4x4" ? (chosen.vehicles ?? []) : [];
   const picked = fleet.find((option) => option.id === vehicle) ?? null;
 
-  // Someone driving their own car pays for the expedition and nothing for a vehicle, so the daily rate simply drops out of the total.
+  // Own car: the daily vehicle rate drops out of the total.
   const vehicleCost = picked ? picked.perDay * days : 0;
 
   const total =
@@ -177,10 +177,10 @@ export function BookingWizard({
     rooms * prices.room +
     vehicleCost;
 
-  // Bounds that keep the answers consistent with each other: you cannot insure more machines than you have riders, or book more single rooms than people.
+  // Bounds that keep the answers consistent: no more insured machines than riders.
   const maxInsurance = riders;
   const maxRooms = riders + pillions;
-  // A year with nothing published cannot be continued through: there is no date to price, and walking a reader into a total for a trip that has no dates is worse than sending them to the custom expedition form.
+  // A year with nothing published cannot be continued through: there is no date to price.
   const noDates = step === 1 && options.length === 0;
   const canContinue = step === 0 ? year !== null : step === 1 ? departure !== null : true;
 
@@ -586,7 +586,7 @@ export function BookingWizard({
         )}
 
         {noDates ? (
-          // Nothing to price for this year, so the way forward is the custom expedition form rather than three more steps of a total nobody can book.
+          // Nothing to price this year, so the way on is the custom expedition form.
           <Link
             href="/custom-expeditions"
             className="group bg-brand-800 text-cream-100 hover:bg-brand-900 flex h-12 flex-1 items-center justify-center gap-2.5 rounded-full px-4 text-[11px] font-bold tracking-[0.1em] text-nowrap uppercase transition-colors duration-300"

@@ -34,7 +34,7 @@ export function AccountControl({
         onSignIn={() => setOpen(true)}
         onSignOut={async () => {
           await signOut();
-          // The navigation bar and the account pages are server rendered, so they only notice the session has gone on a refresh.
+          // The bar and the account pages are server rendered, so they notice a sign out on refresh.
           router.refresh();
         }}
         signIn={menu.signIn}

@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false }, { status: 401 });
   }
 
-  // "max" is the two-argument form Next 16 wants: it marks the tag stale and refreshes it on the next visit, rather than expiring it and making whoever arrives first wait for the database.
+  // "max" is the Next 16 two-argument form: mark the tag stale, refresh on the next visit.
   revalidateTag(CATALOGUE_TAG, "max");
 
   return NextResponse.json({ ok: true, cleared: CATALOGUE_TAG });

@@ -143,7 +143,7 @@ export function AuthModal({
       return;
     }
 
-    // Signed in: the page has to be re-rendered on the server for the navigation bar and the account pages to see the new session.
+    // Re-render on the server so the bar and the account pages see the new session.
     setPhase("closing");
     router.refresh();
   }

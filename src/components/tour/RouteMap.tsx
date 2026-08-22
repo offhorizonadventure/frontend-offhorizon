@@ -30,11 +30,8 @@ export async function RouteMap({
           {t("route.title")}
         </h2>
 
-        {/* A bundled import brings its own dimensions; a URL from storage does
-            not, and Next needs a pair either way. These set the ratio the
-            browser reserves space at, not the rendered size: the image is
-            `w-full h-auto`, so a taller map simply gets a taller box after it
-            loads. */}
+        {/* Next needs dimensions, and a storage URL brings none. These set the
+            ratio space is reserved at, not the rendered size. */}
         <Image
           data-anim="wipe"
           src={image}

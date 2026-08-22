@@ -10,7 +10,7 @@ const TABS = [
   { href: "/account/payments", label: "My payments" },
 ] as const;
 
-/** The section nav, marking the deepest match rather than every prefix, so "My profile" does not stay lit while you are on Bookings. */
+/** Marks the deepest match, not every prefix, so one item is lit at a time. */
 export function AccountNav() {
   const pathname = usePathname();
 

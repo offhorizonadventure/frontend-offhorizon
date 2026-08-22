@@ -1513,5 +1513,194 @@
       "body": "Stiamo ancora definendo le date. Dicci quando vuoi partire e costruiamo la spedizione su misura.",
       "cta": "Pianifica una spedizione su misura"
     }
+  },
+  "legal": {
+    "updated": "Ultimo aggiornamento {date}",
+    "questions": "Per domande su tutto questo scrivi a",
+    "orThrough": "oppure usa il",
+    "contactForm": "modulo di contatto",
+    "prevail": "Questa pagina è tradotta per comodità. In caso di discordanza tra una traduzione e la versione inglese, prevale la versione inglese.",
+    "terms": {
+      "eyebrow": "Condizioni",
+      "title": "Termini e condizioni",
+      "lead": "L'accordo tra te e Offhorizon Adventures quando prenoti una spedizione. In italiano semplice e abbastanza breve da leggere.",
+      "meta": {
+        "title": "Termini e condizioni | Offhorizon Adventures",
+        "description": "Condizioni di prenotazione delle spedizioni Offhorizon Adventures: pagamento, cancellazione, cosa forniamo, cosa porti tu e cosa succede se un itinerario deve cambiare."
+      },
+      "sections": [
+        {
+          "title": "Con chi stai prenotando",
+          "body": [
+            "Offhorizon Adventures organizza spedizioni guidate in moto e in 4x4 da Log Huts Rd, Siyal, Manali, Himachal Pradesh 175131, India. In queste condizioni, noi indica Offhorizon Adventures e tu indica chi effettua la prenotazione e tutte le persone indicate su di essa.",
+            "Prenotare una spedizione significa che hai letto queste condizioni e le accetti per conto di tutti i partecipanti del tuo gruppo."
+          ]
+        },
+        {
+          "title": "Prenotazione e pagamento",
+          "body": [
+            "Una prenotazione è confermata quando te l'abbiamo confermata per iscritto e l'acconto ci è arrivato. Finché non accadono entrambe le cose, il posto non è bloccato.",
+            "I prezzi sono fissati in dollari statunitensi. Le altre valute sono mostrate a titolo indicativo al cambio del giorno, quindi la cifra che paghi dipende dal cambio al momento dell'incasso. I voli non sono mai inclusi."
+          ],
+          "list": [
+            "L'acconto è dovuto al momento della prenotazione e blocca il tuo posto",
+            "Il saldo è dovuto 45 giorni prima della partenza, o per intero alla prenotazione se prenoti entro i 45 giorni",
+            "Se il saldo non arriva entro la scadenza possiamo considerare la prenotazione annullata da te"
+          ]
+        },
+        {
+          "title": "Modificare la prenotazione",
+          "body": [
+            "Dicci il prima possibile e faremo il possibile. Spostarsi su un'altra partenza della stessa spedizione di solito è fattibile oltre i 45 giorni, in base ai posti e ai costi già impegnati per te.",
+            "Un cambio di nome di norma è semplice, ma i permessi per le aree soggette a restrizioni vengono emessi su un passaporto e non sempre possono essere riemessi in tempo."
+          ]
+        },
+        {
+          "title": "Se annulli tu",
+          "body": [
+            "Le cancellazioni devono arrivarci per iscritto. Fa fede la data in cui riceviamo la tua comunicazione scritta.",
+            "Gli acconti non sono rimborsabili, perché coprono permessi, prenotazioni e fermo dei veicoli sostenuti appena prenoti."
+          ],
+          "list": [
+            "Oltre 60 giorni prima della partenza: l'acconto viene trattenuto, il resto rimborsato",
+            "Da 60 a 30 giorni: viene trattenuto il 50 per cento del totale",
+            "Da 29 a 15 giorni: viene trattenuto il 75 per cento del totale",
+            "Entro 15 giorni o mancata presentazione: nessun rimborso"
+          ]
+        },
+        {
+          "title": "Se cambiamo o annulliamo noi",
+          "body": [
+            "Gli itinerari di montagna cambiano. Frane, neve, passi chiusi, meteo e decisioni delle autorità non dipendono da noi, e il capo spedizione può modificare percorso, ordine delle giornate o alloggi per far procedere il gruppo in sicurezza. Punteremo sempre a una spedizione di pari livello.",
+            "Se annulliamo del tutto una spedizione per una ragione che dipende da noi, puoi scegliere il rimborso completo o il trasferimento su un'altra partenza. Ogni spedizione richiede un numero minimo di partecipanti: se non viene raggiunto te lo comunicheremo almeno 30 giorni prima della partenza, con la stessa scelta."
+          ]
+        },
+        {
+          "title": "Cosa devi portare",
+          "body": [
+            "Alcune cose puoi procurartele solo tu, e senza di esse non puoi guidare. Controllale per tempo, non la settimana prima."
+          ],
+          "list": [
+            "Una patente per moto valida del tuo paese e un permesso di guida internazionale, entrambi in formato cartaceo",
+            "Un passaporto valido almeno sei mesi dopo la data di rientro e il visto corretto",
+            "Un'assicurazione di viaggio che copra moto, guida fuoristrada ed evacuazione alle quote del tuo itinerario",
+            "Il tuo abbigliamento tecnico, salvo diverso accordo scritto"
+          ]
+        },
+        {
+          "title": "Guida, rischio e gruppo",
+          "body": [
+            "Guidare in quota su strade di montagna non asfaltate comporta un rischio che nessuna pianificazione elimina. Partecipi sapendolo e sei responsabile di guidare entro i tuoi limiti e di presentarti in condizioni adeguate.",
+            "La decisione del capo spedizione è definitiva su sicurezza, cambi di percorso e prosecuzione di un partecipante. Possiamo escludere qualcuno dalla spedizione, senza rimborso, per guida pericolosa, guida sotto effetto di alcol o droghe, o comportamenti che mettono a rischio il gruppo."
+          ]
+        },
+        {
+          "title": "La nostra responsabilità",
+          "body": [
+            "Siamo tenuti a condurre la spedizione descritta nella tua conferma con ragionevole diligenza e competenza. Non rispondiamo di danni o lesioni causati dalle tue azioni, da terzi estranei alla spedizione o da eventi che non potevamo prevedere né evitare, tra cui meteo, frane, chiusure stradali, scioperi, disordini e decisioni delle autorità.",
+            "Nulla in queste condizioni limita la responsabilità per morte o lesioni personali dovute a nostra negligenza, né per quanto non sia limitabile per legge."
+          ]
+        },
+        {
+          "title": "Reclami, legge e foro competente",
+          "body": [
+            "Se qualcosa non va, dillo al capo spedizione mentre sei ancora in viaggio, quando di solito si può risolvere. Se non si risolve lì, scrivici entro 28 giorni dal rientro e risponderemo entro 28 giorni.",
+            "Queste condizioni sono regolate dalla legge indiana e sono competenti i tribunali dell'Himachal Pradesh."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "eyebrow": "Privacy",
+      "title": "Informativa sulla privacy",
+      "lead": "Cosa raccogliamo quando ci scrivi, prenoti o crei un account, perché lo conserviamo e come ottenerne una copia o la cancellazione.",
+      "meta": {
+        "title": "Informativa sulla privacy | Offhorizon Adventures",
+        "description": "Come Offhorizon Adventures raccoglie, usa e protegge i tuoi dati personali, con chi li condividiamo, per quanto tempo li conserviamo e come esercitare i tuoi diritti."
+      },
+      "sections": [
+        {
+          "title": "Cosa raccogliamo",
+          "body": [
+            "Solo ciò che ci serve per risponderti e per organizzare la tua spedizione. Non compriamo liste e non vendiamo nulla che ti riguardi."
+          ],
+          "list": [
+            "I tuoi contatti: nome, indirizzo email, numero di telefono e paese",
+            "Il contenuto delle richieste: date, itinerari e domande che ci invii",
+            "I dati di prenotazione: i viaggiatori indicati, le date, la scelta di camera e veicolo, i dati di patente e passaporto quando un permesso li richiede",
+            "I dati dell'account se ne crei uno, compreso l'accesso con Google o Facebook",
+            "I dati tecnici inviati dal browser: indirizzo IP, dispositivo e pagine visitate"
+          ]
+        },
+        {
+          "title": "Perché li usiamo",
+          "body": [
+            "Per rispondere alle richieste, fare preventivi e confermare prenotazioni, richiedere i permessi necessari al tuo itinerario, incassare i pagamenti e avvisarti dei cambiamenti sulla partenza a cui partecipi.",
+            "Usiamo anche dati aggregati e anonimi per vedere quali pagine vengono lette, il che ci dice cosa scrivere dopo. Questo non ti identifica."
+          ]
+        },
+        {
+          "title": "La base giuridica",
+          "body": [
+            "Per richieste e prenotazioni trattiamo i tuoi dati perché è necessario per dare seguito alla tua richiesta e per eseguire il contratto con te.",
+            "Per i permessi e per i registri che dobbiamo conservare ci basiamo sugli obblighi di legge. Per il resto, come le email informative, ci basiamo sul tuo consenso, che puoi revocare in qualsiasi momento senza motivazione."
+          ]
+        },
+        {
+          "title": "Chi altro li vede",
+          "body": ["Solo chi serve per realizzare la spedizione, e solo per quanto necessario."],
+          "list": [
+            "Hotel, guesthouse e campi lungo il tuo itinerario, per le camere a tuo nome",
+            "Gli uffici pubblici che rilasciano i permessi per aree soggette a restrizioni e per il percorso",
+            "Il nostro fornitore di pagamenti, che tratta direttamente i dati della carta, che quindi non conserviamo mai",
+            "Supabase, che ospita il nostro database e l'accesso, e il nostro fornitore email",
+            "Consulenti o autorità quando la legge lo impone"
+          ]
+        },
+        {
+          "title": "Dove restano e per quanto",
+          "body": [
+            "I dati risiedono su server dei nostri fornitori di hosting, che possono trovarsi dentro o fuori dal tuo paese. Quando i dati escono dallo Spazio economico europeo ci basiamo sulle clausole contrattuali tipo.",
+            "Le richieste sono conservate due anni. Pratiche di prenotazione, fatture e documenti di pagamento sono conservati otto anni, come richiede la normativa fiscale indiana. I dati dell'account restano finché non elimini l'account."
+          ]
+        },
+        {
+          "title": "I tuoi diritti",
+          "body": [
+            "Puoi chiedere copia di ciò che conserviamo, la sua correzione o cancellazione, opporti all'uso o chiederne il trasferimento a terzi. Rispondiamo entro 30 giorni e senza costi.",
+            "Puoi eliminare l'account da solo in qualsiasi momento dall'area riservata. Se ti trovi nell'Unione europea o nel Regno Unito puoi anche rivolgerti all'autorità nazionale per la protezione dei dati."
+          ]
+        },
+        {
+          "title": "Cookie e memoria del browser",
+          "body": [
+            "Non usiamo cookie pubblicitari e non ti seguiamo su altri siti.",
+            "Il browser conserva la lingua scelta e, se leggi in inglese, il paese rilevato una sola volta per mostrare i prezzi nella tua valuta. L'accesso salva una sessione per mantenerti collegato. Svuotare la memoria del browser cancella tutto questo."
+          ]
+        },
+        {
+          "title": "Modifiche e contatti",
+          "body": [
+            "Se questa informativa cambia aggiorneremo la data in cima alla pagina e te lo diremo direttamente se il cambiamento riguarda l'uso di dati che ci hai già fornito.",
+            "Il responsabile dei dati di Offhorizon Adventures è raggiungibile a Log Huts Rd, Siyal, Manali, Himachal Pradesh 175131, India, o via email."
+          ]
+        }
+      ]
+    }
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Questa strada non passa.",
+    "lead": "La pagina che cercavi non è qui. Forse è stata spostata, o il link è vecchio. Da qui si torna indietro.",
+    "links": {
+      "home": "Torna alla home",
+      "tours": "Tutte le spedizioni",
+      "destinations": "Destinazioni",
+      "contact": "Scrivici"
+    },
+    "meta": {
+      "title": "Pagina non trovata | Offhorizon Adventures",
+      "description": "La pagina che cercavi non è qui."
+    }
   }
 }

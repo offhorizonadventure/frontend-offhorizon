@@ -33,7 +33,7 @@ export async function currencyForVisitor(locale: Locale): Promise<Currency> {
 export async function getRate(from: Currency, to: Currency): Promise<number> {
   if (from === to) return 1;
 
-  // Cached for half a day and shared across every visitor, so a page showing twenty prices makes no requests at all after the first.
+  // Cached for half a day and shared, so twenty prices on a page cost one request.
   const response = await fetch(`${ENDPOINT}/${from}`, {
     next: { revalidate: REVALIDATE, tags: ["fx"] },
   });
@@ -57,7 +57,7 @@ export function formatMoney(amount: number, currency: Currency, locale: Locale) 
 
 /** Converts a base-currency amount into the visitor's currency and formats it. */
 export async function getPrice(amount: number, locale: Locale, from?: string) {
-  // `from` is the currency the price was authored in, which a departure carries on its row: an expedition quoted in euros must not be read as dollars.
+  // `from` is the currency the price was authored in, carried on the departure row.
   const source = (from?.toUpperCase() as Currency) ?? baseCurrency;
   const target = await currencyForVisitor(locale);
 

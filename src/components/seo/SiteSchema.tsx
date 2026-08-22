@@ -35,7 +35,7 @@ export function SiteSchema({ locale }: { locale: Locale }) {
     publisher: { "@id": `${siteUrl}/#organisation` },
   };
 
-  // One graph rather than two script tags, so the website and the organisation point at each other by id instead of repeating themselves.
+  // One graph, so the website and the organisation point at each other by id.
   const graph = { "@context": "https://schema.org", "@graph": [organisation, website] };
 
   return (

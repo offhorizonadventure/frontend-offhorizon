@@ -184,7 +184,7 @@ export default async function CountryPage({
 
           <ul data-anim-group className="mt-10 grid gap-6 lg:grid-cols-2">
             {page.regions.map((region) => {
-              // A region is running when the country it belongs to has tours with dates on them; the config only says whether the region has its own written page.
+              // Running means the country has dated tours; the config only says whether the region has a page.
               const live = region.status === "live" && running > 0;
 
               return (

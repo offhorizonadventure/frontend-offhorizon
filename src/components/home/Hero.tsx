@@ -13,7 +13,7 @@ export async function Hero() {
   const ts = await getTranslations("home.stats");
   const format = await getFormatter();
 
-  /** Every figure is derived from something stated elsewhere on the site, so none of them can be contradicted by the About page. */
+  /** Derived from figures stated elsewhere, so the About page cannot contradict them. */
   const stats = [
     { value: format.number(yearsRunning), key: "years" },
     { value: format.number(COUNTRY_COUNT), key: "countries" },

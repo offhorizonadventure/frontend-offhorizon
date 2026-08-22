@@ -57,7 +57,7 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
       title: "Expedition price",
       lines: [
         { icon: "rider", label: "Rider", amount: cheapest.rider_price ?? 0 },
-        // A zero is not "included": these are options a tour either offers or does not, and a price of nothing on a room nobody can book is a promise the trip cannot keep.
+        // A zero is not "included": it means the tour does not offer the option at all.
         ...(cheapest.pillion_price
           ? [
               {
@@ -126,13 +126,13 @@ export const departureList = (departures: Departure[]) =>
   departures.map((departure) => ({
     start: departure.start_date,
     end: departure.end_date,
-    // A departure with nothing left is sold out whether or not the switch has been thrown, so the two are settled here rather than on the card.
+    // No seats left is sold out whether or not the switch was thrown.
     soldOut: departure.sold_out || left(departure) === 0,
     solo: departure.rider_price ?? 0,
     twin: departure.pillion_price ?? 0,
     seats: left(departure),
     kind: departure.kind,
-    // Only the ones with a rate: a car with no daily price cannot be totalled, and offering it would produce a quote that is quietly wrong.
+    // Only cars with a rate: one without cannot be totalled.
     vehicles: departure.vehicles
       .filter((vehicle) => vehicle.per_day_price)
       .map((vehicle) => ({
@@ -174,7 +174,7 @@ export const expectList = (tour: Tour) => {
   const gallery = tour.gallery.map((image) => imageUrl(image.path)!).filter(Boolean);
   const hero = imageUrl(tour.hero_path) ?? "";
 
-  // Fisher-Yates over a copy: `sort(() => Math.random() - 0.5)` is the usual shortcut and is not an even shuffle, which shows as the same photograph turning up in the first panel far too often.
+  // Fisher-Yates over a copy: the `sort(() => Math.random() - 0.5)` shortcut is not even.
   const shuffled = [...gallery];
   for (let index = shuffled.length - 1; index > 0; index -= 1) {
     const swap = Math.floor(Math.random() * (index + 1));

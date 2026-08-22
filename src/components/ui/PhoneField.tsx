@@ -39,7 +39,7 @@ export function PhoneField({
   const [number, setNumber] = useState(defaultNumber);
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
-  /** The option list is built only once the picker has been opened, which can only happen after a click and therefore only on the client. */
+  /** The option list is built only once the picker has been opened. */
   const [everOpened, setEverOpened] = useState(false);
 
   const wrapper = useRef<HTMLDivElement>(null);

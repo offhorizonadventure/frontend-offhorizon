@@ -220,12 +220,8 @@ body:has([data-tour-actions]) [data-floating-enquiry] {
   transform-origin: left;
 }
 
-/* ---- Partner marquee -----------------------------------------------------
-   A full-bleed band ruled top and bottom, rather than a floating strip. The
-   set repeats PARTNER_REPEATS (4) times and the track travels exactly one set
-   width (25%), so the loop is seamless with no JavaScript. Slots are a fixed
-   width, which is what makes every logo hold the same footprint whatever its
-   shape.                                                                     */
+/* Partner marquee. The set repeats 4 times and the track travels one set
+   width (25%), so the loop is seamless with no JavaScript. */
 
 .pm-marquee {
   overflow: hidden;
@@ -297,12 +293,8 @@ body:has([data-tour-actions]) [data-floating-enquiry] {
   }
 }
 
-/* ---- Destination gallery --------------------------------------------------
-   Below lg: a snap-scrolling rail.
-   From lg: an expanding accordion. Panels share the width via `flex-grow: 1`
-   and the hovered or focused one grows, which compresses its neighbours.
-   `flex-grow` animates, so the whole interaction is CSS and works before
-   hydration. GSAP only layers the entrance wipe and image parallax on top.  */
+/* Destination gallery. A snap rail below lg, an accordion above: `flex-grow`
+   animates, so it works before hydration. */
 
 .dg-rail {
   display: flex;
@@ -505,10 +497,8 @@ select:focus-visible {
   animation: modal-out 260ms cubic-bezier(0.4, 0, 1, 1) both;
 }
 
-/* Tour itinerary rail. Held to the same container as every other section
-   rather than bleeding to the viewport edge, so the first and last cards line
-   up with the headings above them. It still scrolls; it just scrolls inside
-   the column. */
+/* Tour itinerary rail. Scrolls inside the column, not to the viewport edge,
+   so the first card lines up with the heading above it. */
 .program-rail {
   display: flex;
   gap: 1rem;
@@ -589,16 +579,10 @@ select:focus-visible {
   }
 }
 
-/* Expedition facts grid.
-   One white card with real borders between the cells, rather than a tinted
-   background showing through 1px gaps. The gap trick renders unevenly at
-   fractional device pixel ratios, and the line colour cannot be set
-   independently of the card behind it.
-
-   Every rule below is deliberately `:nth-child(...)` so all of them carry the
-   same specificity and source order decides the winner. Written with a plain
-   `> *` reset instead, the narrow breakpoint's nth-child rules outrank the wide
-   breakpoint's reset and leak borders into the first row. */
+/* Expedition facts grid. Real borders between cells, not gaps showing a tint
+   through, which renders unevenly at fractional pixel ratios.
+   Every rule is `:nth-child(...)` so specificity is equal and source order
+   wins; a plain `> *` reset would leak borders into the first row. */
 .facts-grid {
   --facts-line: color-mix(in srgb, var(--color-brand-900) 12%, transparent);
   display: grid;

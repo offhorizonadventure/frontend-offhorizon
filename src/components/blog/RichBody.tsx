@@ -131,7 +131,7 @@ function Cells({ row }: { row: RichNode }) {
   );
 }
 
-/** `nested` marks content inside a cell or a list item, where the column rules do not apply: the cell is already the column. */
+/** `nested` marks content inside a cell or list item, where column rules do not apply. */
 function Block({ nodes, nested = false }: { nodes: RichNode[] | undefined; nested?: boolean }) {
   return (
     <>

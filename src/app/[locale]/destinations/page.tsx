@@ -119,7 +119,7 @@ export default async function DestinationsPage({ params }: PageProps<"/[locale]/
 
           <ul data-anim-group className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {countryPages.map((page) => {
-              // Running or planned is a fact about the catalogue now, not a flag in a config file: a country is running when it has a published tour with a dated departure on it.
+              // Running or planned is a fact about the catalogue, not a flag in a config file.
               const count = counts.get(page.slug) ?? 0;
               const live = count > 0;
 

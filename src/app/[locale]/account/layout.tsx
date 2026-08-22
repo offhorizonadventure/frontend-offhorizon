@@ -16,7 +16,7 @@ export default async function AccountLayout({ children }: { children: React.Reac
   const profile = await getProfile();
   if (!profile) redirect("/");
 
-  // First name only, and the local part of the address when there is no name, which is the case for an account that signed up without giving one.
+  // First name, or the local part of the address when the account has no name.
   const name = profile.full_name?.trim().split(/\s+/)[0] || profile.email?.split("@")[0] || "there";
   return (
     <>

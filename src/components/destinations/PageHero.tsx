@@ -39,10 +39,8 @@ export function PageHero({
             sizes="100vw"
             className="object-cover"
           />
-          {/* Three layers. The vertical scrim seats the section into the page,
-              the horizontal one darkens only the column the type sits in so the
-              landscape stays readable on the right, and the tint pulls whatever
-              the photograph is doing toward the palette. */}
+          {/* Three layers: a vertical scrim, a horizontal one behind the type,
+              and a tint that pulls the photograph toward the palette. */}
           <span
             aria-hidden
             className="from-brand-950 via-brand-950/70 to-brand-950/45 absolute inset-0 bg-gradient-to-t"

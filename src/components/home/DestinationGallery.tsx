@@ -33,7 +33,7 @@ export async function DestinationGallery() {
                   alt={td(destination.key)}
                   fill
                   placeholder="blur"
-                  // The gallery sits above the fold, and the GSAP entrance clips each panel to zero area, which would defer a lazy load until after the wipe.
+                  // Above the fold, and the entrance clips panels to zero area, which defers a lazy load.
                   priority
                   sizes="(max-width: 767px) 78vw, (max-width: 1023px) 46vw, 40vw"
                   quality={90}

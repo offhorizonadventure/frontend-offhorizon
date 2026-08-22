@@ -17,7 +17,7 @@ import { resolveLocale } from "@/i18n/params";
 import { listDepartures, listTours, priceFrom } from "@/lib/catalogue";
 import { buildMetadata, siteName, siteUrl } from "@/lib/seo";
 
-/** Countries in the order the destination arc uses, so the page reads the same way as the rest of the site. */
+/** Countries in the order the destination arc uses. */
 const COUNTRY_ORDER = ["india", "nepal", "sri-lanka", "bhutan", "mongolia"] as const;
 
 export const revalidate = 600;
@@ -51,7 +51,7 @@ export default async function AdventureToursPage({
   const [tours, departures] = await Promise.all([listTours(), listDepartures()]);
   const tourCount = tours.length;
 
-  // One card needs its tour, its cheapest dated price and the currency that price is in, so the three are gathered once rather than per card.
+  // Tour, cheapest dated price and its currency, gathered once rather than per card.
   const cards = tours.map((tour) => {
     const dated = departures.filter((departure) => departure.tour_id === tour.id);
 

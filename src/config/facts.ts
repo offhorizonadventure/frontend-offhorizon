@@ -1,6 +1,6 @@
 import { crewCount } from "./team";
 
-/** Verifiable facts about the operation, in one place so the homepage and the About page cannot drift apart. */
+/** Verifiable facts about the operation, in one place so pages cannot disagree. */
 export const FOUNDED_YEAR = 2014;
 
 /** Counted from the founding year, so it never goes stale. */

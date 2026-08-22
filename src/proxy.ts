@@ -37,7 +37,7 @@ function detectLocale(request: NextRequest) {
 export default async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Already on a locale path: nothing to redirect, but the session still has to be refreshed, or an expiring token is never rotated while someone browses.
+  // On a locale path already: no redirect, but the session still needs refreshing.
   if (isLocale(pathname.split("/")[1])) {
     const response = await refreshSession(request, NextResponse.next({ request }));
     rememberCountry(request, response);

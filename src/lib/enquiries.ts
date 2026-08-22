@@ -69,7 +69,7 @@ export async function submitCustomEnquiry(input: CustomEnquiryInput): Promise<Su
           party_model: "vehicle" as const,
           vehicle_choice: input.vehicleChoice,
           people: input.people,
-          // Recomputed here rather than trusted from the form, so the stored figure always satisfies the four-per-vehicle rule.
+          // Recomputed here rather than trusted from the form.
           vehicles: vehiclesFor(input.people),
         };
 

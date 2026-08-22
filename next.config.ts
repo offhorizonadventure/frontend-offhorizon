@@ -6,16 +6,9 @@ const nextConfig: NextConfig = {
   compress: true,
 
   /**
-   * Headers every response carries.
-   *
-   * `X-Robots-Tag` says the same thing the robots meta tag says, but in the
-   * response itself: crawlers that fetch a PDF, an image or a sitemap never see
-   * the HTML, so the meta tag cannot reach them. The two have to agree, and
-   * both say index and follow with full snippets and large image previews.
-   *
-   * The rest are the ordinary protections. None of them affects indexing; they
-   * are here because a site handling sign in and payment details should not
-   * wait for a launch checklist to set them.
+   * `X-Robots-Tag` repeats the robots meta tag in the response itself, which is
+   * the only copy a crawler fetching a PDF or a sitemap sees. The rest are the
+   * ordinary protections and do not affect indexing.
    */
   async headers() {
     return [
@@ -54,19 +47,13 @@ const nextConfig: NextConfig = {
 
   images: {
     formats: ["image/avif", "image/webp"],
-    /**
-     * Next re-encodes every image it serves, and since 16 the only quality it
-     * will use is 75 unless the value is listed here. A photograph stored at 92
-     * was being compressed a second time at 75, which is where the softness on
-     * the tour cards came from. 90 is the one the photography uses; 75 stays
-     * for anything decorative.
-     */
+    // Next re-encodes at 75 unless the quality is listed here, which was
+    // compressing the photography a second time. 90 for photographs.
+
     qualities: [75, 90],
     remotePatterns: [
       { protocol: "https", hostname: "flagcdn.com" },
-      // Journal covers and the pictures inside a post, served from Supabase
-      // Storage. Narrowed to the project host in the environment file rather
-      // than opening every https origin.
+      // Journal images from Supabase Storage, narrowed to the project host.
       {
         protocol: "https",
         hostname: new URL(process.env.NEXT_PUBLIC_SUPABASE_URL ?? "https://placeholder.supabase.co")

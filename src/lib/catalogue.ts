@@ -125,7 +125,7 @@ const unquote = (line: string) => line.replace(/^["“]([\s\S]*)["”]$/, "$1").
 /** One line of what is in the price, or what is not. */
 export type Inclusion = { title: string; body: string };
 
-// Unquoted on the way out: inclusion lines are often pasted in already quoted, and the quotes are part of how they were written down, not of the sentence.
+// Inclusion lines are often pasted in already quoted; the quotes are not the sentence.
 const asInclusions = (items: unknown): Inclusion[] =>
   ((items ?? []) as Inclusion[])
     .map((row) => ({ title: unquote(row.title ?? ""), body: unquote(row.body ?? "") }))

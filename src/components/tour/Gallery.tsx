@@ -52,7 +52,7 @@ export function Gallery({
       if (event.key === "ArrowLeft") step(-1);
     };
 
-    // Locking the body rather than the html element, so the scrollbar gutter does not disappear and shift the page underneath.
+    // Lock the body, not html, so the scrollbar gutter stays and the page does not shift.
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);

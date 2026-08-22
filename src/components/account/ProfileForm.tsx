@@ -18,10 +18,10 @@ export function ProfileForm({
   name: string;
   phone: string;
 }) {
-  // Nothing about an account requires a number, but every departure does: it is how we reach someone about weather, a permit or a changed start time.
+  // An account does not need a number, but a departure does.
   const missingPhone = !phone.trim();
 
-  // The dial code is part of the stored number, so it has to be handed back to the picker: without it the field reopens on the visitor's own country and saving would rewrite a +91 number as +1.
+  // The dial code is part of the stored number, so it has to be handed back to the picker.
   const dialled = splitPhone(phone);
   const router = useRouter();
   const [pending, setPending] = useState(false);

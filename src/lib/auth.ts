@@ -30,7 +30,7 @@ export async function signUp(
     email,
     password,
     options: {
-      // Carried in metadata only so the database trigger can copy it into the profile row the moment the account is created.
+      // In metadata so the trigger can copy it into the profile row at sign up.
       data: { full_name: profile.name, phone: profile.phone },
       emailRedirectTo: callback("/account"),
     },
