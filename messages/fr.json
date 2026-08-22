@@ -1429,7 +1429,8 @@
         "note": "Converti depuis le dollar américain au taux du jour : le montant final dépendra du taux au moment du paiement. Les vols ne sont pas compris.",
         "dates": "Dates",
         "flexible": "Flexible",
-        "guide": "Lisez comment fonctionne la réservation avant de payer"
+        "guide": "Lisez comment fonctionne la réservation avant de payer",
+        "book": "Réserver ce départ"
       }
     },
     "more": "Lire la suite",
@@ -1807,5 +1808,115 @@
       "primary": "Voir les expéditions",
       "secondary": "Lire les conditions"
     }
+  },
+  "checkout": {
+    "eyebrow": "Paiement",
+    "planTitle": "Comment souhaitez-vous payer ?",
+    "full": "Tout payer",
+    "fullNote": "Réglé en une fois. Votre formulaire de documents s'ouvre aussitôt.",
+    "deposit": "Payer 20 pour cent maintenant",
+    "depositNote": "Retient votre place. Réglez le reste en plusieurs fois, la totalité étant due 14 jours avant le départ.",
+    "detailsTitle": "Qui réserve",
+    "name": "Nom complet",
+    "email": "Adresse e-mail",
+    "phone": "Numéro de téléphone",
+    "pay": "Continuer vers le paiement",
+    "paying": "Ouverture du paiement",
+    "opening": "Ouverture de la fenêtre de paiement.",
+    "dismissed": "La fenêtre de paiement a été fermée. Rien n'a été débité.",
+    "unavailable": "La fenêtre de paiement n'a pas pu s'ouvrir. Vérifiez votre connexion et réessayez.",
+    "agree": "En payant, vous acceptez les conditions générales, y compris le fait que les sommes versées ne sont pas remboursables.",
+    "guideLead": "Vous ne savez pas comment cela fonctionne ?",
+    "guideLink": "Lire comment réserver",
+    "dates": "Dates",
+    "riders": "Pilotes",
+    "pillions": "Passagers",
+    "rooms": "Chambres individuelles",
+    "protection": "Protection dommages",
+    "vehicle": "Véhicule",
+    "ownVehicle": "Le vôtre",
+    "total": "Total",
+    "note": "Les prix sont fixés en dollars américains et débités dans la devise affichée, au taux du jour. Ce taux est ensuite figé pour toute la réservation.",
+    "signInTitle": "Connectez-vous pour finaliser cette réservation",
+    "signInLead": "Utilisez le bouton compte dans la barre ci-dessus pour vous connecter ou créer un compte. Vos choix restent en place pendant ce temps, et cette page reprend dès que vous êtes connecté."
+  },
+  "bookings": {
+    "title": "Mes réservations",
+    "lead": "Tout ce sur quoi vous êtes inscrit, et ce qu'il reste à payer.",
+    "empty": "Vous n'avez pas encore réservé d'expédition.",
+    "browse": "Voir les expéditions",
+    "view": "Voir",
+    "party": "{riders, plural, one {# pilote} other {# pilotes}}{pillions, plural, =0 {} one {, # passager} other {, # passagers}}",
+    "left": "{amount} restant à payer, dû le {date}",
+    "settled": "Payé intégralement",
+    "status": {
+      "paid": "Payé intégralement",
+      "balance": "Solde à régler",
+      "cancelled": "Annulée"
+    },
+    "detail": {
+      "back": "Toutes les réservations",
+      "reference": "Référence",
+      "dates": "Dates",
+      "party": "Qui vient",
+      "paid": "Déjà payé",
+      "outstanding": "Reste à payer",
+      "total": "Total",
+      "dueOn": "Tout est dû au plus tard le {date}",
+      "settled": "Cette expédition est payée.",
+      "cancelled": "Cette réservation a été annulée.",
+      "payTitle": "Régler une partie du solde",
+      "payLead": "Le montant que vous voulez, autant de fois que vous voulez, dans la limite du reste à payer.",
+      "amount": "Montant",
+      "pay": "Payer ce montant",
+      "paying": "Ouverture du paiement",
+      "opening": "Ouverture de la fenêtre de paiement.",
+      "dismissed": "La fenêtre de paiement a été fermée. Rien n'a été débité.",
+      "unavailable": "La fenêtre de paiement n'a pas pu s'ouvrir. Réessayez.",
+      "leadOnly": "Seul le pilote qui a fait la réservation peut la régler.",
+      "paymentsTitle": "Paiements",
+      "paymentKind": {
+        "deposit": "Acompte",
+        "full": "Payé intégralement",
+        "instalment": "Versement"
+      },
+      "groupTitle": "Qui figure sur cette réservation",
+      "lead": "A fait la réservation",
+      "rider": "Pilote",
+      "pillion": "Passager",
+      "unclaimed": "Pas encore rejoint",
+      "joined": "A rejoint",
+      "inviteTitle": "Inviter les autres pilotes",
+      "inviteLead": "Envoyez à chaque pilote son propre lien. Il crée un compte, rejoint le groupe et remplit ses propres documents.",
+      "copy": "Copier le lien",
+      "copied": "Copié",
+      "formTitle": "Vos documents",
+      "formLocked": "Le formulaire de documents s'ouvre une fois l'expédition intégralement payée.",
+      "formLead": "Permis, passeport, assurance et les informations nécessaires à vos autorisations.",
+      "formOpen": "Ouvrir le formulaire",
+      "formDone": "J'ai envoyé mes documents",
+      "formSaved": "Merci, c'est noté."
+    }
+  },
+  "join": {
+    "eyebrow": "Invitation",
+    "title": "Vous êtes invité à une expédition.",
+    "lead": "Connectez-vous ou créez un compte avec le bouton de la barre ci-dessus, puis rouvrez ce lien. Votre place, votre formulaire de documents et le groupe vous attendent derrière.",
+    "problem": "Cette invitation n'a pas pu être utilisée.",
+    "bookings": "Mes réservations",
+    "signIn": "Retour au site"
+  },
+  "payments": {
+    "title": "Mes paiements",
+    "lead": "Tous les paiements de vos réservations, du plus récent au plus ancien.",
+    "empty": "Vous n'avez encore effectué aucun paiement.",
+    "paid": "Payé",
+    "refunded": "Remboursé",
+    "kind": {
+      "deposit": "Acompte",
+      "full": "Payé intégralement",
+      "instalment": "Versement"
+    },
+    "receipts": "Un reçu est envoyé par e-mail par Razorpay à chaque paiement. Aucune donnée de carte n'est conservée ici."
   }
 }

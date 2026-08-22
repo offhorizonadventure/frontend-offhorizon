@@ -46,7 +46,8 @@ export async function buildBooking({
     locale,
     // "12 riders" and the like; fall back to a sane cap when it does not parse.
     maxRiders: Number(groupSize.match(/\d+/)?.[0]) || 12,
-    departures: departures.map(({ start, end, soldOut, seats, kind, vehicles }) => ({
+    departures: departures.map(({ id, start, end, soldOut, seats, kind, vehicles }) => ({
+      id,
       start,
       end,
       soldOut,

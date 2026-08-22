@@ -1425,7 +1425,8 @@
         "note": "Convertido de dólares estadounidenses al cambio de hoy, así que el importe final depende del cambio el día que pagues. Los vuelos no están incluidos.",
         "dates": "Fechas",
         "flexible": "Flexible",
-        "guide": "Lee cómo funciona la reserva antes de pagar"
+        "guide": "Lee cómo funciona la reserva antes de pagar",
+        "book": "Reservar esta salida"
       }
     },
     "more": "Leer más",
@@ -1801,5 +1802,115 @@
       "primary": "Ver las expediciones",
       "secondary": "Leer las condiciones"
     }
+  },
+  "checkout": {
+    "eyebrow": "Pago",
+    "planTitle": "¿Cómo prefieres pagar?",
+    "full": "Pagar todo",
+    "fullNote": "Liquidado en un pago. Tu formulario de documentos se abre en seguida.",
+    "deposit": "Pagar el 20 por ciento ahora",
+    "depositNote": "Guarda tu plaza. El resto a plazos, todo pagado 14 días antes de la salida.",
+    "detailsTitle": "Quién reserva",
+    "name": "Nombre completo",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "pay": "Continuar al pago",
+    "paying": "Abriendo el pago",
+    "opening": "Abriendo la ventana de pago.",
+    "dismissed": "Se cerró la ventana de pago. No se ha cobrado nada.",
+    "unavailable": "No se pudo abrir la ventana de pago. Revisa tu conexión e inténtalo otra vez.",
+    "agree": "Al pagar aceptas los términos y condiciones, incluido que el dinero pagado no se devuelve.",
+    "guideLead": "¿No sabes cómo funciona esto?",
+    "guideLink": "Lee cómo funciona la reserva",
+    "dates": "Fechas",
+    "riders": "Pilotos",
+    "pillions": "Acompañantes",
+    "rooms": "Habitaciones individuales",
+    "protection": "Protección de daños",
+    "vehicle": "Vehículo",
+    "ownVehicle": "El tuyo",
+    "total": "Total",
+    "note": "Los precios se fijan en dólares estadounidenses y se cobran en la moneda mostrada, al cambio de hoy. Ese cambio queda fijado para toda la reserva.",
+    "signInTitle": "Inicia sesión para terminar esta reserva",
+    "signInLead": "Usa el botón de cuenta de la barra de arriba para iniciar sesión o crear una cuenta. Tus elecciones se mantienen mientras tanto, y esta página sigue en cuanto entres."
+  },
+  "bookings": {
+    "title": "Mis reservas",
+    "lead": "Todo en lo que estás y lo que queda por pagar.",
+    "empty": "Todavía no has reservado ninguna expedición.",
+    "browse": "Ver las expediciones",
+    "view": "Ver",
+    "party": "{riders, plural, one {# piloto} other {# pilotos}}{pillions, plural, =0 {} one {, # acompañante} other {, # acompañantes}}",
+    "left": "Quedan {amount} por pagar, antes del {date}",
+    "settled": "Pagada por completo",
+    "status": {
+      "paid": "Pagada por completo",
+      "balance": "Queda saldo",
+      "cancelled": "Cancelada"
+    },
+    "detail": {
+      "back": "Todas las reservas",
+      "reference": "Número de reserva",
+      "dates": "Fechas",
+      "party": "Quién viene",
+      "paid": "Pagado hasta ahora",
+      "outstanding": "Queda por pagar",
+      "total": "Total",
+      "dueOn": "Todo debe estar pagado antes del {date}",
+      "settled": "Esta expedición está pagada.",
+      "cancelled": "Esta reserva fue cancelada.",
+      "payTitle": "Pagar parte del saldo",
+      "payLead": "El importe que quieras, tantas veces como quieras, hasta lo que quede.",
+      "amount": "Importe",
+      "pay": "Pagar este importe",
+      "paying": "Abriendo el pago",
+      "opening": "Abriendo la ventana de pago.",
+      "dismissed": "Se cerró la ventana de pago. No se ha cobrado nada.",
+      "unavailable": "No se pudo abrir la ventana de pago. Inténtalo otra vez.",
+      "leadOnly": "Solo quien hizo la reserva puede pagar por ella.",
+      "paymentsTitle": "Pagos",
+      "paymentKind": {
+        "deposit": "Depósito",
+        "full": "Pagada por completo",
+        "instalment": "Plazo"
+      },
+      "groupTitle": "Quién está en esta reserva",
+      "lead": "Hizo la reserva",
+      "rider": "Piloto",
+      "pillion": "Acompañante",
+      "unclaimed": "Aún no se ha unido",
+      "joined": "Se ha unido",
+      "inviteTitle": "Invita a los demás pilotos",
+      "inviteLead": "Envía a cada piloto su propio enlace. Crea una cuenta, se une al grupo y rellena sus documentos.",
+      "copy": "Copiar enlace",
+      "copied": "Copiado",
+      "formTitle": "Tus documentos",
+      "formLocked": "El formulario de documentos se abre cuando la expedición está pagada por completo.",
+      "formLead": "Permiso de conducir, pasaporte, seguro y los datos que hacen falta para tus permisos.",
+      "formOpen": "Abrir el formulario",
+      "formDone": "He enviado mis documentos",
+      "formSaved": "Gracias, queda anotado."
+    }
+  },
+  "join": {
+    "eyebrow": "Invitación",
+    "title": "Te han invitado a una expedición.",
+    "lead": "Inicia sesión o crea una cuenta con el botón de la barra de arriba y vuelve a abrir este enlace. Detrás están tu plaza, tu formulario de documentos y el grupo.",
+    "problem": "Esa invitación no se ha podido usar.",
+    "bookings": "Mis reservas",
+    "signIn": "Volver al sitio"
+  },
+  "payments": {
+    "title": "Mis pagos",
+    "lead": "Cada pago de tus reservas, del más reciente al más antiguo.",
+    "empty": "Todavía no has hecho ningún pago.",
+    "paid": "Pagado",
+    "refunded": "Devuelto",
+    "kind": {
+      "deposit": "Depósito",
+      "full": "Pagada por completo",
+      "instalment": "Plazo"
+    },
+    "receipts": "Razorpay envía por correo un recibo de cada pago. Los datos de la tarjeta nunca se guardan aquí."
   }
 }

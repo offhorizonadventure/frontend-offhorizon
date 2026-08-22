@@ -1427,7 +1427,8 @@
         "note": "Zum heutigen Kurs aus US-Dollar umgerechnet, der Endbetrag hängt also vom Kurs am Zahltag ab. Flüge sind nicht enthalten.",
         "dates": "Termin",
         "flexible": "Flexibel",
-        "guide": "Lesen Sie vor der Zahlung, wie die Buchung funktioniert"
+        "guide": "Lesen Sie vor der Zahlung, wie die Buchung funktioniert",
+        "book": "Diesen Termin buchen"
       }
     },
     "more": "Mehr lesen",
@@ -1805,5 +1806,115 @@
       "primary": "Expeditionen ansehen",
       "secondary": "Bedingungen lesen"
     }
+  },
+  "checkout": {
+    "eyebrow": "Zahlung",
+    "planTitle": "Wie möchten Sie zahlen?",
+    "full": "Alles zahlen",
+    "fullNote": "In einer Zahlung erledigt. Ihr Unterlagenformular öffnet sich sofort.",
+    "deposit": "Jetzt 20 Prozent zahlen",
+    "depositNote": "Sichert Ihren Platz. Den Rest in Raten, vollständig fällig 14 Tage vor Abreise.",
+    "detailsTitle": "Wer bucht",
+    "name": "Vollständiger Name",
+    "email": "E-Mail-Adresse",
+    "phone": "Telefonnummer",
+    "pay": "Weiter zur Zahlung",
+    "paying": "Zahlung wird geöffnet",
+    "opening": "Das Zahlungsfenster wird geöffnet.",
+    "dismissed": "Das Zahlungsfenster wurde geschlossen. Es wurde nichts abgebucht.",
+    "unavailable": "Das Zahlungsfenster ließ sich nicht öffnen. Prüfen Sie die Verbindung und versuchen Sie es erneut.",
+    "agree": "Mit der Zahlung akzeptieren Sie die Geschäftsbedingungen, einschließlich, dass gezahlte Beträge nicht erstattet werden.",
+    "guideLead": "Unklar, wie das alles läuft?",
+    "guideLink": "So funktioniert die Buchung",
+    "dates": "Termin",
+    "riders": "Fahrer",
+    "pillions": "Sozius",
+    "rooms": "Einzelzimmer",
+    "protection": "Schadensschutz",
+    "vehicle": "Fahrzeug",
+    "ownVehicle": "Ihr eigenes",
+    "total": "Gesamt",
+    "note": "Die Preise sind in US-Dollar festgelegt und werden in der angezeigten Währung zum heutigen Kurs abgebucht. Dieser Kurs bleibt für die gesamte Buchung fest.",
+    "signInTitle": "Melden Sie sich an, um diese Buchung abzuschließen",
+    "signInLead": "Nutzen Sie die Kontoschaltfläche in der Leiste oben, um sich anzumelden oder ein Konto anzulegen. Ihre Auswahl bleibt so lange erhalten, und diese Seite macht weiter, sobald Sie angemeldet sind."
+  },
+  "bookings": {
+    "title": "Meine Buchungen",
+    "lead": "Alles, wobei Sie dabei sind, und was noch offen ist.",
+    "empty": "Sie haben noch keine Expedition gebucht.",
+    "browse": "Expeditionen ansehen",
+    "view": "Ansehen",
+    "party": "{riders, plural, one {# Fahrer} other {# Fahrer}}{pillions, plural, =0 {} one {, # Sozius} other {, # Sozius}}",
+    "left": "{amount} noch offen, fällig am {date}",
+    "settled": "Vollständig bezahlt",
+    "status": {
+      "paid": "Vollständig bezahlt",
+      "balance": "Restbetrag offen",
+      "cancelled": "Storniert"
+    },
+    "detail": {
+      "back": "Alle Buchungen",
+      "reference": "Buchungsnummer",
+      "dates": "Termin",
+      "party": "Wer mitkommt",
+      "paid": "Bisher gezahlt",
+      "outstanding": "Noch offen",
+      "total": "Gesamt",
+      "dueOn": "Alles fällig bis zum {date}",
+      "settled": "Diese Expedition ist bezahlt.",
+      "cancelled": "Diese Buchung wurde storniert.",
+      "payTitle": "Auf den Restbetrag zahlen",
+      "payLead": "Jeder Betrag, so oft Sie wollen, bis zur Höhe des offenen Rests.",
+      "amount": "Betrag",
+      "pay": "Diesen Betrag zahlen",
+      "paying": "Zahlung wird geöffnet",
+      "opening": "Das Zahlungsfenster wird geöffnet.",
+      "dismissed": "Das Zahlungsfenster wurde geschlossen. Es wurde nichts abgebucht.",
+      "unavailable": "Das Zahlungsfenster ließ sich nicht öffnen. Versuchen Sie es erneut.",
+      "leadOnly": "Nur wer die Buchung gemacht hat, kann darauf zahlen.",
+      "paymentsTitle": "Zahlungen",
+      "paymentKind": {
+        "deposit": "Anzahlung",
+        "full": "Vollständig bezahlt",
+        "instalment": "Rate"
+      },
+      "groupTitle": "Wer auf dieser Buchung steht",
+      "lead": "Hat gebucht",
+      "rider": "Fahrer",
+      "pillion": "Sozius",
+      "unclaimed": "Noch nicht beigetreten",
+      "joined": "Beigetreten",
+      "inviteTitle": "Die anderen Fahrer einladen",
+      "inviteLead": "Schicken Sie jedem Fahrer seinen eigenen Link. Er legt ein Konto an, tritt der Gruppe bei und füllt seine eigenen Unterlagen aus.",
+      "copy": "Link kopieren",
+      "copied": "Kopiert",
+      "formTitle": "Ihre Unterlagen",
+      "formLocked": "Das Unterlagenformular öffnet sich, sobald die Expedition vollständig bezahlt ist.",
+      "formLead": "Führerschein, Reisepass, Versicherung und die Angaben für Ihre Genehmigungen.",
+      "formOpen": "Formular öffnen",
+      "formDone": "Ich habe meine Unterlagen geschickt",
+      "formSaved": "Danke, das ist vermerkt."
+    }
+  },
+  "join": {
+    "eyebrow": "Einladung",
+    "title": "Sie sind zu einer Expedition eingeladen.",
+    "lead": "Melden Sie sich mit der Schaltfläche in der Leiste oben an oder legen Sie ein Konto an und öffnen Sie diesen Link erneut. Dahinter warten Ihr Platz, Ihr Unterlagenformular und die Gruppe.",
+    "problem": "Diese Einladung konnte nicht verwendet werden.",
+    "bookings": "Meine Buchungen",
+    "signIn": "Zurück zur Website"
+  },
+  "payments": {
+    "title": "Meine Zahlungen",
+    "lead": "Jede Zahlung zu Ihren Buchungen, die neueste zuerst.",
+    "empty": "Sie haben noch keine Zahlung geleistet.",
+    "paid": "Bezahlt",
+    "refunded": "Erstattet",
+    "kind": {
+      "deposit": "Anzahlung",
+      "full": "Vollständig bezahlt",
+      "instalment": "Rate"
+    },
+    "receipts": "Razorpay schickt zu jeder Zahlung eine Quittung per E-Mail. Kartendaten werden hier nie gespeichert."
   }
 }

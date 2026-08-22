@@ -1,85 +1,95 @@
-import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
-import { DemoNote, Panel, Pill } from "@/components/account/parts";
+import { Panel, Pill } from "@/components/account/parts";
 import { ArrowRight } from "@/components/ui/icons";
-import ladakh from "../../../../../public/tours/ladakh-motorcycle-tour.jpg";
-import nepal from "../../../../../public/tours/nepal-motorcycle-tour.jpg";
+import { Link } from "@/i18n/navigation";
+import { resolveLocale } from "@/i18n/params";
+import { listMyBookings, outstanding } from "@/lib/booking/read";
+import { formatMoney } from "@/lib/currency";
 
-/** Sample rows. Replaced by the real thing when bookings are built. */
-const BOOKINGS = [
-  {
-    id: "OFH-2026-0148",
-    tour: "Ladakh Motorcycle Expedition",
-    image: ladakh,
-    dates: "11 – 22 July 2026",
-    riders: "1 rider, 1 pillion",
-    status: "confirmed" as const,
-    balance: "Paid in full",
-  },
-  {
-    id: "OFH-2026-0212",
-    tour: "Nepal Motorcycle Tour",
-    image: nepal,
-    dates: "5 – 14 September 2026",
-    riders: "2 riders",
-    status: "pending" as const,
-    balance: "Balance due 1 August",
-  },
-];
+/** Every expedition this rider is on. */
+export default async function BookingsPage({ params }: LayoutProps<"/[locale]">) {
+  const locale = await resolveLocale(params);
+  const t = await getTranslations({ locale, namespace: "bookings" });
+  const bookings = await listMyBookings();
 
-export default function BookingsPage() {
+  const dates = (start: string, end: string) =>
+    new Intl.DateTimeFormat(locale, {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    }).formatRange(new Date(`${start}T00:00:00Z`), new Date(`${end}T00:00:00Z`));
+
   return (
-    <Panel title="My bookings" lead="Everything you have booked, and what is still to pay.">
-      <ul className="space-y-4">
-        {BOOKINGS.map((booking) => (
-          <li
-            key={booking.id}
-            className="group ring-brand-900/8 hover:ring-brand-900/20 grid gap-5 rounded-[20px] bg-white p-4 ring-1 transition-shadow sm:grid-cols-[10rem_1fr_auto] sm:items-center"
+    <Panel title={t("title")} lead={t("lead")}>
+      {bookings.length === 0 ? (
+        <div className="border-brand-900/12 rounded-[20px] border border-dashed px-6 py-12 text-center">
+          <p className="text-brand-900/70 text-[14px]">{t("empty")}</p>
+          <Link
+            href="/adventure-tours"
+            className="group bg-brand-800 text-cream-100 hover:bg-brand-900 mt-6 inline-flex h-11 items-center gap-2.5 rounded-full px-6 text-[10.5px] font-bold tracking-[0.12em] uppercase transition-colors"
           >
-            <div className="bg-brand-100 relative aspect-[4/3] overflow-hidden rounded-[14px] sm:aspect-[4/3]">
-              <Image
-                src={booking.image}
-                alt=""
-                fill
-                placeholder="blur"
-                sizes="160px"
-                className="object-cover"
-              />
-            </div>
+            {t("browse")}
+            <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
+        </div>
+      ) : (
+        <ul className="space-y-4">
+          {bookings.map((booking) => {
+            const left = outstanding(booking);
 
-            <div className="min-w-0">
-              <div className="flex flex-wrap items-center gap-2.5">
-                <Pill tone={booking.status}>
-                  {booking.status === "confirmed" ? "Confirmed" : "Awaiting balance"}
-                </Pill>
-                <span className="text-brand-800/45 font-mono text-[11.5px]">{booking.id}</span>
-              </div>
+            return (
+              <li key={booking.id}>
+                <Link
+                  href={`/account/bookings/${booking.reference}`}
+                  className="group ring-brand-900/8 hover:ring-brand-900/20 flex flex-wrap items-center justify-between gap-5 rounded-[20px] bg-white p-5 ring-1 transition-shadow"
+                >
+                  <div className="min-w-0">
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <Pill tone={left > 0 ? "pending" : "confirmed"}>
+                        {booking.status === "cancelled"
+                          ? t("status.cancelled")
+                          : left > 0
+                            ? t("status.balance")
+                            : t("status.paid")}
+                      </Pill>
+                      <span className="text-brand-800/45 font-mono text-[11.5px]">
+                        {booking.reference}
+                      </span>
+                    </div>
 
-              <h3 className="font-display text-brand-900 mt-2.5 text-[17px] leading-tight font-bold tracking-[-0.02em]">
-                {booking.tour}
-              </h3>
+                    <h3 className="font-display text-brand-900 mt-2.5 text-[17px] leading-tight font-bold tracking-[-0.02em]">
+                      {booking.tour.title}
+                    </h3>
 
-              <p className="text-brand-800/60 mt-1.5 text-[13.5px]">
-                {booking.dates} · {booking.riders}
-              </p>
-              <p className="text-brand-800/45 mt-1 text-[13px]">{booking.balance}</p>
-            </div>
+                    <p className="text-brand-800/60 mt-1.5 text-[13.5px]">
+                      {dates(booking.departure.start_date, booking.departure.end_date)} ·{" "}
+                      {t("party", { riders: booking.riders, pillions: booking.pillions })}
+                    </p>
 
-            <button
-              type="button"
-              className="border-brand-900/20 text-brand-800 hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100 inline-flex h-11 items-center gap-2.5 justify-self-start rounded-full border px-5 text-[10.5px] font-bold tracking-[0.12em] uppercase transition-colors sm:justify-self-auto"
-            >
-              View
-              <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
-          </li>
-        ))}
-      </ul>
+                    <p className="text-brand-800/45 mt-1 text-[13px]">
+                      {left > 0
+                        ? t("left", {
+                            amount: formatMoney(left, booking.currency as never, locale),
+                            date: new Intl.DateTimeFormat(locale, {
+                              day: "numeric",
+                              month: "long",
+                            }).format(new Date(`${booking.balance_due_on}T00:00:00Z`)),
+                          })
+                        : t("settled")}
+                    </p>
+                  </div>
 
-      <DemoNote>
-        A design only screen. These two bookings are made up, and the View button does not go
-        anywhere yet.
-      </DemoNote>
+                  <span className="border-brand-900/20 text-brand-800 group-hover:border-brand-800 group-hover:bg-brand-800 group-hover:text-cream-100 inline-flex h-11 items-center gap-2.5 rounded-full border px-5 text-[10.5px] font-bold tracking-[0.12em] uppercase transition-colors">
+                    {t("view")}
+                    <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </Panel>
   );
 }

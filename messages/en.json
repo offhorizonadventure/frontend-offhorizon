@@ -1423,7 +1423,8 @@
         "note": "Converted from US dollars at today's rate, so the final figure depends on the rate on the day you pay. Flights are not included.",
         "dates": "Dates",
         "flexible": "Flexible",
-        "guide": "Read how booking works before you pay"
+        "guide": "Read how booking works before you pay",
+        "book": "Book this departure"
       }
     },
     "more": "Read more",
@@ -1799,5 +1800,115 @@
       "primary": "See the expeditions",
       "secondary": "Read the full terms"
     }
+  },
+  "checkout": {
+    "eyebrow": "Checkout",
+    "planTitle": "How would you like to pay?",
+    "full": "Pay in full",
+    "fullNote": "Settled in one payment. Your documents form opens straight away.",
+    "deposit": "Pay 20 percent now",
+    "depositNote": "Holds your place. Pay the rest in instalments, all of it due 14 days before departure.",
+    "detailsTitle": "Who is booking",
+    "name": "Full name",
+    "email": "Email address",
+    "phone": "Phone number",
+    "pay": "Continue to payment",
+    "paying": "Opening payment",
+    "opening": "Opening the payment window.",
+    "dismissed": "The payment window was closed. Nothing has been charged.",
+    "unavailable": "The payment window could not be opened. Check your connection and try again.",
+    "agree": "By paying you accept the terms of service, including that money paid is not refundable.",
+    "guideLead": "Not sure how any of this works?",
+    "guideLink": "Read how booking works",
+    "dates": "Dates",
+    "riders": "Riders",
+    "pillions": "Pillions",
+    "rooms": "Single rooms",
+    "protection": "Damage protection",
+    "vehicle": "Vehicle",
+    "ownVehicle": "Your own",
+    "total": "Total",
+    "note": "Prices are set in US dollars and charged in the currency shown, at today's rate. That rate is then fixed for the whole booking.",
+    "signInTitle": "Sign in to finish this booking",
+    "signInLead": "Use the account button in the bar above to sign in or make an account. Your choices are held right here while you do, and this page carries on the moment you are in."
+  },
+  "bookings": {
+    "title": "My bookings",
+    "lead": "Everything you are on, and what is still to pay.",
+    "empty": "You have not booked an expedition yet.",
+    "browse": "See the expeditions",
+    "view": "View",
+    "party": "{riders, plural, one {# rider} other {# riders}}{pillions, plural, =0 {} one {, # pillion} other {, # pillions}}",
+    "left": "{amount} still to pay, due {date}",
+    "settled": "Paid in full",
+    "status": {
+      "paid": "Paid in full",
+      "balance": "Balance outstanding",
+      "cancelled": "Cancelled"
+    },
+    "detail": {
+      "back": "All bookings",
+      "reference": "Booking reference",
+      "dates": "Dates",
+      "party": "Who is coming",
+      "paid": "Paid so far",
+      "outstanding": "Still to pay",
+      "total": "Total",
+      "dueOn": "Everything is due by {date}",
+      "settled": "This expedition is paid for.",
+      "cancelled": "This booking was cancelled.",
+      "payTitle": "Pay towards the balance",
+      "payLead": "Any amount, as many times as you like, up to what is left.",
+      "amount": "Amount",
+      "pay": "Pay this amount",
+      "paying": "Opening payment",
+      "opening": "Opening the payment window.",
+      "dismissed": "The payment window was closed. Nothing has been charged.",
+      "unavailable": "The payment window could not be opened. Try again.",
+      "leadOnly": "Only the rider who made the booking can pay towards it.",
+      "paymentsTitle": "Payments",
+      "paymentKind": {
+        "deposit": "Deposit",
+        "full": "Paid in full",
+        "instalment": "Instalment"
+      },
+      "groupTitle": "Who is on this booking",
+      "lead": "Made the booking",
+      "rider": "Rider",
+      "pillion": "Pillion",
+      "unclaimed": "Not yet joined",
+      "joined": "Joined",
+      "inviteTitle": "Invite the other riders",
+      "inviteLead": "Send each rider their own link. They make an account, join the group and fill in their own documents.",
+      "copy": "Copy link",
+      "copied": "Copied",
+      "formTitle": "Your documents",
+      "formLocked": "The documents form opens once the expedition is paid for in full.",
+      "formLead": "Licence, passport, insurance and the details we need for your permits.",
+      "formOpen": "Open the form",
+      "formDone": "I have sent my documents",
+      "formSaved": "Thank you, that is noted."
+    }
+  },
+  "join": {
+    "eyebrow": "Invitation",
+    "title": "You have been invited on an expedition.",
+    "lead": "Sign in or make an account with the button in the bar above, then open this link again. Your place, your documents form and the group are waiting behind it.",
+    "problem": "That invitation could not be used.",
+    "bookings": "My bookings",
+    "signIn": "Back to the site"
+  },
+  "payments": {
+    "title": "My payments",
+    "lead": "Every payment against your bookings, newest first.",
+    "empty": "You have not made a payment yet.",
+    "paid": "Paid",
+    "refunded": "Refunded",
+    "kind": {
+      "deposit": "Deposit",
+      "full": "Paid in full",
+      "instalment": "Instalment"
+    },
+    "receipts": "A receipt for every payment is emailed by Razorpay when it is taken. Card details are never stored here."
   }
 }

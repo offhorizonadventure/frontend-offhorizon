@@ -1,95 +1,66 @@
-import { DemoNote, Panel, Pill } from "@/components/account/parts";
+import { getTranslations } from "next-intl/server";
 
-/** Sample rows. */
-const PAYMENTS = [
-  {
-    booking: "OFH-2026-0148",
-    tour: "Ladakh Motorcycle Expedition",
-    date: "14 February 2026",
-    amount: "$2,850",
-    method: "Card ending 4242",
-    status: "paid" as const,
-    receipt: "rcpt_QK18fzTb2p",
-  },
-  {
-    booking: "OFH-2026-0148",
-    tour: "Ladakh Motorcycle Expedition",
-    date: "3 January 2026",
-    amount: "$500",
-    method: "Deposit, UPI",
-    status: "paid" as const,
-    receipt: "rcpt_QJ92aaLm7x",
-  },
-  {
-    booking: "OFH-2025-0091",
-    tour: "Nepal Motorcycle Tour",
-    date: "22 August 2025",
-    amount: "$400",
-    method: "Refunded to card",
-    status: "refunded" as const,
-    receipt: "rcpt_QC44kdRe1s",
-  },
-];
+import { Panel, Pill } from "@/components/account/parts";
+import { Link } from "@/i18n/navigation";
+import { resolveLocale } from "@/i18n/params";
+import { listMyPayments } from "@/lib/booking/read";
+import { formatMoney } from "@/lib/currency";
 
-const head = "px-4 py-3 text-[10px] font-bold tracking-[0.14em] text-brand-800/45 uppercase";
-const cell = "px-4 py-4 align-top text-[13.5px] text-brand-900/80";
+/** Every payment this rider has made. */
+export default async function PaymentsPage({ params }: LayoutProps<"/[locale]">) {
+  const locale = await resolveLocale(params);
+  const t = await getTranslations({ locale, namespace: "payments" });
+  const payments = await listMyPayments();
 
-export default function PaymentsPage() {
+  const day = (value: string) =>
+    new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric" }).format(
+      new Date(value),
+    );
+
   return (
-    <Panel title="My payments" lead="Every payment against your bookings, newest first.">
-      <div className="ring-brand-900/10 overflow-x-auto rounded-[18px] ring-1">
-        <table className="w-full min-w-[46rem] border-collapse bg-white text-left">
-          <thead className="bg-brand-900/4">
-            <tr>
-              <th className={head}>Booking ID</th>
-              <th className={head}>Tour</th>
-              <th className={head}>Date</th>
-              <th className={`${head} text-right`}>Amount</th>
-              <th className={head}>Receipt</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {PAYMENTS.map((payment) => (
-              <tr
-                key={payment.receipt}
-                className="border-brand-900/8 hover:bg-brand-900/3 border-t transition-colors"
-              >
-                <td className={`${cell} font-mono text-[12.5px] whitespace-nowrap`}>
-                  {payment.booking}
-                </td>
-                <td className={cell}>
-                  {payment.tour}
-                  <span className="text-brand-800/45 mt-1 block text-[12px]">{payment.method}</span>
-                </td>
-                <td className={`${cell} whitespace-nowrap`}>{payment.date}</td>
-                <td className={`${cell} text-right font-semibold whitespace-nowrap tabular-nums`}>
-                  {payment.amount}
-                  <span className="mt-1.5 block">
-                    <Pill tone={payment.status}>
-                      {payment.status === "paid" ? "Paid" : "Refunded"}
-                    </Pill>
-                  </span>
-                </td>
-                <td className={cell}>
-                  <button
-                    type="button"
-                    className="text-brand-900 decoration-ember-500/50 hover:decoration-ember-500 text-[12.5px] font-semibold underline underline-offset-[3px] transition-colors"
+    <Panel title={t("title")} lead={t("lead")}>
+      {payments.length === 0 ? (
+        <div className="border-brand-900/12 rounded-[20px] border border-dashed px-6 py-12 text-center">
+          <p className="text-brand-900/70 text-[14px]">{t("empty")}</p>
+        </div>
+      ) : (
+        <ul className="border-brand-900/10 divide-brand-900/10 divide-y border-t">
+          {payments.map((payment) => (
+            <li key={payment.id} className="flex flex-wrap items-center justify-between gap-4 py-4">
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <Pill tone={payment.status === "refunded" ? "pending" : "confirmed"}>
+                    {payment.status === "refunded" ? t("refunded") : t("paid")}
+                  </Pill>
+                  <Link
+                    href={`/account/bookings/${payment.booking.reference}`}
+                    className="text-brand-800/55 hover:text-brand-900 font-mono text-[11.5px] underline underline-offset-2"
                   >
-                    Download
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+                    {payment.booking.reference}
+                  </Link>
+                </div>
 
-      <DemoNote>
-        A design only screen with made up payments. Receipts would come from Razorpay, which issues
-        and hosts one for every captured payment, so there is no second document to keep correct.
-        Card numbers are never stored here, only the last four Razorpay reports.
-      </DemoNote>
+                <p className="text-brand-900 mt-2 text-[14px] font-semibold">
+                  {payment.booking.tour.title}
+                </p>
+
+                <p className="text-brand-800/50 mt-1 text-[12.5px]">
+                  {payment.paid_at ? day(payment.paid_at) : day(payment.created_at)}
+                  {" · "}
+                  {t(`kind.${payment.kind as "deposit" | "full" | "instalment"}`)}
+                  {payment.method ? ` · ${payment.method}` : ""}
+                </p>
+              </div>
+
+              <span className="font-display text-brand-900 text-[17px] font-extrabold tabular-nums">
+                {formatMoney(payment.amount, payment.currency as never, locale)}
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <p className="text-brand-800/45 mt-6 text-[12.5px] leading-relaxed">{t("receipts")}</p>
     </Panel>
   );
 }

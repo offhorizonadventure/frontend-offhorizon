@@ -13,6 +13,8 @@ export type FactKey =
   | "groupSize";
 
 export type Departure = {
+  /** Carried to the checkout, which prices it again from the row itself. */
+  id?: string;
   /** ISO dates. Rendered with the visitor's locale. */
   start: string;
   end: string;

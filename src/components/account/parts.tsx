@@ -75,10 +75,3 @@ export function Pill({ tone, children }: { tone: keyof typeof TONES; children: R
 }
 
 /** Every screen here is a mock, and says so rather than looking live. */
-export function DemoNote({ children }: { children: ReactNode }) {
-  return (
-    <p className="bg-brand-900/5 text-brand-800/60 mt-6 rounded-xl px-4 py-3 text-[12.5px] leading-relaxed">
-      {children}
-    </p>
-  );
-}

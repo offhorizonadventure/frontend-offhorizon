@@ -124,6 +124,7 @@ const left = (departure: Departure) =>
 /** What the dates drawer and the booking wizard read. */
 export const departureList = (departures: Departure[]) =>
   departures.map((departure) => ({
+    id: departure.id,
     start: departure.start_date,
     end: departure.end_date,
     // No seats left is sold out whether or not the switch was thrown.

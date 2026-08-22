@@ -62,6 +62,7 @@ export type BookingLabels = {
     vehicle: string;
     total: string;
     enquire: string;
+    book: string;
     note: string;
     guide: string;
   };
@@ -80,6 +81,8 @@ export type WizardVehicle = {
 export const OWN_CAR = "own";
 
 export type Departure = {
+  /** Carried to the checkout, which prices the row again for itself. */
+  id?: string;
   start: string;
   end: string;
   soldOut?: boolean;
@@ -193,6 +196,16 @@ export function BookingWizard({
   };
 
   // And a different date may run a different set of cars.
+  const checkoutQuery = (departureId: string) => ({
+    departure: departureId,
+    riders: String(riders),
+    pillions: String(pillions),
+    rooms: String(rooms),
+    protection: String(insurance),
+    ...(vehicle && vehicle !== OWN_CAR ? { vehicle } : {}),
+    ...(vehicle === OWN_CAR ? { own: "1" } : {}),
+  });
+
   const changeDeparture = (start: string) => {
     setDeparture(start);
     setVehicle(null);
@@ -613,6 +626,14 @@ export function BookingWizard({
             {labels.next}
             <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
           </button>
+        ) : chosen?.id ? (
+          <Link
+            href={{ pathname: "/booking/checkout", query: checkoutQuery(chosen.id) }}
+            className="group bg-brand-800 text-cream-100 hover:bg-brand-900 flex h-12 flex-1 items-center justify-center gap-2.5 rounded-full text-[11px] font-bold tracking-[0.12em] uppercase transition-colors duration-300"
+          >
+            {labels.summary.book}
+            <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
         ) : (
           <Link
             href="/custom-expeditions"
