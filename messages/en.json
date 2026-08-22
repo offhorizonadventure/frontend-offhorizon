@@ -223,6 +223,7 @@
     "resourcesTitle": "Resources",
     "resources": {
       "about": "About Us",
+      "booking": "How booking works",
       "terms": "Terms of Service",
       "privacy": "Privacy Policy"
     },
@@ -1421,7 +1422,8 @@
         "enquire": "Send enquiry",
         "note": "Converted from US dollars at today's rate, so the final figure depends on the rate on the day you pay. Flights are not included.",
         "dates": "Dates",
-        "flexible": "Flexible"
+        "flexible": "Flexible",
+        "guide": "Read how booking works before you pay"
       }
     },
     "more": "Read more",
@@ -1536,13 +1538,17 @@
         {
           "title": "Booking and payment",
           "body": [
-            "A booking is confirmed when we have written to you to confirm it and the deposit has reached us. Until both have happened, the seat is not held.",
-            "Prices are set in US dollars. Other currencies are shown for convenience at the rate on the day, so the figure you actually pay depends on the rate when the payment is taken. Flights are never included."
+            "A booking is confirmed when we have written to you to confirm it and the first payment has reached us. Until both have happened, the place is not held.",
+            "You choose how to pay. Either settle the whole expedition at once, or pay 20 percent to hold your place and clear the rest before you travel."
           ],
           "list": [
-            "The deposit is due at the time of booking and holds your place",
-            "The balance is due 45 days before departure, or in full at the time of booking if you book inside 45 days",
-            "If the balance is not paid by the due date we may treat the booking as cancelled by you"
+            "The 20 percent is due at the time of booking and is what confirms the place",
+            "The balance can be paid in as many instalments as you like, of any amount, whenever suits you",
+            "Everything must be paid no later than 14 days before the departure date",
+            "Prices are set in US dollars and charged in your own currency at the rate on the day you book, which is then fixed for the rest of the booking"
+          ],
+          "after": [
+            "Flights are never included. Nothing you pay is refundable, so please read what the expedition involves before you book."
           ]
         },
         {
@@ -1556,13 +1562,17 @@
           "title": "If you cancel",
           "body": [
             "Cancellations must reach us in writing. The date we receive your written notice is the date we use.",
-            "Deposits are not refundable, because they pay for permits, bookings and vehicle holds made as soon as you book."
+            "Money paid towards an expedition is not refundable, at any point. It pays for permits, rooms, vehicles and bookings we commit to as soon as you book, and we cannot get those back. Insurance that covers cancellation is worth having, and we say so on every booking."
           ],
-          "list": [
-            "More than 60 days before departure: the deposit is retained, everything else refunded",
-            "60 to 30 days: 50 percent of the total is retained",
-            "29 to 15 days: 75 percent of the total is retained",
-            "Inside 15 days or no show: no refund"
+          "after": [
+            "If you cannot travel, ask us about moving to another departure before you cancel. More than 45 days out and with space on the other date, that is usually possible."
+          ]
+        },
+        {
+          "title": "If the balance is not paid in time",
+          "body": [
+            "Fourteen days before departure is a hard line, not a reminder. Permits are filed, rooms are paid for and vehicles are committed against that date.",
+            "If anything is still outstanding when it passes, the booking is cancelled, the documents form is withdrawn, the place goes back on sale and no money is returned. We would much rather this never happened, so we write to you as the date approaches, and if you are in difficulty, tell us early and we will do what we can."
           ]
         },
         {
@@ -1649,9 +1659,10 @@
           "list": [
             "Hotels, guesthouses and camps on your route, for the rooms in your name",
             "Government departments that issue restricted area and route permits",
-            "Our payment provider, which handles card details directly so we never hold them",
+            "Razorpay, our payment provider, which handles card details directly so we never hold them",
             "Supabase, which hosts our database and sign in, and our email provider",
-            "Professional advisers or authorities where the law requires it"
+            "Professional advisers or authorities where the law requires it",
+            "Other riders on your booking, who see the names of the group they were invited to join"
           ]
         },
         {
@@ -1698,6 +1709,95 @@
     "meta": {
       "title": "Page not found | Offhorizon Adventures",
       "description": "The page you asked for is not here."
+    }
+  },
+  "bookingGuide": {
+    "meta": {
+      "title": "How Booking Works | Offhorizon Adventures",
+      "description": "What happens when you book an Offhorizon expedition: paying in full or holding your place with 20 percent, instalments, the 14 day deadline, the rider documents and inviting the rest of your group."
+    },
+    "eyebrow": "Before you pay",
+    "title": "How booking works",
+    "lead": "Five minutes of reading that saves a difficult conversation later. There is one deadline that matters, and everything else is straightforward.",
+    "stepsTitle": "From picking a date to being on the start line",
+    "steps": [
+      {
+        "title": "Pick the expedition and the date",
+        "body": "Open the dates on any expedition page and choose a departure. You will see how many places are left on it, and the price for the party you are bringing before you pay anything."
+      },
+      {
+        "title": "Say who is coming",
+        "body": "Riders, pillions, single rooms, damage protection, and on a 4x4 expedition the car you want or your own. The total changes as you choose, so nothing is a surprise."
+      },
+      {
+        "title": "Pay in full, or pay 20 percent",
+        "body": "Either settles the place. Paying in full is done with it; paying 20 percent holds the place and leaves the rest to clear before you travel."
+      },
+      {
+        "title": "The place is yours",
+        "body": "A confirmation email arrives with your booking reference, and the booking appears in your account with everything paid and everything still outstanding."
+      },
+      {
+        "title": "Send your documents",
+        "body": "Once the expedition is paid for in full, a form appears on your account. Licence, passport, insurance and the details we need for permits. Fill it in, then mark it as sent so we both know where we stand."
+      },
+      {
+        "title": "Ride",
+        "body": "We are in touch before departure with the meeting point, the weather and anything the route is doing that week."
+      }
+    ],
+    "deadline": {
+      "eyebrow": "The one deadline",
+      "title": "Everything must be paid 14 days before departure",
+      "body": [
+        "That date is not a reminder. Permits are filed against it, rooms are paid for and vehicles are committed, and none of it can be undone at short notice.",
+        "If anything is still outstanding when it passes, the booking is cancelled, the documents form is withdrawn and the place goes back on sale. Money already paid is not returned.",
+        "We write to you as the date comes closer, and your account shows what is left at all times. If you are in difficulty, tell us early: there is a great deal we can do two months out and very little we can do two weeks out."
+      ]
+    },
+    "sections": [
+      {
+        "title": "Paying the balance in instalments",
+        "body": [
+          "There is no schedule to keep to. Once the 20 percent is paid, you can pay whatever you like, whenever you like, as many times as you like, until the balance is clear.",
+          "Open the booking in your account, type an amount and pay it. The balance updates immediately and the receipt is emailed to you."
+        ]
+      },
+      {
+        "title": "Booking for more than one rider",
+        "body": [
+          "Book and pay for as many riders as you are bringing, and you will get an invite link for each of the others.",
+          "Send the link to each rider. They make an account, join the group, and their own documents form appears for them to fill in. They see the expedition and the group, not what anyone paid.",
+          "Pillions do not need an invite or an account: name them on the booking and we have what we need."
+        ]
+      },
+      {
+        "title": "What we charge, and in what currency",
+        "body": [
+          "Prices are set in US dollars and shown to you in your own currency. You are charged in your own currency where our payment provider can take it, and in dollars where it cannot.",
+          "The rate is fixed the moment you book. A booking paid across four instalments over five months is settled at the rate on the day it was made, not the rate on the day each instalment lands."
+        ]
+      },
+      {
+        "title": "Custom expeditions",
+        "body": [
+          "A custom expedition is built for you and only appears in your account. Choose your riders and pillions, and pay in full or with 20 percent exactly as above.",
+          "Only the person the expedition was built for can pay for it. Everyone else joins through the invite link and fills in their documents."
+        ]
+      },
+      {
+        "title": "Is any of it refundable?",
+        "body": [
+          "No. Money paid towards an expedition is not refundable at any point, because it goes straight out again on permits, rooms and vehicles that cannot be recovered.",
+          "Travel insurance that covers cancellation is worth having, and we recommend it on every booking. If you cannot travel, ask us about moving to another departure before you cancel: more than 45 days out and with space on the other date, that is usually possible."
+        ]
+      }
+    ],
+    "cta": {
+      "title": "Ready when you are",
+      "body": "Open the dates on any expedition and the price for your party is on the screen before anything is charged.",
+      "primary": "See the expeditions",
+      "secondary": "Read the full terms"
     }
   }
 }

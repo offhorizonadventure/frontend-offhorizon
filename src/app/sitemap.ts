@@ -14,6 +14,7 @@ const routes = [
   "/contact-us",
   "/custom-expeditions",
   "/blog",
+  "/how-booking-works",
   "/terms-of-service",
   "/privacy-policy",
   // Given to Meta as the data deletion instructions URL, so it has to stay reachable and indexed.

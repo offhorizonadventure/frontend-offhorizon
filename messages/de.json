@@ -223,6 +223,7 @@
     "resourcesTitle": "Ressourcen",
     "resources": {
       "about": "Über uns",
+      "booking": "So funktioniert die Buchung",
       "terms": "Nutzungsbedingungen",
       "privacy": "Datenschutz"
     },
@@ -1425,7 +1426,8 @@
         "enquire": "Anfrage senden",
         "note": "Zum heutigen Kurs aus US-Dollar umgerechnet, der Endbetrag hängt also vom Kurs am Zahltag ab. Flüge sind nicht enthalten.",
         "dates": "Termin",
-        "flexible": "Flexibel"
+        "flexible": "Flexibel",
+        "guide": "Lesen Sie vor der Zahlung, wie die Buchung funktioniert"
       }
     },
     "more": "Mehr lesen",
@@ -1540,13 +1542,17 @@
         {
           "title": "Buchung und Zahlung",
           "body": [
-            "Eine Buchung ist bestätigt, sobald wir sie Ihnen schriftlich bestätigt haben und die Anzahlung bei uns eingegangen ist. Bis beides erfolgt ist, ist der Platz nicht reserviert.",
-            "Die Preise sind in US-Dollar festgelegt. Andere Währungen werden zum Tageskurs nur zur Orientierung angezeigt, der tatsächlich gezahlte Betrag hängt also vom Kurs zum Zahlungszeitpunkt ab. Flüge sind nie enthalten."
+            "Eine Buchung ist bestätigt, sobald wir sie Ihnen schriftlich bestätigt haben und die erste Zahlung bei uns eingegangen ist. Bis beides erfolgt ist, ist der Platz nicht reserviert.",
+            "Sie entscheiden, wie Sie zahlen: die Expedition auf einmal begleichen, oder 20 Prozent anzahlen, um den Platz zu sichern, und den Rest vor der Abreise ausgleichen."
           ],
           "list": [
-            "Die Anzahlung ist bei Buchung fällig und sichert Ihren Platz",
-            "Der Restbetrag ist 45 Tage vor Abreise fällig, bei Buchung innerhalb von 45 Tagen sofort in voller Höhe",
-            "Geht der Restbetrag nicht fristgerecht ein, können wir die Buchung als von Ihnen storniert behandeln"
+            "Die 20 Prozent sind bei Buchung fällig und sichern den Platz",
+            "Der Restbetrag kann in beliebig vielen Raten in beliebiger Höhe gezahlt werden, wann es Ihnen passt",
+            "Alles muss spätestens 14 Tage vor dem Abreisedatum bezahlt sein",
+            "Die Preise sind in US-Dollar festgelegt und werden in Ihrer Währung zum Kurs des Buchungstages abgebucht, der danach für die gesamte Buchung fest bleibt"
+          ],
+          "after": [
+            "Flüge sind nie enthalten. Gezahlte Beträge werden nicht erstattet, lesen Sie also vor der Buchung, was die Expedition verlangt."
           ]
         },
         {
@@ -1559,14 +1565,18 @@
         {
           "title": "Wenn Sie stornieren",
           "body": [
-            "Stornierungen müssen uns schriftlich erreichen. Maßgeblich ist der Tag, an dem Ihre schriftliche Mitteilung bei uns eingeht.",
-            "Anzahlungen werden nicht erstattet, da sie Genehmigungen, Reservierungen und Fahrzeugbindungen bezahlen, die unmittelbar nach Ihrer Buchung anfallen."
+            "Stornierungen müssen uns schriftlich erreichen. Maßgeblich ist der Tag, an dem Ihre schriftliche Mitteilung eingeht.",
+            "Für eine Expedition gezahlte Beträge werden zu keinem Zeitpunkt erstattet. Sie bezahlen Genehmigungen, Zimmer, Fahrzeuge und Reservierungen, die wir mit Ihrer Buchung eingehen und nicht zurückholen können. Eine Versicherung, die Stornierung abdeckt, lohnt sich, und wir weisen bei jeder Buchung darauf hin."
           ],
-          "list": [
-            "Mehr als 60 Tage vor Abreise: die Anzahlung wird einbehalten, alles Übrige erstattet",
-            "60 bis 30 Tage: 50 Prozent des Gesamtbetrags werden einbehalten",
-            "29 bis 15 Tage: 75 Prozent des Gesamtbetrags werden einbehalten",
-            "Innerhalb von 15 Tagen oder bei Nichterscheinen: keine Erstattung"
+          "after": [
+            "Wenn Sie nicht reisen können, fragen Sie vor der Stornierung nach einem Wechsel auf einen anderen Termin. Mehr als 45 Tage vorher und bei freien Plätzen ist das meist möglich."
+          ]
+        },
+        {
+          "title": "Wenn der Restbetrag nicht rechtzeitig eingeht",
+          "body": [
+            "Vierzehn Tage vor Abreise ist eine harte Grenze, keine Erinnerung. Genehmigungen sind eingereicht, Zimmer bezahlt und Fahrzeuge auf dieses Datum gebunden.",
+            "Ist danach noch etwas offen, wird die Buchung storniert, das Dokumentenformular zurückgezogen, der Platz wieder freigegeben und nichts erstattet. Uns wäre lieber, das käme nie vor: Wir schreiben Ihnen, wenn das Datum näher rückt, und wenn Sie in Schwierigkeiten sind, sagen Sie es früh, dann tun wir, was möglich ist."
           ]
         },
         {
@@ -1655,9 +1665,10 @@
           "list": [
             "Hotels, Gasthäuser und Camps auf Ihrer Route, für die Zimmer auf Ihren Namen",
             "Behörden, die Genehmigungen für Sperrgebiete und Routen ausstellen",
-            "Unser Zahlungsdienstleister, der Kartendaten direkt verarbeitet, sodass wir sie nie speichern",
+            "Razorpay, unser Zahlungsdienstleister, der Kartendaten direkt verarbeitet, sodass wir sie nie speichern",
             "Supabase, wo unsere Datenbank und die Anmeldung laufen, sowie unser E-Mail-Anbieter",
-            "Berufliche Berater oder Behörden, soweit das Gesetz es verlangt"
+            "Berufliche Berater oder Behörden, soweit das Gesetz es verlangt",
+            "Die anderen Teilnehmenden Ihrer Buchung, die die Namen der Gruppe sehen, zu der sie eingeladen wurden"
           ]
         },
         {
@@ -1704,6 +1715,95 @@
     "meta": {
       "title": "Seite nicht gefunden | Offhorizon Adventures",
       "description": "Die gesuchte Seite gibt es hier nicht."
+    }
+  },
+  "bookingGuide": {
+    "meta": {
+      "title": "So funktioniert die Buchung | Offhorizon Adventures",
+      "description": "Was bei der Buchung einer Offhorizon-Expedition passiert: alles auf einmal zahlen oder mit 20 Prozent den Platz sichern, freie Raten, die 14-Tage-Frist, die Unterlagen und die Einladung Ihrer Gruppe."
+    },
+    "eyebrow": "Vor der Zahlung",
+    "title": "So funktioniert die Buchung",
+    "lead": "Fünf Minuten Lesen, die später ein schwieriges Gespräch ersparen. Genau ein Termin zählt, alles andere ist unkompliziert.",
+    "stepsTitle": "Vom Datum bis zur Startlinie",
+    "steps": [
+      {
+        "title": "Expedition und Termin wählen",
+        "body": "Öffnen Sie die Termine auf einer Expeditionsseite und wählen Sie einen aus. Sie sehen die freien Plätze und den Preis für Ihre Gruppe, bevor Sie irgendetwas zahlen."
+      },
+      {
+        "title": "Sagen, wer mitkommt",
+        "body": "Fahrer, Sozius, Einzelzimmer, Schadensschutz und auf einer 4x4-Expedition das gewünschte Fahrzeug oder Ihr eigenes. Die Summe ändert sich mit jeder Wahl, es gibt keine Überraschung."
+      },
+      {
+        "title": "Alles zahlen oder 20 Prozent",
+        "body": "Beides sichert den Platz. Wer alles zahlt, ist fertig; 20 Prozent halten den Platz und lassen den Rest bis zur Abreise offen."
+      },
+      {
+        "title": "Der Platz gehört Ihnen",
+        "body": "Eine Bestätigungsmail kommt mit Ihrer Buchungsnummer, und die Buchung erscheint in Ihrem Konto mit allem Gezahlten und allem Offenen."
+      },
+      {
+        "title": "Unterlagen schicken",
+        "body": "Sobald die Expedition vollständig bezahlt ist, erscheint ein Formular in Ihrem Konto: Führerschein, Reisepass, Versicherung und die Angaben für die Genehmigungen. Ausfüllen und danach als gesendet markieren."
+      },
+      {
+        "title": "Fahren",
+        "body": "Vor der Abreise melden wir uns mit Treffpunkt, Wetter und dem, was die Route in dieser Woche macht."
+      }
+    ],
+    "deadline": {
+      "eyebrow": "Die eine Frist",
+      "title": "Alles muss 14 Tage vor Abreise bezahlt sein",
+      "body": [
+        "Dieses Datum ist keine Erinnerung. Genehmigungen werden darauf eingereicht, Zimmer bezahlt und Fahrzeuge gebunden, und kurzfristig lässt sich davon nichts rückgängig machen.",
+        "Ist danach noch etwas offen, wird die Buchung storniert, das Unterlagenformular zurückgezogen und der Platz wieder freigegeben. Bereits gezahltes Geld wird nicht erstattet.",
+        "Wir schreiben Ihnen, wenn das Datum näher rückt, und Ihr Konto zeigt jederzeit den offenen Betrag. Wenn es eng wird, sagen Sie es früh: Zwei Monate vorher können wir viel tun, zwei Wochen vorher fast nichts."
+      ]
+    },
+    "sections": [
+      {
+        "title": "Den Rest in Raten zahlen",
+        "body": [
+          "Es gibt keinen Ratenplan. Sobald die 20 Prozent gezahlt sind, zahlen Sie, was Sie wollen, wann Sie wollen, so oft Sie wollen, bis nichts mehr offen ist.",
+          "Öffnen Sie die Buchung in Ihrem Konto, geben Sie einen Betrag ein und zahlen Sie ihn. Der offene Betrag ändert sich sofort, die Quittung kommt per E-Mail."
+        ]
+      },
+      {
+        "title": "Für mehrere Fahrer buchen",
+        "body": [
+          "Buchen und zahlen Sie für so viele Fahrer, wie Sie mitbringen, und Sie erhalten für jeden weiteren einen Einladungslink.",
+          "Schicken Sie den Link an jeden Fahrer. Er legt ein Konto an, tritt der Gruppe bei, und sein eigenes Unterlagenformular erscheint. Er sieht die Expedition und die Gruppe, nicht wer was gezahlt hat.",
+          "Sozius braucht weder Einladung noch Konto: Namen auf der Buchung genügen uns."
+        ]
+      },
+      {
+        "title": "Was wir abbuchen, und in welcher Währung",
+        "body": [
+          "Die Preise sind in US-Dollar festgelegt und werden Ihnen in Ihrer Währung gezeigt. Abgebucht wird in Ihrer Währung, wo unser Zahlungsdienstleister sie annimmt, sonst in Dollar.",
+          "Der Kurs wird bei der Buchung festgeschrieben. Eine über fünf Monate in vier Raten gezahlte Buchung rechnet mit dem Kurs des Buchungstages, nicht dem jeder einzelnen Rate."
+        ]
+      },
+      {
+        "title": "Maßgeschneiderte Expeditionen",
+        "body": [
+          "Eine maßgeschneiderte Expedition wird für Sie gebaut und erscheint nur in Ihrem Konto. Wählen Sie Fahrer und Sozius und zahlen Sie vollständig oder mit 20 Prozent, genau wie oben.",
+          "Nur die Person, für die die Expedition gebaut wurde, kann sie bezahlen. Alle anderen kommen über den Einladungslink dazu und füllen ihre Unterlagen aus."
+        ]
+      },
+      {
+        "title": "Wird etwas davon erstattet?",
+        "body": [
+          "Nein. Für eine Expedition gezahltes Geld wird zu keinem Zeitpunkt erstattet, weil es sofort für Genehmigungen, Zimmer und Fahrzeuge ausgegeben wird, die nicht zurückgeholt werden können.",
+          "Eine Reiseversicherung, die Stornierung abdeckt, lohnt sich, und wir empfehlen sie bei jeder Buchung. Wenn Sie nicht reisen können, fragen Sie vor der Stornierung nach einem anderen Termin: mehr als 45 Tage vorher und bei freien Plätzen ist das meist möglich."
+        ]
+      }
+    ],
+    "cta": {
+      "title": "Wann immer Sie so weit sind",
+      "body": "Öffnen Sie die Termine einer Expedition, und der Preis für Ihre Gruppe steht auf dem Bildschirm, bevor irgendetwas abgebucht wird.",
+      "primary": "Expeditionen ansehen",
+      "secondary": "Bedingungen lesen"
     }
   }
 }

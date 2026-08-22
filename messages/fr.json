@@ -223,6 +223,7 @@
     "resourcesTitle": "Ressources",
     "resources": {
       "about": "À propos",
+      "booking": "Comment réserver",
       "terms": "Conditions d'utilisation",
       "privacy": "Politique de confidentialité"
     },
@@ -1427,7 +1428,8 @@
         "enquire": "Envoyer la demande",
         "note": "Converti depuis le dollar américain au taux du jour : le montant final dépendra du taux au moment du paiement. Les vols ne sont pas compris.",
         "dates": "Dates",
-        "flexible": "Flexible"
+        "flexible": "Flexible",
+        "guide": "Lisez comment fonctionne la réservation avant de payer"
       }
     },
     "more": "Lire la suite",
@@ -1542,13 +1544,17 @@
         {
           "title": "Réservation et paiement",
           "body": [
-            "Une réservation est confirmée lorsque nous vous l'avons confirmée par écrit et que l'acompte nous est parvenu. Tant que ces deux conditions ne sont pas remplies, la place n'est pas retenue.",
-            "Les prix sont fixés en dollars américains. Les autres devises sont affichées à titre indicatif au taux du jour, donc le montant réellement payé dépend du taux au moment du paiement. Les vols ne sont jamais inclus."
+            "Une réservation est confirmée lorsque nous vous l'avons confirmée par écrit et que le premier versement nous est parvenu. Tant que ces deux conditions ne sont pas remplies, la place n'est pas retenue.",
+            "Vous choisissez votre mode de paiement. Réglez l'expédition en une fois, ou versez 20 pour cent pour retenir votre place et soldez le reste avant le départ."
           ],
           "list": [
-            "L'acompte est dû au moment de la réservation et retient votre place",
-            "Le solde est dû 45 jours avant le départ, ou en totalité à la réservation si vous réservez à moins de 45 jours",
-            "Si le solde n'est pas réglé à l'échéance, nous pouvons considérer la réservation comme annulée par vous"
+            "Les 20 pour cent sont dus à la réservation et c'est ce qui confirme la place",
+            "Le solde peut être réglé en autant de versements que vous voulez, du montant que vous voulez, quand cela vous arrange",
+            "Tout doit être payé au plus tard 14 jours avant la date de départ",
+            "Les prix sont fixés en dollars américains et débités dans votre devise au taux du jour de la réservation, taux ensuite figé pour toute la réservation"
+          ],
+          "after": [
+            "Les vols ne sont jamais inclus. Aucun montant versé n'est remboursable : lisez donc ce que l'expédition implique avant de réserver."
           ]
         },
         {
@@ -1562,13 +1568,17 @@
           "title": "Si vous annulez",
           "body": [
             "Les annulations doivent nous parvenir par écrit. La date retenue est celle de réception de votre courrier.",
-            "Les acomptes ne sont pas remboursables, car ils couvrent les permis, les réservations et l'immobilisation des véhicules effectués dès votre réservation."
+            "Les sommes versées pour une expédition ne sont remboursables à aucun moment. Elles paient les permis, les chambres, les véhicules et les réservations que nous engageons dès votre inscription, et que nous ne pouvons pas récupérer. Une assurance couvrant l'annulation vaut la peine, et nous le rappelons à chaque réservation."
           ],
-          "list": [
-            "Plus de 60 jours avant le départ : l'acompte est conservé, le reste est remboursé",
-            "De 60 à 30 jours : 50 pour cent du total est conservé",
-            "De 29 à 15 jours : 75 pour cent du total est conservé",
-            "À moins de 15 jours ou en cas d'absence : aucun remboursement"
+          "after": [
+            "Si vous ne pouvez pas voyager, demandez-nous un report sur un autre départ avant d'annuler. À plus de 45 jours et s'il reste de la place, c'est généralement possible."
+          ]
+        },
+        {
+          "title": "Si le solde n'est pas réglé à temps",
+          "body": [
+            "Quatorze jours avant le départ est une limite ferme, pas un rappel. Les permis sont déposés, les chambres payées et les véhicules engagés sur cette date.",
+            "S'il reste quoi que ce soit à régler une fois cette date passée, la réservation est annulée, le formulaire de documents est retiré, la place est remise en vente et aucun montant n'est restitué. Nous préférerions que cela n'arrive jamais : nous vous écrivons à l'approche de la date, et si vous rencontrez une difficulté, dites-le tôt et nous ferons ce que nous pouvons."
           ]
         },
         {
@@ -1657,9 +1667,10 @@
           "list": [
             "Hôtels, maisons d'hôtes et camps de votre itinéraire, pour les chambres à votre nom",
             "Les administrations qui délivrent les permis de zones réglementées et d'itinéraire",
-            "Notre prestataire de paiement, qui traite les données de carte directement, de sorte que nous ne les détenons jamais",
+            "Razorpay, notre prestataire de paiement, qui traite les données de carte directement, de sorte que nous ne les détenons jamais",
             "Supabase, qui héberge notre base de données et la connexion, ainsi que notre prestataire d'e-mail",
-            "Des conseils professionnels ou des autorités lorsque la loi l'exige"
+            "Des conseils professionnels ou des autorités lorsque la loi l'exige",
+            "Les autres participants de votre réservation, qui voient les noms du groupe qu'ils ont rejoint"
           ]
         },
         {
@@ -1706,6 +1717,95 @@
     "meta": {
       "title": "Page introuvable | Offhorizon Adventures",
       "description": "La page demandée n'est pas ici."
+    }
+  },
+  "bookingGuide": {
+    "meta": {
+      "title": "Comment réserver | Offhorizon Adventures",
+      "description": "Ce qui se passe quand vous réservez une expédition Offhorizon : paiement intégral ou 20 pour cent pour retenir votre place, versements libres, la limite des 14 jours, les documents et l'invitation de votre groupe."
+    },
+    "eyebrow": "Avant de payer",
+    "title": "Comment fonctionne la réservation",
+    "lead": "Cinq minutes de lecture qui évitent une conversation difficile plus tard. Une seule date compte vraiment, le reste est simple.",
+    "stepsTitle": "Du choix de la date à la ligne de départ",
+    "steps": [
+      {
+        "title": "Choisissez l'expédition et la date",
+        "body": "Ouvrez les dates sur la page d'une expédition et choisissez un départ. Vous voyez le nombre de places restantes et le prix pour votre groupe avant de payer quoi que ce soit."
+      },
+      {
+        "title": "Dites qui vient",
+        "body": "Pilotes, passagers, chambres individuelles, protection dommages, et sur une expédition 4x4 le véhicule souhaité ou le vôtre. Le total change à mesure que vous choisissez : aucune surprise."
+      },
+      {
+        "title": "Payez tout, ou payez 20 pour cent",
+        "body": "Les deux retiennent la place. Le paiement intégral clôt le sujet ; les 20 pour cent retiennent la place et laissent le solde à régler avant le départ."
+      },
+      {
+        "title": "La place est à vous",
+        "body": "Un e-mail de confirmation arrive avec votre référence de réservation, et la réservation apparaît dans votre compte avec ce qui est payé et ce qui reste dû."
+      },
+      {
+        "title": "Envoyez vos documents",
+        "body": "Une fois l'expédition intégralement payée, un formulaire apparaît dans votre compte : permis, passeport, assurance et les informations nécessaires aux autorisations. Remplissez-le, puis indiquez qu'il est envoyé."
+      },
+      {
+        "title": "Roulez",
+        "body": "Nous vous écrivons avant le départ avec le point de rendez-vous, la météo et l'état de l'itinéraire cette semaine-là."
+      }
+    ],
+    "deadline": {
+      "eyebrow": "La seule échéance",
+      "title": "Tout doit être payé 14 jours avant le départ",
+      "body": [
+        "Cette date n'est pas un rappel. Les permis sont déposés en fonction d'elle, les chambres payées et les véhicules engagés, et rien de tout cela ne se défait au dernier moment.",
+        "S'il reste quoi que ce soit à régler une fois la date passée, la réservation est annulée, le formulaire de documents est retiré et la place est remise en vente. Les sommes déjà versées ne sont pas restituées.",
+        "Nous vous écrivons à l'approche de la date, et votre compte affiche le solde à tout moment. En cas de difficulté, dites-le tôt : nous pouvons beaucoup à deux mois du départ, et très peu à deux semaines."
+      ]
+    },
+    "sections": [
+      {
+        "title": "Régler le solde en plusieurs fois",
+        "body": [
+          "Aucun échéancier à respecter. Une fois les 20 pour cent versés, payez le montant que vous voulez, quand vous voulez, autant de fois que vous voulez, jusqu'à extinction du solde.",
+          "Ouvrez la réservation dans votre compte, saisissez un montant et payez-le. Le solde se met à jour immédiatement et le reçu vous est envoyé par e-mail."
+        ]
+      },
+      {
+        "title": "Réserver pour plusieurs pilotes",
+        "body": [
+          "Réservez et payez pour le nombre de pilotes que vous amenez : vous recevrez un lien d'invitation pour chacun des autres.",
+          "Envoyez le lien à chaque pilote. Il crée un compte, rejoint le groupe, et son propre formulaire de documents apparaît. Il voit l'expédition et le groupe, pas ce que chacun a payé.",
+          "Les passagers n'ont besoin ni d'invitation ni de compte : nommez-les sur la réservation et cela nous suffit."
+        ]
+      },
+      {
+        "title": "Ce que nous débitons, et dans quelle devise",
+        "body": [
+          "Les prix sont fixés en dollars américains et affichés dans votre devise. Vous êtes débité dans votre devise lorsque notre prestataire de paiement peut la traiter, et en dollars sinon.",
+          "Le taux est figé au moment de la réservation. Une réservation réglée en quatre versements sur cinq mois est calculée au taux du jour de la réservation, pas à celui de chaque versement."
+        ]
+      },
+      {
+        "title": "Expéditions sur mesure",
+        "body": [
+          "Une expédition sur mesure est construite pour vous et n'apparaît que dans votre compte. Choisissez vos pilotes et passagers, et payez intégralement ou à 20 pour cent, exactement comme ci-dessus.",
+          "Seule la personne pour qui l'expédition a été construite peut la payer. Les autres rejoignent le groupe par le lien d'invitation et remplissent leurs documents."
+        ]
+      },
+      {
+        "title": "Est-ce remboursable ?",
+        "body": [
+          "Non. Les sommes versées pour une expédition ne sont remboursables à aucun moment, car elles repartent aussitôt en permis, chambres et véhicules impossibles à récupérer.",
+          "Une assurance voyage couvrant l'annulation vaut la peine, et nous la recommandons à chaque réservation. Si vous ne pouvez pas voyager, demandez-nous un report sur un autre départ avant d'annuler : à plus de 45 jours et s'il reste de la place, c'est généralement possible."
+        ]
+      }
+    ],
+    "cta": {
+      "title": "Quand vous voulez",
+      "body": "Ouvrez les dates d'une expédition : le prix pour votre groupe s'affiche avant tout paiement.",
+      "primary": "Voir les expéditions",
+      "secondary": "Lire les conditions"
     }
   }
 }

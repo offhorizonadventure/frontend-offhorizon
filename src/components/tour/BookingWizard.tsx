@@ -63,6 +63,7 @@ export type BookingLabels = {
     total: string;
     enquire: string;
     note: string;
+    guide: string;
   };
 };
 
@@ -569,6 +570,14 @@ export function BookingWizard({
             <p className="text-brand-800/45 mt-4 text-[11px] leading-relaxed">
               {labels.summary.note}
             </p>
+
+            <Link
+              href="/how-booking-works"
+              className="group/g text-brand-800 hover:text-brand-900 mt-3 inline-flex items-center gap-1.5 text-[11.5px] font-semibold underline decoration-[var(--color-ember-500)]/40 underline-offset-[3px]"
+            >
+              {labels.summary.guide}
+              <ArrowRight className="transition-transform duration-300 group-hover/g:translate-x-1" />
+            </Link>
           </div>
         )}
       </div>

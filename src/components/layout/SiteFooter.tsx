@@ -10,6 +10,7 @@ import { siteName } from "@/lib/seo";
 
 const resources = [
   { key: "about", href: "/about-us" },
+  { key: "booking", href: "/how-booking-works" },
   { key: "terms", href: "/terms-of-service" },
   { key: "privacy", href: "/privacy-policy" },
 ] as const;

@@ -223,6 +223,7 @@
     "resourcesTitle": "Risorse",
     "resources": {
       "about": "Chi siamo",
+      "booking": "Come prenotare",
       "terms": "Termini di servizio",
       "privacy": "Privacy"
     },
@@ -1424,7 +1425,8 @@
         "enquire": "Invia la richiesta",
         "note": "Convertito dai dollari statunitensi al cambio di oggi: l'importo finale dipende dal cambio del giorno in cui paghi. I voli non sono inclusi.",
         "dates": "Date",
-        "flexible": "Flessibile"
+        "flexible": "Flessibile",
+        "guide": "Leggi come funziona la prenotazione prima di pagare"
       }
     },
     "more": "Leggi di più",
@@ -1539,13 +1541,17 @@
         {
           "title": "Prenotazione e pagamento",
           "body": [
-            "Una prenotazione è confermata quando te l'abbiamo confermata per iscritto e l'acconto ci è arrivato. Finché non accadono entrambe le cose, il posto non è bloccato.",
-            "I prezzi sono fissati in dollari statunitensi. Le altre valute sono mostrate a titolo indicativo al cambio del giorno, quindi la cifra che paghi dipende dal cambio al momento dell'incasso. I voli non sono mai inclusi."
+            "Una prenotazione è confermata quando te l'abbiamo confermata per iscritto e il primo pagamento ci è arrivato. Finché non accadono entrambe le cose, il posto non è bloccato.",
+            "Decidi tu come pagare: salda tutta la spedizione in una volta, oppure versa il 20 per cento per bloccare il posto e completa il resto prima di partire."
           ],
           "list": [
-            "L'acconto è dovuto al momento della prenotazione e blocca il tuo posto",
-            "Il saldo è dovuto 45 giorni prima della partenza, o per intero alla prenotazione se prenoti entro i 45 giorni",
-            "Se il saldo non arriva entro la scadenza possiamo considerare la prenotazione annullata da te"
+            "Il 20 per cento è dovuto al momento della prenotazione ed è ciò che conferma il posto",
+            "Il saldo può essere versato in quante rate vuoi, di qualsiasi importo, quando ti è comodo",
+            "Tutto deve essere pagato entro 14 giorni prima della data di partenza",
+            "I prezzi sono fissati in dollari statunitensi e addebitati nella tua valuta al cambio del giorno della prenotazione, poi bloccato per tutta la prenotazione"
+          ],
+          "after": [
+            "I voli non sono mai inclusi. Nulla di quanto versato è rimborsabile, quindi leggi che cosa comporta la spedizione prima di prenotare."
           ]
         },
         {
@@ -1559,13 +1565,17 @@
           "title": "Se annulli tu",
           "body": [
             "Le cancellazioni devono arrivarci per iscritto. Fa fede la data in cui riceviamo la tua comunicazione scritta.",
-            "Gli acconti non sono rimborsabili, perché coprono permessi, prenotazioni e fermo dei veicoli sostenuti appena prenoti."
+            "Le somme versate per una spedizione non sono rimborsabili in nessun momento. Pagano permessi, camere, veicoli e prenotazioni che impegniamo appena prenoti e che non possiamo recuperare. Un'assicurazione che copra l'annullamento vale la pena, e lo ricordiamo a ogni prenotazione."
           ],
-          "list": [
-            "Oltre 60 giorni prima della partenza: l'acconto viene trattenuto, il resto rimborsato",
-            "Da 60 a 30 giorni: viene trattenuto il 50 per cento del totale",
-            "Da 29 a 15 giorni: viene trattenuto il 75 per cento del totale",
-            "Entro 15 giorni o mancata presentazione: nessun rimborso"
+          "after": [
+            "Se non puoi partire, chiedici di spostarti su un'altra partenza prima di annullare. Oltre i 45 giorni e con posti disponibili di solito si può fare."
+          ]
+        },
+        {
+          "title": "Se il saldo non arriva in tempo",
+          "body": [
+            "Quattordici giorni prima della partenza è una linea netta, non un promemoria. I permessi sono depositati, le camere pagate e i veicoli impegnati su quella data.",
+            "Se resta qualcosa da pagare quando quella data passa, la prenotazione viene annullata, il modulo dei documenti viene ritirato, il posto torna in vendita e non viene restituito nulla. Preferiremmo che non succedesse mai: ti scriviamo mentre la data si avvicina, e se sei in difficoltà dillo per tempo, faremo il possibile."
           ]
         },
         {
@@ -1652,9 +1662,10 @@
           "list": [
             "Hotel, guesthouse e campi lungo il tuo itinerario, per le camere a tuo nome",
             "Gli uffici pubblici che rilasciano i permessi per aree soggette a restrizioni e per il percorso",
-            "Il nostro fornitore di pagamenti, che tratta direttamente i dati della carta, che quindi non conserviamo mai",
+            "Razorpay, il nostro fornitore di pagamenti, che tratta direttamente i dati della carta, che quindi non conserviamo mai",
             "Supabase, che ospita il nostro database e l'accesso, e il nostro fornitore email",
-            "Consulenti o autorità quando la legge lo impone"
+            "Consulenti o autorità quando la legge lo impone",
+            "Gli altri partecipanti della tua prenotazione, che vedono i nomi del gruppo a cui sono stati invitati"
           ]
         },
         {
@@ -1701,6 +1712,95 @@
     "meta": {
       "title": "Pagina non trovata | Offhorizon Adventures",
       "description": "La pagina che cercavi non è qui."
+    }
+  },
+  "bookingGuide": {
+    "meta": {
+      "title": "Come funziona la prenotazione | Offhorizon Adventures",
+      "description": "Cosa succede quando prenoti una spedizione Offhorizon: pagamento completo o 20 per cento per bloccare il posto, rate libere, la scadenza dei 14 giorni, i documenti e l'invito al tuo gruppo."
+    },
+    "eyebrow": "Prima di pagare",
+    "title": "Come funziona la prenotazione",
+    "lead": "Cinque minuti di lettura che evitano una conversazione difficile più avanti. Conta una sola data, il resto è semplice.",
+    "stepsTitle": "Dalla scelta della data alla linea di partenza",
+    "steps": [
+      {
+        "title": "Scegli la spedizione e la data",
+        "body": "Apri le date sulla pagina di una spedizione e scegli una partenza. Vedi quanti posti restano e il prezzo per il tuo gruppo prima di pagare qualsiasi cosa."
+      },
+      {
+        "title": "Dici chi viene",
+        "body": "Piloti, passeggeri, camere singole, protezione danni e, su una spedizione 4x4, il veicolo che vuoi o il tuo. Il totale cambia mentre scegli: nessuna sorpresa."
+      },
+      {
+        "title": "Paga tutto, o paga il 20 per cento",
+        "body": "Entrambi bloccano il posto. Pagare tutto chiude la questione; il 20 per cento blocca il posto e lascia il resto da saldare prima di partire."
+      },
+      {
+        "title": "Il posto è tuo",
+        "body": "Arriva un'email di conferma con il numero di prenotazione, e la prenotazione compare nel tuo account con quanto è pagato e quanto resta."
+      },
+      {
+        "title": "Invia i documenti",
+        "body": "Una volta pagata per intero la spedizione, nel tuo account compare un modulo: patente, passaporto, assicurazione e i dati che servono per i permessi. Compilalo e poi segnalo come inviato."
+      },
+      {
+        "title": "Si parte",
+        "body": "Ci sentiamo prima della partenza con il punto di ritrovo, il meteo e quello che sta facendo l'itinerario quella settimana."
+      }
+    ],
+    "deadline": {
+      "eyebrow": "L'unica scadenza",
+      "title": "Tutto va pagato 14 giorni prima della partenza",
+      "body": [
+        "Quella data non è un promemoria. I permessi vengono depositati su di essa, le camere pagate e i veicoli impegnati, e all'ultimo momento non si torna indietro.",
+        "Se resta qualcosa in sospeso quando quella data passa, la prenotazione viene annullata, il modulo dei documenti viene ritirato e il posto torna in vendita. Il denaro già versato non viene restituito.",
+        "Ti scriviamo mentre la data si avvicina, e il tuo account mostra sempre quanto manca. Se sei in difficoltà, dillo per tempo: a due mesi dalla partenza possiamo fare molto, a due settimane quasi nulla."
+      ]
+    },
+    "sections": [
+      {
+        "title": "Saldare a rate",
+        "body": [
+          "Non c'è un piano da rispettare. Una volta versato il 20 per cento, paghi quanto vuoi, quando vuoi, tutte le volte che vuoi, finché il saldo non è chiuso.",
+          "Apri la prenotazione nel tuo account, digita un importo e pagalo. Il saldo si aggiorna subito e la ricevuta ti arriva per email."
+        ]
+      },
+      {
+        "title": "Prenotare per più piloti",
+        "body": [
+          "Prenota e paga per tutti i piloti che porti, e riceverai un link di invito per ciascuno degli altri.",
+          "Manda il link a ogni pilota. Crea un account, entra nel gruppo e gli compare il suo modulo dei documenti. Vede la spedizione e il gruppo, non quanto ha pagato ciascuno.",
+          "I passeggeri non hanno bisogno di invito né di account: indicali sulla prenotazione e per noi è sufficiente."
+        ]
+      },
+      {
+        "title": "Cosa addebitiamo, e in quale valuta",
+        "body": [
+          "I prezzi sono fissati in dollari statunitensi e mostrati nella tua valuta. L'addebito avviene nella tua valuta dove il nostro fornitore di pagamenti la accetta, in dollari dove non può.",
+          "Il cambio si blocca nel momento in cui prenoti. Una prenotazione saldata in quattro rate su cinque mesi si calcola al cambio del giorno della prenotazione, non a quello di ogni rata."
+        ]
+      },
+      {
+        "title": "Spedizioni su misura",
+        "body": [
+          "Una spedizione su misura è costruita per te e compare solo nel tuo account. Scegli piloti e passeggeri e paga per intero o al 20 per cento, esattamente come sopra.",
+          "Solo la persona per cui la spedizione è stata costruita può pagarla. Tutti gli altri entrano dal link di invito e compilano i loro documenti."
+        ]
+      },
+      {
+        "title": "Si può avere un rimborso?",
+        "body": [
+          "No. Le somme versate per una spedizione non sono rimborsabili in nessun momento, perché escono subito per permessi, camere e veicoli che non si possono recuperare.",
+          "Un'assicurazione di viaggio che copra l'annullamento vale la pena, e la consigliamo a ogni prenotazione. Se non puoi partire, chiedici di spostarti su un'altra partenza prima di annullare: oltre i 45 giorni e con posti liberi di solito si può fare."
+        ]
+      }
+    ],
+    "cta": {
+      "title": "Quando vuoi",
+      "body": "Apri le date di una spedizione: il prezzo per il tuo gruppo è sullo schermo prima di qualsiasi addebito.",
+      "primary": "Vedi le spedizioni",
+      "secondary": "Leggi le condizioni"
     }
   }
 }

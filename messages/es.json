@@ -223,6 +223,7 @@
     "resourcesTitle": "Recursos",
     "resources": {
       "about": "Sobre nosotros",
+      "booking": "Cómo reservar",
       "terms": "Términos del servicio",
       "privacy": "Política de privacidad"
     },
@@ -1423,7 +1424,8 @@
         "enquire": "Enviar consulta",
         "note": "Convertido de dólares estadounidenses al cambio de hoy, así que el importe final depende del cambio el día que pagues. Los vuelos no están incluidos.",
         "dates": "Fechas",
-        "flexible": "Flexible"
+        "flexible": "Flexible",
+        "guide": "Lee cómo funciona la reserva antes de pagar"
       }
     },
     "more": "Leer más",
@@ -1538,13 +1540,17 @@
         {
           "title": "Reserva y pago",
           "body": [
-            "Una reserva queda confirmada cuando te lo hemos confirmado por escrito y el depósito nos ha llegado. Hasta que ocurran las dos cosas, la plaza no está guardada.",
-            "Los precios se fijan en dólares estadounidenses. Otras monedas se muestran de forma orientativa al cambio del día, así que la cifra que pagas depende del cambio en el momento del cobro. Los vuelos nunca están incluidos."
+            "Una reserva queda confirmada cuando te lo hemos confirmado por escrito y el primer pago nos ha llegado. Hasta que ocurran las dos cosas, la plaza no está guardada.",
+            "Tú eliges cómo pagar: liquida la expedición de una vez, o paga el 20 por ciento para guardar la plaza y completa el resto antes de viajar."
           ],
           "list": [
-            "El depósito se paga al reservar y guarda tu plaza",
-            "El resto se paga 45 días antes de la salida, o completo al reservar si reservas dentro de esos 45 días",
-            "Si el resto no llega en la fecha prevista podemos tratar la reserva como cancelada por ti"
+            "El 20 por ciento se paga al reservar y es lo que confirma la plaza",
+            "El resto puede pagarse en tantos plazos como quieras, por el importe que quieras, cuando te venga bien",
+            "Todo debe estar pagado como máximo 14 días antes de la fecha de salida",
+            "Los precios se fijan en dólares estadounidenses y se cobran en tu moneda al cambio del día de la reserva, que queda fijado para el resto de la reserva"
+          ],
+          "after": [
+            "Los vuelos nunca están incluidos. Nada de lo pagado se devuelve, así que lee qué implica la expedición antes de reservar."
           ]
         },
         {
@@ -1558,13 +1564,17 @@
           "title": "Si cancelas tú",
           "body": [
             "Las cancelaciones deben llegarnos por escrito. Vale la fecha en que recibimos tu aviso escrito.",
-            "Los depósitos no se devuelven, porque pagan permisos, reservas y bloqueo de vehículos que se hacen en cuanto reservas."
+            "El dinero pagado por una expedición no se devuelve en ningún momento. Paga permisos, habitaciones, vehículos y reservas que comprometemos en cuanto reservas y que no podemos recuperar. Un seguro que cubra la cancelación merece la pena, y lo decimos en cada reserva."
           ],
-          "list": [
-            "Más de 60 días antes de la salida: se retiene el depósito y se devuelve el resto",
-            "De 60 a 30 días: se retiene el 50 por ciento del total",
-            "De 29 a 15 días: se retiene el 75 por ciento del total",
-            "Dentro de los 15 días o si no te presentas: sin devolución"
+          "after": [
+            "Si no puedes viajar, pregúntanos por pasar a otra salida antes de cancelar. A más de 45 días y con plazas libres, suele ser posible."
+          ]
+        },
+        {
+          "title": "Si el resto no se paga a tiempo",
+          "body": [
+            "Catorce días antes de la salida es una línea firme, no un recordatorio. Los permisos están presentados, las habitaciones pagadas y los vehículos comprometidos contra esa fecha.",
+            "Si queda algo pendiente cuando pasa, la reserva se cancela, el formulario de documentos se retira, la plaza vuelve a la venta y no se devuelve nada. Preferiríamos que no pasara nunca: te escribimos según se acerca la fecha, y si tienes una dificultad, dínoslo pronto y haremos lo que podamos."
           ]
         },
         {
@@ -1651,9 +1661,10 @@
           "list": [
             "Hoteles, casas de huéspedes y campamentos de tu ruta, para las habitaciones a tu nombre",
             "Las administraciones que emiten los permisos de zonas restringidas y de ruta",
-            "Nuestro proveedor de pagos, que trata los datos de la tarjeta directamente, de modo que nosotros nunca los guardamos",
+            "Razorpay, nuestro proveedor de pagos, que trata los datos de la tarjeta directamente, de modo que nosotros nunca los guardamos",
             "Supabase, donde están nuestra base de datos y el acceso, y nuestro proveedor de correo",
-            "Asesores profesionales o autoridades cuando la ley lo exige"
+            "Asesores profesionales o autoridades cuando la ley lo exige",
+            "Los demás participantes de tu reserva, que ven los nombres del grupo al que fueron invitados"
           ]
         },
         {
@@ -1700,6 +1711,95 @@
     "meta": {
       "title": "Página no encontrada | Offhorizon Adventures",
       "description": "La página que buscabas no está aquí."
+    }
+  },
+  "bookingGuide": {
+    "meta": {
+      "title": "Cómo funciona la reserva | Offhorizon Adventures",
+      "description": "Qué pasa cuando reservas una expedición de Offhorizon: pago completo o 20 por ciento para guardar la plaza, pagos libres, el plazo de 14 días, los documentos y la invitación a tu grupo."
+    },
+    "eyebrow": "Antes de pagar",
+    "title": "Cómo funciona la reserva",
+    "lead": "Cinco minutos de lectura que evitan una conversación difícil más adelante. Solo una fecha importa de verdad, lo demás es sencillo.",
+    "stepsTitle": "De elegir fecha a estar en la línea de salida",
+    "steps": [
+      {
+        "title": "Elige la expedición y la fecha",
+        "body": "Abre las fechas en la página de una expedición y elige una salida. Verás cuántas plazas quedan y el precio para tu grupo antes de pagar nada."
+      },
+      {
+        "title": "Dinos quién viene",
+        "body": "Pilotos, acompañantes, habitaciones individuales, protección de daños y, en una expedición 4x4, el vehículo que quieras o el tuyo. El total cambia según eliges: sin sorpresas."
+      },
+      {
+        "title": "Paga todo, o paga el 20 por ciento",
+        "body": "Las dos formas guardan la plaza. Pagar todo lo deja cerrado; el 20 por ciento guarda la plaza y deja el resto para antes del viaje."
+      },
+      {
+        "title": "La plaza es tuya",
+        "body": "Llega un correo de confirmación con tu número de reserva, y la reserva aparece en tu cuenta con lo pagado y lo que queda pendiente."
+      },
+      {
+        "title": "Envía tus documentos",
+        "body": "Cuando la expedición está pagada por completo, aparece un formulario en tu cuenta: permiso de conducir, pasaporte, seguro y los datos que hacen falta para los permisos. Rellénalo y márcalo como enviado."
+      },
+      {
+        "title": "A rodar",
+        "body": "Antes de la salida te escribimos con el punto de encuentro, el tiempo y lo que esté haciendo la ruta esa semana."
+      }
+    ],
+    "deadline": {
+      "eyebrow": "El único plazo",
+      "title": "Todo debe estar pagado 14 días antes de la salida",
+      "body": [
+        "Esa fecha no es un recordatorio. Los permisos se presentan contra ella, las habitaciones se pagan y los vehículos se comprometen, y nada de eso se deshace a última hora.",
+        "Si queda algo pendiente cuando pasa, la reserva se cancela, el formulario de documentos se retira y la plaza vuelve a la venta. El dinero ya pagado no se devuelve.",
+        "Te escribimos según se acerca la fecha, y tu cuenta muestra siempre lo que falta. Si tienes una dificultad, dínoslo pronto: a dos meses de la salida podemos hacer mucho, a dos semanas casi nada."
+      ]
+    },
+    "sections": [
+      {
+        "title": "Pagar el resto a plazos",
+        "body": [
+          "No hay calendario que cumplir. Una vez pagado el 20 por ciento, paga lo que quieras, cuando quieras, tantas veces como quieras, hasta liquidar el resto.",
+          "Abre la reserva en tu cuenta, escribe un importe y págalo. El saldo se actualiza al momento y el recibo te llega por correo."
+        ]
+      },
+      {
+        "title": "Reservar para varios pilotos",
+        "body": [
+          "Reserva y paga por todos los pilotos que traigas, y recibirás un enlace de invitación para cada uno de los demás.",
+          "Envía el enlace a cada piloto. Crea una cuenta, se une al grupo y le aparece su propio formulario de documentos. Ve la expedición y el grupo, no lo que ha pagado cada uno.",
+          "Los acompañantes no necesitan invitación ni cuenta: indícalos en la reserva y con eso nos vale."
+        ]
+      },
+      {
+        "title": "Qué cobramos, y en qué moneda",
+        "body": [
+          "Los precios se fijan en dólares estadounidenses y se te muestran en tu moneda. El cobro se hace en tu moneda cuando nuestro proveedor de pagos puede aceptarla, y en dólares cuando no.",
+          "El cambio queda fijado en el momento de reservar. Una reserva pagada en cuatro plazos a lo largo de cinco meses se calcula al cambio del día de la reserva, no al de cada plazo."
+        ]
+      },
+      {
+        "title": "Expediciones a medida",
+        "body": [
+          "Una expedición a medida se construye para ti y solo aparece en tu cuenta. Elige pilotos y acompañantes y paga entera o con el 20 por ciento, exactamente igual que arriba.",
+          "Solo la persona para la que se construyó la expedición puede pagarla. Los demás entran por el enlace de invitación y rellenan sus documentos."
+        ]
+      },
+      {
+        "title": "¿Se devuelve algo?",
+        "body": [
+          "No. El dinero pagado por una expedición no se devuelve en ningún momento, porque sale de inmediato hacia permisos, habitaciones y vehículos que no se pueden recuperar.",
+          "Un seguro de viaje que cubra la cancelación merece la pena, y lo recomendamos en cada reserva. Si no puedes viajar, pregúntanos por pasar a otra salida antes de cancelar: a más de 45 días y con plazas libres, suele ser posible."
+        ]
+      }
+    ],
+    "cta": {
+      "title": "Cuando tú quieras",
+      "body": "Abre las fechas de una expedición y el precio para tu grupo está en pantalla antes de cobrar nada.",
+      "primary": "Ver las expediciones",
+      "secondary": "Leer las condiciones"
     }
   }
 }
