@@ -24,13 +24,13 @@ export function NavShell({ children }: { children: ReactNode }) {
     >
       <div
         className={cn(
-          "ease-out-expo mx-auto flex w-full max-w-6xl items-center justify-between gap-6 rounded-full border transition-all duration-500",
+          "ease-out-expo mx-auto flex w-full max-w-6xl items-center justify-between gap-3 rounded-full border transition-all duration-500 sm:gap-6",
           "bg-white/75 supports-[backdrop-filter]:bg-white/30",
           "backdrop-blur-2xl backdrop-saturate-[180%]",
           "shadow-[inset_0_1px_0_0_rgba(255,255,255,0.75),inset_0_-1px_0_0_rgba(255,255,255,0.25)]",
           scrolled
-            ? "h-14 border-white/50 pr-3 pl-5 supports-[backdrop-filter]:bg-white/45"
-            : "h-16 border-white/45 pr-4 pl-6",
+            ? "h-14 border-white/50 pr-2.5 pl-4 supports-[backdrop-filter]:bg-white/45 sm:pr-3 sm:pl-5"
+            : "h-16 border-white/45 pr-2.5 pl-4 sm:pr-4 sm:pl-6",
         )}
       >
         {children}

@@ -17,7 +17,7 @@ export function Logo({ height = 40, variant = "brand", className = "" }: LogoPro
     <Link
       href="/"
       aria-label={siteName}
-      // `shrink-0`: the bar is a flex row, and in French and Spanish the navigation is wide enough that the browser starts taking the space back from the first item.
+      // `shrink-0`: French and Spanish navigation is wide enough to squeeze it.
       className={`inline-flex shrink-0 items-center ${className}`}
     >
       <Image
@@ -27,7 +27,7 @@ export function Logo({ height = 40, variant = "brand", className = "" }: LogoPro
         height={height}
         priority
         sizes={`${Math.round(height * RATIO)}px`}
-        className="h-7 w-auto max-w-none sm:h-8"
+        className="h-6 w-auto max-w-none min-[360px]:h-7 sm:h-8"
       />
     </Link>
   );

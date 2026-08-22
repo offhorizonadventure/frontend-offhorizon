@@ -1348,7 +1348,8 @@
       "title": "One price, and the few things that sit on top of it",
       "body": "The rider price covers the expedition itself. Everything below it is optional, so you only pay for a single room or extra cover if you want them. Nothing is added at the end.",
       "datesTitle": "Departure dates",
-      "noDates": "Dates for this expedition are not set yet. Tell us when you want to ride and we will build it around you."
+      "noDates": "Dates for this expedition are not set yet. Tell us when you want to ride and we will build it around you.",
+      "book": "Book now"
     },
     "highlights": {
       "eyebrow": "Highlights",

@@ -14,24 +14,13 @@ import upperMustang from "../../public/tours/menu/upper-mustang.webp";
 
 import type { DestinationKey, NavKey, TourKey } from "@/i18n/keys";
 
-/**
- * The navigation tree.
- *
- * Written here rather than read from the database on purpose: the menu is on
- * every page, and a query per page is a query the free tier pays for. These
- * eleven change about once a year. The cards on the destination and tour pages
- * are the dynamic part.
- */
+/** The menu. Static on purpose: it is on every page, and it rarely changes. */
 
 export type Tour = {
   key: TourKey;
   href: string;
   days: number;
-  /**
-   * Durations marked provisional are our own estimate of what the route takes
-   * run properly, not a confirmed itinerary. They are flagged so they can be
-   * corrected without reading every line.
-   */
+  /** Our estimate rather than a confirmed itinerary. */
   provisional?: boolean;
   image: StaticImageData;
 };

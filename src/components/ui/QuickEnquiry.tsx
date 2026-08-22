@@ -32,10 +32,13 @@ export async function QuickEnquiryButton({ locale }: { locale: Locale }) {
   const labels = await quickEnquiryLabels(locale);
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-90 flex justify-center p-4 sm:inset-x-auto sm:right-6 sm:bottom-6 sm:p-0">
+    <div
+      data-floating-enquiry
+      className="pointer-events-none fixed inset-x-0 bottom-0 z-30 flex justify-end p-4 sm:inset-x-auto sm:right-6 sm:bottom-6 sm:p-0"
+    >
       <QuickEnquiryModal
         labels={labels}
-        className="bg-brand-800 text-cream-100 shadow-brand-950/25 hover:bg-brand-900 pointer-events-auto inline-flex h-12 items-center gap-2.5 rounded-full px-6 text-[11.5px] font-bold tracking-[0.13em] uppercase shadow-lg transition-colors duration-300"
+        className="bg-brand-800 text-cream-100 shadow-brand-950/25 hover:bg-brand-900 pointer-events-auto inline-flex h-12 items-center gap-2.5 rounded-full px-7 text-[11.5px] font-bold tracking-[0.13em] whitespace-nowrap uppercase shadow-lg transition-colors duration-300"
       >
         <span
           aria-hidden

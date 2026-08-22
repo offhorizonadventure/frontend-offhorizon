@@ -85,11 +85,14 @@ export function LanguageSwitcher({ label, variant = "menu" }: LanguageSwitcherPr
         className="hover:bg-cream-100 flex h-9 items-center gap-1.5 rounded-full px-2.5 transition-colors"
       >
         <Flag country={marketFor(active).flag} />
-        <span className="text-brand-800 text-[11px] font-bold tracking-[0.1em] uppercase">
+        <span className="text-brand-800 hidden text-[11px] font-bold tracking-[0.1em] uppercase sm:inline">
           {active}
         </span>
         <ChevronDown
-          className={cn("text-brand-700 transition-transform duration-300", open && "rotate-180")}
+          className={cn(
+            "text-brand-700 hidden transition-transform duration-300 sm:block",
+            open && "rotate-180",
+          )}
         />
       </button>
 

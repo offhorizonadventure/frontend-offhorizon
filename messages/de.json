@@ -1352,7 +1352,8 @@
       "title": "Ein Preis, und die wenigen Posten, die darauf kommen",
       "body": "Der Fahrerpreis deckt die Expedition selbst ab. Alles darunter ist optional: Einzelzimmer oder zusätzlichen Schutz zahlen Sie nur, wenn Sie sie wollen. Am Ende kommt nichts dazu.",
       "datesTitle": "Abfahrtstermine",
-      "noDates": "Die Termine stehen noch nicht fest. Sagen Sie uns, wann Sie fahren möchten, und wir richten die Expedition danach aus."
+      "noDates": "Die Termine stehen noch nicht fest. Sagen Sie uns, wann Sie fahren möchten, und wir richten die Expedition danach aus.",
+      "book": "Jetzt buchen"
     },
     "highlights": {
       "eyebrow": "Höhepunkte",

@@ -10,10 +10,12 @@ import { Highlights } from "@/components/tour/Highlights";
 import { Inclusions } from "@/components/tour/Inclusions";
 import { PlaceBody } from "@/components/tour/PlaceBody";
 import { PriceCard } from "@/components/tour/PriceCard";
+import { TourActions } from "@/components/tour/TourActions";
 import { Program } from "@/components/tour/Program";
 import { RouteMap } from "@/components/tour/RouteMap";
 import { TourHero } from "@/components/tour/TourHero";
 import { Topo } from "@/components/ui/Topo";
+import { buildBooking } from "@/lib/booking-props";
 import { countryName, getTour, imageUrl, listDepartures } from "@/lib/catalogue";
 import { translate } from "@/lib/translated";
 import { resolveLocale } from "@/i18n/params";
@@ -223,6 +225,17 @@ export default async function TourPage({ params }: PageProps<"/[locale]/adventur
       />
 
       <Riders />
+
+      <TourActions
+        locale={locale}
+        booking={await buildBooking({
+          locale,
+          pricing: priceGroups,
+          tourName: name,
+          facts,
+          departures: departureList(departures),
+        })}
+      />
     </>
   );
 }

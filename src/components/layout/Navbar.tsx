@@ -23,7 +23,7 @@ export async function Navbar() {
 
         <span aria-hidden className="bg-brand-900/12 hidden h-5 w-px lg:block" />
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1 sm:gap-1.5">
           <LanguageSwitcher label={t("language")} />
 
           <AccountDialog locale={locale as Locale} />

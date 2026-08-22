@@ -1351,7 +1351,8 @@
       "title": "Un prezzo, e le poche voci che si aggiungono",
       "body": "Il prezzo pilota copre la spedizione vera e propria. Tutto il resto è facoltativo: la camera singola o la copertura extra si pagano solo se le vuoi. Alla fine non si aggiunge nulla.",
       "datesTitle": "Date di partenza",
-      "noDates": "Le date non sono ancora fissate. Dicci quando vuoi partire e la costruiamo su misura."
+      "noDates": "Le date non sono ancora fissate. Dicci quando vuoi partire e la costruiamo su misura.",
+      "book": "Prenota ora"
     },
     "highlights": {
       "eyebrow": "Da non perdere",

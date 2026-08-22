@@ -99,7 +99,7 @@ export function QuickEnquiryModal({
   }
 
   const field =
-    "h-12 w-full rounded-xl border border-brand-900/15 bg-white px-4 text-[14px] text-brand-900 outline-none transition-[border-color,box-shadow] placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-[3px] focus:ring-brand-800/10";
+    "h-11 w-full rounded-xl border border-brand-900/15 bg-white px-4 text-[14px] text-brand-900 outline-none transition-[border-color,box-shadow] placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-[3px] focus:ring-brand-800/10";
   const label = "block text-[10.5px] font-bold tracking-[0.16em] text-brand-600 uppercase";
 
   const overlay =
@@ -124,7 +124,7 @@ export function QuickEnquiryModal({
             }
           }}
           className={cn(
-            "bg-paper relative max-h-[92dvh] w-full max-w-lg overflow-y-auto rounded-t-[28px] p-6 sm:rounded-[28px] sm:p-8",
+            "bg-paper relative max-h-[92dvh] w-full max-w-lg overflow-y-auto rounded-t-[28px] p-5 sm:rounded-[28px] sm:p-7",
             isOpen ? "animate-modal-in" : "animate-modal-out",
           )}
         >
@@ -154,15 +154,13 @@ export function QuickEnquiryModal({
             <>
               <h2
                 id={`${formId}-title`}
-                className="font-display text-brand-900 pr-10 text-[22px] leading-tight font-extrabold tracking-[-0.025em] sm:text-[25px]"
+                className="font-display text-brand-900 pr-10 text-[20px] leading-tight font-extrabold tracking-[-0.025em] sm:text-[23px]"
               >
                 {labels.title}
               </h2>
-              <p className="text-brand-800/55 mt-2 text-[13.5px] leading-relaxed">
-                {labels.subtitle}
-              </p>
+              <p className="text-brand-800/55 mt-1.5 text-[13px] leading-snug">{labels.subtitle}</p>
 
-              <form onSubmit={handleSubmit} className="mt-6 space-y-4" noValidate={false}>
+              <form onSubmit={handleSubmit} className="mt-5 space-y-3.5" noValidate={false}>
                 <div>
                   <label htmlFor={`${formId}-name`} className={label}>
                     {labels.fullName}
@@ -173,16 +171,16 @@ export function QuickEnquiryModal({
                     type="text"
                     required
                     autoComplete="name"
-                    className={`${field} mt-2`}
+                    className={`${field} mt-1.5`}
                   />
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3.5">
                   <div>
                     <label htmlFor={`${formId}-phone`} className={label}>
                       {labels.phone}
                     </label>
-                    <div className="mt-2">
+                    <div className="mt-1.5">
                       <PhoneField
                         id={`${formId}-phone`}
                         name="phone"
@@ -202,7 +200,7 @@ export function QuickEnquiryModal({
                       type="email"
                       required
                       autoComplete="email"
-                      className={`${field} mt-2`}
+                      className={`${field} mt-1.5`}
                     />
                   </div>
                 </div>
@@ -214,9 +212,9 @@ export function QuickEnquiryModal({
                   <textarea
                     id={`${formId}-message`}
                     name="message"
-                    rows={4}
+                    rows={3}
                     placeholder={labels.messagePlaceholder}
-                    className="border-brand-900/15 text-brand-900 placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-brand-800/10 mt-2 w-full resize-none rounded-xl border bg-white p-4 text-[14px] leading-relaxed transition-[border-color,box-shadow] outline-none focus:ring-[3px]"
+                    className="border-brand-900/15 text-brand-900 placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-brand-800/10 mt-1.5 w-full resize-none rounded-xl border bg-white p-3.5 text-[14px] leading-relaxed transition-[border-color,box-shadow] outline-none focus:ring-[3px]"
                   />
                 </div>
 
@@ -232,12 +230,12 @@ export function QuickEnquiryModal({
                 <button
                   type="submit"
                   disabled={pending}
-                  className="bg-brand-800 text-cream-100 hover:bg-brand-900 flex h-13 w-full items-center justify-center rounded-full text-[11.5px] font-bold tracking-[0.13em] uppercase transition-colors disabled:opacity-60"
+                  className="bg-brand-800 text-cream-100 hover:bg-brand-900 mt-1 flex h-12 w-full items-center justify-center rounded-full text-[11.5px] font-bold tracking-[0.13em] uppercase transition-colors disabled:opacity-60"
                 >
                   {pending ? labels.sending : labels.submit}
                 </button>
 
-                <p className="text-brand-800/40 text-center text-[11px]">{labels.required}</p>
+                <p className="text-brand-800/40 text-center text-[10.5px]">{labels.required}</p>
               </form>
             </>
           )}

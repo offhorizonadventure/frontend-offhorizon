@@ -13,10 +13,13 @@ export function DatesDrawer({
   label,
   title,
   booking,
+  className,
 }: {
   label: string;
   title: string;
   booking: BookingProps;
+  /** Set by the tour page bar, which needs a narrower button. */
+  className?: string;
 }) {
   const [phase, setPhase] = useState<Phase>("closed");
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -49,7 +52,10 @@ export function DatesDrawer({
         ref={triggerRef}
         type="button"
         onClick={() => setPhase("open")}
-        className="group bg-brand-800 text-cream-100 hover:bg-brand-900 flex h-12 w-full items-center justify-center gap-2.5 rounded-full text-[11px] font-bold tracking-[0.12em] uppercase transition-colors duration-300"
+        className={
+          className ??
+          "group bg-brand-800 text-cream-100 hover:bg-brand-900 flex h-12 w-full items-center justify-center gap-2.5 rounded-full text-[11px] font-bold tracking-[0.12em] uppercase transition-colors duration-300"
+        }
       >
         {label}
         <ChevronDown className="-rotate-90" />

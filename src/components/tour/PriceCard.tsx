@@ -1,12 +1,12 @@
-import { getMessages, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
-import type { BookingLabels } from "@/components/tour/BookingWizard";
 import { DatesDrawer } from "@/components/tour/DatesDrawer";
 import { ArrowRight, priceIcons } from "@/components/ui/icons";
 import type { Departure, FactKey, PriceGroup } from "@/lib/tour-types";
 import type { Locale } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
-import { getConversion, getPrice } from "@/lib/currency";
+import { buildBooking } from "@/lib/booking-props";
+import { getPrice } from "@/lib/currency";
 
 /** Price card in the hero. */
 export async function PriceCard({
@@ -24,12 +24,6 @@ export async function PriceCard({
 }) {
   const t = await getTranslations({ locale, namespace: "tour" });
   const ts = await getTranslations({ locale, namespace: "dest.shared" });
-  const { currency, rate } = await getConversion(locale);
-
-  // `t.raw` is typed for leaf keys, and the wizard wants a whole subtree.
-  const messages = (await getMessages({ locale })) as unknown as {
-    tour: { booking: BookingLabels };
-  };
 
   const groups = await Promise.all(
     pricing.map(async (group) => ({
@@ -46,37 +40,7 @@ export async function PriceCard({
 
   const headline = groups[0]?.lines[0];
 
-  // The wizard needs the unit prices as numbers so it can total them live.
-  const unit = (icon: string) =>
-    pricing.flatMap((group) => group.lines).find((line) => line.icon === icon)?.amount ?? 0;
-  const fact = (key: FactKey) => facts.find((entry) => entry.key === key)?.value ?? "";
-  const groupSize = fact("groupSize");
-
-  const booking = {
-    tourName,
-    duration: fact("duration"),
-    groupSize,
-    prices: {
-      rider: unit("rider"),
-      pillion: unit("pillion"),
-      insurance: unit("shield"),
-      room: unit("singleRoom"),
-    },
-    currency,
-    rate,
-    locale,
-    // "12 riders" and the like; fall back to a sane cap when it does not parse.
-    maxRiders: Number(groupSize.match(/\d+/)?.[0]) || 12,
-    departures: departures.map(({ start, end, soldOut, seats, kind, vehicles }) => ({
-      start,
-      end,
-      soldOut,
-      seats,
-      kind,
-      vehicles,
-    })),
-    labels: messages.tour.booking,
-  };
+  const booking = await buildBooking({ locale, pricing, tourName, facts, departures });
 
   return (
     <div className="bg-cream-50/97 shadow-brand-950/30 ring-cream-100/20 rounded-[26px] p-6 shadow-2xl ring-1 backdrop-blur-md sm:p-7">

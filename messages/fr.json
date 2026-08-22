@@ -1354,7 +1354,8 @@
       "title": "Un prix, et les quelques options qui s'y ajoutent",
       "body": "Le tarif pilote couvre l'expédition elle-même. Tout le reste est facultatif : vous ne payez une chambre simple ou une couverture supplémentaire que si vous les voulez. Rien n'est ajouté à la fin.",
       "datesTitle": "Dates de départ",
-      "noDates": "Les dates ne sont pas encore fixées. Dites-nous quand vous voulez rouler et nous l'organiserons autour de vous."
+      "noDates": "Les dates ne sont pas encore fixées. Dites-nous quand vous voulez rouler et nous l'organiserons autour de vous.",
+      "book": "Réserver"
     },
     "highlights": {
       "eyebrow": "Temps forts",
