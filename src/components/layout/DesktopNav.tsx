@@ -16,15 +16,15 @@ export async function DesktopNav() {
 
   return (
     <nav aria-label={t("primary")} className="hidden lg:block">
-      <ul className="flex items-center gap-5 xl:gap-7">
+      <ul className="flex items-center gap-3.5 xl:gap-5">
         {mainNav.map((item) =>
           hasMegaMenu(item) ? (
-            <li key={item.key} className="group relative">
+            <li key={item.key} className="group">
               <Link href={item.href} className={trigger}>
                 {t(item.key)}
                 <ChevronDown className="mt-px transition-transform duration-300 group-focus-within:rotate-180 group-hover:rotate-180" />
               </Link>
-              <div className="ease-out-expo invisible absolute top-full left-1/2 z-40 w-[min(62rem,calc(100vw-3rem))] -translate-x-1/2 translate-y-2 pt-4 opacity-0 transition-all duration-300 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+              <div className="ease-out-expo invisible absolute top-full left-1/2 z-40 w-[min(72rem,calc(100vw_-_3rem))] -translate-x-1/2 translate-y-2 pt-3 opacity-0 transition-all duration-300 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                 <MegaPanel countries={item.countries} />
               </div>
             </li>
@@ -86,7 +86,7 @@ async function MegaPanel({ countries }: { countries: Country[] }) {
                           />
                         </span>
                         <span className="min-w-0 flex-1">
-                          <span className="text-brand-900 block truncate text-[13px] font-semibold">
+                          <span className="text-brand-900 block text-[13px] leading-snug font-semibold">
                             {tt(`${tour.key}.name`)}
                           </span>
                           <span className="text-brand-600/75 mt-0.5 block truncate text-[11px]">

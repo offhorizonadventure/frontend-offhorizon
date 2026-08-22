@@ -30,7 +30,7 @@ export async function Navbar() {
 
           <Link
             href="/custom-expeditions"
-            className="bg-brand-800 text-cream-100 hover:bg-brand-900 hidden h-9 items-center rounded-full px-4 text-[10.5px] font-bold tracking-[0.09em] whitespace-nowrap uppercase transition-colors duration-200 lg:inline-flex"
+            className="bg-brand-800 text-cream-100 hover:bg-brand-900 hidden h-9 items-center rounded-full px-4 text-[10.5px] font-bold tracking-[0.09em] whitespace-nowrap uppercase transition-colors duration-200 xl:inline-flex"
           >
             {t("cta")}
           </Link>

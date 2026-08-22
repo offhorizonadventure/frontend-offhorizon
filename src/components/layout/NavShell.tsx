@@ -29,8 +29,8 @@ export function NavShell({ children }: { children: ReactNode }) {
           "backdrop-blur-2xl backdrop-saturate-[180%]",
           "shadow-[inset_0_1px_0_0_rgba(255,255,255,0.75),inset_0_-1px_0_0_rgba(255,255,255,0.25)]",
           scrolled
-            ? "h-14 border-white/50 pr-2.5 pl-5 supports-[backdrop-filter]:bg-white/45"
-            : "h-16 border-white/45 pr-3 pl-6",
+            ? "h-14 border-white/50 pr-3 pl-5 supports-[backdrop-filter]:bg-white/45"
+            : "h-16 border-white/45 pr-4 pl-6",
         )}
       >
         {children}
