@@ -18,7 +18,13 @@ export type BookingRow = {
   created_at: string;
   own_vehicle: boolean;
   tour: { slug: string; title: string; hero_path: string | null; google_form_url: string | null };
-  departure: { start_date: string; end_date: string; kind: string; bike_name: string | null };
+  /** Null when the row is not readable, which the pages allow for. */
+  departure: {
+    start_date: string;
+    end_date: string;
+    kind: string;
+    bike_name: string | null;
+  } | null;
 };
 
 export type TravellerRow = {

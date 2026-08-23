@@ -35,21 +35,25 @@ export default async function BookingPage({
 
   const facts = [
     { label: t("detail.reference"), value: booking.reference },
-    {
-      label: t("detail.dates"),
-      value: new Intl.DateTimeFormat(locale, {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-      }).formatRange(
-        new Date(`${booking.departure.start_date}T00:00:00Z`),
-        new Date(`${booking.departure.end_date}T00:00:00Z`),
-      ),
-    },
+    ...(booking.departure
+      ? [
+          {
+            label: t("detail.dates"),
+            value: new Intl.DateTimeFormat(locale, {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+            }).formatRange(
+              new Date(`${booking.departure.start_date}T00:00:00Z`),
+              new Date(`${booking.departure.end_date}T00:00:00Z`),
+            ),
+          },
+        ]
+      : []),
     {
       label: t("detail.party"),
       value:
-        booking.departure.kind === "4x4"
+        booking.departure?.kind === "4x4"
           ? t("partyPeople", { people: booking.riders })
           : t("party", { riders: booking.riders, pillions: booking.pillions }),
     },
@@ -151,7 +155,7 @@ export default async function BookingPage({
         locale={locale}
         travellers={travellers}
         isLead={isLead}
-        byPerson={booking.departure.kind === "4x4"}
+        byPerson={booking.departure?.kind === "4x4"}
         origin={siteUrl}
         joinPath={`/${locale}/booking/join`}
       />

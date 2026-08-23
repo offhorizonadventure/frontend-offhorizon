@@ -71,7 +71,10 @@ export type Tour = {
   featured: boolean;
   hero_path: string | null;
   hero_alt: string | null;
-  /** Private expeditions are readable only by the account they were built for. */
+  /**
+   * Kept in step with the column. Custom expeditions live on the departure, so
+   * this stays public unless a bespoke route ever needs a page of its own.
+   */
   visibility: "public" | "private";
   place_title: string | null;
   place_body: string | null;
