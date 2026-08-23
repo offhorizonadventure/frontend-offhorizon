@@ -1651,7 +1651,7 @@
           "title": "Why we use it",
           "body": [
             "To reply to enquiries, to quote and confirm bookings, to apply for the permits your route needs, to take payment, and to tell you about changes to a departure you are on.",
-            "We do not run analytics on this site and we do not profile anyone. What we know about your visit is what the server needs to answer it."
+            "We use Google Tag Manager and Google Analytics to count visits and see which pages are read. Nothing analytical is loaded until you agree to it, and we do not use any of it to build a profile of you."
           ]
         },
         {
@@ -1669,6 +1669,7 @@
             "Government departments that issue restricted area and route permits",
             "Razorpay, our payment provider, which handles card details directly so we never hold them",
             "ipapi.co, which turns your address into a country once so prices can be shown in your currency",
+            "Google, through Tag Manager and Analytics, which receives the pages you visited once you have agreed to it",
             "Supabase, which hosts our database and sign in, and our email provider",
             "Professional advisers or authorities where the law requires it",
             "Other riders on your booking, who see the names of the group they were invited to join"
@@ -1692,7 +1693,8 @@
           "title": "Cookies and what your browser stores",
           "body": [
             "We do not use advertising cookies and we do not track you across other sites.",
-            "Your browser stores three things: the language you chose, a cookie named oh_country holding the country we looked up once so prices can be shown in your currency, and, if you sign in, a session so you stay signed in. Clearing your browser storage removes all of it."
+            "Your browser stores three things: the language you chose, a cookie named oh_country holding the country we looked up once so prices can be shown in your currency, and, if you sign in, a session so you stay signed in. Clearing your browser storage removes all of it.",
+            "If you agree to analytics, Google Analytics also sets its own cookies. Until you do, none are written."
           ]
         },
         {

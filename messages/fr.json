@@ -1657,7 +1657,7 @@
           "title": "Pourquoi nous les utilisons",
           "body": [
             "Pour répondre aux demandes, établir des devis et confirmer les réservations, demander les permis nécessaires à votre itinéraire, encaisser les paiements et vous informer des changements sur un départ auquel vous participez.",
-            "Nous n'utilisons aucun outil de mesure d'audience sur ce site et nous ne profilons personne. Ce que nous savons de votre visite est ce dont le serveur a besoin pour y répondre."
+            "Nous utilisons Google Tag Manager et Google Analytics pour compter les visites et voir quelles pages sont lues. Rien de tout cela ne se charge avant votre accord, et nous ne nous en servons pas pour établir un profil."
           ]
         },
         {
@@ -1677,6 +1677,7 @@
             "Les administrations qui délivrent les permis de zones réglementées et d'itinéraire",
             "Razorpay, notre prestataire de paiement, qui traite les données de carte directement, de sorte que nous ne les détenons jamais",
             "ipapi.co, qui convertit votre adresse en pays une seule fois afin d'afficher les prix dans votre devise",
+            "Google, via Tag Manager et Analytics, qui reçoit les pages consultées une fois que vous l'avez accepté",
             "Supabase, qui héberge notre base de données et la connexion, ainsi que notre prestataire d'e-mail",
             "Des conseils professionnels ou des autorités lorsque la loi l'exige",
             "Les autres participants de votre réservation, qui voient les noms du groupe qu'ils ont rejoint"
@@ -1700,7 +1701,8 @@
           "title": "Cookies et stockage du navigateur",
           "body": [
             "Nous n'utilisons pas de cookies publicitaires et nous ne vous suivons pas sur d'autres sites.",
-            "Votre navigateur conserve trois choses : la langue que vous avez choisie, un cookie nommé oh_country contenant le pays recherché une seule fois afin d'afficher les prix dans votre devise, et, si vous vous connectez, une session pour vous garder connecté. Vider le stockage de votre navigateur efface tout cela."
+            "Votre navigateur conserve trois choses : la langue que vous avez choisie, un cookie nommé oh_country contenant le pays recherché une seule fois afin d'afficher les prix dans votre devise, et, si vous vous connectez, une session pour vous garder connecté. Vider le stockage de votre navigateur efface tout cela.",
+            "Si vous acceptez la mesure d'audience, Google Analytics dépose aussi ses propres cookies. Tant que vous n'acceptez pas, aucun n'est écrit."
           ]
         },
         {

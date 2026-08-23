@@ -1653,7 +1653,7 @@
           "title": "Para qué los usamos",
           "body": [
             "Para responder consultas, presupuestar y confirmar reservas, solicitar los permisos que necesita tu ruta, cobrar los pagos y avisarte de los cambios en la salida en la que vas.",
-            "En este sitio no usamos analítica ni hacemos perfiles de nadie. De tu visita sabemos lo que el servidor necesita para responderla."
+            "Usamos Google Tag Manager y Google Analytics para contar visitas y ver qué páginas se leen. Nada de eso se carga hasta que lo aceptas, y no lo usamos para crear un perfil tuyo."
           ]
         },
         {
@@ -1671,6 +1671,7 @@
             "Las administraciones que emiten los permisos de zonas restringidas y de ruta",
             "Razorpay, nuestro proveedor de pagos, que trata los datos de la tarjeta directamente, de modo que nosotros nunca los guardamos",
             "ipapi.co, que convierte tu dirección en un país una sola vez para mostrar los precios en tu moneda",
+            "Google, a través de Tag Manager y Analytics, que recibe las páginas visitadas una vez que lo aceptas",
             "Supabase, donde están nuestra base de datos y el acceso, y nuestro proveedor de correo",
             "Asesores profesionales o autoridades cuando la ley lo exige",
             "Los demás participantes de tu reserva, que ven los nombres del grupo al que fueron invitados"
@@ -1694,7 +1695,8 @@
           "title": "Cookies y almacenamiento del navegador",
           "body": [
             "No usamos cookies publicitarias ni te seguimos por otros sitios.",
-            "Tu navegador guarda tres cosas: el idioma que elegiste, una cookie llamada oh_country con el país que consultamos una vez para mostrar los precios en tu moneda y, si inicias sesión, una sesión para mantenerte dentro. Borrar el almacenamiento del navegador elimina todo eso."
+            "Tu navegador guarda tres cosas: el idioma que elegiste, una cookie llamada oh_country con el país que consultamos una vez para mostrar los precios en tu moneda y, si inicias sesión, una sesión para mantenerte dentro. Borrar el almacenamiento del navegador elimina todo eso.",
+            "Si aceptas la analítica, Google Analytics también instala sus propias cookies. Hasta entonces no se escribe ninguna."
           ]
         },
         {

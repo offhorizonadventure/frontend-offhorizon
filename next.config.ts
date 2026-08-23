@@ -1,9 +1,27 @@
 import createNextIntlPlugin from "next-intl/plugin";
 import type { NextConfig } from "next";
 
-const SUPABASE = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "https://placeholder.supabase.co";
-
-/** What the browser is allowed to load, and from where. */
+/**
+ * What the browser is allowed to load.
+ *
+ * The tag manager container loads code chosen after this file was written:
+ * Google Ads, the Meta pixel, Clarity, Brevo, WonderPush, and several of those
+ * load further scripts of their own. Listing each host broke a tag every time
+ * marketing added one, and gave only the appearance of control.
+ *
+ * So scripts, styles, images, beacons and frames may come from any https
+ * origin, and the directives that actually stop an attack stay shut:
+ *
+ *   default-src 'self'      anything not named below stays same origin
+ *   object-src 'none'       no plugin injection
+ *   base-uri 'self'         a stolen <base> cannot repoint every relative URL
+ *   form-action 'self'      a stolen form cannot post card details elsewhere
+ *   frame-ancestors 'self'  the payment pages cannot be framed by anyone
+ *
+ * The strict version is a per-request nonce with 'strict-dynamic', which keeps
+ * host control over scripts while letting the tag manager load its own. Worth
+ * doing once the tag list settles.
+ */
 const contentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
@@ -11,21 +29,14 @@ const contentSecurityPolicy = [
   "frame-ancestors 'self'",
   "form-action 'self'",
   "upgrade-insecure-requests",
-  // Razorpay's checkout, the reviews widget, and our own structured data.
-  // React rebuilds stack traces with eval while developing, and never in a
-  // built site, so the allowance is tied to the mode rather than left on.
-  `script-src 'self' 'unsafe-inline' ${process.env.NODE_ENV === "development" ? "'unsafe-eval' " : ""}https://checkout.razorpay.com https://*.trustindex.io https://www.youtube.com https://s.ytimg.com`,
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.trustindex.io",
-  "font-src 'self' data: https://fonts.gstatic.com https://*.trustindex.io",
-  // Reviewer avatars come from Google, which is what the review widget draws.
-  "img-src 'self' data: blob: https://flagcdn.com https://i.ytimg.com https://*.trustindex.io https://*.googleusercontent.com https://*.ggpht.com " +
-    SUPABASE,
-  // The database, the exchange rates, the country lookup and the payment API.
-  "connect-src 'self' https://open.er-api.com https://ipapi.co https://api.razorpay.com https://lumberjack.razorpay.com https://checkout.razorpay.com https://*.trustindex.io " +
-    SUPABASE,
-  // The payment window and the films are iframes.
-  "frame-src 'self' https://api.razorpay.com https://checkout.razorpay.com https://www.youtube-nocookie.com https://www.youtube.com https://*.trustindex.io",
-  "media-src 'self' blob:",
+  // React rebuilds stack traces with eval while developing, never in a built site.
+  `script-src 'self' 'unsafe-inline' https: ${process.env.NODE_ENV === "development" ? "'unsafe-eval'" : ""}`.trim(),
+  "style-src 'self' 'unsafe-inline' https:",
+  "font-src 'self' data: https:",
+  "img-src 'self' data: blob: https:",
+  "connect-src 'self' https:",
+  "frame-src 'self' https:",
+  "media-src 'self' blob: https:",
   "worker-src 'self' blob:",
 ].join("; ");
 

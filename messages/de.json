@@ -1655,7 +1655,7 @@
           "title": "Wofür wir sie nutzen",
           "body": [
             "Um Anfragen zu beantworten, Angebote zu machen und Buchungen zu bestätigen, die für Ihre Route nötigen Genehmigungen zu beantragen, Zahlungen abzuwickeln und Sie über Änderungen an Ihrem Termin zu informieren.",
-            "Wir setzen auf dieser Website keine Analysewerkzeuge ein und erstellen keine Profile. Von Ihrem Besuch wissen wir nur, was der Server braucht, um ihn zu beantworten."
+            "Wir nutzen Google Tag Manager und Google Analytics, um Besuche zu zählen und zu sehen, welche Seiten gelesen werden. Nichts davon lädt, bevor Sie zustimmen, und wir erstellen daraus kein Profil von Ihnen."
           ]
         },
         {
@@ -1675,6 +1675,7 @@
             "Behörden, die Genehmigungen für Sperrgebiete und Routen ausstellen",
             "Razorpay, unser Zahlungsdienstleister, der Kartendaten direkt verarbeitet, sodass wir sie nie speichern",
             "ipapi.co, das Ihre Adresse einmal in ein Land übersetzt, damit Preise in Ihrer Währung erscheinen",
+            "Google, über Tag Manager und Analytics, das die besuchten Seiten erhält, sobald Sie zugestimmt haben",
             "Supabase, wo unsere Datenbank und die Anmeldung laufen, sowie unser E-Mail-Anbieter",
             "Berufliche Berater oder Behörden, soweit das Gesetz es verlangt",
             "Die anderen Teilnehmenden Ihrer Buchung, die die Namen der Gruppe sehen, zu der sie eingeladen wurden"
@@ -1698,7 +1699,8 @@
           "title": "Cookies und Browser-Speicher",
           "body": [
             "Wir setzen keine Werbe-Cookies ein und verfolgen Sie nicht über andere Websites hinweg.",
-            "Ihr Browser speichert drei Dinge: die gewählte Sprache, ein Cookie namens oh_country mit dem einmal ermittelten Land, damit Preise in Ihrer Währung erscheinen, und bei Anmeldung eine Sitzung, damit Sie angemeldet bleiben. Das Leeren des Browser-Speichers entfernt all das."
+            "Ihr Browser speichert drei Dinge: die gewählte Sprache, ein Cookie namens oh_country mit dem einmal ermittelten Land, damit Preise in Ihrer Währung erscheinen, und bei Anmeldung eine Sitzung, damit Sie angemeldet bleiben. Das Leeren des Browser-Speichers entfernt all das.",
+            "Wenn Sie der Analyse zustimmen, setzt Google Analytics zusätzlich eigene Cookies. Bis dahin wird keines geschrieben."
           ]
         },
         {
