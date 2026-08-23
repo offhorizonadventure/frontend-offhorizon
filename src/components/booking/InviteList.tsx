@@ -10,12 +10,15 @@ export async function InviteList({
   locale,
   travellers,
   isLead,
+  byPerson,
   origin,
   joinPath,
 }: {
   locale: Locale;
   travellers: TravellerRow[];
   isLead: boolean;
+  /** A 4x4 expedition counts people rather than riders. */
+  byPerson: boolean;
   origin: string;
   joinPath: string;
 }) {
@@ -32,7 +35,7 @@ export async function InviteList({
           <li key={rider.id} className="flex flex-wrap items-center justify-between gap-3 py-3.5">
             <span className="min-w-0">
               <span className="text-brand-900 block text-[13.5px] font-semibold">
-                {rider.full_name || `${t("rider")} ${index + 1}`}
+                {rider.full_name || `${byPerson ? t("person") : t("rider")} ${index + 1}`}
               </span>
               <span className="text-brand-800/50 text-[12.5px]">
                 {rider.is_lead ? t("lead") : rider.user_id ? t("joined") : t("unclaimed")}

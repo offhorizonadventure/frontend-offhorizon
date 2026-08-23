@@ -1354,7 +1354,9 @@
       "body": "Der Fahrerpreis deckt die Expedition selbst ab. Alles darunter ist optional: Einzelzimmer oder zusätzlichen Schutz zahlen Sie nur, wenn Sie sie wollen. Am Ende kommt nichts dazu.",
       "datesTitle": "Abfahrtstermine",
       "noDates": "Die Termine stehen noch nicht fest. Sagen Sie uns, wann Sie fahren möchten, und wir richten die Expedition danach aus.",
-      "book": "Jetzt buchen"
+      "book": "Jetzt buchen",
+      "perPerson": "pro Person",
+      "personLine": "Person"
     },
     "highlights": {
       "eyebrow": "Höhepunkte",
@@ -1392,7 +1394,10 @@
         "riders": "Fahrer",
         "ridersHint": "Alle auf einer eigenen Maschine",
         "pillions": "Sozius",
-        "pillionsHint": "Hinter jemandem mitfahrend"
+        "pillionsHint": "Hinter jemandem mitfahrend",
+        "people": "Personen",
+        "peopleHint": "Alle Mitreisenden, Fahrer eingeschlossen",
+        "peopleHelp": "Preis pro Person. Das Fahrzeug wird im nächsten Schritt gewählt."
       },
       "extras": {
         "title": "Noch etwas dazu?",
@@ -1428,7 +1433,8 @@
         "dates": "Termin",
         "flexible": "Flexibel",
         "guide": "Lesen Sie vor der Zahlung, wie die Buchung funktioniert",
-        "book": "Jetzt buchen"
+        "book": "Jetzt buchen",
+        "people": "Personen"
       }
     },
     "more": "Mehr lesen",
@@ -1836,7 +1842,8 @@
     "total": "Gesamt",
     "note": "Die Preise sind in US-Dollar festgelegt und werden in der angezeigten Währung zum heutigen Kurs abgebucht. Dieser Kurs bleibt für die gesamte Buchung fest.",
     "signInTitle": "Melden Sie sich an, um diese Buchung abzuschließen",
-    "signInLead": "Nutzen Sie die Kontoschaltfläche in der Leiste oben, um sich anzumelden oder ein Konto anzulegen. Ihre Auswahl bleibt so lange erhalten, und diese Seite macht weiter, sobald Sie angemeldet sind."
+    "signInLead": "Nutzen Sie die Kontoschaltfläche in der Leiste oben, um sich anzumelden oder ein Konto anzulegen. Ihre Auswahl bleibt so lange erhalten, und diese Seite macht weiter, sobald Sie angemeldet sind.",
+    "people": "Personen"
   },
   "bookings": {
     "title": "Meine Buchungen",
@@ -1893,8 +1900,10 @@
       "formLead": "Führerschein, Reisepass, Versicherung und die Angaben für Ihre Genehmigungen.",
       "formOpen": "Formular öffnen",
       "formDone": "Ich habe meine Unterlagen geschickt",
-      "formSaved": "Danke, das ist vermerkt."
-    }
+      "formSaved": "Danke, das ist vermerkt.",
+      "person": "Person"
+    },
+    "partyPeople": "{people, plural, one {# Person} other {# Personen}}"
   },
   "join": {
     "eyebrow": "Einladung",

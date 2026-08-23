@@ -7,9 +7,11 @@ import type { PricedBooking } from "@/lib/booking/preview";
 export async function Summary({ locale, priced }: { locale: Locale; priced: PricedBooking }) {
   const t = await getTranslations({ locale, namespace: "checkout" });
 
+  const byPerson = priced.kind === "4x4";
+
   const rows: { label: string; value: string }[] = [
     { label: t("dates"), value: priced.dates },
-    { label: t("riders"), value: String(priced.party.riders) },
+    { label: byPerson ? t("people") : t("riders"), value: String(priced.party.riders) },
   ];
 
   if (priced.party.pillions) {

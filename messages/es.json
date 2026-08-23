@@ -1352,7 +1352,9 @@
       "body": "El precio de piloto cubre la expedición en sí. Todo lo demás es opcional: solo pagas la habitación individual o la cobertura extra si las quieres. Al final no se añade nada.",
       "datesTitle": "Fechas de salida",
       "noDates": "Todavía no hay fechas para esta expedición. Dinos cuándo quieres rodar y la montamos a tu medida.",
-      "book": "Reservar ahora"
+      "book": "Reservar ahora",
+      "perPerson": "por persona",
+      "personLine": "Persona"
     },
     "highlights": {
       "eyebrow": "Lo más destacado",
@@ -1390,7 +1392,10 @@
         "riders": "Pilotos",
         "ridersHint": "Cada uno en su propia moto",
         "pillions": "Pasajeros",
-        "pillionsHint": "Detrás de otra persona"
+        "pillionsHint": "Detrás de otra persona",
+        "people": "Personas",
+        "peopleHint": "Todos los que viajan, conductor incluido",
+        "peopleHelp": "Precio por persona. El vehículo se elige en el paso siguiente."
       },
       "extras": {
         "title": "¿Quieres añadir algo?",
@@ -1426,7 +1431,8 @@
         "dates": "Fechas",
         "flexible": "Flexible",
         "guide": "Lee cómo funciona la reserva antes de pagar",
-        "book": "Reservar ahora"
+        "book": "Reservar ahora",
+        "people": "Personas"
       }
     },
     "more": "Leer más",
@@ -1832,7 +1838,8 @@
     "total": "Total",
     "note": "Los precios se fijan en dólares estadounidenses y se cobran en la moneda mostrada, al cambio de hoy. Ese cambio queda fijado para toda la reserva.",
     "signInTitle": "Inicia sesión para terminar esta reserva",
-    "signInLead": "Usa el botón de cuenta de la barra de arriba para iniciar sesión o crear una cuenta. Tus elecciones se mantienen mientras tanto, y esta página sigue en cuanto entres."
+    "signInLead": "Usa el botón de cuenta de la barra de arriba para iniciar sesión o crear una cuenta. Tus elecciones se mantienen mientras tanto, y esta página sigue en cuanto entres.",
+    "people": "Personas"
   },
   "bookings": {
     "title": "Mis reservas",
@@ -1889,8 +1896,10 @@
       "formLead": "Permiso de conducir, pasaporte, seguro y los datos que hacen falta para tus permisos.",
       "formOpen": "Abrir el formulario",
       "formDone": "He enviado mis documentos",
-      "formSaved": "Gracias, queda anotado."
-    }
+      "formSaved": "Gracias, queda anotado.",
+      "person": "Persona"
+    },
+    "partyPeople": "{people, plural, one {# persona} other {# personas}}"
   },
   "join": {
     "eyebrow": "Invitación",

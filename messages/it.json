@@ -1353,7 +1353,9 @@
       "body": "Il prezzo pilota copre la spedizione vera e propria. Tutto il resto è facoltativo: la camera singola o la copertura extra si pagano solo se le vuoi. Alla fine non si aggiunge nulla.",
       "datesTitle": "Date di partenza",
       "noDates": "Le date non sono ancora fissate. Dicci quando vuoi partire e la costruiamo su misura.",
-      "book": "Prenota ora"
+      "book": "Prenota ora",
+      "perPerson": "a persona",
+      "personLine": "Persona"
     },
     "highlights": {
       "eyebrow": "Da non perdere",
@@ -1391,7 +1393,10 @@
         "riders": "Piloti",
         "ridersHint": "Ognuno sulla propria moto",
         "pillions": "Passeggeri",
-        "pillionsHint": "Seduti dietro a qualcuno"
+        "pillionsHint": "Seduti dietro a qualcuno",
+        "people": "Persone",
+        "peopleHint": "Tutti i viaggiatori, guidatore compreso",
+        "peopleHelp": "Prezzo a persona. Il veicolo si sceglie al passo successivo."
       },
       "extras": {
         "title": "Vuoi aggiungere qualcosa?",
@@ -1427,7 +1432,8 @@
         "dates": "Date",
         "flexible": "Flessibile",
         "guide": "Leggi come funziona la prenotazione prima di pagare",
-        "book": "Prenota ora"
+        "book": "Prenota ora",
+        "people": "Persone"
       }
     },
     "more": "Leggi di più",
@@ -1833,7 +1839,8 @@
     "total": "Totale",
     "note": "I prezzi sono fissati in dollari statunitensi e addebitati nella valuta indicata, al cambio di oggi. Quel cambio resta poi fisso per tutta la prenotazione.",
     "signInTitle": "Accedi per completare questa prenotazione",
-    "signInLead": "Usa il pulsante account nella barra qui sopra per accedere o creare un account. Le tue scelte restano qui nel frattempo, e questa pagina riprende appena sei dentro."
+    "signInLead": "Usa il pulsante account nella barra qui sopra per accedere o creare un account. Le tue scelte restano qui nel frattempo, e questa pagina riprende appena sei dentro.",
+    "people": "Persone"
   },
   "bookings": {
     "title": "Le mie prenotazioni",
@@ -1890,8 +1897,10 @@
       "formLead": "Patente, passaporto, assicurazione e i dati che servono per i permessi.",
       "formOpen": "Apri il modulo",
       "formDone": "Ho inviato i miei documenti",
-      "formSaved": "Grazie, è annotato."
-    }
+      "formSaved": "Grazie, è annotato.",
+      "person": "Persona"
+    },
+    "partyPeople": "{people, plural, one {# persona} other {# persone}}"
   },
   "join": {
     "eyebrow": "Invito",

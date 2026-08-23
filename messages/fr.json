@@ -1356,7 +1356,9 @@
       "body": "Le tarif pilote couvre l'expédition elle-même. Tout le reste est facultatif : vous ne payez une chambre simple ou une couverture supplémentaire que si vous les voulez. Rien n'est ajouté à la fin.",
       "datesTitle": "Dates de départ",
       "noDates": "Les dates ne sont pas encore fixées. Dites-nous quand vous voulez rouler et nous l'organiserons autour de vous.",
-      "book": "Réserver"
+      "book": "Réserver",
+      "perPerson": "par personne",
+      "personLine": "Personne"
     },
     "highlights": {
       "eyebrow": "Temps forts",
@@ -1394,7 +1396,10 @@
         "riders": "Pilotes",
         "ridersHint": "Chacun sur sa propre machine",
         "pillions": "Passagers",
-        "pillionsHint": "Assis derrière quelqu'un"
+        "pillionsHint": "Assis derrière quelqu'un",
+        "people": "Personnes",
+        "peopleHint": "Tous les voyageurs, conducteur compris",
+        "peopleHelp": "Tarif par personne. Le véhicule se choisit à l'étape suivante."
       },
       "extras": {
         "title": "Quelque chose à ajouter ?",
@@ -1430,7 +1435,8 @@
         "dates": "Dates",
         "flexible": "Flexible",
         "guide": "Lisez comment fonctionne la réservation avant de payer",
-        "book": "Réserver"
+        "book": "Réserver",
+        "people": "Personnes"
       }
     },
     "more": "Lire la suite",
@@ -1838,7 +1844,8 @@
     "total": "Total",
     "note": "Les prix sont fixés en dollars américains et débités dans la devise affichée, au taux du jour. Ce taux est ensuite figé pour toute la réservation.",
     "signInTitle": "Connectez-vous pour finaliser cette réservation",
-    "signInLead": "Utilisez le bouton compte dans la barre ci-dessus pour vous connecter ou créer un compte. Vos choix restent en place pendant ce temps, et cette page reprend dès que vous êtes connecté."
+    "signInLead": "Utilisez le bouton compte dans la barre ci-dessus pour vous connecter ou créer un compte. Vos choix restent en place pendant ce temps, et cette page reprend dès que vous êtes connecté.",
+    "people": "Personnes"
   },
   "bookings": {
     "title": "Mes réservations",
@@ -1895,8 +1902,10 @@
       "formLead": "Permis, passeport, assurance et les informations nécessaires à vos autorisations.",
       "formOpen": "Ouvrir le formulaire",
       "formDone": "J'ai envoyé mes documents",
-      "formSaved": "Merci, c'est noté."
-    }
+      "formSaved": "Merci, c'est noté.",
+      "person": "Personne"
+    },
+    "partyPeople": "{people, plural, one {# personne} other {# personnes}}"
   },
   "join": {
     "eyebrow": "Invitation",

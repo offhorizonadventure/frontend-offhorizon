@@ -86,6 +86,7 @@ export async function priceBooking(
   const vehicle = cars.find((entry) => entry.id === party.vehicleId);
 
   return {
+    kind: departure.kind,
     tourTitle: row.tour.title,
     tourSlug: row.tour.slug,
     dates,

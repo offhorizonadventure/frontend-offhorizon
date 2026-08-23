@@ -1350,7 +1350,9 @@
       "body": "The rider price covers the expedition itself. Everything below it is optional, so you only pay for a single room or extra cover if you want them. Nothing is added at the end.",
       "datesTitle": "Departure dates",
       "noDates": "Dates for this expedition are not set yet. Tell us when you want to ride and we will build it around you.",
-      "book": "Book now"
+      "book": "Book now",
+      "perPerson": "per person",
+      "personLine": "Person"
     },
     "highlights": {
       "eyebrow": "Highlights",
@@ -1388,7 +1390,10 @@
         "riders": "Riders",
         "ridersHint": "Everyone riding their own machine",
         "pillions": "Pillions",
-        "pillionsHint": "Riding behind someone else"
+        "pillionsHint": "Riding behind someone else",
+        "people": "People",
+        "peopleHint": "Everyone travelling, driver included",
+        "peopleHelp": "Priced per person. The car is chosen on the next step."
       },
       "extras": {
         "title": "Anything to add?",
@@ -1424,7 +1429,8 @@
         "dates": "Dates",
         "flexible": "Flexible",
         "guide": "Read how booking works before you pay",
-        "book": "Book now"
+        "book": "Book now",
+        "people": "People"
       }
     },
     "more": "Read more",
@@ -1830,7 +1836,8 @@
     "total": "Total",
     "note": "Prices are set in US dollars and charged in the currency shown, at today's rate. That rate is then fixed for the whole booking.",
     "signInTitle": "Sign in to finish this booking",
-    "signInLead": "Use the account button in the bar above to sign in or make an account. Your choices are held right here while you do, and this page carries on the moment you are in."
+    "signInLead": "Use the account button in the bar above to sign in or make an account. Your choices are held right here while you do, and this page carries on the moment you are in.",
+    "people": "People"
   },
   "bookings": {
     "title": "My bookings",
@@ -1887,8 +1894,10 @@
       "formLead": "Licence, passport, insurance and the details we need for your permits.",
       "formOpen": "Open the form",
       "formDone": "I have sent my documents",
-      "formSaved": "Thank you, that is noted."
-    }
+      "formSaved": "Thank you, that is noted.",
+      "person": "Person"
+    },
+    "partyPeople": "{people, plural, one {# person} other {# people}}"
   },
   "join": {
     "eyebrow": "Invitation",

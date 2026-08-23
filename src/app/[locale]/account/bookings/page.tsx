@@ -64,7 +64,9 @@ export default async function BookingsPage({ params }: LayoutProps<"/[locale]">)
 
                     <p className="text-brand-800/60 mt-1.5 text-[13.5px]">
                       {dates(booking.departure.start_date, booking.departure.end_date)} ·{" "}
-                      {t("party", { riders: booking.riders, pillions: booking.pillions })}
+                      {booking.departure.kind === "4x4"
+                        ? t("partyPeople", { people: booking.riders })
+                        : t("party", { riders: booking.riders, pillions: booking.pillions })}
                     </p>
 
                     <p className="text-brand-800/45 mt-1 text-[13px]">

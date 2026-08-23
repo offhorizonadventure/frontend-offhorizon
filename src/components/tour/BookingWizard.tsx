@@ -29,6 +29,9 @@ export type BookingLabels = {
     ridersHint: string;
     pillions: string;
     pillionsHint: string;
+    people: string;
+    peopleHint: string;
+    peopleHelp: string;
   };
   extras: {
     title: string;
@@ -56,6 +59,7 @@ export type BookingLabels = {
     dates: string;
     flexible: string;
     riders: string;
+    people: string;
     pillions: string;
     insurance: string;
     room: string;
@@ -169,6 +173,7 @@ export function BookingWizard({
     : 0;
 
   const fleet = chosen?.kind === "4x4" ? (chosen.vehicles ?? []) : [];
+  const byPerson = chosen?.kind === "4x4";
   const picked = fleet.find((option) => option.id === vehicle) ?? null;
 
   // Own car: the daily vehicle rate drops out of the total.
@@ -373,12 +378,14 @@ export function BookingWizard({
             <legend className="font-display text-brand-900 text-[17px] leading-snug font-bold tracking-[-0.02em]">
               {labels.travellers.title}
             </legend>
-            <p className="text-brand-800/50 -mt-4 text-[12.5px]">{labels.travellers.help}</p>
+            <p className="text-brand-800/50 -mt-4 text-[12.5px]">
+              {byPerson ? labels.travellers.peopleHelp : labels.travellers.help}
+            </p>
 
             <NumberStepper
               name="riders"
-              label={labels.travellers.riders}
-              hint={labels.travellers.ridersHint}
+              label={byPerson ? labels.travellers.people : labels.travellers.riders}
+              hint={byPerson ? labels.travellers.peopleHint : labels.travellers.ridersHint}
               min={1}
               max={maxRiders}
               value={riders}
@@ -387,17 +394,19 @@ export function BookingWizard({
               increaseLabel={labels.increase}
             />
 
-            <NumberStepper
-              name="pillions"
-              label={labels.travellers.pillions}
-              hint={labels.travellers.pillionsHint}
-              min={0}
-              max={riders}
-              value={pillions}
-              onValueChange={changePillions}
-              decreaseLabel={labels.decrease}
-              increaseLabel={labels.increase}
-            />
+            {!byPerson && (
+              <NumberStepper
+                name="pillions"
+                label={labels.travellers.pillions}
+                hint={labels.travellers.pillionsHint}
+                min={0}
+                max={riders}
+                value={pillions}
+                onValueChange={changePillions}
+                decreaseLabel={labels.decrease}
+                increaseLabel={labels.increase}
+              />
+            )}
           </fieldset>
         )}
 
@@ -532,7 +541,9 @@ export function BookingWizard({
                 </dd>
               </div>
               <div className={rowClass}>
-                <dt className={labelClass}>{labels.summary.riders}</dt>
+                <dt className={labelClass}>
+                  {byPerson ? labels.summary.people : labels.summary.riders}
+                </dt>
                 <dd className={valueClass}>
                   {riders} · {price(riders * prices.rider)}
                 </dd>

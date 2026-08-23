@@ -22,6 +22,8 @@ export async function PriceCard({
   facts: { key: FactKey; value: string }[];
   departures: Departure[];
 }) {
+  // A 4x4 expedition is priced per person; a motorcycle one per rider.
+  const byPerson = departures.every((departure) => departure.kind === "4x4");
   const t = await getTranslations({ locale, namespace: "tour" });
   const ts = await getTranslations({ locale, namespace: "dest.shared" });
 
@@ -57,7 +59,7 @@ export async function PriceCard({
               {headline.price}
             </span>
             <span className="text-brand-800/55 text-[12px] font-semibold">
-              {t("price.perRider")}
+              {byPerson ? t("price.perPerson") : t("price.perRider")}
             </span>
           </p>
         </>

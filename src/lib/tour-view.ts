@@ -56,7 +56,11 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
     {
       title: "Expedition price",
       lines: [
-        { icon: "rider", label: "Rider", amount: cheapest.rider_price ?? 0 },
+        {
+          icon: "rider",
+          label: cheapest.kind === "4x4" ? "Person" : "Rider",
+          amount: cheapest.rider_price ?? 0,
+        },
         // A zero is not "included": it means the tour does not offer the option at all.
         ...(cheapest.pillion_price
           ? [

@@ -48,7 +48,10 @@ export default async function BookingPage({
     },
     {
       label: t("detail.party"),
-      value: t("party", { riders: booking.riders, pillions: booking.pillions }),
+      value:
+        booking.departure.kind === "4x4"
+          ? t("partyPeople", { people: booking.riders })
+          : t("party", { riders: booking.riders, pillions: booking.pillions }),
     },
     { label: t("detail.total"), value: money(booking.total_amount) },
     { label: t("detail.paid"), value: money(booking.paid_amount) },
@@ -148,6 +151,7 @@ export default async function BookingPage({
         locale={locale}
         travellers={travellers}
         isLead={isLead}
+        byPerson={booking.departure.kind === "4x4"}
         origin={siteUrl}
         joinPath={`/${locale}/booking/join`}
       />
