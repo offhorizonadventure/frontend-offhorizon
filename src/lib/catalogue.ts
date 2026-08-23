@@ -2,6 +2,8 @@ import "server-only";
 
 import { unstable_cache } from "next/cache";
 
+import { createClient as createSessionClient } from "@/lib/supabase/server";
+
 import { createClient } from "@supabase/supabase-js";
 
 /** Tours and their departures, read from Supabase. */
@@ -69,6 +71,8 @@ export type Tour = {
   featured: boolean;
   hero_path: string | null;
   hero_alt: string | null;
+  /** Private expeditions are readable only by the account they were built for. */
+  visibility: "public" | "private";
   place_title: string | null;
   place_body: string | null;
   facts: Facts;
@@ -207,26 +211,53 @@ export const listDepartures = unstable_cache(
     if (tourId) query = query.eq("tour_id", tourId);
 
     const { data, error } = await query;
-    if (error) return [];
 
-    type Link = { position: number; vehicles: Vehicle | null };
-
-    return (data ?? []).map((row) => {
-      const links = ((row as { departure_vehicles?: Link[] }).departure_vehicles ?? [])
-        .slice()
-        .sort((a, b) => a.position - b.position);
-
-      return {
-        ...(row as unknown as Departure),
-        vehicles: links
-          .map((link) => link.vehicles)
-          .filter((vehicle): vehicle is Vehicle => Boolean(vehicle)),
-      };
-    });
+    return error ? [] : withVehicles(data ?? []);
   },
   ["departures"],
   { tags: [CATALOGUE_TAG], revalidate: 60 * 60 },
 );
+
+/** Cars come back as a join table; the page wants them on the departure. */
+function withVehicles(rows: unknown[]): Departure[] {
+  type Link = { position: number; vehicles: Vehicle | null };
+
+  return rows.map((row) => {
+    const links = ((row as { departure_vehicles?: Link[] }).departure_vehicles ?? [])
+      .slice()
+      .sort((a, b) => a.position - b.position);
+
+    return {
+      ...(row as Departure),
+      vehicles: links
+        .map((link) => link.vehicles)
+        .filter((vehicle): vehicle is Vehicle => Boolean(vehicle)),
+    };
+  });
+}
+
+/**
+ * Departures on a custom expedition, read as the signed in rider.
+ *
+ * The cached list is anonymous and a private tour's dates are only readable by
+ * the account it belongs to, so this asks with their session instead. It also
+ * keeps every date: a custom expedition is a conversation, not a seat on sale,
+ * so the thirty day cut off does not apply to it.
+ */
+export async function listPrivateDepartures(tourId: string): Promise<Departure[]> {
+  const supabase = await createSessionClient();
+  const today = new Date().toISOString().slice(0, 10);
+
+  const { data, error } = await supabase
+    .from("departures")
+    .select("*, departure_vehicles(position, vehicles(*))")
+    .eq("status", "published")
+    .eq("tour_id", tourId)
+    .gte("start_date", today)
+    .order("start_date");
+
+  return error ? [] : withVehicles(data ?? []);
+}
 
 /** The cheapest rider price on offer, which is what "from" means on a card. */
 export const priceFrom = (departures: Departure[]) => {
@@ -236,3 +267,40 @@ export const priceFrom = (departures: Departure[]) => {
 
   return prices.length ? Math.min(...prices) : null;
 };
+
+/**
+ * A private expedition, read as the signed in rider.
+ *
+ * The catalogue is cached and read anonymously, which is what keeps it cheap
+ * and is also why a custom expedition cannot come out of it: row level
+ * security only shows one to the account it was built for, and the cache has
+ * no account. This asks with the visitor's own session, and is never cached.
+ */
+export async function getPrivateTour(slug: string): Promise<Tour | null> {
+  const supabase = await createSessionClient();
+
+  const { data } = await supabase
+    .from("tours")
+    .select("*")
+    .eq("visibility", "private")
+    .eq("slug", slug)
+    .maybeSingle();
+
+  return data ? shape(data) : null;
+}
+
+/** Every custom expedition built for the signed in rider. */
+export async function listMyExpeditions(): Promise<Tour[]> {
+  const supabase = await createSessionClient();
+  const { data: session } = await supabase.auth.getUser();
+  if (!session.user) return [];
+
+  const { data } = await supabase
+    .from("tours")
+    .select("*")
+    .eq("visibility", "private")
+    .eq("assigned_user_id", session.user.id)
+    .order("updated_at", { ascending: false });
+
+  return (data ?? []).map(shape);
+}

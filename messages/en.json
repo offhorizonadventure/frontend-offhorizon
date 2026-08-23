@@ -2000,7 +2000,13 @@
       "formSaved": "Thank you, that is noted.",
       "person": "Person"
     },
-    "partyPeople": "{people, plural, one {# person} other {# people}}"
+    "partyPeople": "{people, plural, one {# person} other {# people}}",
+    "custom": {
+      "title": "Built for you",
+      "lead": "Expeditions we have put together for you. Nobody else can see these.",
+      "open": "Open the expedition",
+      "noDates": "We are still setting the dates"
+    }
   },
   "join": {
     "eyebrow": "Invitation",

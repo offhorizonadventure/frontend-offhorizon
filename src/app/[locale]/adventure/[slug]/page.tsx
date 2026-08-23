@@ -16,7 +16,14 @@ import { RouteMap } from "@/components/tour/RouteMap";
 import { TourHero } from "@/components/tour/TourHero";
 import { Topo } from "@/components/ui/Topo";
 import { buildBooking } from "@/lib/booking-props";
-import { countryName, getTour, imageUrl, listDepartures } from "@/lib/catalogue";
+import {
+  countryName,
+  getPrivateTour,
+  getTour,
+  imageUrl,
+  listDepartures,
+  listPrivateDepartures,
+} from "@/lib/catalogue";
 import { translate } from "@/lib/translated";
 import { resolveLocale } from "@/i18n/params";
 import { buildMetadata, siteUrl } from "@/lib/seo";
@@ -33,10 +40,20 @@ import {
 /** Rendered per request, not cached as one page for everyone. */
 export const dynamic = "force-dynamic";
 
+/**
+ * The catalogue first, then the reader's own expeditions.
+ *
+ * A custom expedition is not in the catalogue: that read is cached and
+ * anonymous, and row level security only shows a private tour to the account
+ * it belongs to. So the miss is answered with the visitor's own session, which
+ * either finds their expedition or finds nothing.
+ */
+const readTour = async (slug: string) => (await getTour(slug)) ?? getPrivateTour(slug);
+
 export async function generateMetadata({ params }: PageProps<"/[locale]/adventure/[slug]">) {
   const locale = await resolveLocale(params);
   const { slug } = await params;
-  const source = await getTour(slug);
+  const source = await readTour(slug);
   if (!source) return {};
 
   const tour = translate(source, locale);
@@ -66,7 +83,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/adventur
 export default async function TourPage({ params }: PageProps<"/[locale]/adventure/[slug]">) {
   const locale = await resolveLocale(params);
   const { slug } = await params;
-  const source = await getTour(slug);
+  const source = await readTour(slug);
   if (!source) notFound();
 
   // Translated fields laid over the English rows, field by field.
@@ -75,7 +92,12 @@ export default async function TourPage({ params }: PageProps<"/[locale]/adventur
   const t = await getTranslations({ locale, namespace: "tour" });
   const ts = await getTranslations({ locale, namespace: "dest.shared" });
 
-  const departures = await listDepartures(tour.id);
+  // A custom expedition's dates are only readable by the rider it was built
+  // for, so they come from their own session rather than the cached list.
+  const departures =
+    source.visibility === "private"
+      ? await listPrivateDepartures(tour.id)
+      : await listDepartures(tour.id);
 
   const name = tour.title;
   const hero = imageUrl(tour.hero_path);

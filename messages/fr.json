@@ -2008,7 +2008,13 @@
       "formSaved": "Merci, c'est noté.",
       "person": "Personne"
     },
-    "partyPeople": "{people, plural, one {# personne} other {# personnes}}"
+    "partyPeople": "{people, plural, one {# personne} other {# personnes}}",
+    "custom": {
+      "title": "Conçu pour vous",
+      "lead": "Des expéditions que nous avons montées pour vous. Personne d'autre ne les voit.",
+      "open": "Ouvrir l'expédition",
+      "noDates": "Nous fixons encore les dates"
+    }
   },
   "join": {
     "eyebrow": "Invitation",

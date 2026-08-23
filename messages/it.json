@@ -2003,7 +2003,13 @@
       "formSaved": "Grazie, è annotato.",
       "person": "Persona"
     },
-    "partyPeople": "{people, plural, one {# persona} other {# persone}}"
+    "partyPeople": "{people, plural, one {# persona} other {# persone}}",
+    "custom": {
+      "title": "Costruita per te",
+      "lead": "Spedizioni che abbiamo messo insieme per te. Nessun altro può vederle.",
+      "open": "Apri la spedizione",
+      "noDates": "Stiamo ancora fissando le date"
+    }
   },
   "join": {
     "eyebrow": "Invito",

@@ -2006,7 +2006,13 @@
       "formSaved": "Danke, das ist vermerkt.",
       "person": "Person"
     },
-    "partyPeople": "{people, plural, one {# Person} other {# Personen}}"
+    "partyPeople": "{people, plural, one {# Person} other {# Personen}}",
+    "custom": {
+      "title": "Für Sie gebaut",
+      "lead": "Expeditionen, die wir für Sie zusammengestellt haben. Niemand sonst sieht sie.",
+      "open": "Expedition öffnen",
+      "noDates": "Die Termine stehen noch nicht"
+    }
   },
   "join": {
     "eyebrow": "Einladung",

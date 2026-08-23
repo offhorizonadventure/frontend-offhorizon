@@ -2002,7 +2002,13 @@
       "formSaved": "Gracias, queda anotado.",
       "person": "Persona"
     },
-    "partyPeople": "{people, plural, one {# persona} other {# personas}}"
+    "partyPeople": "{people, plural, one {# persona} other {# personas}}",
+    "custom": {
+      "title": "Hecha para ti",
+      "lead": "Expediciones que hemos preparado para ti. Nadie más puede verlas.",
+      "open": "Abrir la expedición",
+      "noDates": "Todavía estamos fijando las fechas"
+    }
   },
   "join": {
     "eyebrow": "Invitación",
