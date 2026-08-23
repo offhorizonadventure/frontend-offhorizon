@@ -14,16 +14,17 @@ const contentSecurityPolicy = [
   // Razorpay's checkout, the reviews widget, and our own structured data.
   // React rebuilds stack traces with eval while developing, and never in a
   // built site, so the allowance is tied to the mode rather than left on.
-  `script-src 'self' 'unsafe-inline' ${process.env.NODE_ENV === "development" ? "'unsafe-eval' " : ""}https://checkout.razorpay.com https://cdn.trustindex.io https://www.youtube.com https://s.ytimg.com`,
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.trustindex.io",
-  "font-src 'self' data: https://fonts.gstatic.com",
-  "img-src 'self' data: blob: https://flagcdn.com https://i.ytimg.com https://cdn.trustindex.io " +
+  `script-src 'self' 'unsafe-inline' ${process.env.NODE_ENV === "development" ? "'unsafe-eval' " : ""}https://checkout.razorpay.com https://*.trustindex.io https://www.youtube.com https://s.ytimg.com`,
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.trustindex.io",
+  "font-src 'self' data: https://fonts.gstatic.com https://*.trustindex.io",
+  // Reviewer avatars come from Google, which is what the review widget draws.
+  "img-src 'self' data: blob: https://flagcdn.com https://i.ytimg.com https://*.trustindex.io https://*.googleusercontent.com https://*.ggpht.com " +
     SUPABASE,
   // The database, the exchange rates, the country lookup and the payment API.
-  "connect-src 'self' https://open.er-api.com https://ipapi.co https://api.razorpay.com https://lumberjack.razorpay.com https://checkout.razorpay.com https://cdn.trustindex.io " +
+  "connect-src 'self' https://open.er-api.com https://ipapi.co https://api.razorpay.com https://lumberjack.razorpay.com https://checkout.razorpay.com https://*.trustindex.io " +
     SUPABASE,
   // The payment window and the films are iframes.
-  "frame-src 'self' https://api.razorpay.com https://checkout.razorpay.com https://www.youtube-nocookie.com https://www.youtube.com https://cdn.trustindex.io",
+  "frame-src 'self' https://api.razorpay.com https://checkout.razorpay.com https://www.youtube-nocookie.com https://www.youtube.com https://*.trustindex.io",
   "media-src 'self' blob:",
   "worker-src 'self' blob:",
 ].join("; ");
