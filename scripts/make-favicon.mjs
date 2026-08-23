@@ -11,7 +11,7 @@ const LOGO = "public/logo/logo-horizontal.png";
 const MARK = { left: 0, top: 0, width: 546, height: 546 };
 const CREAM = "#eaebdb";
 
-const BROWN = "#562101";
+const BROWN = { r: 0x56, g: 0x21, b: 0x01 };
 
 /** A separable box blur over one channel, run twice for a smooth enough falloff. */
 function blur(source, width, height, radius) {
@@ -88,9 +88,9 @@ async function solidMark(size) {
   // Brown everywhere, visible only where the closed mask says so.
   const rgba = Buffer.alloc(width * height * 4);
   for (let i = 0; i < width * height; i++) {
-    rgba[i * 4] = 0x56;
-    rgba[i * 4 + 1] = 0x21;
-    rgba[i * 4 + 2] = 0x01;
+    rgba[i * 4] = BROWN.r;
+    rgba[i * 4 + 1] = BROWN.g;
+    rgba[i * 4 + 2] = BROWN.b;
     rgba[i * 4 + 3] = closed[i] > 110 ? 255 : 0;
   }
 
