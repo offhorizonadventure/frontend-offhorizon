@@ -1482,7 +1482,8 @@
         "none": "Todavía no hemos publicado las salidas de {year}. Pregunta igualmente y te contamos qué viene.",
         "soldOut": "Completa",
         "places": "{count} plazas",
-        "custom": "A medida"
+        "custom": "A medida",
+        "yours": "Para ti"
       },
       "travellers": {
         "title": "¿Quién viene?",

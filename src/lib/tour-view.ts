@@ -131,6 +131,8 @@ export const departureList = (departures: Departure[]) =>
     id: departure.id,
     start: departure.start_date,
     end: departure.end_date,
+    // Sold to this reader alone, so the drawer can say so.
+    custom: departure.visibility === "private",
     // No seats left is sold out whether or not the switch was thrown.
     soldOut: departure.sold_out || left(departure) === 0,
     solo: departure.rider_price ?? 0,

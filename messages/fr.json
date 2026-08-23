@@ -1486,7 +1486,8 @@
         "none": "Nous n'avons pas encore publié les départs {year}. Demandez quand même et nous vous dirons ce qui arrive.",
         "soldOut": "Complet",
         "places": "{count} places",
-        "custom": "Sur mesure"
+        "custom": "Sur mesure",
+        "yours": "Pour vous"
       },
       "travellers": {
         "title": "Qui vous accompagne ?",

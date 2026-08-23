@@ -1483,7 +1483,8 @@
         "none": "Non abbiamo ancora pubblicato le partenze del {year}. Chiedi lo stesso e ti diremo cosa arriva.",
         "soldOut": "Esaurita",
         "places": "{count} posti",
-        "custom": "Su misura"
+        "custom": "Su misura",
+        "yours": "Per te"
       },
       "travellers": {
         "title": "Chi viene con te?",

@@ -1480,7 +1480,8 @@
         "none": "We have not published {year} departures yet. Ask anyway and we will tell you what is coming.",
         "soldOut": "Sold out",
         "places": "{count} places",
-        "custom": "Custom expedition"
+        "custom": "Custom expedition",
+        "yours": "Yours"
       },
       "travellers": {
         "title": "Who is coming?",

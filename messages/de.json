@@ -1484,7 +1484,8 @@
         "none": "Für {year} sind noch keine Termine veröffentlicht. Fragen Sie trotzdem, wir sagen Ihnen, was kommt.",
         "soldOut": "Ausgebucht",
         "places": "{count} Plätze",
-        "custom": "Auf Anfrage"
+        "custom": "Auf Anfrage",
+        "yours": "Ihre"
       },
       "travellers": {
         "title": "Wer kommt mit?",

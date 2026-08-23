@@ -20,7 +20,10 @@ export type BookingLabels = {
     none: string;
     soldOut: string;
     places: string;
+    /** The button when a year has no dates at all. */
     custom: string;
+    /** The mark on a date sold to this rider alone. */
+    yours: string;
   };
   travellers: {
     title: string;
@@ -87,6 +90,8 @@ export const OWN_CAR = "own";
 export type Departure = {
   /** Carried to the checkout, which prices the row again for itself. */
   id?: string;
+  /** A date sold to this rider alone. */
+  custom?: boolean;
   start: string;
   end: string;
   soldOut?: boolean;
@@ -360,8 +365,21 @@ export function BookingWizard({
                           : "border-brand-900/15 text-brand-900 hover:border-brand-800/50 bg-white"
                     }`}
                   >
-                    <span className="font-display text-[14px] leading-snug font-bold tracking-[-0.015em] tabular-nums">
-                      {dateRange.formatRange(new Date(option.start), new Date(option.end))}
+                    <span className="flex items-center gap-2.5">
+                      <span className="font-display text-[14px] leading-snug font-bold tracking-[-0.015em] tabular-nums">
+                        {dateRange.formatRange(new Date(option.start), new Date(option.end))}
+                      </span>
+                      {option.custom && (
+                        <span
+                          className={`rounded-full px-2 py-0.5 text-[9.5px] font-bold tracking-[0.12em] uppercase ${
+                            selected
+                              ? "bg-cream-100/20 text-cream-100"
+                              : "bg-ember-500/15 text-ember-600"
+                          }`}
+                        >
+                          {labels.date.yours}
+                        </span>
+                      )}
                     </span>
 
                     {/**
