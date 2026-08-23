@@ -111,7 +111,6 @@ export async function BookConfidence() {
                   src={adventureImage}
                   alt=""
                   fill
-                  placeholder="blur"
                   sizes="(max-width: 1023px) 76vw, 304px"
                   className="object-cover object-top"
                 />

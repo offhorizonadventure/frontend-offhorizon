@@ -32,7 +32,6 @@ export async function DestinationGallery() {
                   src={destination.image}
                   alt={td(destination.key)}
                   fill
-                  placeholder="blur"
                   // Above the fold, and the entrance clips panels to zero area, which defers a lazy load.
                   priority
                   sizes="(max-width: 767px) 78vw, (max-width: 1023px) 46vw, 40vw"

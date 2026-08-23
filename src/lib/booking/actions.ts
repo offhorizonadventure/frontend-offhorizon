@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { currencyForVisitor } from "@/lib/currency";
 import { getLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/config";
+import { withinLimit } from "@/lib/rate-limit";
 import { createClient, getUser } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 
@@ -33,6 +34,10 @@ const whole = (value: FormDataEntryValue | null, max: number) => {
 export async function createBooking(_: unknown, formData: FormData): Promise<ActionResult> {
   const user = await getUser();
   if (!user) return { ok: false, error: "Sign in to book." };
+
+  if (!(await withinLimit("booking", 8))) {
+    return { ok: false, error: "Too many attempts. Give it a few minutes and try again." };
+  }
 
   const departureId = String(formData.get("departureId") ?? "");
   if (!departureId) return { ok: false, error: "That departure could not be found." };
@@ -86,6 +91,10 @@ export async function createBooking(_: unknown, formData: FormData): Promise<Act
 export async function payInstalment(_: unknown, formData: FormData): Promise<ActionResult> {
   const user = await getUser();
   if (!user) return { ok: false, error: "Sign in to pay." };
+
+  if (!(await withinLimit("instalment", 8))) {
+    return { ok: false, error: "Too many attempts. Give it a few minutes and try again." };
+  }
 
   const reference = String(formData.get("reference") ?? "");
   const amount = Number(String(formData.get("amount") ?? "0"));

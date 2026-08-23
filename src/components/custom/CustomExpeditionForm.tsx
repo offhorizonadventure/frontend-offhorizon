@@ -5,7 +5,8 @@ import { useId, useState } from "react";
 
 import { ArrowRight } from "@/components/ui/icons";
 import { NumberStepper } from "@/components/ui/NumberStepper";
-import { submitCustomEnquiry, vehiclesFor } from "@/lib/enquiries";
+import { vehiclesFor } from "@/lib/enquiries";
+import { sendCustomEnquiry } from "@/lib/enquiry-actions";
 
 import { PhoneField } from "@/components/ui/PhoneField";
 
@@ -114,7 +115,7 @@ export function CustomExpeditionForm({
       budgetCurrency: currencyCode,
     };
 
-    const result = await submitCustomEnquiry(
+    const result = await sendCustomEnquiry(
       mode === "motorcycle"
         ? {
             ...shared,

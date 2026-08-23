@@ -48,7 +48,6 @@ export function PlaceCard({
           src={image}
           alt={imageAlt}
           fill
-          placeholder="blur"
           sizes={sizes}
           quality={90}
           className="ease-out-expo object-cover transition-transform duration-[1400ms] group-hover:scale-[1.06]"

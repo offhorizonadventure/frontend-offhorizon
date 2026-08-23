@@ -43,7 +43,6 @@ export async function Team() {
                   src={lead.members[0].photo}
                   alt={lead.members[0].name}
                   fill
-                  placeholder="blur"
                   sizes="(max-width: 1023px) 90vw, 420px"
                   className="object-cover"
                 />
@@ -126,7 +125,6 @@ function MemberCard({ member, className }: { member: Member; className?: string 
           src={member.photo}
           alt={member.name}
           fill
-          placeholder="blur"
           sizes="(max-width: 639px) 44vw, (max-width: 1023px) 30vw, 220px"
           className="ease-out-expo object-cover transition-transform duration-[900ms] group-hover:scale-[1.06]"
         />

@@ -88,7 +88,6 @@ export async function Experiences() {
                         src={experience.image}
                         alt={tw(`${experience.key}.name`)}
                         fill
-                        placeholder="blur"
                         sizes="(max-width: 1023px) 92vw, 640px"
                         className="ease-out-expo object-cover transition-transform duration-[1200ms] group-hover:scale-[1.05]"
                       />

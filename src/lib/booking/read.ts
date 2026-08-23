@@ -51,6 +51,20 @@ const BOOKING_COLUMNS = `
   departure:departures(start_date, end_date, kind, bike_name)
 `;
 
+/**
+ * Past the deadline with money still owed.
+ *
+ * The scheduled job is what cancels these for real; this is so the account page
+ * tells the truth in the meantime, whatever time the job runs.
+ */
+export const isOverdue = (
+  booking: Pick<BookingRow, "balance_due_on" | "total_amount" | "paid_amount" | "status">,
+) =>
+  booking.status !== "completed" &&
+  booking.status !== "cancelled" &&
+  booking.paid_amount < booking.total_amount &&
+  booking.balance_due_on < new Date().toISOString().slice(0, 10);
+
 /** What is left to pay, never below zero. */
 export const outstanding = (booking: Pick<BookingRow, "total_amount" | "paid_amount">) =>
   Math.max(0, Math.round((booking.total_amount - booking.paid_amount) * 100) / 100);
@@ -118,6 +132,7 @@ export async function getMyBooking(reference: string) {
     isLead: Boolean(mine?.is_lead),
     /** The documents form opens only when the expedition is paid for. */
     formUrl: row.status === "completed" ? row.tour.google_form_url : null,
+    overdue: isOverdue(row),
   };
 }
 

@@ -5,7 +5,7 @@ import { useId, useState } from "react";
 
 import { ArrowRight } from "@/components/ui/icons";
 import { PhoneField } from "@/components/ui/PhoneField";
-import { submitQuickEnquiry } from "@/lib/enquiries";
+import { sendQuickEnquiry } from "@/lib/enquiry-actions";
 
 type Labels = {
   fullName: string;
@@ -37,7 +37,7 @@ export function ContactForm({ labels }: { labels: Labels }) {
     setPending(true);
     setError(null);
 
-    const result = await submitQuickEnquiry({
+    const result = await sendQuickEnquiry({
       source: "Contact form",
       locale,
       fullName: String(data.get("fullName") ?? ""),

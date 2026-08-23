@@ -38,7 +38,7 @@ export type SubmitResult = { ok: true } | { ok: false; error: string };
 
 const FAILED = "We could not send that. Please try again, or email us directly.";
 
-export async function submitQuickEnquiry(input: QuickEnquiryInput): Promise<SubmitResult> {
+async function insertQuickEnquiry(input: QuickEnquiryInput): Promise<SubmitResult> {
   try {
     const { error } = await createClient()
       .from("quick_enquiries")
@@ -57,7 +57,7 @@ export async function submitQuickEnquiry(input: QuickEnquiryInput): Promise<Subm
   }
 }
 
-export async function submitCustomEnquiry(input: CustomEnquiryInput): Promise<SubmitResult> {
+async function insertCustomEnquiry(input: CustomEnquiryInput): Promise<SubmitResult> {
   const party =
     input.partyModel === "motorcycle"
       ? {
@@ -98,3 +98,5 @@ export async function submitCustomEnquiry(input: CustomEnquiryInput): Promise<Su
     return { ok: false, error: FAILED };
   }
 }
+
+export { insertQuickEnquiry, insertCustomEnquiry };

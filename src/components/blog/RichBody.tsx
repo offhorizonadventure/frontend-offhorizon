@@ -7,6 +7,15 @@ import type { RichDoc, RichNode } from "@/lib/blog";
 
 const measure = "mx-auto max-w-[38rem]";
 
+/**
+ * Link addresses the browser is allowed to follow.
+ *
+ * A `javascript:` address in a stored document would run as this page the
+ * moment a reader clicked it, so anything that is not one of these is dropped
+ * and the text is left as text.
+ */
+const SAFE_LINK = /^(https?:\/\/|mailto:|tel:|\/(?!\/))/i;
+
 /** Bold, italic, strikethrough, inline code and links, innermost first. */
 function withMarks(text: string, marks: RichNode["marks"], key: number): ReactNode {
   let node: ReactNode = text;
@@ -31,6 +40,8 @@ function withMarks(text: string, marks: RichNode["marks"], key: number): ReactNo
         break;
       case "link": {
         const href = String(mark.attrs?.href ?? "");
+        if (!SAFE_LINK.test(href)) break;
+
         // Anything off site opens away and carries the usual protections.
         const external = /^https?:\/\//i.test(href);
 

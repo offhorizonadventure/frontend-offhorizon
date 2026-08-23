@@ -7,7 +7,7 @@ import { createPortal } from "react-dom";
 import { Close } from "@/components/ui/icons";
 import { PhoneField } from "@/components/ui/PhoneField";
 import { cn } from "@/lib/cn";
-import { submitQuickEnquiry } from "@/lib/enquiries";
+import { sendQuickEnquiry } from "@/lib/enquiry-actions";
 
 type Labels = {
   trigger: string;
@@ -78,7 +78,7 @@ export function QuickEnquiryModal({
     setPending(true);
     setError(null);
 
-    const result = await submitQuickEnquiry({
+    const result = await sendQuickEnquiry({
       source: "Quick enquiry",
       locale,
       fullName: String(data.get("fullName") ?? ""),
