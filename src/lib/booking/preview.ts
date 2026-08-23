@@ -6,7 +6,7 @@ import { createClient } from "@/lib/supabase/server";
 
 import { chargeCurrencyFor } from "./currency";
 import { quoteBooking, type PricedDeparture } from "./quote";
-import { DEPOSIT_SHARE, type Party } from "./types";
+import { BALANCE_DUE_DAYS, DEPOSIT_SHARE, type Party } from "./types";
 
 const COLUMNS = `
   id, tour_id, start_date, end_date, status, sold_out, kind, currency,
@@ -85,8 +85,14 @@ export async function priceBooking(
 
   const vehicle = cars.find((entry) => entry.id === party.vehicleId);
 
+  const startsIn = Math.floor(
+    (new Date(`${departure.start_date}T00:00:00Z`).getTime() - Date.now()) / 86_400_000,
+  );
+
   return {
     kind: departure.kind,
+    /** Inside the balance window there is nothing to spread, so it is pay in full. */
+    depositAllowed: startsIn > BALANCE_DUE_DAYS,
     tourTitle: row.tour.title,
     tourSlug: row.tour.slug,
     dates,

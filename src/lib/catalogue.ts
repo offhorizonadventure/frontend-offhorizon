@@ -185,13 +185,15 @@ export const listDepartures = unstable_cache(
     const supabase = client();
     if (!supabase) return [];
 
+    // A departure that has already set off cannot be joined, so the cut is the
+    // start date rather than the end date.
     const today = new Date().toISOString().slice(0, 10);
     let query = supabase
       .from("departures")
       // The join is read as a nested select rather than a second round trip.
       .select("*, departure_vehicles(position, vehicles(*))")
       .eq("status", "published")
-      .gte("end_date", today)
+      .gt("start_date", today)
       .order("start_date");
 
     if (tourId) query = query.eq("tour_id", tourId);

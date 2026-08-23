@@ -1840,7 +1840,8 @@
     "note": "I prezzi sono fissati in dollari statunitensi e addebitati nella valuta indicata, al cambio di oggi. Quel cambio resta poi fisso per tutta la prenotazione.",
     "signInTitle": "Accedi per completare questa prenotazione",
     "signInLead": "Usa il pulsante account nella barra qui sopra per accedere o creare un account. Le tue scelte restano qui nel frattempo, e questa pagina riprende appena sei dentro.",
-    "people": "Persone"
+    "people": "Persone",
+    "depositClosed": "Questa partenza è entro 14 giorni, quindi va pagata per intero."
   },
   "bookings": {
     "title": "Le mie prenotazioni",

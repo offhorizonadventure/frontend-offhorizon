@@ -3,6 +3,7 @@ import "server-only";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 import { fromMinorUnits } from "./currency";
+import { sendPaymentEmail } from "./notify";
 import { fetchPayment } from "./razorpay";
 
 /**
@@ -57,4 +58,8 @@ export async function settlePayment(input: {
     })
     .eq("id", row.id)
     .neq("status", "paid");
+
+  // The trigger has settled the booking by now, so the figures in the email are
+  // the ones the account page will show.
+  if (matches) await sendPaymentEmail(row.id);
 }

@@ -1843,7 +1843,8 @@
     "note": "Die Preise sind in US-Dollar festgelegt und werden in der angezeigten Währung zum heutigen Kurs abgebucht. Dieser Kurs bleibt für die gesamte Buchung fest.",
     "signInTitle": "Melden Sie sich an, um diese Buchung abzuschließen",
     "signInLead": "Nutzen Sie die Kontoschaltfläche in der Leiste oben, um sich anzumelden oder ein Konto anzulegen. Ihre Auswahl bleibt so lange erhalten, und diese Seite macht weiter, sobald Sie angemeldet sind.",
-    "people": "Personen"
+    "people": "Personen",
+    "depositClosed": "Dieser Termin liegt innerhalb von 14 Tagen und muss vollständig bezahlt werden."
   },
   "bookings": {
     "title": "Meine Buchungen",

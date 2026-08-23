@@ -78,8 +78,17 @@ export async function startBooking(input: {
     return { ok: false, error: "That departure is not open for booking." };
   }
 
-  if (new Date(`${departure.start_date}T00:00:00Z`).getTime() < Date.now()) {
-    return { ok: false, error: "That departure has already started." };
+  const startsIn = Math.floor(
+    (new Date(`${departure.start_date}T00:00:00Z`).getTime() - Date.now()) / 86_400_000,
+  );
+
+  if (startsIn < 0) return { ok: false, error: "That departure has already started." };
+
+  if (input.plan === "deposit" && startsIn <= BALANCE_DUE_DAYS) {
+    return {
+      ok: false,
+      error: `This departure is inside ${BALANCE_DUE_DAYS} days, so it has to be paid in full.`,
+    };
   }
 
   const seatsLeft =

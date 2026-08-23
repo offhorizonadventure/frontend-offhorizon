@@ -1839,7 +1839,8 @@
     "note": "Los precios se fijan en dólares estadounidenses y se cobran en la moneda mostrada, al cambio de hoy. Ese cambio queda fijado para toda la reserva.",
     "signInTitle": "Inicia sesión para terminar esta reserva",
     "signInLead": "Usa el botón de cuenta de la barra de arriba para iniciar sesión o crear una cuenta. Tus elecciones se mantienen mientras tanto, y esta página sigue en cuanto entres.",
-    "people": "Personas"
+    "people": "Personas",
+    "depositClosed": "Esta salida está dentro de los 14 días, así que hay que pagarla entera."
   },
   "bookings": {
     "title": "Mis reservas",

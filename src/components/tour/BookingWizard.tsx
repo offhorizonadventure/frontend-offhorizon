@@ -111,7 +111,9 @@ export type BookingProps = {
   labels: BookingLabels;
 };
 
-const STEPS = ["year", "date", "travellers", "extras", "summary"] as const;
+/** The vehicle gets a step of its own on a 4x4, where there is a fleet to pick from. */
+const STEP_NAMES = ["year", "date", "travellers", "vehicle", "extras", "summary"] as const;
+type StepName = (typeof STEP_NAMES)[number];
 
 /** Multi-step booking enquiry. */
 export function BookingWizard({
@@ -174,6 +176,18 @@ export function BookingWizard({
 
   const fleet = chosen?.kind === "4x4" ? (chosen.vehicles ?? []) : [];
   const byPerson = chosen?.kind === "4x4";
+
+  // Three controls under one heading ran off the bottom of the drawer, so the
+  // cars stand on their own wherever there are any. Counted from the whole
+  // calendar before a date is picked, so the total does not change under the
+  // reader on the way through.
+  const anyFleet = departures.some(
+    (option) => option.kind === "4x4" && (option.vehicles?.length ?? 0) > 0,
+  );
+  const steps: StepName[] = STEP_NAMES.filter(
+    (name) => name !== "vehicle" || (chosen ? fleet.length > 0 : anyFleet),
+  ) as StepName[];
+  const current = steps[Math.min(step, steps.length - 1)];
   const picked = fleet.find((option) => option.id === vehicle) ?? null;
 
   // Own car: the daily vehicle rate drops out of the total.
@@ -190,8 +204,9 @@ export function BookingWizard({
   const maxInsurance = riders;
   const maxRooms = riders + pillions;
   // A year with nothing published cannot be continued through: there is no date to price.
-  const noDates = step === 1 && options.length === 0;
-  const canContinue = step === 0 ? year !== null : step === 1 ? departure !== null : true;
+  const noDates = current === "date" && options.length === 0;
+  const canContinue =
+    current === "year" ? year !== null : current === "date" ? departure !== null : true;
 
   // Changing the year invalidates whatever date was picked under the old one.
   const changeYear = (next: number) => {
@@ -268,10 +283,10 @@ export function BookingWizard({
         <span className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.16em] uppercase">
           {labels.stepOf
             .replace("{current}", String(step + 1))
-            .replace("{total}", String(STEPS.length))}
+            .replace("{total}", String(steps.length))}
         </span>
         <span aria-hidden className="flex flex-1 gap-1">
-          {STEPS.map((name, index) => (
+          {steps.map((name, index) => (
             <span
               key={name}
               className={`h-0.5 flex-1 rounded-full transition-colors duration-300 ${
@@ -283,7 +298,7 @@ export function BookingWizard({
       </div>
 
       <div className="flex-1 overflow-y-auto py-6">
-        {step === 0 && (
+        {current === "year" && (
           <fieldset>
             <legend className="font-display text-brand-900 text-[17px] leading-snug font-bold tracking-[-0.02em]">
               {labels.year.title}
@@ -313,7 +328,7 @@ export function BookingWizard({
           </fieldset>
         )}
 
-        {step === 1 && (
+        {current === "date" && (
           <fieldset>
             <legend className="font-display text-brand-900 text-[17px] leading-snug font-bold tracking-[-0.02em]">
               {labels.date.title}
@@ -373,7 +388,7 @@ export function BookingWizard({
           </fieldset>
         )}
 
-        {step === 2 && (
+        {current === "travellers" && (
           <fieldset className="space-y-5">
             <legend className="font-display text-brand-900 text-[17px] leading-snug font-bold tracking-[-0.02em]">
               {labels.travellers.title}
@@ -410,87 +425,94 @@ export function BookingWizard({
           </fieldset>
         )}
 
-        {step === 3 && (
+        {current === "vehicle" && (
+          <fieldset className="space-y-5">
+            <legend className="font-display text-brand-900 text-[17px] leading-snug font-bold tracking-[-0.02em]">
+              {labels.vehicle.title}
+            </legend>
+            <p className="text-brand-800/50 -mt-4 text-[12.5px]">
+              {labels.vehicle.help.replace("{days}", String(days))}
+            </p>
+
+            <div className="border-brand-900/10 space-y-3 border-b pb-6">
+              <p className="text-brand-800/55 text-[11px] font-bold tracking-[0.14em] uppercase">
+                {labels.vehicle.title}
+              </p>
+              <p className="text-brand-800/50 -mt-1 text-[12.5px]">
+                {labels.vehicle.help.replace("{days}", String(days))}
+              </p>
+
+              <div className="grid gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => setVehicle(OWN_CAR)}
+                  aria-pressed={vehicle === OWN_CAR}
+                  className={`flex items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left transition-colors duration-200 ${
+                    vehicle === OWN_CAR
+                      ? "border-brand-800 bg-brand-800 text-cream-100"
+                      : "border-brand-900/15 text-brand-900 hover:border-brand-800/50 bg-white"
+                  }`}
+                >
+                  <span className="min-w-0">
+                    <span className="block text-[13.5px] font-semibold">{labels.vehicle.own}</span>
+                    <span
+                      className={`block text-[11.5px] ${
+                        vehicle === OWN_CAR ? "text-cream-100/60" : "text-brand-800/50"
+                      }`}
+                    >
+                      {labels.vehicle.ownHint}
+                    </span>
+                  </span>
+
+                  <span className="shrink-0 text-[13px] font-bold">{labels.vehicle.noCharge}</span>
+                </button>
+
+                {fleet.map((option) => {
+                  const selected = vehicle === option.id;
+
+                  return (
+                    <button
+                      key={option.id}
+                      type="button"
+                      onClick={() => setVehicle(selected ? null : option.id)}
+                      aria-pressed={selected}
+                      className={`flex items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left transition-colors duration-200 ${
+                        selected
+                          ? "border-brand-800 bg-brand-800 text-cream-100"
+                          : "border-brand-900/15 text-brand-900 hover:border-brand-800/50 bg-white"
+                      }`}
+                    >
+                      <span className="min-w-0">
+                        <span className="block text-[13.5px] font-semibold">{option.name}</span>
+                        <span
+                          className={`block text-[11.5px] ${
+                            selected ? "text-cream-100/60" : "text-brand-800/50"
+                          }`}
+                        >
+                          {labels.vehicle.seats.replace("{count}", String(option.seats))} ·{" "}
+                          {price(option.perDay)} {labels.vehicle.perDay}
+                        </span>
+                      </span>
+
+                      <span className="shrink-0 text-[13px] font-bold tabular-nums">
+                        {price(option.perDay * days)}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </fieldset>
+        )}
+
+        {current === "extras" && (
           <fieldset className="space-y-5">
             <legend className="font-display text-brand-900 text-[17px] leading-snug font-bold tracking-[-0.02em]">
               {labels.extras.title}
             </legend>
-            <p className="text-brand-800/50 -mt-4 text-[12.5px]">{labels.extras.help}</p>
-
-            {fleet.length > 0 && (
-              <div className="border-brand-900/10 space-y-3 border-b pb-6">
-                <p className="text-brand-800/55 text-[11px] font-bold tracking-[0.14em] uppercase">
-                  {labels.vehicle.title}
-                </p>
-                <p className="text-brand-800/50 -mt-1 text-[12.5px]">
-                  {labels.vehicle.help.replace("{days}", String(days))}
-                </p>
-
-                <div className="grid gap-2.5">
-                  <button
-                    type="button"
-                    onClick={() => setVehicle(OWN_CAR)}
-                    aria-pressed={vehicle === OWN_CAR}
-                    className={`flex items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left transition-colors duration-200 ${
-                      vehicle === OWN_CAR
-                        ? "border-brand-800 bg-brand-800 text-cream-100"
-                        : "border-brand-900/15 text-brand-900 hover:border-brand-800/50 bg-white"
-                    }`}
-                  >
-                    <span className="min-w-0">
-                      <span className="block text-[13.5px] font-semibold">
-                        {labels.vehicle.own}
-                      </span>
-                      <span
-                        className={`block text-[11.5px] ${
-                          vehicle === OWN_CAR ? "text-cream-100/60" : "text-brand-800/50"
-                        }`}
-                      >
-                        {labels.vehicle.ownHint}
-                      </span>
-                    </span>
-
-                    <span className="shrink-0 text-[13px] font-bold">
-                      {labels.vehicle.noCharge}
-                    </span>
-                  </button>
-
-                  {fleet.map((option) => {
-                    const selected = vehicle === option.id;
-
-                    return (
-                      <button
-                        key={option.id}
-                        type="button"
-                        onClick={() => setVehicle(selected ? null : option.id)}
-                        aria-pressed={selected}
-                        className={`flex items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left transition-colors duration-200 ${
-                          selected
-                            ? "border-brand-800 bg-brand-800 text-cream-100"
-                            : "border-brand-900/15 text-brand-900 hover:border-brand-800/50 bg-white"
-                        }`}
-                      >
-                        <span className="min-w-0">
-                          <span className="block text-[13.5px] font-semibold">{option.name}</span>
-                          <span
-                            className={`block text-[11.5px] ${
-                              selected ? "text-cream-100/60" : "text-brand-800/50"
-                            }`}
-                          >
-                            {labels.vehicle.seats.replace("{count}", String(option.seats))} ·{" "}
-                            {price(option.perDay)} {labels.vehicle.perDay}
-                          </span>
-                        </span>
-
-                        <span className="shrink-0 text-[13px] font-bold tabular-nums">
-                          {price(option.perDay * days)}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
+            <p className="text-brand-800/50 -mt-4 text-[12.5px]">
+              {labels.extras.help} {labels.extras.none}
+            </p>
 
             <NumberStepper
               name="insurance"
@@ -515,12 +537,10 @@ export function BookingWizard({
               decreaseLabel={labels.decrease}
               increaseLabel={labels.increase}
             />
-
-            <p className="text-brand-800/45 text-[12px]">{labels.extras.none}</p>
           </fieldset>
         )}
 
-        {step === 4 && (
+        {current === "summary" && (
           <div>
             <h3 className="font-display text-brand-900 text-[17px] leading-snug font-bold tracking-[-0.02em]">
               {labels.summary.title}
@@ -627,7 +647,7 @@ export function BookingWizard({
             {labels.date.custom}
             <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
-        ) : step < STEPS.length - 1 ? (
+        ) : step < steps.length - 1 ? (
           <button
             type="button"
             onClick={() => setStep((current) => current + 1)}

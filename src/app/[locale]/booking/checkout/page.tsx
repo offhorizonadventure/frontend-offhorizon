@@ -63,6 +63,7 @@ export default async function CheckoutPage({
                   siteName={siteName}
                   hidden={priced.hidden}
                   amounts={{ full: priced.totalLabel, deposit: priced.depositLabel }}
+                  depositAllowed={priced.depositAllowed}
                   profile={{
                     name: profile.full_name ?? "",
                     email: profile.email ?? "",
@@ -74,6 +75,7 @@ export default async function CheckoutPage({
                     fullNote: t("fullNote"),
                     deposit: t("deposit"),
                     depositNote: t("depositNote"),
+                    depositClosed: t("depositClosed"),
                     detailsTitle: t("detailsTitle"),
                     name: t("name"),
                     email: t("email"),

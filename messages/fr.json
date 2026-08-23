@@ -1845,7 +1845,8 @@
     "note": "Les prix sont fixés en dollars américains et débités dans la devise affichée, au taux du jour. Ce taux est ensuite figé pour toute la réservation.",
     "signInTitle": "Connectez-vous pour finaliser cette réservation",
     "signInLead": "Utilisez le bouton compte dans la barre ci-dessus pour vous connecter ou créer un compte. Vos choix restent en place pendant ce temps, et cette page reprend dès que vous êtes connecté.",
-    "people": "Personnes"
+    "people": "Personnes",
+    "depositClosed": "Ce départ est à moins de 14 jours : il doit être payé intégralement."
   },
   "bookings": {
     "title": "Mes réservations",

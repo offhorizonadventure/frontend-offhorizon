@@ -12,6 +12,7 @@ export type CheckoutLabels = {
   fullNote: string;
   deposit: string;
   depositNote: string;
+  depositClosed: string;
   detailsTitle: string;
   name: string;
   email: string;
@@ -29,6 +30,8 @@ type Props = {
   siteName: string;
   hidden: Record<string, string>;
   amounts: { full: string; deposit: string };
+  /** False inside the balance window, where a deposit would be overdue at once. */
+  depositAllowed: boolean;
   profile: { name: string; email: string; phone: string };
   labels: CheckoutLabels;
 };
@@ -39,7 +42,15 @@ const field =
 const label = "block text-[10.5px] font-bold tracking-[0.16em] text-brand-600 uppercase";
 
 /** Choose how to pay, then hand over to the provider. */
-export function CheckoutForm({ keyId, siteName, hidden, amounts, profile, labels }: Props) {
+export function CheckoutForm({
+  keyId,
+  siteName,
+  hidden,
+  amounts,
+  depositAllowed,
+  profile,
+  labels,
+}: Props) {
   const router = useRouter();
   const [plan, setPlan] = useState<"full" | "deposit">("full");
   const [pending, setPending] = useState(false);
@@ -121,7 +132,13 @@ export function CheckoutForm({ keyId, siteName, hidden, amounts, profile, labels
       <fieldset className="space-y-2.5">
         <legend className={label}>{labels.planTitle}</legend>
         {choice("full", labels.full, labels.fullNote, amounts.full)}
-        {choice("deposit", labels.deposit, labels.depositNote, amounts.deposit)}
+        {depositAllowed ? (
+          choice("deposit", labels.deposit, labels.depositNote, amounts.deposit)
+        ) : (
+          <p className="text-brand-800/55 border-brand-900/12 rounded-2xl border border-dashed px-4 py-3 text-[12.5px] leading-snug">
+            {labels.depositClosed}
+          </p>
+        )}
       </fieldset>
 
       <div className="space-y-4">
