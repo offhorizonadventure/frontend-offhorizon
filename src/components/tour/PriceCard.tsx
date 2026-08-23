@@ -70,56 +70,64 @@ export async function PriceCard({
         </>
       )}
 
-      <div className="border-brand-900/12 mt-6 space-y-6 border-t pt-6">
-        {groups.map((group) => (
-          <div key={group.title}>
-            <h3 className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.18em] uppercase">
-              {group.title}
-            </h3>
+      {groups.length > 0 && (
+        <div className="border-brand-900/12 mt-6 space-y-6 border-t pt-6">
+          {groups.map((group) => (
+            <div key={group.title}>
+              <h3 className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.18em] uppercase">
+                {group.title}
+              </h3>
 
-            <ul className="mt-3 space-y-2.5">
-              {group.lines.map((line) => (
-                <li key={line.label} className="flex items-start gap-3">
-                  <span className="bg-brand-900/6 text-brand-700 mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full">
-                    <line.Icon />
-                  </span>
-
-                  <span className="min-w-0 flex-1">
-                    <span className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
-                      <span className="font-display text-brand-900 text-[14px] leading-snug font-bold tracking-[-0.01em]">
-                        {line.label}
-                      </span>
-                      <span
-                        className={`text-[13px] leading-snug font-bold whitespace-nowrap tabular-nums ${
-                          line.price ? "text-brand-900" : "text-brand-700/70"
-                        }`}
-                      >
-                        {line.price ? (
-                          <>
-                            {line.addon && <span className="text-brand-800/40">+ </span>}
-                            {line.price}
-                          </>
-                        ) : (
-                          t("price.included")
-                        )}
-                      </span>
+              <ul className="mt-3 space-y-2.5">
+                {group.lines.map((line) => (
+                  <li key={line.label} className="flex items-start gap-3">
+                    <span className="bg-brand-900/6 text-brand-700 mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full">
+                      <line.Icon />
                     </span>
 
-                    {line.note && (
-                      <span className="text-brand-800/50 mt-0.5 block text-[11.5px] leading-snug">
-                        {line.note}
+                    <span className="min-w-0 flex-1">
+                      <span className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
+                        <span className="font-display text-brand-900 text-[14px] leading-snug font-bold tracking-[-0.01em]">
+                          {line.label}
+                        </span>
+                        <span
+                          className={`text-[13px] leading-snug font-bold whitespace-nowrap tabular-nums ${
+                            line.price ? "text-brand-900" : "text-brand-700/70"
+                          }`}
+                        >
+                          {line.price ? (
+                            <>
+                              {line.addon && <span className="text-brand-800/40">+ </span>}
+                              {line.price}
+                            </>
+                          ) : (
+                            t("price.included")
+                          )}
+                        </span>
                       </span>
-                    )}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+
+                      {line.note && (
+                        <span className="text-brand-800/50 mt-0.5 block text-[11.5px] leading-snug">
+                          {line.note}
+                        </span>
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )}
 
       <div className="border-brand-900/12 mt-6 flex flex-col gap-2.5 border-t pt-6">
-        <DatesDrawer label={t("price.seeDates")} title={t("price.datesTitle")} booking={booking} />
+        {departures.length > 0 && (
+          <DatesDrawer
+            label={t("price.seeDates")}
+            title={t("price.datesTitle")}
+            booking={booking}
+          />
+        )}
 
         <Link
           href="/custom-expeditions"
