@@ -14,7 +14,10 @@ export async function POST(request: Request) {
 
   let event: {
     event?: string;
-    payload?: { payment?: { entity?: Record<string, unknown> } };
+    payload?: {
+      payment?: { entity?: Record<string, unknown> };
+      payment_link?: { entity?: { id?: string } };
+    };
   };
 
   try {
@@ -35,6 +38,7 @@ export async function POST(request: Request) {
     await settlePayment({
       paymentId: entity.id as string,
       orderId: typeof entity.order_id === "string" ? entity.order_id : null,
+      linkId: event.payload?.payment_link?.entity?.id ?? null,
       event: event.event ?? "",
       raw: entity,
     });
