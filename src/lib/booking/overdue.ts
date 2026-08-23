@@ -4,15 +4,7 @@ import { sendMail } from "@/lib/mail";
 import { siteName } from "@/lib/seo";
 import { createAdminClient } from "@/lib/supabase/admin";
 
-/**
- * Cancels every booking that still owes money past its deadline.
- *
- * The rule is the one on the terms page: everything is due 14 days before
- * departure, and after that the place goes back on sale and nothing is
- * refunded. Releasing the seats here is what puts it back on sale.
- *
- * Safe to run twice: a cancelled booking is not selected again.
- */
+/** Cancels every booking that still owes money past its deadline. */
 export async function cancelOverdue() {
   const supabase = createAdminClient();
   const today = new Date().toISOString().slice(0, 10);

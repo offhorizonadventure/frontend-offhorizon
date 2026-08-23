@@ -9,13 +9,7 @@ import {
 } from "./enquiries";
 import { withinLimit } from "./rate-limit";
 
-/**
- * The two public forms, submitted on the server.
- *
- * Both are open to anyone, so both are capped per address. Doing the write here
- * rather than in the browser also means the ceiling cannot be edited away with
- * the developer tools.
- */
+/** The two public forms, submitted on the server. */
 const TOO_MANY = "That is a lot of enquiries at once. Give it a few minutes and try again.";
 
 export async function sendQuickEnquiry(input: QuickEnquiryInput): Promise<SubmitResult> {

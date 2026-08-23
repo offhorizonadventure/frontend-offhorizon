@@ -179,8 +179,10 @@ export default async function TourPage({ params }: PageProps<"/[locale]/adventur
         </div>
       </section>
 
-      {/* Each section is dropped when the tour has nothing in it, rather than
-          rendering an empty heading over blank space. */}
+      {/**
+       * Each section is dropped when the tour has nothing in it, rather than
+       * rendering an empty heading over blank space.
+       */}
       {programme.length > 0 && <Program locale={locale} days={programme} />}
 
       {fleet.length > 0 && (

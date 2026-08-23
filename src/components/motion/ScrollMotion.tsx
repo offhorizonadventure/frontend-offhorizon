@@ -53,6 +53,12 @@ export function ScrollMotion() {
           const items = Array.from(group.children);
           if (!items.length) return;
 
+          // Already on screen: leave it visible. A `from` tween hides its
+          // targets as soon as it is built, and if the trigger never fires
+          // afterwards the section stays blank, which is what the footer did
+          // on a short page.
+          if (group.getBoundingClientRect().top < window.innerHeight * 0.86) return;
+
           gsap.from(items, {
             y: 28,
             opacity: 0,
@@ -78,7 +84,21 @@ export function ScrollMotion() {
       });
 
       // Images settle after the first pass and shift every trigger's position.
-      const onLoad = () => ScrollTrigger.refresh();
+      const onLoad = () => {
+        ScrollTrigger.refresh();
+
+        // Whatever is still invisible while sitting in the viewport did not get
+        // its trigger. Show it rather than leave a hole in the page.
+        window.setTimeout(() => {
+          document.querySelectorAll<HTMLElement>("[data-anim-group] > *").forEach((element) => {
+            const box = element.getBoundingClientRect();
+            const onScreen = box.top < window.innerHeight && box.bottom > 0;
+            if (onScreen && Number(getComputedStyle(element).opacity) < 0.05) {
+              gsap.set(element, { clearProps: "opacity,transform" });
+            }
+          });
+        }, 1200);
+      };
       window.addEventListener("load", onLoad);
 
       cleanup = () => {

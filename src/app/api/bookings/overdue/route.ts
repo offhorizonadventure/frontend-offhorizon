@@ -4,12 +4,7 @@ import { cancelOverdue } from "@/lib/booking/overdue";
 
 export const dynamic = "force-dynamic";
 
-/**
- * Closes bookings whose balance passed the deadline.
- *
- * Run once a day. Guarded by the same secret as the revalidate hook, so a
- * scheduler can call it and nobody else can.
- */
+/** Closes bookings whose balance passed the deadline. */
 export async function POST(request: Request) {
   const secret = process.env.SITE_REVALIDATE_SECRET ?? "";
   const given =

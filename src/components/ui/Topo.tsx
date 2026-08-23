@@ -8,14 +8,7 @@ type TopoProps = {
   className?: string;
 };
 
-/**
- * One contour ring.
- *
- * 72 points, rounded to whole units of a 1200 by 800 viewBox. The highest
- * frequency in the wobble is 13 cycles, so 72 samples is well clear of what it
- * takes to draw it smoothly, and the decimals were worth 60KB of markup across
- * a page that carries six of these.
- */
+/** One contour ring. */
 function contour(cx: number, cy: number, radius: number, seed: number, squash: number) {
   const steps = 72;
   const points: string[] = [];

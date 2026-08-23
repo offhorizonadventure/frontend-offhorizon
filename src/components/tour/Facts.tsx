@@ -17,13 +17,13 @@ export async function Facts({
   return (
     <div className="mx-auto max-w-6xl px-5 sm:px-8">
       <div data-anim="up">
-        {/* No visible heading: the card straddles the hero, so anything above
-            the grid gets pulled up into the lead paragraph behind it. The
-            values label themselves. */}
+        {/**
+         * No visible heading: the card straddles the hero, so anything above the grid
+         * gets pulled up into the lead paragraph behind it.
+         */}
         <h2 className="sr-only">{t("facts.title")}</h2>
 
-        {/* One card, with the dividers drawn as real borders inside it. See
-            `.facts-grid` in globals.css. */}
+        {/** One card, with the dividers drawn as real borders inside it. */}
         <dl className="facts-grid shadow-brand-950/8 ring-brand-900/10 overflow-hidden rounded-[22px] bg-white shadow-lg ring-1">
           {facts.map((fact) => {
             const Icon = factIcons[fact.key];

@@ -39,8 +39,10 @@ export function PageHero({
             sizes="100vw"
             className="object-cover"
           />
-          {/* Three layers: a vertical scrim, a horizontal one behind the type,
-              and a tint that pulls the photograph toward the palette. */}
+          {/**
+           * Three layers: a vertical scrim, a horizontal one behind the type, and a tint
+           * that pulls the photograph toward the palette.
+           */}
           <span
             aria-hidden
             className="from-brand-950 via-brand-950/70 to-brand-950/45 absolute inset-0 bg-gradient-to-t"

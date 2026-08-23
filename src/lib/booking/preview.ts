@@ -4,6 +4,8 @@ import type { Locale } from "@/i18n/config";
 import { currencyForVisitor, formatMoney, getRate } from "@/lib/currency";
 import { createClient } from "@/lib/supabase/server";
 
+import { BOOKING_CLOSES_DAYS } from "@/lib/catalogue";
+
 import { chargeCurrencyFor } from "./currency";
 import { quoteBooking, type PricedDeparture } from "./quote";
 import { BALANCE_DUE_DAYS, DEPOSIT_SHARE, type Party } from "./types";
@@ -23,12 +25,7 @@ const whole = (value: unknown, max: number) => {
 
 const money = (value: number) => Math.round(value * 100) / 100;
 
-/**
- * The same sum the checkout will charge, for the screen the rider reads first.
- *
- * Computed from the departure row exactly as `startBooking` does, so what is
- * shown and what is charged cannot drift apart.
- */
+/** The same sum the checkout will charge, for the screen the rider reads first. */
 export async function priceBooking(
   locale: Locale,
   departureId: string,
@@ -44,6 +41,10 @@ export async function priceBooking(
     .maybeSingle();
 
   if (!data) return null;
+
+  const closes = new Date();
+  closes.setUTCDate(closes.getUTCDate() + BOOKING_CLOSES_DAYS);
+  if ((data as { start_date: string }).start_date <= closes.toISOString().slice(0, 10)) return null;
 
   type Named = { id: string; name: string; per_day_price: number | null; seats: number | null };
 

@@ -267,8 +267,10 @@ export function CustomExpeditionForm({
             </select>
           </div>
 
-          {/* A motorcycle trip counts riders and pillions; a 4x4 counts people
-              and derives the vehicles, so four seats each cannot be exceeded. */}
+          {/**
+           * A motorcycle trip counts riders and pillions; a 4x4 counts people and
+           * derives the vehicles, so four seats each cannot be exceeded.
+           */}
           <div>
             <span className={label}>{labels.travelMode}</span>
             <div className="mt-2.5 grid gap-2.5 sm:grid-cols-2">

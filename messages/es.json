@@ -1548,7 +1548,8 @@
           "title": "Reserva y pago",
           "body": [
             "Una reserva queda confirmada cuando te lo hemos confirmado por escrito y el primer pago nos ha llegado. Hasta que ocurran las dos cosas, la plaza no está guardada.",
-            "Tú eliges cómo pagar: liquida la expedición de una vez, o paga el 20 por ciento para guardar la plaza y completa el resto antes de viajar."
+            "Tú eliges cómo pagar: liquida la expedición de una vez, o paga el 20 por ciento para guardar la plaza y completa el resto antes de viajar.",
+            "Las plazas dejan de venderse 30 días antes de la salida. A partir de ahí el grupo está cerrado, los permisos están presentados y no podemos añadir a nadie."
           ],
           "list": [
             "El 20 por ciento se paga al reservar y es lo que confirma la plaza",
@@ -1652,7 +1653,7 @@
           "title": "Para qué los usamos",
           "body": [
             "Para responder consultas, presupuestar y confirmar reservas, solicitar los permisos que necesita tu ruta, cobrar los pagos y avisarte de los cambios en la salida en la que vas.",
-            "También usamos cifras agregadas y anónimas para ver qué páginas se leen, lo que nos dice sobre qué escribir después. Eso no te identifica."
+            "En este sitio no usamos analítica ni hacemos perfiles de nadie. De tu visita sabemos lo que el servidor necesita para responderla."
           ]
         },
         {
@@ -1669,6 +1670,7 @@
             "Hoteles, casas de huéspedes y campamentos de tu ruta, para las habitaciones a tu nombre",
             "Las administraciones que emiten los permisos de zonas restringidas y de ruta",
             "Razorpay, nuestro proveedor de pagos, que trata los datos de la tarjeta directamente, de modo que nosotros nunca los guardamos",
+            "ipapi.co, que convierte tu dirección en un país una sola vez para mostrar los precios en tu moneda",
             "Supabase, donde están nuestra base de datos y el acceso, y nuestro proveedor de correo",
             "Asesores profesionales o autoridades cuando la ley lo exige",
             "Los demás participantes de tu reserva, que ven los nombres del grupo al que fueron invitados"
@@ -1692,7 +1694,7 @@
           "title": "Cookies y almacenamiento del navegador",
           "body": [
             "No usamos cookies publicitarias ni te seguimos por otros sitios.",
-            "Tu navegador guarda el idioma que elegiste y, si lees en inglés, el país detectado una sola vez para mostrar los precios en tu moneda. Al iniciar sesión se guarda una sesión para mantenerte dentro. Borrar el almacenamiento del navegador elimina todo eso."
+            "Tu navegador guarda tres cosas: el idioma que elegiste, una cookie llamada oh_country con el país que consultamos una vez para mostrar los precios en tu moneda y, si inicias sesión, una sesión para mantenerte dentro. Borrar el almacenamiento del navegador elimina todo eso."
           ]
         },
         {

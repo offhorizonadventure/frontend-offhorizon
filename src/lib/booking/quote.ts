@@ -30,12 +30,7 @@ export const durationDays = (departure: PricedDeparture) => {
   return Math.max(1, Math.round((end - start) / 86_400_000) + 1);
 };
 
-/**
- * What a party costs, computed from the departure row.
- *
- * The only pricing that counts. The browser sends how many people are coming,
- * never what they are worth.
- */
+/** What a party costs, computed from the departure row. */
 export function quoteBooking(departure: PricedDeparture, party: Party): Quote {
   const lines: QuoteLine[] = [];
 

@@ -364,8 +364,10 @@ export function BookingWizard({
                       {dateRange.formatRange(new Date(option.start), new Date(option.end))}
                     </span>
 
-                    {/* Sold out wins over a seat count: a departure that is full
-                        has no places left to advertise, whatever its size. */}
+                    {/**
+                     * Sold out wins over a seat count: a departure that is full has no places left
+                     * to advertise, whatever its size.
+                     */}
                     {(option.soldOut || option.seats) && (
                       <span
                         className={`text-[9.5px] font-bold tracking-[0.14em] whitespace-nowrap uppercase ${

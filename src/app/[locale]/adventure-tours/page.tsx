@@ -201,9 +201,7 @@ export default async function AdventureToursPage({
         </div>
       </section>
 
-      {/* How every departure is run. Operating standards, not commercial
-          inclusions, so nothing here promises something a package might not
-          carry. */}
+      {/** How every departure is run. */}
       <section className="bg-brand-950 text-cream-100 relative overflow-hidden py-18 sm:py-24">
         <Topo className="text-cream-100/10" rings={14} seed={33.4} />
         <div

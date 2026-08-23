@@ -11,15 +11,7 @@ const day = (value: string) =>
     new Date(`${value}T00:00:00Z`),
   );
 
-/**
- * Tells the rider their money arrived and what is left.
- *
- * Written in English whatever the reader chose on the site: this is sent from
- * a webhook, which has no locale, and a receipt that says the wrong thing in
- * the right language is worse than a plain one.
- *
- * Never throws. A booking is confirmed by the database, not by an email.
- */
+/** Tells the rider their money arrived and what is left. */
 export async function sendPaymentEmail(paymentId: string) {
   const supabase = createAdminClient();
 

@@ -3,16 +3,7 @@ import type { NextConfig } from "next";
 
 const SUPABASE = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "https://placeholder.supabase.co";
 
-/**
- * What the browser is allowed to load, and from where.
- *
- * Anything not listed here is refused by the browser, so a script injected into
- * a page has nowhere to send what it steals. The pages are statically rendered,
- * which rules out a per-request nonce, so inline scripts are allowed: the site
- * renders no user-written HTML, and every inline script on it is our own
- * structured data. External script hosts are named one by one, which is the
- * part that matters.
- */
+/** What the browser is allowed to load, and from where. */
 const contentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
@@ -21,7 +12,9 @@ const contentSecurityPolicy = [
   "form-action 'self'",
   "upgrade-insecure-requests",
   // Razorpay's checkout, the reviews widget, and our own structured data.
-  "script-src 'self' 'unsafe-inline' https://checkout.razorpay.com https://cdn.trustindex.io https://www.youtube.com https://s.ytimg.com",
+  // React rebuilds stack traces with eval while developing, and never in a
+  // built site, so the allowance is tied to the mode rather than left on.
+  `script-src 'self' 'unsafe-inline' ${process.env.NODE_ENV === "development" ? "'unsafe-eval' " : ""}https://checkout.razorpay.com https://cdn.trustindex.io https://www.youtube.com https://s.ytimg.com`,
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.trustindex.io",
   "font-src 'self' data: https://fonts.gstatic.com",
   "img-src 'self' data: blob: https://flagcdn.com https://i.ytimg.com https://cdn.trustindex.io " +
@@ -46,8 +39,7 @@ const nextConfig: NextConfig = {
 
   /**
    * `X-Robots-Tag` repeats the robots meta tag in the response itself, which is
-   * the only copy a crawler fetching a PDF or a sitemap sees. The rest are the
-   * ordinary protections and do not affect indexing.
+   * the only copy a crawler fetching a PDF or a sitemap sees.
    */
   async headers() {
     return [

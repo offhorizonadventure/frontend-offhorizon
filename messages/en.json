@@ -1546,7 +1546,8 @@
           "title": "Booking and payment",
           "body": [
             "A booking is confirmed when we have written to you to confirm it and the first payment has reached us. Until both have happened, the place is not held.",
-            "You choose how to pay. Either settle the whole expedition at once, or pay 20 percent to hold your place and clear the rest before you travel."
+            "You choose how to pay. Either settle the whole expedition at once, or pay 20 percent to hold your place and clear the rest before you travel.",
+            "Places come off sale 30 days before departure. After that the group is closed, the permits are filed and we cannot add anyone."
           ],
           "list": [
             "The 20 percent is due at the time of booking and is what confirms the place",
@@ -1650,7 +1651,7 @@
           "title": "Why we use it",
           "body": [
             "To reply to enquiries, to quote and confirm bookings, to apply for the permits your route needs, to take payment, and to tell you about changes to a departure you are on.",
-            "We also use anonymous, aggregated figures to see which pages people read, which tells us what to write next. That does not identify you."
+            "We do not run analytics on this site and we do not profile anyone. What we know about your visit is what the server needs to answer it."
           ]
         },
         {
@@ -1667,6 +1668,7 @@
             "Hotels, guesthouses and camps on your route, for the rooms in your name",
             "Government departments that issue restricted area and route permits",
             "Razorpay, our payment provider, which handles card details directly so we never hold them",
+            "ipapi.co, which turns your address into a country once so prices can be shown in your currency",
             "Supabase, which hosts our database and sign in, and our email provider",
             "Professional advisers or authorities where the law requires it",
             "Other riders on your booking, who see the names of the group they were invited to join"
@@ -1690,7 +1692,7 @@
           "title": "Cookies and what your browser stores",
           "body": [
             "We do not use advertising cookies and we do not track you across other sites.",
-            "Your browser stores the language you chose and, if you are reading in English, the country we detected once so prices can be shown in your currency. Signing in stores a session so you stay signed in. Clearing your browser storage removes all of it."
+            "Your browser stores three things: the language you chose, a cookie named oh_country holding the country we looked up once so prices can be shown in your currency, and, if you sign in, a session so you stay signed in. Clearing your browser storage removes all of it."
           ]
         },
         {

@@ -72,9 +72,7 @@ export async function BookConfidence() {
           ))}
         </ul>
 
-        {/* Cream panel against the dark section, with the rider in an arch.
-            The source photo is portrait, so an arch frame fits it without the
-            upscaling a full-bleed band would have needed. */}
+        {/** Cream panel against the dark section, with the rider in an arch. */}
         <div
           data-anim="wipe"
           className="bg-cream-100 mt-14 overflow-hidden rounded-[32px] sm:mt-20"

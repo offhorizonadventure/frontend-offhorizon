@@ -6,14 +6,7 @@ import { fromMinorUnits } from "./currency";
 import { sendPaymentEmail } from "./notify";
 import { fetchPayment } from "./razorpay";
 
-/**
- * Writes what the provider says about a payment onto our row.
- *
- * The amount is read back from Razorpay rather than taken from the webhook
- * body, and it has to match the row we opened: a payment for less than the
- * order asked for does not confirm a booking. Everything downstream, the paid
- * total, the status and the seat count, follows from a database trigger.
- */
+/** The amount is read back from the provider, not believed from the webhook body. */
 export async function settlePayment(input: {
   paymentId: string;
   orderId: string | null;

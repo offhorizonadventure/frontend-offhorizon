@@ -7,13 +7,7 @@ import type { RichDoc, RichNode } from "@/lib/blog";
 
 const measure = "mx-auto max-w-[38rem]";
 
-/**
- * Link addresses the browser is allowed to follow.
- *
- * A `javascript:` address in a stored document would run as this page the
- * moment a reader clicked it, so anything that is not one of these is dropped
- * and the text is left as text.
- */
+/** Link addresses the browser is allowed to follow. */
 const SAFE_LINK = /^(https?:\/\/|mailto:|tel:|\/(?!\/))/i;
 
 /** Bold, italic, strikethrough, inline code and links, innermost first. */

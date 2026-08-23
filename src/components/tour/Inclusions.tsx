@@ -35,8 +35,10 @@ function Line({ item, tone }: { item: Inclusion; tone: "in" | "out" }) {
 
   return (
     <li className={`${frame} ${text} hover:border-cream-100/20 transition-colors`}>
-      {/* The same chevron in the same circle as the FAQ accordion on the
-          destination pages: one behaviour, learned once. */}
+      {/**
+       * The same chevron in the same circle as the FAQ accordion on the destination
+       * pages: one behaviour, learned once.
+       */}
       <details className="group/row">
         <summary className="flex cursor-pointer list-none items-start justify-between gap-4 [&::-webkit-details-marker]:hidden">
           <span className="flex flex-1 items-start gap-3.5">{row}</span>

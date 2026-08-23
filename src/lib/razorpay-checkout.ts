@@ -42,13 +42,7 @@ export type OpenedOrder = {
   reference: string;
 };
 
-/**
- * Opens the payment window.
- *
- * `handler` firing means the provider took the payment, not that the booking is
- * confirmed: the webhook does that. So all it does is move the rider on to a
- * page that reads the truth from the database.
- */
+/** Opens the payment window. */
 export async function openCheckout(options: {
   keyId: string;
   order: OpenedOrder;

@@ -1552,7 +1552,8 @@
           "title": "Réservation et paiement",
           "body": [
             "Une réservation est confirmée lorsque nous vous l'avons confirmée par écrit et que le premier versement nous est parvenu. Tant que ces deux conditions ne sont pas remplies, la place n'est pas retenue.",
-            "Vous choisissez votre mode de paiement. Réglez l'expédition en une fois, ou versez 20 pour cent pour retenir votre place et soldez le reste avant le départ."
+            "Vous choisissez votre mode de paiement. Réglez l'expédition en une fois, ou versez 20 pour cent pour retenir votre place et soldez le reste avant le départ.",
+            "Les places ne sont plus vendues 30 jours avant le départ. Passé ce délai, le groupe est clos, les permis sont déposés et nous ne pouvons ajouter personne."
           ],
           "list": [
             "Les 20 pour cent sont dus à la réservation et c'est ce qui confirme la place",
@@ -1656,7 +1657,7 @@
           "title": "Pourquoi nous les utilisons",
           "body": [
             "Pour répondre aux demandes, établir des devis et confirmer les réservations, demander les permis nécessaires à votre itinéraire, encaisser les paiements et vous informer des changements sur un départ auquel vous participez.",
-            "Nous utilisons aussi des chiffres agrégés et anonymes pour voir quelles pages sont lues, ce qui nous indique quoi écrire ensuite. Cela ne permet pas de vous identifier."
+            "Nous n'utilisons aucun outil de mesure d'audience sur ce site et nous ne profilons personne. Ce que nous savons de votre visite est ce dont le serveur a besoin pour y répondre."
           ]
         },
         {
@@ -1675,6 +1676,7 @@
             "Hôtels, maisons d'hôtes et camps de votre itinéraire, pour les chambres à votre nom",
             "Les administrations qui délivrent les permis de zones réglementées et d'itinéraire",
             "Razorpay, notre prestataire de paiement, qui traite les données de carte directement, de sorte que nous ne les détenons jamais",
+            "ipapi.co, qui convertit votre adresse en pays une seule fois afin d'afficher les prix dans votre devise",
             "Supabase, qui héberge notre base de données et la connexion, ainsi que notre prestataire d'e-mail",
             "Des conseils professionnels ou des autorités lorsque la loi l'exige",
             "Les autres participants de votre réservation, qui voient les noms du groupe qu'ils ont rejoint"
@@ -1698,7 +1700,7 @@
           "title": "Cookies et stockage du navigateur",
           "body": [
             "Nous n'utilisons pas de cookies publicitaires et nous ne vous suivons pas sur d'autres sites.",
-            "Votre navigateur conserve la langue que vous avez choisie et, si vous lisez en anglais, le pays détecté une seule fois afin d'afficher les prix dans votre devise. La connexion enregistre une session pour vous garder connecté. Vider le stockage de votre navigateur efface tout cela."
+            "Votre navigateur conserve trois choses : la langue que vous avez choisie, un cookie nommé oh_country contenant le pays recherché une seule fois afin d'afficher les prix dans votre devise, et, si vous vous connectez, une session pour vous garder connecté. Vider le stockage de votre navigateur efface tout cela."
           ]
         },
         {

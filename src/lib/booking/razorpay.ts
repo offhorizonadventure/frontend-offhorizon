@@ -17,13 +17,7 @@ const auth = () => `Basic ${Buffer.from(`${KEY_ID}:${KEY_SECRET}`).toString("bas
 
 export type RazorpayOrder = { id: string; amount: number; currency: string; status: string };
 
-/**
- * Creates the order the checkout opens against.
- *
- * `receipt` is our payment row id, so a payment can always be traced back from
- * the provider's dashboard, and `notes` carry the booking reference for the
- * same reason.
- */
+/** Creates the order the checkout opens against. */
 export async function createOrder(input: {
   amountMinor: number;
   currency: string;

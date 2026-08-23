@@ -46,9 +46,7 @@ export async function PriceCard({
 
   return (
     <div className="bg-cream-50/97 shadow-brand-950/30 ring-cream-100/20 rounded-[26px] p-6 shadow-2xl ring-1 backdrop-blur-md sm:p-7">
-      {/* Headline price, or an honest line where there is nothing to quote.
-          An empty "from" over a blank space reads as a page that failed to
-          load, which is worse than saying the dates are not set. */}
+      {/** Headline price, or an honest line where there is nothing to quote. */}
       {headline?.price ? (
         <>
           <p className="text-brand-800/50 text-[9.5px] font-bold tracking-[0.18em] uppercase">

@@ -137,8 +137,10 @@ export function VideoPlayer({
           className="from-brand-950/80 via-brand-950/15 to-brand-950/5 absolute inset-0 bg-gradient-to-t"
         />
 
-        {/* Solid disc rather than a frosted one: a translucent blur over
-            photography reads as a smudge and the triangle loses contrast. */}
+        {/**
+         * Solid disc rather than a frosted one: a translucent blur over photography
+         * reads as a smudge and the triangle loses contrast.
+         */}
         <span
           aria-hidden
           className={cn(

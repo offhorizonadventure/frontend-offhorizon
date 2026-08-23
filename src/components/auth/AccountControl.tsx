@@ -44,8 +44,10 @@ export function AccountControl({
         signOutLabel={menu.signOut}
       />
 
-      {/* Mounted only while open: nothing inside is reachable by tab or scroll
-          when it is shut, and the dialog starts from a clean slate each time. */}
+      {/**
+       * Mounted only while open: nothing inside is reachable by tab or scroll when
+       * it is shut, and the dialog starts from a clean slate each time.
+       */}
       {open && <AuthModal labels={labels} onClose={() => setOpen(false)} />}
     </>
   );

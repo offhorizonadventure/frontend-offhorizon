@@ -27,12 +27,7 @@ const getTransport = () => {
   return transport;
 };
 
-/**
- * Sends one message, and never throws.
- *
- * Called from the payment path, where a mail server having a bad afternoon must
- * not turn a confirmed booking into a failed webhook.
- */
+/** Sends one message, and never throws. */
 export async function sendMail(input: { to: string; subject: string; text: string }) {
   if (!mailerConfigured() || !input.to) return { ok: false as const, error: "SMTP is not set up." };
 

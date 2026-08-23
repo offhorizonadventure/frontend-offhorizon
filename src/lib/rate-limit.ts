@@ -2,14 +2,7 @@ import "server-only";
 
 import { headers } from "next/headers";
 
-/**
- * A ceiling on how often one visitor may do something expensive.
- *
- * Held in memory, so it is per instance and resets on deploy. That is enough
- * for what it defends against: someone holding down a submit button, a script
- * hammering the enquiry form, or a loop opening payment orders. It is not a
- * defence against a distributed flood, which belongs at the edge.
- */
+/** A ceiling on how often one visitor may do something expensive. */
 type Window = { count: number; resetAt: number };
 
 const windows = new Map<string, Window>();

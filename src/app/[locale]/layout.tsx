@@ -31,13 +31,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">) {
   });
 }
 
-/**
- * The namespaces a client component reads for itself.
- *
- * Everything else is translated on the server and handed over as plain props,
- * so the whole catalogue does not have to travel with every page. Sending all
- * of it put 90KB of terms and itineraries into the HTML of the home page.
- */
+/** The namespaces a client component reads for itself. */
 const CLIENT_NAMESPACES = ["custom"] as const;
 
 export default async function LocaleLayout({ children, params }: LayoutProps<"/[locale]">) {
@@ -50,8 +44,10 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   return (
     <html lang={locale} className={`${fontVariables} h-full`}>
       <head>
-        {/* The photographs and the flags come from these, so the handshake
-            happens while the page is still parsing. */}
+        {/**
+         * The photographs and the flags come from these, so the handshake happens
+         * while the page is still parsing.
+         */}
         <link rel="preconnect" href={SUPABASE_URL} crossOrigin="" />
         <link rel="preconnect" href="https://flagcdn.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://checkout.razorpay.com" />

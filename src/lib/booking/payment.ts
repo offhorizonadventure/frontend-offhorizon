@@ -17,12 +17,7 @@ export type PaymentStarted = {
   currency: string;
 };
 
-/**
- * Opens a payment against a booking that already exists.
- *
- * Shared by the deposit, the full amount and every instalment, so an order is
- * created in one place and recorded in one row shape.
- */
+/** Opens a payment against a booking that already exists. */
 export async function startPayment(input: {
   bookingId: string;
   reference: string;

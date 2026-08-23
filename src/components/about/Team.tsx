@@ -27,9 +27,7 @@ export async function Team() {
           </p>
         </div>
 
-        {/* Lead card. A small portrait next to one short line left the row
-            looking half empty, so the portrait carries more width and the name
-            is set at display scale to hold the space. */}
+        {/** Lead card. */}
         <div
           data-anim="up"
           className="bg-cream-50 relative mt-12 overflow-hidden rounded-[32px] sm:mt-16"

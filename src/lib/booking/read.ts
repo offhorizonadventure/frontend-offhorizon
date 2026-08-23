@@ -51,12 +51,7 @@ const BOOKING_COLUMNS = `
   departure:departures(start_date, end_date, kind, bike_name)
 `;
 
-/**
- * Past the deadline with money still owed.
- *
- * The scheduled job is what cancels these for real; this is so the account page
- * tells the truth in the meantime, whatever time the job runs.
- */
+/** Past the deadline with money still owed. */
 export const isOverdue = (
   booking: Pick<BookingRow, "balance_due_on" | "total_amount" | "paid_amount" | "status">,
 ) =>
@@ -69,10 +64,7 @@ export const isOverdue = (
 export const outstanding = (booking: Pick<BookingRow, "total_amount" | "paid_amount">) =>
   Math.max(0, Math.round((booking.total_amount - booking.paid_amount) * 100) / 100);
 
-/**
- * Every booking the signed in rider is on, whether they paid for it or were
- * invited onto it. Row level security decides which those are, not this query.
- */
+/** Every booking the signed in rider is on, whether they paid for it or were invited onto it. */
 export async function listMyBookings(): Promise<BookingRow[]> {
   const user = await getUser();
   if (!user) return [];
@@ -141,12 +133,7 @@ export type PaymentHistoryRow = PaymentRow & {
   booking: { reference: string; tour: { title: string } };
 };
 
-/**
- * Every payment this rider has made, newest first.
- *
- * Row level security limits it to bookings they are on, and only the lead
- * rider ever has payments against their name.
- */
+/** Every payment this rider has made, newest first. */
 export async function listMyPayments(): Promise<PaymentHistoryRow[]> {
   const user = await getUser();
   if (!user) return [];

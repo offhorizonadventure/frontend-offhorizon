@@ -22,6 +22,9 @@ function client() {
 }
 
 /** Cache tags, so a save in the admin can clear exactly what it changed. */
+/** Days before departure that a place stops being sold. */
+export const BOOKING_CLOSES_DAYS = 30;
+
 export const CATALOGUE_TAG = "catalogue";
 export const tourTag = (slug: string) => `tour:${slug}`;
 
@@ -185,9 +188,13 @@ export const listDepartures = unstable_cache(
     const supabase = client();
     if (!supabase) return [];
 
-    // A departure that has already set off cannot be joined, so the cut is the
-    // start date rather than the end date.
-    const today = new Date().toISOString().slice(0, 10);
+    // Off sale 30 days out: the balance is due at 14, the permits are filed and
+    // the group is closed, so an empty seat is no longer an offer. Riders who
+    // booked keep seeing theirs on their account, which reads the booking rather
+    // than this list.
+    const cutoff = new Date();
+    cutoff.setUTCDate(cutoff.getUTCDate() + BOOKING_CLOSES_DAYS);
+    const today = cutoff.toISOString().slice(0, 10);
     let query = supabase
       .from("departures")
       // The join is read as a nested select rather than a second round trip.

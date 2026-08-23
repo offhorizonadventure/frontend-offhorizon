@@ -24,13 +24,7 @@ const whole = (value: FormDataEntryValue | null, max: number) => {
   return parsed;
 };
 
-/**
- * Opens a booking and its first payment.
- *
- * Everything a form can say is a count or an id. The amount is worked out from
- * the departure row inside `startBooking`, so a tampered form changes who is
- * coming, never what it costs.
- */
+/** Opens a booking and its first payment. */
 export async function createBooking(_: unknown, formData: FormData): Promise<ActionResult> {
   const user = await getUser();
   if (!user) return { ok: false, error: "Sign in to book." };
@@ -82,12 +76,7 @@ export async function createBooking(_: unknown, formData: FormData): Promise<Act
   };
 }
 
-/**
- * Opens a payment towards the balance.
- *
- * The rider types an amount; anything above what is outstanding is refused,
- * and the outstanding figure comes from the database rather than the page.
- */
+/** Opens a payment towards the balance. */
 export async function payInstalment(_: unknown, formData: FormData): Promise<ActionResult> {
   const user = await getUser();
   if (!user) return { ok: false, error: "Sign in to pay." };

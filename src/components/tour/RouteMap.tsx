@@ -30,8 +30,7 @@ export async function RouteMap({
           {t("route.title")}
         </h2>
 
-        {/* Next needs dimensions, and a storage URL brings none. These set the
-            ratio space is reserved at, not the rendered size. */}
+        {/** Next needs dimensions, and a storage URL brings none. */}
         <Image
           data-anim="wipe"
           src={image}

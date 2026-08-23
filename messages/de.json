@@ -1550,7 +1550,8 @@
           "title": "Buchung und Zahlung",
           "body": [
             "Eine Buchung ist bestätigt, sobald wir sie Ihnen schriftlich bestätigt haben und die erste Zahlung bei uns eingegangen ist. Bis beides erfolgt ist, ist der Platz nicht reserviert.",
-            "Sie entscheiden, wie Sie zahlen: die Expedition auf einmal begleichen, oder 20 Prozent anzahlen, um den Platz zu sichern, und den Rest vor der Abreise ausgleichen."
+            "Sie entscheiden, wie Sie zahlen: die Expedition auf einmal begleichen, oder 20 Prozent anzahlen, um den Platz zu sichern, und den Rest vor der Abreise ausgleichen.",
+            "Plätze werden 30 Tage vor Abreise vom Verkauf genommen. Danach ist die Gruppe geschlossen, die Genehmigungen sind eingereicht und wir können niemanden mehr aufnehmen."
           ],
           "list": [
             "Die 20 Prozent sind bei Buchung fällig und sichern den Platz",
@@ -1654,7 +1655,7 @@
           "title": "Wofür wir sie nutzen",
           "body": [
             "Um Anfragen zu beantworten, Angebote zu machen und Buchungen zu bestätigen, die für Ihre Route nötigen Genehmigungen zu beantragen, Zahlungen abzuwickeln und Sie über Änderungen an Ihrem Termin zu informieren.",
-            "Außerdem nutzen wir anonyme, zusammengefasste Zahlen, um zu sehen, welche Seiten gelesen werden. Das sagt uns, worüber wir als Nächstes schreiben, und identifiziert Sie nicht."
+            "Wir setzen auf dieser Website keine Analysewerkzeuge ein und erstellen keine Profile. Von Ihrem Besuch wissen wir nur, was der Server braucht, um ihn zu beantworten."
           ]
         },
         {
@@ -1673,6 +1674,7 @@
             "Hotels, Gasthäuser und Camps auf Ihrer Route, für die Zimmer auf Ihren Namen",
             "Behörden, die Genehmigungen für Sperrgebiete und Routen ausstellen",
             "Razorpay, unser Zahlungsdienstleister, der Kartendaten direkt verarbeitet, sodass wir sie nie speichern",
+            "ipapi.co, das Ihre Adresse einmal in ein Land übersetzt, damit Preise in Ihrer Währung erscheinen",
             "Supabase, wo unsere Datenbank und die Anmeldung laufen, sowie unser E-Mail-Anbieter",
             "Berufliche Berater oder Behörden, soweit das Gesetz es verlangt",
             "Die anderen Teilnehmenden Ihrer Buchung, die die Namen der Gruppe sehen, zu der sie eingeladen wurden"
@@ -1696,7 +1698,7 @@
           "title": "Cookies und Browser-Speicher",
           "body": [
             "Wir setzen keine Werbe-Cookies ein und verfolgen Sie nicht über andere Websites hinweg.",
-            "Ihr Browser speichert die gewählte Sprache und, wenn Sie auf Englisch lesen, das einmal erkannte Land, damit Preise in Ihrer Währung erscheinen. Die Anmeldung legt eine Sitzung an, damit Sie angemeldet bleiben. Das Leeren des Browser-Speichers entfernt all das."
+            "Ihr Browser speichert drei Dinge: die gewählte Sprache, ein Cookie namens oh_country mit dem einmal ermittelten Land, damit Preise in Ihrer Währung erscheinen, und bei Anmeldung eine Sitzung, damit Sie angemeldet bleiben. Das Leeren des Browser-Speichers entfernt all das."
           ]
         },
         {

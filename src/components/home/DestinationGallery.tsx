@@ -58,8 +58,7 @@ export async function DestinationGallery() {
 
                 <span className="mt-3 flex items-center justify-between gap-4">
                   <span className="text-[10.5px] font-semibold tracking-[0.16em] text-white/70 uppercase">
-                    {/* The real count, from the catalogue. A country with none
-                        says so rather than quoting a number nobody can book. */}
+                    {/** The real count, from the catalogue. */}
                     {counts.get(slugOf(destination.href)) ? (
                       t("expeditions", { count: counts.get(slugOf(destination.href))! })
                     ) : (

@@ -48,9 +48,10 @@ export async function Program({ locale, days }: { locale: Locale; days: ProgramD
           {days.map((day) => (
             <li key={day.day} className="program-item">
               <details className="group/day bg-brand-950 relative block h-full overflow-hidden rounded-[24px]">
-                {/* Everything lives inside the summary: a closed <details>
-                    hides anything else, and only the summary can close it
-                    without JavaScript. */}
+                {/**
+                 * Everything lives inside the summary: a closed <details> hides anything else,
+                 * and only the summary can close it without JavaScript.
+                 */}
                 <summary className="relative flex h-full cursor-pointer list-none flex-col justify-between p-6 [&::-webkit-details-marker]:hidden">
                   <Image
                     src={day.image}
@@ -87,8 +88,10 @@ export async function Program({ locale, days }: { locale: Locale; days: ProgramD
                     </span>
                   </span>
 
-                  {/* Open state, drawn over the photograph so the rail does
-                      not resize as cards are opened and closed. */}
+                  {/**
+                   * Open state, drawn over the photograph so the rail does not resize as cards
+                   * are opened and closed.
+                   */}
                   <span className="bg-brand-950/55 absolute inset-0 z-20 hidden flex-col overflow-y-auto p-6 pt-16 backdrop-blur-[2px] group-open/day:flex">
                     <span className="font-display text-[20px] leading-tight font-bold tracking-[-0.025em] text-balance text-white">
                       {day.title}

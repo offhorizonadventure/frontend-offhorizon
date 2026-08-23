@@ -3,17 +3,7 @@ import { after, NextResponse } from "next/server";
 import { settlePayment } from "@/lib/booking/settle";
 import { webhookSignatureValid } from "@/lib/booking/razorpay";
 
-/**
- * The only thing that turns a payment into money in the database.
- *
- * The browser reporting success proves nothing: anyone can call back with a
- * made-up order id. Razorpay signs this body with a secret only the two of us
- * know, so the signature is checked over the raw text before anything is read
- * out of it.
- *
- * Razorpay retries on any non-2xx, so the handler is idempotent: settling the
- * same payment twice changes nothing.
- */
+/** The only thing that confirms a booking. Signature checked over the raw body. */
 export async function POST(request: Request) {
   const body = await request.text();
   const signature = request.headers.get("x-razorpay-signature") ?? "";

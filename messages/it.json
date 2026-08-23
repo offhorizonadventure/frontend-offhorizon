@@ -1549,7 +1549,8 @@
           "title": "Prenotazione e pagamento",
           "body": [
             "Una prenotazione è confermata quando te l'abbiamo confermata per iscritto e il primo pagamento ci è arrivato. Finché non accadono entrambe le cose, il posto non è bloccato.",
-            "Decidi tu come pagare: salda tutta la spedizione in una volta, oppure versa il 20 per cento per bloccare il posto e completa il resto prima di partire."
+            "Decidi tu come pagare: salda tutta la spedizione in una volta, oppure versa il 20 per cento per bloccare il posto e completa il resto prima di partire.",
+            "I posti escono dalla vendita 30 giorni prima della partenza. Dopo, il gruppo è chiuso, i permessi sono depositati e non possiamo aggiungere nessuno."
           ],
           "list": [
             "Il 20 per cento è dovuto al momento della prenotazione ed è ciò che conferma il posto",
@@ -1653,7 +1654,7 @@
           "title": "Perché li usiamo",
           "body": [
             "Per rispondere alle richieste, fare preventivi e confermare prenotazioni, richiedere i permessi necessari al tuo itinerario, incassare i pagamenti e avvisarti dei cambiamenti sulla partenza a cui partecipi.",
-            "Usiamo anche dati aggregati e anonimi per vedere quali pagine vengono lette, il che ci dice cosa scrivere dopo. Questo non ti identifica."
+            "Su questo sito non usiamo strumenti di analisi e non profiliamo nessuno. Della tua visita sappiamo solo quello che serve al server per rispondere."
           ]
         },
         {
@@ -1670,6 +1671,7 @@
             "Hotel, guesthouse e campi lungo il tuo itinerario, per le camere a tuo nome",
             "Gli uffici pubblici che rilasciano i permessi per aree soggette a restrizioni e per il percorso",
             "Razorpay, il nostro fornitore di pagamenti, che tratta direttamente i dati della carta, che quindi non conserviamo mai",
+            "ipapi.co, che converte una volta il tuo indirizzo in un paese per mostrare i prezzi nella tua valuta",
             "Supabase, che ospita il nostro database e l'accesso, e il nostro fornitore email",
             "Consulenti o autorità quando la legge lo impone",
             "Gli altri partecipanti della tua prenotazione, che vedono i nomi del gruppo a cui sono stati invitati"
@@ -1693,7 +1695,7 @@
           "title": "Cookie e memoria del browser",
           "body": [
             "Non usiamo cookie pubblicitari e non ti seguiamo su altri siti.",
-            "Il browser conserva la lingua scelta e, se leggi in inglese, il paese rilevato una sola volta per mostrare i prezzi nella tua valuta. L'accesso salva una sessione per mantenerti collegato. Svuotare la memoria del browser cancella tutto questo."
+            "Il browser conserva tre cose: la lingua scelta, un cookie chiamato oh_country con il paese rilevato una sola volta per mostrare i prezzi nella tua valuta e, se accedi, una sessione per mantenerti collegato. Svuotare la memoria del browser cancella tutto questo."
           ]
         },
         {

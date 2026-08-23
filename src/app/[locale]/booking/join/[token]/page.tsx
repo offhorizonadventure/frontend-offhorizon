@@ -12,13 +12,7 @@ export function generateMetadata(): Metadata {
   return { title: "Join a booking", robots: { index: false, follow: false } };
 }
 
-/**
- * The invite link.
- *
- * Signing in is what claims the place, so an invite that reaches the wrong
- * person still cannot be used without an account, and a place can only be
- * claimed once.
- */
+/** The invite link. */
 export default async function JoinPage({ params }: PageProps<"/[locale]/booking/join/[token]">) {
   const locale = await resolveLocale(params);
   const { token } = await params;
