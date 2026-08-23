@@ -16,14 +16,7 @@ import { RouteMap } from "@/components/tour/RouteMap";
 import { TourHero } from "@/components/tour/TourHero";
 import { Topo } from "@/components/ui/Topo";
 import { buildBooking } from "@/lib/booking-props";
-import {
-  countryName,
-  getPrivateTour,
-  getTour,
-  imageUrl,
-  listDepartures,
-  listPrivateDepartures,
-} from "@/lib/catalogue";
+import { countryName, getTour, imageUrl, listDepartures, listMyDepartures } from "@/lib/catalogue";
 import { translate } from "@/lib/translated";
 import { resolveLocale } from "@/i18n/params";
 import { buildMetadata, siteUrl } from "@/lib/seo";
@@ -40,15 +33,8 @@ import {
 /** Rendered per request, not cached as one page for everyone. */
 export const dynamic = "force-dynamic";
 
-/**
- * The catalogue first, then the reader's own expeditions.
- *
- * A custom expedition is not in the catalogue: that read is cached and
- * anonymous, and row level security only shows a private tour to the account
- * it belongs to. So the miss is answered with the visitor's own session, which
- * either finds their expedition or finds nothing.
- */
-const readTour = async (slug: string) => (await getTour(slug)) ?? getPrivateTour(slug);
+/** The tour behind the page. Custom expeditions run ordinary tours. */
+const readTour = (slug: string) => getTour(slug);
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/adventure/[slug]">) {
   const locale = await resolveLocale(params);
@@ -92,12 +78,11 @@ export default async function TourPage({ params }: PageProps<"/[locale]/adventur
   const t = await getTranslations({ locale, namespace: "tour" });
   const ts = await getTranslations({ locale, namespace: "dest.shared" });
 
-  // A custom expedition's dates are only readable by the rider it was built
-  // for, so they come from their own session rather than the cached list.
-  const departures =
-    source.visibility === "private"
-      ? await listPrivateDepartures(tour.id)
-      : await listDepartures(tour.id);
+  // The dates on general sale, plus any custom departure of this tour sold to
+  // the reader. The second read is theirs alone: the cached list is anonymous
+  // and row level security keeps a private departure out of it.
+  const [open, mine] = await Promise.all([listDepartures(tour.id), listMyDepartures(tour.id)]);
+  const departures = [...mine, ...open].sort((a, b) => a.start_date.localeCompare(b.start_date));
 
   const name = tour.title;
   const hero = imageUrl(tour.hero_path);

@@ -2011,7 +2011,7 @@
     "partyPeople": "{people, plural, one {# personne} other {# personnes}}",
     "custom": {
       "title": "Conçu pour vous",
-      "lead": "Des expéditions que nous avons montées pour vous. Personne d'autre ne les voit.",
+      "lead": "Des expéditions montées pour vous. Personne d'autre ne voit ces dates.",
       "open": "Ouvrir l'expédition",
       "noDates": "Nous fixons encore les dates"
     }

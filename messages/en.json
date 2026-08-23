@@ -2003,7 +2003,7 @@
     "partyPeople": "{people, plural, one {# person} other {# people}}",
     "custom": {
       "title": "Built for you",
-      "lead": "Expeditions we have put together for you. Nobody else can see these.",
+      "lead": "Expeditions we have put together for you. Nobody else can see these dates.",
       "open": "Open the expedition",
       "noDates": "We are still setting the dates"
     }

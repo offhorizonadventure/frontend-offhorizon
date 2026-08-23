@@ -4,21 +4,14 @@ import { Panel } from "@/components/account/parts";
 import { ArrowRight } from "@/components/ui/icons";
 import type { Locale } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
-import { listMyExpeditions, listPrivateDepartures } from "@/lib/catalogue";
+import { listMyExpeditions } from "@/lib/catalogue";
 
 /** Custom expeditions built for this rider, which nobody else can see. */
 export async function MyExpeditions({ locale }: { locale: Locale }) {
-  const expeditions = await listMyExpeditions();
-  if (!expeditions.length) return null;
+  const dated = await listMyExpeditions();
+  if (!dated.length) return null;
 
   const t = await getTranslations({ locale, namespace: "bookings.custom" });
-
-  const dated = await Promise.all(
-    expeditions.map(async (tour) => ({
-      tour,
-      departures: await listPrivateDepartures(tour.id),
-    })),
-  );
 
   const dates = (start: string, end: string) =>
     new Intl.DateTimeFormat(locale, {

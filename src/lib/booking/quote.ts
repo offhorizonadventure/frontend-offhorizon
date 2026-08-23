@@ -17,6 +17,8 @@ export type PricedDeparture = {
   single_room_price: number | null;
   seats: number | null;
   seats_taken: number;
+  visibility?: "public" | "private";
+  assigned_user_id?: string | null;
   vehicles: { id: string; per_day_price: number | null; seats: number | null }[];
 };
 

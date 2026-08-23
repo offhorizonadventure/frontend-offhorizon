@@ -2005,7 +2005,7 @@
     "partyPeople": "{people, plural, one {# persona} other {# personas}}",
     "custom": {
       "title": "Hecha para ti",
-      "lead": "Expediciones que hemos preparado para ti. Nadie más puede verlas.",
+      "lead": "Expediciones preparadas para ti. Nadie más ve estas fechas.",
       "open": "Abrir la expedición",
       "noDates": "Todavía estamos fijando las fechas"
     }

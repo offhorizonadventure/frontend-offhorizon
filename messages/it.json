@@ -2006,7 +2006,7 @@
     "partyPeople": "{people, plural, one {# persona} other {# persone}}",
     "custom": {
       "title": "Costruita per te",
-      "lead": "Spedizioni che abbiamo messo insieme per te. Nessun altro può vederle.",
+      "lead": "Spedizioni preparate per te. Queste date non le vede nessun altro.",
       "open": "Apri la spedizione",
       "noDates": "Stiamo ancora fissando le date"
     }

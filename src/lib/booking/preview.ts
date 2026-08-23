@@ -12,6 +12,7 @@ import { BALANCE_DUE_DAYS, DEPOSIT_SHARE, type Party } from "./types";
 
 const COLUMNS = `
   id, tour_id, start_date, end_date, status, sold_out, kind, currency,
+  visibility, assigned_user_id,
   rider_price, pillion_price, damage_protection_price, single_room_price,
   seats, seats_taken,
   tour:tours(title, slug),
@@ -42,9 +43,15 @@ export async function priceBooking(
 
   if (!data) return null;
 
+  // Places on general sale close 30 days out. A custom expedition is a
+  // conversation with one rider, so that deadline is not theirs.
   const closes = new Date();
   closes.setUTCDate(closes.getUTCDate() + BOOKING_CLOSES_DAYS);
-  if ((data as { start_date: string }).start_date <= closes.toISOString().slice(0, 10)) return null;
+  const sale = data as { start_date: string; visibility?: string };
+
+  if (sale.visibility !== "private" && sale.start_date <= closes.toISOString().slice(0, 10)) {
+    return null;
+  }
 
   type Named = { id: string; name: string; per_day_price: number | null; seats: number | null };
 

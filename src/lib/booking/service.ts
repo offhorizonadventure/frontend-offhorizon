@@ -15,6 +15,7 @@ import { BALANCE_DUE_DAYS, DEPOSIT_SHARE, type BookingPlan, type Party } from ".
 
 const DEPARTURE_COLUMNS = `
   id, tour_id, start_date, end_date, status, sold_out, kind, currency,
+  visibility, assigned_user_id,
   rider_price, pillion_price, damage_protection_price, single_room_price,
   seats, seats_taken,
   vehicles:departure_vehicles(vehicle:vehicles(id, per_day_price, seats))
@@ -72,6 +73,12 @@ export async function startBooking(input: {
 
   if (departure.status !== "published" || departure.sold_out) {
     return { ok: false, error: "That departure is not open for booking." };
+  }
+
+  // A custom expedition is sold to one rider. Everyone else on their booking
+  // joins through the invite link, which does not go through here.
+  if (departure.visibility === "private" && departure.assigned_user_id !== input.userId) {
+    return { ok: false, error: "That expedition was built for somebody else." };
   }
 
   const startsIn = Math.floor(

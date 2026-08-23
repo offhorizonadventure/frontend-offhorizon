@@ -2009,7 +2009,7 @@
     "partyPeople": "{people, plural, one {# Person} other {# Personen}}",
     "custom": {
       "title": "Für Sie gebaut",
-      "lead": "Expeditionen, die wir für Sie zusammengestellt haben. Niemand sonst sieht sie.",
+      "lead": "Expeditionen, die wir für Sie zusammengestellt haben. Diese Termine sieht niemand sonst.",
       "open": "Expedition öffnen",
       "noDates": "Die Termine stehen noch nicht"
     }

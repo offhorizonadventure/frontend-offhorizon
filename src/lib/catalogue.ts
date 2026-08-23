@@ -120,6 +120,9 @@ export type Departure = {
   leader: string | null;
   seats: number | null;
   seats_taken: number;
+  /** A custom expedition: this running belongs to one rider. */
+  visibility: "public" | "private";
+  assigned_user_id: string | null;
   notes: string | null;
   kind: "motorbike" | "4x4";
   bike_name: string | null;
@@ -236,29 +239,6 @@ function withVehicles(rows: unknown[]): Departure[] {
   });
 }
 
-/**
- * Departures on a custom expedition, read as the signed in rider.
- *
- * The cached list is anonymous and a private tour's dates are only readable by
- * the account it belongs to, so this asks with their session instead. It also
- * keeps every date: a custom expedition is a conversation, not a seat on sale,
- * so the thirty day cut off does not apply to it.
- */
-export async function listPrivateDepartures(tourId: string): Promise<Departure[]> {
-  const supabase = await createSessionClient();
-  const today = new Date().toISOString().slice(0, 10);
-
-  const { data, error } = await supabase
-    .from("departures")
-    .select("*, departure_vehicles(position, vehicles(*))")
-    .eq("status", "published")
-    .eq("tour_id", tourId)
-    .gte("start_date", today)
-    .order("start_date");
-
-  return error ? [] : withVehicles(data ?? []);
-}
-
 /** The cheapest rider price on offer, which is what "from" means on a card. */
 export const priceFrom = (departures: Departure[]) => {
   const prices = departures
@@ -269,38 +249,50 @@ export const priceFrom = (departures: Departure[]) => {
 };
 
 /**
- * A private expedition, read as the signed in rider.
+ * The reader's own custom departures, on one tour or across all of them.
  *
- * The catalogue is cached and read anonymously, which is what keeps it cheap
- * and is also why a custom expedition cannot come out of it: row level
- * security only shows one to the account it was built for, and the cache has
- * no account. This asks with the visitor's own session, and is never cached.
+ * The catalogue is cached and read anonymously, and row level security only
+ * shows a private departure to the rider it was sold to, so the cache can
+ * never hold one. This asks with their session instead, and keeps every date:
+ * a custom expedition is a conversation, not a seat on sale, so the thirty day
+ * cut off does not apply to it.
  */
-export async function getPrivateTour(slug: string): Promise<Tour | null> {
-  const supabase = await createSessionClient();
-
-  const { data } = await supabase
-    .from("tours")
-    .select("*")
-    .eq("visibility", "private")
-    .eq("slug", slug)
-    .maybeSingle();
-
-  return data ? shape(data) : null;
-}
-
-/** Every custom expedition built for the signed in rider. */
-export async function listMyExpeditions(): Promise<Tour[]> {
+export async function listMyDepartures(tourId?: string): Promise<Departure[]> {
   const supabase = await createSessionClient();
   const { data: session } = await supabase.auth.getUser();
   if (!session.user) return [];
 
-  const { data } = await supabase
-    .from("tours")
-    .select("*")
+  const today = new Date().toISOString().slice(0, 10);
+
+  let query = supabase
+    .from("departures")
+    .select("*, departure_vehicles(position, vehicles(*))")
+    .eq("status", "published")
     .eq("visibility", "private")
     .eq("assigned_user_id", session.user.id)
-    .order("updated_at", { ascending: false });
+    .gte("start_date", today)
+    .order("start_date");
 
-  return (data ?? []).map(shape);
+  if (tourId) query = query.eq("tour_id", tourId);
+
+  const { data, error } = await query;
+
+  return error ? [] : withVehicles(data ?? []);
+}
+
+/** The tours those custom departures belong to, for the account page. */
+export async function listMyExpeditions(): Promise<{ tour: Tour; departures: Departure[] }[]> {
+  const departures = await listMyDepartures();
+  if (!departures.length) return [];
+
+  const supabase = await createSessionClient();
+  const ids = [...new Set(departures.map((departure) => departure.tour_id))];
+
+  const { data } = await supabase.from("tours").select("*").in("id", ids);
+
+  return (data ?? []).map((row) => {
+    const tour = shape(row);
+
+    return { tour, departures: departures.filter((entry) => entry.tour_id === tour.id) };
+  });
 }
