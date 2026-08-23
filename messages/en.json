@@ -38,7 +38,9 @@
     "plannedShort": "Planned",
     "easternHimalayas": "Eastern Himalayas",
     "hillCountry": "Hill Country & Coast",
-    "steppeGobi": "Steppe & Gobi"
+    "steppeGobi": "Steppe & Gobi",
+    "tibet": "Tibet",
+    "tibetPlateau": "Tibetan Plateau"
   },
   "tours": {
     "greatHimalayanTraverse": {
@@ -84,6 +86,10 @@
     "mongolia4x4": {
       "name": "Mongolia 4x4 Expedition",
       "summary": "Gobi Desert & Altai Mountains"
+    },
+    "everestBaseCamp": {
+      "name": "Everest Base Camp Expedition",
+      "summary": "Kathmandu, the plateau & Cho Oyu"
     }
   },
   "home": {
@@ -1226,6 +1232,98 @@
     "steppeGobi": {
       "shortName": "Steppe and Gobi",
       "card": "Central steppe, the Gobi and the Altai. Almost no tarmac, long days on tracks, and camping where the light runs out."
+    },
+    "tibetPlateau": {
+      "shortName": "Tibetan Plateau",
+      "card": "Kathmandu to the base camps below Everest and Cho Oyu, across a plateau that runs high, wide and empty. October and November only."
+    },
+    "tibet": {
+      "meta": {
+        "title": "Motorcycle Expeditions Across Tibet | Offhorizon",
+        "description": "Ride from Kathmandu across the Tibetan plateau to the base camps below Everest and Cho Oyu. Permits, a border crossing and an acclimatisation plan, all handled."
+      },
+      "eyebrow": "Tibet",
+      "title": "Motorcycle expeditions across Tibet",
+      "lead": "Most people see Everest from a trekking trail. On this side of the border you ride to it, across a plateau that runs wide, high and almost empty for three hundred kilometres at a stretch.",
+      "intro": {
+        "title": "The highest road riding on earth.",
+        "body": "Tibet is not a harder ride than Ladakh, it is a bigger one. The tarmac out of Kyirong is good and the passes are graded, but you spend days above 14,000 feet with the wind coming across open ground and nothing between one town and the next. What makes it serious is the altitude, the distance and the weather, in that order.",
+        "focus": "Our route crosses at Rasuwagadhi and runs the Friendship Highway past Peiku Tso, under Shishapangma and Cho Oyu, to the base camps and back. Every rider needs a Tibet travel permit and a group visa, both arranged through our Lhasa-registered partner, and Chinese law requires a registered guide and vehicle with the group the whole way."
+      },
+      "regions": {
+        "eyebrow": "Regions",
+        "title": "Where we ride in Tibet",
+        "explore": "Explore the region"
+      },
+      "why": {
+        "eyebrow": "Why us",
+        "title": "Why ride Tibet with Offhorizon",
+        "reasons": [
+          {
+            "title": "Both sides of the border",
+            "body": "A Kathmandu team and a Lhasa-registered partner, so the crossing at Rasuwagadhi is a morning rather than an ordeal."
+          },
+          {
+            "title": "Permits, not promises",
+            "body": "The Tibet travel permit and the group visa take a working day in Kathmandu and cannot be rushed. It is built into the itinerary."
+          },
+          {
+            "title": "Altitude taken slowly",
+            "body": "Kyirong, then Tingri, then the base camps. Oxygen, a first aid kit and an altitude protocol travel with the group."
+          },
+          {
+            "title": "Full support",
+            "body": "Expedition leader, road captain, sweep rider, mechanic and a backup vehicle carrying the luggage."
+          }
+        ],
+        "closing": "Ten riders at most. On ground this remote, a bigger group is a slower group."
+      },
+      "cta": {
+        "title": "Start your Tibet expedition",
+        "body": "October and November are the settled months. Tell us which one and we will start the paperwork.",
+        "imageAlt": "The Friendship Highway climbing across the Tibetan plateau"
+      },
+      "faq": {
+        "title": "Riding in Tibet",
+        "items": [
+          {
+            "question": "What permits do I need for Tibet?",
+            "answer": [
+              "More than anywhere else we ride, and none of them can be bought at the border.",
+              "For this expedition you need:"
+            ],
+            "list": [
+              "A Tibet travel permit, issued only through a registered agency in Lhasa",
+              "A Chinese group visa, applied for in Kathmandu rather than at home",
+              "An alien travel permit for the sections beyond Tingri",
+              "A registered Chinese guide and vehicle with the group, which the law requires"
+            ],
+            "after": [
+              "We arrange all of it, and the itinerary gives it a full working day in Kathmandu. Your passport has to be with us for that day, so do not plan anything that needs it."
+            ]
+          },
+          {
+            "question": "How high does this expedition go?",
+            "answer": [
+              "The base camp day tops out around 16,000 feet, and you sleep at 14,268 feet at Tingri for two nights.",
+              "That is high enough that acclimatisation is not optional. We climb in stages, ride the plateau days slowly, and carry oxygen. If someone is not adjusting, the answer is to lose altitude, and the backup vehicle is there for exactly that."
+            ]
+          },
+          {
+            "question": "When can this expedition run?",
+            "answer": ["October and November, and there is little flexibility in that."],
+            "list": [
+              "October: the clearest skies of the year and the sharpest views of the north faces",
+              "November: colder, quieter, still clear, and the last of the season",
+              "December to April: the plateau is bitter and the border regularly closes",
+              "May to September: the monsoon on the Nepal side and cloud over the mountains"
+            ],
+            "after": [
+              "The border itself can also close at short notice for reasons that have nothing to do with weather. It is the one risk on this route we cannot plan away."
+            ]
+          }
+        ]
+      }
     }
   },
   "adventureTours": {

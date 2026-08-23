@@ -1,6 +1,7 @@
 import type { StaticImageData } from "next/image";
 
 import bhutanMotorcycle from "../../public/tours/menu/bhutan-motorcycle.webp";
+import everestBaseCamp from "../../public/tours/menu/everest-base-camp.webp";
 import greatTraverse from "../../public/tours/menu/great-himalayan-traverse.webp";
 import himalayanExpedition from "../../public/tours/menu/himalayan-expedition.webp";
 import himalayas4x4 from "../../public/tours/menu/indian-himalayas-4x4.webp";
@@ -132,6 +133,25 @@ const countries: Country[] = [
             days: 9,
             provisional: true,
             image: bhutanMotorcycle,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    key: "tibet",
+    href: "/destinations/tibet",
+    flag: "cn",
+    regions: [
+      {
+        key: "tibetPlateau",
+        href: "/destinations/tibet",
+        tours: [
+          {
+            key: "everestBaseCamp",
+            href: "/adventure/everest-base-camp-motorcycle-expedition",
+            days: 11,
+            image: everestBaseCamp,
           },
         ],
       },

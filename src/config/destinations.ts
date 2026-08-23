@@ -5,6 +5,7 @@ import india from "../../public/destinations/india.jpg";
 import mongolia from "../../public/destinations/mongolia.jpg";
 import nepal from "../../public/destinations/nepal.jpg";
 import sriLanka from "../../public/destinations/sri-lanka.jpg";
+import tibet from "../../public/destinations/tibet.jpg";
 
 import type { DestinationKey } from "@/i18n/keys";
 
@@ -23,5 +24,6 @@ export const destinations: Destination[] = [
   { key: "nepal", href: "/destinations/nepal", flag: "np", image: nepal, tours: 4 },
   { key: "sriLanka", href: "/destinations/sri-lanka", flag: "lk", image: sriLanka, tours: 2 },
   { key: "bhutan", href: "/destinations/bhutan", flag: "bt", image: bhutan, tours: 3 },
+  { key: "tibet", href: "/destinations/tibet", flag: "cn", image: tibet, tours: 1 },
   { key: "mongolia", href: "/destinations/mongolia", flag: "mn", image: mongolia, tours: 3 },
 ];

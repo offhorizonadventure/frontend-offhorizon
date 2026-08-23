@@ -10,9 +10,11 @@ import muktinathRoad from "../../public/destinations/pages/nepal-muktinath-road.
 import mustang from "../../public/destinations/pages/nepal-mustang.jpg";
 import southIndia from "../../public/destinations/pages/south-india.jpg";
 import sriLankaCta from "../../public/destinations/pages/sri-lanka-tea.webp";
+import tibetCta from "../../public/destinations/pages/tibet-plateau.webp";
 
 import bhutanRegion from "../../public/tours/menu/bhutan-motorcycle.webp";
 import mongoliaRegion from "../../public/tours/menu/mongolia-motorcycle.webp";
+import everestRegion from "../../public/tours/menu/everest-base-camp.webp";
 import sriLankaRegion from "../../public/tours/menu/sri-lanka-motorcycle.webp";
 
 import { destinations, type Destination } from "./destinations";
@@ -35,7 +37,7 @@ export type LiveRegion = RegionBase & {
 
 export type PlannedRegion = RegionBase & {
   status: "planned";
-  content: "southIndia" | "easternHimalayas" | "hillCountry" | "steppeGobi";
+  content: "southIndia" | "easternHimalayas" | "hillCountry" | "steppeGobi" | "tibetPlateau";
 };
 
 export type RegionPage = LiveRegion | PlannedRegion;
@@ -47,7 +49,7 @@ export type CountryPage = {
   /** `live` countries have their own written page. */
   status: "live" | "planned";
   /** Namespace under `dest`. Only set on live countries. */
-  content?: "india" | "nepal" | "bhutan" | "sriLanka" | "mongolia";
+  content?: "india" | "nepal" | "bhutan" | "sriLanka" | "mongolia" | "tibet";
   hero: StaticImageData;
   heroAlt: string;
   ctaImage?: StaticImageData;
@@ -124,6 +126,24 @@ export const countryPages: CountryPage[] = [
         status: "planned",
         image: bhutanRegion,
         imageAlt: "The road climbing towards Paro Taktsang in the Bhutanese Himalayas",
+      },
+    ],
+  },
+  {
+    slug: "tibet",
+    destination: byKey("tibet"),
+    status: "live",
+    content: "tibet",
+    hero: byKey("tibet").image,
+    heroAlt: "Rongbuk monastery below the north face of Everest, on the Tibetan plateau",
+    ctaImage: tibetCta,
+    regions: [
+      {
+        slug: "tibet-plateau",
+        content: "tibetPlateau",
+        status: "planned",
+        image: everestRegion,
+        imageAlt: "The north face of Everest seen from the Tibetan plateau",
       },
     ],
   },

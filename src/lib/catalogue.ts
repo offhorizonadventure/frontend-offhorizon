@@ -30,13 +30,14 @@ export const tourTag = (slug: string) => `tour:${slug}`;
 
 const DAY = 60 * 60 * 24;
 
-export type CountrySlug = "india" | "nepal" | "bhutan" | "sri-lanka" | "mongolia";
+export type CountrySlug = "india" | "nepal" | "tibet" | "bhutan" | "sri-lanka" | "mongolia";
 
 export type Facts = Partial<Record<string, string>>;
 
 const COUNTRY_NAMES: Record<CountrySlug, string> = {
   india: "India",
   nepal: "Nepal",
+  tibet: "Tibet",
   bhutan: "Bhutan",
   "sri-lanka": "Sri Lanka",
   mongolia: "Mongolia",

@@ -38,7 +38,9 @@
     "plannedShort": "En préparation",
     "easternHimalayas": "Himalaya oriental",
     "hillCountry": "Collines et littoral",
-    "steppeGobi": "Steppe et Gobi"
+    "steppeGobi": "Steppe et Gobi",
+    "tibet": "Tibet",
+    "tibetPlateau": "Plateau tibétain"
   },
   "tours": {
     "greatHimalayanTraverse": {
@@ -84,6 +86,10 @@
     "mongolia4x4": {
       "name": "Expédition 4x4 en Mongolie",
       "summary": "Désert de Gobi et monts Altaï"
+    },
+    "everestBaseCamp": {
+      "name": "Expédition au camp de base de l'Everest",
+      "summary": "Katmandou, le plateau et le Cho Oyu"
     }
   },
   "home": {
@@ -1232,6 +1238,98 @@
     "steppeGobi": {
       "shortName": "Steppe et Gobi",
       "card": "Steppe centrale, Gobi et Altaï. Presque pas de bitume, de longues journées sur les pistes, et le campement là où la lumière s'arrête."
+    },
+    "tibetPlateau": {
+      "shortName": "Plateau tibétain",
+      "card": "De Katmandou aux camps de base sous l'Everest et le Cho Oyu, à travers un plateau haut, large et vide. Octobre et novembre uniquement."
+    },
+    "tibet": {
+      "meta": {
+        "title": "Expéditions moto à travers le Tibet | Offhorizon",
+        "description": "De Katmandou au plateau tibétain jusqu'aux camps de base de l'Everest et du Cho Oyu. Permis, passage de frontière et plan d'acclimatation, tout est pris en charge."
+      },
+      "eyebrow": "Tibet",
+      "title": "Expéditions moto à travers le Tibet",
+      "lead": "La plupart des gens voient l'Everest depuis un sentier de trek. De ce côté de la frontière, on y va à moto, à travers un plateau large, haut et presque vide sur trois cents kilomètres d'affilée.",
+      "intro": {
+        "title": "Les routes les plus hautes du monde.",
+        "body": "Le Tibet n'est pas plus difficile que le Ladakh, il est plus vaste. Le bitume après Kyirong est bon et les cols sont aménagés, mais vous passez des journées au-dessus de 4 300 mètres, avec le vent qui balaie un terrain ouvert et rien entre une ville et la suivante. Ce qui rend l'exercice sérieux, c'est l'altitude, la distance et la météo, dans cet ordre.",
+        "focus": "Notre itinéraire franchit la frontière à Rasuwagadhi et suit la Friendship Highway par le lac Peiku Tso, sous le Shishapangma et le Cho Oyu, jusqu'aux camps de base et retour. Chaque participant a besoin d'un permis de voyage au Tibet et d'un visa de groupe, obtenus par notre partenaire enregistré à Lhassa, et la loi chinoise impose un guide et un véhicule enregistrés avec le groupe pendant tout le parcours."
+      },
+      "regions": {
+        "eyebrow": "Régions",
+        "title": "Où nous roulons au Tibet",
+        "explore": "Découvrir la région"
+      },
+      "why": {
+        "eyebrow": "Pourquoi nous",
+        "title": "Pourquoi rouler au Tibet avec Offhorizon",
+        "reasons": [
+          {
+            "title": "Des deux côtés de la frontière",
+            "body": "Une équipe à Katmandou et un partenaire enregistré à Lhassa : le passage de Rasuwagadhi prend une matinée et non une journée d'épreuves."
+          },
+          {
+            "title": "Des permis, pas des promesses",
+            "body": "Le permis de voyage au Tibet et le visa de groupe demandent une journée ouvrée complète à Katmandou et ne se bousculent pas. C'est prévu dans l'itinéraire."
+          },
+          {
+            "title": "L'altitude prise lentement",
+            "body": "Kyirong, puis Tingri, puis les camps de base. Oxygène, trousse de secours et protocole d'altitude voyagent avec le groupe."
+          },
+          {
+            "title": "Assistance complète",
+            "body": "Chef d'expédition, ouvreur, serre-file, mécanicien et véhicule d'assistance qui transporte les bagages."
+          }
+        ],
+        "closing": "Dix pilotes au maximum. Sur un terrain aussi isolé, un groupe plus grand est un groupe plus lent."
+      },
+      "cta": {
+        "title": "Lancez votre expédition au Tibet",
+        "body": "Octobre et novembre sont les mois stables. Dites-nous lequel et nous lançons les démarches.",
+        "imageAlt": "La Friendship Highway qui grimpe à travers le plateau tibétain"
+      },
+      "faq": {
+        "title": "Rouler au Tibet",
+        "items": [
+          {
+            "question": "Quels permis faut-il pour le Tibet ?",
+            "answer": [
+              "Plus que partout ailleurs où nous roulons, et aucun ne s'achète à la frontière.",
+              "Pour cette expédition, il vous faut :"
+            ],
+            "list": [
+              "Un permis de voyage au Tibet, délivré uniquement par une agence enregistrée à Lhassa",
+              "Un visa de groupe chinois, demandé à Katmandou et non depuis chez vous",
+              "Un permis pour étrangers pour les sections au-delà de Tingri",
+              "Un guide et un véhicule chinois enregistrés avec le groupe, comme l'exige la loi"
+            ],
+            "after": [
+              "Nous nous occupons de tout, et l'itinéraire y consacre une journée ouvrée complète à Katmandou. Votre passeport doit nous être confié ce jour-là : ne prévoyez rien qui en dépende."
+            ]
+          },
+          {
+            "question": "À quelle altitude monte cette expédition ?",
+            "answer": [
+              "La journée au camp de base culmine vers 4 900 mètres, et vous dormez deux nuits à 4 350 mètres à Tingri.",
+              "C'est assez haut pour que l'acclimatation ne soit pas facultative. Nous montons par paliers, roulons lentement sur le plateau et emportons de l'oxygène. Si quelqu'un s'adapte mal, la réponse est de perdre de l'altitude, et le véhicule d'assistance est là pour cela."
+            ]
+          },
+          {
+            "question": "Quand cette expédition peut-elle se faire ?",
+            "answer": ["En octobre et en novembre, avec peu de souplesse."],
+            "list": [
+              "Octobre : le ciel le plus clair de l'année et les faces nord les plus nettes",
+              "Novembre : plus froid, plus calme, toujours dégagé, et la fin de la saison",
+              "De décembre à avril : le plateau est glacial et la frontière ferme régulièrement",
+              "De mai à septembre : mousson côté népalais et nuages sur les sommets"
+            ],
+            "after": [
+              "La frontière peut aussi fermer sans préavis pour des raisons sans rapport avec la météo. C'est le seul risque de cet itinéraire que nous ne pouvons pas anticiper."
+            ]
+          }
+        ]
+      }
     }
   },
   "adventureTours": {

@@ -38,7 +38,9 @@
     "plannedShort": "En preparación",
     "easternHimalayas": "Himalaya oriental",
     "hillCountry": "Tierras altas y costa",
-    "steppeGobi": "Estepa y Gobi"
+    "steppeGobi": "Estepa y Gobi",
+    "tibet": "Tíbet",
+    "tibetPlateau": "Meseta tibetana"
   },
   "tours": {
     "greatHimalayanTraverse": {
@@ -84,6 +86,10 @@
     "mongolia4x4": {
       "name": "Expedición 4x4 por Mongolia",
       "summary": "Desierto de Gobi y montes Altái"
+    },
+    "everestBaseCamp": {
+      "name": "Expedición al campo base del Everest",
+      "summary": "Katmandú, la meseta y el Cho Oyu"
     }
   },
   "home": {
@@ -1228,6 +1234,98 @@
     "steppeGobi": {
       "shortName": "Estepa y Gobi",
       "card": "Estepa central, Gobi y Altái. Casi nada de asfalto, jornadas largas por pista y campamento donde se acaba la luz."
+    },
+    "tibetPlateau": {
+      "shortName": "Meseta tibetana",
+      "card": "De Katmandú a los campos base bajo el Everest y el Cho Oyu, por una meseta alta, ancha y vacía. Solo octubre y noviembre."
+    },
+    "tibet": {
+      "meta": {
+        "title": "Expediciones en moto por el Tíbet | Offhorizon",
+        "description": "De Katmandú a la meseta tibetana hasta los campos base bajo el Everest y el Cho Oyu. Permisos, paso de frontera y plan de aclimatación, todo resuelto."
+      },
+      "eyebrow": "Tíbet",
+      "title": "Expediciones en moto por el Tíbet",
+      "lead": "Casi todo el mundo ve el Everest desde un sendero de trekking. En este lado de la frontera se llega en moto, cruzando una meseta ancha, alta y casi vacía durante trescientos kilómetros seguidos.",
+      "intro": {
+        "title": "Las carreteras más altas del mundo.",
+        "body": "El Tíbet no es más difícil que Ladakh, es más grande. El asfalto desde Kyirong es bueno y los puertos están acondicionados, pero pasas días por encima de los 4.300 metros, con el viento cruzando terreno abierto y nada entre un pueblo y el siguiente. Lo que lo hace serio es la altitud, la distancia y el tiempo, en ese orden.",
+        "focus": "Nuestra ruta cruza en Rasuwagadhi y sigue la Friendship Highway pasando el lago Peiku Tso, bajo el Shishapangma y el Cho Oyu, hasta los campos base y de vuelta. Cada participante necesita un permiso de viaje para el Tíbet y un visado de grupo, gestionados por nuestro socio registrado en Lhasa, y la ley china exige un guía y un vehículo registrados acompañando al grupo."
+      },
+      "regions": {
+        "eyebrow": "Regiones",
+        "title": "Dónde rodamos en el Tíbet",
+        "explore": "Ver la región"
+      },
+      "why": {
+        "eyebrow": "Por qué nosotros",
+        "title": "Por qué rodar el Tíbet con Offhorizon",
+        "reasons": [
+          {
+            "title": "A los dos lados de la frontera",
+            "body": "Un equipo en Katmandú y un socio registrado en Lhasa, para que el paso de Rasuwagadhi sea una mañana y no una prueba."
+          },
+          {
+            "title": "Permisos, no promesas",
+            "body": "El permiso para el Tíbet y el visado de grupo llevan un día laborable entero en Katmandú y no se pueden acelerar. Está previsto en el itinerario."
+          },
+          {
+            "title": "La altitud con calma",
+            "body": "Kyirong, luego Tingri, luego los campos base. Oxígeno, botiquín y protocolo de altura viajan con el grupo."
+          },
+          {
+            "title": "Apoyo completo",
+            "body": "Jefe de expedición, abridor, cierre, mecánico y vehículo de apoyo con el equipaje."
+          }
+        ],
+        "closing": "Diez pilotos como máximo. En un terreno tan aislado, un grupo más grande es un grupo más lento."
+      },
+      "cta": {
+        "title": "Empieza tu expedición al Tíbet",
+        "body": "Octubre y noviembre son los meses estables. Dinos cuál y empezamos con los papeles.",
+        "imageAlt": "La Friendship Highway subiendo por la meseta tibetana"
+      },
+      "faq": {
+        "title": "Rodar en el Tíbet",
+        "items": [
+          {
+            "question": "¿Qué permisos hacen falta para el Tíbet?",
+            "answer": [
+              "Más que en ningún otro sitio donde rodamos, y ninguno se compra en la frontera.",
+              "Para esta expedición necesitas:"
+            ],
+            "list": [
+              "Un permiso de viaje para el Tíbet, que solo emite una agencia registrada en Lhasa",
+              "Un visado de grupo chino, solicitado en Katmandú y no desde casa",
+              "Un permiso para extranjeros para los tramos más allá de Tingri",
+              "Un guía y un vehículo chinos registrados con el grupo, como exige la ley"
+            ],
+            "after": [
+              "Nos ocupamos de todo, y el itinerario le dedica un día laborable completo en Katmandú. Ese día tu pasaporte está con nosotros, así que no planees nada que lo necesite."
+            ]
+          },
+          {
+            "question": "¿A qué altura llega esta expedición?",
+            "answer": [
+              "El día del campo base llega a unos 4.900 metros, y se duermen dos noches a 4.350 metros en Tingri.",
+              "Es lo bastante alto como para que la aclimatación no sea opcional. Subimos por etapas, rodamos despacio los días de meseta y llevamos oxígeno. Si alguien no se adapta, la respuesta es bajar, y para eso está el vehículo de apoyo."
+            ]
+          },
+          {
+            "question": "¿Cuándo se puede hacer esta expedición?",
+            "answer": ["En octubre y noviembre, y ahí hay poco margen."],
+            "list": [
+              "Octubre: el cielo más limpio del año y las caras norte más nítidas",
+              "Noviembre: más frío, más tranquilo, todavía despejado, y el final de la temporada",
+              "De diciembre a abril: la meseta es helada y la frontera cierra a menudo",
+              "De mayo a septiembre: monzón en el lado nepalí y nubes sobre las cumbres"
+            ],
+            "after": [
+              "La frontera también puede cerrarse con poco aviso por motivos que nada tienen que ver con el tiempo. Es el único riesgo de esta ruta que no podemos planificar."
+            ]
+          }
+        ]
+      }
     }
   },
   "adventureTours": {

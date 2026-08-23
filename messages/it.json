@@ -38,7 +38,9 @@
     "plannedShort": "In programma",
     "easternHimalayas": "Himalaya orientale",
     "hillCountry": "Colline e costa",
-    "steppeGobi": "Steppa e Gobi"
+    "steppeGobi": "Steppa e Gobi",
+    "tibet": "Tibet",
+    "tibetPlateau": "Altopiano tibetano"
   },
   "tours": {
     "greatHimalayanTraverse": {
@@ -84,6 +86,10 @@
     "mongolia4x4": {
       "name": "Spedizione 4x4 in Mongolia",
       "summary": "Deserto del Gobi e monti Altai"
+    },
+    "everestBaseCamp": {
+      "name": "Spedizione al campo base dell'Everest",
+      "summary": "Kathmandu, l'altopiano e il Cho Oyu"
     }
   },
   "home": {
@@ -1229,6 +1235,98 @@
     "steppeGobi": {
       "shortName": "Steppa e Gobi",
       "card": "Steppa centrale, Gobi e Altai. Quasi niente asfalto, giornate lunghe sulle piste e campo dove finisce la luce."
+    },
+    "tibetPlateau": {
+      "shortName": "Altopiano tibetano",
+      "card": "Da Kathmandu ai campi base sotto l'Everest e il Cho Oyu, attraverso un altopiano alto, ampio e vuoto. Solo ottobre e novembre."
+    },
+    "tibet": {
+      "meta": {
+        "title": "Spedizioni in moto attraverso il Tibet | Offhorizon",
+        "description": "Da Kathmandu all'altopiano tibetano fino ai campi base sotto l'Everest e il Cho Oyu. Permessi, passaggio di frontiera e piano di acclimatazione, gestiamo tutto noi."
+      },
+      "eyebrow": "Tibet",
+      "title": "Spedizioni in moto attraverso il Tibet",
+      "lead": "Quasi tutti vedono l'Everest da un sentiero di trekking. Da questo lato del confine ci si arriva in moto, attraverso un altopiano largo, alto e quasi vuoto per trecento chilometri di fila.",
+      "intro": {
+        "title": "Le strade più alte del mondo.",
+        "body": "Il Tibet non è più difficile del Ladakh, è più grande. L'asfalto dopo Kyirong è buono e i passi sono sistemati, ma passi giornate sopra i 4.300 metri, con il vento che attraversa il terreno aperto e nulla tra un centro e il successivo. A renderlo impegnativo sono la quota, le distanze e il meteo, in quest'ordine.",
+        "focus": "Il nostro itinerario passa il confine a Rasuwagadhi e segue la Friendship Highway oltre il lago Peiku Tso, sotto lo Shishapangma e il Cho Oyu, fino ai campi base e ritorno. Ogni partecipante ha bisogno del permesso di viaggio per il Tibet e di un visto di gruppo, ottenuti tramite il nostro partner registrato a Lhasa, e la legge cinese impone una guida e un veicolo registrati al seguito del gruppo."
+      },
+      "regions": {
+        "eyebrow": "Regioni",
+        "title": "Dove guidiamo in Tibet",
+        "explore": "Scopri la regione"
+      },
+      "why": {
+        "eyebrow": "Perché noi",
+        "title": "Perché guidare il Tibet con Offhorizon",
+        "reasons": [
+          {
+            "title": "Su entrambi i lati del confine",
+            "body": "Una squadra a Kathmandu e un partner registrato a Lhasa, così il passaggio a Rasuwagadhi è una mattinata e non una prova."
+          },
+          {
+            "title": "Permessi, non promesse",
+            "body": "Il permesso per il Tibet e il visto di gruppo richiedono un giorno lavorativo intero a Kathmandu e non si accelerano. È previsto nell'itinerario."
+          },
+          {
+            "title": "Quota presa con calma",
+            "body": "Kyirong, poi Tingri, poi i campi base. Ossigeno, kit di primo soccorso e protocollo per la quota viaggiano con il gruppo."
+          },
+          {
+            "title": "Supporto completo",
+            "body": "Capo spedizione, apripista, chiudifila, meccanico e veicolo di supporto che porta i bagagli."
+          }
+        ],
+        "closing": "Dieci piloti al massimo. Su un terreno così isolato, un gruppo più grande è un gruppo più lento."
+      },
+      "cta": {
+        "title": "Inizia la tua spedizione in Tibet",
+        "body": "Ottobre e novembre sono i mesi stabili. Dicci quale e cominciamo con le pratiche.",
+        "imageAlt": "La Friendship Highway che sale attraverso l'altopiano tibetano"
+      },
+      "faq": {
+        "title": "Guidare in Tibet",
+        "items": [
+          {
+            "question": "Quali permessi servono per il Tibet?",
+            "answer": [
+              "Più che in qualsiasi altro posto in cui guidiamo, e nessuno si compra alla frontiera.",
+              "Per questa spedizione servono:"
+            ],
+            "list": [
+              "Un permesso di viaggio per il Tibet, rilasciato solo tramite un'agenzia registrata a Lhasa",
+              "Un visto di gruppo cinese, richiesto a Kathmandu e non da casa",
+              "Un permesso per stranieri per i tratti oltre Tingri",
+              "Una guida e un veicolo cinesi registrati al seguito del gruppo, come impone la legge"
+            ],
+            "after": [
+              "Ce ne occupiamo noi, e l'itinerario dedica a questo un giorno lavorativo intero a Kathmandu. In quel giorno il passaporto è nelle nostre mani: non programmare nulla che lo richieda."
+            ]
+          },
+          {
+            "question": "A che quota arriva questa spedizione?",
+            "answer": [
+              "La giornata al campo base arriva intorno ai 4.900 metri, e si dorme due notti a 4.350 metri a Tingri.",
+              "È abbastanza alto perché l'acclimatazione non sia facoltativa. Saliamo per gradi, percorriamo lentamente le giornate d'altopiano e portiamo ossigeno. Se qualcuno non si adatta, la risposta è scendere di quota, ed è per questo che c'è il veicolo di supporto."
+            ]
+          },
+          {
+            "question": "Quando si può fare questa spedizione?",
+            "answer": ["A ottobre e novembre, con poco margine."],
+            "list": [
+              "Ottobre: il cielo più limpido dell'anno e le pareti nord più nitide",
+              "Novembre: più freddo, più tranquillo, ancora sereno, e la fine della stagione",
+              "Da dicembre ad aprile: l'altopiano è gelido e il confine chiude spesso",
+              "Da maggio a settembre: monsone sul versante nepalese e nuvole sulle cime"
+            ],
+            "after": [
+              "Anche il confine può chiudere con poco preavviso per motivi che non hanno nulla a che vedere con il meteo. È l'unico rischio di questo itinerario che non possiamo pianificare."
+            ]
+          }
+        ]
+      }
     }
   },
   "adventureTours": {

@@ -38,7 +38,9 @@
     "plannedShort": "Geplant",
     "easternHimalayas": "Östlicher Himalaya",
     "hillCountry": "Hochland und Küste",
-    "steppeGobi": "Steppe und Gobi"
+    "steppeGobi": "Steppe und Gobi",
+    "tibet": "Tibet",
+    "tibetPlateau": "Tibetisches Hochland"
   },
   "tours": {
     "greatHimalayanTraverse": {
@@ -84,6 +86,10 @@
     "mongolia4x4": {
       "name": "4x4-Expedition in der Mongolei",
       "summary": "Wüste Gobi und Altai-Gebirge"
+    },
+    "everestBaseCamp": {
+      "name": "Everest-Basislager-Expedition",
+      "summary": "Kathmandu, das Hochland und der Cho Oyu"
     }
   },
   "home": {
@@ -1230,6 +1236,98 @@
     "steppeGobi": {
       "shortName": "Steppe und Gobi",
       "card": "Zentrale Steppe, Gobi und Altai. Fast kein Asphalt, lange Tage auf Pisten, und Camp dort, wo das Licht ausgeht."
+    },
+    "tibetPlateau": {
+      "shortName": "Tibetisches Hochland",
+      "card": "Von Kathmandu zu den Basislagern unter Everest und Cho Oyu, über ein hohes, weites, leeres Hochland. Nur im Oktober und November."
+    },
+    "tibet": {
+      "meta": {
+        "title": "Motorradexpeditionen durch Tibet | Offhorizon",
+        "description": "Von Kathmandu über das tibetische Hochland zu den Basislagern unter Everest und Cho Oyu. Genehmigungen, Grenzübertritt und Akklimatisierung sind organisiert."
+      },
+      "eyebrow": "Tibet",
+      "title": "Motorradexpeditionen durch Tibet",
+      "lead": "Die meisten sehen den Everest von einem Trekkingpfad aus. Auf dieser Seite der Grenze fährt man hin, über ein Hochland, das dreihundert Kilometer am Stück weit, hoch und fast leer ist.",
+      "intro": {
+        "title": "Die höchsten Straßen der Welt.",
+        "body": "Tibet ist nicht schwerer als Ladakh, es ist größer. Der Asphalt ab Kyirong ist gut und die Pässe sind ausgebaut, aber Sie verbringen Tage oberhalb von 4.300 Metern, mit Wind über offenem Gelände und nichts zwischen einem Ort und dem nächsten. Ernst wird es durch die Höhe, die Entfernung und das Wetter, in dieser Reihenfolge.",
+        "focus": "Unsere Route quert bei Rasuwagadhi und folgt dem Friendship Highway am Peiku Tso vorbei, unter Shishapangma und Cho Oyu, zu den Basislagern und zurück. Jeder Teilnehmer braucht eine Tibet-Reisegenehmigung und ein Gruppenvisum, beides über unseren in Lhasa registrierten Partner, und chinesisches Recht verlangt einen registrierten Guide samt Fahrzeug in der Gruppe."
+      },
+      "regions": {
+        "eyebrow": "Regionen",
+        "title": "Wo wir in Tibet fahren",
+        "explore": "Region ansehen"
+      },
+      "why": {
+        "eyebrow": "Warum wir",
+        "title": "Warum Tibet mit Offhorizon",
+        "reasons": [
+          {
+            "title": "Auf beiden Seiten der Grenze",
+            "body": "Ein Team in Kathmandu und ein in Lhasa registrierter Partner, damit der Übertritt bei Rasuwagadhi ein Vormittag bleibt und keine Prüfung wird."
+          },
+          {
+            "title": "Genehmigungen statt Zusagen",
+            "body": "Reisegenehmigung und Gruppenvisum brauchen in Kathmandu einen vollen Werktag und lassen sich nicht beschleunigen. Der Tag steht im Programm."
+          },
+          {
+            "title": "Höhe langsam genommen",
+            "body": "Kyirong, dann Tingri, dann die Basislager. Sauerstoff, Erste-Hilfe-Ausrüstung und ein Höhenprotokoll fahren mit."
+          },
+          {
+            "title": "Volle Betreuung",
+            "body": "Expeditionsleiter, Vorausfahrer, Schlussfahrer, Mechaniker und ein Begleitfahrzeug mit dem Gepäck."
+          }
+        ],
+        "closing": "Höchstens zehn Fahrer. In so abgelegenem Gelände ist eine größere Gruppe eine langsamere Gruppe."
+      },
+      "cta": {
+        "title": "Starten Sie Ihre Tibet-Expedition",
+        "body": "Oktober und November sind die beständigen Monate. Sagen Sie uns welcher, dann beginnen wir mit den Papieren.",
+        "imageAlt": "Der Friendship Highway steigt über das tibetische Hochland"
+      },
+      "faq": {
+        "title": "Fahren in Tibet",
+        "items": [
+          {
+            "question": "Welche Genehmigungen brauche ich für Tibet?",
+            "answer": [
+              "Mehr als überall sonst, wo wir fahren, und keine davon gibt es an der Grenze.",
+              "Für diese Expedition brauchen Sie:"
+            ],
+            "list": [
+              "Eine Tibet-Reisegenehmigung, die nur eine in Lhasa registrierte Agentur ausstellt",
+              "Ein chinesisches Gruppenvisum, beantragt in Kathmandu statt zu Hause",
+              "Eine Genehmigung für Ausländer für die Abschnitte hinter Tingri",
+              "Einen registrierten chinesischen Guide mit Fahrzeug in der Gruppe, wie es das Gesetz verlangt"
+            ],
+            "after": [
+              "Wir erledigen alles, und das Programm gibt dem in Kathmandu einen vollen Werktag. Ihr Reisepass liegt an diesem Tag bei uns, planen Sie also nichts, wofür Sie ihn brauchen."
+            ]
+          },
+          {
+            "question": "Wie hoch führt diese Expedition?",
+            "answer": [
+              "Der Basislagertag endet bei rund 4.900 Metern, und Sie schlafen zwei Nächte auf 4.350 Metern in Tingri.",
+              "Das ist hoch genug, dass Akklimatisierung nicht freiwillig ist. Wir steigen in Etappen, fahren die Hochlandtage langsam und führen Sauerstoff mit. Passt sich jemand nicht an, lautet die Antwort: Höhe verlieren, und dafür ist das Begleitfahrzeug da."
+            ]
+          },
+          {
+            "question": "Wann kann diese Expedition stattfinden?",
+            "answer": ["Im Oktober und November, und daran lässt sich wenig ändern."],
+            "list": [
+              "Oktober: der klarste Himmel des Jahres und die schärfsten Nordwände",
+              "November: kälter, ruhiger, weiterhin klar, und das Ende der Saison",
+              "Dezember bis April: das Hochland ist bitterkalt und die Grenze schließt regelmäßig",
+              "Mai bis September: Monsun auf der nepalesischen Seite und Wolken über den Bergen"
+            ],
+            "after": [
+              "Die Grenze kann auch kurzfristig aus Gründen schließen, die nichts mit dem Wetter zu tun haben. Das ist das eine Risiko dieser Route, das wir nicht wegplanen können."
+            ]
+          }
+        ]
+      }
     }
   },
   "adventureTours": {
