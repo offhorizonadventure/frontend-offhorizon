@@ -112,6 +112,18 @@ export async function startBooking(input: {
   const quote = quoteBooking(departure, input.party);
   if (quote.total <= 0) return { ok: false, error: "That departure has no price on it yet." };
 
+  // The quote silently ignores a car that is not on this departure. Storing
+  // the id anyway would put a machine on the booking that nobody paid for, so
+  // only a car that was actually priced is kept.
+  const vehicleId =
+    departure.kind === "4x4" && !input.party.ownVehicle
+      ? (departure.vehicles.find((entry) => entry.id === input.party.vehicleId)?.id ?? null)
+      : null;
+
+  if (departure.kind === "4x4" && !input.party.ownVehicle && input.party.vehicleId && !vehicleId) {
+    return { ok: false, error: "That vehicle is not on this departure." };
+  }
+
   const currency = chargeCurrencyFor(input.preferredCurrency);
   const rate = await getRate(quote.currency as Currency, currency as Currency);
 
@@ -133,7 +145,7 @@ export async function startBooking(input: {
       pillions: input.party.pillions,
       single_rooms: input.party.singleRooms,
       damage_protection: input.party.damageProtection,
-      vehicle_id: input.party.ownVehicle ? null : input.party.vehicleId,
+      vehicle_id: vehicleId,
       own_vehicle: input.party.ownVehicle,
       currency,
       fx_rate: rate,

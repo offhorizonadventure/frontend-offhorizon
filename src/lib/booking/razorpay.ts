@@ -47,7 +47,7 @@ export async function createOrder(input: {
 
 /** One payment, read back from the provider rather than believed from the browser. */
 export async function fetchPayment(paymentId: string) {
-  const response = await fetch(`${API}/payments/${paymentId}`, {
+  const response = await fetch(`${API}/payments/${encodeURIComponent(paymentId)}`, {
     headers: { authorization: auth() },
     cache: "no-store",
   });
@@ -72,12 +72,9 @@ const equal = (a: string, b: string) => {
   return left.length === right.length && timingSafeEqual(left, right);
 };
 
-/** The signature the checkout hands back, which proves the order was paid. */
-export function checkoutSignatureValid(orderId: string, paymentId: string, signature: string) {
-  const expected = createHmac("sha256", KEY_SECRET).update(`${orderId}|${paymentId}`).digest("hex");
-
-  return equal(expected, signature);
-}
+// There is deliberately no check for the signature the browser hands back
+// after checkout. Nothing the browser says confirms a booking; the signed
+// webhook is the only authority, and it reads the amount back from Razorpay.
 
 /** The signature on a webhook, computed over the raw body. */
 export function webhookSignatureValid(body: string, signature: string) {
