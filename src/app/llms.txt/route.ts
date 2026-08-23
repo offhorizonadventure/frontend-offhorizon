@@ -36,6 +36,9 @@ export async function GET() {
     `- [Destinations](${siteUrl}/en/destinations): the five countries, and which are running`,
     `- [All expeditions](${siteUrl}/en/adventure-tours): every dated departure`,
     `- [Custom expeditions](${siteUrl}/en/custom-expeditions): trips built to order`,
+    `- [How booking works](${siteUrl}/en/how-booking-works): paying in full or with a 20 percent deposit, instalments, the 14 day balance deadline, group invites`,
+    `- [Terms of service](${siteUrl}/en/terms-of-service): booking, payment, cancellation and liability`,
+    `- [Privacy policy](${siteUrl}/en/privacy-policy): what is collected, who sees it, how long it is kept`,
     `- [About us](${siteUrl}/en/about-us): who runs these`,
     `- [Contact](${siteUrl}/en/contact-us)`,
     "",
@@ -44,6 +47,10 @@ export async function GET() {
     "- Prices are quoted per person and converted into the visitor's currency at",
     "  the daily rate, so figures on a page are not fixed amounts.",
     "- A tour with no dated departure is marked planned rather than bookable.",
+    "- Places come off sale 30 days before departure, and the balance on a booking",
+    "  is due 14 days before it. Nothing paid is refundable.",
+    "- A motorcycle expedition counts riders and pillions; a 4x4 expedition is",
+    "  priced per person and the vehicle is chosen separately.",
     "",
   ].join("\n");
 

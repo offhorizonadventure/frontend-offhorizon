@@ -18,8 +18,45 @@ export async function BookingGuide({ locale }: { locale: Locale }) {
   const clauses = t.raw("sections") as Clause[];
   const deadline = t.raw("deadline.body") as string[];
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "HowTo",
+        name: t("title"),
+        description: t("lead"),
+        step: steps.map((step, index) => ({
+          "@type": "HowToStep",
+          position: index + 1,
+          name: step.title,
+          text: step.body,
+        })),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: t("deadline.title"),
+            acceptedAnswer: { "@type": "Answer", text: deadline.join(" ") },
+          },
+          ...clauses.map((clause) => ({
+            "@type": "Question",
+            name: clause.title,
+            acceptedAnswer: { "@type": "Answer", text: clause.body.join(" ") },
+          })),
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\u003c") }}
+      />
+
       <section className="bg-brand-950 text-cream-100 relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-20">
         <Topo className="text-cream-100/12" rings={13} seed={51.7} />
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
