@@ -54,6 +54,7 @@ export default async function proxy(request: NextRequest) {
     path: "/",
     maxAge: COOKIE_MAX_AGE,
     sameSite: "lax",
+    secure: process.env.NODE_ENV !== "development",
   });
   rememberCountry(request, response);
   return response;
@@ -70,6 +71,7 @@ function rememberCountry(request: NextRequest, response: NextResponse) {
     path: "/",
     maxAge: COUNTRY_MAX_AGE,
     sameSite: "lax",
+    secure: process.env.NODE_ENV !== "development",
   });
 }
 

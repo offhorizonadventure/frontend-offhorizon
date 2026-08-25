@@ -50,8 +50,7 @@ export async function settlePayment(input: {
 
   const captured = provider.status === "captured";
   const paid = fromMinorUnits(provider.amount);
-  const matches =
-    captured && paid >= Number(found.amount) && provider.currency === found.currency;
+  const matches = captured && paid >= Number(found.amount) && provider.currency === found.currency;
 
   await supabase
     .from("payments")

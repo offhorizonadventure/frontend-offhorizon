@@ -1,14 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState, useState } from "react";
+import { useFormStatus } from "react-dom";
 
 import { Panel } from "@/components/account/parts";
 import { Close } from "@/components/ui/icons";
+import { deleteMyAccount, type DeleteState } from "@/lib/account/delete";
 
 /** Deleting the account. */
 export function DeleteAccount() {
   const [open, setOpen] = useState(false);
   const [typed, setTyped] = useState("");
+
+  const [state, formAction] = useActionState<DeleteState, FormData>(deleteMyAccount, {
+    ok: false,
+    message: null,
+  });
 
   const armed = typed.trim().toUpperCase() === "DELETE";
 
@@ -67,33 +74,56 @@ export function DeleteAccount() {
               confirm.
             </p>
 
-            <input
-              value={typed}
-              onChange={(event) => setTyped(event.target.value)}
-              placeholder="DELETE"
-              className="border-brand-900/15 text-brand-900 mt-5 h-12 w-full rounded-xl border bg-white px-4 text-[14px] tracking-[0.1em] uppercase outline-none focus:border-red-600 focus:ring-[3px] focus:ring-red-600/10"
-            />
+            <form action={formAction}>
+              <input
+                name="confirm"
+                value={typed}
+                onChange={(event) => setTyped(event.target.value)}
+                placeholder="DELETE"
+                className="border-brand-900/15 text-brand-900 mt-5 h-12 w-full rounded-xl border bg-white px-4 text-[14px] tracking-[0.1em] uppercase outline-none focus:border-red-600 focus:ring-[3px] focus:ring-red-600/10"
+              />
 
-            <div className="mt-6 flex gap-3">
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                className="border-brand-900/20 text-brand-800 hover:bg-brand-900/5 h-12 flex-1 rounded-full border text-[11px] font-bold tracking-[0.12em] uppercase transition-colors"
-              >
-                Keep my account
-              </button>
+              <div className="mt-6 flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  className="border-brand-900/20 text-brand-800 hover:bg-brand-900/5 h-12 flex-1 rounded-full border text-[11px] font-bold tracking-[0.12em] uppercase transition-colors"
+                >
+                  Keep my account
+                </button>
 
-              <button
-                type="button"
-                disabled={!armed}
-                className="h-12 flex-1 rounded-full bg-red-600 text-[11px] font-bold tracking-[0.12em] text-white uppercase transition-colors hover:bg-red-700 disabled:pointer-events-none disabled:opacity-40"
-              >
-                Delete
-              </button>
-            </div>
+                <Submit armed={armed} />
+              </div>
+
+              {state.message && (
+                <p
+                  role="alert"
+                  className={`mt-4 rounded-xl px-4 py-3 text-[13px] leading-[1.7] ${
+                    state.ok ? "bg-brand-900/5 text-brand-900" : "bg-red-600/10 text-red-700"
+                  }`}
+                >
+                  {state.message}
+                </p>
+              )}
+            </form>
           </div>
         </div>
       )}
     </Panel>
+  );
+}
+
+/** Disabled until DELETE is typed, and again while the request is in flight. */
+function Submit({ armed }: { armed: boolean }) {
+  const { pending } = useFormStatus();
+
+  return (
+    <button
+      type="submit"
+      disabled={!armed || pending}
+      className="h-12 flex-1 rounded-full bg-red-600 text-[11px] font-bold tracking-[0.12em] text-white uppercase transition-colors hover:bg-red-700 disabled:pointer-events-none disabled:opacity-40"
+    >
+      {pending ? "Deleting…" : "Delete"}
+    </button>
   );
 }

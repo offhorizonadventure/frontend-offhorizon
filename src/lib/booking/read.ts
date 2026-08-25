@@ -120,14 +120,24 @@ export async function getMyBooking(reference: string) {
   ]);
 
   const mine = (travellers ?? []).find((entry) => entry.user_id === user.id) ?? null;
+  const isLead = Boolean(mine?.is_lead);
+
+  // Only the lead hands out places, so only the lead is given the tokens. Row
+  // level security scopes these to the booking, but every rider on it was
+  // getting every unclaimed token in the page payload, which is one rider
+  // quietly filling their friends into somebody else's group.
+  const visible = (travellers ?? []).map((entry) => ({
+    ...entry,
+    invite_token: isLead ? entry.invite_token : null,
+  }));
 
   return {
     booking: row,
-    travellers: (travellers ?? []) as TravellerRow[],
+    travellers: visible as TravellerRow[],
     payments: (payments ?? []) as PaymentRow[],
     /** The signed in rider's own row, which is the one they can write to. */
     mine: mine as TravellerRow | null,
-    isLead: Boolean(mine?.is_lead),
+    isLead,
     /** The documents form opens only when the expedition is paid for. */
     formUrl: row.status === "completed" ? row.tour.google_form_url : null,
     overdue: isOverdue(row),
