@@ -92,3 +92,40 @@ than stranded hidden.
   Commons, mostly CC BY-SA, which requires visible attribution on a commercial
   site. Author and licence per image are in
   `public/destinations/credits.json`. Replace these with owned photography.
+
+## Secrets
+
+No secret is a string literal anywhere in this repository, and none ever was:
+`git log --all -p` carries no key, no password and no connection string, and
+`.env.local` has never been staged. **Nothing needs rotating on account of this
+repository.** If that ever stops being true, rotating the key is the only fix
+that works, because a value that reached a commit is in every clone forever and
+rewriting history does not recall them.
+
+Two rules keep it that way, and both can be checked rather than trusted:
+
+**A file that names a secret imports `server-only`.** That is a build error if
+the file is ever pulled into a client component, so the invariant is enforced
+rather than remembered. To check:
+
+```bash
+git grep -lE "process\.env\.(SUPABASE_SECRET_KEY|RAZORPAY_KEY_SECRET|SMTP_PASSWORD|SITE_REVALIDATE_SECRET)" -- src | xargs grep -L server-only
+```
+
+Anything that prints is a file to fix.
+
+**`NEXT_PUBLIC_` is a decision, not a default.** The prefix ships a value to
+every visitor. Only four variables carry it, and all four are meant to be read
+in view source: the Supabase URL, the publishable key, the site URL and the tag
+manager container. The Razorpay key id is deliberately not prefixed; the
+checkout page receives it from the server as a prop, so it stays out of the
+bundle of every page that does not take payment.
+
+The publishable key is safe **only because row level security is on every
+table**. It is not a weaker key, it is the same key the policies are evaluated
+against, so a table with RLS switched off is readable by anyone who opens the
+network tab. That is one command:
+
+```bash
+node ../backend/scripts/check-rls.mjs
+```
