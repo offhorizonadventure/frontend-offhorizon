@@ -2,9 +2,22 @@
 
 import type { Provider } from "@supabase/supabase-js";
 
+import {
+  requestPasswordResetAction,
+  signInAction,
+  signUpAction,
+  updatePasswordAction,
+} from "@/lib/auth-actions";
 import { createClient } from "@/lib/supabase/client";
 
-/** Signing in, joining, and the two password journeys. */
+/**
+ * Signing in, joining, and the two password journeys.
+ *
+ * Anything involving a password is a thin wrapper over a server action, so
+ * every attempt passes through the rate limiter. What stays in the browser is
+ * the OAuth redirect, signing out, and saving a profile: none of them is worth
+ * guessing at.
+ */
 
 export type AuthResult = { error: string | null };
 
@@ -13,10 +26,7 @@ const callback = (next: string) =>
   `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`;
 
 export async function signIn(email: string, password: string): Promise<AuthResult> {
-  const supabase = createClient();
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
-
-  return { error: error?.message ?? null };
+  return signInAction(email, password);
 }
 
 export async function signUp(
@@ -24,19 +34,7 @@ export async function signUp(
   password: string,
   profile: { name: string; phone: string },
 ): Promise<AuthResult> {
-  const supabase = createClient();
-
-  const { error } = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      // In metadata so the trigger can copy it into the profile row at sign up.
-      data: { full_name: profile.name, phone: profile.phone },
-      emailRedirectTo: callback("/account"),
-    },
-  });
-
-  return { error: error?.message ?? null };
+  return signUpAction(email, password, profile);
 }
 
 /** Google and Facebook. */
@@ -53,20 +51,11 @@ export async function signInWith(provider: Provider): Promise<AuthResult> {
 
 /** Sends the reset link. */
 export async function requestPasswordReset(email: string): Promise<AuthResult> {
-  const supabase = createClient();
-
-  const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: callback("/reset-password"),
-  });
-
-  return { error: error?.message ?? null };
+  return requestPasswordResetAction(email);
 }
 
 export async function updatePassword(password: string): Promise<AuthResult> {
-  const supabase = createClient();
-  const { error } = await supabase.auth.updateUser({ password });
-
-  return { error: error?.message ?? null };
+  return updatePasswordAction(password);
 }
 
 export async function signOut(): Promise<void> {
@@ -86,7 +75,8 @@ export async function updateProfile(profile: { name: string; phone: string }): P
     .update({ full_name: profile.name, phone: profile.phone || null })
     .eq("id", data.user.id);
 
-  if (error) return { error: error.message };
+  // Generic on purpose: a Postgres message names the table and the column.
+  if (error) return { error: "Those details could not be saved. Try again." };
 
   await supabase.auth.updateUser({ data: { full_name: profile.name } });
 

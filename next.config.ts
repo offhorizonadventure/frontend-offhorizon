@@ -4,33 +4,69 @@ import type { NextConfig } from "next";
 /**
  * What the browser is allowed to load.
  *
- * The tag manager container loads code chosen after this file was written:
- * Google Ads, the Meta pixel, Clarity, Brevo, WonderPush, and several of those
- * load further scripts of their own. Listing each host broke a tag every time
- * marketing added one, and gave only the appearance of control.
+ * `script-src` used to end in a bare `https:`, which is to say any origin on
+ * the internet that speaks TLS. It is now the list below: this site, and the
+ * hosts the tag manager actually reaches for. Adding a vendor in GTM means
+ * adding its host here, which is the point.
  *
- * So scripts, styles, images, beacons and frames may come from any https
- * origin, and the directives that actually stop an attack stay shut:
+ * `unsafe-inline` stays, and it is worth being straight about why. Removing it
+ * needs a per-request nonce, and a nonce cannot be baked into a page that was
+ * generated at build time. Fifteen of these pages carry structured data and
+ * are statically generated; making them dynamic to tighten this one directive
+ * would cost every visitor a round trip to save an attacker a step they cannot
+ * currently take, since no user input is ever rendered as markup.
+ *
+ * Images, beacons and frames stay on `https:`. They cannot execute, the tag
+ * vendors pull from a long tail of CDNs, and narrowing them is what broke the
+ * reviews widget and the avatars last time.
+ *
+ * The directives that stop an attack outright are all shut:
  *
  *   default-src 'self'      anything not named below stays same origin
  *   object-src 'none'       no plugin injection
  *   base-uri 'self'         a stolen <base> cannot repoint every relative URL
  *   form-action 'self'      a stolen form cannot post card details elsewhere
- *   frame-ancestors 'self'  the payment pages cannot be framed by anyone
- *
- * The strict version is a per-request nonce with 'strict-dynamic', which keeps
- * host control over scripts while letting the tag manager load its own. Worth
- * doing once the tag list settles.
+ *   frame-ancestors 'none'   nothing may frame this site at all
  */
+const SCRIPT_HOSTS = [
+  // Tag manager, and Google's own analytics and advertising.
+  "https://*.googletagmanager.com",
+  "https://*.google-analytics.com",
+  "https://*.googleadservices.com",
+  "https://*.doubleclick.net",
+  "https://*.google.com",
+  "https://*.gstatic.com",
+  // Meta.
+  "https://connect.facebook.net",
+  // Microsoft Clarity and Bing.
+  "https://*.clarity.ms",
+  "https://*.bing.com",
+  // Brevo, which serves its tracker from sibautomation.com rather than from
+  // either of its own brand domains.
+  "https://*.brevo.com",
+  "https://*.sendinblue.com",
+  "https://sibautomation.com",
+  // Meta's conversions API parameter builder, which GTM pulls from S3.
+  "https://capi-automation.s3.us-east-2.amazonaws.com",
+  "https://*.wonderpush.com",
+  "https://*.trustindex.io",
+  // Razorpay checkout.
+  "https://*.razorpay.com",
+].join(" ");
+
 const contentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
   "object-src 'none'",
-  "frame-ancestors 'self'",
+  // Nothing frames this site. Razorpay is framed by us, which is the other
+  // direction and unaffected.
+  "frame-ancestors 'none'",
   "form-action 'self'",
   "upgrade-insecure-requests",
   // React rebuilds stack traces with eval while developing, never in a built site.
-  `script-src 'self' 'unsafe-inline' https: ${process.env.NODE_ENV === "development" ? "'unsafe-eval'" : ""}`.trim(),
+  `script-src 'self' 'unsafe-inline' ${SCRIPT_HOSTS}${
+    process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""
+  }`,
   "style-src 'self' 'unsafe-inline' https:",
   "font-src 'self' data: https:",
   "img-src 'self' data: blob: https:",
@@ -67,7 +103,7 @@ const nextConfig: NextConfig = {
           { key: "Cross-Origin-Opener-Policy", value: "same-origin-allow-popups" },
           { key: "X-DNS-Prefetch-Control", value: "on" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "X-Frame-Options", value: "DENY" },
           {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
