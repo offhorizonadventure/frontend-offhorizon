@@ -80,6 +80,16 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
 
+  /**
+   * Builds a self-contained server for the VPS.
+   *
+   * `.next/standalone` carries only the files actually reached, so the thing
+   * copied to the server is tens of megabytes rather than a node_modules tree,
+   * and nothing has to be installed there. `public` and `.next/static` are not
+   * included and have to be copied alongside it; docs/hosting.md says where.
+   */
+  output: "standalone",
+
   // Only the icons a page actually uses are bundled, rather than the whole set.
   experimental: {
     optimizePackageImports: ["lucide-react", "react-icons", "gsap"],
