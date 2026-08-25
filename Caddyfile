@@ -1,0 +1,38 @@
+{
+	email {$ACME_EMAIL}
+	servers {
+		trusted_proxies static private_ranges
+	}
+}
+
+www.{$DOMAIN} {
+	header -Server
+	redir https://{$DOMAIN}{uri} permanent
+}
+
+{$DOMAIN} {
+	encode zstd gzip
+
+	reverse_proxy web:3000 {
+		transport http {
+			dial_timeout 5s
+		}
+	}
+
+	# Next already sends nosniff, HSTS, DENY, Referrer-Policy, Permissions-Policy
+	# and the CSP. Setting them here would replace them with weaker copies.
+	header {
+		-Server
+	}
+
+	@hidden path /.git/* /.env /.env.* /docker-compose.yml
+	respond @hidden 404
+
+	log {
+		output file /data/access.log {
+			roll_size 10MB
+			roll_keep 5
+		}
+		format json
+	}
+}
