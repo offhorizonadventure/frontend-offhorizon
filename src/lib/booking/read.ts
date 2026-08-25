@@ -79,7 +79,10 @@ export async function listMyBookings(): Promise<BookingRow[]> {
   const { data } = await supabase
     .from("bookings")
     .select(BOOKING_COLUMNS)
-    .neq("status", "pending")
+    // Pending on the site means a checkout that was opened and abandoned, and
+    // is not a booking. Pending in the office means one taken over the phone
+    // and not yet paid, which is exactly what the rider needs to see.
+    .or("status.neq.pending,source.eq.office")
     .order("created_at", { ascending: false });
 
   return (data ?? []) as unknown as BookingRow[];
@@ -157,19 +160,19 @@ export async function listMyPayments(): Promise<PaymentHistoryRow[]> {
   const supabase = await createClient();
   const { data } = await supabase
     .from("payments")
+    // `method` is pulled out of the webhook body rather than the body being
+    // sent over. `raw` holds the provider's entire payment entity: the card
+    // network and issuer, the acquirer's references, contact details. None of
+    // it is rendered, and all of it was travelling to the browser.
     .select(
-      "id, kind, status, amount, currency, paid_at, created_at, raw, booking:bookings(reference, tour:tours(title))",
+      "id, kind, status, amount, currency, paid_at, created_at, method:raw->>method, booking:bookings(reference, tour:tours(title))",
     )
     .in("status", ["paid", "refunded"])
     .order("paid_at", { ascending: false, nullsFirst: false });
 
-  return (data ?? []).map((row) => {
-    const raw = row.raw as { method?: string } | null;
-
-    return {
-      ...(row as unknown as PaymentRow),
-      method: raw?.method ?? null,
-      booking: row.booking as unknown as PaymentHistoryRow["booking"],
-    };
-  });
+  return (data ?? []).map((row) => ({
+    ...(row as unknown as PaymentRow),
+    method: (row.method as string | null) ?? null,
+    booking: row.booking as unknown as PaymentHistoryRow["booking"],
+  }));
 }
