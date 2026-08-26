@@ -76,6 +76,27 @@ const equal = (a: string, b: string) => {
 // after checkout. Nothing the browser says confirms a booking; the signed
 // webhook is the only authority, and it reads the amount back from Razorpay.
 
+/**
+ * Every payment attempted against one order.
+ *
+ * Used by reconciliation: we know the order we opened, and we ask the provider
+ * what happened on it rather than waiting to be told.
+ */
+export async function fetchOrderPayments(orderId: string) {
+  const response = await fetch(`${API}/orders/${encodeURIComponent(orderId)}/payments`, {
+    headers: { authorization: auth() },
+    cache: "no-store",
+  });
+
+  if (!response.ok) return [];
+
+  const body = (await response.json()) as {
+    items?: { id: string; status: string; amount: number; currency: string }[];
+  };
+
+  return body.items ?? [];
+}
+
 /** The signature on a webhook, computed over the raw body. */
 export function webhookSignatureValid(body: string, signature: string) {
   if (!WEBHOOK_SECRET) return false;
