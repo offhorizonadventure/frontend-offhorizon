@@ -6,6 +6,9 @@ import { resolveLocale } from "@/i18n/params";
 import { listMyPayments } from "@/lib/booking/read";
 import { formatMoney } from "@/lib/currency";
 
+const head = "px-4 py-3 text-[10px] font-bold tracking-[0.14em] text-brand-800/45 uppercase";
+const cell = "px-4 py-4 align-top text-[13.5px] text-brand-900/80";
+
 /** Every payment this rider has made. */
 export default async function PaymentsPage({ params }: LayoutProps<"/[locale]">) {
   const locale = await resolveLocale(params);
@@ -24,47 +27,79 @@ export default async function PaymentsPage({ params }: LayoutProps<"/[locale]">)
           <p className="text-brand-900/70 text-[14px]">{t("empty")}</p>
         </div>
       ) : (
-        <ul className="border-brand-900/10 divide-brand-900/10 divide-y border-t">
-          {payments.map((payment) => (
-            <li key={payment.id} className="flex flex-wrap items-center justify-between gap-4 py-4">
-              <div className="min-w-0">
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <Pill tone={payment.status === "paid" ? "confirmed" : "pending"}>
-                    {payment.status === "refunded"
-                      ? t("refunded")
-                      : payment.status === "paid"
-                        ? t("paid")
-                        : t("processing")}
-                  </Pill>
-                  <Link
-                    href={`/account/bookings/${payment.booking.reference}`}
-                    className="text-brand-800/55 hover:text-brand-900 font-mono text-[11.5px] underline underline-offset-2"
-                  >
-                    {payment.booking.reference}
-                  </Link>
-                </div>
+        <div className="ring-brand-900/10 overflow-x-auto rounded-[18px] ring-1">
+          <table className="w-full min-w-[46rem] border-collapse bg-white text-left">
+            <thead className="bg-brand-900/4">
+              <tr>
+                <th className={head}>{t("colBooking")}</th>
+                <th className={head}>{t("colTour")}</th>
+                <th className={head}>{t("colDate")}</th>
+                <th className={`${head} text-right`}>{t("colAmount")}</th>
+                <th className={head}>{t("colReceipt")}</th>
+              </tr>
+            </thead>
 
-                <p className="text-brand-900 mt-2 text-[14px] font-semibold">
-                  {payment.booking.tour.title}
-                </p>
+            <tbody>
+              {payments.map((payment) => (
+                <tr
+                  key={payment.id}
+                  className="border-brand-900/8 hover:bg-brand-900/3 border-t transition-colors"
+                >
+                  <td className={`${cell} font-mono text-[12.5px] whitespace-nowrap`}>
+                    <Link
+                      href={`/account/bookings/${payment.booking.reference}`}
+                      className="hover:text-brand-900 underline underline-offset-2"
+                    >
+                      {payment.booking.reference}
+                    </Link>
+                  </td>
 
-                <p className="text-brand-800/50 mt-1 text-[12.5px]">
-                  {payment.paid_at ? day(payment.paid_at) : day(payment.created_at)}
-                  {" · "}
-                  {t(`kind.${payment.kind as "deposit" | "full" | "instalment"}`)}
-                  {payment.method ? ` · ${payment.method}` : ""}
-                </p>
-              </div>
+                  <td className={cell}>
+                    {payment.booking.tour.title}
+                    <span className="text-brand-800/45 mt-1 block text-[12px]">
+                      {payment.kind}
+                      {payment.method ? ` · ${payment.method}` : ""}
+                    </span>
+                  </td>
 
-              <span className="font-display text-brand-900 text-[17px] font-extrabold tabular-nums">
-                {formatMoney(payment.amount, payment.currency as never, locale)}
-              </span>
-            </li>
-          ))}
-        </ul>
+                  <td className={`${cell} whitespace-nowrap`}>
+                    {day(payment.paid_at ?? payment.created_at)}
+                  </td>
+
+                  <td className={`${cell} text-right font-semibold whitespace-nowrap tabular-nums`}>
+                    {formatMoney(payment.amount, payment.currency as never, locale)}
+                    <span className="mt-1.5 block">
+                      <Pill tone={payment.status === "paid" ? "confirmed" : "pending"}>
+                        {payment.status === "refunded"
+                          ? t("refunded")
+                          : payment.status === "paid"
+                            ? t("paid")
+                            : t("processing")}
+                      </Pill>
+                    </span>
+                  </td>
+
+                  <td className={cell}>
+                    {/* Only a settled payment has anything to show a receipt for. */}
+                    {payment.status === "paid" ? (
+                      <Link
+                        href={`/account/payments/${payment.id}/receipt`}
+                        className="text-brand-900 decoration-ember-500/50 hover:decoration-ember-500 text-[12.5px] font-semibold underline underline-offset-[3px] transition-colors"
+                      >
+                        {t("receipt.download")}
+                      </Link>
+                    ) : (
+                      <span className="text-brand-800/35 text-[12.5px]">—</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
 
-      <p className="text-brand-800/45 mt-6 text-[12.5px] leading-relaxed">{t("receipts")}</p>
+      <p className="text-brand-800/45 mt-5 text-[12px] leading-[1.7]">{t("receipts")}</p>
     </Panel>
   );
 }

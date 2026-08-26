@@ -17,7 +17,7 @@
     "closeMenu": "Fermer le menu",
     "days": "{count, plural, one {# jour} other {# jours}}",
     "viewAllDestinations": "Voir toutes les destinations",
-    "allDestinationsHint": "Cinq pays au choix.",
+    "allDestinationsHint": "Six pays au choix.",
     "featured": {
       "eyebrow": "À la une",
       "title": "Expéditions transhimalayennes",
@@ -99,7 +99,7 @@
     "hero": {
       "eyebrow": "Expéditions transhimalayennes",
       "title": "Roulez au-delà des <accent>limites de la carte</accent>",
-      "subtitle": "Voyages guidés à moto et en 4x4 dans cinq pays. Petits groupes, équipe expérimentée et assistance complète en altitude.",
+      "subtitle": "Voyages guidés à moto et en 4x4 dans six pays. Petits groupes, équipe expérimentée et assistance complète en altitude.",
       "primaryCta": "Voir les destinations",
       "secondaryCta": "Tous les circuits"
     },
@@ -263,7 +263,7 @@
     "hero": {
       "eyebrow": "À propos d'Offhorizon",
       "title": "Des expéditions himalayennes, <accent>bien menées</accent>.",
-      "lead": "Nous concevons et encadrons des expéditions guidées à moto et en 4x4 dans cinq pays : l'Himalaya de l'Inde, du Népal et du Bhoutan, puis le Sri Lanka et la Mongolie. Ladakh, vallée de Spiti, Zanskar, Haut Mustang. Un terrain isolé, mené avec la rigueur qu'il exige.",
+      "lead": "Nous concevons et encadrons des expéditions guidées à moto et en 4x4 dans six pays : l'Himalaya de l'Inde, du Népal, du Tibet et du Bhoutan, puis le Sri Lanka et la Mongolie. Ladakh, vallée de Spiti, Zanskar, Haut Mustang. Un terrain isolé, mené avec la rigueur qu'il exige.",
       "facts": {
         "since": "Sur la route depuis",
         "countries": "Pays",
@@ -511,7 +511,7 @@
       },
       "eyebrow": "Destinations",
       "title": "Conçu pour l'aventure. Guidé par l'expérience.",
-      "lead": "Nous concevons des expéditions haut de gamme à moto et en 4x4 dans certains des paysages les plus exigeants du monde. Cinq pays, un seul niveau de préparation.",
+      "lead": "Nous concevons des expéditions haut de gamme à moto et en 4x4 dans certains des paysages les plus exigeants du monde. Six pays, un seul niveau de préparation.",
       "heroAlt": "Une route suivant une vallée fluviale dans l'Himalaya indien",
       "intro": {
         "title": "Où nous roulons, et où nous ne roulons pas encore.",
@@ -2050,7 +2050,24 @@
       "full": "Payé intégralement",
       "instalment": "Versement"
     },
-    "receipts": "Un reçu est envoyé par e-mail par Razorpay à chaque paiement. Aucune donnée de carte n'est conservée ici.",
-    "processing": "En cours"
+    "receipts": "Chaque paiement réglé dispose d'un reçu ici, et Razorpay envoie sa propre confirmation par e-mail au moment du prélèvement. Nous ne conservons jamais les données de carte.",
+    "processing": "En cours",
+    "receipt": {
+      "title": "Reçu de paiement",
+      "reference": "Référence de réservation",
+      "tour": "Expédition",
+      "date": "Payé le",
+      "kind": "Paiement",
+      "method": "Moyen",
+      "transaction": "Transaction",
+      "note": "Ce reçu est émis par Offhorizon Adventures pour un paiement reçu au titre de la réservation ci-dessus. Nous ne conservons jamais les données de carte ; le paiement a été traité par Razorpay.",
+      "print": "Utilisez l'option d'impression de votre navigateur pour enregistrer ce reçu en PDF.",
+      "download": "Reçu"
+    },
+    "colBooking": "Réservation",
+    "colTour": "Expédition",
+    "colDate": "Date",
+    "colAmount": "Montant",
+    "colReceipt": "Reçu"
   }
 }

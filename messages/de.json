@@ -17,7 +17,7 @@
     "closeMenu": "Menü schließen",
     "days": "{count, plural, one {# Tag} other {# Tage}}",
     "viewAllDestinations": "Alle Reiseziele ansehen",
-    "allDestinationsHint": "Fünf Länder zur Auswahl.",
+    "allDestinationsHint": "Sechs Länder zur Auswahl.",
     "featured": {
       "eyebrow": "Empfohlen",
       "title": "Trans-Himalaya-Expeditionen",
@@ -99,7 +99,7 @@
     "hero": {
       "eyebrow": "Trans-Himalaya-Expeditionen",
       "title": "Fahren Sie über den <accent>Rand der Karte</accent> hinaus",
-      "subtitle": "Geführte Motorrad- und 4x4-Reisen in fünf Ländern. Kleine Gruppen, erfahrenes Team und volle Unterstützung in der Höhe.",
+      "subtitle": "Geführte Motorrad- und 4x4-Reisen in sechs Ländern. Kleine Gruppen, erfahrenes Team und volle Unterstützung in der Höhe.",
       "primaryCta": "Reiseziele entdecken",
       "secondaryCta": "Alle Touren"
     },
@@ -263,7 +263,7 @@
     "hero": {
       "eyebrow": "Über Offhorizon",
       "title": "Himalaya-Expeditionen, <accent>richtig gemacht</accent>.",
-      "lead": "Wir planen und führen Motorrad- und 4x4-Expeditionen in fünf Ländern: im Himalaya von Indien, Nepal und Bhutan sowie in Sri Lanka und der Mongolei. Ladakh, Spiti-Tal, Zanskar, Upper Mustang. Abgelegenes Gelände, mit der nötigen Sorgfalt organisiert.",
+      "lead": "Wir planen und führen Motorrad- und 4x4-Expeditionen in sechs Ländern: im Himalaya von Indien, Nepal, Tibet und Bhutan sowie in Sri Lanka und der Mongolei. Ladakh, Spiti-Tal, Zanskar, Upper Mustang. Abgelegenes Gelände, mit der nötigen Sorgfalt organisiert.",
       "facts": {
         "since": "Unterwegs seit",
         "countries": "Länder",
@@ -511,7 +511,7 @@
       },
       "eyebrow": "Reiseziele",
       "title": "Für das Abenteuer gebaut. Von Erfahrung geführt.",
-      "lead": "Wir planen erstklassige Motorrad- und 4x4-Expeditionen in einigen der anspruchsvollsten Landschaften der Welt. Fünf Länder, ein Planungsstandard.",
+      "lead": "Wir planen erstklassige Motorrad- und 4x4-Expeditionen in einigen der anspruchsvollsten Landschaften der Welt. Sechs Länder, ein Planungsstandard.",
       "heroAlt": "Eine Straße entlang eines Flusstals im indischen Himalaya",
       "intro": {
         "title": "Wo wir fahren, und wo wir offen sagen, dass wir es noch nicht tun.",
@@ -2050,7 +2050,24 @@
       "full": "Vollständig bezahlt",
       "instalment": "Rate"
     },
-    "receipts": "Razorpay schickt zu jeder Zahlung eine Quittung per E-Mail. Kartendaten werden hier nie gespeichert.",
-    "processing": "In Bearbeitung"
+    "receipts": "Zu jeder abgeschlossenen Zahlung gibt es hier einen Beleg, und Razorpay sendet beim Einzug eine eigene Bestätigung per E-Mail. Kartendaten werden bei uns nie gespeichert.",
+    "processing": "In Bearbeitung",
+    "receipt": {
+      "title": "Zahlungsbeleg",
+      "reference": "Buchungsnummer",
+      "tour": "Expedition",
+      "date": "Bezahlt am",
+      "kind": "Zahlung",
+      "method": "Zahlungsart",
+      "transaction": "Transaktion",
+      "note": "Dieser Beleg wird von Offhorizon Adventures für eine Zahlung zur oben genannten Buchung ausgestellt. Kartendaten werden bei uns nie gespeichert; die Zahlung wurde von Razorpay abgewickelt.",
+      "print": "Nutzen Sie die Druckfunktion Ihres Browsers, um dies als PDF zu speichern.",
+      "download": "Beleg"
+    },
+    "colBooking": "Buchung",
+    "colTour": "Expedition",
+    "colDate": "Datum",
+    "colAmount": "Betrag",
+    "colReceipt": "Beleg"
   }
 }

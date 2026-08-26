@@ -17,7 +17,7 @@
     "closeMenu": "Cerrar el menú",
     "days": "{count, plural, one {# día} other {# días}}",
     "viewAllDestinations": "Ver todos los destinos",
-    "allDestinationsHint": "Cinco países para elegir.",
+    "allDestinationsHint": "Seis países para elegir.",
     "featured": {
       "eyebrow": "Destacado",
       "title": "Expediciones transhimalayas",
@@ -99,7 +99,7 @@
     "hero": {
       "eyebrow": "Expediciones transhimalayas",
       "title": "Viaja más allá del <accent>borde del mapa</accent>",
-      "subtitle": "Viajes guiados en moto y 4x4 por cinco países. Grupos reducidos, equipo con experiencia y apoyo completo en altura.",
+      "subtitle": "Viajes guiados en moto y 4x4 por seis países. Grupos reducidos, equipo con experiencia y apoyo completo en altura.",
       "primaryCta": "Descubre destinos",
       "secondaryCta": "Todos los tours"
     },
@@ -263,7 +263,7 @@
     "hero": {
       "eyebrow": "Sobre Offhorizon",
       "title": "Expediciones al Himalaya, <accent>bien hechas</accent>.",
-      "lead": "Diseñamos y guiamos expediciones en moto y en 4x4 por cinco países: el Himalaya de India, Nepal y Bután, y además Sri Lanka y Mongolia. Ladakh, valle de Spiti, Zanskar, Alto Mustang. Terreno remoto, gestionado con el rigor que exige.",
+      "lead": "Diseñamos y guiamos expediciones en moto y en 4x4 por seis países: el Himalaya de India, Nepal, Tíbet y Bután, y además Sri Lanka y Mongolia. Ladakh, valle de Spiti, Zanskar, Alto Mustang. Terreno remoto, gestionado con el rigor que exige.",
       "facts": {
         "since": "En ruta desde",
         "countries": "Países",
@@ -511,7 +511,7 @@
       },
       "eyebrow": "Destinos",
       "title": "Hecho para la aventura. Guiado por la experiencia.",
-      "lead": "Diseñamos expediciones de alto nivel en moto y 4x4 por algunos de los paisajes más exigentes del planeta. Cinco países, un mismo nivel de preparación.",
+      "lead": "Diseñamos expediciones de alto nivel en moto y 4x4 por algunos de los paisajes más exigentes del planeta. Seis países, un mismo nivel de preparación.",
       "heroAlt": "Una carretera que sigue un valle fluvial en el Himalaya indio",
       "intro": {
         "title": "Dónde rodamos, y dónde reconocemos que aún no.",
@@ -2050,7 +2050,24 @@
       "full": "Pagada por completo",
       "instalment": "Plazo"
     },
-    "receipts": "Razorpay envía por correo un recibo de cada pago. Los datos de la tarjeta nunca se guardan aquí.",
-    "processing": "En proceso"
+    "receipts": "Cada pago liquidado tiene aquí un recibo, y Razorpay envía su propia confirmación por correo al cobrarlo. Nunca guardamos los datos de la tarjeta.",
+    "processing": "En proceso",
+    "receipt": {
+      "title": "Recibo de pago",
+      "reference": "Referencia de reserva",
+      "tour": "Expedición",
+      "date": "Pagado el",
+      "kind": "Pago",
+      "method": "Método",
+      "transaction": "Transacción",
+      "note": "Este recibo lo emite Offhorizon Adventures por un pago recibido correspondiente a la reserva indicada. Nunca guardamos los datos de la tarjeta; el pago lo procesó Razorpay.",
+      "print": "Usa la opción de imprimir de tu navegador para guardarlo en PDF.",
+      "download": "Recibo"
+    },
+    "colBooking": "Reserva",
+    "colTour": "Expedición",
+    "colDate": "Fecha",
+    "colAmount": "Importe",
+    "colReceipt": "Recibo"
   }
 }

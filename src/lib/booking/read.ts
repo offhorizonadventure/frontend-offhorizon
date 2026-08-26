@@ -152,6 +152,7 @@ export async function getMyBooking(reference: string) {
 
 export type PaymentHistoryRow = PaymentRow & {
   method: string | null;
+  providerPaymentId: string | null;
   booking: { reference: string; tour: { title: string } };
 };
 
@@ -168,7 +169,7 @@ export async function listMyPayments(): Promise<PaymentHistoryRow[]> {
     // network and issuer, the acquirer's references, contact details. None of
     // it is rendered, and all of it was travelling to the browser.
     .select(
-      "id, kind, status, amount, currency, paid_at, created_at, method:raw->>method, booking:bookings(reference, tour:tours(title))",
+      "id, kind, status, amount, currency, paid_at, created_at, provider_payment_id, method:raw->>method, booking:bookings(reference, tour:tours(title))",
     )
     // `created` is a payment opened and not yet settled. It belongs here: a
     // rider who has just paid should see the attempt, not a blank list.
@@ -178,6 +179,32 @@ export async function listMyPayments(): Promise<PaymentHistoryRow[]> {
   return (data ?? []).map((row) => ({
     ...(row as unknown as PaymentRow),
     method: (row.method as string | null) ?? null,
+    providerPaymentId: (row.provider_payment_id as string | null) ?? null,
     booking: row.booking as unknown as PaymentHistoryRow["booking"],
   }));
+}
+
+/** One payment of the signed in rider's, for its receipt. */
+export async function getMyPayment(id: string): Promise<PaymentHistoryRow | null> {
+  const user = await getUser();
+  if (!user) return null;
+
+  const supabase = await createClient();
+
+  const { data } = await supabase
+    .from("payments")
+    .select(
+      "id, kind, status, amount, currency, paid_at, created_at, provider_payment_id, method:raw->>method, booking:bookings(reference, tour:tours(title))",
+    )
+    .eq("id", id)
+    .maybeSingle();
+
+  if (!data) return null;
+
+  return {
+    ...(data as unknown as PaymentRow),
+    method: (data.method as string | null) ?? null,
+    providerPaymentId: (data.provider_payment_id as string | null) ?? null,
+    booking: data.booking as unknown as PaymentHistoryRow["booking"],
+  };
 }

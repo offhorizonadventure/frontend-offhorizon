@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
 import { MyExpeditions } from "@/components/booking/MyExpeditions";
@@ -6,6 +7,7 @@ import { ArrowRight } from "@/components/ui/icons";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
 import { listMyBookings, outstanding } from "@/lib/booking/read";
+import { imageUrl } from "@/lib/catalogue";
 import { formatMoney } from "@/lib/currency";
 
 /** Every expedition this rider is on. */
@@ -41,13 +43,20 @@ export default async function BookingsPage({ params }: LayoutProps<"/[locale]">)
           <ul className="space-y-4">
             {bookings.map((booking) => {
               const left = outstanding(booking);
+              const hero = imageUrl(booking.tour.hero_path);
 
               return (
                 <li key={booking.id}>
                   <Link
                     href={`/account/bookings/${booking.reference}`}
-                    className="group ring-brand-900/8 hover:ring-brand-900/20 flex flex-wrap items-center justify-between gap-5 rounded-[20px] bg-white p-5 ring-1 transition-shadow"
+                    className="group ring-brand-900/8 hover:ring-brand-900/20 grid gap-5 rounded-[20px] bg-white p-4 ring-1 transition-shadow sm:grid-cols-[10rem_1fr_auto] sm:items-center"
                   >
+                    <div className="bg-brand-100 relative aspect-[4/3] overflow-hidden rounded-[14px]">
+                      {hero ? (
+                        <Image src={hero} alt="" fill sizes="160px" className="object-cover" />
+                      ) : null}
+                    </div>
+
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-2.5">
                         <Pill
@@ -95,7 +104,7 @@ export default async function BookingsPage({ params }: LayoutProps<"/[locale]">)
                       </p>
                     </div>
 
-                    <span className="border-brand-900/20 text-brand-800 group-hover:border-brand-800 group-hover:bg-brand-800 group-hover:text-cream-100 inline-flex h-11 items-center gap-2.5 rounded-full border px-5 text-[10.5px] font-bold tracking-[0.12em] uppercase transition-colors">
+                    <span className="border-brand-900/20 text-brand-800 group-hover:border-brand-800 group-hover:bg-brand-800 group-hover:text-cream-100 inline-flex h-11 items-center gap-2.5 justify-self-start rounded-full border px-5 text-[10.5px] font-bold tracking-[0.12em] uppercase transition-colors sm:justify-self-auto">
                       {t("view")}
                       <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
                     </span>

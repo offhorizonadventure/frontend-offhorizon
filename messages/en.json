@@ -17,7 +17,7 @@
     "closeMenu": "Close menu",
     "days": "{count, plural, one {# day} other {# days}}",
     "viewAllDestinations": "View all destinations",
-    "allDestinationsHint": "Five countries to choose from.",
+    "allDestinationsHint": "Six countries to choose from.",
     "featured": {
       "eyebrow": "Featured",
       "title": "Trans-Himalayan expeditions",
@@ -99,7 +99,7 @@
     "hero": {
       "eyebrow": "Trans-Himalayan expeditions",
       "title": "Ride beyond the <accent>edge of the map</accent>",
-      "subtitle": "Guided motorcycle and self-drive 4x4 trips across five countries. Small groups, experienced crew, and full support at altitude.",
+      "subtitle": "Guided motorcycle and self-drive 4x4 trips across six countries. Small groups, experienced crew, and full support at altitude.",
       "primaryCta": "Explore destinations",
       "secondaryCta": "View all tours"
     },
@@ -263,7 +263,7 @@
     "hero": {
       "eyebrow": "About Offhorizon",
       "title": "Himalayan expeditions, <accent>done right</accent>.",
-      "lead": "We plan and lead guided motorcycle and 4x4 expeditions across five countries: the Himalayas of India, Nepal and Bhutan, then Sri Lanka and Mongolia. Ladakh, Spiti Valley, Zanskar, Upper Mustang. Remote country, run with the discipline it demands.",
+      "lead": "We plan and lead guided motorcycle and 4x4 expeditions across six countries: the Himalayas of India, Nepal, Tibet and Bhutan, then Sri Lanka and Mongolia. Ladakh, Spiti Valley, Zanskar, Upper Mustang. Remote country, run with the discipline it demands.",
       "facts": {
         "since": "Riding since",
         "countries": "Countries",
@@ -511,7 +511,7 @@
       },
       "eyebrow": "Destinations",
       "title": "Built for adventure. Driven by experience.",
-      "lead": "We design premium motorcycle and self-drive 4x4 expeditions across some of the most demanding landscapes on earth. Five countries, one standard of planning.",
+      "lead": "We design premium motorcycle and self-drive 4x4 expeditions across some of the most demanding landscapes on earth. Six countries, one standard of planning.",
       "heroAlt": "A road following a river valley through the Indian Himalayas",
       "intro": {
         "title": "Where we ride, and where we are honest about not riding yet.",
@@ -2050,7 +2050,24 @@
       "full": "Paid in full",
       "instalment": "Instalment"
     },
-    "receipts": "A receipt for every payment is emailed by Razorpay when it is taken. Card details are never stored here.",
-    "processing": "Processing"
+    "receipts": "Every settled payment has a receipt here, and Razorpay emails its own confirmation when it takes the money. Card details are never stored by us.",
+    "processing": "Processing",
+    "receipt": {
+      "title": "Payment receipt",
+      "reference": "Booking reference",
+      "tour": "Expedition",
+      "date": "Paid on",
+      "kind": "Payment",
+      "method": "Method",
+      "transaction": "Transaction",
+      "note": "This receipt is issued by Offhorizon Adventures for a payment received against the booking above. Card details are never stored by us; the payment was processed by Razorpay.",
+      "print": "Use your browser's print option to save this as a PDF.",
+      "download": "Receipt"
+    },
+    "colBooking": "Booking",
+    "colTour": "Expedition",
+    "colDate": "Date",
+    "colAmount": "Amount",
+    "colReceipt": "Receipt"
   }
 }
