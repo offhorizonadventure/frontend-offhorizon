@@ -715,7 +715,9 @@
               "Landscapes that shift from glacier to cold desert within a single day",
               "Living Hindu and Buddhist cultures, not preserved ones"
             ],
-            "after": ["We run expeditions in the Indian, Nepalese and Bhutanese Himalayas."]
+            "after": [
+              "We run expeditions in the Indian, Nepalese and Bhutanese Himalayas."
+            ]
           },
           {
             "question": "Why are the Himalayas the best place for a motorcycle expedition?",
@@ -751,7 +753,10 @@
           },
           {
             "question": "How difficult are Himalayan expeditions?",
-            "answer": ["Moderate to challenging, depending on the route.", "Expect:"],
+            "answer": [
+              "Moderate to challenging, depending on the route.",
+              "Expect:"
+            ],
             "list": [
               "Long riding days between 3,000 and 5,800 metres",
               "A mix of smooth tarmac and genuine off-road",
@@ -856,7 +861,9 @@
           },
           {
             "question": "When is the riding season in Nepal?",
-            "answer": ["Spring and autumn are the main windows, and Mustang stretches them."],
+            "answer": [
+              "Spring and autumn are the main windows, and Mustang stretches them."
+            ],
             "list": [
               "March to May: warm, clear, rhododendron in flower at altitude",
               "June to August: monsoon in most of the country, but Mustang sits in the rain shadow and stays comparatively dry",
@@ -938,7 +945,9 @@
               "Villages and monasteries that have changed very little",
               "Dry air, hard light and a wind that gets up every afternoon"
             ],
-            "after": ["It is the closest thing to riding in Tibet without crossing the border."]
+            "after": [
+              "It is the closest thing to riding in Tibet without crossing the border."
+            ]
           },
           {
             "question": "What is the Kali Gandaki gorge?",
@@ -949,7 +958,9 @@
           },
           {
             "question": "How difficult is the riding?",
-            "answer": ["Moderate. Less technical than Ladakh, but longer on unsealed surfaces."],
+            "answer": [
+              "Moderate. Less technical than Ladakh, but longer on unsealed surfaces."
+            ],
             "list": [
               "Sealed road from Kathmandu to Pokhara and beyond",
               "Gravel, riverbed and loose surfaces north of Jomsom",
@@ -978,7 +989,9 @@
           },
           {
             "question": "Do I need travel insurance?",
-            "answer": ["Yes. It is mandatory, and it must cover:"],
+            "answer": [
+              "Yes. It is mandatory, and it must cover:"
+            ],
             "list": [
               "High-altitude travel above 4,000 metres",
               "Motorcycle riding, which many standard policies exclude",
@@ -1057,7 +1070,9 @@
           },
           {
             "question": "When is the riding season in Bhutan?",
-            "answer": ["Spring and autumn, either side of the monsoon."],
+            "answer": [
+              "Spring and autumn, either side of the monsoon."
+            ],
             "list": [
               "March to May: rhododendron in flower, warm days, some haze",
               "June to August: heavy monsoon rain and landslides on the east west highway",
@@ -1209,7 +1224,9 @@
           },
           {
             "question": "Where do we sleep?",
-            "answer": ["A mix, and the balance shifts with the route."],
+            "answer": [
+              "A mix, and the balance shifts with the route."
+            ],
             "list": [
               "Ger camps where there are any, which is most nights on the central steppe",
               "Tents carried in the support vehicle on the remote sections",
@@ -1311,7 +1328,9 @@
           },
           {
             "question": "When can this expedition run?",
-            "answer": ["October and November, and there is little flexibility in that."],
+            "answer": [
+              "October and November, and there is little flexibility in that."
+            ],
             "list": [
               "October: the clearest skies of the year and the sharpest views of the north faces",
               "November: colder, quieter, still clear, and the last of the season",
@@ -1762,7 +1781,9 @@
         },
         {
           "title": "Who else sees it",
-          "body": ["Only the people needed to deliver the expedition, and only what they need."],
+          "body": [
+            "Only the people needed to deliver the expedition, and only what they need."
+          ],
           "list": [
             "Hotels, guesthouses and camps on your route, for the rooms in your name",
             "Government departments that issue restricted area and route permits",
@@ -1955,6 +1976,7 @@
     "status": {
       "paid": "Paid in full",
       "balance": "Balance outstanding",
+      "awaiting": "Confirming your payment",
       "cancelled": "Cancelled"
     },
     "detail": {
@@ -2028,6 +2050,7 @@
       "full": "Paid in full",
       "instalment": "Instalment"
     },
-    "receipts": "A receipt for every payment is emailed by Razorpay when it is taken. Card details are never stored here."
+    "receipts": "A receipt for every payment is emailed by Razorpay when it is taken. Card details are never stored here.",
+    "processing": "Processing"
   }
 }

@@ -753,7 +753,10 @@
           },
           {
             "question": "Wie schwierig sind Himalaya-Expeditionen?",
-            "answer": ["Mittel bis anspruchsvoll, je nach Route.", "Zu erwarten sind:"],
+            "answer": [
+              "Mittel bis anspruchsvoll, je nach Route.",
+              "Zu erwarten sind:"
+            ],
             "list": [
               "Lange Fahrtage zwischen 3.000 und 5.800 Metern",
               "Eine Mischung aus gutem Asphalt und echtem Gelände",
@@ -858,7 +861,9 @@
           },
           {
             "question": "Wann ist die Fahrsaison in Nepal?",
-            "answer": ["Frühjahr und Herbst sind die Hauptfenster, und Mustang dehnt sie aus."],
+            "answer": [
+              "Frühjahr und Herbst sind die Hauptfenster, und Mustang dehnt sie aus."
+            ],
             "list": [
               "März bis Mai: warm, klar, blühende Rhododendren in der Höhe",
               "Juni bis August: Monsun im größten Teil des Landes, aber Mustang liegt im Regenschatten und bleibt vergleichsweise trocken",
@@ -940,7 +945,9 @@
               "Dörfer und Klöster, die sich kaum verändert haben",
               "Trockene Luft, hartes Licht und ein Wind, der jeden Nachmittag auffrischt"
             ],
-            "after": ["Näher kommt man dem Fahren in Tibet nicht, ohne die Grenze zu überqueren."]
+            "after": [
+              "Näher kommt man dem Fahren in Tibet nicht, ohne die Grenze zu überqueren."
+            ]
           },
           {
             "question": "Was ist die Kali-Gandaki-Schlucht?",
@@ -982,7 +989,9 @@
           },
           {
             "question": "Brauche ich eine Reiseversicherung?",
-            "answer": ["Ja. Sie ist Pflicht und muss abdecken:"],
+            "answer": [
+              "Ja. Sie ist Pflicht und muss abdecken:"
+            ],
             "list": [
               "Aufenthalte über 4.000 Metern Höhe",
               "Motorradfahren, das viele Standardpolicen ausschließen",
@@ -1061,7 +1070,9 @@
           },
           {
             "question": "Wann ist die Saison in Bhutan?",
-            "answer": ["Frühjahr und Herbst, jeweils vor und nach dem Monsun."],
+            "answer": [
+              "Frühjahr und Herbst, jeweils vor und nach dem Monsun."
+            ],
             "list": [
               "März bis Mai: blühende Rhododendren, milde Tage, etwas Dunst",
               "Juni bis August: schwerer Monsunregen und Erdrutsche auf der Ost-West-Straße",
@@ -1213,7 +1224,9 @@
           },
           {
             "question": "Wo schlafen wir?",
-            "answer": ["Gemischt, und das Verhältnis hängt von der Route ab."],
+            "answer": [
+              "Gemischt, und das Verhältnis hängt von der Route ab."
+            ],
             "list": [
               "Jurtencamps, wo es welche gibt, also die meisten Nächte in der zentralen Steppe",
               "Zelte aus dem Begleitfahrzeug auf den abgelegenen Abschnitten",
@@ -1315,7 +1328,9 @@
           },
           {
             "question": "Wann kann diese Expedition stattfinden?",
-            "answer": ["Im Oktober und November, und daran lässt sich wenig ändern."],
+            "answer": [
+              "Im Oktober und November, und daran lässt sich wenig ändern."
+            ],
             "list": [
               "Oktober: der klarste Himmel des Jahres und die schärfsten Nordwände",
               "November: kälter, ruhiger, weiterhin klar, und das Ende der Saison",
@@ -1961,6 +1976,7 @@
     "status": {
       "paid": "Vollständig bezahlt",
       "balance": "Restbetrag offen",
+      "awaiting": "Zahlung wird bestätigt",
       "cancelled": "Storniert"
     },
     "detail": {
@@ -2034,6 +2050,7 @@
       "full": "Vollständig bezahlt",
       "instalment": "Rate"
     },
-    "receipts": "Razorpay schickt zu jeder Zahlung eine Quittung per E-Mail. Kartendaten werden hier nie gespeichert."
+    "receipts": "Razorpay schickt zu jeder Zahlung eine Quittung per E-Mail. Kartendaten werden hier nie gespeichert.",
+    "processing": "In Bearbeitung"
   }
 }

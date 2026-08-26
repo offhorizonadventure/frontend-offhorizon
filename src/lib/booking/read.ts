@@ -82,7 +82,10 @@ export async function listMyBookings(): Promise<BookingRow[]> {
     // Pending on the site means a checkout that was opened and abandoned, and
     // is not a booking. Pending in the office means one taken over the phone
     // and not yet paid, which is exactly what the rider needs to see.
-    .or("status.neq.pending,source.eq.office")
+    // Everything the rider owns, pending ones included. Hiding pending was
+    // meant to keep abandoned checkouts out of the way. What it did instead
+    // was show an empty page to somebody who had just paid, with no reference
+    // and no way back to the booking.
     .order("created_at", { ascending: false });
 
   return (data ?? []) as unknown as BookingRow[];
@@ -167,7 +170,9 @@ export async function listMyPayments(): Promise<PaymentHistoryRow[]> {
     .select(
       "id, kind, status, amount, currency, paid_at, created_at, method:raw->>method, booking:bookings(reference, tour:tours(title))",
     )
-    .in("status", ["paid", "refunded"])
+    // `created` is a payment opened and not yet settled. It belongs here: a
+    // rider who has just paid should see the attempt, not a blank list.
+    .in("status", ["paid", "refunded", "created"])
     .order("paid_at", { ascending: false, nullsFirst: false });
 
   return (data ?? []).map((row) => ({

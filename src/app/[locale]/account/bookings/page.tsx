@@ -50,12 +50,19 @@ export default async function BookingsPage({ params }: LayoutProps<"/[locale]">)
                   >
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-2.5">
-                        <Pill tone={left > 0 ? "pending" : "confirmed"}>
+                        <Pill
+                          tone={booking.status === "pending" || left > 0 ? "pending" : "confirmed"}
+                        >
                           {booking.status === "cancelled"
                             ? t("status.cancelled")
-                            : left > 0
-                              ? t("status.balance")
-                              : t("status.paid")}
+                            : booking.status === "pending"
+                              ? // Paid at the provider, not yet settled here. Saying
+                                // "balance outstanding" to someone who has just paid
+                                // reads as though the money went nowhere.
+                                t("status.awaiting")
+                              : left > 0
+                                ? t("status.balance")
+                                : t("status.paid")}
                         </Pill>
                         <span className="text-brand-800/45 font-mono text-[11.5px]">
                           {booking.reference}

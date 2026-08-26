@@ -715,7 +715,9 @@
               "Paisajes que pasan del glaciar al desierto frío en una misma jornada",
               "Culturas hindú y budista vivas, no conservadas"
             ],
-            "after": ["Organizamos expediciones en el Himalaya indio, nepalí y butanés."]
+            "after": [
+              "Organizamos expediciones en el Himalaya indio, nepalí y butanés."
+            ]
           },
           {
             "question": "¿Por qué el Himalaya es el mejor sitio para una expedición en moto?",
@@ -751,7 +753,10 @@
           },
           {
             "question": "¿Qué dificultad tienen las expediciones al Himalaya?",
-            "answer": ["De moderada a exigente, según la ruta.", "Hay que contar con:"],
+            "answer": [
+              "De moderada a exigente, según la ruta.",
+              "Hay que contar con:"
+            ],
             "list": [
               "Jornadas largas entre 3.000 y 5.800 metros",
               "Una mezcla de buen asfalto y off-road de verdad",
@@ -856,7 +861,9 @@
           },
           {
             "question": "¿Cuándo es la temporada para rodar en Nepal?",
-            "answer": ["Primavera y otoño son las ventanas principales, y el Mustang las alarga."],
+            "answer": [
+              "Primavera y otoño son las ventanas principales, y el Mustang las alarga."
+            ],
             "list": [
               "De marzo a mayo: templado, despejado, rododendros en flor en altura",
               "De junio a agosto: monzón en casi todo el país, pero el Mustang queda a sotavento y se mantiene relativamente seco",
@@ -938,7 +945,9 @@
               "Pueblos y monasterios que han cambiado muy poco",
               "Aire seco, luz dura y un viento que se levanta cada tarde"
             ],
-            "after": ["Es lo más parecido a rodar en el Tíbet sin cruzar la frontera."]
+            "after": [
+              "Es lo más parecido a rodar en el Tíbet sin cruzar la frontera."
+            ]
           },
           {
             "question": "¿Qué es el desfiladero del Kali Gandaki?",
@@ -980,7 +989,9 @@
           },
           {
             "question": "¿Necesito seguro de viaje?",
-            "answer": ["Sí. Es obligatorio y debe cubrir:"],
+            "answer": [
+              "Sí. Es obligatorio y debe cubrir:"
+            ],
             "list": [
               "Viajes en altura por encima de 4.000 metros",
               "La conducción de moto, que muchas pólizas estándar excluyen",
@@ -1059,7 +1070,9 @@
           },
           {
             "question": "¿Cuál es la temporada para rodar en Bután?",
-            "answer": ["Primavera y otoño, a uno y otro lado del monzón."],
+            "answer": [
+              "Primavera y otoño, a uno y otro lado del monzón."
+            ],
             "list": [
               "De marzo a mayo: rododendros en flor, días templados, algo de calima",
               "De junio a agosto: lluvias fuertes de monzón y desprendimientos en la carretera este-oeste",
@@ -1211,7 +1224,9 @@
           },
           {
             "question": "¿Dónde dormimos?",
-            "answer": ["Una mezcla, y el reparto cambia según la ruta."],
+            "answer": [
+              "Una mezcla, y el reparto cambia según la ruta."
+            ],
             "list": [
               "Campamentos de gers donde los hay, es decir casi todas las noches en la estepa central",
               "Tiendas que lleva el vehículo de apoyo en los tramos más remotos",
@@ -1313,7 +1328,9 @@
           },
           {
             "question": "¿Cuándo se puede hacer esta expedición?",
-            "answer": ["En octubre y noviembre, y ahí hay poco margen."],
+            "answer": [
+              "En octubre y noviembre, y ahí hay poco margen."
+            ],
             "list": [
               "Octubre: el cielo más limpio del año y las caras norte más nítidas",
               "Noviembre: más frío, más tranquilo, todavía despejado, y el final de la temporada",
@@ -1764,7 +1781,9 @@
         },
         {
           "title": "Quién más los ve",
-          "body": ["Solo quien hace falta para realizar la expedición, y solo lo que necesita."],
+          "body": [
+            "Solo quien hace falta para realizar la expedición, y solo lo que necesita."
+          ],
           "list": [
             "Hoteles, casas de huéspedes y campamentos de tu ruta, para las habitaciones a tu nombre",
             "Las administraciones que emiten los permisos de zonas restringidas y de ruta",
@@ -1957,6 +1976,7 @@
     "status": {
       "paid": "Pagada por completo",
       "balance": "Queda saldo",
+      "awaiting": "Confirmando tu pago",
       "cancelled": "Cancelada"
     },
     "detail": {
@@ -2030,6 +2050,7 @@
       "full": "Pagada por completo",
       "instalment": "Plazo"
     },
-    "receipts": "Razorpay envía por correo un recibo de cada pago. Los datos de la tarjeta nunca se guardan aquí."
+    "receipts": "Razorpay envía por correo un recibo de cada pago. Los datos de la tarjeta nunca se guardan aquí.",
+    "processing": "En proceso"
   }
 }

@@ -29,8 +29,12 @@ export default async function PaymentsPage({ params }: LayoutProps<"/[locale]">)
             <li key={payment.id} className="flex flex-wrap items-center justify-between gap-4 py-4">
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2.5">
-                  <Pill tone={payment.status === "refunded" ? "pending" : "confirmed"}>
-                    {payment.status === "refunded" ? t("refunded") : t("paid")}
+                  <Pill tone={payment.status === "paid" ? "confirmed" : "pending"}>
+                    {payment.status === "refunded"
+                      ? t("refunded")
+                      : payment.status === "paid"
+                        ? t("paid")
+                        : t("processing")}
                   </Pill>
                   <Link
                     href={`/account/bookings/${payment.booking.reference}`}
