@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 
-import { FacebookMark, GoogleMark } from "@/components/ui/BrandMarks";
+import { GoogleMark } from "@/components/ui/BrandMarks";
 
 export const fieldClass =
   "h-12 w-full rounded-xl border border-brand-900/15 bg-white px-4 text-[14px] text-brand-900 outline-none transition-[border-color,box-shadow] placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-[3px] focus:ring-brand-800/10";
@@ -96,31 +96,25 @@ export function PrimaryButton({
 }
 
 /**
- * Which providers Supabase actually has switched on.
+ * Google, above the email form rather than below it.
  *
+ * Only providers that are actually enabled in Supabase belong here.
  * signInWithOAuth sends the browser to Supabase before any error can come
- * back, so a provider that is not enabled does not fail inside the modal: it
- * drops the visitor onto a raw JSON error page on supabase.co. A button that
- * cannot be honoured is worse than no button, so the list is declared and the
- * rest are not drawn.
+ * back, so a provider that is not switched on does not fail inside the modal:
+ * it drops the visitor onto a raw JSON error page on supabase.co.
  *
- * Set NEXT_PUBLIC_OAUTH_PROVIDERS to "google,facebook" once both are
- * configured. Empty hides the block and its divider entirely.
+ * Facebook is written and commented out below rather than deleted. It needs
+ * App Review and Business Verification before it can be turned on, and this is
+ * the whole of what changes when it is.
  */
-const ENABLED = (process.env.NEXT_PUBLIC_OAUTH_PROVIDERS ?? "")
-  .split(",")
-  .map((name) => name.trim().toLowerCase())
-  .filter(Boolean);
-
-/** Google and Facebook, above the email form rather than below it. */
 export function SocialButtons({
   google,
-  facebook,
   divider,
   onProvider,
   disabled,
 }: {
   google: string;
+  /** Kept for when the Facebook button comes back. */
   facebook: string;
   divider: string;
   onProvider: (provider: "google" | "facebook") => void;
@@ -129,25 +123,23 @@ export function SocialButtons({
   const button =
     "flex h-12 flex-1 items-center justify-center gap-2.5 rounded-full border border-brand-900/15 bg-white text-[12.5px] font-semibold text-brand-900 transition-colors hover:border-brand-900/30 hover:bg-brand-50 disabled:pointer-events-none disabled:opacity-50";
 
-  // Nothing configured: no buttons, and no "or" rule left hanging above the
-  // email form with nothing over it.
-  if (!ENABLED.length) return null;
-
   return (
     <>
       <div className="flex gap-3">
-        {ENABLED.includes("google") && (
-          <button
-            type="button"
-            className={button}
-            disabled={disabled}
-            onClick={() => onProvider("google")}
-          >
-            <GoogleMark className="size-[18px]" />
-            {google}
-          </button>
-        )}
-        {ENABLED.includes("facebook") && (
+        <button
+          type="button"
+          className={button}
+          disabled={disabled}
+          onClick={() => onProvider("google")}
+        >
+          <GoogleMark className="size-[18px]" />
+          {google}
+        </button>
+
+        {/*
+          Facebook. To bring it back once Meta has approved the app, restore
+          FacebookMark to the import at the top of this file and uncomment:
+
           <button
             type="button"
             className={button}
@@ -157,7 +149,7 @@ export function SocialButtons({
             <FacebookMark className="size-[18px]" />
             {facebook}
           </button>
-        )}
+        */}
       </div>
 
       <div className="flex items-center gap-4">
