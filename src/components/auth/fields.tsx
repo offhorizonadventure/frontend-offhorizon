@@ -95,6 +95,23 @@ export function PrimaryButton({
   );
 }
 
+/**
+ * Which providers Supabase actually has switched on.
+ *
+ * signInWithOAuth sends the browser to Supabase before any error can come
+ * back, so a provider that is not enabled does not fail inside the modal: it
+ * drops the visitor onto a raw JSON error page on supabase.co. A button that
+ * cannot be honoured is worse than no button, so the list is declared and the
+ * rest are not drawn.
+ *
+ * Set NEXT_PUBLIC_OAUTH_PROVIDERS to "google,facebook" once both are
+ * configured. Empty hides the block and its divider entirely.
+ */
+const ENABLED = (process.env.NEXT_PUBLIC_OAUTH_PROVIDERS ?? "")
+  .split(",")
+  .map((name) => name.trim().toLowerCase())
+  .filter(Boolean);
+
 /** Google and Facebook, above the email form rather than below it. */
 export function SocialButtons({
   google,
@@ -112,27 +129,35 @@ export function SocialButtons({
   const button =
     "flex h-12 flex-1 items-center justify-center gap-2.5 rounded-full border border-brand-900/15 bg-white text-[12.5px] font-semibold text-brand-900 transition-colors hover:border-brand-900/30 hover:bg-brand-50 disabled:pointer-events-none disabled:opacity-50";
 
+  // Nothing configured: no buttons, and no "or" rule left hanging above the
+  // email form with nothing over it.
+  if (!ENABLED.length) return null;
+
   return (
     <>
       <div className="flex gap-3">
-        <button
-          type="button"
-          className={button}
-          disabled={disabled}
-          onClick={() => onProvider("google")}
-        >
-          <GoogleMark className="size-[18px]" />
-          {google}
-        </button>
-        <button
-          type="button"
-          className={button}
-          disabled={disabled}
-          onClick={() => onProvider("facebook")}
-        >
-          <FacebookMark className="size-[18px]" />
-          {facebook}
-        </button>
+        {ENABLED.includes("google") && (
+          <button
+            type="button"
+            className={button}
+            disabled={disabled}
+            onClick={() => onProvider("google")}
+          >
+            <GoogleMark className="size-[18px]" />
+            {google}
+          </button>
+        )}
+        {ENABLED.includes("facebook") && (
+          <button
+            type="button"
+            className={button}
+            disabled={disabled}
+            onClick={() => onProvider("facebook")}
+          >
+            <FacebookMark className="size-[18px]" />
+            {facebook}
+          </button>
+        )}
       </div>
 
       <div className="flex items-center gap-4">
