@@ -2062,7 +2062,8 @@
       "transaction": "Transaktion",
       "note": "Dieser Beleg wird von Offhorizon Adventures für eine Zahlung zur oben genannten Buchung ausgestellt. Kartendaten werden bei uns nie gespeichert; die Zahlung wurde von Razorpay abgewickelt.",
       "print": "Nutzen Sie die Druckfunktion Ihres Browsers, um dies als PDF zu speichern.",
-      "download": "Beleg"
+      "download": "Beleg",
+      "printButton": "Drucken oder als PDF speichern"
     },
     "colBooking": "Buchung",
     "colTour": "Expedition",

@@ -157,33 +157,62 @@ export async function acceptInvite(token: string) {
 
   const { data: seat } = await admin
     .from("booking_travellers")
-    .select("id, booking_id, user_id, booking:bookings(reference, status)")
+    .select("id, booking_id, user_id, booking:bookings(reference, status, departure_id)")
     .eq("invite_token", token)
     .maybeSingle();
 
   if (!seat) return { ok: false as const, error: "That invitation is not valid." };
   if (seat.user_id) return { ok: false as const, error: "That place has already been claimed." };
 
-  const booking = seat.booking as unknown as { reference: string; status: string };
+  const booking = seat.booking as unknown as {
+    reference: string;
+    status: string;
+    departure_id: string;
+  };
   if (booking.status === "cancelled") {
     return { ok: false as const, error: "That booking was cancelled." };
   }
 
-  // Nobody may hold two places on one booking.
-  const { data: existing } = await admin
+  // Nobody rides the same departure twice.
+  //
+  // This used to look only at the booking the invite belonged to, so somebody
+  // already going could accept a second invitation from another group on the
+  // same dates and hold two places on one trip. The question is the departure,
+  // not the booking.
+  const { data: held } = await admin
     .from("booking_travellers")
-    .select("id")
-    .eq("booking_id", seat.booking_id)
+    .select("id, booking:bookings!inner(reference, departure_id, status)")
     .eq("user_id", user.id)
-    .maybeSingle();
+    .eq("booking.departure_id", booking.departure_id)
+    .neq("booking.status", "cancelled")
+    .limit(1);
 
-  if (existing) return { ok: true as const, reference: booking.reference };
+  if (held?.length) {
+    const mine = held[0].booking as unknown as { reference: string };
+
+    // Already on this booking: nothing to do, and nothing has gone wrong.
+    return mine.reference === booking.reference
+      ? { ok: true as const, reference: booking.reference }
+      : {
+          ok: false as const,
+          error: `You already have a place on this departure, under ${mine.reference}.`,
+        };
+  }
+
+  // The name goes on the seat as well. Without it the group list showed the
+  // person as "Rider 2, joined", which tells the lead nothing about who
+  // actually accepted.
+  const named =
+    (user.user_metadata?.full_name as string | undefined) ??
+    (user.user_metadata?.name as string | undefined) ??
+    null;
 
   const { error } = await admin
     .from("booking_travellers")
     .update({
       user_id: user.id,
       email: user.email ?? null,
+      full_name: named,
       joined_at: new Date().toISOString(),
       invite_token: null,
     })

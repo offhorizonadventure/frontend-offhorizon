@@ -129,18 +129,6 @@ export function CheckoutForm({
         <input key={name} type="hidden" name={name} value={value} />
       ))}
 
-      <fieldset className="space-y-2.5">
-        <legend className={label}>{labels.planTitle}</legend>
-        {choice("full", labels.full, labels.fullNote, amounts.full)}
-        {depositAllowed ? (
-          choice("deposit", labels.deposit, labels.depositNote, amounts.deposit)
-        ) : (
-          <p className="text-brand-800/55 border-brand-900/12 rounded-2xl border border-dashed px-4 py-3 text-[12.5px] leading-snug">
-            {labels.depositClosed}
-          </p>
-        )}
-      </fieldset>
-
       <div className="space-y-4">
         <p className={label}>{labels.detailsTitle}</p>
 
@@ -165,6 +153,18 @@ export function CheckoutForm({
           <input name="phone" defaultValue={profile.phone} className={field} />
         </label>
       </div>
+
+      <fieldset className="space-y-2.5">
+        <legend className={label}>{labels.planTitle}</legend>
+        {choice("full", labels.full, labels.fullNote, amounts.full)}
+        {depositAllowed ? (
+          choice("deposit", labels.deposit, labels.depositNote, amounts.deposit)
+        ) : (
+          <p className="text-brand-800/55 border-brand-900/12 rounded-2xl border border-dashed px-4 py-3 text-[12.5px] leading-snug">
+            {labels.depositClosed}
+          </p>
+        )}
+      </fieldset>
 
       {notice && (
         <p

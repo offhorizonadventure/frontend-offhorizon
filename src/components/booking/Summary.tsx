@@ -9,22 +9,47 @@ export async function Summary({ locale, priced }: { locale: Locale; priced: Pric
 
   const byPerson = priced.kind === "4x4";
 
+  /**
+   * The money against each line, not just the count.
+   *
+   * The wizard's own summary reads "1 · NPR 3,053", and arriving at the
+   * checkout to find the same booking described as "1" with a single total at
+   * the bottom loses the reader the breakdown they had a moment ago. The
+   * amounts were already computed for this page; they were simply not shown.
+   */
+  const amountFor = (key: string) => priced.lines.find((line) => line.key === key)?.label ?? null;
+
+  const countAnd = (count: number, key: string) => {
+    const amount = amountFor(key);
+    return amount ? `${count} · ${amount}` : String(count);
+  };
+
   const rows: { label: string; value: string }[] = [
     { label: t("dates"), value: priced.dates },
-    { label: byPerson ? t("people") : t("riders"), value: String(priced.party.riders) },
+    {
+      label: byPerson ? t("people") : t("riders"),
+      value: countAnd(priced.party.riders, "rider"),
+    },
   ];
 
   if (priced.party.pillions) {
-    rows.push({ label: t("pillions"), value: String(priced.party.pillions) });
+    rows.push({ label: t("pillions"), value: countAnd(priced.party.pillions, "pillion") });
   }
   if (priced.party.singleRooms) {
-    rows.push({ label: t("rooms"), value: String(priced.party.singleRooms) });
+    rows.push({ label: t("rooms"), value: countAnd(priced.party.singleRooms, "room") });
   }
   if (priced.party.damageProtection) {
-    rows.push({ label: t("protection"), value: String(priced.party.damageProtection) });
+    rows.push({
+      label: t("protection"),
+      value: countAnd(priced.party.damageProtection, "protection"),
+    });
   }
   if (priced.vehicleName) {
-    rows.push({ label: t("vehicle"), value: priced.vehicleName });
+    const amount = amountFor("vehicle");
+    rows.push({
+      label: t("vehicle"),
+      value: amount ? `${priced.vehicleName} · ${amount}` : priced.vehicleName,
+    });
   }
   if (priced.party.ownVehicle) {
     rows.push({ label: t("vehicle"), value: t("ownVehicle") });

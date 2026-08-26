@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 
+import { PrintReceipt } from "@/components/account/PrintReceipt";
 import { resolveLocale } from "@/i18n/params";
 import { getMyPayment } from "@/lib/booking/read";
 import { formatMoney } from "@/lib/currency";
@@ -81,9 +82,10 @@ export default async function ReceiptPage({
         </p>
       </article>
 
-      <p className="text-brand-800/45 mx-auto mt-5 max-w-2xl text-center text-[12px] print:hidden">
-        {t("receipt.print")}
-      </p>
+      <div className="mx-auto mt-6 flex max-w-2xl flex-col items-center gap-3 print:hidden">
+        <PrintReceipt label={t("receipt.printButton")} />
+        <p className="text-brand-800/45 text-center text-[12px]">{t("receipt.print")}</p>
+      </div>
     </div>
   );
 }

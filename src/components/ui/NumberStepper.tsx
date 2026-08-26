@@ -51,30 +51,32 @@ export function NumberStepper({
 
   const step = (delta: number) => setValue(pending.current + delta);
 
+  /**
+   * Icon and word together.
+   *
+   * A thin minus in a pale circle is easy to miss and easy to mistake for
+   * decoration. The labels were already written for screen readers, so the
+   * sighted reader gets them too.
+   */
   const button =
-    "flex size-10 shrink-0 items-center justify-center rounded-full border border-brand-900/15 text-brand-800 transition-colors hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100 disabled:pointer-events-none disabled:opacity-30";
+    "flex h-10 shrink-0 items-center gap-1.5 rounded-full border border-brand-900/20 px-3.5 text-[11px] font-bold tracking-[0.1em] text-brand-800 uppercase transition-colors hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100 disabled:pointer-events-none disabled:opacity-30";
 
   return (
     <div>
       <label
         htmlFor={id}
-        className="text-brand-600 block text-[10.5px] font-bold tracking-[0.16em] uppercase"
+        className="text-brand-700 block text-[11px] font-bold tracking-[0.16em] uppercase"
       >
         {label}
       </label>
       {hint && <p className="text-brand-800/45 mt-1 text-[12px]">{hint}</p>}
 
-      <div className="border-brand-900/15 focus-within:border-brand-800 focus-within:ring-brand-800/10 mt-2.5 flex h-12 items-center justify-between rounded-xl border bg-white px-2 transition-[border-color,box-shadow] focus-within:ring-[3px]">
-        <button
-          type="button"
-          onClick={() => step(-1)}
-          disabled={value <= min}
-          aria-label={decreaseLabel}
-          className={button}
-        >
+      <div className="border-brand-900/15 focus-within:border-brand-800 focus-within:ring-brand-800/10 mt-2.5 flex h-14 items-center justify-between rounded-xl border bg-white px-2 transition-[border-color,box-shadow] focus-within:ring-[3px]">
+        <button type="button" onClick={() => step(-1)} disabled={value <= min} className={button}>
           <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden className="stroke-current">
-            <path d="M3 8h10" strokeWidth="1.75" strokeLinecap="round" />
+            <path d="M3 8h10" strokeWidth="2.25" strokeLinecap="round" />
           </svg>
+          {decreaseLabel}
         </button>
 
         <input
@@ -86,19 +88,14 @@ export function NumberStepper({
           max={max}
           value={value}
           onChange={(event) => setValue(Number(event.target.value) || min)}
-          className="text-brand-900 w-full min-w-0 [appearance:textfield] bg-transparent text-center text-[15px] font-semibold tabular-nums outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+          className="text-brand-900 w-full min-w-0 [appearance:textfield] bg-transparent text-center text-[17px] font-bold tabular-nums outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
         />
 
-        <button
-          type="button"
-          onClick={() => step(1)}
-          disabled={value >= max}
-          aria-label={increaseLabel}
-          className={button}
-        >
+        <button type="button" onClick={() => step(1)} disabled={value >= max} className={button}>
           <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden className="stroke-current">
-            <path d="M8 3v10M3 8h10" strokeWidth="1.75" strokeLinecap="round" />
+            <path d="M8 3v10M3 8h10" strokeWidth="2.25" strokeLinecap="round" />
           </svg>
+          {increaseLabel}
         </button>
       </div>
     </div>

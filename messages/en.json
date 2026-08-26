@@ -2062,7 +2062,8 @@
       "transaction": "Transaction",
       "note": "This receipt is issued by Offhorizon Adventures for a payment received against the booking above. Card details are never stored by us; the payment was processed by Razorpay.",
       "print": "Use your browser's print option to save this as a PDF.",
-      "download": "Receipt"
+      "download": "Receipt",
+      "printButton": "Print or save as PDF"
     },
     "colBooking": "Booking",
     "colTour": "Expedition",

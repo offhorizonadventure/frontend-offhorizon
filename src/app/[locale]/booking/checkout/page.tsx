@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 
+import { AskToSignIn } from "@/components/auth/AskToSignIn";
 import { CheckoutForm } from "@/components/booking/CheckoutForm";
 import { Summary } from "@/components/booking/Summary";
 import { Topo } from "@/components/ui/Topo";
@@ -90,6 +91,7 @@ export default async function CheckoutPage({
                 />
               ) : (
                 <div className="py-4">
+                  <AskToSignIn />
                   <h2 className="font-display text-brand-900 text-[19px] leading-tight font-bold tracking-[-0.02em]">
                     {t("signInTitle")}
                   </h2>

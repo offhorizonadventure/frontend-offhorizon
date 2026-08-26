@@ -2062,7 +2062,8 @@
       "transaction": "Transacción",
       "note": "Este recibo lo emite Offhorizon Adventures por un pago recibido correspondiente a la reserva indicada. Nunca guardamos los datos de la tarjeta; el pago lo procesó Razorpay.",
       "print": "Usa la opción de imprimir de tu navegador para guardarlo en PDF.",
-      "download": "Recibo"
+      "download": "Recibo",
+      "printButton": "Imprimir o guardar en PDF"
     },
     "colBooking": "Reserva",
     "colTour": "Expedición",
