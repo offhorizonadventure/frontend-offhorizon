@@ -72,11 +72,16 @@ export function NumberStepper({
       {hint && <p className="text-brand-800/60 mt-1 text-[12.5px]">{hint}</p>}
 
       <div className="border-brand-900/15 focus-within:border-brand-800 focus-within:ring-brand-800/10 mt-2.5 flex h-13 items-center justify-between rounded-xl border bg-white px-2 transition-[border-color,box-shadow] focus-within:ring-[3px]">
-        <button type="button" onClick={() => step(-1)} disabled={value <= min} className={button}>
-          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden className="stroke-current">
-            <path d="M3 8h10" strokeWidth="2.25" strokeLinecap="round" />
+        <button
+          type="button"
+          onClick={() => step(-1)}
+          disabled={value <= min}
+          aria-label={decreaseLabel}
+          className={button}
+        >
+          <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden className="stroke-current">
+            <path d="M3 8h10" strokeWidth="2" strokeLinecap="round" />
           </svg>
-          {decreaseLabel}
         </button>
 
         <input
@@ -91,11 +96,16 @@ export function NumberStepper({
           className="text-brand-900 w-full min-w-0 [appearance:textfield] bg-transparent text-center text-[17px] font-bold tabular-nums outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
         />
 
-        <button type="button" onClick={() => step(1)} disabled={value >= max} className={button}>
-          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden className="stroke-current">
-            <path d="M8 3v10M3 8h10" strokeWidth="2.25" strokeLinecap="round" />
+        <button
+          type="button"
+          onClick={() => step(1)}
+          disabled={value >= max}
+          aria-label={increaseLabel}
+          className={button}
+        >
+          <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden className="stroke-current">
+            <path d="M8 3v10M3 8h10" strokeWidth="2" strokeLinecap="round" />
           </svg>
-          {increaseLabel}
         </button>
       </div>
     </div>
