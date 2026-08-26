@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 
 import { NumberStepper } from "@/components/ui/NumberStepper";
+import { priceIcons } from "@/components/ui/icons";
 import { ArrowRight, ChevronDown } from "@/components/ui/icons";
 import { Link } from "@/i18n/navigation";
 
@@ -431,6 +432,7 @@ export function BookingWizard({
             <NumberStepper
               name="riders"
               label={byPerson ? labels.travellers.people : labels.travellers.riders}
+              icon={<priceIcons.rider className="text-brand-700" />}
               hint={byPerson ? labels.travellers.peopleHint : labels.travellers.ridersHint}
               min={1}
               max={maxRiders}
@@ -444,6 +446,7 @@ export function BookingWizard({
               <NumberStepper
                 name="pillions"
                 label={labels.travellers.pillions}
+                icon={<priceIcons.pillion className="text-brand-700" />}
                 hint={labels.travellers.pillionsHint}
                 min={0}
                 max={riders}
@@ -548,6 +551,7 @@ export function BookingWizard({
             <NumberStepper
               name="insurance"
               label={`${labels.extras.insurance} · ${price(prices.insurance)}`}
+              icon={<priceIcons.shield className="text-brand-700" />}
               hint={labels.extras.insuranceHint}
               min={0}
               max={maxInsurance}
@@ -560,6 +564,7 @@ export function BookingWizard({
             <NumberStepper
               name="singleRoom"
               label={`${labels.extras.room} · ${price(prices.room)}`}
+              icon={<priceIcons.singleRoom className="text-brand-700" />}
               hint={labels.extras.roomHint}
               min={0}
               max={maxRooms}

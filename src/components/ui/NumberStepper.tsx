@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useEffect, useId, useRef, useState } from "react";
 
 type NumberStepperProps = {
@@ -14,6 +15,8 @@ type NumberStepperProps = {
   onValueChange?: (value: number) => void;
   decreaseLabel: string;
   increaseLabel: string;
+  /** Sits beside the heading, so the row is recognisable before it is read. */
+  icon?: ReactNode;
 };
 
 /** Increment and decrement control. */
@@ -28,6 +31,7 @@ export function NumberStepper({
   onValueChange,
   decreaseLabel,
   increaseLabel,
+  icon,
 }: NumberStepperProps) {
   const [uncontrolled, setUncontrolled] = useState(defaultValue);
   const id = useId();
@@ -51,27 +55,23 @@ export function NumberStepper({
 
   const step = (delta: number) => setValue(pending.current + delta);
 
-  /**
-   * Icon and word together.
-   *
-   * A thin minus in a pale circle is easy to miss and easy to mistake for
-   * decoration. The labels were already written for screen readers, so the
-   * sighted reader gets them too.
-   */
   const button =
-    "flex h-10 shrink-0 items-center gap-1.5 rounded-full border border-brand-900/20 px-3.5 text-[11px] font-bold tracking-[0.1em] text-brand-800 uppercase transition-colors hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100 disabled:pointer-events-none disabled:opacity-30";
+    "flex size-10 shrink-0 items-center justify-center rounded-full border border-brand-900/15 text-brand-800 transition-colors hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100 disabled:pointer-events-none disabled:opacity-30";
 
   return (
     <div>
-      <label
-        htmlFor={id}
-        className="text-brand-700 block text-[11px] font-bold tracking-[0.16em] uppercase"
-      >
+      {/*
+        The heading carried the weight of a caption and was the quietest thing
+        in the row, under a control that is mostly white space. An icon and a
+        larger, darker word make the question recognisable before it is read.
+      */}
+      <label htmlFor={id} className="text-brand-900 flex items-center gap-2 text-[14px] font-bold">
+        {icon}
         {label}
       </label>
-      {hint && <p className="text-brand-800/45 mt-1 text-[12px]">{hint}</p>}
+      {hint && <p className="text-brand-800/60 mt-1 text-[12.5px]">{hint}</p>}
 
-      <div className="border-brand-900/15 focus-within:border-brand-800 focus-within:ring-brand-800/10 mt-2.5 flex h-14 items-center justify-between rounded-xl border bg-white px-2 transition-[border-color,box-shadow] focus-within:ring-[3px]">
+      <div className="border-brand-900/15 focus-within:border-brand-800 focus-within:ring-brand-800/10 mt-2.5 flex h-13 items-center justify-between rounded-xl border bg-white px-2 transition-[border-color,box-shadow] focus-within:ring-[3px]">
         <button type="button" onClick={() => step(-1)} disabled={value <= min} className={button}>
           <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden className="stroke-current">
             <path d="M3 8h10" strokeWidth="2.25" strokeLinecap="round" />
