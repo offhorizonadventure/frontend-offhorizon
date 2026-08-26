@@ -148,17 +148,28 @@ export function BookingWizard({
     return [now, now + 1, now + 2];
   }, []);
 
-  const money = useMemo(
-    () =>
-      new Intl.NumberFormat(locale, {
+  /** Whole units for real prices; decimals below a hundred, where rounding lies. */
+  const format = useMemo(
+    () => (amount: number) => {
+      const places = Math.abs(amount) < 100 ? 2 : 0;
+
+      return new Intl.NumberFormat(locale, {
         style: "currency",
         currency,
-        maximumFractionDigits: 0,
-      }),
+        minimumFractionDigits: places,
+        maximumFractionDigits: places,
+      }).format(amount);
+    },
     [locale, currency],
   );
 
-  const price = (base: number) => money.format(Math.round(base * rate));
+  // Rounded only where it is displayed whole, so four lines at 9.54 no longer
+  // read as four tens against a total of thirty-eight.
+  const price = (base: number) => {
+    const converted = base * rate;
+
+    return format(Math.abs(converted) < 100 ? converted : Math.round(converted));
+  };
 
   const dateRange = useMemo(
     () => new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", year: "numeric" }),

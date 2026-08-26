@@ -47,11 +47,27 @@ export async function getRate(from: Currency, to: Currency): Promise<number> {
   return rate as number;
 }
 
+/**
+ * How many decimal places an amount deserves.
+ *
+ * A tour costs thousands, and "$2,850.00" is noise, so whole units are right
+ * almost always. But rounding to whole units turns anything under half a unit
+ * into a zero, and a checkout that says the total is $0 is worse than one that
+ * says nothing: it is wrong, and the visitor cannot tell whether the site is
+ * broken or the trip is free.
+ *
+ * So below a hundred units the decimals come back. Real prices are unaffected.
+ */
+const placesFor = (amount: number) => (Math.abs(amount) < 100 ? 2 : 0);
+
 export function formatMoney(amount: number, currency: Currency, locale: Locale) {
+  const places = placesFor(amount);
+
   return new Intl.NumberFormat(locale, {
     style: "currency",
     currency,
-    maximumFractionDigits: 0,
+    minimumFractionDigits: places,
+    maximumFractionDigits: places,
   }).format(amount);
 }
 
