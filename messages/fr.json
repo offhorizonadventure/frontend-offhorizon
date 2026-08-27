@@ -1451,6 +1451,10 @@
       "next": "Photo suivante",
       "counter": "{current} sur {total}"
     },
+    "faq": {
+      "eyebrow": "Avant de réserver",
+      "title": "Les questions des motards"
+    },
     "cta": {
       "title": "Roulez celui-ci avec nous",
       "body": "Renseignez-vous sur une date de la liste, ou dites-nous quand vous pouvez partir et nous verrons ce qui convient."

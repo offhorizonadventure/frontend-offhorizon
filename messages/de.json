@@ -1451,6 +1451,10 @@
       "next": "Nächstes Foto",
       "counter": "{current} von {total}"
     },
+    "faq": {
+      "eyebrow": "Vor der Buchung",
+      "title": "Fragen, die Fahrer stellen"
+    },
     "cta": {
       "title": "Fahren Sie diese Route mit uns",
       "body": "Fragen Sie zu einem Termin aus der Liste an, oder sagen Sie uns, wann Sie können, und wir schauen, was passt."

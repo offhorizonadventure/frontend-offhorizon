@@ -1451,6 +1451,10 @@
       "next": "Foto siguiente",
       "counter": "{current} de {total}"
     },
+    "faq": {
+      "eyebrow": "Antes de reservar",
+      "title": "Preguntas de los moteros"
+    },
     "cta": {
       "title": "Haz esta expedición con nosotros",
       "body": "Pregunta por una fecha de la lista, o dinos cuándo puedes viajar y vemos qué encaja."

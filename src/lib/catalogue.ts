@@ -60,6 +60,9 @@ export type ProgrammeDay = {
 };
 export type GalleryImage = { path: string; alt: string };
 
+/** A question riders ask before they book, and the answer they get. */
+export type TourFaq = { question: string; answer: string };
+
 export type Tour = {
   id: string;
   slug: string;
@@ -87,6 +90,7 @@ export type Tour = {
   highlights: Highlight[];
   programme: ProgrammeDay[];
   gallery: GalleryImage[];
+  faqs: TourFaq[];
   rating: number | null;
   reviews: number | null;
   /** Machine translations keyed by locale, applied by `lib/translated`. */
@@ -154,6 +158,7 @@ const shape = (row: Record<string, unknown>): Tour => ({
   highlights: (row.highlights ?? []) as Highlight[],
   programme: (row.programme ?? []) as ProgrammeDay[],
   gallery: (row.gallery ?? []) as GalleryImage[],
+  faqs: (row.faqs ?? []) as TourFaq[],
 });
 
 /** Every published tour, read once a day rather than once a visitor. */

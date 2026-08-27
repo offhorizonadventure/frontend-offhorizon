@@ -1451,6 +1451,10 @@
       "next": "Foto successiva",
       "counter": "{current} di {total}"
     },
+    "faq": {
+      "eyebrow": "Prima di prenotare",
+      "title": "Le domande dei motociclisti"
+    },
     "cta": {
       "title": "Fai questa spedizione con noi",
       "body": "Chiedi informazioni su una data in elenco, oppure dicci quando puoi partire e vediamo cosa funziona."

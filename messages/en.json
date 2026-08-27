@@ -1451,6 +1451,10 @@
       "next": "Next photograph",
       "counter": "{current} of {total}"
     },
+    "faq": {
+      "eyebrow": "Before you book",
+      "title": "Questions riders ask"
+    },
     "cta": {
       "title": "Ride this one with us",
       "body": "Ask about a date on the list, or tell us when you can travel and we will see what fits."

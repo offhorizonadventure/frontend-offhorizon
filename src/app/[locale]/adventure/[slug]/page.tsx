@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { Riders } from "@/components/about/Riders";
 import { CtaBand } from "@/components/destinations/CtaBand";
+import { Faq } from "@/components/destinations/Faq";
 import { ExpectTabs } from "@/components/tour/ExpectTabs";
 import { Fleet } from "@/components/tour/Fleet";
 import { Gallery } from "@/components/tour/Gallery";
@@ -221,6 +222,22 @@ export default async function TourPage({ params }: PageProps<"/[locale]/adventur
             next: t("gallery.next"),
             counter: t.raw("gallery.counter") as string,
           }}
+        />
+      )}
+
+      {tour.faqs.length > 0 && (
+        <Faq
+          eyebrow={t("faq.eyebrow")}
+          title={t("faq.title")}
+          // One answer written in the office may run to several paragraphs, and
+          // a blank line is how somebody typing into a box says so.
+          items={tour.faqs.map((entry) => ({
+            question: entry.question,
+            answer: entry.answer
+              .split(/\n\s*\n/)
+              .map((part) => part.trim())
+              .filter(Boolean),
+          }))}
         />
       )}
 
