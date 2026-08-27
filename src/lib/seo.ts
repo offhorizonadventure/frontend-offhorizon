@@ -42,7 +42,7 @@ const url = (locale: Locale, path: string) => `${siteUrl}/${locale}${path === "/
 
 type SeoInput = {
   locale: Locale;
-  /** Path without the locale prefix, e.g. "/adventure/ladakh". */
+  /** Path without the locale prefix, e.g. "/india/ladakh-circuit". */
   path?: string;
   title?: string;
   description?: string;

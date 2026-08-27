@@ -4,7 +4,7 @@ import { Panel } from "@/components/account/parts";
 import { ArrowRight } from "@/components/ui/icons";
 import type { Locale } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
-import { listMyExpeditions } from "@/lib/catalogue";
+import { listMyExpeditions, tourPath } from "@/lib/catalogue";
 
 /** Custom expeditions built for this rider, which nobody else can see. */
 export async function MyExpeditions({ locale }: { locale: Locale }) {
@@ -26,7 +26,7 @@ export async function MyExpeditions({ locale }: { locale: Locale }) {
         {dated.map(({ tour, departures }) => (
           <li key={tour.id}>
             <Link
-              href={`/adventure/${tour.slug}`}
+              href={tourPath(tour)}
               className="group ring-brand-900/8 hover:ring-brand-900/20 flex flex-wrap items-center justify-between gap-5 rounded-[20px] bg-white p-5 ring-1 transition-shadow"
             >
               <span className="min-w-0">

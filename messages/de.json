@@ -2088,5 +2088,22 @@
     "colDate": "Datum",
     "colAmount": "Betrag",
     "colReceipt": "Beleg"
+  },
+  "thankYou": {
+    "meta": {
+      "title": "Danke",
+      "description": "Ihre Anfrage ist bei uns."
+    },
+    "title": "Danke für Ihre Anfrage",
+    "bodyQuick": "Sie ist bei uns, und jemand, der die Strecke selbst gefahren ist, wird sie lesen, kein Formularsystem.",
+    "bodyCustom": "Sie ist bei uns. Eine Reise um Ihre Termine und Ihr Gelände herum zu bauen braucht etwas Überlegung, deshalb ist die Antwort ein Plan und kein Prospekt.",
+    "steps": [
+      "Wir lesen sie und gleichen die Termine mit den geplanten Abfahrten ab.",
+      "Sie hören innerhalb von 24 Stunden von uns, per E-Mail und über WhatsApp.",
+      "Wir schicken Route, Termine und Preis, und ändern daran, was Sie geändert haben möchten."
+    ],
+    "urgent": "Wenn es dringend ist, erreichen Sie uns direkt:",
+    "browse": "Die Expeditionen ansehen",
+    "home": "Zurück zum Anfang"
   }
 }

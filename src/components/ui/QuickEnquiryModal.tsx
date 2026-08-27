@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
@@ -47,6 +48,7 @@ export function QuickEnquiryModal({
   source?: string;
 }) {
   const locale = useLocale();
+  const router = useRouter();
   const [phase, setPhase] = useState<Phase>("closed");
   const [sent, setSent] = useState(false);
   const [pending, setPending] = useState(false);
@@ -94,14 +96,16 @@ export function QuickEnquiryModal({
       message: String(data.get("message") ?? ""),
     });
 
-    setPending(false);
-
     if (!result.ok) {
+      setPending(false);
       setError(result.error);
       return;
     }
 
+    // A page of its own, so the send can be counted. Pending stays on until the
+    // new page paints, otherwise the form looks ready to send a second time.
     setSent(true);
+    router.push(`/${locale}/thank-you?from=quick`);
   }
 
   const field =

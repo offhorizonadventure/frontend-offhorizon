@@ -1,5 +1,5 @@
 import { listPosts } from "@/lib/blog";
-import { listTours } from "@/lib/catalogue";
+import { listTours, tourPath } from "@/lib/catalogue";
 import { siteName, siteUrl } from "@/lib/seo";
 
 /** llms.txt: what this site is, for a model reading it rather than a crawler. */
@@ -22,7 +22,7 @@ export async function GET() {
     "",
     ...tours.map((tour) => {
       const summary = tour.lead?.split(". ")[0] ?? "";
-      return `- [${tour.title}](${siteUrl}/en/adventure/${tour.slug}): ${summary}`;
+      return `- [${tour.title}](${siteUrl}/en${tourPath(tour)}): ${summary}`;
     }),
     "",
     "## Journal",

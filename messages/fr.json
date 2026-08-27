@@ -2088,5 +2088,22 @@
     "colDate": "Date",
     "colAmount": "Montant",
     "colReceipt": "Reçu"
+  },
+  "thankYou": {
+    "meta": {
+      "title": "Merci",
+      "description": "Votre demande nous est parvenue."
+    },
+    "title": "Merci pour votre demande",
+    "bodyQuick": "Elle nous est parvenue, et c'est quelqu'un qui a roulé sur cet itinéraire qui la lira, pas un robot.",
+    "bodyCustom": "Elle nous est parvenue. Construire un voyage autour de vos dates et de votre terrain demande un peu de réflexion : la réponse sera un projet, pas une brochure.",
+    "steps": [
+      "Nous la lisons et comparons vos dates avec les départs déjà prévus.",
+      "Vous avez de nos nouvelles sous 24 heures, par e-mail et sur WhatsApp.",
+      "Nous envoyons l'itinéraire, les dates et le prix, et nous modifions ce que vous voulez."
+    ],
+    "urgent": "Si c'est urgent, joignez-nous directement :",
+    "browse": "Voir les expéditions",
+    "home": "Retour à l'accueil"
   }
 }

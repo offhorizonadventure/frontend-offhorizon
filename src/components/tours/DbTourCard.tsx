@@ -4,7 +4,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { Star } from "@/components/ui/icons";
 import type { Locale } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
-import { imageUrl, type Tour } from "@/lib/catalogue";
+import { imageUrl, tourPath, type Tour } from "@/lib/catalogue";
 import { getPrice } from "@/lib/currency";
 
 export type CardTour = {
@@ -82,7 +82,7 @@ export async function DbTourCard({
           </p>
 
           <Link
-            href={`/adventure/${tour.slug}`}
+            href={tourPath(tour)}
             className="border-brand-900/20 text-brand-800 hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100 inline-flex h-11 shrink-0 items-center justify-center rounded-full border px-5 text-center text-[11px] font-bold tracking-[0.11em] uppercase transition-colors duration-300"
           >
             {t("cta")}

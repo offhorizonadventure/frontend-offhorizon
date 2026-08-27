@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useId, useState } from "react";
 
@@ -71,6 +72,7 @@ export function CustomExpeditionForm({
   currency,
 }: Props) {
   const locale = useLocale();
+  const router = useRouter();
   // Read from the catalogue: an ICU plural cannot cross into a client component.
   const t = useTranslations("custom.fields");
   // Passed in from the server, which is the only side that knows where the visitor is.
@@ -126,14 +128,16 @@ export function CustomExpeditionForm({
         : { ...shared, partyModel: "vehicle", vehicleChoice, people },
     );
 
-    setPending(false);
-
     if (!result.ok) {
+      setPending(false);
       setError(result.error);
       return;
     }
 
+    // A page of its own, so the send can be counted. Pending stays on until the
+    // new page paints, otherwise the form looks ready to send a second time.
     setSent(true);
+    router.push(`/${locale}/thank-you?from=custom`);
   }
 
   const field =

@@ -2088,5 +2088,22 @@
     "colDate": "Data",
     "colAmount": "Importo",
     "colReceipt": "Ricevuta"
+  },
+  "thankYou": {
+    "meta": {
+      "title": "Grazie",
+      "description": "La tua richiesta è arrivata."
+    },
+    "title": "Grazie per la tua richiesta",
+    "bodyQuick": "È arrivata, e la leggerà qualcuno che quel percorso lo ha guidato, non un sistema automatico.",
+    "bodyCustom": "È arrivata. Costruire un viaggio sulle tue date e sul tuo terreno richiede un po' di pensiero, quindi la risposta sarà un progetto e non un dépliant.",
+    "steps": [
+      "La leggiamo e confrontiamo le date con le partenze già in programma.",
+      "Ti rispondiamo entro 24 ore, via email e su WhatsApp.",
+      "Ti mandiamo percorso, date e costo, e cambiamo quello che vuoi cambiare."
+    ],
+    "urgent": "Se è urgente, contattaci direttamente:",
+    "browse": "Vedi le spedizioni",
+    "home": "Torna all'inizio"
   }
 }

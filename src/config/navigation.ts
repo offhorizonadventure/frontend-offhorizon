@@ -58,25 +58,25 @@ const countries: Country[] = [
         tours: [
           {
             key: "greatHimalayanTraverse",
-            href: "/adventure/great-himalayan-traverse",
+            href: "/india/great-himalayan-traverse",
             days: 23,
             image: greatTraverse,
           },
           {
             key: "himalayanExpedition",
-            href: "/adventure/himalayan-expedition",
+            href: "/india/himalayan-expedition",
             days: 11,
             image: himalayanExpedition,
           },
           {
             key: "ladakhCircuit",
-            href: "/adventure/ladakh-circuit",
+            href: "/india/ladakh-circuit",
             days: 8,
             image: ladakhCircuit,
           },
           {
             key: "himalayas4x4",
-            href: "/adventure/indian-himalayas-4x4-expedition",
+            href: "/india/indian-himalayas-4x4-expedition",
             days: 14,
             image: himalayas4x4,
           },
@@ -95,21 +95,21 @@ const countries: Country[] = [
         tours: [
           {
             key: "upperMustang",
-            href: "/adventure/upper-mustang-motorcycle-tour",
+            href: "/nepal/upper-mustang-motorcycle-tour",
             days: 12,
             provisional: true,
             image: upperMustang,
           },
           {
             key: "lowerMustang",
-            href: "/adventure/lower-mustang-motorcycle-tour",
+            href: "/nepal/lower-mustang-motorcycle-tour",
             days: 8,
             provisional: true,
             image: lowerMustang,
           },
           {
             key: "nepal4x4",
-            href: "/adventure/nepal-4x4-expedition",
+            href: "/nepal/nepal-4x4-expedition",
             days: 11,
             provisional: true,
             image: nepal4x4,
@@ -129,7 +129,7 @@ const countries: Country[] = [
         tours: [
           {
             key: "bhutanMotorcycle",
-            href: "/adventure/bhutan-motorcycle-tour",
+            href: "/bhutan/bhutan-motorcycle-tour",
             days: 9,
             provisional: true,
             image: bhutanMotorcycle,
@@ -149,7 +149,7 @@ const countries: Country[] = [
         tours: [
           {
             key: "everestBaseCamp",
-            href: "/adventure/everest-base-camp-motorcycle-expedition",
+            href: "/tibet/everest-base-camp-motorcycle-expedition",
             days: 11,
             image: everestBaseCamp,
           },
@@ -168,7 +168,7 @@ const countries: Country[] = [
         tours: [
           {
             key: "sriLankaMotorcycle",
-            href: "/adventure/sri-lanka-motorcycle-tour",
+            href: "/sri-lanka/sri-lanka-motorcycle-tour",
             days: 10,
             provisional: true,
             image: sriLankaMotorcycle,
@@ -188,14 +188,14 @@ const countries: Country[] = [
         tours: [
           {
             key: "mongoliaMotorcycle",
-            href: "/adventure/mongolia-motorcycle-tour",
+            href: "/mongolia/mongolia-motorcycle-tour",
             days: 12,
             provisional: true,
             image: mongoliaMotorcycle,
           },
           {
             key: "mongolia4x4",
-            href: "/adventure/mongolia-4x4-expedition",
+            href: "/mongolia/mongolia-4x4-expedition",
             days: 14,
             provisional: true,
             image: mongolia4x4,

@@ -2088,5 +2088,22 @@
     "colDate": "Fecha",
     "colAmount": "Importe",
     "colReceipt": "Recibo"
+  },
+  "thankYou": {
+    "meta": {
+      "title": "Gracias",
+      "description": "Tu consulta está con nosotros."
+    },
+    "title": "Gracias por tu consulta",
+    "bodyQuick": "Está con nosotros, y la leerá alguien que ha recorrido la ruta, no un sistema automático.",
+    "bodyCustom": "Está con nosotros. Montar un viaje alrededor de tus fechas y tu terreno lleva algo de reflexión, así que la respuesta será un plan y no un folleto.",
+    "steps": [
+      "La leemos y cotejamos las fechas con las salidas ya previstas.",
+      "Tendrás noticias nuestras en 24 horas, por correo y por WhatsApp.",
+      "Te enviamos la ruta, las fechas y lo que cuesta, y cambiamos lo que quieras cambiar."
+    ],
+    "urgent": "Si es urgente, contáctanos directamente:",
+    "browse": "Ver las expediciones",
+    "home": "Volver al inicio"
   }
 }

@@ -48,6 +48,23 @@ const COUNTRY_NAMES: Record<CountrySlug, string> = {
 export const countryName = (slug: string | null | undefined) =>
   COUNTRY_NAMES[slug as CountrySlug] ?? null;
 
+export const COUNTRY_SLUGS = Object.keys(COUNTRY_NAMES) as CountrySlug[];
+
+export const isCountrySlug = (value: string): value is CountrySlug =>
+  Object.hasOwn(COUNTRY_NAMES, value);
+
+/**
+ * Where a tour lives, without the locale.
+ *
+ * The country is part of the address because that is how people look for these
+ * trips. A tour filed under no country has nowhere to sit, so it keeps the old
+ * shape rather than inventing one.
+ */
+export const tourPath = (tour: { slug: string; country: string | null }) =>
+  tour.country && isCountrySlug(tour.country)
+    ? `/${tour.country}/${tour.slug}`
+    : `/adventure/${tour.slug}`;
+
 export type ExpectPanel = { key: string; tab: string; title: string; body: string };
 export type Highlight = { path: string | null; label: string; alt: string };
 export type ProgrammeDay = {

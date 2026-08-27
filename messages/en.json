@@ -2088,5 +2088,22 @@
     "colDate": "Date",
     "colAmount": "Amount",
     "colReceipt": "Receipt"
+  },
+  "thankYou": {
+    "meta": {
+      "title": "Thank you",
+      "description": "Your enquiry is with us."
+    },
+    "title": "Thank you for your enquiry",
+    "bodyQuick": "It is with us, and somebody who has ridden the route will read it rather than a form handler.",
+    "bodyCustom": "It is with us. Building a trip around your dates and terrain takes a little thought, so the reply will be a plan rather than a brochure.",
+    "steps": [
+      "We read it, and check the dates against what is already running.",
+      "You hear from us within 24 hours, by email and on WhatsApp.",
+      "We send the route, the dates and what it costs, and change any of it you want changed."
+    ],
+    "urgent": "If it is urgent, reach us directly:",
+    "browse": "See the expeditions",
+    "home": "Back to the start"
   }
 }

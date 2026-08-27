@@ -55,7 +55,7 @@ export function translate(tour: Tour, locale: string): Tour {
       body: at(`excluded_items.${index}.body`, item.body) ?? item.body,
     })),
 
-    faqs: tour.faqs.map((entry, index) => ({
+    faqs: (tour.faqs ?? []).map((entry, index) => ({
       question: at(`faqs.${index}.question`, entry.question) ?? entry.question,
       answer: at(`faqs.${index}.answer`, entry.answer) ?? entry.answer,
     })),

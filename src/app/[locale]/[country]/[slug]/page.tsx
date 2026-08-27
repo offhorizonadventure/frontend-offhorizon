@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 
 import { Riders } from "@/components/about/Riders";
@@ -17,7 +17,14 @@ import { RouteMap } from "@/components/tour/RouteMap";
 import { TourHero } from "@/components/tour/TourHero";
 import { Topo } from "@/components/ui/Topo";
 import { buildBooking } from "@/lib/booking-props";
-import { countryName, getTour, imageUrl, listDepartures, listMyDepartures } from "@/lib/catalogue";
+import {
+  countryName,
+  getTour,
+  imageUrl,
+  listDepartures,
+  listMyDepartures,
+  tourPath,
+} from "@/lib/catalogue";
 import { translate } from "@/lib/translated";
 import { resolveLocale } from "@/i18n/params";
 import { buildMetadata, siteUrl } from "@/lib/seo";
@@ -37,11 +44,21 @@ export const dynamic = "force-dynamic";
 /** The tour behind the page. Custom expeditions run ordinary tours. */
 const readTour = (slug: string) => getTour(slug);
 
-export async function generateMetadata({ params }: PageProps<"/[locale]/adventure/[slug]">) {
+/**
+ * The address tours used to live at, before the country became part of it.
+ *
+ * Old links are in Google, in emails already sent and on other people's sites,
+ * so this segment still answers. A tour that now has a country is redirected
+ * permanently, which hands the ranking on. A tour filed under no country has
+ * nowhere else to be, so this stays its address.
+ */
+const MOVED = "adventure";
+
+export async function generateMetadata({ params }: PageProps<"/[locale]/[country]/[slug]">) {
   const locale = await resolveLocale(params);
-  const { slug } = await params;
+  const { country, slug } = await params;
   const source = await readTour(slug);
-  if (!source) return {};
+  if (!source || tourPath(source) !== `/${country}/${slug}`) return {};
 
   const tour = translate(source, locale);
 
@@ -49,7 +66,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/adventur
 
   return buildMetadata({
     locale,
-    path: `/adventure/${tour.slug}`,
+    path: tourPath(tour),
     title: tour.title,
     description: (tour.lead ?? "").slice(0, 155),
     keywords: [tour.title, countryName(tour.country) ?? "", "motorcycle expedition"].filter(
@@ -67,11 +84,21 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/adventur
   });
 }
 
-export default async function TourPage({ params }: PageProps<"/[locale]/adventure/[slug]">) {
+export default async function TourPage({ params }: PageProps<"/[locale]/[country]/[slug]">) {
   const locale = await resolveLocale(params);
-  const { slug } = await params;
+  const { country, slug } = await params;
   const source = await readTour(slug);
   if (!source) notFound();
+
+  const path = tourPath(source);
+
+  // The country in the address has to be the one the tour is filed under. Any
+  // other spelling is a different page, not this one wearing a new name, and
+  // two addresses for one page is what a canonical is meant to prevent.
+  if (path !== `/${country}/${slug}`) {
+    if (country === MOVED) permanentRedirect(`/${locale}${path}`);
+    notFound();
+  }
 
   // Translated fields laid over the English rows, field by field.
   const tour = translate(source, locale);
@@ -93,6 +120,8 @@ export default async function TourPage({ params }: PageProps<"/[locale]/adventur
   const gallery = galleryList(tour);
   const expect = expectList(tour);
   const routeMap = imageUrl(tour.route_map_path);
+  // A tour read before the column existed has none at all.
+  const faqs = tour.faqs ?? [];
   const priceGroups = pricing(tour, departures);
 
   /**
@@ -127,7 +156,7 @@ export default async function TourPage({ params }: PageProps<"/[locale]/adventur
     "@type": "TouristTrip",
     name,
     description: tour.lead ?? undefined,
-    url: `${siteUrl}/${locale}/adventure/${tour.slug}`,
+    url: `${siteUrl}/${locale}${tourPath(tour)}`,
     itinerary: {
       "@type": "ItemList",
       numberOfItems: programme.length,
@@ -228,13 +257,13 @@ export default async function TourPage({ params }: PageProps<"/[locale]/adventur
         />
       )}
 
-      {tour.faqs.length > 0 && (
+      {faqs.length > 0 && (
         <Faq
           eyebrow={t("faq.eyebrow")}
           title={t("faq.title")}
           // One answer written in the office may run to several paragraphs, and
           // a blank line is how somebody typing into a box says so.
-          items={tour.faqs.map((entry) => ({
+          items={faqs.map((entry) => ({
             question: entry.question,
             answer: entry.answer
               .split(/\n\s*\n/)
