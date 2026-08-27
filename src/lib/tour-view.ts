@@ -47,7 +47,9 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
 
   const machine =
     cheapest.kind === "motorbike"
-      ? cheapest.bike_name
+      ? // Machines picked from the fleet win over the typed name: the office
+        // chose them more recently, and a stale line of text would outrank them.
+        cheapest.vehicles.map((vehicle) => vehicle.name).join(", ") || cheapest.bike_name || null
       : // A 4x4 expedition's cars are priced per day, so the machine line is
         // the vehicle fact rather than a single name.
         (tour.facts?.vehicle ?? null);
