@@ -134,43 +134,45 @@ function MemberCard({ member, className }: { member: Member; className?: string 
       </div>
 
       <figcaption className="mt-3">
-        <span className="font-display text-brand-900 block text-[14px] leading-tight font-bold tracking-[-0.01em]">
-          {member.name}
+        <span className="flex items-center justify-between gap-2">
+          <span className="font-display text-brand-900 text-[14px] leading-tight font-bold tracking-[-0.01em]">
+            {member.name}
+          </span>
+
+          {/* Only where somebody works in the open. The rest of the crew are not
+              on the internet for a living and are not linked. */}
+          {member.links && (
+            <span className="flex shrink-0 items-center gap-2">
+              {member.links.linkedin && (
+                <a
+                  href={member.links.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer me"
+                  aria-label={`${member.name} on LinkedIn`}
+                  className="text-brand-800/35 hover:text-brand-900 transition-colors"
+                >
+                  <LinkedIn className="h-3.5 w-3.5" />
+                </a>
+              )}
+              {member.links.instagram && (
+                <a
+                  href={member.links.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer me"
+                  aria-label={`${member.name} on Instagram`}
+                  className="text-brand-800/35 hover:text-brand-900 transition-colors"
+                >
+                  <Instagram className="h-3.5 w-3.5" />
+                </a>
+              )}
+            </span>
+          )}
         </span>
 
-        {member.links ? (
-          // Icons only, and only where somebody works in the open. The rest of
-          // the crew are not on the internet for a living and are not linked.
-          <span className="mt-2 flex items-center gap-2.5">
-            {member.links.linkedin && (
-              <a
-                href={member.links.linkedin}
-                target="_blank"
-                rel="noopener noreferrer me"
-                aria-label={`${member.name} on LinkedIn`}
-                className="text-brand-800/45 hover:text-brand-900 transition-colors"
-              >
-                <LinkedIn />
-              </a>
-            )}
-            {member.links.instagram && (
-              <a
-                href={member.links.instagram}
-                target="_blank"
-                rel="noopener noreferrer me"
-                aria-label={`${member.name} on Instagram`}
-                className="text-brand-800/45 hover:text-brand-900 transition-colors"
-              >
-                <Instagram />
-              </a>
-            )}
-          </span>
-        ) : (
-          <span
-            aria-hidden
-            className="bg-ember-500/60 ease-out-expo mt-2 block h-px w-6 transition-all duration-500 group-hover:w-12"
-          />
-        )}
+        <span
+          aria-hidden
+          className="bg-ember-500/60 ease-out-expo mt-2 block h-px w-6 transition-all duration-500 group-hover:w-12"
+        />
       </figcaption>
     </figure>
   );

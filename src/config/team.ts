@@ -27,7 +27,7 @@ export type Member = {
 
 /** Crew grouped by function. */
 export type TeamGroup = {
-  key: "lead" | "operations" | "creative" | "technical" | "web" | "support";
+  key: "lead" | "operations" | "creative" | "technical" | "support";
   members: Member[];
 };
 
@@ -52,6 +52,14 @@ export const team: TeamGroup[] = [
       { name: "Taniya", photo: octTaniya },
       { name: "Tushar Ranta", photo: octTushar },
       { name: "Mahinder Thakur", photo: octMahinder },
+      {
+        name: "Piyush Manna",
+        photo: wtsPiyush,
+        links: {
+          linkedin: "https://www.linkedin.com/in/pcodesdaily/",
+          instagram: "https://www.instagram.com/piyushiitm/",
+        },
+      },
     ],
   },
   {
@@ -62,19 +70,6 @@ export const team: TeamGroup[] = [
       { name: "Hishe Bodh", photo: mctHishe },
       { name: "Ajay", photo: mctAjay },
       { name: "Sonu", photo: mctSonu },
-    ],
-  },
-  {
-    key: "web",
-    members: [
-      {
-        name: "Piyush Manna",
-        photo: wtsPiyush,
-        links: {
-          linkedin: "https://www.linkedin.com/in/pcodesdaily/",
-          instagram: "https://www.instagram.com/piyushiitm/",
-        },
-      },
     ],
   },
   {
