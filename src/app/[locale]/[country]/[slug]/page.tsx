@@ -114,7 +114,7 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
 
   const name = tour.title;
   const hero = imageUrl(tour.hero_path);
-  const facts = factList(tour);
+  const facts = factList(tour, departures);
   const highlights = highlightList(tour);
   const programme = programmeList(tour);
   const gallery = galleryList(tour);

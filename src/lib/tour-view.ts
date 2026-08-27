@@ -30,12 +30,47 @@ function present(key: FactKey, value: string): string {
   return value;
 }
 
-/** In the order the page shows them, skipping any the editor left blank. */
-export const factList = (tour: Tour): { key: FactKey; value: string }[] =>
-  Object.entries(FACT_KEYS)
-    .map(([column, key]) => ({ key, value: (tour.facts?.[column] ?? "").trim() }))
+/**
+ * What the group travels on, taken from the expeditions rather than typed.
+ *
+ * The machine belongs to the dated running, not to the tour: two departures of
+ * the same route can go out on different bikes, and the office already chooses
+ * them there. Names picked from the fleet win over the line of text a motorbike
+ * expedition may carry instead, since the fleet is the more recent decision.
+ */
+export function machineFor(departures: Departure[]): string | null {
+  const names = [
+    ...new Set(
+      departures.flatMap((departure) => departure.vehicles.map((vehicle) => vehicle.name)),
+    ),
+  ];
+
+  if (names.length) return names.join(", ");
+
+  const typed = [
+    ...new Set(departures.map((departure) => departure.bike_name?.trim()).filter(Boolean)),
+  ];
+
+  return typed.join(", ") || null;
+}
+
+/**
+ * In the order the page shows them, skipping any the editor left blank.
+ *
+ * The vehicle is the exception: it is not a fact anybody types about the tour,
+ * it is whatever the expeditions actually run.
+ */
+export const factList = (tour: Tour, departures: Departure[] = []) => {
+  const machine = machineFor(departures);
+
+  return Object.entries(FACT_KEYS)
+    .map(([column, key]) => ({
+      key,
+      value: (key === "vehicle" ? (machine ?? "") : (tour.facts?.[column] ?? "")).trim(),
+    }))
     .filter((fact) => fact.value)
     .map((fact) => ({ ...fact, value: present(fact.key, fact.value) }));
+};
 
 /** The price card, built from the cheapest departure. */
 export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
@@ -45,14 +80,8 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
 
   if (!cheapest) return [];
 
-  const machine =
-    cheapest.kind === "motorbike"
-      ? // Machines picked from the fleet win over the typed name: the office
-        // chose them more recently, and a stale line of text would outrank them.
-        cheapest.vehicles.map((vehicle) => vehicle.name).join(", ") || cheapest.bike_name || null
-      : // A 4x4 expedition's cars are priced per day, so the machine line is
-        // the vehicle fact rather than a single name.
-        (tour.facts?.vehicle ?? null);
+  // Whatever this particular departure goes out on.
+  const machine = machineFor([cheapest]);
 
   const groups: PriceGroup[] = [
     {
