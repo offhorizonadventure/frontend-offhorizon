@@ -1559,8 +1559,18 @@
     "less": "Leer menos",
     "fleet": {
       "eyebrow": "La flota",
-      "title": "Los coches que salen contigo",
-      "lead": "Cada uno se alquila para toda la expedición, {days} días en la salida más corta, y se comparte entre quienes viajan en él.",
+      "cars": {
+        "title": "Los vehículos que salen contigo",
+        "lead": "Cada uno se alquila durante toda la expedición, {days} días en la salida más corta, y se comparte entre quienes viajan en él."
+      },
+      "bikes": {
+        "title": "Las motos que conduces",
+        "lead": "Preparadas para el terreno y revisadas antes de cada salida, {days} días en la más corta, e incluidas en el precio del piloto."
+      },
+      "mixed": {
+        "title": "Las máquinas que salen contigo",
+        "lead": "Preparadas para el terreno y listas para toda la expedición, {days} días en la salida más corta."
+      },
       "seats": "{count} plazas",
       "perDay": "al día",
       "forTrip": "{total} por {days} días"

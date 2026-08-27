@@ -100,6 +100,8 @@ export type Tour = {
 /** A car on a 4x4 expedition. */
 export type Vehicle = {
   id: string;
+  /** A motorcycle carries its rider; a car carries a party. */
+  kind: "bike" | "car";
   name: string;
   per_day_price: number | null;
   seats: number | null;

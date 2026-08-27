@@ -1559,8 +1559,18 @@
     "less": "Leggi meno",
     "fleet": {
       "eyebrow": "La flotta",
-      "title": "I mezzi che partono con te",
-      "lead": "Ognuno è noleggiato per tutta la spedizione, {days} giorni sulla partenza più breve, e condiviso da chi ci viaggia.",
+      "cars": {
+        "title": "I mezzi che partono con voi",
+        "lead": "Ognuno è noleggiato per la durata della spedizione, {days} giorni sulla partenza più breve, e condiviso tra chi viaggia."
+      },
+      "bikes": {
+        "title": "Le moto che guidate",
+        "lead": "Preparate per il terreno e revisionate prima di ogni partenza, {days} giorni sulla più breve, e comprese nel prezzo del pilota."
+      },
+      "mixed": {
+        "title": "I mezzi che partono con voi",
+        "lead": "Preparati per il terreno e pronti per tutta la spedizione, {days} giorni sulla partenza più breve."
+      },
       "seats": "{count} posti",
       "perDay": "al giorno",
       "forTrip": "{total} per {days} giorni"

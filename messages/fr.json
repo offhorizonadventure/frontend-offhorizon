@@ -1559,8 +1559,18 @@
     "less": "Lire moins",
     "fleet": {
       "eyebrow": "La flotte",
-      "title": "Les véhicules qui partent avec vous",
-      "lead": "Chacun est loué pour la durée de l'expédition, {days} jours sur le départ le plus court, et partagé entre ses occupants.",
+      "cars": {
+        "title": "Les véhicules qui partent avec vous",
+        "lead": "Chacun est loué pour la durée de l'expédition, {days} jours sur le départ le plus court, et partagé entre les personnes à bord."
+      },
+      "bikes": {
+        "title": "Les machines que vous pilotez",
+        "lead": "Préparées pour le terrain et révisées avant chaque départ, {days} jours sur le plus court, et comprises dans le prix pilote."
+      },
+      "mixed": {
+        "title": "Les machines qui partent avec vous",
+        "lead": "Préparées pour le terrain et prêtes pour toute la durée de l'expédition, {days} jours sur le départ le plus court."
+      },
       "seats": "{count} places",
       "perDay": "par jour",
       "forTrip": "{total} pour {days} jours"

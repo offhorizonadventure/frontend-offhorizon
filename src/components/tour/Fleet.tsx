@@ -6,7 +6,12 @@ import type { Locale } from "@/i18n/config";
 import { fleetImageUrl, type Vehicle } from "@/lib/catalogue";
 import { getPrice } from "@/lib/currency";
 
-/** The cars a 4x4 expedition runs. */
+/**
+ * The machines an expedition runs: cars on a 4x4, motorcycles on a ride.
+ *
+ * A tour can have both kinds of departure, so the heading follows what is
+ * actually in the list rather than assuming.
+ */
 export async function Fleet({
   locale,
   vehicles,
@@ -21,6 +26,9 @@ export async function Fleet({
   days: number;
 }) {
   const t = await getTranslations({ locale, namespace: "tour.fleet" });
+
+  const bikes = vehicles.filter((vehicle) => vehicle.kind === "bike").length;
+  const tone = bikes === vehicles.length ? "bikes" : bikes > 0 ? "mixed" : "cars";
 
   const cards = await Promise.all(
     vehicles.map(async (vehicle) => ({
@@ -47,10 +55,10 @@ export async function Fleet({
             {t("eyebrow")}
           </span>
           <h2 className="font-display text-brand-900 mt-5 text-[clamp(1.7rem,3.4vw,2.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em] text-balance">
-            {t("title")}
+            {t(`${tone}.title`)}
           </h2>
           <p className="text-brand-800/65 mt-5 text-[15px] leading-[1.85] text-pretty">
-            {t("lead", { days })}
+            {t(`${tone}.lead`, { days })}
           </p>
         </div>
 
@@ -78,9 +86,12 @@ export async function Fleet({
                     {vehicle.name}
                   </h3>
 
-                  <p className="text-brand-800/55 mt-1.5 text-[12.5px]">
-                    {t("seats", { count: vehicle.seats ?? 4 })}
-                  </p>
+                  {/* A motorcycle has no seat count worth printing. */}
+                  {vehicle.kind !== "bike" && (
+                    <p className="text-brand-800/55 mt-1.5 text-[12.5px]">
+                      {t("seats", { count: vehicle.seats ?? 4 })}
+                    </p>
+                  )}
 
                   {vehicle.notes && (
                     <p className="text-brand-800/60 mt-3 text-[13.5px] leading-[1.7]">

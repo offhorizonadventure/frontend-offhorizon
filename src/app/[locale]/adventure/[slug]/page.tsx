@@ -95,13 +95,16 @@ export default async function TourPage({ params }: PageProps<"/[locale]/adventur
   const routeMap = imageUrl(tour.route_map_path);
   const priceGroups = pricing(tour, departures);
 
-  /** The cars on offer, gathered from every 4x4 departure. */
+  /**
+   * The machines on offer, gathered from every departure.
+   *
+   * A 4x4 always picks its cars from the fleet. A motorbike expedition may pick
+   * its bikes or simply name one, and a named one is not a fleet record, so
+   * those departures add nothing here and the section stays away.
+   */
   const fleet = [
     ...new Map(
-      departures
-        .filter((departure) => departure.kind === "4x4")
-        .flatMap((departure) => departure.vehicles)
-        .map((vehicle) => [vehicle.id, vehicle]),
+      departures.flatMap((departure) => departure.vehicles).map((vehicle) => [vehicle.id, vehicle]),
     ).values(),
   ];
 

@@ -1559,8 +1559,18 @@
     "less": "Read less",
     "fleet": {
       "eyebrow": "The fleet",
-      "title": "The cars that go out with you",
-      "lead": "Each is hired for the length of the expedition, {days} days on the shortest departure, and shared between the people in it.",
+      "cars": {
+        "title": "The cars that go out with you",
+        "lead": "Each is hired for the length of the expedition, {days} days on the shortest departure, and shared between the people in it."
+      },
+      "bikes": {
+        "title": "The machines you ride",
+        "lead": "Prepared for the terrain and serviced before every departure, {days} days on the shortest one, and included in the rider price."
+      },
+      "mixed": {
+        "title": "The machines that go out with you",
+        "lead": "Prepared for the terrain and ready for the length of the expedition, {days} days on the shortest departure."
+      },
       "seats": "{count} seats",
       "perDay": "a day",
       "forTrip": "{total} for {days} days"

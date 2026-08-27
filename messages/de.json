@@ -1559,8 +1559,18 @@
     "less": "Weniger lesen",
     "fleet": {
       "eyebrow": "Der Fuhrpark",
-      "title": "Die Fahrzeuge, die mitfahren",
-      "lead": "Jedes wird für die Dauer der Expedition gemietet, {days} Tage bei der kürzesten Abfahrt, und von den Insassen geteilt.",
+      "cars": {
+        "title": "Die Fahrzeuge, die mitfahren",
+        "lead": "Jedes wird für die Dauer der Expedition gemietet, {days} Tage bei der kürzesten Abfahrt, und von den Mitfahrenden geteilt."
+      },
+      "bikes": {
+        "title": "Die Maschinen, die Sie fahren",
+        "lead": "Für das Gelände vorbereitet und vor jeder Abfahrt gewartet, {days} Tage bei der kürzesten, und im Fahrerpreis enthalten."
+      },
+      "mixed": {
+        "title": "Die Maschinen, die mitfahren",
+        "lead": "Für das Gelände vorbereitet und bereit für die gesamte Expedition, {days} Tage bei der kürzesten Abfahrt."
+      },
       "seats": "{count} Sitze",
       "perDay": "pro Tag",
       "forTrip": "{total} für {days} Tage"
