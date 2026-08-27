@@ -20,6 +20,7 @@ export async function TourActions({ locale, booking }: { locale: Locale; booking
       {/* Outlined beside Book now on a phone; the brown pill used site wide above sm. */}
       <QuickEnquiryModal
         labels={labels}
+        source={booking.tourName}
         className="border-brand-900/15 text-brand-800 shadow-brand-950/10 hover:border-brand-800 hover:bg-brand-800 hover:text-cream-100 sm:bg-brand-800 sm:text-cream-100 sm:shadow-brand-950/25 sm:hover:bg-brand-900 pointer-events-auto flex h-12 flex-1 basis-0 cursor-pointer items-center justify-center gap-2.5 rounded-full border bg-white/90 px-4 text-[11px] font-bold tracking-[0.12em] whitespace-nowrap uppercase shadow-lg backdrop-blur-md transition-colors duration-300 sm:inline-flex sm:flex-none sm:border-0 sm:px-7 sm:text-[11.5px] sm:tracking-[0.13em]"
       >
         <span

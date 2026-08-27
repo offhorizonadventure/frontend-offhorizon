@@ -38,12 +38,21 @@ export type SubmitResult = { ok: true } | { ok: false; error: string };
 
 const FAILED = "We could not send that. Please try again, or email us directly.";
 
+/**
+ * Where the enquiry came from, as a short label.
+ *
+ * The browser chooses this, so it is clamped here rather than trusted. It is
+ * only ever read by the office, but a field with no ceiling is a field somebody
+ * will eventually put a novel in.
+ */
+const asSource = (value: string) => value.trim().slice(0, 120) || "Quick enquiry";
+
 async function insertQuickEnquiry(input: QuickEnquiryInput): Promise<SubmitResult> {
   try {
     const { error } = await createClient()
       .from("quick_enquiries")
       .insert({
-        source: input.source,
+        source: asSource(input.source),
         locale: input.locale,
         full_name: input.fullName,
         email: input.email,
@@ -77,7 +86,7 @@ async function insertCustomEnquiry(input: CustomEnquiryInput): Promise<SubmitRes
     const { error } = await createClient()
       .from("custom_enquiries")
       .insert({
-        source: input.source,
+        source: asSource(input.source),
         locale: input.locale,
         first_name: input.firstName,
         last_name: input.lastName || null,

@@ -35,10 +35,16 @@ export function QuickEnquiryModal({
   labels,
   className,
   children,
+  source = "Quick enquiry",
 }: {
   labels: Labels;
   className?: string;
   children?: ReactNode;
+  /**
+   * Where the enquiry was sent from. On an expedition page this is the
+   * expedition, which is what the office needs to answer without asking.
+   */
+  source?: string;
 }) {
   const locale = useLocale();
   const [phase, setPhase] = useState<Phase>("closed");
@@ -79,7 +85,7 @@ export function QuickEnquiryModal({
     setError(null);
 
     const result = await sendQuickEnquiry({
-      source: "Quick enquiry",
+      source,
       locale,
       fullName: String(data.get("fullName") ?? ""),
       email: String(data.get("email") ?? ""),
