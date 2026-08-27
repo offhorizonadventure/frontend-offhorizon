@@ -309,6 +309,7 @@
         "operations": "Operations",
         "creative": "Operations and creative",
         "technical": "Mechanics and technical crew",
+        "web": "Website and online",
         "support": "On-road support"
       },
       "leadFacts": {
@@ -2021,7 +2022,11 @@
       "formOpen": "Open the form",
       "formDone": "I have sent my documents",
       "formSaved": "Thank you, that is noted.",
-      "person": "Person"
+      "person": "Person",
+      "nameEdit": "Add a name",
+      "nameSave": "Save",
+      "nameCancel": "Cancel",
+      "namePlaceholder": "Full name"
     },
     "partyPeople": "{people, plural, one {# person} other {# people}}",
     "custom": {

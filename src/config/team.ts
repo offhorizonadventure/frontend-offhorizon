@@ -16,12 +16,18 @@ import ohUjjwal from "../../public/team/oh-ujj.jpg";
 import orscNikhil from "../../public/team/orsc-nt.jpg";
 import orscRajesh from "../../public/team/orsc-rt.jpg";
 import hobSurya from "../../public/team/hob-st.jpg";
+import wtsPiyush from "../../public/team/wts-piyush.png";
 
-export type Member = { name: string; photo: StaticImageData };
+export type Member = {
+  name: string;
+  photo: StaticImageData;
+  /** Shown as icons on the card. Only where somebody works in the open. */
+  links?: { linkedin?: string; instagram?: string };
+};
 
 /** Crew grouped by function. */
 export type TeamGroup = {
-  key: "lead" | "operations" | "creative" | "technical" | "support";
+  key: "lead" | "operations" | "creative" | "technical" | "web" | "support";
   members: Member[];
 };
 
@@ -56,6 +62,19 @@ export const team: TeamGroup[] = [
       { name: "Hishe Bodh", photo: mctHishe },
       { name: "Ajay", photo: mctAjay },
       { name: "Sonu", photo: mctSonu },
+    ],
+  },
+  {
+    key: "web",
+    members: [
+      {
+        name: "Piyush Manna",
+        photo: wtsPiyush,
+        links: {
+          linkedin: "https://www.linkedin.com/in/pcodesdaily/",
+          instagram: "https://www.instagram.com/piyushiitm/",
+        },
+      },
     ],
   },
   {

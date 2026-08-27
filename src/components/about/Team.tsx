@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
+import { Instagram, LinkedIn } from "@/components/ui/icons";
 import { Topo } from "@/components/ui/Topo";
 import { team, type Member } from "@/config/team";
 import { cn } from "@/lib/cn";
@@ -136,10 +137,40 @@ function MemberCard({ member, className }: { member: Member; className?: string 
         <span className="font-display text-brand-900 block text-[14px] leading-tight font-bold tracking-[-0.01em]">
           {member.name}
         </span>
-        <span
-          aria-hidden
-          className="bg-ember-500/60 ease-out-expo mt-2 block h-px w-6 transition-all duration-500 group-hover:w-12"
-        />
+
+        {member.links ? (
+          // Icons only, and only where somebody works in the open. The rest of
+          // the crew are not on the internet for a living and are not linked.
+          <span className="mt-2 flex items-center gap-2.5">
+            {member.links.linkedin && (
+              <a
+                href={member.links.linkedin}
+                target="_blank"
+                rel="noopener noreferrer me"
+                aria-label={`${member.name} on LinkedIn`}
+                className="text-brand-800/45 hover:text-brand-900 transition-colors"
+              >
+                <LinkedIn />
+              </a>
+            )}
+            {member.links.instagram && (
+              <a
+                href={member.links.instagram}
+                target="_blank"
+                rel="noopener noreferrer me"
+                aria-label={`${member.name} on Instagram`}
+                className="text-brand-800/45 hover:text-brand-900 transition-colors"
+              >
+                <Instagram />
+              </a>
+            )}
+          </span>
+        ) : (
+          <span
+            aria-hidden
+            className="bg-ember-500/60 ease-out-expo mt-2 block h-px w-6 transition-all duration-500 group-hover:w-12"
+          />
+        )}
       </figcaption>
     </figure>
   );

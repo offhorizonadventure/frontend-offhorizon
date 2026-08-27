@@ -22,7 +22,7 @@ import {
   Wallet as LuWallet,
   X as LuX,
 } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp, FaYoutube } from "react-icons/fa6";
 
 /** Single place the app gets its icons from. */
 type IconProps = { className?: string };
@@ -110,6 +110,10 @@ export const Facebook = ({ className = "" }: IconProps) => (
 
 export const Instagram = ({ className = "" }: IconProps) => (
   <FaInstagram size={17} aria-hidden className={`shrink-0 ${className}`} />
+);
+
+export const LinkedIn = ({ className = "" }: IconProps) => (
+  <FaLinkedinIn size={17} aria-hidden className={`shrink-0 ${className}`} />
 );
 
 export const YouTube = ({ className = "" }: IconProps) => (

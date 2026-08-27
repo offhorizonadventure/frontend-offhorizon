@@ -309,6 +309,7 @@
         "operations": "Operaciones",
         "creative": "Operaciones y creatividad",
         "technical": "Mecánica y equipo técnico",
+        "web": "Sitio web y online",
         "support": "Apoyo en ruta"
       },
       "leadFacts": {
@@ -2021,7 +2022,11 @@
       "formOpen": "Abrir el formulario",
       "formDone": "He enviado mis documentos",
       "formSaved": "Gracias, queda anotado.",
-      "person": "Persona"
+      "person": "Persona",
+      "nameEdit": "Añadir un nombre",
+      "nameSave": "Guardar",
+      "nameCancel": "Cancelar",
+      "namePlaceholder": "Nombre completo"
     },
     "partyPeople": "{people, plural, one {# persona} other {# personas}}",
     "custom": {

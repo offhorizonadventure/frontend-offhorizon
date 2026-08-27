@@ -309,6 +309,7 @@
         "operations": "Betrieb",
         "creative": "Betrieb und Kreation",
         "technical": "Mechanik und Technik",
+        "web": "Website und Online",
         "support": "Begleitung unterwegs"
       },
       "leadFacts": {
@@ -2021,7 +2022,11 @@
       "formOpen": "Formular öffnen",
       "formDone": "Ich habe meine Unterlagen geschickt",
       "formSaved": "Danke, das ist vermerkt.",
-      "person": "Person"
+      "person": "Person",
+      "nameEdit": "Namen hinzufügen",
+      "nameSave": "Speichern",
+      "nameCancel": "Abbrechen",
+      "namePlaceholder": "Vollständiger Name"
     },
     "partyPeople": "{people, plural, one {# Person} other {# Personen}}",
     "custom": {

@@ -224,3 +224,57 @@ export async function acceptInvite(token: string) {
   revalidatePath("/account/bookings", "layout");
   return { ok: true as const, reference: booking.reference };
 }
+
+/**
+ * Names a seat nobody has claimed.
+ *
+ * A pillion has no account and no way to introduce themselves, so the booking
+ * shows "Pillion 1" until the person who paid says who it is. Same for a rider
+ * seat still waiting on its invitation.
+ *
+ * Only the lead may do it, and only to a seat with no account behind it: once
+ * somebody has joined, their name is theirs and not the lead's to rewrite.
+ *
+ * Goes through the service key because the column grants deliberately leave
+ * full_name out of what a signed-in customer may write directly.
+ */
+export async function setTravellerName(travellerId: string, name: string) {
+  const user = await getUser();
+  if (!user) return { ok: false as const, error: "Sign in first." };
+
+  if (!(await withinLimit("name-traveller", 30))) {
+    return { ok: false as const, error: "Too many changes. Give it a few minutes." };
+  }
+
+  const clean = name.trim().slice(0, 120);
+
+  const admin = createAdminClient();
+
+  const { data: seat } = await admin
+    .from("booking_travellers")
+    .select("id, user_id, booking:bookings(reference, lead_user_id)")
+    .eq("id", travellerId)
+    .maybeSingle();
+
+  if (!seat) return { ok: false as const, error: "That place is not on this booking." };
+
+  const booking = seat.booking as unknown as { reference: string; lead_user_id: string };
+  if (booking.lead_user_id !== user.id) {
+    return { ok: false as const, error: "Only the rider who booked can change this." };
+  }
+
+  if (seat.user_id) {
+    return { ok: false as const, error: "That rider has joined and manages their own name." };
+  }
+
+  const { error } = await admin
+    .from("booking_travellers")
+    .update({ full_name: clean || null })
+    .eq("id", travellerId)
+    .is("user_id", null);
+
+  if (error) return { ok: false as const, error: "That could not be saved." };
+
+  revalidatePath("/account/bookings", "layout");
+  return { ok: true as const, name: clean };
+}

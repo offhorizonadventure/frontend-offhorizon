@@ -309,6 +309,7 @@
         "operations": "Operazioni",
         "creative": "Operazioni e creatività",
         "technical": "Meccanica e assistenza tecnica",
+        "web": "Sito web e online",
         "support": "Assistenza su strada"
       },
       "leadFacts": {
@@ -2021,7 +2022,11 @@
       "formOpen": "Apri il modulo",
       "formDone": "Ho inviato i miei documenti",
       "formSaved": "Grazie, è annotato.",
-      "person": "Persona"
+      "person": "Persona",
+      "nameEdit": "Aggiungi un nome",
+      "nameSave": "Salva",
+      "nameCancel": "Annulla",
+      "namePlaceholder": "Nome completo"
     },
     "partyPeople": "{people, plural, one {# persona} other {# persone}}",
     "custom": {
