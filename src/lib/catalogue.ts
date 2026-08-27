@@ -57,8 +57,11 @@ export const isCountrySlug = (value: string): value is CountrySlug =>
  * Where a tour lives, without the locale.
  *
  * The country is part of the address because that is how people look for these
- * trips. A tour filed under no country has nowhere to sit, so it keeps the old
- * shape rather than inventing one.
+ * trips, and the admin will not save a tour without one.
+ *
+ * The fallback is for a row written before that rule existed. It is not a
+ * shape anything should produce, but a tour that predates the rule is better
+ * served at its old address than at /null/its-slug.
  */
 export const tourPath = (tour: { slug: string; country: string | null }) =>
   tour.country && isCountrySlug(tour.country)
