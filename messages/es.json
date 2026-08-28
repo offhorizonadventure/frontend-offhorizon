@@ -1474,7 +1474,9 @@
       "noDates": "Todavía no hay fechas para esta expedición. Dinos cuándo quieres rodar y la montamos a tu medida.",
       "book": "Reservar ahora",
       "perPerson": "por persona",
-      "personLine": "Persona"
+      "personLine": "Persona",
+      "more": "Ver {count} más",
+      "less": "Mostrar menos"
     },
     "highlights": {
       "eyebrow": "Lo más destacado",

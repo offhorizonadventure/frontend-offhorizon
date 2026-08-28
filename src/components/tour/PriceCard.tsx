@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
 import { DatesDrawer } from "@/components/tour/DatesDrawer";
+import { MoreLines } from "@/components/tour/MoreLines";
 import { ArrowRight, priceIcons } from "@/components/ui/icons";
 import type { Departure, FactKey, PriceGroup } from "@/lib/tour-types";
 import type { Locale } from "@/i18n/config";
@@ -82,41 +83,50 @@ export async function PriceCard({
               </h3>
 
               <ul className="mt-3 space-y-2.5">
-                {group.lines.map((line) => (
-                  <li key={line.label} className="flex items-start gap-3">
-                    <span className="bg-brand-900/6 text-brand-700 mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full">
-                      <line.Icon />
-                    </span>
-
-                    <span className="min-w-0 flex-1">
-                      <span className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
-                        <span className="font-display text-brand-900 text-[14px] leading-snug font-bold tracking-[-0.01em]">
-                          {line.label}
-                        </span>
-                        <span
-                          className={`text-[13px] leading-snug font-bold whitespace-nowrap tabular-nums ${
-                            line.price ? "text-brand-900" : "text-brand-700/70"
-                          }`}
-                        >
-                          {line.price ? (
-                            <>
-                              {line.addon && <span className="text-brand-800/40">+ </span>}
-                              {line.price}
-                            </>
-                          ) : (
-                            t("price.included")
-                          )}
-                        </span>
+                <MoreLines
+                  visible={2}
+                  /* Raw: the count is only known in the browser, and asking
+                     next-intl to format a message whose placeholder is missing
+                     hands back the key rather than the sentence. */
+                  moreLabel={t.raw("price.more") as string}
+                  lessLabel={t("price.less")}
+                >
+                  {group.lines.map((line) => (
+                    <li key={line.label} className="flex items-start gap-3">
+                      <span className="bg-brand-900/6 text-brand-700 mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full">
+                        <line.Icon />
                       </span>
 
-                      {line.note && (
-                        <span className="text-brand-800/50 mt-0.5 block text-[11.5px] leading-snug">
-                          {line.note}
+                      <span className="min-w-0 flex-1">
+                        <span className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
+                          <span className="font-display text-brand-900 text-[14px] leading-snug font-bold tracking-[-0.01em]">
+                            {line.label}
+                          </span>
+                          <span
+                            className={`text-[13px] leading-snug font-bold whitespace-nowrap tabular-nums ${
+                              line.price ? "text-brand-900" : "text-brand-700/70"
+                            }`}
+                          >
+                            {line.price ? (
+                              <>
+                                {line.addon && <span className="text-brand-800/40">+ </span>}
+                                {line.price}
+                              </>
+                            ) : (
+                              t("price.included")
+                            )}
+                          </span>
                         </span>
-                      )}
-                    </span>
-                  </li>
-                ))}
+
+                        {line.note && (
+                          <span className="text-brand-800/50 mt-0.5 block text-[11.5px] leading-snug">
+                            {line.note}
+                          </span>
+                        )}
+                      </span>
+                    </li>
+                  ))}
+                </MoreLines>
               </ul>
             </div>
           ))}

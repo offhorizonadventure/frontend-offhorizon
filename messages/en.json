@@ -1474,7 +1474,9 @@
       "noDates": "Dates for this expedition are not set yet. Tell us when you want to ride and we will build it around you.",
       "book": "Book now",
       "perPerson": "per person",
-      "personLine": "Person"
+      "personLine": "Person",
+      "more": "See {count} more",
+      "less": "Show fewer"
     },
     "highlights": {
       "eyebrow": "Highlights",

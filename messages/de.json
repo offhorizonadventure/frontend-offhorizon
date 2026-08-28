@@ -1474,7 +1474,9 @@
       "noDates": "Die Termine stehen noch nicht fest. Sagen Sie uns, wann Sie fahren möchten, und wir richten die Expedition danach aus.",
       "book": "Jetzt buchen",
       "perPerson": "pro Person",
-      "personLine": "Person"
+      "personLine": "Person",
+      "more": "{count} weitere anzeigen",
+      "less": "Weniger anzeigen"
     },
     "highlights": {
       "eyebrow": "Höhepunkte",
