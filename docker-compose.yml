@@ -5,7 +5,16 @@ x-logging: &default-logging
     max-file: "3"
 
 services:
-  web:
+  # Named for the site, not for its job.
+  #
+  # Compose gives every service its own name as a DNS alias on each network it
+  # joins. Called `web`, this answered to `web` on the shared network that the
+  # other site's Caddy also sits on, where its own app already answers to `web`.
+  # One ambiguous name on a network two live sites share is a coin toss over
+  # which one a visitor gets. It is also the name the front door looks for.
+  offhorizon-web:
+    # Keeps the container itself recognisable at a glance in `docker ps`.
+    container_name: offhorizon-web-1
     build:
       context: .
       args:
@@ -84,7 +93,7 @@ services:
     security_opt:
       - no-new-privileges:true
     depends_on:
-      - web
+      - offhorizon-web
     networks:
       - web
 

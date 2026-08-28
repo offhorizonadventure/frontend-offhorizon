@@ -13,7 +13,7 @@ www.{$DOMAIN} {
 {$DOMAIN} {
 	encode zstd gzip
 
-	reverse_proxy web:3000 {
+	reverse_proxy offhorizon-web:3000 {
 		transport http {
 			dial_timeout 5s
 		}
