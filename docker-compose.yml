@@ -52,7 +52,15 @@ services:
     networks:
       - web
 
+  # Only started when asked for: `docker compose --profile edge up -d`.
+  #
+  # This server already has a Caddy in front of both sites, holding 80 and 443
+  # and proxying to each. Starting a second one just fails on the port and
+  # takes the deploy down with it, so it stays out of the way unless it is the
+  # one doing the job.
   caddy:
+    profiles:
+      - edge
     image: caddy:2-alpine
     restart: unless-stopped
     logging: *default-logging
