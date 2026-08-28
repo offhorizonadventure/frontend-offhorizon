@@ -234,7 +234,8 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
         <Fleet
           locale={locale}
           vehicles={fleet}
-          currency={departures[0]?.currency ?? "USD"}
+          currency={departures[0]?.currency ?? "INR"}
+          from={priceCurrency}
           days={shortestDays}
         />
       )}

@@ -1574,7 +1574,10 @@
       },
       "seats": "{count} seats",
       "perDay": "a day",
-      "forTrip": "{total} for {days} days"
+      "forTrip": "{total} for {days} days",
+      "previous": "Previous machines",
+      "next": "More machines",
+      "seeAll": "See all machines"
     }
   },
   "auth": {

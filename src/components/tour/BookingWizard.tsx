@@ -478,13 +478,6 @@ export function BookingWizard({
             </p>
 
             <div className="border-brand-900/10 space-y-3 border-b pb-6">
-              <p className="text-brand-800/55 text-[11px] font-bold tracking-[0.14em] uppercase">
-                {labels.vehicle.title}
-              </p>
-              <p className="text-brand-800/50 -mt-1 text-[12.5px]">
-                {labels.vehicle.help.replace("{days}", String(days))}
-              </p>
-
               <div className="grid gap-2.5">
                 <button
                   type="button"

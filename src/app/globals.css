@@ -641,3 +641,45 @@ select:focus-visible {
     border-top: 1px solid var(--facts-line);
   }
 }
+
+/** The fleet rail. Two cards on a wide screen, one and a bit on a phone. */
+.fleet-rail {
+  display: flex;
+  gap: 1rem;
+  margin-inline: auto;
+  max-width: 72rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-inline: 1.25rem;
+  padding-bottom: 0.5rem;
+  scroll-padding-inline: 1.25rem;
+}
+
+.fleet-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.fleet-item {
+  flex: 0 0 72%;
+  max-width: 19rem;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 640px) {
+  .fleet-rail {
+    gap: 1.25rem;
+    padding-inline: 2rem;
+    scroll-padding-inline: 2rem;
+  }
+
+  .fleet-item {
+    flex: 0 0 calc(50% - 0.625rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .fleet-item {
+    flex: 0 0 calc(33.333% - 0.834rem);
+  }
+}

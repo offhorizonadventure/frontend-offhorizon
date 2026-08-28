@@ -1574,7 +1574,10 @@
       },
       "seats": "{count} posti",
       "perDay": "al giorno",
-      "forTrip": "{total} per {days} giorni"
+      "forTrip": "{total} per {days} giorni",
+      "previous": "Mezzi precedenti",
+      "next": "Altri mezzi",
+      "seeAll": "Vedi tutti i mezzi"
     }
   },
   "auth": {
