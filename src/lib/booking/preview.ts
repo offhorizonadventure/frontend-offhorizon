@@ -4,7 +4,6 @@ import type { Locale } from "@/i18n/config";
 import { currencyForVisitor, formatMoney, getRate } from "@/lib/currency";
 import { createClient } from "@/lib/supabase/server";
 
-import { BOOKING_CLOSES_DAYS } from "@/lib/catalogue";
 
 import { chargeCurrencyFor } from "./currency";
 import { quoteBooking, type PricedDeparture } from "./quote";
@@ -43,13 +42,12 @@ export async function priceBooking(
 
   if (!data) return null;
 
-  // Places on general sale close 30 days out. A custom expedition is a
-  // conversation with one rider, so that deadline is not theirs.
-  const closes = new Date();
-  closes.setUTCDate(closes.getUTCDate() + BOOKING_CLOSES_DAYS);
+  // A departure that has already left cannot be booked. Being close to the
+  // start no longer takes it off sale: what stops a booking is having no
+  // places left, and that is decided per departure.
   const sale = data as { start_date: string; visibility?: string };
 
-  if (sale.visibility !== "private" && sale.start_date <= closes.toISOString().slice(0, 10)) {
+  if (sale.visibility !== "private" && sale.start_date < new Date().toISOString().slice(0, 10)) {
     return null;
   }
 

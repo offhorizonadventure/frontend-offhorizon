@@ -41,3 +41,17 @@ export async function featuredCards(limit = 2): Promise<Card[]> {
 
   return (featured.length ? featured : cards).slice(0, limit);
 }
+
+/**
+ * The newest tours, whether or not anybody ticked featured.
+ *
+ * The home page used to show the featured selection, which meant a tour added
+ * last week stayed off the front page until somebody remembered a checkbox.
+ */
+export async function latestCards(limit = 4): Promise<Card[]> {
+  const cards = await allCards();
+
+  return [...cards]
+    .sort((a, b) => b.tour.created_at.localeCompare(a.tour.created_at))
+    .slice(0, limit);
+}

@@ -15,12 +15,15 @@ export async function PriceCard({
   tourName,
   facts,
   departures,
+  from,
 }: {
   locale: Locale;
   pricing: PriceGroup[];
   tourName: string;
   facts: { key: FactKey; value: string }[];
   departures: Departure[];
+  /** The currency the prices were written in, from the departure row. */
+  from?: string;
 }) {
   // A 4x4 expedition is priced per person; a motorcycle one per rider.
   const byPerson = departures.every((departure) => departure.kind === "4x4");
@@ -33,7 +36,7 @@ export async function PriceCard({
       lines: await Promise.all(
         group.lines.map(async (line) => ({
           ...line,
-          price: line.amount > 0 ? await getPrice(line.amount, locale) : null,
+          price: line.amount > 0 ? await getPrice(line.amount, locale, from) : null,
           Icon: priceIcons[line.icon],
         })),
       ),
@@ -42,7 +45,7 @@ export async function PriceCard({
 
   const headline = groups[0]?.lines[0];
 
-  const booking = await buildBooking({ locale, pricing, tourName, facts, departures });
+  const booking = await buildBooking({ locale, pricing, tourName, facts, departures, from });
 
   return (
     <div className="bg-cream-50/97 shadow-brand-950/30 ring-cream-100/20 rounded-[26px] p-6 shadow-2xl ring-1 backdrop-blur-md sm:p-7">

@@ -114,7 +114,7 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
 
   const name = tour.title;
   const hero = imageUrl(tour.hero_path);
-  const facts = factList(tour, departures);
+  const facts = factList(tour);
   const highlights = highlightList(tour);
   const programme = programmeList(tour);
   const gallery = galleryList(tour);
@@ -123,6 +123,10 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
   // A tour read before the column existed has none at all.
   const faqs = tour.faqs ?? [];
   const priceGroups = pricing(tour, departures);
+
+  // Prices are written in whatever the departure says, and converting from the
+  // wrong one is how a 45,000 rupee expedition became four million.
+  const priceCurrency = departures[0]?.currency;
 
   /**
    * The machines on offer, gathered from every departure.
@@ -213,6 +217,7 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
                 tourName={name}
                 facts={facts}
                 departures={departureList(departures)}
+                from={priceCurrency}
               />
             </div>
           </div>
@@ -292,6 +297,7 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
           tourName: name,
           facts,
           departures: departureList(departures),
+          from: priceCurrency,
         })}
       />
     </>

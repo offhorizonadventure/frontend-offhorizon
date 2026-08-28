@@ -9,7 +9,6 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { chargeCurrencyFor } from "./currency";
 import { startPayment, type PaymentFailure, type PaymentStarted } from "./payment";
 import { quoteBooking, type PricedDeparture } from "./quote";
-import { BOOKING_CLOSES_DAYS } from "@/lib/catalogue";
 
 import { BALANCE_DUE_DAYS, DEPOSIT_SHARE, type BookingPlan, type Party } from "./types";
 
@@ -85,8 +84,8 @@ export async function startBooking(input: {
     (new Date(`${departure.start_date}T00:00:00Z`).getTime() - Date.now()) / 86_400_000,
   );
 
-  if (startsIn < BOOKING_CLOSES_DAYS) {
-    return { ok: false, error: "Booking for that departure has closed." };
+  if (startsIn < 0) {
+    return { ok: false, error: "That departure has already left." };
   }
 
   if (input.plan === "deposit" && startsIn <= BALANCE_DUE_DAYS) {

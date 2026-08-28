@@ -54,19 +54,12 @@ export function machineFor(departures: Departure[]): string | null {
   return typed.join(", ") || null;
 }
 
-/**
- * In the order the page shows them, skipping any the editor left blank.
- *
- * The vehicle is the exception: it is not a fact anybody types about the tour,
- * it is whatever the expeditions actually run.
- */
-export const factList = (tour: Tour, departures: Departure[] = []) => {
-  const machine = machineFor(departures);
-
+/** In the order the page shows them, skipping any the editor left blank. */
+export const factList = (tour: Tour) => {
   return Object.entries(FACT_KEYS)
     .map(([column, key]) => ({
       key,
-      value: (key === "vehicle" ? (machine ?? "") : (tour.facts?.[column] ?? "")).trim(),
+      value: (tour.facts?.[column] ?? "").trim(),
     }))
     .filter((fact) => fact.value)
     .map((fact) => ({ ...fact, value: present(fact.key, fact.value) }));
@@ -107,18 +100,31 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
     },
   ];
 
+  // A 4x4 runs several cars and each is hired per day, so each gets its own
+  // line with its own rate. One line naming all three said nothing about what
+  // any of them costs.
+  const cars = cheapest.vehicles.filter((vehicle) => vehicle.per_day_price);
+
   const machineLines = [
-    ...(machine
-      ? [
-          {
-            icon: cheapest.kind === "motorbike" ? ("bike" as const) : ("rider" as const),
-            label: machine,
-            note: "Included in the rider price",
-            amount: 0,
-            addon: true,
-          },
-        ]
-      : []),
+    ...(cars.length
+      ? cars.map((vehicle) => ({
+          icon: "rider" as const,
+          label: vehicle.name,
+          note: "Per day, shared between the people in it",
+          amount: vehicle.per_day_price as number,
+          addon: true,
+        }))
+      : machine
+        ? [
+            {
+              icon: cheapest.kind === "motorbike" ? ("bike" as const) : ("rider" as const),
+              label: machine,
+              note: "Included in the rider price",
+              amount: 0,
+              addon: true,
+            },
+          ]
+        : []),
     ...(cheapest.damage_protection_price
       ? [
           {

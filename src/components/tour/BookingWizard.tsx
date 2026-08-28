@@ -201,9 +201,18 @@ export function BookingWizard({
   const anyFleet = departures.some(
     (option) => option.kind === "4x4" && (option.vehicles?.length ?? 0) > 0,
   );
-  const steps: StepName[] = STEP_NAMES.filter(
-    (name) => name !== "vehicle" || (chosen ? fleet.length > 0 : anyFleet),
-  ) as StepName[];
+  // An extra with no price is not on offer. Showing "Full damage protection ·
+  // ₹0.00" invites somebody to add nothing, and a step with nothing on it is a
+  // click for its own sake.
+  const offersInsurance = prices.insurance > 0;
+  const offersRooms = prices.room > 0;
+  const offersExtras = offersInsurance || offersRooms;
+
+  const steps: StepName[] = STEP_NAMES.filter((name) => {
+    if (name === "vehicle") return chosen ? fleet.length > 0 : anyFleet;
+    if (name === "extras") return offersExtras;
+    return true;
+  }) as StepName[];
   const current = steps[Math.min(step, steps.length - 1)];
   const picked = fleet.find((option) => option.id === vehicle) ?? null;
 
@@ -548,31 +557,35 @@ export function BookingWizard({
               {labels.extras.help} {labels.extras.none}
             </p>
 
-            <NumberStepper
-              name="insurance"
-              label={`${labels.extras.insurance} · ${price(prices.insurance)}`}
-              icon={<priceIcons.shield className="text-brand-700" />}
-              hint={labels.extras.insuranceHint}
-              min={0}
-              max={maxInsurance}
-              value={insurance}
-              onValueChange={setInsurance}
-              decreaseLabel={labels.decrease}
-              increaseLabel={labels.increase}
-            />
+            {offersInsurance && (
+              <NumberStepper
+                name="insurance"
+                label={`${labels.extras.insurance} · ${price(prices.insurance)}`}
+                icon={<priceIcons.shield className="text-brand-700" />}
+                hint={labels.extras.insuranceHint}
+                min={0}
+                max={maxInsurance}
+                value={insurance}
+                onValueChange={setInsurance}
+                decreaseLabel={labels.decrease}
+                increaseLabel={labels.increase}
+              />
+            )}
 
-            <NumberStepper
-              name="singleRoom"
-              label={`${labels.extras.room} · ${price(prices.room)}`}
-              icon={<priceIcons.singleRoom className="text-brand-700" />}
-              hint={labels.extras.roomHint}
-              min={0}
-              max={maxRooms}
-              value={rooms}
-              onValueChange={setRooms}
-              decreaseLabel={labels.decrease}
-              increaseLabel={labels.increase}
-            />
+            {offersRooms && (
+              <NumberStepper
+                name="singleRoom"
+                label={`${labels.extras.room} · ${price(prices.room)}`}
+                icon={<priceIcons.singleRoom className="text-brand-700" />}
+                hint={labels.extras.roomHint}
+                min={0}
+                max={maxRooms}
+                value={rooms}
+                onValueChange={setRooms}
+                decreaseLabel={labels.decrease}
+                increaseLabel={labels.increase}
+              />
+            )}
           </fieldset>
         )}
 

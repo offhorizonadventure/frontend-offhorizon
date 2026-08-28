@@ -12,14 +12,17 @@ export async function buildBooking({
   tourName,
   facts,
   departures,
+  from,
 }: {
   locale: Locale;
   pricing: PriceGroup[];
   tourName: string;
   facts: { key: FactKey; value: string }[];
   departures: Departure[];
+  /** The currency the prices were written in, from the departure row. */
+  from?: string;
 }): Promise<BookingProps> {
-  const { currency, rate } = await getConversion(locale);
+  const { currency, rate } = await getConversion(locale, from);
 
   // `t.raw` is typed for leaf keys; the wizard wants a subtree.
   const messages = (await getMessages({ locale })) as unknown as {

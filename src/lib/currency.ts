@@ -14,8 +14,15 @@ import {
 const ENDPOINT = "https://open.er-api.com/v6/latest";
 const REVALIDATE = 60 * 60 * 12;
 
-/** Currency prices are authored in. */
-export const baseCurrency = defaultCurrency;
+/**
+ * The currency prices are written in.
+ *
+ * Not the same thing as `defaultCurrency`, which is what a visitor is quoted
+ * when we cannot tell where they are. The office prices in rupees; an American
+ * still sees dollars. Tying the two together is what made a 45,000 rupee
+ * expedition convert as though it were 45,000 dollars.
+ */
+export const baseCurrency: Currency = "INR";
 
 /** The currency to quote a visitor in. */
 export async function currencyForVisitor(locale: Locale): Promise<Currency> {
@@ -85,13 +92,25 @@ export async function getPrice(amount: number, locale: Locale, from?: string) {
   }
 }
 
-/** Currency and rate for totals that have to be recalculated in the browser. */
-export async function getConversion(locale: Locale): Promise<{ currency: Currency; rate: number }> {
+/**
+ * Currency and rate for totals that have to be recalculated in the browser.
+ *
+ * `from` is the currency the amounts were written in, which is carried on the
+ * departure row. It used to be assumed, and an expedition priced in rupees was
+ * multiplied by the dollar rate and quoted at ninety times its price.
+ */
+export async function getConversion(
+  locale: Locale,
+  from: string = baseCurrency,
+): Promise<{ currency: Currency; rate: number }> {
+  const source = (from.toUpperCase() as Currency) || baseCurrency;
   const target = await currencyForVisitor(locale);
 
+  if (source === target) return { currency: target, rate: 1 };
+
   try {
-    return { currency: target, rate: await getRate(baseCurrency, target) };
+    return { currency: target, rate: await getRate(source, target) };
   } catch {
-    return { currency: baseCurrency, rate: 1 };
+    return { currency: source, rate: 1 };
   }
 }

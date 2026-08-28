@@ -3,12 +3,12 @@ import { getTranslations } from "next-intl/server";
 import { DbTourCard } from "@/components/tours/DbTourCard";
 import { EmptyTours } from "@/components/tours/EmptyTours";
 import { Link } from "@/i18n/navigation";
-import { featuredCards } from "@/lib/catalogue-cards";
+import { latestCards } from "@/lib/catalogue-cards";
 
 /** Upcoming departures. */
 export async function UpcomingTours() {
   const t = await getTranslations("home.upcoming");
-  const cards = await featuredCards(2);
+  const cards = await latestCards(4);
 
   if (cards.length === 0) {
     return (
