@@ -108,7 +108,7 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
   const machineLines = [
     ...(cars.length
       ? cars.map((vehicle) => ({
-          icon: "rider" as const,
+          icon: "car" as const,
           label: vehicle.name,
           note: "Per day, shared between the people in it",
           amount: vehicle.per_day_price as number,
