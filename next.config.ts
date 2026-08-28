@@ -85,14 +85,20 @@ const nextConfig: NextConfig = {
   compress: true,
 
   /**
-   * Builds a self-contained server for the VPS.
+   * Builds a self-contained server, except on Vercel.
    *
-   * `.next/standalone` carries only the files actually reached, so the thing
-   * copied to the server is tens of megabytes rather than a node_modules tree,
-   * and nothing has to be installed there. `public` and `.next/static` are not
+   * `.next/standalone` carries only the files actually reached, so what is
+   * copied to the VPS is tens of megabytes rather than a node_modules tree and
+   * nothing has to be installed there. `public` and `.next/static` are not
    * included and have to be copied alongside it; docs/hosting.md says where.
+   *
+   * Vercel builds its own bundle from the default output and reads a trace
+   * file that standalone mode does not leave where it looks for it, so the
+   * build fails there with a missing `next-server.js.nft.json`. `VERCEL` is
+   * set by their build environment, and this is the documented way to keep one
+   * repository deployable to both.
    */
-  output: "standalone",
+  output: process.env.VERCEL ? undefined : "standalone",
 
   // Only the icons a page actually uses are bundled, rather than the whole set.
   experimental: {
