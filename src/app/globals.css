@@ -201,6 +201,12 @@ body:has([data-tour-actions]) [data-floating-enquiry] {
   display: none;
 }
 
+/* So does the page somebody lands on having just sent one: it covered the way
+   onward on a phone, and asking again for what was only just sent is rude. */
+body:has([data-enquiry-sent]) [data-floating-enquiry] {
+  display: none;
+}
+
 /* Nav link underline: grows from the left, retracts to the right. */
 .nav-link::after {
   content: "";

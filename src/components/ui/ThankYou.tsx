@@ -19,7 +19,11 @@ export async function ThankYou({ locale, source }: { locale: Locale; source: "qu
   const steps = t.raw("steps") as string[];
 
   return (
-    <section className="bg-cream-50 relative overflow-hidden py-24 sm:py-32">
+    <section
+      data-enquiry-sent
+      // pt clears the fixed header, which this page has no hero to sit under.
+      className="bg-cream-50 relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28"
+    >
       <Topo className="text-brand-800/12" rings={13} seed={47.1} />
 
       <div className="relative mx-auto max-w-2xl px-5 text-center sm:px-8">
