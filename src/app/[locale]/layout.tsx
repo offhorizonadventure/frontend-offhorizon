@@ -4,6 +4,7 @@ import { getMessages, getTranslations } from "next-intl/server";
 import "../globals.css";
 
 import { TagManager, TagManagerFrame } from "@/components/analytics/TagManager";
+import { Termly } from "@/components/analytics/Termly";
 import { ScrollMotion } from "@/components/motion/ScrollMotion";
 import { SiteSchema } from "@/components/seo/SiteSchema";
 import { CountryProbe } from "@/components/ui/CountryProbe";
@@ -52,6 +53,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         <link rel="preconnect" href={SUPABASE_URL} crossOrigin="" />
         <link rel="preconnect" href="https://flagcdn.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://checkout.razorpay.com" />
+
+        {/* First, so it is in place before the tags it holds back. */}
+        <Termly />
         <TagManager />
       </head>
       <body className="bg-cream-50 flex min-h-full flex-col">

@@ -52,6 +52,10 @@ const SCRIPT_HOSTS = [
   "https://*.trustindex.io",
   // Razorpay checkout.
   "https://*.razorpay.com",
+  // Termly: the consent banner and the blocker that holds tags back until
+  // somebody agrees.
+  "https://app.termly.io",
+  "https://*.termly.io",
 ].join(" ");
 
 const contentSecurityPolicy = [

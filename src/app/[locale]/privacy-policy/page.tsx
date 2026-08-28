@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-import { LegalPage } from "@/components/legal/LegalPage";
+import { PrivacyNotice } from "@/components/legal/PrivacyNotice";
 import { locales } from "@/i18n/config";
 import { resolveLocale } from "@/i18n/params";
 import { buildMetadata } from "@/lib/seo";
@@ -24,5 +24,5 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/privacy-
 export default async function PrivacyPage({ params }: PageProps<"/[locale]/privacy-policy">) {
   const locale = await resolveLocale(params);
 
-  return <LegalPage locale={locale} namespace="privacy" />;
+  return <PrivacyNotice locale={locale} />;
 }

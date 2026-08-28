@@ -5,6 +5,7 @@ import { ArrowRight } from "@/components/ui/icons";
 import { Topo } from "@/components/ui/Topo";
 import { contact } from "@/config/contact";
 import { socialLinks } from "@/config/social";
+import { CookiePreferences } from "@/components/analytics/CookiePreferences";
 import { Link } from "@/i18n/navigation";
 import { siteName } from "@/lib/seo";
 
@@ -122,6 +123,14 @@ export async function SiteFooter() {
                   </Link>
                 </li>
               ))}
+
+              {/* Consent has to be as easy to take back as it was to give. */}
+              <li>
+                <CookiePreferences
+                  label={t("resources.cookies")}
+                  className="group text-cream-100/70 hover:text-cream-100 inline-flex items-center gap-2.5 py-1.5 text-left text-[14.5px] transition-colors"
+                />
+              </li>
             </ul>
 
             <h2 className={`${heading} mt-9`}>
