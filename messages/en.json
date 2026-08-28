@@ -1466,7 +1466,7 @@
       "included": "Included",
       "seeDates": "See dates",
       "custom": "Custom expedition",
-      "note": "Prices are set in US dollars and converted for display, so the figure you pay depends on the rate on the day. Flights are not included. Offhorizon Adventures may revise these prices without notice.",
+      "note": "Prices are set in Indian rupees and converted for display, so the figure you pay depends on the rate on the day. Flights are not included. Offhorizon Adventures may revise these prices without notice.",
       "eyebrow": "What it costs",
       "title": "One price, and the few things that sit on top of it",
       "body": "The rider price covers the expedition itself. Everything below it is optional, so you only pay for a single room or extra cover if you want them. Nothing is added at the end.",
@@ -1520,7 +1520,7 @@
       },
       "extras": {
         "title": "Anything to add?",
-        "help": "Both are optional. Leave them at zero if you do not want them.",
+        "help": "Optional. Leave at zero if you do not want it.",
         "insurance": "Full damage protection",
         "insuranceHint": "One per machine. Waives the deposit.",
         "room": "Single room",
@@ -1548,7 +1548,7 @@
         "vehicle": "Vehicle",
         "total": "Estimated total",
         "enquire": "Send enquiry",
-        "note": "Converted from US dollars at today's rate, so the final figure depends on the rate on the day you pay. Flights are not included.",
+        "note": "Converted from Indian rupees at today's rate, so the final figure depends on the rate on the day you pay. Flights are not included.",
         "dates": "Dates",
         "flexible": "Flexible",
         "guide": "Read how booking works before you pay",
@@ -1686,7 +1686,7 @@
             "The 20 percent is due at the time of booking and is what confirms the place",
             "The balance can be paid in as many instalments as you like, of any amount, whenever suits you",
             "Everything must be paid no later than 14 days before the departure date",
-            "Prices are set in US dollars and charged in your own currency at the rate on the day you book, which is then fixed for the rest of the booking"
+            "Prices are set in Indian rupees and charged in your own currency at the rate on the day you book, which is then fixed for the rest of the booking"
           ],
           "after": [
             "Flights are never included. Nothing you pay is refundable, so please read what the expedition involves before you book."
@@ -1920,7 +1920,7 @@
       {
         "title": "What we charge, and in what currency",
         "body": [
-          "Prices are set in US dollars and shown to you in your own currency. You are charged in your own currency where our payment provider can take it, and in dollars where it cannot.",
+          "Prices are set in Indian rupees and shown to you in your own currency. You are charged in your own currency where our payment provider can take it, and in rupees where it cannot.",
           "The rate is fixed the moment you book. A booking paid across four instalments over five months is settled at the rate on the day it was made, not the rate on the day each instalment lands."
         ]
       },
@@ -1973,7 +1973,7 @@
     "vehicle": "Vehicle",
     "ownVehicle": "Your own",
     "total": "Total",
-    "note": "Prices are set in US dollars and charged in the currency shown, at today's rate. That rate is then fixed for the whole booking.",
+    "note": "Prices are set in Indian rupees and charged in the currency shown, at today's rate. That rate is then fixed for the whole booking.",
     "signInTitle": "Sign in to finish this booking",
     "signInLead": "Use the account button in the bar above to sign in or make an account. Your choices are held right here while you do, and this page carries on the moment you are in.",
     "people": "People",

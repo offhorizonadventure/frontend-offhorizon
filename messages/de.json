@@ -1466,7 +1466,7 @@
       "included": "Enthalten",
       "seeDates": "Termine ansehen",
       "custom": "Individuelle Expedition",
-      "note": "Preise werden in US-Dollar festgelegt und nur zur Anzeige umgerechnet, der zu zahlende Betrag hängt also vom Tageskurs ab. Flüge sind nicht enthalten. Offhorizon Adventures kann diese Preise ohne Vorankündigung anpassen.",
+      "note": "Preise werden in indischen Rupien festgelegt und nur zur Anzeige umgerechnet, der zu zahlende Betrag hängt also vom Tageskurs ab. Flüge sind nicht enthalten. Offhorizon Adventures kann diese Preise ohne Vorankündigung anpassen.",
       "eyebrow": "Was es kostet",
       "title": "Ein Preis, und die wenigen Posten, die darauf kommen",
       "body": "Der Fahrerpreis deckt die Expedition selbst ab. Alles darunter ist optional: Einzelzimmer oder zusätzlichen Schutz zahlen Sie nur, wenn Sie sie wollen. Am Ende kommt nichts dazu.",
@@ -1520,7 +1520,7 @@
       },
       "extras": {
         "title": "Noch etwas dazu?",
-        "help": "Beides ist optional. Auf null lassen, wenn Sie es nicht möchten.",
+        "help": "Optional. Auf null lassen, wenn Sie es nicht möchten.",
         "insurance": "Voller Schadenschutz",
         "insuranceHint": "Einer pro Maschine. Erlässt die Kaution.",
         "room": "Einzelzimmer",
@@ -1548,7 +1548,7 @@
         "vehicle": "Fahrzeug",
         "total": "Geschätzte Summe",
         "enquire": "Anfrage senden",
-        "note": "Zum heutigen Kurs aus US-Dollar umgerechnet, der Endbetrag hängt also vom Kurs am Zahltag ab. Flüge sind nicht enthalten.",
+        "note": "Zum heutigen Kurs aus indischen Rupien umgerechnet, der Endbetrag hängt also vom Kurs am Zahltag ab. Flüge sind nicht enthalten.",
         "dates": "Termin",
         "flexible": "Flexibel",
         "guide": "Lesen Sie vor der Zahlung, wie die Buchung funktioniert",
@@ -1686,7 +1686,7 @@
             "Die 20 Prozent sind bei Buchung fällig und sichern den Platz",
             "Der Restbetrag kann in beliebig vielen Raten in beliebiger Höhe gezahlt werden, wann es Ihnen passt",
             "Alles muss spätestens 14 Tage vor dem Abreisedatum bezahlt sein",
-            "Die Preise sind in US-Dollar festgelegt und werden in Ihrer Währung zum Kurs des Buchungstages abgebucht, der danach für die gesamte Buchung fest bleibt"
+            "Die Preise sind in indischen Rupien festgelegt und werden in Ihrer Währung zum Kurs des Buchungstages abgebucht, der danach für die gesamte Buchung fest bleibt"
           ],
           "after": [
             "Flüge sind nie enthalten. Gezahlte Beträge werden nicht erstattet, lesen Sie also vor der Buchung, was die Expedition verlangt."
@@ -1920,7 +1920,7 @@
       {
         "title": "Was wir abbuchen, und in welcher Währung",
         "body": [
-          "Die Preise sind in US-Dollar festgelegt und werden Ihnen in Ihrer Währung gezeigt. Abgebucht wird in Ihrer Währung, wo unser Zahlungsdienstleister sie annimmt, sonst in Dollar.",
+          "Die Preise sind in indischen Rupien festgelegt und werden Ihnen in Ihrer Währung gezeigt. Abgebucht wird in Ihrer Währung, wo unser Zahlungsdienstleister sie annimmt, sonst in Rupien.",
           "Der Kurs wird bei der Buchung festgeschrieben. Eine über fünf Monate in vier Raten gezahlte Buchung rechnet mit dem Kurs des Buchungstages, nicht dem jeder einzelnen Rate."
         ]
       },
@@ -1973,7 +1973,7 @@
     "vehicle": "Fahrzeug",
     "ownVehicle": "Ihr eigenes",
     "total": "Gesamt",
-    "note": "Die Preise sind in US-Dollar festgelegt und werden in der angezeigten Währung zum heutigen Kurs abgebucht. Dieser Kurs bleibt für die gesamte Buchung fest.",
+    "note": "Die Preise sind in indischen Rupien festgelegt und werden in der angezeigten Währung zum heutigen Kurs abgebucht. Dieser Kurs bleibt für die gesamte Buchung fest.",
     "signInTitle": "Melden Sie sich an, um diese Buchung abzuschließen",
     "signInLead": "Nutzen Sie die Kontoschaltfläche in der Leiste oben, um sich anzumelden oder ein Konto anzulegen. Ihre Auswahl bleibt so lange erhalten, und diese Seite macht weiter, sobald Sie angemeldet sind.",
     "people": "Personen",

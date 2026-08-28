@@ -1466,7 +1466,7 @@
       "included": "Incluso",
       "seeDates": "Vedi le date",
       "custom": "Spedizione su misura",
-      "note": "I prezzi sono fissati in dollari statunitensi e convertiti solo per la visualizzazione, quindi l'importo pagato dipende dal cambio del giorno. I voli non sono inclusi. Offhorizon Adventures può modificare questi prezzi senza preavviso.",
+      "note": "I prezzi sono fissati in rupie indiane e convertiti solo per la visualizzazione, quindi l'importo pagato dipende dal cambio del giorno. I voli non sono inclusi. Offhorizon Adventures può modificare questi prezzi senza preavviso.",
       "eyebrow": "Quanto costa",
       "title": "Un prezzo, e le poche voci che si aggiungono",
       "body": "Il prezzo pilota copre la spedizione vera e propria. Tutto il resto è facoltativo: la camera singola o la copertura extra si pagano solo se le vuoi. Alla fine non si aggiunge nulla.",
@@ -1520,7 +1520,7 @@
       },
       "extras": {
         "title": "Vuoi aggiungere qualcosa?",
-        "help": "Entrambi facoltativi. Lascia a zero se non ti servono.",
+        "help": "Facoltativo. Lascia a zero se non ti serve.",
         "insurance": "Protezione danni completa",
         "insuranceHint": "Una per moto. Elimina il deposito.",
         "room": "Camera singola",
@@ -1548,7 +1548,7 @@
         "vehicle": "Mezzo",
         "total": "Totale stimato",
         "enquire": "Invia la richiesta",
-        "note": "Convertito dai dollari statunitensi al cambio di oggi: l'importo finale dipende dal cambio del giorno in cui paghi. I voli non sono inclusi.",
+        "note": "Convertito dai rupie indiane al cambio di oggi: l'importo finale dipende dal cambio del giorno in cui paghi. I voli non sono inclusi.",
         "dates": "Date",
         "flexible": "Flessibile",
         "guide": "Leggi come funziona la prenotazione prima di pagare",
@@ -1686,7 +1686,7 @@
             "Il 20 per cento è dovuto al momento della prenotazione ed è ciò che conferma il posto",
             "Il saldo può essere versato in quante rate vuoi, di qualsiasi importo, quando ti è comodo",
             "Tutto deve essere pagato entro 14 giorni prima della data di partenza",
-            "I prezzi sono fissati in dollari statunitensi e addebitati nella tua valuta al cambio del giorno della prenotazione, poi bloccato per tutta la prenotazione"
+            "I prezzi sono fissati in rupie indiane e addebitati nella tua valuta al cambio del giorno della prenotazione, poi bloccato per tutta la prenotazione"
           ],
           "after": [
             "I voli non sono mai inclusi. Nulla di quanto versato è rimborsabile, quindi leggi che cosa comporta la spedizione prima di prenotare."
@@ -1920,7 +1920,7 @@
       {
         "title": "Cosa addebitiamo, e in quale valuta",
         "body": [
-          "I prezzi sono fissati in dollari statunitensi e mostrati nella tua valuta. L'addebito avviene nella tua valuta dove il nostro fornitore di pagamenti la accetta, in dollari dove non può.",
+          "I prezzi sono fissati in rupie indiane e mostrati nella tua valuta. L'addebito avviene nella tua valuta dove il nostro fornitore di pagamenti la accetta, in rupie dove non può.",
           "Il cambio si blocca nel momento in cui prenoti. Una prenotazione saldata in quattro rate su cinque mesi si calcola al cambio del giorno della prenotazione, non a quello di ogni rata."
         ]
       },
@@ -1973,7 +1973,7 @@
     "vehicle": "Veicolo",
     "ownVehicle": "Il tuo",
     "total": "Totale",
-    "note": "I prezzi sono fissati in dollari statunitensi e addebitati nella valuta indicata, al cambio di oggi. Quel cambio resta poi fisso per tutta la prenotazione.",
+    "note": "I prezzi sono fissati in rupie indiane e addebitati nella valuta indicata, al cambio di oggi. Quel cambio resta poi fisso per tutta la prenotazione.",
     "signInTitle": "Accedi per completare questa prenotazione",
     "signInLead": "Usa il pulsante account nella barra qui sopra per accedere o creare un account. Le tue scelte restano qui nel frattempo, e questa pagina riprende appena sei dentro.",
     "people": "Persone",

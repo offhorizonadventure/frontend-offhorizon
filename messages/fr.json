@@ -1466,7 +1466,7 @@
       "included": "Compris",
       "seeDates": "Voir les dates",
       "custom": "Expédition sur mesure",
-      "note": "Les prix sont fixés en dollars américains puis convertis pour l'affichage : le montant réglé dépend donc du taux du jour. Les vols ne sont pas compris. Offhorizon Adventures peut modifier ces prix sans préavis.",
+      "note": "Les prix sont fixés en roupies indiennes puis convertis pour l'affichage : le montant réglé dépend donc du taux du jour. Les vols ne sont pas compris. Offhorizon Adventures peut modifier ces prix sans préavis.",
       "eyebrow": "Le tarif",
       "title": "Un prix, et les quelques options qui s'y ajoutent",
       "body": "Le tarif pilote couvre l'expédition elle-même. Tout le reste est facultatif : vous ne payez une chambre simple ou une couverture supplémentaire que si vous les voulez. Rien n'est ajouté à la fin.",
@@ -1520,7 +1520,7 @@
       },
       "extras": {
         "title": "Quelque chose à ajouter ?",
-        "help": "Les deux sont facultatifs. Laissez à zéro si vous n'en voulez pas.",
+        "help": "Facultatif. Laissez à zéro si vous n'en voulez pas.",
         "insurance": "Protection dommages complète",
         "insuranceHint": "Une par machine. Supprime la caution.",
         "room": "Chambre simple",
@@ -1548,7 +1548,7 @@
         "vehicle": "Véhicule",
         "total": "Total estimé",
         "enquire": "Envoyer la demande",
-        "note": "Converti depuis le dollar américain au taux du jour : le montant final dépendra du taux au moment du paiement. Les vols ne sont pas compris.",
+        "note": "Converti depuis la roupie indienne au taux du jour : le montant final dépendra du taux au moment du paiement. Les vols ne sont pas compris.",
         "dates": "Dates",
         "flexible": "Flexible",
         "guide": "Lisez comment fonctionne la réservation avant de payer",
@@ -1686,7 +1686,7 @@
             "Les 20 pour cent sont dus à la réservation et c'est ce qui confirme la place",
             "Le solde peut être réglé en autant de versements que vous voulez, du montant que vous voulez, quand cela vous arrange",
             "Tout doit être payé au plus tard 14 jours avant la date de départ",
-            "Les prix sont fixés en dollars américains et débités dans votre devise au taux du jour de la réservation, taux ensuite figé pour toute la réservation"
+            "Les prix sont fixés en roupies indiennes et débités dans votre devise au taux du jour de la réservation, taux ensuite figé pour toute la réservation"
           ],
           "after": [
             "Les vols ne sont jamais inclus. Aucun montant versé n'est remboursable : lisez donc ce que l'expédition implique avant de réserver."
@@ -1920,7 +1920,7 @@
       {
         "title": "Ce que nous débitons, et dans quelle devise",
         "body": [
-          "Les prix sont fixés en dollars américains et affichés dans votre devise. Vous êtes débité dans votre devise lorsque notre prestataire de paiement peut la traiter, et en dollars sinon.",
+          "Les prix sont fixés en roupies indiennes et affichés dans votre devise. Vous êtes débité dans votre devise lorsque notre prestataire de paiement peut la traiter, et en roupies sinon.",
           "Le taux est figé au moment de la réservation. Une réservation réglée en quatre versements sur cinq mois est calculée au taux du jour de la réservation, pas à celui de chaque versement."
         ]
       },
@@ -1973,7 +1973,7 @@
     "vehicle": "Véhicule",
     "ownVehicle": "Le vôtre",
     "total": "Total",
-    "note": "Les prix sont fixés en dollars américains et débités dans la devise affichée, au taux du jour. Ce taux est ensuite figé pour toute la réservation.",
+    "note": "Les prix sont fixés en roupies indiennes et débités dans la devise affichée, au taux du jour. Ce taux est ensuite figé pour toute la réservation.",
     "signInTitle": "Connectez-vous pour finaliser cette réservation",
     "signInLead": "Utilisez le bouton compte dans la barre ci-dessus pour vous connecter ou créer un compte. Vos choix restent en place pendant ce temps, et cette page reprend dès que vous êtes connecté.",
     "people": "Personnes",

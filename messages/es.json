@@ -1466,7 +1466,7 @@
       "included": "Incluido",
       "seeDates": "Ver fechas",
       "custom": "Expedición a medida",
-      "note": "Los precios se fijan en dólares estadounidenses y se convierten solo para mostrarlos, así que el importe final depende del cambio del día. Los vuelos no están incluidos. Offhorizon Adventures puede modificar estos precios sin previo aviso.",
+      "note": "Los precios se fijan en rupias indias y se convierten solo para mostrarlos, así que el importe final depende del cambio del día. Los vuelos no están incluidos. Offhorizon Adventures puede modificar estos precios sin previo aviso.",
       "eyebrow": "Lo que cuesta",
       "title": "Un precio, y las pocas cosas que se suman",
       "body": "El precio de piloto cubre la expedición en sí. Todo lo demás es opcional: solo pagas la habitación individual o la cobertura extra si las quieres. Al final no se añade nada.",
@@ -1520,7 +1520,7 @@
       },
       "extras": {
         "title": "¿Quieres añadir algo?",
-        "help": "Ambos son opcionales. Déjalos a cero si no los quieres.",
+        "help": "Opcional. Déjalo a cero si no lo quieres.",
         "insurance": "Protección total de daños",
         "insuranceHint": "Una por moto. Elimina la fianza.",
         "room": "Habitación individual",
@@ -1548,7 +1548,7 @@
         "vehicle": "Vehículo",
         "total": "Total estimado",
         "enquire": "Enviar consulta",
-        "note": "Convertido de dólares estadounidenses al cambio de hoy, así que el importe final depende del cambio el día que pagues. Los vuelos no están incluidos.",
+        "note": "Convertido de rupias indias al cambio de hoy, así que el importe final depende del cambio el día que pagues. Los vuelos no están incluidos.",
         "dates": "Fechas",
         "flexible": "Flexible",
         "guide": "Lee cómo funciona la reserva antes de pagar",
@@ -1686,7 +1686,7 @@
             "El 20 por ciento se paga al reservar y es lo que confirma la plaza",
             "El resto puede pagarse en tantos plazos como quieras, por el importe que quieras, cuando te venga bien",
             "Todo debe estar pagado como máximo 14 días antes de la fecha de salida",
-            "Los precios se fijan en dólares estadounidenses y se cobran en tu moneda al cambio del día de la reserva, que queda fijado para el resto de la reserva"
+            "Los precios se fijan en rupias indias y se cobran en tu moneda al cambio del día de la reserva, que queda fijado para el resto de la reserva"
           ],
           "after": [
             "Los vuelos nunca están incluidos. Nada de lo pagado se devuelve, así que lee qué implica la expedición antes de reservar."
@@ -1920,7 +1920,7 @@
       {
         "title": "Qué cobramos, y en qué moneda",
         "body": [
-          "Los precios se fijan en dólares estadounidenses y se te muestran en tu moneda. El cobro se hace en tu moneda cuando nuestro proveedor de pagos puede aceptarla, y en dólares cuando no.",
+          "Los precios se fijan en rupias indias y se te muestran en tu moneda. El cobro se hace en tu moneda cuando nuestro proveedor de pagos puede aceptarla, y en rupias cuando no.",
           "El cambio queda fijado en el momento de reservar. Una reserva pagada en cuatro plazos a lo largo de cinco meses se calcula al cambio del día de la reserva, no al de cada plazo."
         ]
       },
@@ -1973,7 +1973,7 @@
     "vehicle": "Vehículo",
     "ownVehicle": "El tuyo",
     "total": "Total",
-    "note": "Los precios se fijan en dólares estadounidenses y se cobran en la moneda mostrada, al cambio de hoy. Ese cambio queda fijado para toda la reserva.",
+    "note": "Los precios se fijan en rupias indias y se cobran en la moneda mostrada, al cambio de hoy. Ese cambio queda fijado para toda la reserva.",
     "signInTitle": "Inicia sesión para terminar esta reserva",
     "signInLead": "Usa el botón de cuenta de la barra de arriba para iniciar sesión o crear una cuenta. Tus elecciones se mantienen mientras tanto, y esta página sigue en cuanto entres.",
     "people": "Personas",
