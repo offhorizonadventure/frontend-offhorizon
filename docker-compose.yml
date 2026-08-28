@@ -51,6 +51,10 @@ services:
           memory: 768M
     networks:
       - web
+      # The shared network the front door sits on. Without this the app has to
+      # be attached by hand after every recreate, and a `compose down` silently
+      # cuts the site off while the container itself looks perfectly healthy.
+      - proxy
 
   # Only started when asked for: `docker compose --profile edge up -d`.
   #
@@ -90,3 +94,12 @@ volumes:
 
 networks:
   web:
+
+  # Created outside this file and shared with the other site on the same
+  # server, whose Caddy holds 80 and 443 and proxies to both. Declared external
+  # so compose joins it rather than trying to own it:
+  #
+  #   docker network create proxy
+  #
+  proxy:
+    external: true
