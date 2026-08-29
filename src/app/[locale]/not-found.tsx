@@ -24,6 +24,7 @@ export default async function NotFound() {
         <Image
           src={notFoundImage}
           alt=""
+          aria-hidden
           fill
           priority
           sizes="100vw"

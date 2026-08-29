@@ -198,7 +198,8 @@
           "title": "Garantierte Abfahrten",
           "body": "Wir garantieren, dass Ihr Abenteuer wie geplant startet."
         }
-      }
+      },
+      "imageAlt": "Ein Fahrer blickt über ein Himalaya-Tal"
     },
     "startAdventure": {
       "title": "Starten Sie Ihr Abenteuer",
@@ -1948,7 +1949,8 @@
       "title": "Wann immer Sie so weit sind",
       "body": "Öffnen Sie die Termine einer Expedition, und der Preis für Ihre Gruppe steht auf dem Bildschirm, bevor irgendetwas abgebucht wird.",
       "primary": "Expeditionen ansehen",
-      "secondary": "Bedingungen lesen"
+      "secondary": "Bedingungen lesen",
+      "imageAlt": "Fahrer auf einem Gebirgspass bei Sonnenaufgang"
     }
   },
   "checkout": {

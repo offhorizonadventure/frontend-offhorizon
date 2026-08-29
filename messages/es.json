@@ -198,7 +198,8 @@
           "title": "Salidas garantizadas",
           "body": "Garantizamos que tu aventura saldrá según lo previsto."
         }
-      }
+      },
+      "imageAlt": "Un motero contemplando un valle del Himalaya"
     },
     "startAdventure": {
       "title": "Empieza tu aventura",
@@ -1948,7 +1949,8 @@
       "title": "Cuando tú quieras",
       "body": "Abre las fechas de una expedición y el precio para tu grupo está en pantalla antes de cobrar nada.",
       "primary": "Ver las expediciones",
-      "secondary": "Leer las condiciones"
+      "secondary": "Leer las condiciones",
+      "imageAlt": "Moteros en un puerto de montaña al amanecer"
     }
   },
   "checkout": {

@@ -1,5 +1,6 @@
 import { contact } from "@/config/contact";
 import { socialLinks } from "@/config/social";
+import { COUNTRY_SLUGS, countryName } from "@/lib/catalogue";
 import type { Locale } from "@/i18n/config";
 import { siteName, siteUrl } from "@/lib/seo";
 
@@ -22,7 +23,7 @@ export function SiteSchema({ locale }: { locale: Locale }) {
       addressCountry: "IN",
     },
     sameAs: socialLinks.map((channel) => channel.href),
-    areaServed: ["India", "Nepal", "Bhutan", "Sri Lanka", "Mongolia"],
+    areaServed: COUNTRY_SLUGS.map((slug) => countryName(slug)).filter(Boolean),
   };
 
   const website = {

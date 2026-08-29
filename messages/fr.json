@@ -198,7 +198,8 @@
           "title": "Départs garantis",
           "body": "Nous garantissons que votre aventure partira comme prévu."
         }
-      }
+      },
+      "imageAlt": "Un motard contemplant une vallée himalayenne"
     },
     "startAdventure": {
       "title": "Commencez votre aventure",
@@ -1948,7 +1949,8 @@
       "title": "Quand vous voulez",
       "body": "Ouvrez les dates d'une expédition : le prix pour votre groupe s'affiche avant tout paiement.",
       "primary": "Voir les expéditions",
-      "secondary": "Lire les conditions"
+      "secondary": "Lire les conditions",
+      "imageAlt": "Motards sur un col de montagne au lever du soleil"
     }
   },
   "checkout": {

@@ -31,6 +31,7 @@ export function MetaPixelFrame() {
         width="1"
         style={{ display: "none" }}
         alt=""
+        aria-hidden
         src={`https://www.facebook.com/tr?id=${PIXEL}&ev=PageView&noscript=1`}
       />
     </noscript>

@@ -106,7 +106,7 @@ export async function BookConfidence() {
               <div className="ring-brand-900/10 relative mx-auto aspect-[3/4] w-full max-w-[19rem] overflow-hidden rounded-t-full ring-1">
                 <Image
                   src={adventureImage}
-                  alt=""
+                  alt={t("imageAlt")}
                   fill
                   sizes="(max-width: 1023px) 76vw, 304px"
                   className="object-cover object-top"

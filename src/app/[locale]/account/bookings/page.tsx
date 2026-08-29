@@ -54,7 +54,13 @@ export default async function BookingsPage({ params }: LayoutProps<"/[locale]">)
                   >
                     <div className="bg-brand-100 relative aspect-[4/3] overflow-hidden rounded-[14px]">
                       {hero ? (
-                        <Image src={hero} alt="" fill sizes="160px" className="object-cover" />
+                        <Image
+                          src={hero}
+                          alt={booking.tour.title}
+                          fill
+                          sizes="160px"
+                          className="object-cover"
+                        />
                       ) : null}
                     </div>
 

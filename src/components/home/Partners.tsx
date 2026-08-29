@@ -47,7 +47,11 @@ export async function Partners() {
                     {/* eslint-disable @next/next/no-img-element */}
                     <img
                       src={`/partners/${partner.slug}-mono.png`}
-                      alt={pass === 0 ? partner.name : ""}
+                      alt={partner.name}
+                      // The marquee repeats the same logos to fill the track.
+                      // Every one of them is named, and the copies are kept out
+                      // of the reading order rather than left nameless.
+                      aria-hidden={pass > 0 || undefined}
                       width={600}
                       height={200}
                       loading="lazy"

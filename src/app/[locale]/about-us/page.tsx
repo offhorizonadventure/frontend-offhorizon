@@ -6,6 +6,7 @@ import { Rewards } from "@/components/about/Rewards";
 import { Riders } from "@/components/about/Riders";
 import { Team } from "@/components/about/Team";
 import { locales } from "@/i18n/config";
+import { COUNTRY_SLUGS, countryName } from "@/lib/catalogue";
 import { resolveLocale } from "@/i18n/params";
 import { buildMetadata, siteName, siteUrl } from "@/lib/seo";
 
@@ -39,7 +40,7 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about-u
       "@type": "TravelAgency",
       name: siteName,
       foundingDate: "2014",
-      areaServed: ["India", "Nepal", "Bhutan", "Sri Lanka", "Mongolia"],
+      areaServed: COUNTRY_SLUGS.map((slug) => countryName(slug)).filter(Boolean),
       description: t("meta.description"),
     },
   };

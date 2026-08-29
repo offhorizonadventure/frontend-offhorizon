@@ -198,7 +198,8 @@
           "title": "Partenze garantite",
           "body": "Garantiamo che la tua avventura partirà come previsto."
         }
-      }
+      },
+      "imageAlt": "Un motociclista osserva una valle himalayana"
     },
     "startAdventure": {
       "title": "Inizia la tua avventura",
@@ -1948,7 +1949,8 @@
       "title": "Quando vuoi",
       "body": "Apri le date di una spedizione: il prezzo per il tuo gruppo è sullo schermo prima di qualsiasi addebito.",
       "primary": "Vedi le spedizioni",
-      "secondary": "Leggi le condizioni"
+      "secondary": "Leggi le condizioni",
+      "imageAlt": "Motociclisti su un passo di montagna all'alba"
     }
   },
   "checkout": {

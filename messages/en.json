@@ -198,7 +198,8 @@
           "title": "Guaranteed Departures",
           "body": "We guarantee your adventure will depart as planned."
         }
-      }
+      },
+      "imageAlt": "A rider looking out over a Himalayan valley"
     },
     "startAdventure": {
       "title": "Start Your Adventure",
@@ -1948,7 +1949,8 @@
       "title": "Ready when you are",
       "body": "Open the dates on any expedition and the price for your party is on the screen before anything is charged.",
       "primary": "See the expeditions",
-      "secondary": "Read the full terms"
+      "secondary": "Read the full terms",
+      "imageAlt": "Riders on a mountain pass at sunrise"
     }
   },
   "checkout": {
