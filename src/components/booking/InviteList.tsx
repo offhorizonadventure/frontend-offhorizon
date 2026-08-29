@@ -6,7 +6,6 @@ import { SeatName } from "@/components/booking/SeatName";
 import type { Locale } from "@/i18n/config";
 import type { TravellerRow } from "@/lib/booking/read";
 
-/** Who is on the booking, and the links that bring the rest of them in. */
 export async function InviteList({
   locale,
   travellers,
@@ -18,7 +17,6 @@ export async function InviteList({
   locale: Locale;
   travellers: TravellerRow[];
   isLead: boolean;
-  /** A 4x4 expedition counts people rather than riders. */
   byPerson: boolean;
   origin: string;
   joinPath: string;
@@ -29,8 +27,6 @@ export async function InviteList({
   const pillions = travellers.filter((entry) => entry.role === "pillion");
   const open = riders.filter((entry) => !entry.user_id && entry.invite_token);
 
-  // The lead may name a place while it is still nobody's. Once somebody joins,
-  // the name is theirs and the server refuses the change anyway.
   const nameLabels = {
     edit: t("nameEdit"),
     save: t("nameSave"),

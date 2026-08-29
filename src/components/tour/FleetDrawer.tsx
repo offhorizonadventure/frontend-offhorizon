@@ -19,15 +19,6 @@ export type FleetCard = {
 
 type Phase = "closed" | "open" | "closing";
 
-/**
- * Every machine, with the detail the cards leave out.
- *
- * The cards on the page are deliberately short: a photograph, a name and a
- * rate, the way a shop lists things. What each one is actually like belongs
- * here, where somebody has asked for it.
- *
- * Same slide-over the departure dates use, so it is one behaviour learned once.
- */
 export function FleetDrawer({
   label,
   title,

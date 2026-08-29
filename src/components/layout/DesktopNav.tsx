@@ -7,11 +7,9 @@ import { ArrowRight } from "@/components/ui/icons";
 import { hasMegaMenu, mainNav, type Country } from "@/config/navigation";
 import { Link } from "@/i18n/navigation";
 
-/** Underline grows from the left on hover and on keyboard focus within the item. */
 const trigger =
   "nav-link relative flex h-8 items-center gap-1 text-[11px] font-semibold tracking-[0.08em] whitespace-nowrap text-brand-900/75 uppercase transition-colors duration-200 hover:text-brand-800";
 
-/** Desktop navigation. */
 export async function DesktopNav() {
   const t = await getTranslations("nav");
 

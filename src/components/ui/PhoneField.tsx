@@ -11,18 +11,14 @@ import { cn } from "@/lib/cn";
 
 type PhoneFieldProps = {
   id: string;
-  /** Name of the hidden field carrying the combined `+<code><number>` value. */
   name: string;
   required?: boolean;
   searchLabel: string;
   countryLabel: string;
-  /** Two letter country for the dial code, e.g. "IN". Defaults to the market. */
   defaultCountry?: string;
-  /** The national part, without the dial code. */
   defaultNumber?: string;
 };
 
-/** Phone input with a country dial-code picker. */
 export function PhoneField({
   id,
   name,
@@ -39,7 +35,6 @@ export function PhoneField({
   const [number, setNumber] = useState(defaultNumber);
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
-  /** The option list is built only once the picker has been opened. */
   const [everOpened, setEverOpened] = useState(false);
 
   const wrapper = useRef<HTMLDivElement>(null);
@@ -130,7 +125,7 @@ export function PhoneField({
         />
       </div>
 
-      {/* What the form handler receives. */}
+      {}
       <input
         type="hidden"
         name={name}

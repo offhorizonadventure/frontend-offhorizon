@@ -1,6 +1,5 @@
 import { Bricolage_Grotesque, Manrope } from "next/font/google";
 
-// latin-ext is required for French, German, Italian and Spanish accents.
 export const fontDisplay = Bricolage_Grotesque({
   variable: "--font-display",
   subsets: ["latin", "latin-ext"],

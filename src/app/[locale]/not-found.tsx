@@ -14,7 +14,6 @@ const LINKS = [
   { key: "contact", href: "/contact-us" },
 ] as const;
 
-/** Shown for any address under a locale that does not exist. */
 export default async function NotFound() {
   const locale = await getLocale();
   const t = await getTranslations({ locale, namespace: "notFound" });

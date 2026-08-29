@@ -9,12 +9,10 @@ import { getPrice } from "@/lib/currency";
 
 export type CardTour = {
   tour: Tour;
-  /** Cheapest rider price on a published departure, or null when none is dated. */
   priceFrom: number | null;
   currency: string;
 };
 
-/** Tour card, from the database. */
 export async function DbTourCard({
   tour,
   priceFrom,

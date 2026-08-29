@@ -9,7 +9,6 @@ import { formatMoney } from "@/lib/currency";
 const head = "px-4 py-3 text-[10px] font-bold tracking-[0.14em] text-brand-800/45 uppercase";
 const cell = "px-4 py-4 align-top text-[13.5px] text-brand-900/80";
 
-/** Every payment this rider has made. */
 export default async function PaymentsPage({ params }: LayoutProps<"/[locale]">) {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "payments" });
@@ -80,7 +79,7 @@ export default async function PaymentsPage({ params }: LayoutProps<"/[locale]">)
                   </td>
 
                   <td className={cell}>
-                    {/* Only a settled payment has anything to show a receipt for. */}
+                    {}
                     {payment.status === "paid" ? (
                       <Link
                         href={`/account/payments/${payment.id}/receipt`}

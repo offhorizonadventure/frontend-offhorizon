@@ -14,11 +14,9 @@ export type Destination = {
   href: string;
   flag: string;
   image: StaticImageData;
-  /** Number of expeditions currently offered - shown on the card. */
   tours: number;
 };
 
-/** Imported rather than referenced by path, so the bundler content-hashes them. */
 export const destinations: Destination[] = [
   { key: "india", href: "/destinations/india", flag: "in", image: india, tours: 9 },
   { key: "nepal", href: "/destinations/nepal", flag: "np", image: nepal, tours: 4 },

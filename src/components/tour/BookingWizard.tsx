@@ -21,9 +21,7 @@ export type BookingLabels = {
     none: string;
     soldOut: string;
     places: string;
-    /** The button when a year has no dates at all. */
     custom: string;
-    /** The mark on a date sold to this rider alone. */
     yours: string;
   };
   travellers: {
@@ -76,30 +74,23 @@ export type BookingLabels = {
   };
 };
 
-/** A car on offer for a 4x4 departure. */
 export type WizardVehicle = {
   id: string;
   name: string;
   seats: number;
-  /** In the base currency, converted here like every other figure. */
   perDay: number;
 };
 
-/** Chosen when someone is driving their own car, which costs nothing here. */
 export const OWN_CAR = "own";
 
 export type Departure = {
-  /** Carried to the checkout, which prices the row again for itself. */
   id?: string;
-  /** A date sold to this rider alone. */
   custom?: boolean;
   start: string;
   end: string;
   soldOut?: boolean;
-  /** Places on this departure. Null where the number is not published. */
   seats?: number | null;
   kind?: "motorbike" | "4x4";
-  /** Empty on a motorbike departure, which has one machine for everyone. */
   vehicles?: WizardVehicle[];
 };
 
@@ -107,7 +98,6 @@ export type BookingProps = {
   tourName: string;
   duration: string;
   groupSize: string;
-  /** Base-currency unit prices. Converted here so totals recalculate live. */
   prices: { rider: number; pillion: number; insurance: number; room: number };
   currency: string;
   rate: number;
@@ -117,11 +107,9 @@ export type BookingProps = {
   labels: BookingLabels;
 };
 
-/** The vehicle gets a step of its own on a 4x4, where there is a fleet to pick from. */
 const STEP_NAMES = ["year", "date", "travellers", "vehicle", "extras", "summary"] as const;
 type StepName = (typeof STEP_NAMES)[number];
 
-/** Multi-step booking enquiry. */
 export function BookingWizard({
   tourName,
   duration,
@@ -143,13 +131,11 @@ export function BookingWizard({
   const [rooms, setRooms] = useState(0);
   const [vehicle, setVehicle] = useState<string | null>(null);
 
-  // Current year plus the two after it.
   const years = useMemo(() => {
     const now = new Date().getFullYear();
     return [now, now + 1, now + 2];
   }, []);
 
-  /** Whole units for real prices; decimals below a hundred, where rounding lies. */
   const format = useMemo(
     () => (amount: number) => {
       const places = Math.abs(amount) < 100 ? 2 : 0;
@@ -164,8 +150,6 @@ export function BookingWizard({
     [locale, currency],
   );
 
-  // Rounded only where it is displayed whole, so four lines at 9.54 no longer
-  // read as four tens against a total of thirty-eight.
   const price = (base: number) => {
     const converted = base * rate;
 
@@ -177,7 +161,6 @@ export function BookingWizard({
     [locale],
   );
 
-  // Only the departures in the chosen year, so the two questions stay in step.
   const options = useMemo(
     () => (year === null ? [] : departures.filter((d) => new Date(d.start).getFullYear() === year)),
     [departures, year],
@@ -185,7 +168,6 @@ export function BookingWizard({
 
   const chosen = options.find((option) => option.start === departure) ?? null;
 
-  /** A car is hired for the whole trip, so its cost is the daily rate times the days on the road. */
   const days = chosen
     ? Math.round((new Date(chosen.end).getTime() - new Date(chosen.start).getTime()) / 86_400_000) +
       1
@@ -194,16 +176,9 @@ export function BookingWizard({
   const fleet = chosen?.kind === "4x4" ? (chosen.vehicles ?? []) : [];
   const byPerson = chosen?.kind === "4x4";
 
-  // Three controls under one heading ran off the bottom of the drawer, so the
-  // cars stand on their own wherever there are any. Counted from the whole
-  // calendar before a date is picked, so the total does not change under the
-  // reader on the way through.
   const anyFleet = departures.some(
     (option) => option.kind === "4x4" && (option.vehicles?.length ?? 0) > 0,
   );
-  // An extra with no price is not on offer. Showing "Full damage protection ·
-  // ₹0.00" invites somebody to add nothing, and a step with nothing on it is a
-  // click for its own sake.
   const offersInsurance = prices.insurance > 0;
   const offersRooms = prices.room > 0;
   const offersExtras = offersInsurance || offersRooms;
@@ -216,7 +191,6 @@ export function BookingWizard({
   const current = steps[Math.min(step, steps.length - 1)];
   const picked = fleet.find((option) => option.id === vehicle) ?? null;
 
-  // Own car: the daily vehicle rate drops out of the total.
   const vehicleCost = picked ? picked.perDay * days : 0;
 
   const total =
@@ -226,22 +200,18 @@ export function BookingWizard({
     rooms * prices.room +
     vehicleCost;
 
-  // Bounds that keep the answers consistent: no more insured machines than riders.
   const maxInsurance = riders;
   const maxRooms = riders + pillions;
-  // A year with nothing published cannot be continued through: there is no date to price.
   const noDates = current === "date" && options.length === 0;
   const canContinue =
     current === "year" ? year !== null : current === "date" ? departure !== null : true;
 
-  // Changing the year invalidates whatever date was picked under the old one.
   const changeYear = (next: number) => {
     setYear(next);
     setDeparture(null);
     setVehicle(null);
   };
 
-  // And a different date may run a different set of cars.
   const checkoutQuery = (departureId: string) => ({
     departure: departureId,
     riders: String(riders),
@@ -275,7 +245,7 @@ export function BookingWizard({
 
   return (
     <div className="flex h-full flex-col">
-      {/* Basics, always on show. */}
+      {}
       <div className="border-brand-900/12 border-b pb-5">
         <p className="font-display text-brand-900 text-[15px] leading-snug font-bold tracking-[-0.015em]">
           {tourName}
@@ -304,7 +274,7 @@ export function BookingWizard({
         </dl>
       </div>
 
-      {/* Progress */}
+      {}
       <div className="flex items-center gap-3 pt-5">
         <span className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.16em] uppercase">
           {labels.stepOf
@@ -403,10 +373,7 @@ export function BookingWizard({
                       )}
                     </span>
 
-                    {/**
-                     * Sold out wins over a seat count: a departure that is full has no places left
-                     * to advertise, whatever its size.
-                     */}
+                    {}
                     {(option.soldOut || option.seats) && (
                       <span
                         className={`text-[9.5px] font-bold tracking-[0.14em] whitespace-nowrap uppercase ${
@@ -668,7 +635,7 @@ export function BookingWizard({
         )}
       </div>
 
-      {/* Navigation */}
+      {}
       <div className="border-brand-900/12 flex gap-2.5 border-t pt-5">
         {step > 0 && (
           <button
@@ -681,7 +648,6 @@ export function BookingWizard({
         )}
 
         {noDates ? (
-          // Nothing to price this year, so the way on is the custom expedition form.
           <Link
             href="/custom-expeditions"
             className="group bg-brand-800 text-cream-100 hover:bg-brand-900 flex h-12 flex-1 items-center justify-center gap-2.5 rounded-full px-4 text-[11px] font-bold tracking-[0.1em] text-nowrap uppercase transition-colors duration-300"

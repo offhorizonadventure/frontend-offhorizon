@@ -5,13 +5,10 @@ import { contact } from "@/config/contact";
 import type { Locale } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
 
-/** One clause: a heading, prose, and an optional list under it. */
 export type Clause = { title: string; body: string[]; list?: string[] };
 
-/** The day the current wording took effect. */
 export const LEGAL_UPDATED = new Date("2026-08-22T00:00:00Z");
 
-/** Shared shell for the terms and the privacy policy. */
 export async function LegalPage({
   locale,
   namespace,

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 
-/** Copies one rider's invite link. */
 export function CopyLink({
   url,
   labels,

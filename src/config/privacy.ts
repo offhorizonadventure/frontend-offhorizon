@@ -1,21 +1,7 @@
-/**
- * The privacy notice, as written.
- *
- * Kept as data rather than markup so the page renders it consistently and every
- * link is a real link. Inline links are written as [text](url); a bare `#id`
- * points at another section of this same page.
- *
- * The wording is the legal document and is not edited for house style. It is
- * English in every locale, which `legal.prevail` already tells the reader: a
- * machine translation of a legal notice is a liability, not a courtesy.
- */
-
 export type Block =
   | { kind: "p"; text: string }
   | { kind: "ul"; items: string[] }
-  /** `id` where something else in the notice links straight to this heading. */
   | { kind: "h3"; text: string; id?: string }
-  /** The italic summary Termly puts under each heading. */
   | { kind: "short"; text: string }
   | { kind: "table"; head: string[]; rows: string[][] };
 
@@ -25,7 +11,6 @@ export const PRIVACY_UPDATED = new Date("2026-03-20T00:00:00Z");
 
 export const DSAR_URL = "https://app.termly.io/dsar/e25f3360-b200-463b-ba7f-f2b4f6aec0f2";
 
-/** The paragraphs above the table of contents. */
 export const PRIVACY_INTRO: Block[] = [
   {
     kind: "p",

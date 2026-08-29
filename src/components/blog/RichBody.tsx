@@ -3,14 +3,10 @@ import type { ReactNode } from "react";
 
 import type { RichDoc, RichNode } from "@/lib/blog";
 
-/** Renders the editor's document. */
-
 const measure = "mx-auto max-w-[38rem]";
 
-/** Link addresses the browser is allowed to follow. */
 const SAFE_LINK = /^(https?:\/\/|mailto:|tel:|\/(?!\/))/i;
 
-/** Bold, italic, strikethrough, inline code and links, innermost first. */
 function withMarks(text: string, marks: RichNode["marks"], key: number): ReactNode {
   let node: ReactNode = text;
 
@@ -36,7 +32,6 @@ function withMarks(text: string, marks: RichNode["marks"], key: number): ReactNo
         const href = String(mark.attrs?.href ?? "");
         if (!SAFE_LINK.test(href)) break;
 
-        // Anything off site opens away and carries the usual protections.
         const external = /^https?:\/\//i.test(href);
 
         node = (
@@ -61,13 +56,11 @@ const inline = (nodes: RichNode[] | undefined): ReactNode =>
     node.type === "hardBreak" ? <br key={index} /> : withMarks(node.text ?? "", node.marks, index),
   );
 
-/** Alignment is stored on the node; left is the default and needs no class. */
 const align = (node: RichNode) => {
   const value = node.attrs?.textAlign;
   return value === "center" ? "text-center" : value === "right" ? "text-right" : "";
 };
 
-/** Code blocks hold plain text, marks and all, so they are read flat. */
 const plain = (node: RichNode): string =>
   (node.content ?? []).map((child) => child.text ?? "").join("");
 
@@ -136,7 +129,6 @@ function Cells({ row }: { row: RichNode }) {
   );
 }
 
-/** `nested` marks content inside a cell or list item, where column rules do not apply. */
 function Block({ nodes, nested = false }: { nodes: RichNode[] | undefined; nested?: boolean }) {
   return (
     <>

@@ -14,14 +14,12 @@ type VideoPlayerProps = {
   poster: StaticImageData;
   playLabel: string;
   closeLabel: string;
-  /** Larger type and play button for the lead film. */
   featured?: boolean;
   sizes: string;
 };
 
 type Phase = "closed" | "open" | "closing";
 
-/** Poster card that opens the film in a lightbox. */
 export function VideoPlayer({
   youtubeId,
   title,
@@ -137,10 +135,7 @@ export function VideoPlayer({
           className="from-brand-950/80 via-brand-950/15 to-brand-950/5 absolute inset-0 bg-gradient-to-t"
         />
 
-        {/**
-         * Solid disc rather than a frosted one: a translucent blur over photography
-         * reads as a smudge and the triangle loses contrast.
-         */}
+        {}
         <span
           aria-hidden
           className={cn(
@@ -151,7 +146,7 @@ export function VideoPlayer({
             featured ? "size-16 sm:size-[4.5rem]" : "size-13",
           )}
         >
-          {/* Nudged right by 6% so the triangle reads optically centred. */}
+          {}
           <svg
             viewBox="0 0 16 16"
             width={featured ? 22 : 17}
@@ -178,7 +173,7 @@ export function VideoPlayer({
         </span>
       </button>
 
-      {/* Safe on the server: `phase` starts closed, so this only runs after a click. */}
+      {}
       {lightbox ? createPortal(lightbox, document.body) : null}
     </>
   );

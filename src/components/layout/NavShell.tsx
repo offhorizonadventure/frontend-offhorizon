@@ -4,7 +4,6 @@ import { useEffect, useState, type ReactNode } from "react";
 
 import { cn } from "@/lib/cn";
 
-/** Floating glass bar. */
 export function NavShell({ children }: { children: ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
 

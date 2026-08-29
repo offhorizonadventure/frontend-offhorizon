@@ -16,7 +16,6 @@ const resources = [
   { key: "privacy", href: "/privacy-policy" },
 ] as const;
 
-/** Site footer. */
 export async function SiteFooter() {
   const t = await getTranslations("footer");
 
@@ -124,7 +123,7 @@ export async function SiteFooter() {
                 </li>
               ))}
 
-              {/* Consent has to be as easy to take back as it was to give. */}
+              {}
               <li>
                 <CookiePreferences
                   label={t("resources.cookies")}
@@ -161,7 +160,7 @@ export async function SiteFooter() {
             {t("copyright", { year: new Date().getFullYear() })}
           </p>
 
-          {/* Supplied artwork is dark-on-white, so it sits on its own plate. */}
+          {}
           <div className="rounded-xl bg-white p-2.5">
             <Image
               src="/payment/gateways.png"

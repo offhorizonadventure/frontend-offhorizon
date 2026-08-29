@@ -6,7 +6,6 @@ import { Topo } from "@/components/ui/Topo";
 import { team, type Member } from "@/config/team";
 import { cn } from "@/lib/cn";
 
-/** Crew, grouped by function. */
 export async function Team() {
   const t = await getTranslations("about.team");
 
@@ -28,7 +27,7 @@ export async function Team() {
           </p>
         </div>
 
-        {/** Lead card. */}
+        {}
         <div
           data-anim="up"
           className="bg-cream-50 relative mt-12 overflow-hidden rounded-[32px] sm:mt-16"
@@ -139,8 +138,7 @@ function MemberCard({ member, className }: { member: Member; className?: string 
             {member.name}
           </span>
 
-          {/* Only where somebody works in the open. The rest of the crew are not
-              on the internet for a living and are not linked. */}
+          {}
           {member.links && (
             <span className="flex shrink-0 items-center gap-2">
               {member.links.linkedin && (

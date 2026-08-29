@@ -1,9 +1,7 @@
 import { createClient } from "./supabase";
 
-/** Four seats per expedition vehicle. The only place this number lives. */
 export const SEATS_PER_VEHICLE = 4;
 
-/** Vehicles needed to carry a party. Derived, never typed in, so the cap holds. */
 export const vehiclesFor = (people: number) => Math.max(1, Math.ceil(people / SEATS_PER_VEHICLE));
 
 export type QuickEnquiryInput = {
@@ -38,13 +36,6 @@ export type SubmitResult = { ok: true } | { ok: false; error: string };
 
 const FAILED = "We could not send that. Please try again, or email us directly.";
 
-/**
- * Where the enquiry came from, as a short label.
- *
- * The browser chooses this, so it is clamped here rather than trusted. It is
- * only ever read by the office, but a field with no ceiling is a field somebody
- * will eventually put a novel in.
- */
 const asSource = (value: string) => value.trim().slice(0, 120) || "Quick enquiry";
 
 async function insertQuickEnquiry(input: QuickEnquiryInput): Promise<SubmitResult> {
@@ -78,7 +69,6 @@ async function insertCustomEnquiry(input: CustomEnquiryInput): Promise<SubmitRes
           party_model: "vehicle" as const,
           vehicle_choice: input.vehicleChoice,
           people: input.people,
-          // Recomputed here rather than trusted from the form.
           vehicles: vehiclesFor(input.people),
         };
 

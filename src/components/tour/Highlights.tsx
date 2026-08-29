@@ -8,7 +8,6 @@ import { Rail } from "@/components/tour/Rail";
 import type { FactKey, Highlight } from "@/lib/tour-types";
 import type { Locale } from "@/i18n/config";
 
-/** Expedition facts, then the highlights rail. */
 export async function Highlights({
   locale,
   facts,
@@ -22,7 +21,7 @@ export async function Highlights({
 
   return (
     <section className="bg-cream-50 relative flow-root pb-18 sm:pb-24">
-      {/* Half of this sits over the hero above. */}
+      {}
       <div className="relative z-10 -mt-16 sm:-mt-44 lg:-mt-28">
         <Facts locale={locale} facts={facts} />
       </div>

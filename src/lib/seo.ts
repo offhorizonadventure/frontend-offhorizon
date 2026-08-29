@@ -12,7 +12,6 @@ export const siteName = "Offhorizon Adventures";
 const defaultDescription =
   "Guided motorcycle and self-drive 4x4 expeditions across the Himalayas. Small groups, prepared machines, a mechanic on every departure.";
 
-/** Search results cut a title around 60 characters and a description around 155. */
 const TITLE_LIMIT = 60;
 
 const withBrand = (title: string) =>
@@ -20,7 +19,6 @@ const withBrand = (title: string) =>
     ? title
     : `${title} | ${siteName}`;
 
-/** What the site is about, for the pages that do not name their own subject. */
 const defaultKeywords = [
   "motorcycle expeditions",
   "Himalayan motorcycle tour",
@@ -42,7 +40,6 @@ const url = (locale: Locale, path: string) => `${siteUrl}/${locale}${path === "/
 
 type SeoInput = {
   locale: Locale;
-  /** Path without the locale prefix, e.g. "/india/ladakh-circuit". */
   path?: string;
   title?: string;
   description?: string;
@@ -50,14 +47,10 @@ type SeoInput = {
   type?: "website" | "article";
   publishedTime?: string;
   modifiedTime?: string;
-  /** Surfaced as the Twitter "time to read" label on articles. */
   readingMinutes?: number;
-  /** Languages this page actually exists in. */
   availableLocales?: readonly Locale[];
   noIndex?: boolean;
-  /** Added to the defaults, not instead of them. */
   keywords?: string[];
-  /** Off on the layout, which sits under every page. */
   alternates?: boolean;
 };
 

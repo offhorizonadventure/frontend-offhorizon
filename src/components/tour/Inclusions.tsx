@@ -5,7 +5,6 @@ import { Topo } from "@/components/ui/Topo";
 import type { Locale } from "@/i18n/config";
 import type { Inclusion } from "@/lib/catalogue";
 
-/** One line of the two lists. */
 function Line({ item, tone }: { item: Inclusion; tone: "in" | "out" }) {
   const { title, body } = item;
 
@@ -26,7 +25,6 @@ function Line({ item, tone }: { item: Inclusion; tone: "in" | "out" }) {
     </>
   );
 
-  /** A row with nothing behind it does not pretend to open. */
   const frame = "rounded-xl border border-cream-100/10 bg-cream-100/[0.03] px-4 py-3.5";
 
   if (!body) {
@@ -35,10 +33,7 @@ function Line({ item, tone }: { item: Inclusion; tone: "in" | "out" }) {
 
   return (
     <li className={`${frame} ${text} hover:border-cream-100/20 transition-colors`}>
-      {/**
-       * The same chevron in the same circle as the FAQ accordion on the destination
-       * pages: one behaviour, learned once.
-       */}
+      {}
       <details className="group/row">
         <summary className="flex cursor-pointer list-none items-start justify-between gap-4 [&::-webkit-details-marker]:hidden">
           <span className="flex flex-1 items-start gap-3.5">{row}</span>
@@ -56,7 +51,6 @@ function Line({ item, tone }: { item: Inclusion; tone: "in" | "out" }) {
   );
 }
 
-/** What the price covers, and what it does not. */
 export async function Inclusions({
   locale,
   included,

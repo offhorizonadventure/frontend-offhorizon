@@ -3,7 +3,6 @@ import { socialLinks } from "@/config/social";
 import type { Locale } from "@/i18n/config";
 import { siteName, siteUrl } from "@/lib/seo";
 
-/** Who publishes this site, said once in a form a search engine can read. */
 export function SiteSchema({ locale }: { locale: Locale }) {
   const organisation = {
     "@type": "TravelAgency",
@@ -35,7 +34,6 @@ export function SiteSchema({ locale }: { locale: Locale }) {
     publisher: { "@id": `${siteUrl}/#organisation` },
   };
 
-  // One graph, so the website and the organisation point at each other by id.
   const graph = { "@context": "https://schema.org", "@graph": [organisation, website] };
 
   return (

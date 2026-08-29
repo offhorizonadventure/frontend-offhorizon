@@ -6,7 +6,6 @@ import { useState } from "react";
 import { setFormSubmitted } from "@/lib/booking/actions";
 import { ArrowRight } from "@/components/ui/icons";
 
-/** The rider's own documents form, and the switch that says it is sent. */
 export function DocumentsCard({
   travellerId,
   formUrl,

@@ -10,16 +10,13 @@ type NumberStepperProps = {
   min?: number;
   max?: number;
   defaultValue?: number;
-  /** Supply with `onValueChange` to drive the control from the parent. */
   value?: number;
   onValueChange?: (value: number) => void;
   decreaseLabel: string;
   increaseLabel: string;
-  /** Sits beside the heading, so the row is recognisable before it is read. */
   icon?: ReactNode;
 };
 
-/** Increment and decrement control. */
 export function NumberStepper({
   name,
   label,
@@ -36,11 +33,9 @@ export function NumberStepper({
   const [uncontrolled, setUncontrolled] = useState(defaultValue);
   const id = useId();
 
-  // Controlled when the parent passes a value, uncontrolled otherwise.
   const value = controlled ?? uncontrolled;
   const clamp = (next: number) => Math.min(max, Math.max(min, next));
 
-  // Two clicks in one tick read the same prop, so steps count against a mirror.
   const pending = useRef(value);
   useEffect(() => {
     pending.current = value;
@@ -60,11 +55,7 @@ export function NumberStepper({
 
   return (
     <div>
-      {/*
-        The heading carried the weight of a caption and was the quietest thing
-        in the row, under a control that is mostly white space. An icon and a
-        larger, darker word make the question recognisable before it is read.
-      */}
+      {}
       <label htmlFor={id} className="text-brand-900 flex items-center gap-2 text-[14px] font-bold">
         {icon}
         {label}

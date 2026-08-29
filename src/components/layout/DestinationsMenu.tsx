@@ -6,7 +6,6 @@ import { createPortal } from "react-dom";
 import { ChevronDown, Close } from "@/components/ui/icons";
 import { usePathname } from "@/i18n/navigation";
 
-/** Destinations panel, opened by click and as wide as the bar. */
 export function DestinationsMenu({
   label,
   closeLabel,
@@ -17,7 +16,6 @@ export function DestinationsMenu({
   children: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
-  // The bar shrinks once the page is scrolled, so the gap is measured on click.
   const [top, setTop] = useState(96);
   const pathname = usePathname();
   const first = useRef(true);
@@ -42,7 +40,6 @@ export function DestinationsMenu({
     };
     document.addEventListener("keydown", onKeyDown);
 
-    // Below lg the drawer takes over, so close rather than lock the page.
     const desktop = window.matchMedia("(min-width: 64rem)");
     const onChange = () => {
       if (!desktop.matches) setOpen(false);
@@ -75,7 +72,7 @@ export function DestinationsMenu({
         />
       </button>
 
-      {/* Portalled: the bar's backdrop filter would trap a fixed child. */}
+      {}
       {open &&
         createPortal(
           <div className="fixed inset-0 top-0 z-40 hidden lg:block">

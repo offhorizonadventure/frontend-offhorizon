@@ -9,7 +9,6 @@ import {
 } from "./enquiries";
 import { withinLimit } from "./rate-limit";
 
-/** The two public forms, submitted on the server. */
 const TOO_MANY = "That is a lot of enquiries at once. Give it a few minutes and try again.";
 
 export async function sendQuickEnquiry(input: QuickEnquiryInput): Promise<SubmitResult> {

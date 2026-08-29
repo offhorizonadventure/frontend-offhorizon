@@ -4,7 +4,6 @@ import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
 import { buildMetadata } from "@/lib/seo";
 
-/** The public account deletion page. */
 export async function generateMetadata({ params }: PageProps<"/[locale]/account-deletion">) {
   const locale = await resolveLocale(params);
 

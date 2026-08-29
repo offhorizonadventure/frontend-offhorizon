@@ -16,7 +16,6 @@ import { resolveLocale } from "@/i18n/params";
 import { runningByCountry } from "@/lib/catalogue-counts";
 import { buildMetadata, siteUrl } from "@/lib/seo";
 
-/** A numbered point in the "why us" grid. */
 type Blurb = { title: string; body: string };
 
 export const revalidate = 600;
@@ -169,7 +168,7 @@ export default async function CountryPage({
         </div>
       </section>
 
-      {/* Regions within the country */}
+      {}
       <section className="bg-white py-18 sm:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <div data-anim="up">
@@ -184,7 +183,6 @@ export default async function CountryPage({
 
           <ul data-anim-group className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {page.regions.map((region) => {
-              // Running means the country has dated tours; the config only says whether the region has a page.
               const live = region.status === "live" && running > 0;
 
               return (
@@ -209,7 +207,7 @@ export default async function CountryPage({
         </div>
       </section>
 
-      {/* Why ride here with us */}
+      {}
       <section className="bg-brand-950 text-cream-100 relative overflow-hidden py-18 sm:py-24">
         <Topo className="text-cream-100/10" rings={14} seed={23.8} />
         <div

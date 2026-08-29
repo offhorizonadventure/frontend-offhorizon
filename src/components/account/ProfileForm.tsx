@@ -8,7 +8,6 @@ import { PhoneField } from "@/components/ui/PhoneField";
 import { updateProfile } from "@/lib/auth";
 import { splitPhone } from "@/lib/phone";
 
-/** Name and phone on the account. */
 export function ProfileForm({
   email,
   name,
@@ -18,10 +17,8 @@ export function ProfileForm({
   name: string;
   phone: string;
 }) {
-  // An account does not need a number, but a departure does.
   const missingPhone = !phone.trim();
 
-  // The dial code is part of the stored number, so it has to be handed back to the picker.
   const dialled = splitPhone(phone);
   const router = useRouter();
   const [pending, setPending] = useState(false);
@@ -49,7 +46,6 @@ export function ProfileForm({
     }
 
     setSaved(true);
-    // The heading greets you by name, and it is rendered on the server.
     router.refresh();
   }
 

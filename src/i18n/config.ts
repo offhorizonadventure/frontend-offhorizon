@@ -4,7 +4,6 @@ export const defaultCurrency = "USD";
 
 export type Locale = (typeof locales)[number];
 
-/** The currencies prices can be shown in. */
 export const currencies = [
   "USD",
   "EUR",
@@ -68,7 +67,6 @@ export type Currency = (typeof currencies)[number];
 
 type Market = { locale: Locale; currency: Currency; flag: string; ogLocale: string };
 
-/** Countries with a dedicated language + currency. Everything else gets the default. */
 export const markets: Record<string, Market> = {
   FR: { locale: "fr", currency: "EUR", flag: "fr", ogLocale: "fr_FR" },
   DE: { locale: "de", currency: "EUR", flag: "de", ogLocale: "de_DE" },
@@ -97,9 +95,7 @@ export const localeFor = (country: string | null | undefined): Locale =>
 
 export const currencyFor = (locale: Locale): Currency => marketFor(locale).currency;
 
-/** What a country pays in. */
 const COUNTRY_CURRENCY: Record<string, Currency> = {
-  // The countries this company rides in come first, because they are the ones most likely to be reading.
   IN: "INR",
   NP: "NPR",
   LK: "LKR",
@@ -163,7 +159,6 @@ const COUNTRY_CURRENCY: Record<string, Currency> = {
   CL: "CLP",
   CO: "COP",
   PE: "PEN",
-  // The euro area.
   AT: "EUR",
   BE: "EUR",
   CY: "EUR",
@@ -197,5 +192,4 @@ export const currencyForCountry = (country: string | null | undefined): Currency
 
 export const LOCALE_COOKIE = "NEXT_LOCALE";
 
-/** Where the visitor appears to be, as a two letter code. */
 export const COUNTRY_COOKIE = "oh_country";

@@ -21,11 +21,9 @@ import wtsPiyush from "../../public/team/wts-piyush.png";
 export type Member = {
   name: string;
   photo: StaticImageData;
-  /** Shown as icons on the card. Only where somebody works in the open. */
   links?: { linkedin?: string; instagram?: string };
 };
 
-/** Crew grouped by function. */
 export type TeamGroup = {
   key: "lead" | "operations" | "creative" | "technical" | "support";
   members: Member[];

@@ -4,13 +4,6 @@ import { useState, useTransition } from "react";
 
 import { setTravellerName } from "@/lib/booking/actions";
 
-/**
- * Puts a name on a place nobody has claimed.
- *
- * A pillion never signs in, so the booking calls them "Pillion 1" until the
- * rider who paid says who it is. The name shown here is optimistic: the write
- * has already been checked on the server, and a failure puts the old one back.
- */
 export function SeatName({
   travellerId,
   name,
@@ -19,7 +12,6 @@ export function SeatName({
 }: {
   travellerId: string;
   name: string | null;
-  /** What to show while the place has no name of its own. */
   fallback: string;
   labels: { edit: string; save: string; cancel: string; placeholder: string };
 }) {

@@ -5,7 +5,6 @@ import { EmptyTours } from "@/components/tours/EmptyTours";
 import { Link } from "@/i18n/navigation";
 import { latestCards } from "@/lib/catalogue-cards";
 
-/** Upcoming departures. */
 export async function UpcomingTours() {
   const t = await getTranslations("home.upcoming");
   const cards = await latestCards(4);

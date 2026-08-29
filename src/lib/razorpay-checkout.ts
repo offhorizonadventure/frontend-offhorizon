@@ -1,5 +1,3 @@
-/** The provider's checkout, loaded when a rider is actually about to pay. */
-
 type Instance = { open: () => void };
 type Checkout = new (options: Record<string, unknown>) => Instance;
 
@@ -13,7 +11,6 @@ const SRC = "https://checkout.razorpay.com/v1/checkout.js";
 
 let loading: Promise<Checkout | null> | null = null;
 
-/** Injected once per page, however many payments are made on it. */
 export function loadCheckout(): Promise<Checkout | null> {
   if (typeof window === "undefined") return Promise.resolve(null);
   if (window.Razorpay) return Promise.resolve(window.Razorpay);
@@ -42,7 +39,6 @@ export type OpenedOrder = {
   reference: string;
 };
 
-/** Opens the payment window. */
 export async function openCheckout(options: {
   keyId: string;
   order: OpenedOrder;

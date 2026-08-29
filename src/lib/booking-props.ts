@@ -5,7 +5,6 @@ import type { Locale } from "@/i18n/config";
 import { getConversion } from "@/lib/currency";
 import type { Departure, FactKey, PriceGroup } from "@/lib/tour-types";
 
-/** What the booking wizard needs. The price card and the tour bar both open it. */
 export async function buildBooking({
   locale,
   pricing,
@@ -19,12 +18,10 @@ export async function buildBooking({
   tourName: string;
   facts: { key: FactKey; value: string }[];
   departures: Departure[];
-  /** The currency the prices were written in, from the departure row. */
   from?: string;
 }): Promise<BookingProps> {
   const { currency, rate } = await getConversion(locale, from);
 
-  // `t.raw` is typed for leaf keys; the wizard wants a subtree.
   const messages = (await getMessages({ locale })) as unknown as {
     tour: { booking: BookingLabels };
   };
@@ -47,7 +44,6 @@ export async function buildBooking({
     currency,
     rate,
     locale,
-    // "12 riders" and the like; fall back to a sane cap when it does not parse.
     maxRiders: Number(groupSize.match(/\d+/)?.[0]) || 12,
     departures: departures.map(({ id, start, end, soldOut, seats, kind, vehicles }) => ({
       id,

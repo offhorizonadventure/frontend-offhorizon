@@ -6,7 +6,6 @@ import { Breadcrumbs, type Crumb } from "@/components/destinations/Breadcrumbs";
 import { Topo } from "@/components/ui/Topo";
 import type { Locale } from "@/i18n/config";
 
-/** Tour page header. */
 export function TourHero({
   eyebrow,
   title,

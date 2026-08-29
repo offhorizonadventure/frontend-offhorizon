@@ -2,7 +2,6 @@ import { createBrowserClient } from "@supabase/ssr";
 
 import { SUPABASE_PUBLISHABLE_KEY, SUPABASE_URL, supabaseConfigured } from "./env";
 
-/** Supabase in the browser. */
 export function createClient() {
   if (!supabaseConfigured()) {
     throw new Error(

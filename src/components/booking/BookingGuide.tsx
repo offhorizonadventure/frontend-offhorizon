@@ -10,7 +10,6 @@ import guideImage from "../../../public/destinations/pages/manali-to-leh.jpg";
 type Step = { title: string; body: string };
 type Clause = { title: string; body: string[] };
 
-/** The page a rider reads before paying anything. */
 export async function BookingGuide({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "bookingGuide" });
 
@@ -105,7 +104,7 @@ export async function BookingGuide({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      {/* The one thing a rider must not skim. */}
+      {}
       <section className="bg-brand-900 text-cream-100 relative overflow-hidden py-16 sm:py-20">
         <Topo className="text-cream-100/10" rings={11} seed={52.4} />
         <div

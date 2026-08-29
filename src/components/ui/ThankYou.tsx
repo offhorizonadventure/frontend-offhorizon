@@ -6,13 +6,6 @@ import { Topo } from "@/components/ui/Topo";
 import { contact } from "@/config/contact";
 import type { Locale } from "@/i18n/config";
 
-/**
- * What a rider sees once an enquiry is away.
- *
- * A page of its own rather than a panel inside the form, so the visit can be
- * counted: an address that is only ever reached by sending something is the
- * one measurement that cannot be faked by somebody browsing.
- */
 export async function ThankYou({ locale, source }: { locale: Locale; source: "quick" | "custom" }) {
   const t = await getTranslations({ locale, namespace: "thankYou" });
 
@@ -21,7 +14,6 @@ export async function ThankYou({ locale, source }: { locale: Locale; source: "qu
   return (
     <section
       data-enquiry-sent
-      // pt clears the fixed header, which this page has no hero to sit under.
       className="bg-cream-50 relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28"
     >
       <Topo className="text-brand-800/12" rings={13} seed={47.1} />

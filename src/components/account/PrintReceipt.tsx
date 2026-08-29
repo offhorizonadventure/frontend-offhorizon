@@ -1,12 +1,5 @@
 "use client";
 
-/**
- * Prints the receipt.
- *
- * A client component only because window.print needs one. The button hides
- * itself in the printed output, so it never appears on the paper or in the
- * saved PDF.
- */
 export function PrintReceipt({ label }: { label: string }) {
   return (
     <button

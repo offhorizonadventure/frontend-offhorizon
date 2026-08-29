@@ -17,7 +17,6 @@ export type PaymentStarted = {
   currency: string;
 };
 
-/** Opens a payment against a booking that already exists. */
 export async function startPayment(input: {
   bookingId: string;
   reference: string;

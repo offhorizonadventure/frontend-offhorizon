@@ -27,7 +27,6 @@ type RegionBase = {
   imageAlt: string;
 };
 
-/** Live regions have their own page and a full namespace under `dest`. */
 export type LiveRegion = RegionBase & {
   status: "live";
   content: "indianHimalayas" | "nepalHimalayas";
@@ -44,11 +43,8 @@ export type RegionPage = LiveRegion | PlannedRegion;
 
 export type CountryPage = {
   slug: string;
-  /** Matches the key used by the `destinations` message namespace. */
   destination: Destination;
-  /** `live` countries have their own written page. */
   status: "live" | "planned";
-  /** Namespace under `dest`. Only set on live countries. */
   content?: "india" | "nepal" | "bhutan" | "sriLanka" | "mongolia" | "tibet";
   hero: StaticImageData;
   heroAlt: string;
@@ -192,7 +188,6 @@ export const getRegion = (countrySlug: string, regionSlug: string) => {
   return region?.status === "live" ? region : undefined;
 };
 
-/** Every country and live region path, for static generation and the sitemap. */
 export const destinationRoutes = [
   "/destinations",
   ...countryPages.map((page) => `/destinations/${page.slug}`),

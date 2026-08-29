@@ -1,6 +1,5 @@
 import { countryCodes, dialCodes } from "@/config/dial-codes";
 
-/** Splits a stored `+<code><number>` back into a country and a national number. */
 const BY_LENGTH = [...countryCodes].sort(
   (a, b) => (dialCodes[b]?.length ?? 0) - (dialCodes[a]?.length ?? 0),
 );

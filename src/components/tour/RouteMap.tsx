@@ -6,7 +6,6 @@ import { getTranslations } from "next-intl/server";
 import { Topo } from "@/components/ui/Topo";
 import type { Locale } from "@/i18n/config";
 
-/** Route map. Section title and the artwork, nothing else. */
 export async function RouteMap({
   locale,
   image,
@@ -30,7 +29,7 @@ export async function RouteMap({
           {t("route.title")}
         </h2>
 
-        {/** Next needs dimensions, and a storage URL brings none. */}
+        {}
         <Image
           data-anim="wipe"
           src={image}

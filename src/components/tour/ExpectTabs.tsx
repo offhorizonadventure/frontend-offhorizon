@@ -13,7 +13,6 @@ export type ExpectItem = {
   image: ImageSource;
 };
 
-/** What to expect. */
 export function ExpectTabs({ eyebrow, items }: { eyebrow: string; items: ExpectItem[] }) {
   const [active, setActive] = useState(0);
   const id = useId();
@@ -49,7 +48,7 @@ export function ExpectTabs({ eyebrow, items }: { eyebrow: string; items: ExpectI
           {eyebrow}
         </h2>
 
-        {/* Scrolls rather than wraps: four tabs in German do not fit a phone. */}
+        {}
         <div
           role="tablist"
           aria-label={eyebrow}

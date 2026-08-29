@@ -7,7 +7,6 @@ import { resolveLocale } from "@/i18n/params";
 import { buildMetadata } from "@/lib/seo";
 import { getUser } from "@/lib/supabase/server";
 
-/** Where a password reset link lands. */
 export async function generateMetadata({ params }: PageProps<"/[locale]/reset-password">) {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "auth.reset" });
@@ -17,7 +16,6 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/reset-pa
     path: "/reset-password",
     title: t("title"),
     description: t("lead"),
-    // A one-time page behind a mailed link has nothing to offer a crawler.
     noIndex: true,
   });
 }

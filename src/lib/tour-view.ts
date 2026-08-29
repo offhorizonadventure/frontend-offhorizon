@@ -4,7 +4,6 @@ import type { Departure, Tour } from "@/lib/catalogue";
 import { imageUrl } from "@/lib/catalogue";
 import type { FactKey, PriceGroup } from "@/lib/tour-types";
 
-/** The admin stores snake_case; the page's icons and labels are camelCase. */
 const FACT_KEYS: Record<string, FactKey> = {
   location: "location",
   weather: "weather",
@@ -16,7 +15,6 @@ const FACT_KEYS: Record<string, FactKey> = {
   group_size: "groupSize",
 };
 
-/** Two facts are stored as bare numbers and read badly on their own. */
 function present(key: FactKey, value: string): string {
   if (key === "distance") {
     return /^[±~+]/.test(value) ? value : `± ${value}`;
@@ -30,14 +28,6 @@ function present(key: FactKey, value: string): string {
   return value;
 }
 
-/**
- * What the group travels on, taken from the expeditions rather than typed.
- *
- * The machine belongs to the dated running, not to the tour: two departures of
- * the same route can go out on different bikes, and the office already chooses
- * them there. Names picked from the fleet win over the line of text a motorbike
- * expedition may carry instead, since the fleet is the more recent decision.
- */
 export function machineFor(departures: Departure[]): string | null {
   const names = [
     ...new Set(
@@ -54,7 +44,6 @@ export function machineFor(departures: Departure[]): string | null {
   return typed.join(", ") || null;
 }
 
-/** In the order the page shows them, skipping any the editor left blank. */
 export const factList = (tour: Tour) => {
   return Object.entries(FACT_KEYS)
     .map(([column, key]) => ({
@@ -65,7 +54,6 @@ export const factList = (tour: Tour) => {
     .map((fact) => ({ ...fact, value: present(fact.key, fact.value) }));
 };
 
-/** The price card, built from the cheapest departure. */
 export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
   const cheapest = [...departures]
     .filter((departure) => departure.rider_price !== null)
@@ -73,7 +61,6 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
 
   if (!cheapest) return [];
 
-  // Whatever this particular departure goes out on.
   const machine = machineFor([cheapest]);
 
   const groups: PriceGroup[] = [
@@ -85,7 +72,6 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
           label: cheapest.kind === "4x4" ? "Person" : "Rider",
           amount: cheapest.rider_price ?? 0,
         },
-        // A zero is not "included": it means the tour does not offer the option at all.
         ...(cheapest.pillion_price
           ? [
               {
@@ -100,9 +86,6 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
     },
   ];
 
-  // A 4x4 runs several cars and each is hired per day, so each gets its own
-  // line with its own rate. One line naming all three said nothing about what
-  // any of them costs.
   const cars = cheapest.vehicles.filter((vehicle) => vehicle.per_day_price);
 
   const machineLines = [
@@ -158,25 +141,20 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
   return groups;
 }
 
-/** Places still open on a departure, or null where the total is unpublished. */
 const left = (departure: Departure) =>
   departure.seats === null ? null : Math.max(0, departure.seats - (departure.seats_taken ?? 0));
 
-/** What the dates drawer and the booking wizard read. */
 export const departureList = (departures: Departure[]) =>
   departures.map((departure) => ({
     id: departure.id,
     start: departure.start_date,
     end: departure.end_date,
-    // Sold to this reader alone, so the drawer can say so.
     custom: departure.visibility === "private",
-    // No seats left is sold out whether or not the switch was thrown.
     soldOut: departure.sold_out || left(departure) === 0,
     solo: departure.rider_price ?? 0,
     twin: departure.pillion_price ?? 0,
     seats: left(departure),
     kind: departure.kind,
-    // Only cars with a rate: one without cannot be totalled.
     vehicles: departure.vehicles
       .filter((vehicle) => vehicle.per_day_price)
       .map((vehicle) => ({
@@ -213,12 +191,10 @@ export const programmeList = (tour: Tour) =>
 export const galleryList = (tour: Tour) =>
   tour.gallery.map((image) => ({ image: imageUrl(image.path)!, alt: image.alt }));
 
-/** The what-to-expect panels, each behind a different photograph. */
 export const expectList = (tour: Tour) => {
   const gallery = tour.gallery.map((image) => imageUrl(image.path)!).filter(Boolean);
   const hero = imageUrl(tour.hero_path) ?? "";
 
-  // Fisher-Yates over a copy: the `sort(() => Math.random() - 0.5)` shortcut is not even.
   const shuffled = [...gallery];
   for (let index = shuffled.length - 1; index > 0; index -= 1) {
     const swap = Math.floor(Math.random() * (index + 1));

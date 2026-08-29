@@ -10,7 +10,6 @@ import { listMyBookings, outstanding } from "@/lib/booking/read";
 import { imageUrl } from "@/lib/catalogue";
 import { formatMoney } from "@/lib/currency";
 
-/** Every expedition this rider is on. */
 export default async function BookingsPage({ params }: LayoutProps<"/[locale]">) {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "bookings" });
@@ -65,10 +64,7 @@ export default async function BookingsPage({ params }: LayoutProps<"/[locale]">)
                           {booking.status === "cancelled"
                             ? t("status.cancelled")
                             : booking.status === "pending"
-                              ? // Paid at the provider, not yet settled here. Saying
-                                // "balance outstanding" to someone who has just paid
-                                // reads as though the money went nowhere.
-                                t("status.awaiting")
+                              ? t("status.awaiting")
                               : left > 0
                                 ? t("status.balance")
                                 : t("status.paid")}

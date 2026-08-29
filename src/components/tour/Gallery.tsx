@@ -9,10 +9,8 @@ import { ChevronDown, Close } from "@/components/ui/icons";
 
 export type GalleryItem = { image: ImageSource; alt: string };
 
-/** A stable key for either kind of source. */
 const keyOf = (image: ImageSource) => (typeof image === "string" ? image : image.src);
 
-/** Photo gallery with a lightbox. */
 export function Gallery({
   eyebrow,
   title,
@@ -52,7 +50,6 @@ export function Gallery({
       if (event.key === "ArrowLeft") step(-1);
     };
 
-    // Lock the body, not html, so the scrollbar gutter stays and the page does not shift.
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
@@ -116,7 +113,7 @@ export function Gallery({
           aria-label={title}
           className="bg-brand-950/97 fixed inset-0 z-90 flex flex-col backdrop-blur-sm"
         >
-          {/* Backdrop click closes. Sits under the controls. */}
+          {}
           <button
             type="button"
             aria-label={labels.close}
@@ -156,7 +153,6 @@ export function Gallery({
                 src={current.image}
                 alt={current.alt}
                 {...blurOf(current.image)}
-                // A bundled import brings its own dimensions; a URL from storage does not, and Next needs a pair either way.
                 width={1600}
                 height={1200}
                 sizes="(max-width: 767px) 92vw, 70vw"

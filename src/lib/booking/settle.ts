@@ -6,11 +6,9 @@ import { fromMinorUnits } from "./currency";
 import { sendPaymentEmail } from "./notify";
 import { fetchPayment } from "./razorpay";
 
-/** The amount is read back from the provider, not believed from the webhook body. */
 export async function settlePayment(input: {
   paymentId: string;
   orderId: string | null;
-  /** Set on a payment link, which is how the office takes money. */
   linkId: string | null;
   event: string;
   raw: Record<string, unknown>;
@@ -22,9 +20,6 @@ export async function settlePayment(input: {
 
   const orderId = provider.order_id ?? input.orderId;
 
-  // Checkout on the site opens an order and we know its id. The office opens a
-  // payment link instead, and the order behind it is Razorpay's own, so that
-  // row is found by the link.
   const { data: row } = orderId
     ? await supabase
         .from("payments")
@@ -45,7 +40,6 @@ export async function settlePayment(input: {
   const found = row ?? byLink;
   if (!found) return;
 
-  // Already settled: a retried webhook must not write again.
   if (found.status === "paid" || found.status === "refunded") return;
 
   const captured = provider.status === "captured";
@@ -57,7 +51,6 @@ export async function settlePayment(input: {
     .update({
       status: matches ? "paid" : captured ? "created" : "failed",
       provider_payment_id: provider.id,
-      // Recorded even for a link, so a payment can be traced back either way.
       provider_order_id: orderId ?? null,
       paid_at: matches ? new Date().toISOString() : null,
       failure_reason: matches
@@ -70,7 +63,5 @@ export async function settlePayment(input: {
     .eq("id", found.id)
     .neq("status", "paid");
 
-  // The trigger has settled the booking by now, so the figures in the email are
-  // the ones the account page will show.
   if (matches) await sendPaymentEmail(found.id);
 }

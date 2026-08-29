@@ -7,7 +7,6 @@ const lessons = ["terrain", "altitude", "vehicles", "logistics"] as const;
 
 const BRB_URL = "https://www.bikerentalsbhuntar.com/";
 
-/** Origin story as a timeline rather than prose. */
 export async function Journey() {
   const t = await getTranslations("about.journey");
 
@@ -26,7 +25,7 @@ export async function Journey() {
           </h2>
         </div>
 
-        {/* Timeline spine */}
+        {}
         <ol className="mt-14 sm:mt-16">
           <li
             data-anim="up"

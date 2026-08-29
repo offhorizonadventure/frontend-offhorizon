@@ -15,13 +15,10 @@ import upperMustang from "../../public/tours/menu/upper-mustang.webp";
 
 import type { DestinationKey, NavKey, TourKey } from "@/i18n/keys";
 
-/** The menu. Static on purpose: it is on every page, and it rarely changes. */
-
 export type Tour = {
   key: TourKey;
   href: string;
   days: number;
-  /** Our estimate rather than a confirmed itinerary. */
   provisional?: boolean;
   image: StaticImageData;
 };
@@ -35,7 +32,6 @@ export type Region = {
 export type Country = {
   key: DestinationKey;
   href: string;
-  /** ISO 3166-1 alpha-2, for the flag icon. */
   flag: string;
   regions: Region[];
 };
@@ -215,7 +211,6 @@ export const mainNav: NavItem[] = [
   { key: "contact", href: "/contact-us" },
 ];
 
-/** Grouped under "More" in the mobile drawer; unchanged in the desktop bar. */
 export const secondaryNavKeys: NavKey[] = ["blog", "contact"];
 
 export const isSecondary = (item: NavItem) => secondaryNavKeys.includes(item.key);

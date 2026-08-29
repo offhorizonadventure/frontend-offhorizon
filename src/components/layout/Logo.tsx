@@ -6,7 +6,6 @@ import { siteName } from "@/lib/seo";
 const RATIO = 2589 / 546;
 
 type LogoProps = {
-  /** Rendered height in px; width follows the logo's aspect ratio. */
   height?: number;
   variant?: "brand" | "cream";
   className?: string;
@@ -17,7 +16,6 @@ export function Logo({ height = 40, variant = "brand", className = "" }: LogoPro
     <Link
       href="/"
       aria-label={siteName}
-      // `shrink-0`: French and Spanish navigation is wide enough to squeeze it.
       className={`inline-flex shrink-0 items-center ${className}`}
     >
       <Image

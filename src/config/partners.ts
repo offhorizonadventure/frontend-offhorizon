@@ -1,4 +1,3 @@
-/** Logos are pre-normalized into a shared 600x200 box (see public/partners). */
 export type Partner = {
   slug: string;
   name: string;
@@ -11,5 +10,4 @@ export const partners: Partner[] = [
   { slug: "mca-india", name: "Ministry of Corporate Affairs, Government of India" },
 ];
 
-/** How many times the strip repeats so the loop is seamless on wide screens. */
 export const PARTNER_REPEATS = 4;

@@ -13,7 +13,6 @@ const rowClass =
 const primary = mainNav.filter((item) => !isSecondary(item));
 const more = mainNav.filter(isSecondary);
 
-/** Drawer contents. */
 export async function MobileMenu() {
   const [t, td, tt] = await Promise.all([
     getTranslations("nav"),

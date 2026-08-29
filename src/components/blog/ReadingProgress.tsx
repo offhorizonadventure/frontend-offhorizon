@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-/** Thin progress bar pinned under the navbar. */
 export function ReadingProgress({ target }: { target: string }) {
   const [progress, setProgress] = useState(0);
 

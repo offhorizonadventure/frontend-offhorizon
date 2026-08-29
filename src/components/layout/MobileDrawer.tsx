@@ -16,14 +16,12 @@ type MobileDrawerProps = {
 
 type Phase = "closed" | "open" | "closing";
 
-/** Right-hand slide-over menu. */
 export function MobileDrawer({ labels, children }: MobileDrawerProps) {
   const [phase, setPhase] = useState<Phase>("closed");
   const pathname = usePathname();
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
-  // Navigating away should always dismiss the menu.
   const [lastPath, setLastPath] = useState(pathname);
   if (pathname !== lastPath) {
     setLastPath(pathname);
@@ -112,7 +110,7 @@ export function MobileDrawer({ labels, children }: MobileDrawerProps) {
         <Menu />
       </button>
 
-      {/* Safe on the server: `phase` starts closed, so this only runs after a click. */}
+      {}
       {overlay ? createPortal(overlay, document.body) : null}
     </>
   );

@@ -9,7 +9,6 @@ export type Experience = {
   image: StaticImageData;
 };
 
-/** The two formats every expedition is offered in. Order sets the 01 / 02 index. */
 export const experiences: Experience[] = [
   { key: "motorcycle", href: "/adventure-tours?format=motorcycle", image: motorcycle },
   { key: "selfDrive", href: "/adventure-tours?format=self-drive", image: selfDrive },

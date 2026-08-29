@@ -12,12 +12,6 @@ import {
   type Block,
 } from "@/config/privacy";
 
-/**
- * Turns the light markup the notice is written in into real elements.
- *
- * Only three things are needed: **bold**, *italic*, and [text](href). Anything
- * else is left as written, and nothing is ever set as raw HTML.
- */
 function inline(text: string, keyPrefix: string): ReactNode[] {
   const parts: ReactNode[] = [];
   const pattern = /\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*|\*([^*]+)\*/g;
@@ -34,7 +28,6 @@ function inline(text: string, keyPrefix: string): ReactNode[] {
 
     if (match[1] && match[2]) {
       const href = match[2];
-      // A bare #id is another section of this page and stays in the tab.
       const external = !href.startsWith("#") && !href.startsWith("mailto:");
 
       parts.push(
@@ -111,7 +104,6 @@ function Blocks({ blocks, id }: { blocks: Block[]; id: string }) {
 
         if (block.kind === "table") {
           return (
-            // The table is wide and the page must never scroll sideways.
             <div key={key} className="ring-brand-900/10 mt-6 overflow-x-auto rounded-xl ring-1">
               <table className="w-full min-w-[36rem] border-collapse text-left">
                 <thead className="bg-brand-900/[0.04]">
@@ -160,7 +152,6 @@ function Blocks({ blocks, id }: { blocks: Block[]; id: string }) {
   );
 }
 
-/** The privacy notice in full, with a table of contents that works. */
 export async function PrivacyNotice({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "legal" });
   const format = await getFormatter({ locale });
@@ -229,7 +220,6 @@ export async function PrivacyNotice({ locale }: { locale: Locale }) {
 
           <ol className="mt-14 space-y-14">
             {PRIVACY_SECTIONS.map((section, index) => (
-              // scroll-mt clears the fixed header when a contents link lands here.
               <li key={section.id} id={section.id} className="scroll-mt-28">
                 <h2 className="font-display text-brand-900 flex gap-3 text-[19px] font-bold tracking-[-0.02em]">
                   <span className="text-ember-500 tabular-nums">

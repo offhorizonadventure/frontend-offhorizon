@@ -31,7 +31,6 @@ type Labels = {
 
 type Phase = "closed" | "open" | "closing";
 
-/** Quick enquiry dialog. */
 export function QuickEnquiryModal({
   labels,
   className,
@@ -41,10 +40,6 @@ export function QuickEnquiryModal({
   labels: Labels;
   className?: string;
   children?: ReactNode;
-  /**
-   * Where the enquiry was sent from. On an expedition page this is the
-   * expedition, which is what the office needs to answer without asking.
-   */
   source?: string;
 }) {
   const locale = useLocale();
@@ -91,7 +86,6 @@ export function QuickEnquiryModal({
       locale,
       fullName: String(data.get("fullName") ?? ""),
       email: String(data.get("email") ?? ""),
-      // The dial code is a separate control, so the two halves are joined here rather than stored apart.
       phone: [data.get("dialCode"), data.get("phone")].filter(Boolean).join(" ").trim(),
       message: String(data.get("message") ?? ""),
     });
@@ -102,8 +96,6 @@ export function QuickEnquiryModal({
       return;
     }
 
-    // A page of its own, so the send can be counted. Pending stays on until the
-    // new page paints, otherwise the form looks ready to send a second time.
     setSent(true);
     router.push(`/${locale}/thank-you?from=quick`);
   }
@@ -259,7 +251,7 @@ export function QuickEnquiryModal({
         {children ?? labels.trigger}
       </button>
 
-      {/* Safe on the server: `phase` starts closed, so this only runs after a click. */}
+      {}
       {overlay ? createPortal(overlay, document.body) : null}
     </>
   );

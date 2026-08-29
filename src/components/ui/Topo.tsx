@@ -1,14 +1,9 @@
-/** Procedural topographic contours. */
-
 type TopoProps = {
-  /** Number of nested contour lines. */
   rings?: number;
-  /** Base seed. Change it for a different landform. */
   seed?: number;
   className?: string;
 };
 
-/** One contour ring. */
 function contour(cx: number, cy: number, radius: number, seed: number, squash: number) {
   const steps = 72;
   const points: string[] = [];
@@ -51,7 +46,6 @@ export function Topo({ rings = 16, seed = 1.4, className = "" }: TopoProps) {
           <path
             key={index}
             d={d}
-            // Inner rings sit closer to the peak, so they read slightly stronger.
             strokeOpacity={(1 - index / rings) * 0.55 + 0.12}
             strokeDasharray={index % 4 === 3 ? "5 7" : undefined}
           />

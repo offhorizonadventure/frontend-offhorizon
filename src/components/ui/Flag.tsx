@@ -1,11 +1,9 @@
 type FlagProps = {
-  /** ISO 3166-1 alpha-2 country code. */
   country: string;
   alt?: string;
   className?: string;
 };
 
-/** Country flag from flagcdn.com. */
 export function Flag({ country, alt, className = "" }: FlagProps) {
   const code = country.toLowerCase();
 

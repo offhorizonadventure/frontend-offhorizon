@@ -1,5 +1,3 @@
-// Generated from libphonenumber-js, filtered against flagcdn's supported list.
-
 export const dialCodes: Record<string, string> = {
   AD: "376",
   AE: "971",

@@ -2,7 +2,6 @@ import { getTranslations } from "next-intl/server";
 
 import { Topo } from "@/components/ui/Topo";
 
-/** Discount figures are commercial terms, so they live here, not in the copy. */
 const rewards = [
   { key: "returning", value: "5%" },
   { key: "group", value: "5-7%" },
@@ -12,7 +11,6 @@ const rewards = [
 
 const conditions = ["availability", "atBooking", "noStacking", "changes"] as const;
 
-/** Rider benefits, philosophy and terms. */
 export async function Rewards() {
   const t = await getTranslations("about.rewards");
 
@@ -58,7 +56,7 @@ export async function Rewards() {
           ))}
         </ul>
 
-        {/* Philosophy, set as a statement rather than another card */}
+        {}
         <blockquote
           data-anim="up"
           className="border-ember-500 mt-16 border-l-2 pl-6 sm:mt-20 sm:pl-8"

@@ -13,7 +13,6 @@ export async function Hero() {
   const ts = await getTranslations("home.stats");
   const format = await getFormatter();
 
-  /** Derived from figures stated elsewhere, so the About page cannot contradict them. */
   const stats = [
     { value: format.number(yearsRunning), key: "years" },
     { value: format.number(COUNTRY_COUNT), key: "countries" },
@@ -23,7 +22,7 @@ export async function Hero() {
 
   return (
     <section className="bg-cream-50 relative overflow-hidden">
-      {/* Warm light from the top, cool cream floor underneath. */}
+      {}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 -top-48 h-[40rem] bg-[radial-gradient(58%_50%_at_50%_0%,rgba(180,95,43,0.16),transparent_72%)]"

@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 
-/** GSAP enhancement for the destination gallery. */
 export function GalleryMotion({ children }: { children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
 

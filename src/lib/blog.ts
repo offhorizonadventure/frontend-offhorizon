@@ -2,8 +2,6 @@ import "server-only";
 
 import { createClient } from "@supabase/supabase-js";
 
-/** The journal, read from Supabase. */
-
 export type RichNode = {
   type?: string;
   attrs?: Record<string, unknown>;
@@ -31,11 +29,9 @@ const BUCKET = "blog";
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
-/** Public URL for a stored image. Rows keep the path, never the address. */
 export const imageUrl = (path: string | null | undefined) =>
   path && url ? `${url}/storage/v1/object/public/${BUCKET}/${path}` : null;
 
-/** Returns null rather than throwing when Supabase is not configured. */
 function client() {
   if (!url || !key) return null;
 
@@ -52,7 +48,6 @@ export async function listPosts(): Promise<Post[]> {
     .from("posts")
     .select(FIELDS)
     .eq("status", "published")
-    // Newest first, and a post published before the column existed still sorts.
     .order("published_at", { ascending: false, nullsFirst: false })
     .order("updated_at", { ascending: false });
 
@@ -73,7 +68,6 @@ export async function getPost(slug: string): Promise<Post | null> {
   return (data as Post) ?? null;
 }
 
-/** Every text run in the document, for word counts and descriptions. */
 export function plainText(node: RichNode | RichDoc | null | undefined): string {
   if (!node) return "";
 
@@ -92,6 +86,5 @@ export const wordCount = (doc: RichDoc | null | undefined): number => {
   return text ? text.split(/\s+/).length : 0;
 };
 
-/** 200 words a minute, the figure most publishers use for prose. */
 export const readingMinutes = (doc: RichDoc | null | undefined): number =>
   Math.max(1, Math.round(wordCount(doc) / 200));

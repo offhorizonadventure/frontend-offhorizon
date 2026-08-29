@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 
-/** A long description, shortened until asked. */
 export function PlaceBody({
   text,
   more,
@@ -12,13 +11,11 @@ export function PlaceBody({
   text: string;
   more: string;
   less: string;
-  /** Words shown before the toggle appears. */
   limit?: number;
 }) {
   const [open, setOpen] = useState(false);
 
   const words = text.trim().split(/\s+/);
-  // Twenty words of slack: below that the toggle hides less than it costs.
   const long = words.length > limit + 20;
 
   const shown = !long || open ? text : `${words.slice(0, limit).join(" ")}…`;

@@ -7,7 +7,6 @@ import { experiences } from "@/config/experiences";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 
-/** Short proof points pulled out of each description. */
 const features = {
   motorcycle: [
     "motorcycle.features.backup",
@@ -21,7 +20,6 @@ const features = {
   ],
 } as const;
 
-/** The positioning statement and the two expedition formats. */
 export async function Experiences() {
   const t = await getTranslations("home.about");
   const tw = await getTranslations("home.ways");
@@ -91,7 +89,7 @@ export async function Experiences() {
                         sizes="(max-width: 1023px) 92vw, 640px"
                         className="ease-out-expo object-cover transition-transform duration-[1200ms] group-hover:scale-[1.05]"
                       />
-                      {/* Warms the photography toward the brand palette. */}
+                      {}
                       <span className="from-brand-950/70 via-brand-950/10 absolute inset-0 bg-gradient-to-t to-transparent" />
                     </span>
 

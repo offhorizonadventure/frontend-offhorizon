@@ -3,8 +3,6 @@ import { NextResponse, type NextRequest } from "next/server";
 
 import { SUPABASE_PUBLISHABLE_KEY, SUPABASE_URL, supabaseConfigured } from "./env";
 
-/** Refreshes the session on every request. */
-/** See supabase/server.ts for why httpOnly is not forced on this one. */
 const harden = (options: CookieOptions): CookieOptions => ({
   ...options,
   secure: process.env.NODE_ENV !== "development",

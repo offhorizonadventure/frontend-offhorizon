@@ -59,11 +59,9 @@ type Props = {
   destinations: Option[];
   company: Option[];
   currencySymbol: string;
-  /** Resolved on the server, which is the only side that knows the country. */
   currency: string;
 };
 
-/** Custom expedition enquiry. */
 export function CustomExpeditionForm({
   labels,
   destinations,
@@ -73,19 +71,15 @@ export function CustomExpeditionForm({
 }: Props) {
   const locale = useLocale();
   const router = useRouter();
-  // Read from the catalogue: an ICU plural cannot cross into a client component.
   const t = useTranslations("custom.fields");
-  // Passed in from the server, which is the only side that knows where the visitor is.
   const currencyCode = currency;
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
   const [startDate, setStartDate] = useState("");
 
-  // How the party is counted.
   const [mode, setMode] = useState<"motorcycle" | "vehicle">("motorcycle");
 
-  // One pillion per machine, so pillions can never exceed riders.
   const [riders, setRiders] = useState(1);
   const [pillions, setPillions] = useState(0);
   const [vehicleChoice, setVehicleChoice] = useState<"own" | "ours">("ours");
@@ -134,8 +128,6 @@ export function CustomExpeditionForm({
       return;
     }
 
-    // A page of its own, so the send can be counted. Pending stays on until the
-    // new page paints, otherwise the form looks ready to send a second time.
     setSent(true);
     router.push(`/${locale}/thank-you?from=custom`);
   }
@@ -232,7 +224,6 @@ export function CustomExpeditionForm({
                 name="endDate"
                 type="date"
                 required
-                // Cannot return before you leave.
                 min={startDate || undefined}
                 className={`${field} mt-2`}
               />
@@ -271,10 +262,7 @@ export function CustomExpeditionForm({
             </select>
           </div>
 
-          {/**
-           * A motorcycle trip counts riders and pillions; a 4x4 counts people and
-           * derives the vehicles, so four seats each cannot be exceeded.
-           */}
+          {}
           <div>
             <span className={label}>{labels.travelMode}</span>
             <div className="mt-2.5 grid gap-2.5 sm:grid-cols-2">
@@ -509,7 +497,7 @@ export function CustomExpeditionForm({
         </>,
       )}
 
-      {/* A failed send must not look like a successful one. */}
+      {}
       {error && (
         <p
           role="alert"

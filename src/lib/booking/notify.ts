@@ -11,7 +11,6 @@ const day = (value: string) =>
     new Date(`${value}T00:00:00Z`),
   );
 
-/** Tells the rider their money arrived and what is left. */
 export async function sendPaymentEmail(paymentId: string) {
   const supabase = createAdminClient();
 

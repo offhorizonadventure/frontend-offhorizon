@@ -6,13 +6,11 @@ import { cn } from "@/lib/cn";
 
 import { VideoPlayer } from "./VideoPlayer";
 
-/** Film strip. */
 export async function Films() {
   const t = await getTranslations("home.films");
 
   const [lead, ...rest] = films;
 
-  // VideoObject markup makes the films eligible for video results in search.
   const schema = films.map((film) => ({
     "@context": "https://schema.org",
     "@type": "VideoObject",

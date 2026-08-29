@@ -4,17 +4,12 @@ import { ChevronDown } from "@/components/ui/icons";
 
 export type FaqItem = {
   question: string;
-  /** Leading paragraphs. */
   answer: string[];
-  /** Optional bullet list rendered between the paragraphs and the closer. */
   list?: string[];
-  /** Optional closing paragraphs. */
   after?: string[];
-  /** Extra nodes appended to the answer, for links that need real markup. */
   children?: ReactNode;
 };
 
-/** FAQ accordion with FAQPage structured data. */
 export function Faq({
   items,
   title,

@@ -2,7 +2,6 @@ import "server-only";
 
 import { listDepartures, listTours, type Tour } from "@/lib/catalogue";
 
-/** How many running expeditions each country has. */
 export async function runningByCountry(): Promise<{
   counts: Map<string, number>;
   tours: Tour[];

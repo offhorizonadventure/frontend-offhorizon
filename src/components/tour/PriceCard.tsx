@@ -9,7 +9,6 @@ import { Link } from "@/i18n/navigation";
 import { buildBooking } from "@/lib/booking-props";
 import { getPrice } from "@/lib/currency";
 
-/** Price card in the hero. */
 export async function PriceCard({
   locale,
   pricing,
@@ -23,10 +22,8 @@ export async function PriceCard({
   tourName: string;
   facts: { key: FactKey; value: string }[];
   departures: Departure[];
-  /** The currency the prices were written in, from the departure row. */
   from?: string;
 }) {
-  // A 4x4 expedition is priced per person; a motorcycle one per rider.
   const byPerson = departures.every((departure) => departure.kind === "4x4");
   const t = await getTranslations({ locale, namespace: "tour" });
   const ts = await getTranslations({ locale, namespace: "dest.shared" });
@@ -50,7 +47,7 @@ export async function PriceCard({
 
   return (
     <div className="bg-cream-50/97 shadow-brand-950/30 ring-cream-100/20 rounded-[26px] p-6 shadow-2xl ring-1 backdrop-blur-md sm:p-7">
-      {/** Headline price, or an honest line where there is nothing to quote. */}
+      {}
       {headline?.price ? (
         <>
           <p className="text-brand-800/50 text-[9.5px] font-bold tracking-[0.18em] uppercase">
@@ -85,9 +82,6 @@ export async function PriceCard({
               <ul className="mt-3 space-y-2.5">
                 <MoreLines
                   visible={2}
-                  /* Raw: the count is only known in the browser, and asking
-                     next-intl to format a message whose placeholder is missing
-                     hands back the key rather than the sentence. */
                   moreLabel={t.raw("price.more") as string}
                   lessLabel={t("price.less")}
                 >

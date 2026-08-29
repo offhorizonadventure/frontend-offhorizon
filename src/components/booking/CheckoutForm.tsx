@@ -30,7 +30,6 @@ type Props = {
   siteName: string;
   hidden: Record<string, string>;
   amounts: { full: string; deposit: string };
-  /** False inside the balance window, where a deposit would be overdue at once. */
   depositAllowed: boolean;
   profile: { name: string; email: string; phone: string };
   labels: CheckoutLabels;
@@ -41,7 +40,6 @@ const field =
 
 const label = "block text-[10.5px] font-bold tracking-[0.16em] text-brand-600 uppercase";
 
-/** Choose how to pay, then hand over to the provider. */
 export function CheckoutForm({
   keyId,
   siteName,
@@ -56,8 +54,6 @@ export function CheckoutForm({
   const [pending, setPending] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
 
-  // Everything happens in the handler rather than an effect: the order is
-  // created, then the provider's window opens over the page.
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (pending) return;

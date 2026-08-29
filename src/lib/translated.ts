@@ -1,6 +1,5 @@
 import type { Tour } from "@/lib/catalogue";
 
-/** A tour in the language being read. */
 export function translate(tour: Tour, locale: string): Tour {
   if (locale === "en") return tour;
 

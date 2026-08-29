@@ -13,7 +13,6 @@ import { razorpayConfigured, razorpayKeyId } from "@/lib/booking/razorpay";
 import { getProfile } from "@/lib/profile";
 import { siteName } from "@/lib/seo";
 
-/** One person's booking in progress. Never indexed. */
 export function generateMetadata(): Metadata {
   return { title: "Checkout", robots: { index: false, follow: false } };
 }
@@ -29,8 +28,6 @@ export default async function CheckoutPage({
   const departureId = typeof query.departure === "string" ? query.departure : "";
   if (!departureId) notFound();
 
-  // Not signed in: keep the page and the choices, and let the account button in
-  // the bar do the work. Signing in refreshes this page into the form.
   const profile = await getProfile();
 
   const priced = await priceBooking(locale, departureId, query);

@@ -13,7 +13,6 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-/** Rebuilt at most every ten minutes. */
 export const revalidate = 600;
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/blog">) {
@@ -96,7 +95,7 @@ export default async function BlogPage({ params }: PageProps<"/[locale]/blog">) 
             <p className="text-brand-800/55 py-16 text-center text-[15px]">{t("empty")}</p>
           )}
 
-          {/* Latest post gets the full width; the rest fall into a grid. */}
+          {}
           {featured && (
             <article data-anim="up">
               <Link

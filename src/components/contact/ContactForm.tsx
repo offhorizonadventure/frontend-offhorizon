@@ -22,7 +22,6 @@ type Labels = {
   searchLabel: string;
 };
 
-/** Enquiry form. */
 export function ContactForm({ labels }: { labels: Labels }) {
   const locale = useLocale();
   const [pending, setPending] = useState(false);
@@ -139,7 +138,7 @@ export function ContactForm({ labels }: { labels: Labels }) {
         />
       </div>
 
-      {/* A failed send must not look like a successful one. */}
+      {}
       {error && (
         <p
           role="alert"

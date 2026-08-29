@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 
 const LOADER = "https://cdn.trustindex.io/loader.js?9760b397813d982b0366a95fa48";
 
-/** Trustindex review widget. */
 export function TrustIndex() {
   const container = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
@@ -25,7 +24,6 @@ export function TrustIndex() {
         element.appendChild(script);
         setLoaded(true);
       },
-      // Start fetching a little before it scrolls in.
       { rootMargin: "400px 0px" },
     );
 

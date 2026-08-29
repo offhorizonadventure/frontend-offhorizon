@@ -4,7 +4,6 @@ import type { Locale } from "@/i18n/config";
 import { currencyForVisitor, formatMoney, getRate } from "@/lib/currency";
 import { createClient } from "@/lib/supabase/server";
 
-
 import { chargeCurrencyFor } from "./currency";
 import { quoteBooking, type PricedDeparture } from "./quote";
 import { BALANCE_DUE_DAYS, DEPOSIT_SHARE, type Party } from "./types";
@@ -25,7 +24,6 @@ const whole = (value: unknown, max: number) => {
 
 const money = (value: number) => Math.round(value * 100) / 100;
 
-/** The same sum the checkout will charge, for the screen the rider reads first. */
 export async function priceBooking(
   locale: Locale,
   departureId: string,
@@ -42,9 +40,6 @@ export async function priceBooking(
 
   if (!data) return null;
 
-  // A departure that has already left cannot be booked. Being close to the
-  // start no longer takes it off sale: what stops a booking is having no
-  // places left, and that is decided per departure.
   const sale = data as { start_date: string; visibility?: string };
 
   if (sale.visibility !== "private" && sale.start_date < new Date().toISOString().slice(0, 10)) {
@@ -97,7 +92,6 @@ export async function priceBooking(
 
   return {
     kind: departure.kind,
-    /** Inside the balance window there is nothing to spread, so it is pay in full. */
     depositAllowed: startsIn > BALANCE_DUE_DAYS,
     tourTitle: row.tour.title,
     tourSlug: row.tour.slug,
@@ -110,7 +104,6 @@ export async function priceBooking(
     deposit,
     totalLabel: format(total),
     depositLabel: format(deposit),
-    /** Passed straight back to the action, which prices it again from the row. */
     hidden: {
       departureId: departure.id,
       riders: String(party.riders),

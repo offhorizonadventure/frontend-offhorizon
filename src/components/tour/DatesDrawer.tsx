@@ -8,7 +8,6 @@ import { ChevronDown, Close } from "@/components/ui/icons";
 
 type Phase = "closed" | "open" | "closing";
 
-/** Departure dates in a slide-over. */
 export function DatesDrawer({
   label,
   title,
@@ -18,7 +17,6 @@ export function DatesDrawer({
   label: string;
   title: string;
   booking: BookingProps;
-  /** Set by the tour page bar, which needs a narrower button. */
   className?: string;
 }) {
   const [phase, setPhase] = useState<Phase>("closed");

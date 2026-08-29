@@ -3,7 +3,6 @@ import { FacebookMark, GoogleMark } from "@/components/ui/BrandMarks";
 
 const NAMES: Record<string, string> = { google: "Google", facebook: "Facebook" };
 
-/** Stands in for the password panel on an account that has no password. */
 export function SocialAccountNote({ providers }: { providers: string[] }) {
   const named = providers.map((provider) => NAMES[provider] ?? provider);
 

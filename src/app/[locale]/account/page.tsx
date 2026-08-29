@@ -8,7 +8,6 @@ import { getUser } from "@/lib/supabase/server";
 export default async function ProfilePage() {
   const [user, profile] = await Promise.all([getUser(), getProfile()]);
 
-  /** Google and Facebook accounts have no password here, so no reset is offered. */
   const providers = (user?.app_metadata?.providers as string[] | undefined) ?? [];
   const hasPassword = providers.includes("email");
   const social = providers.filter((provider) => provider !== "email");

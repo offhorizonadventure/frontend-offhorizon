@@ -32,7 +32,6 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/custom-e
   });
 }
 
-/** Symbol only, so the budget field reads "₹" rather than "₹0.00". */
 async function currencySymbol(locale: Locale) {
   const parts = new Intl.NumberFormat(locale, {
     style: "currency",

@@ -2,10 +2,8 @@ import { getTranslations } from "next-intl/server";
 
 import { Topo } from "@/components/ui/Topo";
 
-/** Keys resolve against `home.different.items`. */
 const items = ["smallGroup", "support", "luxury", "execution"] as const;
 
-/** Why Offhorizon is different. */
 export async function WhyDifferent() {
   const t = await getTranslations("home.different");
 
@@ -45,7 +43,7 @@ export async function WhyDifferent() {
                 {t(`items.${item}.body`)}
               </p>
 
-              {/* Rule grows along the cell's foot on hover. */}
+              {}
               <span
                 aria-hidden
                 className="bg-ember-500 ease-out-expo absolute bottom-0 left-0 h-px w-0 transition-all duration-700 group-hover:w-full"

@@ -33,7 +33,6 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">) {
   });
 }
 
-/** The namespaces a client component reads for itself. */
 const CLIENT_NAMESPACES = ["custom"] as const;
 
 export default async function LocaleLayout({ children, params }: LayoutProps<"/[locale]">) {
@@ -46,15 +45,12 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   return (
     <html lang={locale} className={`${fontVariables} h-full`}>
       <head>
-        {/**
-         * The photographs and the flags come from these, so the handshake happens
-         * while the page is still parsing.
-         */}
+        {}
         <link rel="preconnect" href={SUPABASE_URL} crossOrigin="" />
         <link rel="preconnect" href="https://flagcdn.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://checkout.razorpay.com" />
 
-        {/* First, so it is in place before the tags it holds back. */}
+        {}
         <Termly />
         <TagManager />
       </head>

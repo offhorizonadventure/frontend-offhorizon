@@ -2,7 +2,6 @@ import "server-only";
 
 import { createClient, getUser } from "@/lib/supabase/server";
 
-/** A booking as the account pages show it. */
 export type BookingRow = {
   id: string;
   reference: string;
@@ -18,7 +17,6 @@ export type BookingRow = {
   created_at: string;
   own_vehicle: boolean;
   tour: { slug: string; title: string; hero_path: string | null; google_form_url: string | null };
-  /** Null when the row is not readable, which the pages allow for. */
   departure: {
     start_date: string;
     end_date: string;
@@ -57,7 +55,6 @@ const BOOKING_COLUMNS = `
   departure:departures(start_date, end_date, kind, bike_name)
 `;
 
-/** Past the deadline with money still owed. */
 export const isOverdue = (
   booking: Pick<BookingRow, "balance_due_on" | "total_amount" | "paid_amount" | "status">,
 ) =>
@@ -66,11 +63,9 @@ export const isOverdue = (
   booking.paid_amount < booking.total_amount &&
   booking.balance_due_on < new Date().toISOString().slice(0, 10);
 
-/** What is left to pay, never below zero. */
 export const outstanding = (booking: Pick<BookingRow, "total_amount" | "paid_amount">) =>
   Math.max(0, Math.round((booking.total_amount - booking.paid_amount) * 100) / 100);
 
-/** Every booking the signed in rider is on, whether they paid for it or were invited onto it. */
 export async function listMyBookings(): Promise<BookingRow[]> {
   const user = await getUser();
   if (!user) return [];
@@ -79,19 +74,11 @@ export async function listMyBookings(): Promise<BookingRow[]> {
   const { data } = await supabase
     .from("bookings")
     .select(BOOKING_COLUMNS)
-    // Pending on the site means a checkout that was opened and abandoned, and
-    // is not a booking. Pending in the office means one taken over the phone
-    // and not yet paid, which is exactly what the rider needs to see.
-    // Everything the rider owns, pending ones included. Hiding pending was
-    // meant to keep abandoned checkouts out of the way. What it did instead
-    // was show an empty page to somebody who had just paid, with no reference
-    // and no way back to the booking.
     .order("created_at", { ascending: false });
 
   return (data ?? []) as unknown as BookingRow[];
 }
 
-/** One booking, with everyone on it and every payment against it. */
 export async function getMyBooking(reference: string) {
   const user = await getUser();
   if (!user) return null;
@@ -128,10 +115,6 @@ export async function getMyBooking(reference: string) {
   const mine = (travellers ?? []).find((entry) => entry.user_id === user.id) ?? null;
   const isLead = Boolean(mine?.is_lead);
 
-  // Only the lead hands out places, so only the lead is given the tokens. Row
-  // level security scopes these to the booking, but every rider on it was
-  // getting every unclaimed token in the page payload, which is one rider
-  // quietly filling their friends into somebody else's group.
   const visible = (travellers ?? []).map((entry) => ({
     ...entry,
     invite_token: isLead ? entry.invite_token : null,
@@ -141,10 +124,8 @@ export async function getMyBooking(reference: string) {
     booking: row,
     travellers: visible as TravellerRow[],
     payments: (payments ?? []) as PaymentRow[],
-    /** The signed in rider's own row, which is the one they can write to. */
     mine: mine as TravellerRow | null,
     isLead,
-    /** The documents form opens only when the expedition is paid for. */
     formUrl: row.status === "completed" ? row.tour.google_form_url : null,
     overdue: isOverdue(row),
   };
@@ -156,7 +137,6 @@ export type PaymentHistoryRow = PaymentRow & {
   booking: { reference: string; tour: { title: string } };
 };
 
-/** Every payment this rider has made, newest first. */
 export async function listMyPayments(): Promise<PaymentHistoryRow[]> {
   const user = await getUser();
   if (!user) return [];
@@ -164,15 +144,9 @@ export async function listMyPayments(): Promise<PaymentHistoryRow[]> {
   const supabase = await createClient();
   const { data } = await supabase
     .from("payments")
-    // `method` is pulled out of the webhook body rather than the body being
-    // sent over. `raw` holds the provider's entire payment entity: the card
-    // network and issuer, the acquirer's references, contact details. None of
-    // it is rendered, and all of it was travelling to the browser.
     .select(
       "id, kind, status, amount, currency, paid_at, created_at, provider_payment_id, method:raw->>method, booking:bookings(reference, tour:tours(title))",
     )
-    // `created` is a payment opened and not yet settled. It belongs here: a
-    // rider who has just paid should see the attempt, not a blank list.
     .in("status", ["paid", "refunded", "created"])
     .order("paid_at", { ascending: false, nullsFirst: false });
 
@@ -184,7 +158,6 @@ export async function listMyPayments(): Promise<PaymentHistoryRow[]> {
   }));
 }
 
-/** One payment of the signed in rider's, for its receipt. */
 export async function getMyPayment(id: string): Promise<PaymentHistoryRow | null> {
   const user = await getUser();
   if (!user) return null;

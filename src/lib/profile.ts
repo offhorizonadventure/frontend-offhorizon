@@ -2,7 +2,6 @@ import "server-only";
 
 import { createClient, getUser } from "@/lib/supabase/server";
 
-/** The account holder's own details. */
 export type Profile = {
   id: string;
   email: string | null;
@@ -22,7 +21,6 @@ export async function getProfile(): Promise<Profile | null> {
     .eq("id", user.id)
     .maybeSingle();
 
-  // The trigger creates the row with the account, so a missing one means the migration has not been run.
   return (
     (data as Profile) ?? {
       id: user.id,

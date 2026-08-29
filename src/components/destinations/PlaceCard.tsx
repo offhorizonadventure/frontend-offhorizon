@@ -4,7 +4,6 @@ import { ArrowRight } from "@/components/ui/icons";
 import { Flag } from "@/components/ui/Flag";
 import { Link } from "@/i18n/navigation";
 
-/** Country and region card. */
 export function PlaceCard({
   href,
   name,
@@ -21,11 +20,8 @@ export function PlaceCard({
   name: string;
   image: StaticImageData;
   imageAlt: string;
-  /** Running or planned, shown top right. */
   badge: string;
-  /** Expedition count, or the invitation to enquire. */
   meta: string;
-  /** Regions carry a line of description; countries do not. */
   body?: string;
   flag?: string;
   frame?: "portrait" | "landscape";
@@ -36,10 +32,7 @@ export function PlaceCard({
       href={href}
       className="group bg-brand-100 ring-brand-900/10 ease-out-expo @container block h-full overflow-hidden rounded-[28px] ring-1 transition-transform duration-500 hover:-translate-y-1"
     >
-      {/**
-       * The frame stands up as the card narrows, or a 16:10 picture ends up shorter
-       * than its own caption.
-       */}
+      {}
       <article
         className={`relative ${
           frame === "portrait" ? "aspect-[3/4]" : "aspect-[4/5] @lg:aspect-[16/10]"

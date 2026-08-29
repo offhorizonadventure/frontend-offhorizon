@@ -9,8 +9,6 @@ import { Link } from "@/i18n/navigation";
 
 import { GalleryMotion } from "./GalleryMotion";
 
-/** Destination gallery. */
-/** `/destinations/india` carries the same slug the tours are filed under. */
 const slugOf = (href: string) => href.split("/").pop() ?? "";
 
 export async function DestinationGallery() {
@@ -26,13 +24,12 @@ export async function DestinationGallery() {
         {destinations.map((destination) => (
           <li key={destination.key} data-dg-item className="dg-item">
             <Link href={destination.href} className="dg-panel group">
-              {/* Inset so the parallax drift never exposes an edge. */}
+              {}
               <span data-dg-image data-parallax="7" className="absolute inset-[-7%]">
                 <Image
                   src={destination.image}
                   alt={td(destination.key)}
                   fill
-                  // Above the fold, and the entrance clips panels to zero area, which defers a lazy load.
                   priority
                   sizes="(max-width: 767px) 78vw, (max-width: 1023px) 46vw, 40vw"
                   quality={90}
@@ -42,12 +39,12 @@ export async function DestinationGallery() {
 
               <span className="dg-scrim" aria-hidden />
 
-              {/* Collapsed state: name runs up the panel. */}
+              {}
               <span className="dg-label-vertical" aria-hidden>
                 {td(destination.key)}
               </span>
 
-              {/* Expanded state, and the only version shown below lg. */}
+              {}
               <span className="dg-label-block">
                 <span className="flex items-center gap-2.5">
                   <Flag country={destination.flag} />
@@ -58,7 +55,7 @@ export async function DestinationGallery() {
 
                 <span className="mt-3 flex items-center justify-between gap-4">
                   <span className="text-[10.5px] font-semibold tracking-[0.16em] text-white/70 uppercase">
-                    {/** The real count, from the catalogue. */}
+                    {}
                     {counts.get(slugOf(destination.href)) ? (
                       t("expeditions", { count: counts.get(slugOf(destination.href))! })
                     ) : (

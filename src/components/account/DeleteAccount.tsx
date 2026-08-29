@@ -7,7 +7,6 @@ import { Panel } from "@/components/account/parts";
 import { Close } from "@/components/ui/icons";
 import { deleteMyAccount, type DeleteState } from "@/lib/account/delete";
 
-/** Deleting the account. */
 export function DeleteAccount() {
   const [open, setOpen] = useState(false);
   const [typed, setTyped] = useState("");
@@ -113,7 +112,6 @@ export function DeleteAccount() {
   );
 }
 
-/** Disabled until DELETE is typed, and again while the request is in flight. */
 function Submit({ armed }: { armed: boolean }) {
   const { pending } = useFormStatus();
 

@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 
-/** The site's single scroll-animation engine. */
 export function ScrollMotion() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -48,15 +47,10 @@ export function ScrollMotion() {
             }),
         });
 
-        // Children of a group animate together with a tighter stagger.
         gsap.utils.toArray<HTMLElement>("[data-anim-group]").forEach((group) => {
           const items = Array.from(group.children);
           if (!items.length) return;
 
-          // Already on screen: leave it visible. A `from` tween hides its
-          // targets as soon as it is built, and if the trigger never fires
-          // afterwards the section stays blank, which is what the footer did
-          // on a short page.
           if (group.getBoundingClientRect().top < window.innerHeight * 0.86) return;
 
           gsap.from(items, {
@@ -83,12 +77,9 @@ export function ScrollMotion() {
         });
       });
 
-      // Images settle after the first pass and shift every trigger's position.
       const onLoad = () => {
         ScrollTrigger.refresh();
 
-        // Whatever is still invisible while sitting in the viewport did not get
-        // its trigger. Show it rather than leave a hole in the page.
         window.setTimeout(() => {
           document.querySelectorAll<HTMLElement>("[data-anim-group] > *").forEach((element) => {
             const box = element.getBoundingClientRect();

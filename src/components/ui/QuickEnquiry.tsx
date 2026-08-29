@@ -3,7 +3,6 @@ import { getTranslations } from "next-intl/server";
 import { QuickEnquiryModal } from "@/components/ui/QuickEnquiryModal";
 import type { Locale } from "@/i18n/config";
 
-/** Builds the modal's labels from the catalogue. */
 export async function quickEnquiryLabels(locale: Locale) {
   const t = await getTranslations({ locale, namespace: "consultation" });
 
@@ -27,7 +26,6 @@ export async function quickEnquiryLabels(locale: Locale) {
   };
 }
 
-/** Floating quick enquiry button, present on every page. */
 export async function QuickEnquiryButton({ locale }: { locale: Locale }) {
   const labels = await quickEnquiryLabels(locale);
 

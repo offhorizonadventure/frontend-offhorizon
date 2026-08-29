@@ -6,7 +6,6 @@ import type { Locale } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
 import { listMyExpeditions, tourPath } from "@/lib/catalogue";
 
-/** Custom expeditions built for this rider, which nobody else can see. */
 export async function MyExpeditions({ locale }: { locale: Locale }) {
   const dated = await listMyExpeditions();
   if (!dated.length) return null;

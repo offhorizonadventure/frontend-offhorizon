@@ -4,7 +4,6 @@ import { factIcons } from "@/components/ui/icons";
 import type { FactKey } from "@/lib/tour-types";
 import type { Locale } from "@/i18n/config";
 
-/** Expedition facts. */
 export async function Facts({
   locale,
   facts,
@@ -17,18 +16,14 @@ export async function Facts({
   return (
     <div className="mx-auto max-w-6xl px-5 sm:px-8">
       <div data-anim="up">
-        {/**
-         * No visible heading: the card straddles the hero, so anything above the grid
-         * gets pulled up into the lead paragraph behind it.
-         */}
+        {}
         <h2 className="sr-only">{t("facts.title")}</h2>
 
-        {/** One card, with the dividers drawn as real borders inside it. */}
+        {}
         <dl className="facts-grid shadow-brand-950/8 ring-brand-900/10 overflow-hidden rounded-[22px] bg-white shadow-lg ring-1">
           {facts.map((fact) => {
             const Icon = factIcons[fact.key];
 
-            // Centred, not top aligned: the values run to one or two lines.
             return (
               <div key={fact.key} className="flex items-center gap-3.5 p-6">
                 <span className="text-ember-500">

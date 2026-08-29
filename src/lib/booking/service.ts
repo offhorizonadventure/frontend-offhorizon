@@ -20,7 +20,6 @@ const DEPARTURE_COLUMNS = `
   vehicles:departure_vehicles(vehicle:vehicles(id, per_day_price, seats))
 `;
 
-/** No vowels, so a reference cannot spell anything. */
 const ALPHABET = "0123456789BCDFGHJKLMNPQRSTVWXZ";
 
 const reference = () =>
@@ -35,7 +34,6 @@ const daysBefore = (date: string, days: number) => {
   return at.toISOString().slice(0, 10);
 };
 
-/** The departure with its cars flattened onto it. */
 async function readDeparture(departureId: string) {
   const supabase = createAdminClient();
 
@@ -58,7 +56,6 @@ async function readDeparture(departureId: string) {
   } as PricedDeparture & { tour_id: string };
 }
 
-/** Creates a booking and its first payment. Prices come from the departure row, never the caller. */
 export async function startBooking(input: {
   userId: string;
   departureId: string;
@@ -74,8 +71,6 @@ export async function startBooking(input: {
     return { ok: false, error: "That departure is not open for booking." };
   }
 
-  // A custom expedition is sold to one rider. Everyone else on their booking
-  // joins through the invite link, which does not go through here.
   if (departure.visibility === "private" && departure.assigned_user_id !== input.userId) {
     return { ok: false, error: "That expedition was built for somebody else." };
   }
@@ -111,9 +106,6 @@ export async function startBooking(input: {
   const quote = quoteBooking(departure, input.party);
   if (quote.total <= 0) return { ok: false, error: "That departure has no price on it yet." };
 
-  // The quote silently ignores a car that is not on this departure. Storing
-  // the id anyway would put a machine on the booking that nobody paid for, so
-  // only a car that was actually priced is kept.
   const vehicleId =
     departure.kind === "4x4" && !input.party.ownVehicle
       ? (departure.vehicles.find((entry) => entry.id === input.party.vehicleId)?.id ?? null)
@@ -172,7 +164,6 @@ export async function startBooking(input: {
   });
 }
 
-/** A row for everyone on the booking: the lead, the invited riders, the pillions. */
 function seats(
   bookingId: string,
   input: { userId: string; party: Party; lead: { fullName: string; email: string; phone: string } },

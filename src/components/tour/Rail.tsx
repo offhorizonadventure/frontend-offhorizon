@@ -4,7 +4,6 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import { ChevronDown } from "@/components/ui/icons";
 
-/** Horizontal scroll container, used by the itinerary and the highlights. */
 export function Rail({
   children,
   className,
@@ -13,11 +12,9 @@ export function Rail({
   tone = "dark",
 }: {
   children: ReactNode;
-  /** Class on the list itself, so each caller keeps its own card sizing. */
   className: string;
   previousLabel: string;
   nextLabel: string;
-  /** Arrows sit on a dark band in the itinerary and a light one in highlights. */
   tone?: "dark" | "light";
 }) {
   const rail = useRef<HTMLOListElement>(null);
@@ -29,7 +26,6 @@ export function Rail({
     if (!node) return;
 
     const update = () => {
-      // A pixel of slack: fractional scroll widths never land exactly.
       setAtStart(node.scrollLeft <= 1);
       setAtEnd(node.scrollLeft + node.clientWidth >= node.scrollWidth - 1);
     };

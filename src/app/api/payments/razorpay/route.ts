@@ -3,7 +3,6 @@ import { after, NextResponse } from "next/server";
 import { settlePayment } from "@/lib/booking/settle";
 import { webhookSignatureValid } from "@/lib/booking/razorpay";
 
-/** The only thing that confirms a booking. Signature checked over the raw body. */
 export async function POST(request: Request) {
   const body = await request.text();
   const signature = request.headers.get("x-razorpay-signature") ?? "";
@@ -28,12 +27,9 @@ export async function POST(request: Request) {
 
   const entity = event.payload?.payment?.entity;
   if (!entity || typeof entity.id !== "string") {
-    // Nothing to do with a payment, but it was signed, so it is not an error.
     return NextResponse.json({ ok: true });
   }
 
-  // Answer the provider straight away and settle after: a slow database write
-  // must not turn into a retry storm.
   after(async () => {
     await settlePayment({
       paymentId: entity.id as string,

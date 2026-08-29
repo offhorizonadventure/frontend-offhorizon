@@ -1,7 +1,5 @@
 import type { ReactNode } from "react";
 
-/** The pieces the four account screens share. */
-
 export function Panel({
   title,
   lead,
@@ -73,5 +71,3 @@ export function Pill({ tone, children }: { tone: keyof typeof TONES; children: R
     </span>
   );
 }
-
-/** Every screen here is a mock, and says so rather than looking live. */

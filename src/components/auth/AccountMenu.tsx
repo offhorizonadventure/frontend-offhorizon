@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import { UserRound } from "@/components/ui/icons";
 import { Link } from "@/i18n/navigation";
 
-/** The account control in the navigation bar. */
 export function AccountMenu({
   signIn,
   account,
@@ -28,7 +27,6 @@ export function AccountMenu({
   const [open, setOpen] = useState(false);
   const wrapper = useRef<HTMLDivElement>(null);
 
-  /** Closes on a click elsewhere or on Escape, and not on the pointer leaving. */
   useEffect(() => {
     if (!open) return;
 

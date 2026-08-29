@@ -8,16 +8,6 @@ import type { Locale } from "@/i18n/config";
 import { fleetImageUrl, type Vehicle } from "@/lib/catalogue";
 import { getPrice } from "@/lib/currency";
 
-/**
- * The machines an expedition runs: cars on a 4x4, motorcycles on a ride.
- *
- * The cards are short on purpose, the way a shop lists things: a photograph, a
- * name, and what it costs. The description is what somebody reads once they
- * care, so it lives behind See all rather than in front of everyone.
- *
- * A tour can have both kinds of departure, so the heading follows what is
- * actually in the list rather than assuming.
- */
 export async function Fleet({
   locale,
   vehicles,
@@ -27,11 +17,8 @@ export async function Fleet({
 }: {
   locale: Locale;
   vehicles: Vehicle[];
-  /** The currency the daily rates are quoted in. */
   currency: string;
-  /** Length of the shortest departure, for the worked example. */
   days: number;
-  /** The currency the rates were written in, from the departure row. */
   from?: string;
 }) {
   const t = await getTranslations({ locale, namespace: "tour.fleet" });
@@ -45,7 +32,6 @@ export async function Fleet({
       name: vehicle.name,
       url: fleetImageUrl(vehicle.image_path),
       alt: vehicle.image_alt ?? vehicle.name,
-      // A motorcycle has no seat count worth printing.
       seats: vehicle.kind === "bike" ? null : t("seats", { count: vehicle.seats ?? 4 }),
       notes: vehicle.notes,
       perDay: vehicle.per_day_price

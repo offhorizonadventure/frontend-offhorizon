@@ -6,8 +6,6 @@ import { createClient as createSessionClient } from "@/lib/supabase/server";
 
 import { createClient } from "@supabase/supabase-js";
 
-/** Tours and their departures, read from Supabase. */
-
 const BUCKET = "tours";
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -16,15 +14,11 @@ const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 export const imageUrl = (path: string | null | undefined) =>
   path && url ? `${url}/storage/v1/object/public/${BUCKET}/${path}` : null;
 
-/** Missing configuration costs the catalogue, not the whole site. */
 function client() {
   if (!url || !key) return null;
 
   return createClient(url, key, { auth: { persistSession: false } });
 }
-
-/** Cache tags, so a save in the admin can clear exactly what it changed. */
-/** Days before departure that a place stops being sold. */
 
 export const CATALOGUE_TAG = "catalogue";
 export const tourTag = (slug: string) => `tour:${slug}`;
@@ -52,16 +46,6 @@ export const COUNTRY_SLUGS = Object.keys(COUNTRY_NAMES) as CountrySlug[];
 export const isCountrySlug = (value: string): value is CountrySlug =>
   Object.hasOwn(COUNTRY_NAMES, value);
 
-/**
- * Where a tour lives, without the locale.
- *
- * The country is part of the address because that is how people look for these
- * trips, and the admin will not save a tour without one.
- *
- * The fallback is for a row written before that rule existed. It is not a
- * shape anything should produce, but a tour that predates the rule is better
- * served at its old address than at /null/its-slug.
- */
 export const tourPath = (tour: { slug: string; country: string | null }) =>
   tour.country && isCountrySlug(tour.country)
     ? `/${tour.country}/${tour.slug}`
@@ -79,26 +63,19 @@ export type ProgrammeDay = {
 };
 export type GalleryImage = { path: string; alt: string };
 
-/** A question riders ask before they book, and the answer they get. */
 export type TourFaq = { question: string; answer: string };
 
 export type Tour = {
   id: string;
-  /** When the tour was added. The home page shows the newest first. */
   created_at: string;
   slug: string;
   title: string;
   lead: string | null;
   country: CountrySlug | null;
-  /** Matches the region slug in the public route, or null for none. */
   region: string | null;
   featured: boolean;
   hero_path: string | null;
   hero_alt: string | null;
-  /**
-   * Kept in step with the column. Custom expeditions live on the departure, so
-   * this stays public unless a bespoke route ever needs a page of its own.
-   */
   visibility: "public" | "private";
   place_title: string | null;
   place_body: string | null;
@@ -114,14 +91,11 @@ export type Tour = {
   faqs: TourFaq[];
   rating: number | null;
   reviews: number | null;
-  /** Machine translations keyed by locale, applied by `lib/translated`. */
   translations: Record<string, { at: string; fields: Record<string, string> }> | null;
 };
 
-/** A car on a 4x4 expedition. */
 export type Vehicle = {
   id: string;
-  /** A motorcycle carries its rider; a car carries a party. */
   kind: "bike" | "car";
   name: string;
   per_day_price: number | null;
@@ -150,23 +124,18 @@ export type Departure = {
   leader: string | null;
   seats: number | null;
   seats_taken: number;
-  /** A custom expedition: this running belongs to one rider. */
   visibility: "public" | "private";
   assigned_user_id: string | null;
   notes: string | null;
   kind: "motorbike" | "4x4";
   bike_name: string | null;
-  /** The cars this expedition runs, in the order the admin put them. */
   vehicles: Vehicle[];
 };
 
-/** Strips a wrapping pair of quotes. */
 const unquote = (line: string) => line.replace(/^["“]([\s\S]*)["”]$/, "$1").trim();
 
-/** One line of what is in the price, or what is not. */
 export type Inclusion = { title: string; body: string };
 
-// Inclusion lines are often pasted in already quoted; the quotes are not the sentence.
 const asInclusions = (items: unknown): Inclusion[] =>
   ((items ?? []) as Inclusion[])
     .map((row) => ({ title: unquote(row.title ?? ""), body: unquote(row.body ?? "") }))
@@ -184,7 +153,6 @@ const shape = (row: Record<string, unknown>): Tour => ({
   faqs: (row.faqs ?? []) as TourFaq[],
 });
 
-/** Every published tour, read once a day rather than once a visitor. */
 export const listTours = unstable_cache(
   async (): Promise<Tour[]> => {
     const supabase = client();
@@ -221,20 +189,14 @@ export const getTour = unstable_cache(
   { tags: [CATALOGUE_TAG], revalidate: DAY },
 );
 
-/** Published departures, soonest first, finished ones dropped. */
 export const listDepartures = unstable_cache(
   async (tourId?: string): Promise<Departure[]> => {
     const supabase = client();
     if (!supabase) return [];
 
-    // Everything still to come is listed. A departure used to disappear thirty
-    // days out, which hid trips that were still on sale and still had seats.
-    // Being sold out is what stops a booking, and that is decided per departure
-    // rather than by the calendar.
     const today = new Date().toISOString().slice(0, 10);
     let query = supabase
       .from("departures")
-      // The join is read as a nested select rather than a second round trip.
       .select("*, departure_vehicles(position, vehicles(*))")
       .eq("status", "published")
       .gt("start_date", today)
@@ -250,7 +212,6 @@ export const listDepartures = unstable_cache(
   { tags: [CATALOGUE_TAG], revalidate: 60 * 60 },
 );
 
-/** Cars come back as a join table; the page wants them on the departure. */
 function withVehicles(rows: unknown[]): Departure[] {
   type Link = { position: number; vehicles: Vehicle | null };
 
@@ -268,7 +229,6 @@ function withVehicles(rows: unknown[]): Departure[] {
   });
 }
 
-/** The cheapest rider price on offer, which is what "from" means on a card. */
 export const priceFrom = (departures: Departure[]) => {
   const prices = departures
     .map((departure) => departure.rider_price)
@@ -277,15 +237,6 @@ export const priceFrom = (departures: Departure[]) => {
   return prices.length ? Math.min(...prices) : null;
 };
 
-/**
- * The reader's own custom departures, on one tour or across all of them.
- *
- * The catalogue is cached and read anonymously, and row level security only
- * shows a private departure to the rider it was sold to, so the cache can
- * never hold one. This asks with their session instead, and keeps every date:
- * a custom expedition is a conversation, not a seat on sale, so the thirty day
- * cut off does not apply to it.
- */
 export async function listMyDepartures(tourId?: string): Promise<Departure[]> {
   const supabase = await createSessionClient();
   const { data: session } = await supabase.auth.getUser();
@@ -309,7 +260,6 @@ export async function listMyDepartures(tourId?: string): Promise<Departure[]> {
   return error ? [] : withVehicles(data ?? []);
 }
 
-/** The tours those custom departures belong to, for the account page. */
 export async function listMyExpeditions(): Promise<{ tour: Tour; departures: Departure[] }[]> {
   const departures = await listMyDepartures();
   if (!departures.length) return [];

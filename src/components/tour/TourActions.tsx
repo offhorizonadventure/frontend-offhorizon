@@ -6,18 +6,16 @@ import { quickEnquiryLabels } from "@/components/ui/QuickEnquiry";
 import { QuickEnquiryModal } from "@/components/ui/QuickEnquiryModal";
 import type { Locale } from "@/i18n/config";
 
-/** Book or ask, pinned to the bottom. Hides the floating enquiry button. */
 export async function TourActions({ locale, booking }: { locale: Locale; booking: BookingProps }) {
   const t = await getTranslations({ locale, namespace: "tour" });
   const labels = await quickEnquiryLabels(locale);
 
-  // z-30: under the destinations panel.
   return (
     <div
       data-tour-actions
       className="pointer-events-none fixed inset-x-0 bottom-0 z-30 flex justify-end gap-2.5 p-4 sm:inset-x-auto sm:right-6 sm:bottom-6 sm:p-0"
     >
-      {/* Outlined beside Book now on a phone; the brown pill used site wide above sm. */}
+      {}
       <QuickEnquiryModal
         labels={labels}
         source={booking.tourName}

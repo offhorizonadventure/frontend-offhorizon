@@ -38,20 +38,10 @@ import {
   programmeList,
 } from "@/lib/tour-view";
 
-/** Rendered per request, not cached as one page for everyone. */
 export const dynamic = "force-dynamic";
 
-/** The tour behind the page. Custom expeditions run ordinary tours. */
 const readTour = (slug: string) => getTour(slug);
 
-/**
- * The address tours used to live at, before the country became part of it.
- *
- * Old links are in Google, in emails already sent and on other people's sites,
- * so this segment still answers. A tour that now has a country is redirected
- * permanently, which hands the ranking on. A tour filed under no country has
- * nowhere else to be, so this stays its address.
- */
 const MOVED = "adventure";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/[country]/[slug]">) {
@@ -92,23 +82,16 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
 
   const path = tourPath(source);
 
-  // The country in the address has to be the one the tour is filed under. Any
-  // other spelling is a different page, not this one wearing a new name, and
-  // two addresses for one page is what a canonical is meant to prevent.
   if (path !== `/${country}/${slug}`) {
     if (country === MOVED) permanentRedirect(`/${locale}${path}`);
     notFound();
   }
 
-  // Translated fields laid over the English rows, field by field.
   const tour = translate(source, locale);
 
   const t = await getTranslations({ locale, namespace: "tour" });
   const ts = await getTranslations({ locale, namespace: "dest.shared" });
 
-  // The dates on general sale, plus any custom departure of this tour sold to
-  // the reader. The second read is theirs alone: the cached list is anonymous
-  // and row level security keeps a private departure out of it.
   const [open, mine] = await Promise.all([listDepartures(tour.id), listMyDepartures(tour.id)]);
   const departures = [...mine, ...open].sort((a, b) => a.start_date.localeCompare(b.start_date));
 
@@ -120,28 +103,17 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
   const gallery = galleryList(tour);
   const expect = expectList(tour);
   const routeMap = imageUrl(tour.route_map_path);
-  // A tour read before the column existed has none at all.
   const faqs = tour.faqs ?? [];
   const priceGroups = pricing(tour, departures);
 
-  // Prices are written in whatever the departure says, and converting from the
-  // wrong one is how a 45,000 rupee expedition became four million.
   const priceCurrency = departures[0]?.currency;
 
-  /**
-   * The machines on offer, gathered from every departure.
-   *
-   * A 4x4 always picks its cars from the fleet. A motorbike expedition may pick
-   * its bikes or simply name one, and a named one is not a fleet record, so
-   * those departures add nothing here and the section stays away.
-   */
   const fleet = [
     ...new Map(
       departures.flatMap((departure) => departure.vehicles).map((vehicle) => [vehicle.id, vehicle]),
     ).values(),
   ];
 
-  // The shortest departure, for the worked example beside each daily rate.
   const shortestDays = departures.length
     ? Math.min(
         ...departures.map(
@@ -154,7 +126,6 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
       )
     : 0;
 
-  /** TouristTrip with the itinerary as an ItemList. */
   const schema = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
@@ -197,7 +168,7 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
 
       <Highlights locale={locale} facts={facts} highlights={highlights} />
 
-      {/* The place, with the price beside it */}
+      {}
       <section className="bg-cream-50 relative overflow-hidden py-18 sm:py-24">
         <Topo className="text-brand-800/12" rings={11} seed={40.9} />
 
@@ -224,10 +195,7 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
         </div>
       </section>
 
-      {/**
-       * Each section is dropped when the tour has nothing in it, rather than
-       * rendering an empty heading over blank space.
-       */}
+      {}
       {programme.length > 0 && <Program locale={locale} days={programme} />}
 
       {fleet.length > 0 && (
@@ -267,8 +235,6 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
         <Faq
           eyebrow={t("faq.eyebrow")}
           title={t("faq.title")}
-          // One answer written in the office may run to several paragraphs, and
-          // a blank line is how somebody typing into a box says so.
           items={faqs.map((entry) => ({
             question: entry.question,
             answer: entry.answer

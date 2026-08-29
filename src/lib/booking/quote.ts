@@ -2,7 +2,6 @@ import "server-only";
 
 import type { Party, Quote, QuoteLine } from "./types";
 
-/** A departure as the pricing needs it, read from the database. */
 export type PricedDeparture = {
   id: string;
   start_date: string;
@@ -24,7 +23,6 @@ export type PricedDeparture = {
 
 const money = (value: number) => Math.round(value * 100) / 100;
 
-/** Nights on the road, which is what a car is charged by. */
 export const durationDays = (departure: PricedDeparture) => {
   const start = new Date(`${departure.start_date}T00:00:00Z`).getTime();
   const end = new Date(`${departure.end_date}T00:00:00Z`).getTime();
@@ -32,7 +30,6 @@ export const durationDays = (departure: PricedDeparture) => {
   return Math.max(1, Math.round((end - start) / 86_400_000) + 1);
 };
 
-/** What a party costs, computed from the departure row. */
 export function quoteBooking(departure: PricedDeparture, party: Party): Quote {
   const lines: QuoteLine[] = [];
 
@@ -46,7 +43,6 @@ export function quoteBooking(departure: PricedDeparture, party: Party): Quote {
   add("protection", party.damageProtection, departure.damage_protection_price);
   add("room", party.singleRooms, departure.single_room_price);
 
-  // A car is priced per day and is only charged when it is ours.
   if (departure.kind === "4x4" && party.vehicleId && !party.ownVehicle) {
     const vehicle = departure.vehicles.find((entry) => entry.id === party.vehicleId);
     const perDay = vehicle?.per_day_price ?? null;

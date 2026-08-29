@@ -5,7 +5,6 @@ import { blurOf, type ImageSource } from "@/lib/image-source";
 import { ArrowRight } from "@/components/ui/icons";
 import { Link } from "@/i18n/navigation";
 
-/** Closing call to action. */
 export function CtaBand({
   title,
   body,

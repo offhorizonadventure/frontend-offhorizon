@@ -14,7 +14,6 @@ import { resolveLocale } from "@/i18n/params";
 import { regionCards } from "@/lib/catalogue-cards";
 import { buildMetadata, siteUrl } from "@/lib/seo";
 
-/** A numbered point in the "why us" grid. */
 type Blurb = { title: string; body: string };
 
 export const revalidate = 600;
@@ -61,7 +60,6 @@ export default async function RegionPage({
   const t = await getTranslations({ locale, namespace: `dest.${region.content}` });
   const strengths = t.raw("why.items") as Blurb[];
 
-  // Only this region's tours: the Indian Himalayas page should not list a South India ride.
   const cards = await regionCards(countrySlug, regionSlug);
 
   const schema = {
@@ -96,7 +94,7 @@ export default async function RegionPage({
         seed={24.5}
       />
 
-      {/* Tours available in this region */}
+      {}
       <section className="bg-cream-50 relative overflow-hidden py-18 sm:py-24">
         <Topo className="text-brand-800/12" rings={11} seed={25.3} />
 
@@ -132,7 +130,7 @@ export default async function RegionPage({
         </div>
       </section>
 
-      {/* Why ride the region with us */}
+      {}
       <section className="bg-brand-950 text-cream-100 relative overflow-hidden py-18 sm:py-24">
         <Topo className="text-cream-100/10" rings={15} seed={26.1} />
         <div

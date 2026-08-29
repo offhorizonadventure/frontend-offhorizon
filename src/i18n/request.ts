@@ -6,7 +6,6 @@ import { routing } from "./routing";
 
 type Catalogue = Record<string, unknown>;
 
-/** Bundled at build time - one chunk per locale, no runtime file access. */
 const bundled: Record<Locale, () => Promise<{ default: Catalogue }>> = {
   en: () => import("../../messages/en.json"),
   fr: () => import("../../messages/fr.json"),
@@ -15,7 +14,6 @@ const bundled: Record<Locale, () => Promise<{ default: Catalogue }>> = {
   es: () => import("../../messages/es.json"),
 };
 
-/** In dev, read the catalogue off disk instead of importing it. */
 async function loadMessages(locale: Locale): Promise<Catalogue> {
   if (process.env.NODE_ENV === "development") {
     const [{ readFile }, { join }] = await Promise.all([

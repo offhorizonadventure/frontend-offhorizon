@@ -15,7 +15,6 @@ type Labels = {
   unavailable: string;
 };
 
-/** Pay any amount towards what is left. */
 export function InstalmentForm({
   keyId,
   siteName,
@@ -75,19 +74,6 @@ export function InstalmentForm({
     }
   }
 
-  /**
-   * What is left, to the subunit.
-   *
-   * The default and the maximum have to be the same number. They were not:
-   * the default rounded 4885.86 up to 4886 while the maximum stayed exact, so
-   * the browser refused the value the form had filled in itself and the
-   * balance could never be cleared.
-   *
-   * Rounded rather than floored: floor on a binary float can lose a subunit,
-   * since 1.005 * 100 is 100.49999... and would strand a paisa forever. The
-   * server takes the smaller of what is sent and what is owed, so rounding up
-   * by a subunit costs nobody anything.
-   */
   const payable = Math.round(outstanding * 100) / 100;
 
   return (
@@ -108,7 +94,6 @@ export function InstalmentForm({
             inputMode="decimal"
             min="0.01"
             max={payable}
-            // Subunits, so the last rupee and paise of a balance can be paid.
             step="0.01"
             defaultValue={payable}
             required

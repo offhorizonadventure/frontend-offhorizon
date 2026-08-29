@@ -176,7 +176,7 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
                 </li>
               </ul>
 
-              {/* What happens after the form is sent */}
+              {}
               <div className="border-brand-900/12 mt-9 rounded-2xl border p-6">
                 <h3 className="text-brand-500 text-[10.5px] font-bold tracking-[0.18em] uppercase">
                   {t("steps.title")}

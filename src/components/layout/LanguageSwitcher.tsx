@@ -19,11 +19,9 @@ const NAMES: Record<Locale, string> = {
 
 type LanguageSwitcherProps = {
   label: string;
-  /** `menu` is the navbar dropdown; `row` is a flat strip for the mobile sheet. */
   variant?: "menu" | "row";
 };
 
-/** Client only for `usePathname()`; every option is a real localized link. */
 export function LanguageSwitcher({ label, variant = "menu" }: LanguageSwitcherProps) {
   const pathname = usePathname();
   const active = useLocale() as Locale;

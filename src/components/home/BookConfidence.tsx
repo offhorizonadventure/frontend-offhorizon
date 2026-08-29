@@ -22,7 +22,6 @@ const guarantees = [
   { key: "departures", Icon: BadgeCheck },
 ] as const;
 
-/** Booking guarantees, closing on the contact call to action. */
 export async function BookConfidence() {
   const t = await getTranslations("home.confidence");
   const tc = await getTranslations("home.startAdventure");
@@ -72,7 +71,7 @@ export async function BookConfidence() {
           ))}
         </ul>
 
-        {/** Cream panel against the dark section, with the rider in an arch. */}
+        {}
         <div
           data-anim="wipe"
           className="bg-cream-100 mt-14 overflow-hidden rounded-[32px] sm:mt-20"

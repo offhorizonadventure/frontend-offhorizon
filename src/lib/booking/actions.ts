@@ -24,7 +24,6 @@ const whole = (value: FormDataEntryValue | null, max: number) => {
   return parsed;
 };
 
-/** Opens a booking and its first payment. */
 export async function createBooking(_: unknown, formData: FormData): Promise<ActionResult> {
   const user = await getUser();
   if (!user) return { ok: false, error: "Sign in to book." };
@@ -76,7 +75,6 @@ export async function createBooking(_: unknown, formData: FormData): Promise<Act
   };
 }
 
-/** Opens a payment towards the balance. */
 export async function payInstalment(_: unknown, formData: FormData): Promise<ActionResult> {
   const user = await getUser();
   if (!user) return { ok: false, error: "Sign in to pay." };
@@ -127,7 +125,6 @@ export async function payInstalment(_: unknown, formData: FormData): Promise<Act
   };
 }
 
-/** The rider says they have sent their documents. Their own row, and only theirs. */
 export async function setFormSubmitted(travellerId: string, submitted: boolean) {
   const user = await getUser();
   if (!user) return { ok: false as const, error: "Sign in first." };
@@ -148,7 +145,6 @@ export async function setFormSubmitted(travellerId: string, submitted: boolean) 
   return { ok: true as const };
 }
 
-/** Joins the signed in rider to the group the invite belongs to. */
 export async function acceptInvite(token: string) {
   const user = await getUser();
   if (!user) return { ok: false as const, error: "Sign in to join the group." };
@@ -173,12 +169,6 @@ export async function acceptInvite(token: string) {
     return { ok: false as const, error: "That booking was cancelled." };
   }
 
-  // Nobody rides the same departure twice.
-  //
-  // This used to look only at the booking the invite belonged to, so somebody
-  // already going could accept a second invitation from another group on the
-  // same dates and hold two places on one trip. The question is the departure,
-  // not the booking.
   const { data: held } = await admin
     .from("booking_travellers")
     .select("id, booking:bookings!inner(reference, departure_id, status)")
@@ -190,7 +180,6 @@ export async function acceptInvite(token: string) {
   if (held?.length) {
     const mine = held[0].booking as unknown as { reference: string };
 
-    // Already on this booking: nothing to do, and nothing has gone wrong.
     return mine.reference === booking.reference
       ? { ok: true as const, reference: booking.reference }
       : {
@@ -199,9 +188,6 @@ export async function acceptInvite(token: string) {
         };
   }
 
-  // The name goes on the seat as well. Without it the group list showed the
-  // person as "Rider 2, joined", which tells the lead nothing about who
-  // actually accepted.
   const named =
     (user.user_metadata?.full_name as string | undefined) ??
     (user.user_metadata?.name as string | undefined) ??
@@ -225,19 +211,6 @@ export async function acceptInvite(token: string) {
   return { ok: true as const, reference: booking.reference };
 }
 
-/**
- * Names a seat nobody has claimed.
- *
- * A pillion has no account and no way to introduce themselves, so the booking
- * shows "Pillion 1" until the person who paid says who it is. Same for a rider
- * seat still waiting on its invitation.
- *
- * Only the lead may do it, and only to a seat with no account behind it: once
- * somebody has joined, their name is theirs and not the lead's to rewrite.
- *
- * Goes through the service key because the column grants deliberately leave
- * full_name out of what a signed-in customer may write directly.
- */
 export async function setTravellerName(travellerId: string, name: string) {
   const user = await getUser();
   if (!user) return { ok: false as const, error: "Sign in first." };

@@ -4,7 +4,6 @@ import { sendMail } from "@/lib/mail";
 import { siteName } from "@/lib/seo";
 import { createAdminClient } from "@/lib/supabase/admin";
 
-/** Cancels every booking that still owes money past its deadline. */
 export async function cancelOverdue() {
   const supabase = createAdminClient();
   const today = new Date().toISOString().slice(0, 10);
@@ -37,7 +36,6 @@ export async function cancelOverdue() {
 
     if (error) continue;
 
-    // The places go back on sale, which is the point of the deadline.
     if (booking.seats_counted) {
       const { data: departure } = await supabase
         .from("departures")

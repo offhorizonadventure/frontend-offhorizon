@@ -6,7 +6,6 @@ import { Field, Panel, PrimaryButton, fieldClass } from "@/components/account/pa
 import { signIn, updatePassword } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/client";
 
-/** Changing the password. */
 export function PasswordPanel() {
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);

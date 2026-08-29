@@ -32,7 +32,6 @@ export function Field({
   );
 }
 
-/** A password box with a reveal. */
 export function PasswordField({
   label,
   name,
@@ -95,18 +94,6 @@ export function PrimaryButton({
   );
 }
 
-/**
- * Google, above the email form rather than below it.
- *
- * Only providers that are actually enabled in Supabase belong here.
- * signInWithOAuth sends the browser to Supabase before any error can come
- * back, so a provider that is not switched on does not fail inside the modal:
- * it drops the visitor onto a raw JSON error page on supabase.co.
- *
- * Facebook is written and commented out below rather than deleted. It needs
- * App Review and Business Verification before it can be turned on, and this is
- * the whole of what changes when it is.
- */
 export function SocialButtons({
   google,
   divider,
@@ -114,7 +101,6 @@ export function SocialButtons({
   disabled,
 }: {
   google: string;
-  /** Kept for when the Facebook button comes back. */
   facebook: string;
   divider: string;
   onProvider: (provider: "google" | "facebook") => void;
@@ -136,20 +122,7 @@ export function SocialButtons({
           {google}
         </button>
 
-        {/*
-          Facebook. To bring it back once Meta has approved the app, restore
-          FacebookMark to the import at the top of this file and uncomment:
-
-          <button
-            type="button"
-            className={button}
-            disabled={disabled}
-            onClick={() => onProvider("facebook")}
-          >
-            <FacebookMark className="size-[18px]" />
-            {facebook}
-          </button>
-        */}
+        {}
       </div>
 
       <div className="flex items-center gap-4">

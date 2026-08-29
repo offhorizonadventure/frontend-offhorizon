@@ -12,19 +12,16 @@ const setCookie = (name: string, value: string, maxAge: number) => {
   document.cookie = `${name}=${value}; path=/; max-age=${maxAge}; samesite=lax`;
 };
 
-/** Works out where the visitor is, once, on their first visit. */
 export function CountryProbe() {
   const router = useRouter();
   const pathname = usePathname();
 
-  /** Everything the effect needs, without putting it in the dependency list. */
   const latest = useRef({ router, pathname });
 
   useEffect(() => {
     latest.current = { router, pathname };
   });
 
-  // Strict mode mounts effects twice in development. This asks once.
   const asked = useRef(false);
 
   useEffect(() => {
@@ -33,7 +30,6 @@ export function CountryProbe() {
 
     const stored = localStorage.getItem(STORAGE_KEY);
 
-    // Already known from an earlier visit.
     if (stored?.length === 2) {
       setCookie(COUNTRY_COOKIE, stored, COOKIE_MAX_AGE);
       latest.current.router.refresh();
@@ -53,16 +49,11 @@ export function CountryProbe() {
         localStorage.setItem(STORAGE_KEY, country);
         setCookie(COUNTRY_COOKIE, country, COOKIE_MAX_AGE);
 
-        /** Only the currency follows the country. */
         latest.current.router.refresh();
-      } catch {
-        // Offline, blocked by an ad blocker, or over the free quota.
-      }
+      } catch {}
     };
 
     void lookUp();
-
-    /** No cleanup, deliberately. */
   }, []);
 
   return null;

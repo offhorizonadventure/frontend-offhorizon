@@ -2,14 +2,6 @@
 
 import { useState, type ReactNode } from "react";
 
-/**
- * Shows the first few rows of a group and hides the rest behind a link.
- *
- * A 4x4 expedition can run six cars, and six rows of them push the price and
- * the dates off the card. Two is enough to show what kind of thing is on
- * offer; the rest are one click away and stay on the card rather than opening
- * something over the top of it.
- */
 export function MoreLines({
   children,
   visible,
@@ -17,7 +9,6 @@ export function MoreLines({
   lessLabel,
 }: {
   children: ReactNode[];
-  /** How many rows to show before the link. */
   visible: number;
   moreLabel: string;
   lessLabel: string;

@@ -10,18 +10,6 @@ import { siteName } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
-/**
- * A receipt for one payment.
- *
- * Razorpay emails its own confirmation when it captures a payment, but it has
- * no customer-facing document to link to, and what it does send names the
- * gateway rather than the expedition. This is ours: the booking reference, the
- * trip and the dates, which is what somebody actually needs for a visa
- * application or an expense claim.
- *
- * Built to be printed. The browser's own print to PDF is a better document
- * than anything generated server side, and it needs no library.
- */
 export default async function ReceiptPage({
   params,
 }: PageProps<"/[locale]/account/payments/[id]/receipt">) {

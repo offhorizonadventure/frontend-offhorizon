@@ -3,7 +3,6 @@ import { getTranslations } from "next-intl/server";
 import { PARTNER_REPEATS, partners } from "@/config/partners";
 import { FOUNDED_YEAR } from "@/config/facts";
 
-/** Partner frieze. */
 export async function Partners() {
   const t = await getTranslations("home.partners");
 
@@ -33,7 +32,7 @@ export async function Partners() {
         </div>
       </div>
 
-      {/* Full bleed: the band runs to both edges of the viewport. */}
+      {}
       <div className="border-brand-900/12 mt-11 border-y sm:mt-14">
         <div className="pm-marquee">
           <ul className="pm-track">
@@ -41,7 +40,6 @@ export async function Partners() {
               partners.map((partner) => (
                 <li
                   key={`${pass}-${partner.slug}`}
-                  // Only the first pass is real content; the rest is filler.
                   aria-hidden={pass > 0}
                   className="pm-slot group"
                 >

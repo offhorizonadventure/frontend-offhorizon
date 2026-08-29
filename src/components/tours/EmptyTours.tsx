@@ -3,7 +3,6 @@ import { getTranslations } from "next-intl/server";
 import { ArrowRight, Compass } from "@/components/ui/icons";
 import { Link } from "@/i18n/navigation";
 
-/** What a list shows when the database has nothing in it yet. */
 export async function EmptyTours({ title, body }: { title?: string; body?: string }) {
   const t = await getTranslations("catalogue.empty");
 

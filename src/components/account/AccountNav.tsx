@@ -10,7 +10,6 @@ const TABS = [
   { href: "/account/payments", label: "My payments" },
 ] as const;
 
-/** Marks the deepest match, not every prefix, so one item is lit at a time. */
 export function AccountNav() {
   const pathname = usePathname();
 

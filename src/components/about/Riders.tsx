@@ -4,7 +4,6 @@ import { Topo } from "@/components/ui/Topo";
 
 import { TrustIndex } from "./TrustIndex";
 
-/** Social proof, pulled live from Trustindex. */
 export async function Riders() {
   const t = await getTranslations("about.riders");
 

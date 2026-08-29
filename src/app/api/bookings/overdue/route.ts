@@ -6,7 +6,6 @@ import { cancelOverdue } from "@/lib/booking/overdue";
 
 export const dynamic = "force-dynamic";
 
-/** Closes bookings whose balance passed the deadline. */
 export async function POST(request: Request) {
   const secret = process.env.SITE_REVALIDATE_SECRET ?? "";
   const given =
@@ -23,5 +22,4 @@ export async function POST(request: Request) {
   return NextResponse.json({ ok: true, cancelled });
 }
 
-/** Vercel's scheduler sends GET, so it is the same job behind the same secret. */
 export const GET = POST;

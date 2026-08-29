@@ -3,20 +3,11 @@ import { getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/config";
 import type { PricedBooking } from "@/lib/booking/preview";
 
-/** What the rider is buying, beside the form where they pay for it. */
 export async function Summary({ locale, priced }: { locale: Locale; priced: PricedBooking }) {
   const t = await getTranslations({ locale, namespace: "checkout" });
 
   const byPerson = priced.kind === "4x4";
 
-  /**
-   * The money against each line, not just the count.
-   *
-   * The wizard's own summary reads "1 · NPR 3,053", and arriving at the
-   * checkout to find the same booking described as "1" with a single total at
-   * the bottom loses the reader the breakdown they had a moment ago. The
-   * amounts were already computed for this page; they were simply not shown.
-   */
   const amountFor = (key: string) => priced.lines.find((line) => line.key === key)?.label ?? null;
 
   const countAnd = (count: number, key: string) => {

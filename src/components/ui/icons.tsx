@@ -25,7 +25,6 @@ import {
 } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp, FaYoutube } from "react-icons/fa6";
 
-/** Single place the app gets its icons from. */
 type IconProps = { className?: string };
 
 export const ChevronDown = ({ className = "" }: IconProps) => (
@@ -56,7 +55,6 @@ export const Star = ({ className = "" }: IconProps) => (
   <LuStar size={13} strokeWidth={0} aria-hidden className={`shrink-0 fill-current ${className}`} />
 );
 
-/** Booking-confidence marks. Sized larger since they sit alone in a tile. */
 const confidence = (Icon: typeof LuBadgeCheck) =>
   function ConfidenceIcon({ className = "" }: IconProps) {
     return <Icon size={22} strokeWidth={1.5} aria-hidden className={`shrink-0 ${className}`} />;
@@ -67,7 +65,6 @@ export const CalendarCheck = confidence(LuCalendarCheck);
 export const Wallet = confidence(LuWallet);
 export const BadgeCheck = confidence(LuBadgeCheck);
 
-/** Price-card marks. Keyed by name so the tour config can name one in data. */
 const priceMark = (Icon: typeof LuBike) =>
   function PriceIcon({ className = "" }: IconProps) {
     return <Icon size={17} strokeWidth={1.6} aria-hidden className={`shrink-0 ${className}`} />;
@@ -85,7 +82,6 @@ export const priceIcons = {
 
 export type PriceIconName = keyof typeof priceIcons;
 
-/** Expedition-fact marks, keyed by the fact they belong to. */
 const factMark = (Icon: typeof LuBike) =>
   function FactIcon({ className = "" }: IconProps) {
     return <Icon size={22} strokeWidth={1.5} aria-hidden className={`shrink-0 ${className}`} />;

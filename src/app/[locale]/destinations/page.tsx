@@ -73,7 +73,7 @@ export default async function DestinationsPage({ params }: PageProps<"/[locale]/
         seed={18.3}
       />
 
-      {/* Positioning: what we run, and where we are honest about not running yet. */}
+      {}
       <section className="bg-cream-50 relative overflow-hidden py-18 sm:py-24">
         <Topo className="text-brand-800/12" rings={11} seed={19.4} />
 
@@ -96,7 +96,7 @@ export default async function DestinationsPage({ params }: PageProps<"/[locale]/
         </div>
       </section>
 
-      {/* The five countries */}
+      {}
       <section className="bg-white py-18 sm:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <div
@@ -119,7 +119,6 @@ export default async function DestinationsPage({ params }: PageProps<"/[locale]/
 
           <ul data-anim-group className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {countryPages.map((page) => {
-              // Running or planned is a fact about the catalogue, not a flag in a config file.
               const count = counts.get(page.slug) ?? 0;
               const live = count > 0;
 
@@ -142,7 +141,7 @@ export default async function DestinationsPage({ params }: PageProps<"/[locale]/
         </div>
       </section>
 
-      {/* How we build a trip */}
+      {}
       <section className="bg-brand-950 text-cream-100 relative overflow-hidden py-18 sm:py-24">
         <Topo className="text-cream-100/10" rings={14} seed={20.7} />
         <div

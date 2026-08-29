@@ -8,7 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        // The account area and the auth callback are per-visitor pages with nothing to index.
         disallow: ["/api/", "/auth/", "/*/account", "/*/account/", "/*/reset-password"],
       },
     ],

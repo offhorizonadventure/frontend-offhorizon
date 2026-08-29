@@ -14,7 +14,6 @@ import {
 import { PhoneField } from "@/components/ui/PhoneField";
 import { requestPasswordReset, signIn, signInWith, signUp, updatePassword } from "@/lib/auth";
 
-/** Which of the four screens the dialog is showing. */
 export type AuthView = "login" | "register" | "forgot" | "update";
 
 export type AuthLabels = {
@@ -74,18 +73,15 @@ export type AuthLabels = {
 const linkClass =
   "font-semibold text-brand-900 underline decoration-ember-500/50 underline-offset-[3px] transition-colors hover:decoration-ember-500";
 
-/** The account dialog. */
 export function AuthModal({
   labels,
   onClose,
   view: initialView = "login",
 }: {
   labels: AuthLabels;
-  /** Called once the exit animation has finished, not when close is asked for. */
   onClose: () => void;
   view?: AuthView;
 }) {
-  // Mounted only while open, so it starts open and unmounts itself on the way out.
   const [phase, setPhase] = useState<Phase>("open");
   const [view, setView] = useState<AuthView>(initialView);
   const [pending, setPending] = useState(false);
@@ -96,7 +92,6 @@ export function AuthModal({
 
   const copy = labels[view];
 
-  /** Clears whatever the last view was saying before showing another. */
   const show = (next: AuthView) => {
     setError(null);
     setDone(null);
@@ -133,7 +128,6 @@ export function AuthModal({
     }
 
     if (view === "forgot") {
-      // Deliberately the same message whether or not the address is registered.
       setDone(labels.forgot.sent);
       return;
     }
@@ -143,7 +137,6 @@ export function AuthModal({
       return;
     }
 
-    // Re-render on the server so the bar and the account pages see the new session.
     setPhase("closing");
     router.refresh();
   }
@@ -157,7 +150,6 @@ export function AuthModal({
       setPending(false);
       setError(result.error);
     }
-    // On success the browser leaves for the provider, so nothing is reset here.
   }
 
   return (

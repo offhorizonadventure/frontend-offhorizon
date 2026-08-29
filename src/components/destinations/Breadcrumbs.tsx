@@ -5,7 +5,6 @@ import { siteUrl } from "@/lib/seo";
 
 export type Crumb = { label: string; href?: string };
 
-/** Breadcrumb trail plus its structured data. */
 export function Breadcrumbs({
   crumbs,
   locale,

@@ -12,7 +12,6 @@ import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
 import { buildMetadata, siteName, siteUrl } from "@/lib/seo";
 
-/** Built on first request and cached, rather than enumerated at build time. */
 export const revalidate = 600;
 export const dynamicParams = true;
 
@@ -117,7 +116,7 @@ export default async function PostPage({ params }: PageProps<"/[locale]/blog/[sl
           </div>
         </header>
 
-        {/* Cover straddles the header and the body. */}
+        {}
         <div className="bg-cream-50 relative">
           <div aria-hidden className="bg-brand-950 absolute inset-x-0 top-0 h-1/2" />
           <div className="relative mx-auto max-w-5xl px-5 sm:px-8">

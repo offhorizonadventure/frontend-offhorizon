@@ -8,7 +8,6 @@ import { cn } from "@/lib/cn";
 
 export type Phase = "closed" | "open" | "closing";
 
-/** The frame the four account dialogs share. */
 export function AuthShell({
   phase,
   onPhaseChange,

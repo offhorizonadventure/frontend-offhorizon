@@ -1,7 +1,5 @@
 import type { SVGProps } from "react";
 
-/** Brand marks for the sign in buttons. */
-
 export function GoogleMark(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="-0.5 0 48 48" aria-hidden focusable="false" {...props}>
