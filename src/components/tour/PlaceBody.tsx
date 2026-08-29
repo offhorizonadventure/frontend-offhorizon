@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { parseRich, richToText, RichText, truncateRich } from "@/lib/rich-text";
+
 export function PlaceBody({
   text,
   more,
@@ -15,15 +17,19 @@ export function PlaceBody({
 }) {
   const [open, setOpen] = useState(false);
 
-  const words = text.trim().split(/\s+/);
+  const nodes = parseRich(text);
+  const words = richToText(nodes).trim().split(/\s+/).filter(Boolean);
   const long = words.length > limit + 20;
 
-  const shown = !long || open ? text : `${words.slice(0, limit).join(" ")}…`;
+  // Cut around the formatting rather than through it, so a shortened
+  // description never ends halfway inside a link.
+  const shown = !long || open ? nodes : truncateRich(nodes, limit).nodes;
 
   return (
     <>
       <p className="text-brand-800/65 mt-7 text-[15px] leading-[1.85] text-pretty sm:text-[16.5px]">
-        {shown}
+        <RichText nodes={shown} />
+        {long && !open ? "…" : null}
       </p>
 
       {long && (

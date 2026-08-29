@@ -100,8 +100,6 @@ export default async function CustomExpeditionsPage({
     searchLabel: tm("searchLabel"),
     submit: t("submit"),
     sending: tm("sending"),
-    successTitle: t("successTitle"),
-    successBody: t("successBody"),
     required: tm("required"),
   };
 

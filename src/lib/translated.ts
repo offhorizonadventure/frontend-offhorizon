@@ -16,6 +16,9 @@ export function translate(tour: Tour, locale: string): Tour {
     place_body: at("place_body", tour.place_body),
     hero_alt: at("hero_alt", tour.hero_alt),
     route_map_alt: at("route_map_alt", tour.route_map_alt),
+    meta_title: at("meta_title", tour.meta_title),
+    meta_description: at("meta_description", tour.meta_description),
+    og_alt: at("og_alt", tour.og_alt),
 
     facts: Object.fromEntries(
       Object.entries(tour.facts ?? {}).map(([key, value]) => [

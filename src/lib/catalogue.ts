@@ -84,6 +84,13 @@ export type Tour = {
   excluded_items: Inclusion[];
   route_map_path: string | null;
   route_map_alt: string | null;
+
+  /** What Google shows. Blank falls back to the title and the introduction. */
+  meta_title: string | null;
+  meta_description: string | null;
+  /** The picture shown when the link is shared. Blank falls back to the hero. */
+  og_path: string | null;
+  og_alt: string | null;
   expect: ExpectPanel[];
   highlights: Highlight[];
   programme: ProgrammeDay[];

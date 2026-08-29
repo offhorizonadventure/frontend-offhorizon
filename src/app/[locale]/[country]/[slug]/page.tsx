@@ -27,7 +27,7 @@ import {
 } from "@/lib/catalogue";
 import { translate } from "@/lib/translated";
 import { resolveLocale } from "@/i18n/params";
-import { buildMetadata, siteUrl } from "@/lib/seo";
+import { buildMetadata, siteName, siteUrl } from "@/lib/seo";
 import {
   departureList,
   expectList,
@@ -53,21 +53,23 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/[country
   const tour = translate(source, locale);
 
   const hero = imageUrl(tour.hero_path);
+  // A picture chosen for sharing wins, and the hero stands in when there is none.
+  const sharing = imageUrl(tour.og_path) ?? hero;
 
   return buildMetadata({
     locale,
     path: tourPath(tour),
-    title: tour.title,
-    description: (tour.lead ?? "").slice(0, 155),
+    title: tour.meta_title?.trim() || tour.title,
+    description: (tour.meta_description?.trim() || tour.lead || "").slice(0, 300),
     keywords: [tour.title, countryName(tour.country) ?? "", "motorcycle expedition"].filter(
       Boolean,
     ),
-    image: hero
+    image: sharing
       ? {
-          url: hero,
-          width: 1600,
-          height: 1000,
-          alt: tour.hero_alt ?? tour.title,
+          url: sharing,
+          width: 1200,
+          height: 630,
+          alt: tour.og_alt ?? tour.hero_alt ?? tour.title,
           type: "image/webp",
         }
       : undefined,
@@ -126,12 +128,36 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
       )
     : 0;
 
+  // Every picture on the page, described. Google Images indexes what a page
+  // shows, so the gallery and the programme count as much as the hero.
+  const pictures = [
+    { path: tour.hero_path, caption: tour.hero_alt },
+    ...tour.gallery.map((item) => ({ path: item.path, caption: item.alt })),
+    ...tour.programme.map((day) => ({ path: day.path, caption: day.alt || day.title })),
+    ...tour.highlights.map((item) => ({ path: item.path, caption: item.alt || item.label })),
+  ]
+    .map((item) => ({ url: imageUrl(item.path), caption: item.caption }))
+    .filter((item): item is { url: string; caption: string | null } => Boolean(item.url));
+
+  const images = pictures.map((picture) => ({
+    "@type": "ImageObject",
+    contentUrl: picture.url,
+    url: picture.url,
+    caption: picture.caption || name,
+    representativeOfPage: picture.url === imageUrl(tour.hero_path) || undefined,
+    creditText: siteName,
+    creator: { "@type": "Organization", name: siteName },
+    copyrightNotice: siteName,
+    acquireLicensePage: `${siteUrl}/${locale}/contact-us`,
+  }));
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
     name,
     description: tour.lead ?? undefined,
     url: `${siteUrl}/${locale}${tourPath(tour)}`,
+    image: images,
     itinerary: {
       "@type": "ItemList",
       numberOfItems: programme.length,

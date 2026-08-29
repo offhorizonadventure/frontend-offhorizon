@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Rich } from "@/lib/rich-text";
 
 import { blurOf } from "@/lib/image-source";
 import { getTranslations } from "next-intl/server";
@@ -100,7 +101,7 @@ export async function Program({ locale, days }: { locale: Locale; days: ProgramD
                     )}
 
                     <span className="text-cream-100/70 mt-4 block text-[13.5px] leading-[1.75] text-pretty">
-                      {day.body}
+                      <Rich text={day.body} />
                     </span>
                   </span>
                 </summary>

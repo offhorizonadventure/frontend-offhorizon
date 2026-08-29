@@ -1,6 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 import { useId, useState } from "react";
 
 import { ArrowRight } from "@/components/ui/icons";
@@ -15,8 +16,6 @@ type Labels = {
   messagePlaceholder: string;
   submit: string;
   sending: string;
-  successTitle: string;
-  successBody: string;
   required: string;
   countryLabel: string;
   searchLabel: string;
@@ -24,9 +23,9 @@ type Labels = {
 
 export function ContactForm({ labels }: { labels: Labels }) {
   const locale = useLocale();
+  const router = useRouter();
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [sent, setSent] = useState(false);
   const id = useId();
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -45,35 +44,19 @@ export function ContactForm({ labels }: { labels: Labels }) {
       message: String(data.get("message") ?? ""),
     });
 
-    setPending(false);
-
     if (!result.ok) {
+      setPending(false);
       setError(result.error);
       return;
     }
 
-    setSent(true);
+    // The thank you page says it, so the form does not have to.
+    router.push(`/${locale}/thank-you?from=quick`);
   }
 
   const field =
     "h-12 w-full rounded-xl border border-brand-900/15 bg-white px-4 text-[14px] text-brand-900 outline-none transition-[border-color,box-shadow] placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-[3px] focus:ring-brand-800/10";
   const label = "block text-[10.5px] font-bold tracking-[0.16em] text-brand-600 uppercase";
-
-  if (sent) {
-    return (
-      <div className="bg-paper ring-brand-900/10 flex min-h-[26rem] flex-col items-center justify-center rounded-[28px] p-10 text-center ring-1">
-        <span className="bg-ember-500/15 text-ember-600 flex size-14 items-center justify-center rounded-full">
-          <ArrowRight className="size-6 -rotate-45" />
-        </span>
-        <h2 className="font-display text-brand-900 mt-6 text-[24px] font-extrabold tracking-[-0.025em]">
-          {labels.successTitle}
-        </h2>
-        <p className="text-brand-800/60 mt-3 max-w-xs text-[14px] leading-relaxed">
-          {labels.successBody}
-        </p>
-      </div>
-    );
-  }
 
   return (
     <form

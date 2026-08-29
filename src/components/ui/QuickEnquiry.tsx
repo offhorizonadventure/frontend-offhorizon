@@ -17,8 +17,6 @@ export async function quickEnquiryLabels(locale: Locale) {
     messagePlaceholder: t("messagePlaceholder"),
     submit: t("submit"),
     sending: t("sending"),
-    successTitle: t("successTitle"),
-    successBody: t("successBody"),
     close: t("close"),
     required: t("required"),
     countryLabel: t("countryLabel"),

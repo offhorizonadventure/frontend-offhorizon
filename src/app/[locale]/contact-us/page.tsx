@@ -61,8 +61,6 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
     messagePlaceholder: tm("messagePlaceholder"),
     submit: t("form.submit"),
     sending: tm("sending"),
-    successTitle: tm("successTitle"),
-    successBody: tm("successBody"),
     required: tm("required"),
     countryLabel: tm("countryLabel"),
     searchLabel: tm("searchLabel"),

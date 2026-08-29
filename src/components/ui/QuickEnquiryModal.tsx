@@ -21,8 +21,6 @@ type Labels = {
   messagePlaceholder: string;
   submit: string;
   sending: string;
-  successTitle: string;
-  successBody: string;
   close: string;
   required: string;
   countryLabel: string;
@@ -45,7 +43,6 @@ export function QuickEnquiryModal({
   const locale = useLocale();
   const router = useRouter();
   const [phase, setPhase] = useState<Phase>("closed");
-  const [sent, setSent] = useState(false);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -96,7 +93,9 @@ export function QuickEnquiryModal({
       return;
     }
 
-    setSent(true);
+    // Straight to the thank you page. Announcing it in the modal and again on
+    // the page behind it was one announcement too many.
+    setPhase("closing");
     router.push(`/${locale}/thank-you?from=quick`);
   }
 
@@ -140,107 +139,91 @@ export function QuickEnquiryModal({
             <Close />
           </button>
 
-          {sent ? (
-            <div className="py-10 text-center">
-              <h2
-                id={`${formId}-title`}
-                className="font-display text-brand-900 text-[22px] font-extrabold tracking-[-0.02em]"
-              >
-                {labels.successTitle}
-              </h2>
-              <p className="text-brand-800/60 mx-auto mt-3 max-w-xs text-[14px] leading-relaxed">
-                {labels.successBody}
-              </p>
+          <h2
+            id={`${formId}-title`}
+            className="font-display text-brand-900 pr-10 text-[20px] leading-tight font-extrabold tracking-[-0.025em] sm:text-[23px]"
+          >
+            {labels.title}
+          </h2>
+          <p className="text-brand-800/55 mt-1.5 text-[13px] leading-snug">{labels.subtitle}</p>
+
+          <form onSubmit={handleSubmit} className="mt-5 space-y-3.5" noValidate={false}>
+            <div>
+              <label htmlFor={`${formId}-name`} className={label}>
+                {labels.fullName}
+              </label>
+              <input
+                id={`${formId}-name`}
+                name="fullName"
+                type="text"
+                required
+                autoComplete="name"
+                className={`${field} mt-1.5`}
+              />
             </div>
-          ) : (
-            <>
-              <h2
-                id={`${formId}-title`}
-                className="font-display text-brand-900 pr-10 text-[20px] leading-tight font-extrabold tracking-[-0.025em] sm:text-[23px]"
-              >
-                {labels.title}
-              </h2>
-              <p className="text-brand-800/55 mt-1.5 text-[13px] leading-snug">{labels.subtitle}</p>
 
-              <form onSubmit={handleSubmit} className="mt-5 space-y-3.5" noValidate={false}>
-                <div>
-                  <label htmlFor={`${formId}-name`} className={label}>
-                    {labels.fullName}
-                  </label>
-                  <input
-                    id={`${formId}-name`}
-                    name="fullName"
-                    type="text"
+            <div className="space-y-3.5">
+              <div>
+                <label htmlFor={`${formId}-phone`} className={label}>
+                  {labels.phone}
+                </label>
+                <div className="mt-1.5">
+                  <PhoneField
+                    id={`${formId}-phone`}
+                    name="phone"
                     required
-                    autoComplete="name"
-                    className={`${field} mt-1.5`}
+                    countryLabel={labels.countryLabel}
+                    searchLabel={labels.searchLabel}
                   />
                 </div>
+              </div>
+              <div>
+                <label htmlFor={`${formId}-email`} className={label}>
+                  {labels.email}
+                </label>
+                <input
+                  id={`${formId}-email`}
+                  name="email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  className={`${field} mt-1.5`}
+                />
+              </div>
+            </div>
 
-                <div className="space-y-3.5">
-                  <div>
-                    <label htmlFor={`${formId}-phone`} className={label}>
-                      {labels.phone}
-                    </label>
-                    <div className="mt-1.5">
-                      <PhoneField
-                        id={`${formId}-phone`}
-                        name="phone"
-                        required
-                        countryLabel={labels.countryLabel}
-                        searchLabel={labels.searchLabel}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor={`${formId}-email`} className={label}>
-                      {labels.email}
-                    </label>
-                    <input
-                      id={`${formId}-email`}
-                      name="email"
-                      type="email"
-                      required
-                      autoComplete="email"
-                      className={`${field} mt-1.5`}
-                    />
-                  </div>
-                </div>
+            <div>
+              <label htmlFor={`${formId}-message`} className={label}>
+                {labels.message}
+              </label>
+              <textarea
+                id={`${formId}-message`}
+                name="message"
+                rows={3}
+                placeholder={labels.messagePlaceholder}
+                className="border-brand-900/15 text-brand-900 placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-brand-800/10 mt-1.5 w-full resize-none rounded-xl border bg-white p-3.5 text-[14px] leading-relaxed transition-[border-color,box-shadow] outline-none focus:ring-[3px]"
+              />
+            </div>
 
-                <div>
-                  <label htmlFor={`${formId}-message`} className={label}>
-                    {labels.message}
-                  </label>
-                  <textarea
-                    id={`${formId}-message`}
-                    name="message"
-                    rows={3}
-                    placeholder={labels.messagePlaceholder}
-                    className="border-brand-900/15 text-brand-900 placeholder:text-brand-800/35 focus:border-brand-800 focus:ring-brand-800/10 mt-1.5 w-full resize-none rounded-xl border bg-white p-3.5 text-[14px] leading-relaxed transition-[border-color,box-shadow] outline-none focus:ring-[3px]"
-                  />
-                </div>
+            {error && (
+              <p
+                role="alert"
+                className="rounded-xl border border-red-600/25 bg-red-600/8 px-4 py-3 text-[13px] leading-snug text-red-800"
+              >
+                {error}
+              </p>
+            )}
 
-                {error && (
-                  <p
-                    role="alert"
-                    className="rounded-xl border border-red-600/25 bg-red-600/8 px-4 py-3 text-[13px] leading-snug text-red-800"
-                  >
-                    {error}
-                  </p>
-                )}
+            <button
+              type="submit"
+              disabled={pending}
+              className="bg-brand-800 text-cream-100 hover:bg-brand-900 mt-1 flex h-12 w-full items-center justify-center rounded-full text-[11.5px] font-bold tracking-[0.13em] uppercase transition-colors disabled:opacity-60"
+            >
+              {pending ? labels.sending : labels.submit}
+            </button>
 
-                <button
-                  type="submit"
-                  disabled={pending}
-                  className="bg-brand-800 text-cream-100 hover:bg-brand-900 mt-1 flex h-12 w-full items-center justify-center rounded-full text-[11.5px] font-bold tracking-[0.13em] uppercase transition-colors disabled:opacity-60"
-                >
-                  {pending ? labels.sending : labels.submit}
-                </button>
-
-                <p className="text-brand-800/40 text-center text-[10.5px]">{labels.required}</p>
-              </form>
-            </>
-          )}
+            <p className="text-brand-800/40 text-center text-[10.5px]">{labels.required}</p>
+          </form>
         </div>
       </div>
     );

@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { Rich } from "@/lib/rich-text";
 
 import { ChevronDown } from "@/components/ui/icons";
 import { Topo } from "@/components/ui/Topo";
@@ -44,7 +45,7 @@ function Line({ item, tone }: { item: Inclusion; tone: "in" | "out" }) {
         </summary>
 
         <p className="border-cream-100/10 text-cream-100/55 mt-3 border-t pt-3 pr-10 pl-[1.9rem] text-[13.5px] leading-[1.75]">
-          {body}
+          <Rich text={body} />
         </p>
       </details>
     </li>

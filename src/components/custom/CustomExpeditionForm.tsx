@@ -49,8 +49,6 @@ export type FormLabels = {
   searchLabel: string;
   submit: string;
   sending: string;
-  successTitle: string;
-  successBody: string;
   required: string;
 };
 
@@ -75,7 +73,6 @@ export function CustomExpeditionForm({
   const currencyCode = currency;
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [sent, setSent] = useState(false);
   const [startDate, setStartDate] = useState("");
 
   const [mode, setMode] = useState<"motorcycle" | "vehicle">("motorcycle");
@@ -128,7 +125,6 @@ export function CustomExpeditionForm({
       return;
     }
 
-    setSent(true);
     router.push(`/${locale}/thank-you?from=custom`);
   }
 
@@ -137,22 +133,6 @@ export function CustomExpeditionForm({
   const label = "block text-[10.5px] font-bold tracking-[0.16em] text-brand-600 uppercase";
   const legend =
     "font-display flex items-center gap-3 text-[11px] font-bold tracking-[0.2em] text-brand-700 uppercase";
-
-  if (sent) {
-    return (
-      <div className="bg-paper ring-brand-900/10 flex min-h-[30rem] flex-col items-center justify-center rounded-[28px] p-10 text-center ring-1">
-        <span className="bg-ember-500/15 text-ember-600 flex size-14 items-center justify-center rounded-full">
-          <ArrowRight className="size-6 -rotate-45" />
-        </span>
-        <h2 className="font-display text-brand-900 mt-6 text-[24px] font-extrabold tracking-[-0.025em]">
-          {labels.successTitle}
-        </h2>
-        <p className="text-brand-800/60 mt-3 max-w-sm text-[14px] leading-relaxed">
-          {labels.successBody}
-        </p>
-      </div>
-    );
-  }
 
   const section = (index: number, title: string, children: React.ReactNode) => (
     <fieldset className="border-brand-900/12 border-t pt-7">

@@ -62,6 +62,8 @@ export default async function CalendarPage({
   const wantedCountry = typeof country === "string" ? country : "";
   const wantedYear = typeof year === "string" ? year : "";
 
+  // Only departures still to come reach this page: the query behind
+  // listDepartures already leaves the past behind.
   const shown = all.filter(
     (entry) =>
       (!wantedCountry || entry.tour.country === wantedCountry) &&
@@ -73,11 +75,11 @@ export default async function CalendarPage({
     label: countryName(slug) ?? slug,
   })).sort((a, b) => a.label.localeCompare(b.label));
 
-  const thisYear = new Date().getUTCFullYear();
-  const years = [thisYear, thisYear + 1, thisYear + 2].map((year) => ({
-    value: String(year),
-    label: String(year),
-  }));
+  // Only the years somebody can actually book. Offering a year with nothing in
+  // it sends people to an empty page.
+  const years = [...new Set(all.map((entry) => entry.departure.start_date.slice(0, 4)))]
+    .sort()
+    .map((value) => ({ value, label: value }));
 
   const monthOf = new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" });
   const months = new Map<string, { label: string; entries: Dated[] }>();
