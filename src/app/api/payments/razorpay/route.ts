@@ -1,4 +1,4 @@
-import { after, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 import { settlePayment } from "@/lib/booking/settle";
 import { webhookSignatureValid } from "@/lib/booking/razorpay";
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  after(async () => {
+  try {
     await settlePayment({
       paymentId: entity.id as string,
       orderId: typeof entity.order_id === "string" ? entity.order_id : null,
@@ -38,7 +38,10 @@ export async function POST(request: Request) {
       event: event.event ?? "",
       raw: entity,
     });
-  });
+  } catch {
+    // Answering anything but 2xx asks the provider to deliver again.
+    return NextResponse.json({ error: "not settled" }, { status: 500 });
+  }
 
   return NextResponse.json({ ok: true });
 }

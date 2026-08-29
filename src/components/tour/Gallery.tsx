@@ -93,7 +93,7 @@ export function Gallery({
                   fill
                   {...blurOf(item.image)}
                   sizes="(max-width: 639px) 46vw, (max-width: 1023px) 46vw, 280px"
-                  quality={90}
+                  quality={75}
                   className="ease-out-expo object-cover transition-transform duration-[1100ms] group-hover:scale-[1.06]"
                 />
                 <span
@@ -156,7 +156,7 @@ export function Gallery({
                 width={1600}
                 height={1200}
                 sizes="(max-width: 767px) 92vw, 70vw"
-                quality={90}
+                quality={75}
                 className="max-h-full w-auto rounded-2xl object-contain"
               />
               <figcaption className="text-cream-100/55 mt-4 max-w-xl text-center text-[12.5px] text-balance">
@@ -193,7 +193,7 @@ export function Gallery({
                   alt={item.alt}
                   fill
                   sizes="64px"
-                  quality={90}
+                  quality={75}
                   className="object-cover"
                 />
               </button>

@@ -45,7 +45,7 @@ export async function DbTourCard({
             alt={tour.hero_alt ?? tour.title}
             fill
             sizes={sizes}
-            quality={90}
+            quality={75}
             className="ease-out-expo object-cover transition-transform duration-[1100ms] group-hover:scale-[1.04]"
           />
         )}

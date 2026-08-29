@@ -35,7 +35,7 @@ export function CtaBand({
                 fill
                 {...blurOf(image)}
                 sizes="(max-width: 1023px) 100vw, 460px"
-                quality={90}
+                quality={75}
                 className="object-cover"
               />
               <span

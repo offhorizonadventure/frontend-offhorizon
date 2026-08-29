@@ -153,7 +153,15 @@ export async function startBooking(input: {
     return { ok: false, error: "The booking could not be created. Nothing has been charged." };
   }
 
-  await supabase.from("booking_travellers").insert(seats(booking.id, input));
+  const { error: seatError } = await supabase
+    .from("booking_travellers")
+    .insert(seats(booking.id, input));
+
+  if (seatError) {
+    await supabase.from("bookings").delete().eq("id", booking.id);
+
+    return { ok: false, error: "The booking could not be created. Nothing has been charged." };
+  }
 
   return startPayment({
     bookingId: booking.id,

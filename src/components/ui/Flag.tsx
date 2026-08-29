@@ -16,6 +16,9 @@ export function Flag({ country, alt, className = "" }: FlagProps) {
       height={16}
       loading="lazy"
       decoding="async"
+      // Menu decoration. It must never compete with the page itself for a slow
+      // connection.
+      fetchPriority="low"
       alt={alt ?? ""}
       aria-hidden={alt ? undefined : true}
       className={`inline-block h-4 w-6 shrink-0 rounded-[2px] object-contain ${className}`}

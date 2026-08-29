@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { payInstalment } from "@/lib/booking/actions";
+import { confirmPayment, payInstalment } from "@/lib/booking/actions";
 import { openCheckout } from "@/lib/razorpay-checkout";
 
 type Labels = {
@@ -11,6 +11,7 @@ type Labels = {
   pay: string;
   paying: string;
   opening: string;
+  confirming: string;
   dismissed: string;
   unavailable: string;
 };
@@ -54,16 +55,29 @@ export function InstalmentForm({
 
     setNotice(labels.opening);
 
+    let paid = false;
+
     const opened = await openCheckout({
       keyId,
       order: result,
       name: siteName,
       prefill: { name: profile.name, email: profile.email, contact: profile.phone },
       onClose: () => {
+        if (paid) return;
         setPending(false);
         setNotice(labels.dismissed);
       },
-      onPaid: () => {
+      onPaid: async (payload) => {
+        paid = true;
+        setNotice(labels.confirming);
+
+        await confirmPayment({
+          orderId: payload.razorpay_order_id,
+          paymentId: payload.razorpay_payment_id,
+          signature: payload.razorpay_signature,
+        });
+
+        setPending(false);
         router.refresh();
       },
     });

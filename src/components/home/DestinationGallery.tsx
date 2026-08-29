@@ -32,7 +32,7 @@ export async function DestinationGallery() {
                   fill
                   priority
                   sizes="(max-width: 767px) 78vw, (max-width: 1023px) 46vw, 40vw"
-                  quality={90}
+                  quality={75}
                   className="ease-out-expo object-cover transition-transform duration-[1400ms] group-hover:scale-[1.06]"
                 />
               </span>

@@ -55,7 +55,7 @@ export async function Program({ locale, days }: { locale: Locale; days: ProgramD
                     fill
                     {...blurOf(day.image)}
                     sizes="(max-width: 639px) 84vw, 320px"
-                    quality={90}
+                    quality={75}
                     className="ease-out-expo z-0 object-cover transition-transform duration-[1200ms] group-open/day:scale-[1.06]"
                   />
                   <span

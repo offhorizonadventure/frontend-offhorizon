@@ -4,6 +4,7 @@ import { Panel, Pill } from "@/components/account/parts";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
 import { listMyPayments } from "@/lib/booking/read";
+import { reconcileMyPayments } from "@/lib/booking/actions";
 import { formatMoney } from "@/lib/currency";
 
 const head = "px-4 py-3 text-[10px] font-bold tracking-[0.14em] text-brand-800/45 uppercase";
@@ -12,6 +13,7 @@ const cell = "px-4 py-4 align-top text-[13.5px] text-brand-900/80";
 export default async function PaymentsPage({ params }: LayoutProps<"/[locale]">) {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "payments" });
+  await reconcileMyPayments();
   const payments = await listMyPayments();
 
   const day = (value: string) =>

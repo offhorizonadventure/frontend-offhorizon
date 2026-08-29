@@ -52,8 +52,13 @@ services:
       - ALL
     read_only: true
     tmpfs:
-      - /app/.next/cache:size=256m
       - /tmp:size=64m
+    volumes:
+      # Optimised images live here. On a tmpfs they were thrown away on every
+      # restart, so the first visitor after each deploy paid for every image on
+      # the site to be re-encoded, and the 256m ceiling quietly evicted the rest.
+      # A named volume keeps them across deploys.
+      - next_cache:/app/.next/cache
     deploy:
       resources:
         limits:
@@ -100,6 +105,7 @@ services:
 volumes:
   caddy_data:
   caddy_config:
+  next_cache:
 
 networks:
   web:

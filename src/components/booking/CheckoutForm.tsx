@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { createBooking } from "@/lib/booking/actions";
+import { confirmPayment, createBooking } from "@/lib/booking/actions";
 import { openCheckout } from "@/lib/razorpay-checkout";
 
 export type CheckoutLabels = {
@@ -20,6 +20,7 @@ export type CheckoutLabels = {
   pay: string;
   paying: string;
   opening: string;
+  confirming: string;
   dismissed: string;
   unavailable: string;
   agree: string;
@@ -72,16 +73,32 @@ export function CheckoutForm({
 
     setNotice(labels.opening);
 
+    let paid = false;
+
     const opened = await openCheckout({
       keyId,
       order: result,
       name: siteName,
       prefill: { name: profile.name, email: profile.email, contact: profile.phone },
       onClose: () => {
+        // The window also closes on the way out of a successful payment, and
+        // that must not be reported as an abandoned one.
+        if (paid) return;
         setPending(false);
         setNotice(labels.dismissed);
       },
-      onPaid: () => {
+      onPaid: async (payload) => {
+        paid = true;
+        setNotice(labels.confirming);
+
+        // Told to the server before the page is shown, so the booking reads as
+        // paid on arrival instead of waiting on the provider's webhook.
+        await confirmPayment({
+          orderId: payload.razorpay_order_id,
+          paymentId: payload.razorpay_payment_id,
+          signature: payload.razorpay_signature,
+        });
+
         router.push(`/account/bookings/${result.reference}`);
         router.refresh();
       },

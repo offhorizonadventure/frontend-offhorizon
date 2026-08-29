@@ -81,6 +81,7 @@ export default async function CheckoutPage({
                     pay: t("pay"),
                     paying: t("paying"),
                     opening: t("opening"),
+                    confirming: t("confirming"),
                     dismissed: t("dismissed"),
                     unavailable: t("unavailable"),
                     agree: t("agree"),

@@ -84,6 +84,13 @@ export async function fetchOrderPayments(orderId: string) {
   return body.items ?? [];
 }
 
+export function checkoutSignatureValid(orderId: string, paymentId: string, signature: string) {
+  if (!KEY_SECRET) return false;
+  const expected = createHmac("sha256", KEY_SECRET).update(`${orderId}|${paymentId}`).digest("hex");
+
+  return equal(expected, signature);
+}
+
 export function webhookSignatureValid(body: string, signature: string) {
   if (!WEBHOOK_SECRET) return false;
   const expected = createHmac("sha256", WEBHOOK_SECRET).update(body).digest("hex");

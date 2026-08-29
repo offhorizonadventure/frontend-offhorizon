@@ -55,7 +55,7 @@ export async function Highlights({
                     fill
                     {...blurOf(highlight.image)}
                     sizes="(max-width: 639px) 62vw, 260px"
-                    quality={90}
+                    quality={75}
                     className="ease-out-expo object-cover transition-transform duration-[1100ms] group-hover:scale-[1.06]"
                   />
                   <span

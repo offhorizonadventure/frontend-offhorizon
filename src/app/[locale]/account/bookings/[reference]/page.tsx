@@ -8,6 +8,7 @@ import { Panel, Pill } from "@/components/account/parts";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
 import { getMyBooking, outstanding } from "@/lib/booking/read";
+import { reconcileBooking } from "@/lib/booking/settle";
 import { razorpayConfigured, razorpayKeyId } from "@/lib/booking/razorpay";
 import { formatMoney } from "@/lib/currency";
 import { getProfile } from "@/lib/profile";
@@ -19,8 +20,14 @@ export default async function BookingPage({
   const locale = await resolveLocale(params);
   const { reference } = await params;
 
-  const found = await getMyBooking(reference);
+  let found = await getMyBooking(reference);
   if (!found) notFound();
+
+  // Nothing happens here unless a payment is sitting unfinished, and then the
+  // provider is asked outright rather than showing a stale state.
+  if (await reconcileBooking(found.booking.id)) {
+    found = (await getMyBooking(reference)) ?? found;
+  }
 
   const { booking, travellers, payments, mine, isLead, formUrl } = found;
   const t = await getTranslations({ locale, namespace: "bookings" });
@@ -123,6 +130,7 @@ export default async function BookingPage({
                 pay: t("detail.pay"),
                 paying: t("detail.paying"),
                 opening: t("detail.opening"),
+                confirming: t("detail.confirming"),
                 dismissed: t("detail.dismissed"),
                 unavailable: t("detail.unavailable"),
               }}

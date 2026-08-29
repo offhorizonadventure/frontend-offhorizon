@@ -9,6 +9,8 @@ import { withinLimit } from "@/lib/rate-limit";
 import { createClient, getUser } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 
+import { checkoutSignatureValid } from "./razorpay";
+import { reconcileBooking, reconcileForUser, settlePayment } from "./settle";
 import { startPayment } from "./payment";
 import { startBooking } from "./service";
 import type { BookingPlan, Party } from "./types";
@@ -91,13 +93,22 @@ export async function payInstalment(_: unknown, formData: FormData): Promise<Act
   }
 
   const supabase = await createClient();
-  const { data: booking } = await supabase
-    .from("bookings")
-    .select("id, reference, status, currency, total_amount, paid_amount, lead_user_id")
-    .eq("reference", reference)
-    .maybeSingle();
+  const read = () =>
+    supabase
+      .from("bookings")
+      .select("id, reference, status, currency, total_amount, paid_amount, lead_user_id")
+      .eq("reference", reference)
+      .maybeSingle();
+
+  let { data: booking } = await read();
 
   if (!booking) return { ok: false, error: "That booking could not be found." };
+
+  // Anything already paid but not yet settled is settled first, so nobody is
+  // asked for money they have handed over once already.
+  if (booking.lead_user_id === user.id && (await reconcileBooking(booking.id))) {
+    booking = (await read()).data ?? booking;
+  }
   if (booking.lead_user_id !== user.id) {
     return { ok: false, error: "Only the rider who made the booking can pay towards it." };
   }
@@ -123,6 +134,46 @@ export async function payInstalment(_: unknown, formData: FormData): Promise<Act
     currency: started.currency,
     reference: booking.reference,
   };
+}
+
+export async function confirmPayment(input: {
+  orderId: string;
+  paymentId: string;
+  signature: string;
+}) {
+  const user = await getUser();
+  if (!user) return { ok: false as const, error: "Sign in first." };
+
+  if (!(await withinLimit("confirm-payment", 30))) {
+    return { ok: false as const, error: "Too many attempts. Give it a moment." };
+  }
+
+  // Signed by the provider with the secret only the two of us hold, so a
+  // browser cannot claim a payment that did not happen. The settlement below
+  // still checks the amount against the provider's own record.
+  if (!checkoutSignatureValid(input.orderId, input.paymentId, input.signature)) {
+    return { ok: false as const, error: "That payment could not be verified." };
+  }
+
+  await settlePayment({
+    paymentId: input.paymentId,
+    orderId: input.orderId,
+    linkId: null,
+    event: "checkout",
+    raw: {},
+  });
+
+  revalidatePath("/account/bookings", "layout");
+  revalidatePath("/account/payments", "layout");
+
+  return { ok: true as const };
+}
+
+export async function reconcileMyPayments() {
+  const user = await getUser();
+  if (!user) return;
+
+  await reconcileForUser(user.id);
 }
 
 export async function setFormSubmitted(travellerId: string, submitted: boolean) {

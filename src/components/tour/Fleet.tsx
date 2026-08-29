@@ -83,7 +83,7 @@ export async function Fleet({
                       alt={car.alt}
                       fill
                       sizes="(max-width: 639px) 70vw, 300px"
-                      quality={90}
+                      quality={75}
                       className="object-cover"
                     />
                   )}

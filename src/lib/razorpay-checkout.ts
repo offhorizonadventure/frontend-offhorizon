@@ -32,6 +32,12 @@ export function loadCheckout(): Promise<Checkout | null> {
   return loading;
 }
 
+export type CheckoutResult = {
+  razorpay_payment_id: string;
+  razorpay_order_id: string;
+  razorpay_signature: string;
+};
+
 export type OpenedOrder = {
   orderId: string;
   amountMinor: number;
@@ -45,7 +51,7 @@ export async function openCheckout(options: {
   name: string;
   prefill: { name: string; email: string; contact: string };
   onClose: () => void;
-  onPaid: () => void;
+  onPaid: (result: CheckoutResult) => void | Promise<void>;
 }) {
   const Checkout = await loadCheckout();
   if (!Checkout) return false;

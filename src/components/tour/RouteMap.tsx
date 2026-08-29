@@ -38,7 +38,7 @@ export async function RouteMap({
           width={2000}
           height={1400}
           sizes="(max-width: 1023px) 92vw, 1100px"
-          quality={90}
+          quality={75}
           className="mt-8 h-auto w-full object-contain"
         />
       </div>

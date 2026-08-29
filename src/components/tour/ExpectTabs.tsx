@@ -27,7 +27,7 @@ export function ExpectTabs({ eyebrow, items }: { eyebrow: string; items: ExpectI
           fill
           {...blurOf(item.image)}
           sizes="100vw"
-          quality={90}
+          quality={75}
           priority={index === 0}
           className={`-z-10 object-cover transition-opacity duration-700 ${
             index === active ? "opacity-100" : "opacity-0"

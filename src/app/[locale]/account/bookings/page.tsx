@@ -7,12 +7,14 @@ import { ArrowRight } from "@/components/ui/icons";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
 import { listMyBookings, outstanding } from "@/lib/booking/read";
+import { reconcileMyPayments } from "@/lib/booking/actions";
 import { imageUrl } from "@/lib/catalogue";
 import { formatMoney } from "@/lib/currency";
 
 export default async function BookingsPage({ params }: LayoutProps<"/[locale]">) {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "bookings" });
+  await reconcileMyPayments();
   const bookings = await listMyBookings();
 
   const dates = (start: string, end: string) =>

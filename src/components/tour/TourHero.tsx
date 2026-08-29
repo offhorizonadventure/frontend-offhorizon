@@ -34,7 +34,7 @@ export function TourHero({
         priority
         {...blurOf(image)}
         sizes="100vw"
-        quality={90}
+        quality={75}
         className="object-cover"
       />
       <span
