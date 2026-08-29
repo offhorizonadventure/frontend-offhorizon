@@ -716,6 +716,7 @@ select:focus-visible {
 
 @media (min-width: 768px) {
   .calendar-item {
-    flex: 0 0 calc(50% - 0.75rem);
+    flex: 0 0 25rem;
+    max-width: 25rem;
   }
 }

@@ -3,6 +3,7 @@ import { getMessages, getTranslations } from "next-intl/server";
 
 import "../globals.css";
 
+import { MetaPixel, MetaPixelFrame } from "@/components/analytics/MetaPixel";
 import { TagManager, TagManagerFrame } from "@/components/analytics/TagManager";
 import { Termly } from "@/components/analytics/Termly";
 import { ScrollMotion } from "@/components/motion/ScrollMotion";
@@ -53,9 +54,11 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         {}
         <Termly />
         <TagManager />
+        <MetaPixel />
       </head>
       <body className="bg-cream-50 flex min-h-full flex-col">
         <TagManagerFrame />
+        <MetaPixelFrame />
         <NextIntlClientProvider messages={messages}>
           <SiteSchema locale={locale} />
           <ScrollMotion />
