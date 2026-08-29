@@ -2137,6 +2137,8 @@
       "title": "Rien ne vous convient ici ?",
       "body": "Dites-nous vos dates, qui vous accompagne et ce que vous recherchez : nous construirons l’itinéraire autour de cela.",
       "imageAlt": "Vue aérienne d’une route traversant l’Himalaya indien"
-    }
+    },
+    "previous": "Départs précédents",
+    "next": "Plus de départs"
   }
 }

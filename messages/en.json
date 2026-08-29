@@ -2137,6 +2137,8 @@
       "title": "Nothing here quite right?",
       "body": "Tell us the dates you have, who is coming and what you want out of it, and we will build the route around that.",
       "imageAlt": "Aerial view of a road cutting through the Indian Himalayas"
-    }
+    },
+    "previous": "Previous departures",
+    "next": "More departures"
   }
 }

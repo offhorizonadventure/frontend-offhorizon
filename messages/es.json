@@ -2137,6 +2137,8 @@
       "title": "¿Nada que te encaje?",
       "body": "Cuéntanos tus fechas, quién viaja contigo y qué buscas, y construiremos la ruta a partir de ahí.",
       "imageAlt": "Vista aérea de una carretera que cruza el Himalaya indio"
-    }
+    },
+    "previous": "Salidas anteriores",
+    "next": "Más salidas"
   }
 }

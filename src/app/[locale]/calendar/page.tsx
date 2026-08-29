@@ -4,6 +4,7 @@ import { Riders } from "@/components/about/Riders";
 import { CalendarFilters } from "@/components/calendar/CalendarFilters";
 import { DbTourCard } from "@/components/tours/DbTourCard";
 import { CtaBand } from "@/components/destinations/CtaBand";
+import { Rail } from "@/components/tour/Rail";
 import { PageHero } from "@/components/destinations/PageHero";
 import { EmptyTours } from "@/components/tours/EmptyTours";
 import { Topo } from "@/components/ui/Topo";
@@ -188,9 +189,14 @@ export default async function CalendarPage({
                     </span>
                   </div>
 
-                  <ul data-anim-group className="mt-8 grid gap-6 md:grid-cols-2">
+                  <Rail
+                    className="calendar-rail mt-8"
+                    tone="light"
+                    previousLabel={t("previous")}
+                    nextLabel={t("next")}
+                  >
                     {month.cards.map((card) => (
-                      <li key={card.id}>
+                      <li key={card.id} className="calendar-item">
                         <DbTourCard
                           tour={card.tour}
                           priceFrom={card.priceFrom}
@@ -199,7 +205,7 @@ export default async function CalendarPage({
                         />
                       </li>
                     ))}
-                  </ul>
+                  </Rail>
                 </div>
               ))}
             </div>
