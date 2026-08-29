@@ -5,20 +5,27 @@ const CONTAINER = process.env.NEXT_PUBLIC_GTM_ID ?? "";
 /**
  * Google Tag Manager, loaded after the page is interactive.
  *
- * Consent Mode starts denied, so nothing GTM carries can write an analytics or
- * advertising cookie until a visitor agrees. Without a consent banner that
- * means no measurement from the EU or the UK, which is the correct default
- * rather than an oversight.
+ * Consent Mode starts granted, so every tag in the container fires on the first
+ * page view. It started denied, which is the safe default, but nothing on the
+ * site could ever grant it: analytics and advertising storage stayed denied for
+ * every visitor and the tags never ran. This was asked for deliberately.
+ *
+ * What that means, plainly: visitors are measured before they agree to be. For
+ * the EEA, the UK and Switzerland that is what GDPR and ePrivacy are about, and
+ * the site is published in French, German, Italian and Spanish. The lawful
+ * version of this is to grant everywhere except those regions, which Consent
+ * Mode supports with a second default carrying a `region` list, and to let the
+ * banner grant them. One line, whenever you want it.
  */
 export function TagManager() {
   if (!CONTAINER) return null;
 
   return (
     <>
-      {/* Ahead of the container, so consent is denied before any tag reads it. */}
+      {/* Ahead of the container, so consent is settled before any tag reads it. */}
       <Script id="consent-defaults" strategy="afterInteractive">
         {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
-gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});`}
+gtag('consent','default',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted',functionality_storage:'granted',personalization_storage:'granted',security_storage:'granted'});`}
       </Script>
 
       <Script id="gtm" strategy="afterInteractive">
