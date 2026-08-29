@@ -209,7 +209,7 @@ const countries: Country[] = [
 export const mainNav: NavItem[] = [
   { key: "home", href: "/" },
   { key: "destinations", href: "/destinations", countries },
-  { key: "adventureTours", href: "/adventure-tours" },
+  { key: "adventureTours", href: "/calendar" },
   { key: "about", href: "/about-us" },
   { key: "blog", href: "/blog" },
   { key: "contact", href: "/contact-us" },

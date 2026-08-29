@@ -36,7 +36,7 @@ export async function UpcomingTours() {
             </div>
 
             <Link
-              href="/adventure-tours"
+              href="/calendar"
               className="group text-brand-800 hidden shrink-0 items-center gap-2 text-[11px] font-bold tracking-[0.14em] uppercase sm:inline-flex"
             >
               {t("viewAll")}
@@ -48,11 +48,14 @@ export async function UpcomingTours() {
           </div>
         </div>
 
-        <ul data-anim-group className="mt-10 grid gap-6 sm:mt-12 md:grid-cols-2">
+        <ul data-anim-group className="mt-10 grid gap-6 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((card) => (
             <li key={card.tour.id}>
               <div data-anim="up">
-                <DbTourCard {...card} sizes="(max-width: 767px) 92vw, 560px" />
+                <DbTourCard
+                  {...card}
+                  sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 360px"
+                />
               </div>
             </li>
           ))}

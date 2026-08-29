@@ -7,7 +7,7 @@
     "primary": "Hauptnavigation",
     "home": "Startseite",
     "destinations": "Reiseziele",
-    "adventureTours": "Abenteuertouren",
+    "adventureTours": "Kalender",
     "about": "Über uns",
     "blog": "Blog",
     "contact": "Kontakt",
@@ -2111,5 +2111,32 @@
     "urgent": "Wenn es dringend ist, erreichen Sie uns direkt:",
     "browse": "Die Expeditionen ansehen",
     "home": "Zurück zum Anfang"
+  },
+  "calendar": {
+    "meta": {
+      "title": "Expeditionskalender | Jede Abfahrt nach Monat",
+      "description": "Alle Offhorizon-Abfahrten, Monat für Monat. Nach Ziel und Jahr filtern."
+    },
+    "eyebrow": "Kalender",
+    "title": "Jede Abfahrt, Monat für Monat",
+    "lead": "Alle offenen Termine, in der Reihenfolge, in der sie stattfinden. Nach Ziel und Zeitraum filtern.",
+    "heroAlt": "Fahrer auf einem Himalaya-Pass im ersten Licht",
+    "trips": "{count, plural, =0 {Keine Reisen} one {# Reise} other {# Reisen}}",
+    "destination": "Ziel",
+    "allDestinations": "Alle Ziele",
+    "year": "Jahr",
+    "allYears": "Alle Jahre",
+    "nights": "{count, plural, one {# Nacht} other {# Nächte}}",
+    "placesLeft": "{count, plural, =0 {Ausgebucht} one {# Platz frei} other {# Plätze frei}}",
+    "kind4x4": "4x4",
+    "kindBike": "Motorrad",
+    "from": "Ab",
+    "soldOut": "Ausgebucht",
+    "view": "Ansehen",
+    "cta": {
+      "title": "Nichts Passendes dabei?",
+      "body": "Sagen Sie uns Ihre Termine, wer mitkommt und was Sie sich vorstellen, und wir bauen die Route darum herum.",
+      "imageAlt": "Luftaufnahme einer Straße durch den indischen Himalaya"
+    }
   }
 }

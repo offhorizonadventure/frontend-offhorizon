@@ -70,7 +70,7 @@ export async function ThankYou({ locale, source }: { locale: Locale; source: "qu
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <Link
-            href="/adventure-tours"
+            href="/calendar"
             className="bg-brand-800 text-cream-100 hover:bg-brand-900 inline-flex h-12 items-center rounded-full px-7 text-[11px] font-bold tracking-[0.13em] uppercase transition-colors"
           >
             {t("browse")}

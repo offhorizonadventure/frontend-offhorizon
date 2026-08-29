@@ -117,11 +117,14 @@ export default async function RegionPage({
             </div>
           )}
 
-          <ul data-anim-group className="mt-10 grid gap-6 md:grid-cols-2">
+          <ul data-anim-group className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {cards.map((card) => (
               <li key={card.tour.id}>
                 <div data-anim="up">
-                  <DbTourCard {...card} sizes="(max-width: 767px) 92vw, 560px" />
+                  <DbTourCard
+                    {...card}
+                    sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 360px"
+                  />
                 </div>
               </li>
             ))}
@@ -180,7 +183,7 @@ export default async function RegionPage({
         body={t("cta.body")}
         image={region.ctaImage}
         imageAlt={region.imageAlt}
-        primary={{ label: ts("viewTours"), href: "/adventure-tours" }}
+        primary={{ label: ts("viewTours"), href: "/calendar" }}
         secondary={{ label: ts("sendEnquiry"), href: "/custom-expeditions" }}
       />
 

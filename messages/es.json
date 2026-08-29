@@ -7,7 +7,7 @@
     "primary": "Navegación principal",
     "home": "Inicio",
     "destinations": "Destinos",
-    "adventureTours": "Tours de aventura",
+    "adventureTours": "Calendario",
     "about": "Sobre nosotros",
     "blog": "Blog",
     "contact": "Contacto",
@@ -2111,5 +2111,32 @@
     "urgent": "Si es urgente, contáctanos directamente:",
     "browse": "Ver las expediciones",
     "home": "Volver al inicio"
+  },
+  "calendar": {
+    "meta": {
+      "title": "Calendario de expediciones | Cada salida mes a mes",
+      "description": "Todas las salidas de Offhorizon, mes a mes. Filtra por destino y año."
+    },
+    "eyebrow": "Calendario",
+    "title": "Cada salida, mes a mes",
+    "lead": "Todas las fechas abiertas, en el orden en que se celebran. Filtra por destino y por periodo.",
+    "heroAlt": "Moteros en un puerto del Himalaya con la primera luz",
+    "trips": "{count, plural, =0 {Sin viajes} one {# viaje} other {# viajes}}",
+    "destination": "Destino",
+    "allDestinations": "Todos los destinos",
+    "year": "Año",
+    "allYears": "Todos los años",
+    "nights": "{count, plural, one {# noche} other {# noches}}",
+    "placesLeft": "{count, plural, =0 {Agotado} one {# plaza libre} other {# plazas libres}}",
+    "kind4x4": "4x4",
+    "kindBike": "Moto",
+    "from": "Desde",
+    "soldOut": "Agotado",
+    "view": "Ver",
+    "cta": {
+      "title": "¿Nada que te encaje?",
+      "body": "Cuéntanos tus fechas, quién viaja contigo y qué buscas, y construiremos la ruta a partir de ahí.",
+      "imageAlt": "Vista aérea de una carretera que cruza el Himalaya indio"
+    }
   }
 }

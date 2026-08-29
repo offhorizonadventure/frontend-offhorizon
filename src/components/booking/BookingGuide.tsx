@@ -164,7 +164,7 @@ export async function BookingGuide({ locale }: { locale: Locale }) {
         body={t("cta.body")}
         image={guideImage}
         imageAlt=""
-        primary={{ label: t("cta.primary"), href: "/adventure-tours" }}
+        primary={{ label: t("cta.primary"), href: "/calendar" }}
         secondary={{ label: t("cta.secondary"), href: "/terms-of-service" }}
       />
     </>

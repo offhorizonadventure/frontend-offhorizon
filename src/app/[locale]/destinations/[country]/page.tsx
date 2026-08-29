@@ -182,7 +182,7 @@ export default async function CountryPage({
             </h2>
           </div>
 
-          <ul data-anim-group className="mt-10 grid gap-6 lg:grid-cols-2">
+          <ul data-anim-group className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {page.regions.map((region) => {
               // Running means the country has dated tours; the config only says whether the region has a page.
               const live = region.status === "live" && running > 0;
@@ -263,7 +263,7 @@ export default async function CountryPage({
           body={t("cta.body")}
           image={page.ctaImage}
           imageAlt={t("cta.imageAlt")}
-          primary={{ label: ts("viewTours"), href: "/adventure-tours" }}
+          primary={{ label: ts("viewTours"), href: "/calendar" }}
           secondary={{ label: ts("sendEnquiry"), href: "/custom-expeditions" }}
         />
       )}

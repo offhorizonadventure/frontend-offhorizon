@@ -7,7 +7,7 @@
     "primary": "Navigazione principale",
     "home": "Home",
     "destinations": "Destinazioni",
-    "adventureTours": "Tour avventura",
+    "adventureTours": "Calendario",
     "about": "Chi siamo",
     "blog": "Blog",
     "contact": "Contatti",
@@ -2111,5 +2111,32 @@
     "urgent": "Se è urgente, contattaci direttamente:",
     "browse": "Vedi le spedizioni",
     "home": "Torna all'inizio"
+  },
+  "calendar": {
+    "meta": {
+      "title": "Calendario delle spedizioni | Ogni partenza mese per mese",
+      "description": "Tutte le partenze Offhorizon, mese per mese. Filtra per destinazione e anno."
+    },
+    "eyebrow": "Calendario",
+    "title": "Ogni partenza, mese per mese",
+    "lead": "Tutte le date aperte, nell’ordine in cui si svolgono. Filtra per destinazione e periodo.",
+    "heroAlt": "Motociclisti su un passo himalayano alle prime luci",
+    "trips": "{count, plural, =0 {Nessun viaggio} one {# viaggio} other {# viaggi}}",
+    "destination": "Destinazione",
+    "allDestinations": "Tutte le destinazioni",
+    "year": "Anno",
+    "allYears": "Tutti gli anni",
+    "nights": "{count, plural, one {# notte} other {# notti}}",
+    "placesLeft": "{count, plural, =0 {Esaurito} one {# posto disponibile} other {# posti disponibili}}",
+    "kind4x4": "4x4",
+    "kindBike": "Moto",
+    "from": "Da",
+    "soldOut": "Esaurito",
+    "view": "Vedi",
+    "cta": {
+      "title": "Nulla che faccia al caso tuo?",
+      "body": "Dicci le tue date, chi viaggia con te e cosa cerchi: costruiremo il percorso attorno a questo.",
+      "imageAlt": "Veduta aerea di una strada che attraversa l’Himalaya indiano"
+    }
   }
 }

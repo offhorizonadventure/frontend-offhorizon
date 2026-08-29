@@ -32,7 +32,7 @@ export default async function BookingsPage({ params }: LayoutProps<"/[locale]">)
           <div className="border-brand-900/12 rounded-[20px] border border-dashed px-6 py-12 text-center">
             <p className="text-brand-900/70 text-[14px]">{t("empty")}</p>
             <Link
-              href="/adventure-tours"
+              href="/calendar"
               className="group bg-brand-800 text-cream-100 hover:bg-brand-900 mt-6 inline-flex h-11 items-center gap-2.5 rounded-full px-6 text-[10.5px] font-bold tracking-[0.12em] uppercase transition-colors"
             >
               {t("browse")}

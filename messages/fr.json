@@ -7,7 +7,7 @@
     "primary": "Navigation principale",
     "home": "Accueil",
     "destinations": "Destinations",
-    "adventureTours": "Tours d'aventure",
+    "adventureTours": "Calendrier",
     "about": "À propos",
     "blog": "Blog",
     "contact": "Contact",
@@ -2111,5 +2111,32 @@
     "urgent": "Si c'est urgent, joignez-nous directement :",
     "browse": "Voir les expéditions",
     "home": "Retour à l'accueil"
+  },
+  "calendar": {
+    "meta": {
+      "title": "Calendrier des expéditions | Chaque départ par mois",
+      "description": "Tous les départs Offhorizon, mois par mois. Filtrez par destination et par année."
+    },
+    "eyebrow": "Calendrier",
+    "title": "Chaque départ, mois par mois",
+    "lead": "Toutes les dates ouvertes, dans l’ordre où elles se déroulent. Filtrez par destination et par période.",
+    "heroAlt": "Motards sur un col himalayen au lever du jour",
+    "trips": "{count, plural, =0 {Aucun voyage} one {# voyage} other {# voyages}}",
+    "destination": "Destination",
+    "allDestinations": "Toutes les destinations",
+    "year": "Année",
+    "allYears": "Toutes les années",
+    "nights": "{count, plural, one {# nuit} other {# nuits}}",
+    "placesLeft": "{count, plural, =0 {Complet} one {# place restante} other {# places restantes}}",
+    "kind4x4": "4x4",
+    "kindBike": "Moto",
+    "from": "À partir de",
+    "soldOut": "Complet",
+    "view": "Voir",
+    "cta": {
+      "title": "Rien ne vous convient ici ?",
+      "body": "Dites-nous vos dates, qui vous accompagne et ce que vous recherchez : nous construirons l’itinéraire autour de cela.",
+      "imageAlt": "Vue aérienne d’une route traversant l’Himalaya indien"
+    }
   }
 }

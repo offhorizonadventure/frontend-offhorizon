@@ -7,7 +7,7 @@
     "primary": "Main navigation",
     "home": "Home",
     "destinations": "Destinations",
-    "adventureTours": "Adventure Tours",
+    "adventureTours": "Calendar",
     "about": "About Us",
     "blog": "Blog",
     "contact": "Contact Us",
@@ -2111,5 +2111,32 @@
     "urgent": "If it is urgent, reach us directly:",
     "browse": "See the expeditions",
     "home": "Back to the start"
+  },
+  "calendar": {
+    "meta": {
+      "title": "Expedition Calendar | Every Departure by Month",
+      "description": "Every Offhorizon departure, month by month. Filter by destination and year, see what is open and what is left."
+    },
+    "eyebrow": "Calendar",
+    "title": "Every departure, month by month",
+    "lead": "All the dates we have open, in the order they run. Filter by where you want to ride and when you can get away.",
+    "heroAlt": "Riders on a Himalayan pass at first light",
+    "trips": "{count, plural, =0 {No trips} one {# trip} other {# trips}}",
+    "destination": "Destination",
+    "allDestinations": "All destinations",
+    "year": "Year",
+    "allYears": "All years",
+    "nights": "{count, plural, one {# night} other {# nights}}",
+    "placesLeft": "{count, plural, =0 {No places left} one {# place left} other {# places left}}",
+    "kind4x4": "4x4",
+    "kindBike": "Motorcycle",
+    "from": "From",
+    "soldOut": "Sold out",
+    "view": "View",
+    "cta": {
+      "title": "Nothing here quite right?",
+      "body": "Tell us the dates you have, who is coming and what you want out of it, and we will build the route around that.",
+      "imageAlt": "Aerial view of a road cutting through the Indian Himalayas"
+    }
   }
 }

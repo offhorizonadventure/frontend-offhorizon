@@ -65,7 +65,7 @@ export async function Hero() {
           </Link>
 
           <Link
-            href="/adventure-tours"
+            href="/calendar"
             className="border-brand-900/15 text-brand-800 hover:border-brand-900/25 inline-flex h-13 w-full items-center justify-center rounded-full border px-8 text-[12px] font-bold tracking-[0.13em] uppercase transition-colors duration-200 hover:bg-white sm:w-auto"
           >
             {t("secondaryCta")}

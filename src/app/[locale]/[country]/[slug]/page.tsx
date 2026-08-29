@@ -189,7 +189,7 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
         imageAlt={tour.hero_alt ?? name}
         crumbs={[
           { label: ts("home"), href: "/" },
-          { label: t("breadcrumb"), href: "/adventure-tours" },
+          { label: t("breadcrumb"), href: "/calendar" },
           { label: name },
         ]}
         seed={40.4}
@@ -285,7 +285,7 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
         image={hero ?? ""}
         imageAlt={tour.hero_alt ?? name}
         primary={{ label: ts("sendEnquiry"), href: "/custom-expeditions" }}
-        secondary={{ label: t("breadcrumb"), href: "/adventure-tours" }}
+        secondary={{ label: t("breadcrumb"), href: "/calendar" }}
       />
 
       <Riders />

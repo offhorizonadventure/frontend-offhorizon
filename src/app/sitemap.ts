@@ -10,7 +10,7 @@ import { siteUrl } from "@/lib/seo";
 const routes = [
   "/",
   "/about-us",
-  "/adventure-tours",
+  "/calendar",
   "/contact-us",
   "/custom-expeditions",
   "/blog",

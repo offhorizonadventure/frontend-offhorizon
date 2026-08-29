@@ -9,7 +9,7 @@ import { Link } from "@/i18n/navigation";
 
 const LINKS = [
   { key: "home", href: "/" },
-  { key: "tours", href: "/adventure-tours" },
+  { key: "tours", href: "/calendar" },
   { key: "destinations", href: "/destinations" },
   { key: "contact", href: "/contact-us" },
 ] as const;
