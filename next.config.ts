@@ -51,6 +51,16 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["lucide-react", "react-icons", "gsap"],
   },
 
+  async redirects() {
+    return [
+      {
+        source: "/:locale/adventure-tours",
+        destination: "/:locale/calendar",
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
       {

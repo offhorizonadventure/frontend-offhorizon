@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 
 import { Riders } from "@/components/about/Riders";
 import { CalendarFilters } from "@/components/calendar/CalendarFilters";
-import { DepartureCard } from "@/components/calendar/DepartureCard";
+import { DbTourCard } from "@/components/tours/DbTourCard";
 import { CtaBand } from "@/components/destinations/CtaBand";
 import { PageHero } from "@/components/destinations/PageHero";
 import { EmptyTours } from "@/components/tours/EmptyTours";
@@ -12,27 +12,17 @@ import indiaAerial from "../../../../public/destinations/pages/india-aerial.jpg"
 import { locales } from "@/i18n/config";
 import { resolveLocale } from "@/i18n/params";
 import {
+  COUNTRY_SLUGS,
   countryName,
-  imageUrl,
   listDepartures,
   listTours,
   tourPath,
   type Departure,
   type Tour,
 } from "@/lib/catalogue";
-import { getPrice } from "@/lib/currency";
 import { buildMetadata, siteName, siteUrl } from "@/lib/seo";
 
 export const revalidate = 600;
-
-const nightsBetween = (start: string, end: string) =>
-  Math.max(
-    0,
-    Math.round(
-      (new Date(`${end}T00:00:00Z`).getTime() - new Date(`${start}T00:00:00Z`).getTime()) /
-        86_400_000,
-    ),
-  );
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -77,22 +67,18 @@ export default async function CalendarPage({
       (!wantedYear || entry.departure.start_date.slice(0, 4) === wantedYear),
   );
 
-  const countries = [...new Set(all.map((entry) => entry.tour.country).filter(Boolean))]
-    .map((slug) => ({ value: slug as string, label: countryName(slug) ?? (slug as string) }))
-    .sort((a, b) => a.label.localeCompare(b.label));
+  const countries = COUNTRY_SLUGS.map((slug) => ({
+    value: slug,
+    label: countryName(slug) ?? slug,
+  })).sort((a, b) => a.label.localeCompare(b.label));
 
-  const years = [...new Set(all.map((entry) => entry.departure.start_date.slice(0, 4)))]
-    .sort()
-    .map((value) => ({ value, label: value }));
+  const thisYear = new Date().getUTCFullYear();
+  const years = [thisYear, thisYear + 1, thisYear + 2].map((year) => ({
+    value: String(year),
+    label: String(year),
+  }));
 
   const monthOf = new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" });
-  const dayOf = new Intl.DateTimeFormat(locale, { day: "numeric", month: "short" });
-  const dayYearOf = new Intl.DateTimeFormat(locale, {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-
   const months = new Map<string, { label: string; entries: Dated[] }>();
 
   for (const entry of shown) {
@@ -105,41 +91,16 @@ export default async function CalendarPage({
 
   const ordered = [...months.entries()].sort(([a], [b]) => a.localeCompare(b));
 
-  const cards = await Promise.all(
-    ordered.map(async ([key, month]) => ({
-      key,
-      label: month.label,
-      cards: await Promise.all(
-        month.entries.map(async ({ departure, tour }) => {
-          const start = new Date(`${departure.start_date}T00:00:00Z`);
-          const end = new Date(`${departure.end_date}T00:00:00Z`);
-          const left =
-            departure.seats === null
-              ? null
-              : Math.max(0, departure.seats - (departure.seats_taken ?? 0));
-
-          return {
-            id: departure.id,
-            href: tourPath(tour),
-            title: tour.title,
-            image: imageUrl(tour.hero_path),
-            imageAlt: tour.hero_alt ?? tour.title,
-            dates: `${dayOf.format(start)} – ${dayYearOf.format(end)}`,
-            nights: t("nights", {
-              count: nightsBetween(departure.start_date, departure.end_date),
-            }),
-            kind: departure.kind === "4x4" ? t("kind4x4") : t("kindBike"),
-            country: countryName(tour.country),
-            price: departure.rider_price
-              ? await getPrice(departure.rider_price, locale, departure.currency)
-              : null,
-            places: left === null ? null : t("placesLeft", { count: left }),
-            soldOut: departure.sold_out || left === 0,
-          };
-        }),
-      ),
+  const cards = ordered.map(([key, month]) => ({
+    key,
+    label: month.label,
+    cards: month.entries.map(({ departure, tour }) => ({
+      id: departure.id,
+      tour,
+      priceFrom: departure.rider_price,
+      currency: departure.currency,
     })),
-  );
+  }));
 
   const schema = {
     "@context": "https://schema.org",
@@ -183,9 +144,9 @@ export default async function CalendarPage({
         seed={31.2}
       />
 
-      <section className="bg-cream-50 border-brand-900/8 sticky top-0 z-30 border-b py-5 backdrop-blur-md">
+      <section className="bg-cream-50 border-brand-900/8 border-b py-6">
         <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 sm:px-8 lg:flex-row lg:items-end lg:gap-10">
-          <p className="font-display text-brand-900 shrink-0 text-[22px] leading-none font-extrabold tracking-[-0.03em] tabular-nums">
+          <p className="font-display text-brand-900 shrink-0 pb-3 text-[22px] leading-none font-extrabold tracking-[-0.03em] tabular-nums">
             {t("trips", { count: shown.length })}
           </p>
 
@@ -227,25 +188,14 @@ export default async function CalendarPage({
                     </span>
                   </div>
 
-                  <ul data-anim-group className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  <ul data-anim-group className="mt-8 grid gap-6 md:grid-cols-2">
                     {month.cards.map((card) => (
                       <li key={card.id}>
-                        <DepartureCard
-                          locale={locale}
-                          href={card.href}
-                          title={card.title}
-                          image={card.image}
-                          imageAlt={card.imageAlt}
-                          dates={card.dates}
-                          nights={card.nights}
-                          kind={card.kind}
-                          country={card.country}
-                          price={card.price}
-                          priceLabel={t("from")}
-                          places={card.places}
-                          soldOut={card.soldOut}
-                          soldOutLabel={t("soldOut")}
-                          cta={t("view")}
+                        <DbTourCard
+                          tour={card.tour}
+                          priceFrom={card.priceFrom}
+                          currency={card.currency}
+                          sizes="(max-width: 767px) 92vw, 560px"
                         />
                       </li>
                     ))}

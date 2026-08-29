@@ -47,14 +47,11 @@ export async function UpcomingTours() {
           </div>
         </div>
 
-        <ul data-anim-group className="mt-10 grid gap-6 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
+        <ul data-anim-group className="mt-10 grid gap-6 sm:mt-12 md:grid-cols-2">
           {cards.map((card) => (
             <li key={card.tour.id}>
               <div data-anim="up">
-                <DbTourCard
-                  {...card}
-                  sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 360px"
-                />
+                <DbTourCard {...card} sizes="(max-width: 767px) 92vw, 560px" />
               </div>
             </li>
           ))}

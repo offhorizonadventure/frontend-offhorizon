@@ -181,7 +181,7 @@ export default async function CountryPage({
             </h2>
           </div>
 
-          <ul data-anim-group className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ul data-anim-group className="mt-10 grid gap-6 lg:grid-cols-2">
             {page.regions.map((region) => {
               const live = region.status === "live" && running > 0;
 
