@@ -1,6 +1,6 @@
 import Script from "next/script";
 
-const PIXEL = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "1484404306669873";
+const PIXEL = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "1597429038682423";
 
 export function MetaPixel() {
   if (!PIXEL) return null;
