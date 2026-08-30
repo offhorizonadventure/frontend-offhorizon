@@ -1,32 +1,8 @@
-import type { StaticImageData } from "next/image";
-
-import bhutanMotorcycle from "../../public/tours/menu/bhutan-motorcycle.webp";
-import everestBaseCamp from "../../public/tours/menu/everest-base-camp.webp";
-import greatTraverse from "../../public/tours/menu/great-himalayan-traverse.webp";
-import himalayanExpedition from "../../public/tours/menu/himalayan-expedition.webp";
-import himalayas4x4 from "../../public/tours/menu/indian-himalayas-4x4.webp";
-import ladakhCircuit from "../../public/tours/menu/ladakh-circuit.webp";
-import lowerMustang from "../../public/tours/menu/lower-mustang.webp";
-import mongolia4x4 from "../../public/tours/menu/mongolia-4x4.webp";
-import mongoliaMotorcycle from "../../public/tours/menu/mongolia-motorcycle.webp";
-import nepal4x4 from "../../public/tours/menu/nepal-4x4.webp";
-import sriLankaMotorcycle from "../../public/tours/menu/sri-lanka-motorcycle.webp";
-import upperMustang from "../../public/tours/menu/upper-mustang.webp";
-
-import type { DestinationKey, NavKey, TourKey } from "@/i18n/keys";
-
-export type Tour = {
-  key: TourKey;
-  href: string;
-  days: number;
-  provisional?: boolean;
-  image: StaticImageData;
-};
+import type { DestinationKey, NavKey } from "@/i18n/keys";
 
 export type Region = {
   key: DestinationKey;
   href: string;
-  tours: Tour[];
 };
 
 export type Country = {
@@ -51,32 +27,6 @@ const countries: Country[] = [
       {
         key: "indiaHimalayas",
         href: "/destinations/india/indian-himalayas",
-        tours: [
-          {
-            key: "greatHimalayanTraverse",
-            href: "/india/great-himalayan-traverse",
-            days: 23,
-            image: greatTraverse,
-          },
-          {
-            key: "himalayanExpedition",
-            href: "/india/himalayan-expedition",
-            days: 11,
-            image: himalayanExpedition,
-          },
-          {
-            key: "ladakhCircuit",
-            href: "/india/ladakh-circuit",
-            days: 8,
-            image: ladakhCircuit,
-          },
-          {
-            key: "himalayas4x4",
-            href: "/india/indian-himalayas-4x4-expedition",
-            days: 14,
-            image: himalayas4x4,
-          },
-        ],
       },
     ],
   },
@@ -88,29 +38,6 @@ const countries: Country[] = [
       {
         key: "nepalHimalayas",
         href: "/destinations/nepal/nepal-himalayas",
-        tours: [
-          {
-            key: "upperMustang",
-            href: "/nepal/upper-mustang-motorcycle-tour",
-            days: 12,
-            provisional: true,
-            image: upperMustang,
-          },
-          {
-            key: "lowerMustang",
-            href: "/nepal/lower-mustang-motorcycle-tour",
-            days: 8,
-            provisional: true,
-            image: lowerMustang,
-          },
-          {
-            key: "nepal4x4",
-            href: "/nepal/nepal-4x4-expedition",
-            days: 11,
-            provisional: true,
-            image: nepal4x4,
-          },
-        ],
       },
     ],
   },
@@ -122,15 +49,6 @@ const countries: Country[] = [
       {
         key: "easternHimalayas",
         href: "/destinations/bhutan",
-        tours: [
-          {
-            key: "bhutanMotorcycle",
-            href: "/bhutan/bhutan-motorcycle-tour",
-            days: 9,
-            provisional: true,
-            image: bhutanMotorcycle,
-          },
-        ],
       },
     ],
   },
@@ -142,14 +60,6 @@ const countries: Country[] = [
       {
         key: "tibetPlateau",
         href: "/destinations/tibet",
-        tours: [
-          {
-            key: "everestBaseCamp",
-            href: "/tibet/everest-base-camp-motorcycle-expedition",
-            days: 11,
-            image: everestBaseCamp,
-          },
-        ],
       },
     ],
   },
@@ -161,15 +71,6 @@ const countries: Country[] = [
       {
         key: "hillCountry",
         href: "/destinations/sri-lanka",
-        tours: [
-          {
-            key: "sriLankaMotorcycle",
-            href: "/sri-lanka/sri-lanka-motorcycle-tour",
-            days: 10,
-            provisional: true,
-            image: sriLankaMotorcycle,
-          },
-        ],
       },
     ],
   },
@@ -181,22 +82,6 @@ const countries: Country[] = [
       {
         key: "steppeGobi",
         href: "/destinations/mongolia",
-        tours: [
-          {
-            key: "mongoliaMotorcycle",
-            href: "/mongolia/mongolia-motorcycle-tour",
-            days: 12,
-            provisional: true,
-            image: mongoliaMotorcycle,
-          },
-          {
-            key: "mongolia4x4",
-            href: "/mongolia/mongolia-4x4-expedition",
-            days: 14,
-            provisional: true,
-            image: mongolia4x4,
-          },
-        ],
       },
     ],
   },

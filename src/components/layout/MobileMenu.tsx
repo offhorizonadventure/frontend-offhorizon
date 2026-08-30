@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { bestSellerPaths } from "@/lib/best-sellers";
+import { navToursByCountry, slugOf } from "@/lib/nav-tours";
 import { getTranslations } from "next-intl/server";
 
 import { Flag } from "@/components/ui/Flag";
@@ -16,11 +16,10 @@ const primary = mainNav.filter((item) => !isSecondary(item));
 const more = mainNav.filter(isSecondary);
 
 export async function MobileMenu() {
-  const [best, t, td, tt, tb] = await Promise.all([
-    bestSellerPaths(),
+  const [byCountry, t, td, tb] = await Promise.all([
+    navToursByCountry(),
     getTranslations("nav"),
     getTranslations("destinations"),
-    getTranslations("tours"),
     getTranslations("dest.shared"),
   ]);
 
@@ -60,41 +59,45 @@ export async function MobileMenu() {
                         </Link>
 
                         <ul className="mt-2.5 space-y-2">
-                          {country.regions.flatMap((region) =>
-                            region.tours.map((tour) => (
-                              <li key={tour.key}>
-                                <Link
-                                  href={tour.href}
-                                  className="ring-brand-900/8 flex items-center gap-3.5 rounded-2xl bg-white p-2.5 ring-1"
-                                >
-                                  <span className="relative size-12 shrink-0 overflow-hidden rounded-xl">
+                          {(byCountry.get(slugOf(country.href)) ?? []).map((tour) => (
+                            <li key={tour.href}>
+                              <Link
+                                href={tour.href}
+                                className="ring-brand-900/8 flex items-center gap-3.5 rounded-2xl bg-white p-2.5 ring-1"
+                              >
+                                <span className="bg-brand-100 relative size-12 shrink-0 overflow-hidden rounded-xl">
+                                  {tour.image && (
                                     <Image
                                       src={tour.image}
-                                      alt={tt(`${tour.key}.name`)}
+                                      alt={tour.title}
                                       fill
                                       sizes="48px"
                                       className="object-cover"
                                     />
+                                  )}
+                                </span>
+                                <span className="min-w-0 flex-1">
+                                  <span className="text-brand-900 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13.5px] leading-snug font-semibold">
+                                    {tour.title}
+                                    {tour.bestSeller && (
+                                      <span className="bg-ember-500/12 text-ember-600 shrink-0 rounded-full px-2 py-0.5 text-[9.5px] font-bold tracking-[0.1em] uppercase">
+                                        {tb("bestSeller")}
+                                      </span>
+                                    )}
                                   </span>
-                                  <span className="min-w-0 flex-1">
-                                    <span className="text-brand-900 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13.5px] leading-snug font-semibold">
-                                      {tt(`${tour.key}.name`)}
-                                      {best.has(tour.href) && (
-                                        <span className="bg-ember-500/12 text-ember-600 rounded-full px-2 py-0.5 text-[9.5px] font-bold tracking-[0.1em] uppercase">
-                                          {tb("bestSeller")}
-                                        </span>
-                                      )}
-                                    </span>
-                                    <span className="text-brand-600/70 mt-0.5 block text-[11.5px]">
-                                      {t("days", { count: tour.days })} ·{" "}
-                                      {tt(`${tour.key}.summary`)}
-                                    </span>
+                                  <span className="text-brand-600/70 mt-0.5 block text-[11.5px]">
+                                    {[
+                                      tour.days ? t("days", { count: tour.days }) : null,
+                                      tour.location,
+                                    ]
+                                      .filter(Boolean)
+                                      .join(" · ")}
                                   </span>
-                                  <ArrowRight className="text-brand-400 shrink-0" />
-                                </Link>
-                              </li>
-                            )),
-                          )}
+                                </span>
+                                <ArrowRight className="text-brand-400 shrink-0" />
+                              </Link>
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     ))}

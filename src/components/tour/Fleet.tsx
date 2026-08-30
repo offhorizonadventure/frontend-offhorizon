@@ -76,7 +76,9 @@ export async function Fleet({
           {cards.map((car) => (
             <li key={car.id} className="fleet-item">
               <article className="ring-brand-900/10 flex h-full flex-col overflow-hidden rounded-[20px] bg-white ring-1">
-                <div className="bg-brand-100 relative aspect-[4/3]">
+                {/* A machine is photographed whole against a plain background.
+                    Filling the frame with it cut the wheels off. */}
+                <div className="bg-cream-50 relative aspect-[4/3]">
                   {car.url && (
                     <Image
                       src={car.url}
@@ -84,7 +86,7 @@ export async function Fleet({
                       fill
                       sizes="(max-width: 639px) 70vw, 300px"
                       quality={75}
-                      className="object-cover"
+                      className="object-contain p-3"
                     />
                   )}
                 </div>

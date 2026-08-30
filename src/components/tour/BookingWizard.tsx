@@ -131,10 +131,16 @@ export function BookingWizard({
   const [rooms, setRooms] = useState(0);
   const [vehicle, setVehicle] = useState<string | null>(null);
 
+  // Only the years this expedition actually runs in. Offering three regardless
+  // sent people to a year with nothing in it and told them so afterwards.
   const years = useMemo(() => {
-    const now = new Date().getFullYear();
-    return [now, now + 1, now + 2];
-  }, []);
+    const found = [...new Set(departures.map((entry) => new Date(entry.start).getFullYear()))].sort(
+      (a, b) => a - b,
+    );
+
+    // A tour with no dates published yet still needs a year to enquire against.
+    return found.length ? found : [new Date().getFullYear()];
+  }, [departures]);
 
   const format = useMemo(
     () => (amount: number) => {
