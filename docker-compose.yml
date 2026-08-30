@@ -46,6 +46,9 @@ services:
       SMTP_USER: ${SMTP_USER}
       SMTP_PASSWORD: ${SMTP_PASSWORD}
       SMTP_FROM: ${SMTP_FROM}
+      # Where the office copy of an enquiry goes. Blank falls back to the
+      # address on the contact page.
+      ENQUIRY_INBOX: ${ENQUIRY_INBOX}
     security_opt:
       - no-new-privileges:true
     cap_drop:
