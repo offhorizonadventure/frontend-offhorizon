@@ -18,7 +18,12 @@ export type PricedDeparture = {
   seats_taken: number;
   visibility?: "public" | "private";
   assigned_user_id?: string | null;
-  vehicles: { id: string; per_day_price: number | null; seats: number | null }[];
+  vehicles: {
+    id: string;
+    name?: string | null;
+    per_day_price: number | null;
+    seats: number | null;
+  }[];
 };
 
 const money = (value: number) => Math.round(value * 100) / 100;

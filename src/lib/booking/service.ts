@@ -17,7 +17,7 @@ const DEPARTURE_COLUMNS = `
   visibility, assigned_user_id,
   rider_price, pillion_price, damage_protection_price, single_room_price,
   seats, seats_taken,
-  vehicles:departure_vehicles(vehicle:vehicles(id, per_day_price, seats))
+  vehicles:departure_vehicles(vehicle:vehicles(id, name, per_day_price, seats))
 `;
 
 const ALPHABET = "0123456789BCDFGHJKLMNPQRSTVWXZ";
@@ -26,6 +26,21 @@ const reference = () =>
   `OH-${Array.from(randomBytes(6), (byte) => ALPHABET[byte % ALPHABET.length]).join("")}`;
 
 const money = (value: number) => Math.round(value * 100) / 100;
+
+/**
+ * What each line is called on the booking. The office panel writes the same
+ * words for a booking taken over the phone, so the two read alike.
+ */
+function labelFor(key: string, departure: PricedDeparture, party: Party): string {
+  if (key === "rider") return departure.kind === "4x4" ? "Person" : "Rider";
+  if (key === "pillion") return "Pillion";
+  if (key === "protection") return "Damage protection";
+  if (key === "room") return "Single room";
+
+  const vehicle = departure.vehicles.find((entry) => entry.id === party.vehicleId);
+
+  return vehicle?.name ?? "Vehicle";
+}
 
 const daysBefore = (date: string, days: number) => {
   const at = new Date(`${date}T00:00:00Z`);
@@ -47,7 +62,14 @@ async function readDeparture(departureId: string) {
 
   const row = data as unknown as Omit<PricedDeparture, "vehicles"> & {
     tour_id: string;
-    vehicles: { vehicle: { id: string; per_day_price: number | null; seats: number | null } }[];
+    vehicles: {
+      vehicle: {
+        id: string;
+        name: string | null;
+        per_day_price: number | null;
+        seats: number | null;
+      };
+    }[];
   };
 
   return {
@@ -118,7 +140,21 @@ export async function startBooking(input: {
   const currency = chargeCurrencyFor(input.preferredCurrency);
   const rate = await getRate(quote.currency as Currency, currency as Currency);
 
-  const total = money(quote.total * rate);
+  // The same priced lines the office would have written by hand, in the
+  // currency being charged. Without these a booking made on the site reads as
+  // worth nothing in the admin panel, which is a frightening thing to see next
+  // to a payment that has already been taken.
+  const lines = quote.lines.map((line) => ({
+    key: line.key,
+    label: labelFor(line.key, departure, input.party),
+    quantity: line.quantity,
+    unit: money(line.unit * rate),
+    amount: money(line.quantity * money(line.unit * rate)),
+  }));
+
+  // Totalled from the lines rather than converted separately, so the sum shown
+  // and the sum charged cannot drift apart by a rounded rupee.
+  const total = money(lines.reduce((sum, line) => sum + line.amount, 0));
   const deposit = input.plan === "full" ? total : money(total * DEPOSIT_SHARE);
 
   const supabase = createAdminClient();
@@ -139,6 +175,7 @@ export async function startBooking(input: {
       vehicle_id: vehicleId,
       own_vehicle: input.party.ownVehicle,
       currency,
+      lines,
       fx_rate: rate,
       base_currency: quote.currency,
       base_total: quote.total,
