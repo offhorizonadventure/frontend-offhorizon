@@ -49,6 +49,47 @@ const daysBefore = (date: string, days: number) => {
   return at.toISOString().slice(0, 10);
 };
 
+/**
+ * Every column the site must fill in when it writes a booking.
+ *
+ * The client is not generated from the database, so an object literal handed to
+ * insert() is checked against nothing: a field left out compiles happily and is
+ * only found later, in the panel, as a booking that looks like it cost nothing.
+ * That is how `lines` came to be missing. Naming the row here means dropping one
+ * fails the build instead.
+ */
+type NewBooking = {
+  reference: string;
+  departure_id: string;
+  tour_id: string;
+  lead_user_id: string;
+  plan: BookingPlan;
+  status: "pending";
+  riders: number;
+  pillions: number;
+  single_rooms: number;
+  damage_protection: number;
+  vehicle_id: string | null;
+  own_vehicle: boolean;
+  currency: string;
+  /** The priced breakdown, in the currency being charged. */
+  lines: BookingLine[];
+  fx_rate: number;
+  base_currency: string;
+  base_total: number;
+  total_amount: number;
+  deposit_amount: number;
+  balance_due_on: string;
+};
+
+type BookingLine = {
+  key: string;
+  label: string;
+  quantity: number;
+  unit: number;
+  amount: number;
+};
+
 async function readDeparture(departureId: string) {
   const supabase = createAdminClient();
 
@@ -159,30 +200,32 @@ export async function startBooking(input: {
 
   const supabase = createAdminClient();
 
+  const row: NewBooking = {
+    reference: reference(),
+    departure_id: departure.id,
+    tour_id: departure.tour_id,
+    lead_user_id: input.userId,
+    plan: input.plan,
+    status: "pending",
+    riders: input.party.riders,
+    pillions: input.party.pillions,
+    single_rooms: input.party.singleRooms,
+    damage_protection: input.party.damageProtection,
+    vehicle_id: vehicleId,
+    own_vehicle: input.party.ownVehicle,
+    currency,
+    lines,
+    fx_rate: rate,
+    base_currency: quote.currency,
+    base_total: quote.total,
+    total_amount: total,
+    deposit_amount: deposit,
+    balance_due_on: daysBefore(departure.start_date, BALANCE_DUE_DAYS),
+  };
+
   const { data: booking, error } = await supabase
     .from("bookings")
-    .insert({
-      reference: reference(),
-      departure_id: departure.id,
-      tour_id: departure.tour_id,
-      lead_user_id: input.userId,
-      plan: input.plan,
-      status: "pending",
-      riders: input.party.riders,
-      pillions: input.party.pillions,
-      single_rooms: input.party.singleRooms,
-      damage_protection: input.party.damageProtection,
-      vehicle_id: vehicleId,
-      own_vehicle: input.party.ownVehicle,
-      currency,
-      lines,
-      fx_rate: rate,
-      base_currency: quote.currency,
-      base_total: quote.total,
-      total_amount: total,
-      deposit_amount: deposit,
-      balance_due_on: daysBefore(departure.start_date, BALANCE_DUE_DAYS),
-    })
+    .insert(row)
     .select("id, reference")
     .single();
 
