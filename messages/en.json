@@ -2159,5 +2159,16 @@
     },
     "previous": "Previous departures",
     "next": "More departures"
+  },
+  "enquiryMail": {
+    "subject": "Thank you for getting in touch",
+    "friend": "there",
+    "yourRoute": "the route you have in mind",
+    "greeting": "Hello {name},",
+    "received": "Your enquiry has reached our team in Manali. Somebody will read it properly and reply personally, usually within one working day.",
+    "quickNext": "If your plans have a date or a route attached, send them over and we will come back with what is possible.",
+    "customNext": "We have your outline for {destination}. We will come back with dates, a route and a price built around it rather than a package off the shelf.",
+    "reply": "Anything you want to add in the meantime, just reply to this email. It comes straight to us.",
+    "meanwhile": "While you wait, every departure we have open is here: {link}"
   }
 }

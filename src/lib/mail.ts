@@ -24,7 +24,15 @@ const getTransport = () => {
   return transport;
 };
 
-export async function sendMail(input: { to: string; subject: string; text: string }) {
+export async function sendMail(input: {
+  to: string;
+  subject: string;
+  text: string;
+  /** Sent alongside the text, for clients that prefer it. */
+  html?: string;
+  /** Where a reply should go. The office wants replies to reach the sender. */
+  replyTo?: string;
+}) {
   if (!mailerConfigured() || !input.to) return { ok: false as const, error: "SMTP is not set up." };
 
   try {
@@ -33,7 +41,8 @@ export async function sendMail(input: { to: string; subject: string; text: strin
       to: input.to,
       subject: input.subject,
       text: input.text,
-      replyTo: FROM,
+      html: input.html,
+      replyTo: input.replyTo ?? FROM,
     });
 
     return { ok: true as const };

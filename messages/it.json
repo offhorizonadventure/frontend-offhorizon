@@ -2159,5 +2159,16 @@
     },
     "previous": "Partenze precedenti",
     "next": "Altre partenze"
+  },
+  "enquiryMail": {
+    "subject": "Grazie per averci contattato",
+    "friend": "a te",
+    "yourRoute": "il percorso che hai in mente",
+    "greeting": "Ciao {name},",
+    "received": "La tua richiesta è arrivata al nostro team a Manali. Qualcuno la leggerà con attenzione e ti risponderà personalmente, di solito entro un giorno lavorativo.",
+    "quickNext": "Se i tuoi piani hanno già una data o un percorso, mandaceli e ti diremo cosa è possibile.",
+    "customNext": "Abbiamo le tue indicazioni per {destination}. Torneremo da te con date, un percorso e un prezzo costruiti su misura, non un pacchetto preconfezionato.",
+    "reply": "Se nel frattempo vuoi aggiungere qualcosa, rispondi a questa email. Arriva direttamente a noi.",
+    "meanwhile": "Nel frattempo, tutte le partenze aperte sono qui: {link}"
   }
 }
