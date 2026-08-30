@@ -2120,7 +2120,7 @@
       "description": "Tu consulta está con nosotros."
     },
     "title": "Gracias por tu consulta",
-    "bodyQuick": "Está con nosotros, y la leerá alguien que ha recorrido la ruta, no un sistema automático.",
+    "bodyQuick": "Está con nosotros, y la leerá nuestro equipo, que ha recorrido la ruta, no un sistema automático.",
     "bodyCustom": "Está con nosotros. Montar un viaje alrededor de tus fechas y tu terreno lleva algo de reflexión, así que la respuesta será un plan y no un folleto.",
     "steps": [
       "La leemos y cotejamos las fechas con las salidas ya previstas.",
@@ -2165,7 +2165,7 @@
     "friend": "hola",
     "yourRoute": "la ruta que tienes en mente",
     "greeting": "Hola {name},",
-    "received": "Tu consulta ha llegado a nuestro equipo en Manali. Alguien la leerá con calma y te responderá personalmente, normalmente en un día laborable.",
+    "received": "Tu consulta ha llegado a nuestro equipo en Manali. La leeremos con calma y te responderemos personalmente, normalmente en un día laborable.",
     "quickNext": "Si tus planes ya tienen fecha o ruta, mándanoslos y te diremos qué es posible.",
     "customNext": "Tenemos tus ideas para {destination}. Volveremos con fechas, una ruta y un precio hechos a medida, no un paquete cerrado.",
     "reply": "Si quieres añadir algo mientras tanto, responde a este correo. Nos llega directamente.",

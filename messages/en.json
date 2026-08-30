@@ -2120,7 +2120,7 @@
       "description": "Your enquiry is with us."
     },
     "title": "Thank you for your enquiry",
-    "bodyQuick": "It is with us, and somebody who has ridden the route will read it rather than a form handler.",
+    "bodyQuick": "It is with us, and our team, who have ridden the route themselves, will read it rather than a form handler.",
     "bodyCustom": "It is with us. Building a trip around your dates and terrain takes a little thought, so the reply will be a plan rather than a brochure.",
     "steps": [
       "We read it, and check the dates against what is already running.",
@@ -2165,7 +2165,7 @@
     "friend": "there",
     "yourRoute": "the route you have in mind",
     "greeting": "Hello {name},",
-    "received": "Your enquiry has reached our team in Manali. Somebody will read it properly and reply personally, usually within one working day.",
+    "received": "Your enquiry has reached our team in Manali. We will read it properly and reply personally, usually within one working day.",
     "quickNext": "If your plans have a date or a route attached, send them over and we will come back with what is possible.",
     "customNext": "We have your outline for {destination}. We will come back with dates, a route and a price built around it rather than a package off the shelf.",
     "reply": "Anything you want to add in the meantime, just reply to this email. It comes straight to us.",

@@ -2120,7 +2120,7 @@
       "description": "Ihre Anfrage ist bei uns."
     },
     "title": "Danke für Ihre Anfrage",
-    "bodyQuick": "Sie ist bei uns, und jemand, der die Strecke selbst gefahren ist, wird sie lesen, kein Formularsystem.",
+    "bodyQuick": "Sie ist bei uns, und unser Team, das die Strecke selbst gefahren ist, wird sie lesen, kein Formularsystem.",
     "bodyCustom": "Sie ist bei uns. Eine Reise um Ihre Termine und Ihr Gelände herum zu bauen braucht etwas Überlegung, deshalb ist die Antwort ein Plan und kein Prospekt.",
     "steps": [
       "Wir lesen sie und gleichen die Termine mit den geplanten Abfahrten ab.",
@@ -2165,7 +2165,7 @@
     "friend": "Sie",
     "yourRoute": "die Route, die Ihnen vorschwebt",
     "greeting": "Hallo {name},",
-    "received": "Ihre Anfrage ist bei unserem Team in Manali angekommen. Jemand liest sie in Ruhe und antwortet Ihnen persönlich, in der Regel innerhalb eines Werktags.",
+    "received": "Ihre Anfrage ist bei unserem Team in Manali angekommen. Wir lesen sie in Ruhe und antworten Ihnen persönlich, in der Regel innerhalb eines Werktags.",
     "quickNext": "Wenn Ihre Pläne schon ein Datum oder eine Route haben, schicken Sie sie uns und wir sagen Ihnen, was möglich ist.",
     "customNext": "Wir haben Ihre Vorstellungen für {destination}. Wir melden uns mit Terminen, einer Route und einem Preis, die darauf aufbauen, statt mit einem Paket von der Stange.",
     "reply": "Wenn Sie in der Zwischenzeit etwas ergänzen möchten, antworten Sie einfach auf diese E-Mail. Sie kommt direkt bei uns an.",

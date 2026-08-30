@@ -2120,7 +2120,7 @@
       "description": "Votre demande nous est parvenue."
     },
     "title": "Merci pour votre demande",
-    "bodyQuick": "Elle nous est parvenue, et c'est quelqu'un qui a roulé sur cet itinéraire qui la lira, pas un robot.",
+    "bodyQuick": "Elle nous est parvenue, et c'est notre équipe, qui a roulé sur cet itinéraire, qui la lira, pas un robot.",
     "bodyCustom": "Elle nous est parvenue. Construire un voyage autour de vos dates et de votre terrain demande un peu de réflexion : la réponse sera un projet, pas une brochure.",
     "steps": [
       "Nous la lisons et comparons vos dates avec les départs déjà prévus.",
@@ -2165,7 +2165,7 @@
     "friend": "à vous",
     "yourRoute": "l'itinéraire que vous avez en tête",
     "greeting": "Bonjour {name},",
-    "received": "Votre demande est bien arrivée à notre équipe à Manali. Quelqu'un la lira attentivement et vous répondra personnellement, en général sous un jour ouvré.",
+    "received": "Votre demande est bien arrivée à notre équipe à Manali. Nous la lirons attentivement et vous répondrons personnellement, en général sous un jour ouvré.",
     "quickNext": "Si vos projets ont déjà une date ou un itinéraire, envoyez-les nous et nous vous dirons ce qui est possible.",
     "customNext": "Nous avons vos grandes lignes pour {destination}. Nous reviendrons vers vous avec des dates, un itinéraire et un prix construits autour, plutôt qu'un forfait tout fait.",
     "reply": "Si vous voulez ajouter quelque chose entre-temps, répondez simplement à cet email. Il nous parvient directement.",

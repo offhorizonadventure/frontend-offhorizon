@@ -2120,7 +2120,7 @@
       "description": "La tua richiesta è arrivata."
     },
     "title": "Grazie per la tua richiesta",
-    "bodyQuick": "È arrivata, e la leggerà qualcuno che quel percorso lo ha guidato, non un sistema automatico.",
+    "bodyQuick": "È arrivata, e la leggerà il nostro team, che quel percorso lo ha guidato, non un sistema automatico.",
     "bodyCustom": "È arrivata. Costruire un viaggio sulle tue date e sul tuo terreno richiede un po' di pensiero, quindi la risposta sarà un progetto e non un dépliant.",
     "steps": [
       "La leggiamo e confrontiamo le date con le partenze già in programma.",
@@ -2165,7 +2165,7 @@
     "friend": "a te",
     "yourRoute": "il percorso che hai in mente",
     "greeting": "Ciao {name},",
-    "received": "La tua richiesta è arrivata al nostro team a Manali. Qualcuno la leggerà con attenzione e ti risponderà personalmente, di solito entro un giorno lavorativo.",
+    "received": "La tua richiesta è arrivata al nostro team a Manali. La leggeremo con attenzione e ti risponderemo personalmente, di solito entro un giorno lavorativo.",
     "quickNext": "Se i tuoi piani hanno già una data o un percorso, mandaceli e ti diremo cosa è possibile.",
     "customNext": "Abbiamo le tue indicazioni per {destination}. Torneremo da te con date, un percorso e un prezzo costruiti su misura, non un pacchetto preconfezionato.",
     "reply": "Se nel frattempo vuoi aggiungere qualcosa, rispondi a questa email. Arriva direttamente a noi.",
