@@ -1,7 +1,8 @@
 import "server-only";
 
 import { sendMail } from "@/lib/mail";
-import { siteName, siteUrl } from "@/lib/seo";
+import { renderEmail } from "@/lib/email-layout";
+import { siteUrl } from "@/lib/seo";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 const money = (amount: number, currency: string) => `${currency} ${amount.toLocaleString("en-US")}`;
@@ -53,32 +54,46 @@ export async function sendPaymentEmail(paymentId: string) {
   const left = Math.max(0, Math.round((booking.total_amount - booking.paid_amount) * 100) / 100);
   const settled = left <= 0;
 
-  const lines = [
-    `Hello ${lead?.full_name?.split(" ")[0] ?? "there"},`,
-    "",
-    `We have received ${money(data.amount, data.currency)} towards your expedition. Your place is confirmed.`,
-    "",
-    `Expedition: ${booking.tour.title}`,
-    `Dates: ${day(booking.departure.start_date)} to ${day(booking.departure.end_date)}`,
-    `Booking reference: ${booking.reference}`,
-    `Paid so far: ${money(booking.paid_amount, booking.currency)} of ${money(booking.total_amount, booking.currency)}`,
-    "",
-    settled
-      ? "Nothing is outstanding. Your documents form is now open in your account, and we need it back before you travel."
-      : `Still to pay: ${money(left, booking.currency)}, and all of it is due by ${day(booking.balance_due_on)}. You can pay any amount, as many times as you like, from your account.`,
-    "",
-    `Your booking: ${siteUrl}/en/account/bookings/${booking.reference}`,
-    "",
-    "If anything here looks wrong, reply to this email and we will sort it out.",
-    "",
-    siteName,
-  ];
+  const first = lead?.full_name?.trim().split(/\s+/)[0] ?? "there";
+  const bookingUrl = `${siteUrl}/en/account/bookings/${booking.reference}`;
+
+  const { html, text } = renderEmail({
+    preheader: settled
+      ? `${booking.tour.title} is paid in full.`
+      : `We have received ${money(data.amount, data.currency)} towards ${booking.tour.title}.`,
+    heading: settled ? "Paid in full" : "Payment received",
+    figure: { label: "Amount received", value: money(data.amount, data.currency) },
+    paragraphs: [
+      `Hello ${first},`,
+      settled
+        ? "That settles your expedition in full. Your place is confirmed and there is nothing further to pay."
+        : "Thank you. Your place is confirmed, and the balance is set out below.",
+    ],
+    facts: [
+      ["Expedition", booking.tour.title],
+      ["Dates", `${day(booking.departure.start_date)} to ${day(booking.departure.end_date)}`],
+      ["Booking reference", booking.reference],
+      ["Paid so far", money(booking.paid_amount, booking.currency)],
+      ["Expedition total", money(booking.total_amount, booking.currency)],
+      ...(settled
+        ? []
+        : ([
+            ["Still to pay", money(left, booking.currency)],
+            ["Due by", day(booking.balance_due_on)],
+          ] as [string, string][])),
+    ],
+    cta: { label: "View your booking", href: bookingUrl },
+    note: settled
+      ? "Your documents form is now open in your account, and we need it back before you travel. If anything here looks wrong, reply to this email and we will sort it out."
+      : "You can pay any amount towards the balance, as many times as you like, from your account. If anything here looks wrong, reply to this email and we will sort it out.",
+  });
 
   await sendMail({
     to,
     subject: settled
       ? `${booking.tour.title} is paid in full (${booking.reference})`
       : `Payment received for ${booking.tour.title} (${booking.reference})`,
-    text: lines.join("\n"),
+    text,
+    html,
   });
 }

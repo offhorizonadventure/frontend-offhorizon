@@ -1,7 +1,8 @@
 import "server-only";
+import { renderEmail } from "@/lib/email-layout";
 
 import { sendMail } from "@/lib/mail";
-import { siteName } from "@/lib/seo";
+
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export async function cancelOverdue() {
@@ -65,20 +66,26 @@ export async function cancelOverdue() {
     const tour = booking.tour as unknown as { title: string } | null;
 
     if (lead?.email) {
+      const { html, text } = renderEmail({
+        preheader: `The balance on ${booking.reference} was not settled in time.`,
+        heading: "Your booking has been cancelled",
+        paragraphs: [
+          `Hello ${lead.full_name?.trim().split(/\s+/)[0] ?? "there"},`,
+          `The balance on ${tour?.title ?? "your expedition"} was not settled by the deadline, which is 14 days before departure, so the booking has been cancelled and the place has gone back on sale.`,
+          "As set out in the terms you accepted when booking, money already paid is not refundable.",
+        ],
+        facts: [
+          ["Expedition", tour?.title ?? ""],
+          ["Booking reference", booking.reference],
+        ],
+        note: "If you believe this is a mistake, reply to this email today and we will look at it.",
+      });
+
       await sendMail({
         to: lead.email,
         subject: `Your booking ${booking.reference} has been cancelled`,
-        text: [
-          `Hello ${lead.full_name?.split(" ")[0] ?? "there"},`,
-          "",
-          `The balance on ${tour?.title ?? "your expedition"} (${booking.reference}) was not settled by the deadline, which is 14 days before departure, so the booking has been cancelled and the place has gone back on sale.`,
-          "",
-          "As set out in the terms you accepted when booking, money already paid is not refundable.",
-          "",
-          "If you believe this is a mistake, reply to this email today and we will look at it.",
-          "",
-          siteName,
-        ].join("\n"),
+        text,
+        html,
       });
     }
   }
