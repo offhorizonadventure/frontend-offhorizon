@@ -7,7 +7,7 @@ import type { FactKey, PriceGroup } from "@/lib/tour-types";
 const FACT_KEYS: Record<string, FactKey> = {
   location: "location",
   weather: "weather",
-  vehicle: "vehicle",
+  seasons: "seasons",
   terrain: "terrain",
   distance: "distance",
   duration: "duration",

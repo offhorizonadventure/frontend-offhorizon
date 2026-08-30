@@ -73,7 +73,7 @@ export type Tour = {
   lead: string | null;
   country: CountrySlug | null;
   region: string | null;
-  featured: boolean;
+  best_seller: boolean;
   hero_path: string | null;
   hero_alt: string | null;
   visibility: "public" | "private";
@@ -169,10 +169,16 @@ export const listTours = unstable_cache(
       .from("tours")
       .select("*")
       .eq("status", "published")
-      .order("featured", { ascending: false })
       .order("updated_at", { ascending: false });
 
-    return error ? [] : (data ?? []).map(shape);
+    // Best sellers first, ordered here rather than in the query. Sorting on a
+    // column asks the database for it by name, and a name it does not have yet
+    // fails the whole read and empties the site.
+    return error
+      ? []
+      : (data ?? [])
+          .map(shape)
+          .sort((a, b) => Number(b.best_seller ?? false) - Number(a.best_seller ?? false));
   },
   ["tours"],
   { tags: [CATALOGUE_TAG], revalidate: DAY },

@@ -38,6 +38,12 @@ export async function DbTourCard({
 
   return (
     <article className="group ring-brand-900/10 @container relative overflow-hidden rounded-[26px] ring-1">
+      {tour.best_seller && (
+        <p className="bg-ember-500 text-cream-100 absolute top-3.5 left-3.5 z-10 rounded-full px-3 py-1.5 text-[10px] font-bold tracking-[0.12em] uppercase shadow-sm">
+          {ts("bestSeller")}
+        </p>
+      )}
+
       <div className="bg-brand-100 relative aspect-[3/4] @xs:aspect-[4/5] @sm:aspect-[1/1]">
         {hero && (
           <Image

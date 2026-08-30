@@ -31,13 +31,6 @@ export async function regionCards(country: string, region: string): Promise<Card
   return cards.filter((card) => !card.tour.region || card.tour.region === region);
 }
 
-export async function featuredCards(limit = 2): Promise<Card[]> {
-  const cards = await allCards();
-  const featured = cards.filter((card) => card.tour.featured);
-
-  return (featured.length ? featured : cards).slice(0, limit);
-}
-
 export async function latestCards(limit = 4): Promise<Card[]> {
   const cards = await allCards();
 

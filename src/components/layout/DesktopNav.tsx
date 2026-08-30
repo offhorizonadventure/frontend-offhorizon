@@ -6,6 +6,7 @@ import { Flag } from "@/components/ui/Flag";
 import { ArrowRight } from "@/components/ui/icons";
 import { hasMegaMenu, mainNav, type Country } from "@/config/navigation";
 import { Link } from "@/i18n/navigation";
+import { bestSellerPaths } from "@/lib/best-sellers";
 
 const trigger =
   "nav-link relative flex h-8 items-center gap-1 text-[11px] font-semibold tracking-[0.08em] whitespace-nowrap text-brand-900/75 uppercase transition-colors duration-200 hover:text-brand-800";
@@ -37,10 +38,12 @@ export async function DesktopNav() {
 }
 
 async function Panel({ countries }: { countries: Country[] }) {
-  const [t, td, tt] = await Promise.all([
+  const [best, t, td, tt, tb] = await Promise.all([
+    bestSellerPaths(),
     getTranslations("nav"),
     getTranslations("destinations"),
     getTranslations("tours"),
+    getTranslations("dest.shared"),
   ]);
 
   return (
@@ -81,8 +84,13 @@ async function Panel({ countries }: { countries: Country[] }) {
                           />
                         </span>
                         <span className="min-w-0 flex-1">
-                          <span className="text-brand-900 block text-[13.5px] leading-snug font-semibold">
+                          <span className="text-brand-900 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13.5px] leading-snug font-semibold">
                             {tt(`${tour.key}.name`)}
+                            {best.has(tour.href) && (
+                              <span className="bg-ember-500/12 text-ember-600 rounded-full px-2 py-0.5 text-[9.5px] font-bold tracking-[0.1em] uppercase">
+                                {tb("bestSeller")}
+                              </span>
+                            )}
                           </span>
                           <span className="text-brand-600/75 mt-0.5 block text-[11.5px]">
                             {t("days", { count: tour.days })} · {tt(`${tour.key}.summary`)}

@@ -17,6 +17,7 @@ import {
   RefreshCw as LuRefreshCw,
   ShieldCheck as LuShieldCheck,
   Star as LuStar,
+  Sun as LuSun,
   ThermometerSun as LuThermometerSun,
   User as LuUser,
   Users as LuUsers,
@@ -90,7 +91,7 @@ const factMark = (Icon: typeof LuBike) =>
 export const factIcons = {
   location: factMark(LuMapPin),
   weather: factMark(LuThermometerSun),
-  vehicle: factMark(LuBike),
+  seasons: factMark(LuSun),
   terrain: factMark(LuMountain),
   distance: factMark(LuRoute),
   duration: factMark(LuCalendarDays),

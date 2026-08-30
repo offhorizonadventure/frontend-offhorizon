@@ -712,3 +712,29 @@ select:focus-visible {
     flex: 0 0 calc(50% - 0.75rem);
   }
 }
+
+/**
+ * Printing a receipt should give you the receipt, not the whole site around it.
+ * The page sits inside the account layout, so the header, the menu and the
+ * footer all came out of the printer with it.
+ */
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  body:has([data-receipt]) * {
+    visibility: hidden;
+  }
+
+  body:has([data-receipt]) [data-receipt],
+  body:has([data-receipt]) [data-receipt] * {
+    visibility: visible;
+  }
+
+  body:has([data-receipt]) [data-receipt] {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+  }
+}

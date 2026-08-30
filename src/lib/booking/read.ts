@@ -137,6 +137,23 @@ export type PaymentHistoryRow = PaymentRow & {
   booking: { reference: string; tour: { title: string } };
 };
 
+/** Everything a receipt needs to stand on its own as a record of the payment. */
+export type ReceiptRow = PaymentHistoryRow & {
+  booking: {
+    reference: string;
+    currency: string;
+    total_amount: number;
+    paid_amount: number;
+    balance_due_on: string;
+    riders: number;
+    pillions: number;
+    plan: string;
+    tour: { title: string };
+    departure: { start_date: string; end_date: string } | null;
+  };
+  lead: { full_name: string | null; email: string | null } | null;
+};
+
 export async function listMyPayments(): Promise<PaymentHistoryRow[]> {
   const user = await getUser();
   if (!user) return [];
@@ -179,5 +196,48 @@ export async function getMyPayment(id: string): Promise<PaymentHistoryRow | null
     method: (data.method as string | null) ?? null,
     providerPaymentId: (data.provider_payment_id as string | null) ?? null,
     booking: data.booking as unknown as PaymentHistoryRow["booking"],
+  };
+}
+
+export async function getMyReceipt(id: string): Promise<ReceiptRow | null> {
+  const user = await getUser();
+  if (!user) return null;
+
+  const supabase = await createClient();
+
+  const { data } = await supabase
+    .from("payments")
+    .select(
+      `id, kind, status, amount, currency, paid_at, created_at, provider_payment_id,
+       method:raw->>method,
+       booking:bookings(
+         id, reference, currency, total_amount, paid_amount, balance_due_on,
+         riders, pillions, plan,
+         tour:tours(title),
+         departure:departures(start_date, end_date)
+       )`,
+    )
+    .eq("id", id)
+    .maybeSingle();
+
+  if (!data?.booking) return null;
+
+  const booking = data.booking as unknown as ReceiptRow["booking"] & { id: string };
+
+  // Named on the receipt so the person who paid is on the record, not just the
+  // account that happened to be signed in.
+  const { data: lead } = await supabase
+    .from("booking_travellers")
+    .select("full_name, email")
+    .eq("booking_id", booking.id)
+    .eq("is_lead", true)
+    .maybeSingle();
+
+  return {
+    ...(data as unknown as PaymentRow),
+    method: (data.method as string | null) ?? null,
+    providerPaymentId: (data.provider_payment_id as string | null) ?? null,
+    booking,
+    lead: (lead as ReceiptRow["lead"]) ?? null,
   };
 }

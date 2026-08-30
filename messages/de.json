@@ -49,7 +49,7 @@
     },
     "himalayanExpedition": {
       "name": "Himalaya-Expedition",
-      "summary": "Spiti und die Kinnaur-Straße"
+      "summary": "Himachal, Zanskar und Ladakh"
     },
     "ladakhCircuit": {
       "name": "Die Ladakh-Runde",
@@ -504,7 +504,8 @@
       "planTrip": "Individuelle Reise planen",
       "registerInterest": "Interesse anmelden",
       "viewTour": "Tour ansehen",
-      "faqEyebrow": "Vor der Abreise"
+      "faqEyebrow": "Vor der Abreise",
+      "bestSeller": "Bestseller"
     },
     "hub": {
       "meta": {
@@ -1410,7 +1411,7 @@
       "title": "Eckdaten",
       "location": "Land, Region",
       "weather": "Wetter",
-      "vehicle": "Expeditionsfahrzeug",
+      "seasons": "Jahreszeiten",
       "terrain": "Untergrund",
       "distance": "Fahrstrecke",
       "duration": "Dauer",
@@ -2091,7 +2092,21 @@
       "note": "Dieser Beleg wird von Offhorizon Adventures für eine Zahlung zur oben genannten Buchung ausgestellt. Kartendaten werden bei uns nie gespeichert; die Zahlung wurde von Razorpay abgewickelt.",
       "print": "Nutzen Sie die Druckfunktion Ihres Browsers, um dies als PDF zu speichern.",
       "download": "Beleg",
-      "printButton": "Drucken oder als PDF speichern"
+      "printButton": "Drucken oder als PDF speichern",
+      "paidBy": "Gezahlt von",
+      "amountPaid": "Gezahlter Betrag",
+      "expedition": "Expedition",
+      "dates": "Termine",
+      "party": "Gruppe",
+      "thisPayment": "Diese Zahlung",
+      "balance": "Saldo der Buchung",
+      "total": "Gesamtpreis",
+      "paidToDate": "Bisher gezahlt",
+      "outstanding": "Noch zu zahlen",
+      "settled": "Vollständig bezahlt",
+      "dueBy": "Der Restbetrag ist bis zum {date} fällig.",
+      "riders": "{count, plural, one {# Fahrer} other {# Fahrer}}",
+      "pillions": "{count, plural, one {# Sozius} other {# Soziusfahrer}}"
     },
     "colBooking": "Buchung",
     "colTour": "Expedition",

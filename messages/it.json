@@ -49,7 +49,7 @@
     },
     "himalayanExpedition": {
       "name": "Spedizione himalayana",
-      "summary": "Spiti e la strada del Kinnaur"
+      "summary": "Himachal, Zanskar e Ladakh"
     },
     "ladakhCircuit": {
       "name": "Il circuito del Ladakh",
@@ -504,7 +504,8 @@
       "planTrip": "Progetta un viaggio su misura",
       "registerInterest": "Segnala interesse",
       "viewTour": "Vedi il tour",
-      "faqEyebrow": "Prima di partire"
+      "faqEyebrow": "Prima di partire",
+      "bestSeller": "Più venduto"
     },
     "hub": {
       "meta": {
@@ -1410,7 +1411,7 @@
       "title": "Scheda tecnica",
       "location": "Paese, regione",
       "weather": "Meteo",
-      "vehicle": "Veicolo della spedizione",
+      "seasons": "Stagioni",
       "terrain": "Tipo di fondo",
       "distance": "Distanza percorsa",
       "duration": "Durata",
@@ -2091,7 +2092,21 @@
       "note": "Questa ricevuta è emessa da Offhorizon Adventures per un pagamento ricevuto a fronte della prenotazione indicata. I dati della carta non sono mai conservati da noi; il pagamento è stato gestito da Razorpay.",
       "print": "Usa la stampa del browser per salvarla in PDF.",
       "download": "Ricevuta",
-      "printButton": "Stampa o salva in PDF"
+      "printButton": "Stampa o salva in PDF",
+      "paidBy": "Pagato da",
+      "amountPaid": "Importo pagato",
+      "expedition": "Spedizione",
+      "dates": "Date",
+      "party": "Gruppo",
+      "thisPayment": "Questo pagamento",
+      "balance": "Saldo della prenotazione",
+      "total": "Totale della spedizione",
+      "paidToDate": "Pagato finora",
+      "outstanding": "Ancora da pagare",
+      "settled": "Saldato",
+      "dueBy": "Il saldo va versato entro il {date}.",
+      "riders": "{count, plural, one {# pilota} other {# piloti}}",
+      "pillions": "{count, plural, one {# passeggero} other {# passeggeri}}"
     },
     "colBooking": "Prenotazione",
     "colTour": "Spedizione",

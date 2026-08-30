@@ -4,7 +4,7 @@ import type { ImageSource } from "@/lib/image-source";
 export type FactKey =
   | "location"
   | "weather"
-  | "vehicle"
+  | "seasons"
   | "terrain"
   | "distance"
   | "duration"

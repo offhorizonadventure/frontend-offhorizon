@@ -1,4 +1,6 @@
 import Image from "next/image";
+
+import { bestSellerPaths } from "@/lib/best-sellers";
 import { getTranslations } from "next-intl/server";
 
 import { Flag } from "@/components/ui/Flag";
@@ -14,10 +16,12 @@ const primary = mainNav.filter((item) => !isSecondary(item));
 const more = mainNav.filter(isSecondary);
 
 export async function MobileMenu() {
-  const [t, td, tt] = await Promise.all([
+  const [best, t, td, tt, tb] = await Promise.all([
+    bestSellerPaths(),
     getTranslations("nav"),
     getTranslations("destinations"),
     getTranslations("tours"),
+    getTranslations("dest.shared"),
   ]);
 
   const plainLink = (item: NavItem) => (
@@ -73,8 +77,13 @@ export async function MobileMenu() {
                                     />
                                   </span>
                                   <span className="min-w-0 flex-1">
-                                    <span className="text-brand-900 block text-[13.5px] leading-snug font-semibold">
+                                    <span className="text-brand-900 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13.5px] leading-snug font-semibold">
                                       {tt(`${tour.key}.name`)}
+                                      {best.has(tour.href) && (
+                                        <span className="bg-ember-500/12 text-ember-600 rounded-full px-2 py-0.5 text-[9.5px] font-bold tracking-[0.1em] uppercase">
+                                          {tb("bestSeller")}
+                                        </span>
+                                      )}
                                     </span>
                                     <span className="text-brand-600/70 mt-0.5 block text-[11.5px]">
                                       {t("days", { count: tour.days })} ·{" "}
