@@ -1582,6 +1582,11 @@
       "previous": "Machines précédentes",
       "next": "Plus de machines",
       "seeAll": "Voir toutes les machines"
+    },
+    "related": {
+      "eyebrow": "À voir aussi",
+      "title": "Autres expéditions",
+      "viewAll": "Tous les départs"
     }
   },
   "auth": {

@@ -20,7 +20,7 @@ export async function Highlights({
   const t = await getTranslations({ locale, namespace: "tour" });
 
   return (
-    <section className="bg-cream-50 relative flow-root pb-18 sm:pb-24">
+    <section className="bg-cream-50 relative flow-root pb-10 sm:pb-14">
       {}
       <div className="relative z-10 -mt-16 sm:-mt-44 lg:-mt-28">
         <Facts locale={locale} facts={facts} />

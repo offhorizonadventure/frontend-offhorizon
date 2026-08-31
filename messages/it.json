@@ -1582,6 +1582,11 @@
       "previous": "Mezzi precedenti",
       "next": "Altri mezzi",
       "seeAll": "Vedi tutti i mezzi"
+    },
+    "related": {
+      "eyebrow": "Potrebbe interessarti",
+      "title": "Altre spedizioni",
+      "viewAll": "Tutte le partenze"
     }
   },
   "auth": {

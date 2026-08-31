@@ -49,6 +49,10 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         {}
         <link rel="preconnect" href={SUPABASE_URL} crossOrigin="" />
         <link rel="preconnect" href="https://flagcdn.com" crossOrigin="" />
+        {/* The reviews widget. Opening the connection early takes the DNS and
+            TLS handshake off the time it takes to appear. */}
+        <link rel="preconnect" href="https://cdn.trustindex.io" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://cdn.trustindex.io" />
         <link rel="dns-prefetch" href="https://checkout.razorpay.com" />
 
         {}

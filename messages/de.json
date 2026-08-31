@@ -1582,6 +1582,11 @@
       "previous": "Vorherige Maschinen",
       "next": "Weitere Maschinen",
       "seeAll": "Alle Maschinen ansehen"
+    },
+    "related": {
+      "eyebrow": "Ebenfalls interessant",
+      "title": "Weitere Expeditionen",
+      "viewAll": "Alle Termine"
     }
   },
   "auth": {

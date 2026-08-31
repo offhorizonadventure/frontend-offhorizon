@@ -1582,6 +1582,11 @@
       "previous": "Máquinas anteriores",
       "next": "Más máquinas",
       "seeAll": "Ver todas las máquinas"
+    },
+    "related": {
+      "eyebrow": "También te puede gustar",
+      "title": "Otras expediciones",
+      "viewAll": "Todas las salidas"
     }
   },
   "auth": {

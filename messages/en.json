@@ -1582,6 +1582,11 @@
       "previous": "Previous machines",
       "next": "More machines",
       "seeAll": "See all machines"
+    },
+    "related": {
+      "eyebrow": "You might also like",
+      "title": "Other expeditions",
+      "viewAll": "All departures"
     }
   },
   "auth": {

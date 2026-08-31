@@ -1,4 +1,5 @@
 import { notFound, permanentRedirect } from "next/navigation";
+import { RelatedTours } from "@/components/tour/RelatedTours";
 import { getTranslations } from "next-intl/server";
 
 import { Riders } from "@/components/about/Riders";
@@ -195,7 +196,9 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
       <Highlights locale={locale} facts={facts} highlights={highlights} />
 
       {}
-      <section className="bg-cream-50 relative overflow-hidden py-18 sm:py-24">
+      {/* The section above is the same cream, so its padding and this one's
+          added up to a gap the width of a screen with nothing in it. */}
+      <section className="bg-cream-50 relative overflow-hidden pt-6 pb-18 sm:pt-10 sm:pb-24">
         <Topo className="text-brand-800/12" rings={11} seed={40.9} />
 
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
@@ -270,6 +273,8 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
           }))}
         />
       )}
+
+      <RelatedTours tourId={tour.id} country={tour.country} region={tour.region} />
 
       <CtaBand
         title={t("cta.title")}
