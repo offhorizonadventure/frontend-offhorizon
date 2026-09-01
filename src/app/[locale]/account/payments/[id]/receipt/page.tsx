@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 
@@ -10,13 +11,16 @@ import { siteName, siteUrl } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
+/** Registered for tax. Printed on every receipt, as it has to be. */
+const GST = "02AAFCO2732H1ZU";
+
 function Cell({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div>
-      <dt className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.14em] uppercase">
+      <dt className="text-brand-800/45 text-[8.5px] font-bold tracking-[0.14em] uppercase">
         {label}
       </dt>
-      <dd className="text-brand-900 mt-1 text-[13px] font-semibold">{value}</dd>
+      <dd className="text-brand-900 mt-0.5 text-[12px] font-semibold">{value}</dd>
     </div>
   );
 }
@@ -66,12 +70,20 @@ export default async function ReceiptPage({
         data-receipt
         className="ring-brand-900/10 mx-auto max-w-2xl rounded-[20px] bg-white p-8 ring-1 sm:p-10 print:max-w-none print:rounded-none print:p-0 print:ring-0"
       >
-        <header className="border-brand-900/10 flex flex-wrap items-start justify-between gap-6 border-b pb-6">
+        <header className="border-brand-900/10 flex items-start justify-between gap-6 border-b pb-5">
           <div>
-            <p className="font-display text-brand-900 text-[21px] leading-none font-extrabold tracking-[-0.03em]">
-              {siteName}
-            </p>
-            <p className="text-brand-800/55 mt-2.5 text-[11.5px] leading-[1.6]">
+            {/* The mark rather than the name set in type: it is the same thing
+                the rest of the company signs with. */}
+            <Image
+              src="/logo/logo-horizontal.png"
+              alt={siteName}
+              width={2589}
+              height={546}
+              sizes="200px"
+              className="h-8 w-auto"
+              priority
+            />
+            <p className="text-brand-800/55 mt-2.5 text-[10.5px] leading-[1.55]">
               {contact.addressLines.map((line) => (
                 <span key={line} className="block">
                   {line}
@@ -82,46 +94,49 @@ export default async function ReceiptPage({
           </div>
 
           <div className="text-right">
-            <p className="text-ember-600 text-[10px] font-bold tracking-[0.18em] uppercase">
+            <p className="text-ember-600 text-[9px] font-bold tracking-[0.18em] uppercase">
               {t("receipt.title")}
             </p>
-            <p className="text-brand-900 mt-1.5 font-mono text-[12.5px] font-semibold">{number}</p>
-            <p className="text-brand-800/50 mt-1 text-[11.5px]">{paidOn}</p>
+            <p className="text-brand-900 mt-1 font-mono text-[11.5px] font-semibold">{number}</p>
+            <p className="text-brand-800/50 mt-0.5 text-[10.5px]">{paidOn}</p>
+            <p className="text-brand-800/70 mt-2 text-[10px] font-semibold tracking-[0.04em]">
+              GSTIN {GST}
+            </p>
           </div>
         </header>
 
-        <section className="border-brand-900/10 flex flex-wrap items-end justify-between gap-4 border-b py-6">
+        <section className="border-brand-900/10 flex flex-wrap items-end justify-between gap-4 border-b py-5">
           <div>
-            <p className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.14em] uppercase">
+            <p className="text-brand-800/45 text-[8.5px] font-bold tracking-[0.14em] uppercase">
               {t("receipt.paidBy")}
             </p>
-            <p className="text-brand-900 mt-1.5 text-[15px] font-bold">
+            <p className="text-brand-900 mt-1 text-[14px] font-bold">
               {receipt.lead?.full_name ?? "—"}
             </p>
             {receipt.lead?.email && (
-              <p className="text-brand-800/55 text-[12px]">{receipt.lead.email}</p>
+              <p className="text-brand-800/55 text-[11px]">{receipt.lead.email}</p>
             )}
           </div>
 
           <div className="text-right">
-            <p className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.14em] uppercase">
+            <p className="text-brand-800/45 text-[8.5px] font-bold tracking-[0.14em] uppercase">
               {t("receipt.amountPaid")}
             </p>
-            <p className="font-display text-brand-900 mt-1 text-[30px] leading-none font-extrabold tabular-nums">
+            <p className="font-display text-brand-900 mt-0.5 text-[26px] leading-none font-extrabold tabular-nums">
               {money(receipt.amount, receipt.currency)}
             </p>
           </div>
         </section>
 
-        <section className="border-brand-900/10 border-b py-6">
-          <p className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.14em] uppercase">
+        <section className="border-brand-900/10 border-b py-5">
+          <p className="text-brand-800/45 text-[8.5px] font-bold tracking-[0.14em] uppercase">
             {t("receipt.expedition")}
           </p>
-          <p className="font-display text-brand-900 mt-1.5 text-[17px] font-extrabold tracking-[-0.02em]">
+          <p className="font-display text-brand-900 mt-1 text-[15px] font-extrabold tracking-[-0.02em]">
             {booking.tour.title}
           </p>
 
-          <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3">
+          <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-4">
             <Cell label={t("receipt.reference")} value={booking.reference} />
             {booking.departure && (
               <Cell
@@ -130,41 +145,31 @@ export default async function ReceiptPage({
               />
             )}
             <Cell label={t("receipt.party")} value={party} />
-          </dl>
-        </section>
-
-        <section className="border-brand-900/10 border-b py-6">
-          <p className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.14em] uppercase">
-            {t("receipt.thisPayment")}
-          </p>
-
-          <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3">
-            <Cell label={t("receipt.date")} value={paidOn} />
             <Cell label={t("receipt.kind")} value={receipt.kind} />
             {receipt.method && <Cell label={t("receipt.method")} value={receipt.method} />}
             {receipt.providerPaymentId && (
               <Cell
                 label={t("receipt.transaction")}
-                value={<span className="font-mono text-[11.5px]">{receipt.providerPaymentId}</span>}
+                value={<span className="font-mono text-[10.5px]">{receipt.providerPaymentId}</span>}
               />
             )}
           </dl>
         </section>
 
-        <section className="py-6">
-          <p className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.14em] uppercase">
+        <section className="py-5">
+          <p className="text-brand-800/45 text-[8.5px] font-bold tracking-[0.14em] uppercase">
             {t("receipt.balance")}
           </p>
 
-          <dl className="mt-4 space-y-2.5">
-            <div className="flex justify-between gap-4 text-[13px]">
+          <dl className="mt-3 space-y-2">
+            <div className="flex justify-between gap-4 text-[12px]">
               <dt className="text-brand-800/60">{t("receipt.total")}</dt>
               <dd className="text-brand-900 font-semibold tabular-nums">
                 {money(booking.total_amount)}
               </dd>
             </div>
 
-            <div className="flex justify-between gap-4 text-[13px]">
+            <div className="flex justify-between gap-4 text-[12px]">
               <dt className="text-brand-800/60">{t("receipt.paidToDate")}</dt>
               <dd className="text-brand-900 font-semibold tabular-nums">
                 {money(booking.paid_amount)}
@@ -172,7 +177,7 @@ export default async function ReceiptPage({
             </div>
 
             <div
-              className={`border-brand-900/10 flex justify-between gap-4 border-t pt-2.5 text-[14px] font-bold ${
+              className={`border-brand-900/10 flex justify-between gap-4 border-t pt-2 text-[13px] font-bold ${
                 settled ? "text-brand-900" : "text-ember-600"
               }`}
             >
@@ -182,15 +187,17 @@ export default async function ReceiptPage({
           </dl>
 
           {!settled && (
-            <p className="text-brand-800/55 mt-3.5 text-[12px]">
+            <p className="text-brand-800/55 mt-2.5 text-[11px]">
               {t("receipt.dueBy", { date: day(booking.balance_due_on) })}
             </p>
           )}
         </section>
 
-        <footer className="border-brand-900/10 border-t pt-5">
-          <p className="text-brand-800/45 text-[11px] leading-[1.7]">{t("receipt.note")}</p>
-          <p className="text-brand-800/35 mt-2 text-[10.5px]">
+        <footer className="border-brand-900/10 flex items-end justify-between gap-6 border-t pt-4">
+          <p className="text-brand-800/45 max-w-md text-[10px] leading-[1.6]">
+            {t("receipt.note")}
+          </p>
+          <p className="text-brand-800/35 shrink-0 text-[9.5px]">
             {siteUrl.replace(/^https?:\/\//, "")}
           </p>
         </footer>
