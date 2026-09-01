@@ -2137,7 +2137,8 @@
       "settled": "Saldato",
       "dueBy": "Il saldo va versato entro il {date}.",
       "riders": "{count, plural, one {# pilota} other {# piloti}}",
-      "pillions": "{count, plural, one {# passeggero} other {# passeggeri}}"
+      "pillions": "{count, plural, one {# passeggero} other {# passeggeri}}",
+      "partPayment": "Acconto ricevuto"
     },
     "colBooking": "Prenotazione",
     "colTour": "Spedizione",

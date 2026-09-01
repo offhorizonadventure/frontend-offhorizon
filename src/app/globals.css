@@ -737,6 +737,17 @@ select:focus-visible {
     position: absolute;
     inset-inline: 0;
     top: 0;
+    /* Fills the sheet so the small print sits at the foot of the page rather
+       than trailing off under the figures with half a page below it. */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* The header band has to actually print its colour. */
+  body:has([data-receipt]) [data-receipt] * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   /* One page, always. A receipt that runs onto a second sheet wastes paper on

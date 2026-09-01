@@ -2137,7 +2137,8 @@
       "settled": "Pagado por completo",
       "dueBy": "El saldo vence el {date}.",
       "riders": "{count, plural, one {# piloto} other {# pilotos}}",
-      "pillions": "{count, plural, one {# pasajero} other {# pasajeros}}"
+      "pillions": "{count, plural, one {# pasajero} other {# pasajeros}}",
+      "partPayment": "Pago parcial recibido"
     },
     "colBooking": "Reserva",
     "colTour": "Expedición",

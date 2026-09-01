@@ -2137,7 +2137,8 @@
       "settled": "Paid in full",
       "dueBy": "The balance is due by {date}.",
       "riders": "{count, plural, one {# rider} other {# riders}}",
-      "pillions": "{count, plural, one {# pillion} other {# pillions}}"
+      "pillions": "{count, plural, one {# pillion} other {# pillions}}",
+      "partPayment": "Part payment received"
     },
     "colBooking": "Booking",
     "colTour": "Expedition",

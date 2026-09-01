@@ -2137,7 +2137,8 @@
       "settled": "Vollständig bezahlt",
       "dueBy": "Der Restbetrag ist bis zum {date} fällig.",
       "riders": "{count, plural, one {# Fahrer} other {# Fahrer}}",
-      "pillions": "{count, plural, one {# Sozius} other {# Soziusfahrer}}"
+      "pillions": "{count, plural, one {# Sozius} other {# Soziusfahrer}}",
+      "partPayment": "Teilzahlung erhalten"
     },
     "colBooking": "Buchung",
     "colTour": "Expedition",
