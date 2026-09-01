@@ -307,17 +307,43 @@
       "body": "Une expédition vaut ce que vaut l'équipe qui la mène. La nôtre passe ses années à lire ce terrain, cette météo et ces machines, ce qui permet de tenir le programme quand les conditions se dégradent.",
       "leadNote": "Dirige l'entreprise et fixe le niveau d'exigence de chaque expédition.",
       "groups": {
-        "lead": "Direction",
-        "operations": "Opérations",
-        "creative": "Opérations et création",
-        "technical": "Mécanique et technique",
-        "support": "Assistance sur la route"
+        "lead": "À la tête de l'entreprise",
+        "leadership": "Direction et responsables de pôle",
+        "website": "Site web",
+        "brand": "Marque, contenu et production",
+        "technical": "Opérations techniques",
+        "ground": "Opérations au sol",
+        "office": "Administration",
+        "medical": "Équipe médicale"
       },
       "leadFacts": {
         "baseLabel": "Basé à",
         "base": "Manali, Inde",
         "leadingLabel": "À la tête depuis",
         "leading": "2014"
+      },
+      "roles": {
+        "director": "Direction",
+        "motorcycleHead": "Responsable des voyages moto",
+        "selfDriveHead": "Responsable des voyages en autonomie",
+        "webDeveloper": "Développeur du site",
+        "brandManager": "Responsable marque et contenu",
+        "contentWriter": "Rédactrice",
+        "contentCamera": "Création de contenu et caméra",
+        "camera": "Caméra",
+        "fpv": "Pilote FPV",
+        "lineProduction": "Régie",
+        "videoEditor": "Monteur vidéo",
+        "techManager": "Responsable des opérations techniques",
+        "mechanic": "Mécanicien",
+        "onRoad": "Assistance sur la route",
+        "groundManager": "Responsable des opérations au sol",
+        "guide": "Guide",
+        "backOffice": "Chargée d'administration",
+        "targetologist": "Spécialiste ciblage publicitaire",
+        "manager": "Manager",
+        "backendSupport": "Support technique",
+        "medical": "Équipe médicale"
       }
     },
     "riders": {

@@ -307,17 +307,43 @@
       "body": "Una expedición vale lo que vale el equipo que la dirige. El nuestro lleva años leyendo este terreno, este clima y estas máquinas, y eso es lo que mantiene el plan cuando cambian las condiciones.",
       "leadNote": "Dirige la empresa y marca el nivel de cada expedición.",
       "groups": {
-        "lead": "Dirección",
-        "operations": "Operaciones",
-        "creative": "Operaciones y creatividad",
-        "technical": "Mecánica y equipo técnico",
-        "support": "Apoyo en ruta"
+        "lead": "Al frente del negocio",
+        "leadership": "Dirección y responsables de división",
+        "website": "Sitio web",
+        "brand": "Marca, contenido y producción",
+        "technical": "Operaciones técnicas",
+        "ground": "Operaciones sobre el terreno",
+        "office": "Administración",
+        "medical": "Equipo médico"
       },
       "leadFacts": {
         "baseLabel": "Con base en",
         "base": "Manali, India",
         "leadingLabel": "Al frente desde",
         "leading": "2014"
+      },
+      "roles": {
+        "director": "Dirección",
+        "motorcycleHead": "Responsable de viajes en moto",
+        "selfDriveHead": "Responsable de viajes self-drive",
+        "webDeveloper": "Desarrollador del sitio",
+        "brandManager": "Responsable de marca y contenido",
+        "contentWriter": "Redactora",
+        "contentCamera": "Contenido y cámara",
+        "camera": "Cámara",
+        "fpv": "Piloto FPV",
+        "lineProduction": "Producción",
+        "videoEditor": "Editor de vídeo",
+        "techManager": "Responsable de operaciones técnicas",
+        "mechanic": "Mecánico",
+        "onRoad": "Asistencia en ruta",
+        "groundManager": "Responsable de operaciones sobre el terreno",
+        "guide": "Guía",
+        "backOffice": "Administración",
+        "targetologist": "Especialista en segmentación",
+        "manager": "Manager",
+        "backendSupport": "Soporte técnico",
+        "medical": "Equipo médico"
       }
     },
     "riders": {

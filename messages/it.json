@@ -307,17 +307,43 @@
       "body": "Una spedizione vale quanto la squadra che la conduce. La nostra passa gli anni a leggere questo terreno, questo meteo e questi mezzi, ed è ciò che tiene il programma quando le condizioni cambiano.",
       "leadNote": "Guida l'azienda e definisce lo standard di ogni spedizione.",
       "groups": {
-        "lead": "Direzione",
-        "operations": "Operazioni",
-        "creative": "Operazioni e creatività",
-        "technical": "Meccanica e assistenza tecnica",
-        "support": "Assistenza su strada"
+        "lead": "A capo dell'azienda",
+        "leadership": "Direzione e responsabili di divisione",
+        "website": "Sito web",
+        "brand": "Marchio, contenuti e produzione",
+        "technical": "Operazioni tecniche",
+        "ground": "Operazioni sul campo",
+        "office": "Back office",
+        "medical": "Team medico"
       },
       "leadFacts": {
         "baseLabel": "Con base a",
         "base": "Manali, India",
         "leadingLabel": "Alla guida dal",
         "leading": "2014"
+      },
+      "roles": {
+        "director": "Direzione",
+        "motorcycleHead": "Responsabile viaggi in moto",
+        "selfDriveHead": "Responsabile viaggi self-drive",
+        "webDeveloper": "Sviluppatore del sito",
+        "brandManager": "Responsabile marchio e contenuti",
+        "contentWriter": "Redattrice",
+        "contentCamera": "Contenuti e riprese",
+        "camera": "Riprese",
+        "fpv": "Pilota FPV",
+        "lineProduction": "Produzione esecutiva",
+        "videoEditor": "Montaggio video",
+        "techManager": "Responsabile operazioni tecniche",
+        "mechanic": "Meccanico",
+        "onRoad": "Assistenza su strada",
+        "groundManager": "Responsabile operazioni sul campo",
+        "guide": "Guida",
+        "backOffice": "Back office",
+        "targetologist": "Specialista targeting",
+        "manager": "Manager",
+        "backendSupport": "Supporto tecnico",
+        "medical": "Team medico"
       }
     },
     "riders": {

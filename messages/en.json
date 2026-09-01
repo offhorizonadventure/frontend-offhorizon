@@ -308,16 +308,42 @@
       "leadNote": "Runs the business and sets the standard every expedition is measured against.",
       "groups": {
         "lead": "Head of the business",
-        "operations": "Operations",
-        "creative": "Operations and creative",
-        "technical": "Mechanics and technical crew",
-        "support": "On-road support"
+        "leadership": "Directors and division heads",
+        "website": "Website",
+        "brand": "Brand, content and production",
+        "technical": "Technical operations",
+        "ground": "Ground operations",
+        "office": "Back office",
+        "medical": "Medical team"
       },
       "leadFacts": {
         "baseLabel": "Based in",
         "base": "Manali, India",
         "leadingLabel": "Leading since",
         "leading": "2014"
+      },
+      "roles": {
+        "director": "Director",
+        "motorcycleHead": "Head of motorcycle touring",
+        "selfDriveHead": "Head of self-drive touring",
+        "webDeveloper": "Website developer",
+        "brandManager": "Brand and content manager",
+        "contentWriter": "Content writer",
+        "contentCamera": "Content creator and camera",
+        "camera": "Camera",
+        "fpv": "FPV pilot",
+        "lineProduction": "Line production",
+        "videoEditor": "Video editor",
+        "techManager": "Technical operations manager",
+        "mechanic": "Mechanic",
+        "onRoad": "On-road support",
+        "groundManager": "Ground operations manager",
+        "guide": "Guide",
+        "backOffice": "Back office executive",
+        "targetologist": "Targetologist",
+        "manager": "Manager",
+        "backendSupport": "Backend support",
+        "medical": "Medical"
       }
     },
     "riders": {

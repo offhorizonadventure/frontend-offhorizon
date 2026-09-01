@@ -38,7 +38,7 @@ export async function Team() {
             <div className="lg:col-span-5">
               <div className="bg-brand-100 relative aspect-[4/5] overflow-hidden rounded-[24px] lg:aspect-auto lg:h-full lg:min-h-[26rem]">
                 <Image
-                  src={lead.members[0].photo}
+                  src={lead.members[0].photo!}
                   alt={lead.members[0].name}
                   fill
                   sizes="(max-width: 1023px) 90vw, 420px"
@@ -104,7 +104,7 @@ export async function Team() {
             >
               {group.members.map((member) => (
                 <li key={member.name}>
-                  <MemberCard member={member} />
+                  <MemberCard member={member} role={t(`roles.${member.role}`)} />
                 </li>
               ))}
             </ul>
@@ -115,27 +115,61 @@ export async function Team() {
   );
 }
 
-function MemberCard({ member, className }: { member: Member; className?: string }) {
+/**
+ * Somebody who has not sent a photograph yet.
+ *
+ * A plain silhouette on the card's own colours, so a face that is missing
+ * reads as not yet supplied rather than as broken.
+ */
+function Silhouette() {
+  return (
+    <span aria-hidden className="bg-brand-100 absolute inset-0 flex items-end justify-center">
+      <svg viewBox="0 0 64 80" className="text-brand-800/22 h-[78%] w-auto" fill="currentColor">
+        <circle cx="32" cy="24" r="15" />
+        <path d="M32 44c-14 0-25 9-25 21v15h50V65c0-12-11-21-25-21Z" />
+      </svg>
+    </span>
+  );
+}
+
+function MemberCard({
+  member,
+  role,
+  className,
+}: {
+  member: Member;
+  role: string;
+  className?: string;
+}) {
   return (
     <figure className={cn("group", className)}>
       <div className="bg-brand-100 relative aspect-[3/4] overflow-hidden rounded-2xl">
-        <Image
-          src={member.photo}
-          alt={member.name}
-          fill
-          sizes="(max-width: 639px) 44vw, (max-width: 1023px) 30vw, 220px"
-          className="ease-out-expo object-cover transition-transform duration-[900ms] group-hover:scale-[1.06]"
-        />
-        <span
-          aria-hidden
-          className="from-brand-950/45 absolute inset-0 bg-gradient-to-t via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        />
+        {member.photo ? (
+          <>
+            <Image
+              src={member.photo}
+              alt={member.name}
+              fill
+              sizes="(max-width: 639px) 44vw, (max-width: 1023px) 30vw, 220px"
+              className="ease-out-expo object-cover transition-transform duration-[900ms] group-hover:scale-[1.06]"
+            />
+            <span
+              aria-hidden
+              className="from-brand-950/45 absolute inset-0 bg-gradient-to-t via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            />
+          </>
+        ) : (
+          <Silhouette />
+        )}
       </div>
 
       <figcaption className="mt-3">
         <span className="flex items-center justify-between gap-2">
-          <span className="font-display text-brand-900 text-[14px] leading-tight font-bold tracking-[-0.01em]">
-            {member.name}
+          <span className="min-w-0">
+            <span className="font-display text-brand-900 block text-[14px] leading-tight font-bold tracking-[-0.01em]">
+              {member.name}
+            </span>
+            <span className="text-brand-800/50 mt-1 block text-[11.5px] leading-snug">{role}</span>
           </span>
 
           {}

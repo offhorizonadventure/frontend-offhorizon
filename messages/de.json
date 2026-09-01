@@ -307,17 +307,43 @@
       "body": "Eine Expedition ist nur so gut wie das Team, das sie führt. Unseres liest seit Jahren dieses Gelände, dieses Wetter und diese Maschinen, und genau das hält eine Reise im Plan, wenn die Bedingungen umschlagen.",
       "leadNote": "Führt das Unternehmen und setzt den Maßstab für jede Expedition.",
       "groups": {
-        "lead": "Geschäftsführung",
-        "operations": "Betrieb",
-        "creative": "Betrieb und Kreation",
-        "technical": "Mechanik und Technik",
-        "support": "Begleitung unterwegs"
+        "lead": "Leitung des Unternehmens",
+        "leadership": "Geschäftsführung und Bereichsleitung",
+        "website": "Website",
+        "brand": "Marke, Inhalte und Produktion",
+        "technical": "Technischer Betrieb",
+        "ground": "Betrieb vor Ort",
+        "office": "Backoffice",
+        "medical": "Medizinisches Team"
       },
       "leadFacts": {
         "baseLabel": "Ansässig in",
         "base": "Manali, Indien",
         "leadingLabel": "Führt seit",
         "leading": "2014"
+      },
+      "roles": {
+        "director": "Geschäftsführung",
+        "motorcycleHead": "Leiter Motorradreisen",
+        "selfDriveHead": "Leiter Selbstfahrerreisen",
+        "webDeveloper": "Website-Entwickler",
+        "brandManager": "Marken- und Content-Manager",
+        "contentWriter": "Texterin",
+        "contentCamera": "Content und Kamera",
+        "camera": "Kamera",
+        "fpv": "FPV-Pilot",
+        "lineProduction": "Aufnahmeleitung",
+        "videoEditor": "Videoschnitt",
+        "techManager": "Leiter technischer Betrieb",
+        "mechanic": "Mechaniker",
+        "onRoad": "Streckenbetreuung",
+        "groundManager": "Leiter Betrieb vor Ort",
+        "guide": "Guide",
+        "backOffice": "Backoffice",
+        "targetologist": "Anzeigen-Targeting",
+        "manager": "Manager",
+        "backendSupport": "Technischer Support",
+        "medical": "Medizinisches Team"
       }
     },
     "riders": {
