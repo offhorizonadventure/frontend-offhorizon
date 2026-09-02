@@ -274,8 +274,6 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
         />
       )}
 
-      <RelatedTours tourId={tour.id} country={tour.country} region={tour.region} />
-
       <CtaBand
         title={t("cta.title")}
         body={t("cta.body")}
@@ -286,6 +284,12 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
       />
 
       <Riders />
+
+      {/* Last in the page, immediately above the footer. Somewhere to go next
+          belongs after the case for this one has been made: sitting above the
+          call to action and the riders' words, it interrupted the pitch with
+          links away from it. */}
+      <RelatedTours tourId={tour.id} country={tour.country} region={tour.region} />
 
       <TourActions
         locale={locale}

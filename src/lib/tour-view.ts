@@ -54,14 +54,37 @@ export const factList = (tour: Tour) => {
     .map((fact) => ({ ...fact, value: present(fact.key, fact.value) }));
 };
 
+/**
+ * The price card on the tour page.
+ *
+ * Every line but the first is the tour's own list price, because that is what
+ * this tour charges whenever it runs. Only the headline is a "from": the
+ * cheapest a rider actually pays once the dates' discounts are applied, which
+ * is what the word above it promises.
+ *
+ * It used to take one departure, the cheapest, and show that departure's
+ * rider, pillion, protection and room prices as the tour's. Adding a single
+ * discounted date then rewrote the advertised price of every other date.
+ */
 export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
-  const cheapest = [...departures]
-    .filter((departure) => departure.rider_price !== null)
-    .sort((a, b) => (a.rider_price ?? 0) - (b.rider_price ?? 0))[0];
+  // What a rider actually pays, on the cheapest date that has a price. That is
+  // the only figure on this card that a departure gets a say in, and it is the
+  // one the word "From" sits above.
+  const paid = departures
+    .map((departure) => departure.prices.rider)
+    .filter((price): price is number => typeof price === "number" && price > 0);
 
-  if (!cheapest) return [];
+  const listRider = tour.rider_price ?? 0;
+  const from = paid.length ? Math.min(...paid) : listRider;
 
-  const machine = machineFor([cheapest]);
+  if (!from && !listRider) return [];
+
+  // Only for the shape of the expedition (which machine, whether it is a 4x4).
+  // None of the money below comes from here.
+  const representative = departures[0] ?? null;
+  const kind = representative?.kind ?? "motorbike";
+  const machine = representative ? machineFor([representative]) : null;
+  const pillion = tour.pillion_price;
 
   const groups: PriceGroup[] = [
     {
@@ -69,16 +92,16 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
       lines: [
         {
           icon: "rider",
-          label: cheapest.kind === "4x4" ? "Person" : "Rider",
-          amount: cheapest.rider_price ?? 0,
+          label: kind === "4x4" ? "Person" : "Rider",
+          amount: from,
         },
-        ...(cheapest.pillion_price
+        ...(pillion
           ? [
               {
                 icon: "pillion" as const,
                 label: "Pillion",
                 note: "Sharing the rider's machine",
-                amount: cheapest.pillion_price,
+                amount: pillion,
               },
             ]
           : []),
@@ -86,7 +109,7 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
     },
   ];
 
-  const cars = cheapest.vehicles.filter((vehicle) => vehicle.per_day_price);
+  const cars = (representative?.vehicles ?? []).filter((vehicle) => vehicle.per_day_price);
 
   const machineLines = [
     ...(cars.length
@@ -100,7 +123,7 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
       : machine
         ? [
             {
-              icon: cheapest.kind === "motorbike" ? ("bike" as const) : ("rider" as const),
+              icon: kind === "motorbike" ? ("bike" as const) : ("rider" as const),
               label: machine,
               note: "Included in the rider price",
               amount: 0,
@@ -108,13 +131,13 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
             },
           ]
         : []),
-    ...(cheapest.damage_protection_price
+    ...(tour.damage_protection_price
       ? [
           {
             icon: "shield" as const,
             label: "Full damage protection",
             note: "Waives the deposit on the expedition machine",
-            amount: cheapest.damage_protection_price,
+            amount: tour.damage_protection_price,
             addon: true,
           },
         ]
@@ -123,7 +146,7 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
 
   if (machineLines.length) groups.push({ title: "Machine", lines: machineLines });
 
-  if (cheapest.single_room_price) {
+  if (tour.single_room_price) {
     groups.push({
       title: "Rooms",
       lines: [
@@ -131,7 +154,7 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
           icon: "singleRoom",
           label: "Single room",
           note: "Your own room throughout",
-          amount: cheapest.single_room_price,
+          amount: tour.single_room_price,
           addon: true,
         },
       ],
@@ -151,8 +174,22 @@ export const departureList = (departures: Departure[]) =>
     end: departure.end_date,
     custom: departure.visibility === "private",
     soldOut: departure.sold_out || left(departure) === 0,
-    solo: departure.rider_price ?? 0,
-    twin: departure.pillion_price ?? 0,
+    solo: departure.prices.rider ?? 0,
+    twin: departure.prices.pillion ?? 0,
+    // Carried per departure rather than taken from the cheapest one, and
+    // already resolved: the tour's list price less whatever this date takes
+    // off it. `list` is what it was before the discount, for the wizard to
+    // strike through.
+    prices: {
+      rider: departure.prices.rider ?? 0,
+      pillion: departure.prices.pillion ?? 0,
+      insurance: departure.prices.protection ?? 0,
+      room: departure.prices.room ?? 0,
+    },
+    list: {
+      rider: departure.prices.listRider ?? 0,
+      pillion: departure.prices.listPillion ?? 0,
+    },
     seats: left(departure),
     kind: departure.kind,
     vehicles: departure.vehicles

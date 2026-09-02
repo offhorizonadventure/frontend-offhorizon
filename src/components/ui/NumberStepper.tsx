@@ -6,6 +6,13 @@ import { useEffect, useId, useRef, useState } from "react";
 type NumberStepperProps = {
   name: string;
   label: string;
+  /**
+   * What one of these costs, shown beside the label.
+   *
+   * A node rather than a string, because a discounted price is two figures:
+   * the one that was struck through and the one being charged.
+   */
+  price?: ReactNode;
   hint?: string;
   min?: number;
   max?: number;
@@ -20,6 +27,7 @@ type NumberStepperProps = {
 export function NumberStepper({
   name,
   label,
+  price,
   hint,
   min = 0,
   max = 20,
@@ -56,9 +64,20 @@ export function NumberStepper({
   return (
     <div>
       {}
-      <label htmlFor={id} className="text-brand-900 flex items-center gap-2 text-[14px] font-bold">
+      <label
+        htmlFor={id}
+        className="text-brand-900 flex flex-wrap items-center gap-x-2 gap-y-1 text-[14px] font-bold"
+      >
         {icon}
         {label}
+        {price && (
+          <>
+            <span aria-hidden className="text-brand-800/35 font-normal">
+              ·
+            </span>
+            <span className="tabular-nums">{price}</span>
+          </>
+        )}
       </label>
       {hint && <p className="text-brand-800/60 mt-1 text-[12.5px]">{hint}</p>}
 

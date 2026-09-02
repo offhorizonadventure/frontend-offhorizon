@@ -1,5 +1,7 @@
 import "server-only";
 
+import type { ResolvedPrices } from "@/lib/departure-prices";
+
 import type { Party, Quote, QuoteLine } from "./types";
 
 export type PricedDeparture = {
@@ -10,10 +12,13 @@ export type PricedDeparture = {
   sold_out: boolean;
   kind: "motorbike" | "4x4";
   currency: string;
-  rider_price: number | null;
-  pillion_price: number | null;
-  damage_protection_price: number | null;
-  single_room_price: number | null;
+  /**
+   * Filled by the query from the tour's list price and this date's discount.
+   * The departure's own price columns are the old model and are not read here:
+   * two answers to one question is how the wizard and the checkout came to
+   * quote different totals.
+   */
+  prices: ResolvedPrices;
   seats: number | null;
   seats_taken: number;
   visibility?: "public" | "private";
@@ -43,10 +48,10 @@ export function quoteBooking(departure: PricedDeparture, party: Party): Quote {
     lines.push({ key, quantity, unit, amount: money(quantity * unit) });
   };
 
-  add("rider", party.riders, departure.rider_price);
-  add("pillion", party.pillions, departure.pillion_price);
-  add("protection", party.damageProtection, departure.damage_protection_price);
-  add("room", party.singleRooms, departure.single_room_price);
+  add("rider", party.riders, departure.prices.rider);
+  add("pillion", party.pillions, departure.prices.pillion);
+  add("protection", party.damageProtection, departure.prices.protection);
+  add("room", party.singleRooms, departure.prices.room);
 
   if (departure.kind === "4x4" && party.vehicleId && !party.ownVehicle) {
     const vehicle = departure.vehicles.find((entry) => entry.id === party.vehicleId);

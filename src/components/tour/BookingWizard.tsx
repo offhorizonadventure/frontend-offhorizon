@@ -83,6 +83,14 @@ export type WizardVehicle = {
 
 export const OWN_CAR = "own";
 
+/** What one dated running charges. Zero means the extra is not offered on it. */
+export type DeparturePrices = {
+  rider: number;
+  pillion: number;
+  insurance: number;
+  room: number;
+};
+
 export type Departure = {
   id?: string;
   custom?: boolean;
@@ -91,6 +99,10 @@ export type Departure = {
   soldOut?: boolean;
   seats?: number | null;
   kind?: "motorbike" | "4x4";
+  /** What this date charges: the tour's list price less its own discount. */
+  prices?: DeparturePrices;
+  /** The list price before that discount, so it can be struck through. */
+  list?: { rider: number; pillion: number };
   vehicles?: WizardVehicle[];
 };
 
@@ -174,6 +186,44 @@ export function BookingWizard({
 
   const chosen = options.find((option) => option.start === departure) ?? null;
 
+  /**
+   * The prices in play, which belong to the date once one has been picked.
+   *
+   * `prices` is the tour's: the list price, and the only thing there is to
+   * show before a rider has chosen when they are going. The moment they do,
+   * this switches to that date's own, which is the list price less whatever
+   * discount the expedition carries. So the total agreed here is the total
+   * the checkout charges, which resolves the same way.
+   */
+  const active = chosen?.prices ?? prices;
+
+  const offers = (option: Departure, key: keyof typeof prices) =>
+    (option.prices ? option.prices[key] : prices[key]) > 0;
+
+  /**
+   * A price, with what it was crossed out beside it when this date discounts it.
+   *
+   * Only the rider and the pillion can be discounted: they are the two an
+   * expedition sets its own money on. Nothing is struck through before a date
+   * is chosen, because there is no discount to show yet, only a "from".
+   */
+  const withDiscount = (charged: number, list: number) => {
+    if (!charged) return null;
+    const discounted = chosen && list > charged;
+
+    return (
+      <>
+        {discounted && (
+          <span className="text-brand-800/40 mr-1.5 font-normal line-through">{price(list)}</span>
+        )}
+        <span className={discounted ? "text-ember-600" : undefined}>{price(charged)}</span>
+      </>
+    );
+  };
+
+  const listRider = chosen?.list?.rider ?? active.rider;
+  const listPillion = chosen?.list?.pillion ?? active.pillion;
+
   const days = chosen
     ? Math.round((new Date(chosen.end).getTime() - new Date(chosen.start).getTime()) / 86_400_000) +
       1
@@ -185,8 +235,15 @@ export function BookingWizard({
   const anyFleet = departures.some(
     (option) => option.kind === "4x4" && (option.vehicles?.length ?? 0) > 0,
   );
-  const offersInsurance = prices.insurance > 0;
-  const offersRooms = prices.room > 0;
+  // Before a date is picked the step has to be offered if any date offers it,
+  // or the rider never reaches the question. After one is, only that date
+  // decides.
+  const offersInsurance = chosen
+    ? active.insurance > 0
+    : departures.some((option) => offers(option, "insurance"));
+  const offersRooms = chosen
+    ? active.room > 0
+    : departures.some((option) => offers(option, "room"));
   const offersExtras = offersInsurance || offersRooms;
 
   const steps: StepName[] = STEP_NAMES.filter((name) => {
@@ -200,10 +257,10 @@ export function BookingWizard({
   const vehicleCost = picked ? picked.perDay * days : 0;
 
   const total =
-    riders * prices.rider +
-    pillions * prices.pillion +
-    insurance * prices.insurance +
-    rooms * prices.room +
+    riders * active.rider +
+    pillions * active.pillion +
+    insurance * active.insurance +
+    rooms * active.room +
     vehicleCost;
 
   const maxInsurance = riders;
@@ -216,6 +273,8 @@ export function BookingWizard({
     setYear(next);
     setDeparture(null);
     setVehicle(null);
+    setInsurance(0);
+    setRooms(0);
   };
 
   const checkoutQuery = (departureId: string) => ({
@@ -228,9 +287,13 @@ export function BookingWizard({
     ...(vehicle === OWN_CAR ? { own: "1" } : {}),
   });
 
+  // The extras are cleared with the car: they are priced by the departure, so
+  // a count carried over from another date would silently change what it costs.
   const changeDeparture = (start: string) => {
     setDeparture(start);
     setVehicle(null);
+    setInsurance(0);
+    setRooms(0);
   };
 
   const changeRiders = (next: number) => {
@@ -274,7 +337,7 @@ export function BookingWizard({
               {labels.basics.from}
             </dt>
             <dd className="text-brand-900 mt-0.5 text-[13px] font-semibold tabular-nums">
-              {price(prices.rider)}
+              {price(active.rider)}
             </dd>
           </div>
         </dl>
@@ -414,6 +477,7 @@ export function BookingWizard({
             <NumberStepper
               name="riders"
               label={byPerson ? labels.travellers.people : labels.travellers.riders}
+              price={withDiscount(active.rider, listRider)}
               icon={<priceIcons.rider className="text-brand-700" />}
               hint={byPerson ? labels.travellers.peopleHint : labels.travellers.ridersHint}
               min={1}
@@ -428,6 +492,7 @@ export function BookingWizard({
               <NumberStepper
                 name="pillions"
                 label={labels.travellers.pillions}
+                price={withDiscount(active.pillion, listPillion)}
                 icon={<priceIcons.pillion className="text-brand-700" />}
                 hint={labels.travellers.pillionsHint}
                 min={0}
@@ -526,7 +591,8 @@ export function BookingWizard({
             {offersInsurance && (
               <NumberStepper
                 name="insurance"
-                label={`${labels.extras.insurance} · ${price(prices.insurance)}`}
+                label={labels.extras.insurance}
+                price={price(active.insurance)}
                 icon={<priceIcons.shield className="text-brand-700" />}
                 hint={labels.extras.insuranceHint}
                 min={0}
@@ -541,7 +607,8 @@ export function BookingWizard({
             {offersRooms && (
               <NumberStepper
                 name="singleRoom"
-                label={`${labels.extras.room} · ${price(prices.room)}`}
+                label={labels.extras.room}
+                price={price(active.room)}
                 icon={<priceIcons.singleRoom className="text-brand-700" />}
                 hint={labels.extras.roomHint}
                 min={0}
@@ -580,14 +647,14 @@ export function BookingWizard({
                   {byPerson ? labels.summary.people : labels.summary.riders}
                 </dt>
                 <dd className={valueClass}>
-                  {riders} · {price(riders * prices.rider)}
+                  {riders} · {price(riders * active.rider)}
                 </dd>
               </div>
               {pillions > 0 && (
                 <div className={rowClass}>
                   <dt className={labelClass}>{labels.summary.pillions}</dt>
                   <dd className={valueClass}>
-                    {pillions} · {price(pillions * prices.pillion)}
+                    {pillions} · {price(pillions * active.pillion)}
                   </dd>
                 </div>
               )}
@@ -595,7 +662,7 @@ export function BookingWizard({
                 <div className={rowClass}>
                   <dt className={labelClass}>{labels.summary.insurance}</dt>
                   <dd className={valueClass}>
-                    {insurance} · {price(insurance * prices.insurance)}
+                    {insurance} · {price(insurance * active.insurance)}
                   </dd>
                 </div>
               )}
@@ -611,7 +678,7 @@ export function BookingWizard({
                 <div className={rowClass}>
                   <dt className={labelClass}>{labels.summary.room}</dt>
                   <dd className={valueClass}>
-                    {rooms} · {price(rooms * prices.room)}
+                    {rooms} · {price(rooms * active.room)}
                   </dd>
                 </div>
               )}

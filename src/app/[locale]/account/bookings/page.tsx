@@ -26,7 +26,7 @@ export default async function BookingsPage({ params }: LayoutProps<"/[locale]">)
 
   return (
     <div className="space-y-6">
-      <MyExpeditions locale={locale} />
+      <MyExpeditions locale={locale} bookings={bookings} />
 
       <Panel title={t("title")} lead={t("lead")}>
         {bookings.length === 0 ? (

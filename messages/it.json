@@ -744,9 +744,7 @@
               "Paesaggi che passano dal ghiacciaio al deserto freddo nella stessa giornata",
               "Culture induiste e buddiste vive, non conservate"
             ],
-            "after": [
-              "Organizziamo spedizioni nell'Himalaya indiano, nepalese e bhutanese."
-            ]
+            "after": ["Organizziamo spedizioni nell'Himalaya indiano, nepalese e bhutanese."]
           },
           {
             "question": "Perché l'Himalaya è il posto migliore per una spedizione in moto?",
@@ -890,9 +888,7 @@
           },
           {
             "question": "Qual è la stagione per guidare in Nepal?",
-            "answer": [
-              "Primavera e autunno sono le finestre principali, e il Mustang le allunga."
-            ],
+            "answer": ["Primavera e autunno sono le finestre principali, e il Mustang le allunga."],
             "list": [
               "Da marzo a maggio: caldo, limpido, rododendri in fiore in quota",
               "Da giugno ad agosto: monsone su quasi tutto il paese, ma il Mustang è in ombra di pioggia e resta relativamente asciutto",
@@ -974,9 +970,7 @@
               "Villaggi e monasteri cambiati pochissimo",
               "Aria secca, luce dura e un vento che si alza ogni pomeriggio"
             ],
-            "after": [
-              "È la cosa più vicina a guidare in Tibet senza attraversare il confine."
-            ]
+            "after": ["È la cosa più vicina a guidare in Tibet senza attraversare il confine."]
           },
           {
             "question": "Cos'è la gola della Kali Gandaki?",
@@ -987,9 +981,7 @@
           },
           {
             "question": "Quanto è impegnativa la guida?",
-            "answer": [
-              "Moderata. Meno tecnica del Ladakh, ma più lunga su fondo non asfaltato."
-            ],
+            "answer": ["Moderata. Meno tecnica del Ladakh, ma più lunga su fondo non asfaltato."],
             "list": [
               "Asfalto da Kathmandu a Pokhara e oltre",
               "Ghiaia, letto di fiume e fondo mobile a nord di Jomsom",
@@ -1018,9 +1010,7 @@
           },
           {
             "question": "Serve un'assicurazione di viaggio?",
-            "answer": [
-              "Sì. È obbligatoria e deve coprire:"
-            ],
+            "answer": ["Sì. È obbligatoria e deve coprire:"],
             "list": [
               "Viaggi in quota sopra i 4.000 metri",
               "La guida della moto, che molte polizze standard escludono",
@@ -1099,9 +1089,7 @@
           },
           {
             "question": "Qual è la stagione per guidare in Bhutan?",
-            "answer": [
-              "Primavera e autunno, prima e dopo il monsone."
-            ],
+            "answer": ["Primavera e autunno, prima e dopo il monsone."],
             "list": [
               "Da marzo a maggio: rododendri in fiore, giornate miti, un po' di foschia",
               "Da giugno ad agosto: pioggia monsonica intensa e frane sulla strada est-ovest",
@@ -1253,9 +1241,7 @@
           },
           {
             "question": "Dove si dorme?",
-            "answer": [
-              "Un misto, e l'equilibrio cambia con l'itinerario."
-            ],
+            "answer": ["Un misto, e l'equilibrio cambia con l'itinerario."],
             "list": [
               "Campi di ger dove ci sono, quindi quasi tutte le notti nella steppa centrale",
               "Tende trasportate dal veicolo di supporto nei tratti più isolati",
@@ -1357,9 +1343,7 @@
           },
           {
             "question": "Quando si può fare questa spedizione?",
-            "answer": [
-              "A ottobre e novembre, con poco margine."
-            ],
+            "answer": ["A ottobre e novembre, con poco margine."],
             "list": [
               "Ottobre: il cielo più limpido dell'anno e le pareti nord più nitide",
               "Novembre: più freddo, più tranquillo, ancora sereno, e la fine della stagione",
@@ -1834,9 +1818,7 @@
         },
         {
           "title": "Chi altro li vede",
-          "body": [
-            "Solo chi serve per realizzare la spedizione, e solo per quanto necessario."
-          ],
+          "body": ["Solo chi serve per realizzare la spedizione, e solo per quanto necessario."],
           "list": [
             "Hotel, guesthouse e campi lungo il tuo itinerario, per le camere a tuo nome",
             "Gli uffici pubblici che rilasciano i permessi per aree soggette a restrizioni e per il percorso",
@@ -2088,7 +2070,10 @@
       "title": "Costruita per te",
       "lead": "Spedizioni preparate per te. Queste date non le vede nessun altro.",
       "open": "Apri la spedizione",
-      "noDates": "Stiamo ancora fissando le date"
+      "noDates": "Stiamo ancora fissando le date",
+      "tag": "Tua",
+      "book": "Prenota e paga",
+      "choose": "Indica chi parte, poi paga"
     }
   },
   "join": {

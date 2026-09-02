@@ -744,9 +744,7 @@
               "Des paysages qui passent du glacier au désert froid dans la même journée",
               "Des cultures hindoue et bouddhiste vivantes, pas muséifiées"
             ],
-            "after": [
-              "Nous menons des expéditions dans l'Himalaya indien, népalais et bhoutanais."
-            ]
+            "after": ["Nous menons des expéditions dans l'Himalaya indien, népalais et bhoutanais."]
           },
           {
             "question": "Pourquoi l'Himalaya est-il le meilleur endroit pour une expédition à moto ?",
@@ -782,10 +780,7 @@
           },
           {
             "question": "Quel est le niveau de difficulté des expéditions himalayennes ?",
-            "answer": [
-              "De modéré à exigeant, selon l'itinéraire.",
-              "À prévoir :"
-            ],
+            "answer": ["De modéré à exigeant, selon l'itinéraire.", "À prévoir :"],
             "list": [
               "De longues journées entre 3 000 et 5 800 mètres",
               "Un mélange d'asphalte roulant et de vrai tout-terrain",
@@ -1018,9 +1013,7 @@
           },
           {
             "question": "Ai-je besoin d'une assurance voyage ?",
-            "answer": [
-              "Oui. Elle est obligatoire et doit couvrir :"
-            ],
+            "answer": ["Oui. Elle est obligatoire et doit couvrir :"],
             "list": [
               "Les voyages en altitude au-dessus de 4 000 mètres",
               "La conduite de moto, que beaucoup de contrats standards excluent",
@@ -1099,9 +1092,7 @@
           },
           {
             "question": "Quelle est la saison pour rouler au Bhoutan ?",
-            "answer": [
-              "Le printemps et l'automne, de part et d'autre de la mousson."
-            ],
+            "answer": ["Le printemps et l'automne, de part et d'autre de la mousson."],
             "list": [
               "De mars à mai : rhododendrons en fleurs, journées douces, un peu de brume",
               "De juin à août : fortes pluies de mousson et glissements de terrain sur l'axe est-ouest",
@@ -1253,9 +1244,7 @@
           },
           {
             "question": "Où dort-on ?",
-            "answer": [
-              "Un mélange, et l'équilibre change selon l'itinéraire."
-            ],
+            "answer": ["Un mélange, et l'équilibre change selon l'itinéraire."],
             "list": [
               "Camps de yourtes là où il y en a, soit la plupart des nuits sur la steppe centrale",
               "Tentes transportées par le véhicule d'assistance sur les portions isolées",
@@ -1357,9 +1346,7 @@
           },
           {
             "question": "Quand cette expédition peut-elle se faire ?",
-            "answer": [
-              "En octobre et en novembre, avec peu de souplesse."
-            ],
+            "answer": ["En octobre et en novembre, avec peu de souplesse."],
             "list": [
               "Octobre : le ciel le plus clair de l'année et les faces nord les plus nettes",
               "Novembre : plus froid, plus calme, toujours dégagé, et la fin de la saison",
@@ -2088,7 +2075,10 @@
       "title": "Conçu pour vous",
       "lead": "Des expéditions montées pour vous. Personne d'autre ne voit ces dates.",
       "open": "Ouvrir l'expédition",
-      "noDates": "Nous fixons encore les dates"
+      "noDates": "Nous fixons encore les dates",
+      "tag": "À vous",
+      "book": "Réserver et payer",
+      "choose": "Indiquez qui roule, puis payez"
     }
   },
   "join": {

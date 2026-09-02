@@ -3,8 +3,25 @@ import "server-only";
 import { unstable_cache } from "next/cache";
 
 import { createClient as createSessionClient } from "@/lib/supabase/server";
+import {
+  resolvePrices,
+  TOUR_PRICE_COLUMNS,
+  type ResolvedPrices,
+  type TourPrices,
+} from "@/lib/departure-prices";
 
 import { createClient } from "@supabase/supabase-js";
+
+/**
+ * The tour is read alongside every departure, because the prices live there.
+ * One join rather than a second round trip, and rather than each caller having
+ * to remember to do it.
+ */
+const DEPARTURE_COLUMNS = `
+  *,
+  tour:tours(${TOUR_PRICE_COLUMNS}),
+  departure_vehicles(position, vehicles(*))
+`;
 
 const BUCKET = "tours";
 
@@ -98,6 +115,19 @@ export type Tour = {
   faqs: TourFaq[];
   rating: number | null;
   reviews: number | null;
+
+  /**
+   * The list price for everything this tour sells, in one currency.
+   *
+   * It lives on the tour because the page has to quote a price before a
+   * visitor has picked a date. A departure may discount the rider and the
+   * pillion price; nothing else changes them. Null means the option is not
+   * offered, which is not the same as free.
+   */
+  rider_price: number | null;
+  pillion_price: number | null;
+  damage_protection_price: number | null;
+  single_room_price: number | null;
   translations: Record<string, { at: string; fields: Record<string, string> }> | null;
 };
 
@@ -122,6 +152,12 @@ export type Departure = {
   end_date: string;
   sold_out: boolean;
   currency: string;
+  /** Taken off the tour's list price on this date. Zero is the common case. */
+  rider_discount: number;
+  pillion_discount: number;
+  /** Filled by the query from the tour's prices and the discounts above. */
+  prices: ResolvedPrices;
+  /** Superseded by the tour's prices. Read only as a fallback, never written. */
   rider_price: number | null;
   pillion_price: number | null;
   damage_protection_price: number | null;
@@ -210,7 +246,7 @@ export const listDepartures = unstable_cache(
     const today = new Date().toISOString().slice(0, 10);
     let query = supabase
       .from("departures")
-      .select("*, departure_vehicles(position, vehicles(*))")
+      .select(DEPARTURE_COLUMNS)
       .eq("status", "published")
       .gt("start_date", today)
       .order("start_date");
@@ -233,8 +269,13 @@ function withVehicles(rows: unknown[]): Departure[] {
       .slice()
       .sort((a, b) => a.position - b.position);
 
+    const departure = row as Departure;
+
     return {
-      ...(row as Departure),
+      ...departure,
+      // Worked out here, once, so nothing downstream has to know that a price
+      // is the tour's list price less this date's discount.
+      prices: resolvePrices((row as { tour?: TourPrices | null }).tour, departure),
       vehicles: links
         .map((link) => link.vehicles)
         .filter((vehicle): vehicle is Vehicle => Boolean(vehicle)),
@@ -242,10 +283,11 @@ function withVehicles(rows: unknown[]): Departure[] {
   });
 }
 
+/** The lowest a rider actually pays across these dates, discounts included. */
 export const priceFrom = (departures: Departure[]) => {
   const prices = departures
-    .map((departure) => departure.rider_price)
-    .filter((price): price is number => typeof price === "number");
+    .map((departure) => departure.prices.rider)
+    .filter((price): price is number => typeof price === "number" && price > 0);
 
   return prices.length ? Math.min(...prices) : null;
 };
@@ -259,7 +301,7 @@ export async function listMyDepartures(tourId?: string): Promise<Departure[]> {
 
   let query = supabase
     .from("departures")
-    .select("*, departure_vehicles(position, vehicles(*))")
+    .select(DEPARTURE_COLUMNS)
     .eq("status", "published")
     .eq("visibility", "private")
     .eq("assigned_user_id", session.user.id)

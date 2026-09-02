@@ -11,6 +11,14 @@ export type FactKey =
   | "difficulty"
   | "groupSize";
 
+/** What one dated running of a tour charges. Zero means "not offered". */
+export type DeparturePrices = {
+  rider: number;
+  pillion: number;
+  insurance: number;
+  room: number;
+};
+
 export type Departure = {
   id?: string;
   start: string;
@@ -18,6 +26,10 @@ export type Departure = {
   soldOut?: boolean;
   seats?: number | null;
   kind?: "motorbike" | "4x4";
+  /** What this date charges: the tour's list price less its own discount. */
+  prices?: DeparturePrices;
+  /** The list price before that discount, so it can be struck through. */
+  list?: { rider: number; pillion: number };
   vehicles?: { id: string; name: string; seats: number; perDay: number }[];
 };
 

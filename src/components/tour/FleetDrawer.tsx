@@ -104,13 +104,16 @@ export function FleetDrawer({
                   {cars.map((car) => (
                     <li key={car.id} className="ring-brand-900/10 rounded-[20px] bg-white ring-1">
                       {car.url && (
-                        <div className="bg-brand-100 relative aspect-[4/3] overflow-hidden rounded-t-[20px]">
+                        // The same photographs as the rail, so the same
+                        // treatment: fitted whole on white rather than cropped
+                        // on a tinted panel, which cut the wheels off.
+                        <div className="relative aspect-[4/3] overflow-hidden rounded-t-[20px] bg-white">
                           <Image
                             src={car.url}
                             alt={car.alt}
                             fill
                             sizes="(max-width: 639px) 92vw, 420px"
-                            className="object-cover"
+                            className="object-contain p-2"
                           />
                         </div>
                       )}

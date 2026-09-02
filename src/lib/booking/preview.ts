@@ -2,6 +2,7 @@ import "server-only";
 
 import type { Locale } from "@/i18n/config";
 import { currencyForVisitor, formatMoney, getRate } from "@/lib/currency";
+import { resolvePrices, TOUR_PRICE_COLUMNS, type TourPrices } from "@/lib/departure-prices";
 import { createClient } from "@/lib/supabase/server";
 
 import { chargeCurrencyFor } from "./currency";
@@ -11,9 +12,10 @@ import { BALANCE_DUE_DAYS, DEPOSIT_SHARE, type Party } from "./types";
 const COLUMNS = `
   id, tour_id, start_date, end_date, status, sold_out, kind, currency,
   visibility, assigned_user_id,
+  rider_discount, pillion_discount,
   rider_price, pillion_price, damage_protection_price, single_room_price,
   seats, seats_taken,
-  tour:tours(title, slug),
+  tour:tours(title, slug, ${TOUR_PRICE_COLUMNS}),
   vehicles:departure_vehicles(vehicle:vehicles(id, name, per_day_price, seats))
 `;
 
@@ -48,13 +50,22 @@ export async function priceBooking(
 
   type Named = { id: string; name: string; per_day_price: number | null; seats: number | null };
 
-  const row = data as unknown as Omit<PricedDeparture, "vehicles"> & {
-    tour: { title: string; slug: string };
+  const row = data as unknown as Omit<PricedDeparture, "vehicles" | "prices"> & {
+    tour: { title: string; slug: string } & TourPrices;
+    rider_discount: number | null;
+    pillion_discount: number | null;
     vehicles: { vehicle: Named }[];
   };
 
   const cars = (row.vehicles ?? []).map((entry) => entry.vehicle).filter(Boolean);
-  const departure: PricedDeparture & { vehicles: Named[] } = { ...row, vehicles: cars };
+
+  const departure: PricedDeparture & { vehicles: Named[] } = {
+    ...row,
+    // The same resolution the wizard used, so the summary on this page shows
+    // the total the rider was quoted rather than a second opinion.
+    prices: resolvePrices(row.tour, row),
+    vehicles: cars,
+  };
 
   const party: Party = {
     riders: Math.max(1, whole(query.riders, 20)),

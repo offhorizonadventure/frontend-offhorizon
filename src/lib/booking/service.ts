@@ -4,6 +4,7 @@ import { randomBytes } from "node:crypto";
 
 import type { Currency } from "@/i18n/config";
 import { getRate } from "@/lib/currency";
+import { resolvePrices, TOUR_PRICE_COLUMNS, type TourPrices } from "@/lib/departure-prices";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 import { chargeCurrencyFor } from "./currency";
@@ -15,8 +16,10 @@ import { BALANCE_DUE_DAYS, DEPOSIT_SHARE, type BookingPlan, type Party } from ".
 const DEPARTURE_COLUMNS = `
   id, tour_id, start_date, end_date, status, sold_out, kind, currency,
   visibility, assigned_user_id,
+  rider_discount, pillion_discount,
   rider_price, pillion_price, damage_protection_price, single_room_price,
   seats, seats_taken,
+  tour:tours(${TOUR_PRICE_COLUMNS}),
   vehicles:departure_vehicles(vehicle:vehicles(id, name, per_day_price, seats))
 `;
 
@@ -101,8 +104,11 @@ async function readDeparture(departureId: string) {
 
   if (error || !data) return null;
 
-  const row = data as unknown as Omit<PricedDeparture, "vehicles"> & {
+  const row = data as unknown as Omit<PricedDeparture, "vehicles" | "prices"> & {
     tour_id: string;
+    tour: TourPrices | null;
+    rider_discount: number | null;
+    pillion_discount: number | null;
     vehicles: {
       vehicle: {
         id: string;
@@ -115,6 +121,9 @@ async function readDeparture(departureId: string) {
 
   return {
     ...row,
+    // The one place the money that is actually charged is decided, so it can
+    // never disagree with what the wizard quoted.
+    prices: resolvePrices(row.tour, row),
     vehicles: (row.vehicles ?? []).map((entry) => entry.vehicle).filter(Boolean),
   } as PricedDeparture & { tour_id: string };
 }

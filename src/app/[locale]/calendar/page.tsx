@@ -100,7 +100,7 @@ export default async function CalendarPage({
     cards: month.entries.map(({ departure, tour }) => ({
       id: departure.id,
       tour,
-      priceFrom: departure.rider_price,
+      priceFrom: departure.prices.rider,
       currency: departure.currency,
     })),
   }));

@@ -16,6 +16,8 @@ export type BookingRow = {
   balance_due_on: string;
   created_at: string;
   own_vehicle: boolean;
+  /** Which dated running this booking is on, so a custom one can be matched to it. */
+  departure_id: string | null;
   tour: { slug: string; title: string; hero_path: string | null; google_form_url: string | null };
   departure: {
     start_date: string;
@@ -50,7 +52,7 @@ export type PaymentRow = {
 
 const BOOKING_COLUMNS = `
   id, reference, status, plan, riders, pillions, currency, total_amount,
-  deposit_amount, paid_amount, balance_due_on, created_at, own_vehicle,
+  deposit_amount, paid_amount, balance_due_on, created_at, own_vehicle, departure_id,
   tour:tours(slug, title, hero_path, google_form_url),
   departure:departures(start_date, end_date, kind, bike_name)
 `;

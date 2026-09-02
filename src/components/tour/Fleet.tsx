@@ -77,8 +77,12 @@ export async function Fleet({
             <li key={car.id} className="fleet-item">
               <article className="ring-brand-900/10 flex h-full flex-col overflow-hidden rounded-[20px] bg-white ring-1">
                 {/* A machine is photographed whole against a plain background.
-                    Filling the frame with it cut the wheels off. */}
-                <div className="bg-cream-50 relative aspect-[4/3]">
+                    Filling the frame with it cut the wheels off, so the image
+                    is fitted rather than cropped, and the tray behind it is
+                    white to match what the photographs are shot on. On cream
+                    the picture read as a smaller, differently coloured panel
+                    sitting inside the card. */}
+                <div className="relative aspect-[4/3] bg-white">
                   {car.url && (
                     <Image
                       src={car.url}
@@ -86,7 +90,7 @@ export async function Fleet({
                       fill
                       sizes="(max-width: 639px) 70vw, 300px"
                       quality={75}
-                      className="object-contain p-3"
+                      className="object-contain p-2"
                     />
                   )}
                 </div>
