@@ -28,7 +28,7 @@ import {
 } from "@/lib/catalogue";
 import { translate } from "@/lib/translated";
 import { resolveLocale } from "@/i18n/params";
-import { buildMetadata, siteName, siteUrl } from "@/lib/seo";
+import { buildMetadata, siteUrl } from "@/lib/seo";
 import {
   departureList,
   expectList,
@@ -129,36 +129,19 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
       )
     : 0;
 
-  // Every picture on the page, described. Google Images indexes what a page
-  // shows, so the gallery and the programme count as much as the hero.
-  const pictures = [
-    { path: tour.hero_path, caption: tour.hero_alt },
-    ...tour.gallery.map((item) => ({ path: item.path, caption: item.alt })),
-    ...tour.programme.map((day) => ({ path: day.path, caption: day.alt || day.title })),
-    ...tour.highlights.map((item) => ({ path: item.path, caption: item.alt || item.label })),
-  ]
-    .map((item) => ({ url: imageUrl(item.path), caption: item.caption }))
-    .filter((item): item is { url: string; caption: string | null } => Boolean(item.url));
-
-  const images = pictures.map((picture) => ({
-    "@type": "ImageObject",
-    contentUrl: picture.url,
-    url: picture.url,
-    caption: picture.caption || name,
-    representativeOfPage: picture.url === imageUrl(tour.hero_path) || undefined,
-    creditText: siteName,
-    creator: { "@type": "Organization", name: siteName },
-    copyrightNotice: siteName,
-    acquireLicensePage: `${siteUrl}/${locale}/contact-us`,
-  }));
-
+  // No image list in the schema, for the same reason the sitemap has none.
+  //
+  // It described every picture on the page for Google Images, and every one of
+  // those descriptions had to carry an absolute address. The pictures come
+  // from the storage bucket, so the page published a tidy JSON list naming the
+  // project's storage host and the path of every file behind it. The pictures
+  // are still on the page and still described by their alt text.
   const schema = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
     name,
     description: tour.lead ?? undefined,
     url: `${siteUrl}/${locale}${tourPath(tour)}`,
-    image: images,
     itinerary: {
       "@type": "ItemList",
       numberOfItems: programme.length,

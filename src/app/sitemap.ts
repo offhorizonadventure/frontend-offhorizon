@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 import { defaultLocale, locales } from "@/i18n/config";
 import { destinationRoutes } from "@/config/destination-pages";
 import { listPosts } from "@/lib/blog";
-import { imageUrl, listTours, tourPath, type Tour } from "@/lib/catalogue";
+import { listTours, tourPath } from "@/lib/catalogue";
 import { siteUrl } from "@/lib/seo";
 
 const routes = [
@@ -27,36 +27,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const postRoutes = posts.map((post) => `/blog/${post.slug}`);
   const tourRoutes = tours.map(tourPath);
 
-  // Google finds pictures through the sitemap. Without this the gallery on a
-  // tour page is only ever found by crawling, if at all.
-  const picturesFor = (tour: Tour) =>
-    [
-      tour.hero_path,
-      tour.og_path,
-      ...tour.gallery.map((item) => item.path),
-      ...tour.programme.map((day) => day.path),
-      ...tour.highlights.map((item) => item.path),
-    ]
-      .map((path) => imageUrl(path))
-      .filter((url): url is string => Boolean(url));
-
-  const images = new Map<string, string[]>(
-    tours.map((tour) => [tourPath(tour), picturesFor(tour)]),
-  );
-
-  const postImages = new Map<string, string[]>(
-    posts.flatMap((post) => {
-      const cover = imageUrl(post.cover_path);
-
-      return cover ? [[`/blog/${post.slug}`, [cover]] as [string, string[]]] : [];
-    }),
-  );
+  // No image entries here on purpose.
+  //
+  // Listing the pictures got them into Google Images, but a sitemap has to
+  // give an absolute address for each one, and ours are served from the
+  // storage bucket. So the sitemap became a public, machine readable list of
+  // the project's storage host and the path of every file in it. The pictures
+  // are still in the page for a crawler to find; they are not advertised.
 
   return [...routes, ...destinationRoutes, ...tourRoutes, ...postRoutes].flatMap((path) =>
     locales.map((locale) => ({
       url: `${siteUrl}/${locale}${path === "/" ? "" : path}`,
       lastModified: new Date(),
-      images: images.get(path) ?? postImages.get(path),
       alternates: {
         languages: {
           ...Object.fromEntries(
