@@ -27,12 +27,20 @@ export async function signUp(
   return signUpAction(email, password, profile);
 }
 
-export async function signInWith(provider: Provider): Promise<AuthResult> {
+/**
+ * `next` is where to land afterwards, and it matters most here.
+ *
+ * Signing in with a password never leaves the page, so the destination is
+ * still in hand when it succeeds. A provider takes the browser away to Google
+ * and brings it back to a route that knows nothing about where it started, so
+ * the address has to travel with it or it is gone.
+ */
+export async function signInWith(provider: Provider, next = "/account"): Promise<AuthResult> {
   const supabase = createClient();
 
   const { error } = await supabase.auth.signInWithOAuth({
     provider,
-    options: { redirectTo: callback("/account") },
+    options: { redirectTo: callback(next) },
   });
 
   return { error: error?.message ?? null };

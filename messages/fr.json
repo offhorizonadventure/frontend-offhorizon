@@ -1,7 +1,8 @@
 {
   "meta": {
     "title": "Offhorizon Adventures | Motos et 4x4 dans l'Himalaya",
-    "description": "Expéditions guidées à moto et en 4x4 au Ladakh, au Spiti et au Népal. Petits groupes, machines préparées et un mécanicien à chaque départ."
+    "description": "Expéditions guidées à moto et en 4x4 au Ladakh, au Spiti et au Népal. Petits groupes, machines préparées et un mécanicien à chaque départ.",
+    "maintenance": "De retour bientot"
   },
   "nav": {
     "primary": "Navigation principale",
@@ -1631,7 +1632,8 @@
       "submit": "Se connecter",
       "forgot": "Mot de passe oublié ?",
       "noAccount": "Pas encore de compte ?",
-      "join": "En créer un"
+      "join": "En créer un",
+      "protected": "Connectez-vous pour voir ceci. Nous vous y ramenons aussitot."
     },
     "register": {
       "eyebrow": "Rejoignez-nous",
@@ -2192,5 +2194,11 @@
     "customNext": "Nous avons vos grandes lignes pour {destination}. Nous reviendrons vers vous avec des dates, un itinéraire et un prix construits autour, plutôt qu'un forfait tout fait.",
     "reply": "Si vous voulez ajouter quelque chose entre-temps, répondez simplement à cet email. Il nous parvient directement.",
     "meanwhile": "En attendant, tous nos départs ouverts sont ici : {link}"
+  },
+  "maintenance": {
+    "eyebrow": "De retour bientot",
+    "title": "Nous travaillons sur le site.",
+    "lead": "Offhorizon Adventures est brievement hors ligne, le temps de quelques changements. Vos reservations ne sont pas touchees et tout sera la a notre retour.",
+    "contact": "Si vous avez besoin de nous entre-temps, ecrivez a"
   }
 }

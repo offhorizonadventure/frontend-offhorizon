@@ -1,7 +1,8 @@
 {
   "meta": {
     "title": "Offhorizon Adventures | Himalayan Motorcycle & 4x4 Tours",
-    "description": "Guided motorcycle and self-drive 4x4 expeditions across Ladakh, Spiti and Nepal. Small groups, prepared machines and a mechanic on every departure."
+    "description": "Guided motorcycle and self-drive 4x4 expeditions across Ladakh, Spiti and Nepal. Small groups, prepared machines and a mechanic on every departure.",
+    "maintenance": "Back shortly"
   },
   "nav": {
     "primary": "Main navigation",
@@ -1625,7 +1626,8 @@
       "submit": "Sign in",
       "forgot": "Forgot your password?",
       "noAccount": "No account yet?",
-      "join": "Create one"
+      "join": "Create one",
+      "protected": "Sign in to see this. We will take you straight back to it."
     },
     "register": {
       "eyebrow": "Join us",
@@ -2184,5 +2186,11 @@
     "customNext": "We have your outline for {destination}. We will come back with dates, a route and a price built around it rather than a package off the shelf.",
     "reply": "Anything you want to add in the meantime, just reply to this email. It comes straight to us.",
     "meanwhile": "While you wait, every departure we have open is here: {link}"
+  },
+  "maintenance": {
+    "eyebrow": "Back shortly",
+    "title": "We are working on the site.",
+    "lead": "Offhorizon Adventures is briefly offline while we make some changes. Nothing you have booked is affected, and everything will be here when we are back.",
+    "contact": "If you need us in the meantime, write to"
   }
 }

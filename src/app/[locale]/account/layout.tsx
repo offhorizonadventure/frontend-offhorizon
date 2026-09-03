@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 import { AccountNav } from "@/components/account/AccountNav";
 import { Topo } from "@/components/ui/Topo";
+import { PATH_HEADER, signInPath } from "@/lib/next-path";
 import { getProfile } from "@/lib/profile";
 
 export function generateMetadata(): Metadata {
@@ -12,7 +14,22 @@ export function generateMetadata(): Metadata {
 
 export default async function AccountLayout({ children }: { children: React.ReactNode }) {
   const profile = await getProfile();
-  if (!profile) redirect("/");
+
+  /**
+   * A signed out visitor is asked to sign in and then put back where they were
+   * going, rather than dropped on the home page.
+   *
+   * Every link in every email we send lands somewhere under here: view your
+   * booking, your receipt, the documents form. Sending those to the front door
+   * with the address thrown away meant a rider who followed one had to work
+   * out for themselves where they had been sent, and most of them will simply
+   * have given up.
+   */
+  if (!profile) {
+    const asked = (await headers()).get(PATH_HEADER);
+
+    redirect(asked ? signInPath(asked) : "/sign-in");
+  }
 
   const name = profile.full_name?.trim().split(/\s+/)[0] || profile.email?.split("@")[0] || "there";
   return (

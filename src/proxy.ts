@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 import { COUNTRY_COOKIE, LOCALE_COOKIE, isLocale, localeFor } from "@/i18n/config";
+import { PATH_HEADER } from "@/lib/next-path";
 import { refreshSession } from "@/lib/supabase/proxy";
 
 const GEO_HEADERS = [
@@ -34,7 +35,19 @@ export default async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (isLocale(pathname.split("/")[1])) {
-    const response = await refreshSession(request, NextResponse.next({ request }));
+    /**
+     * The address asked for, passed on to the server components.
+     *
+     * A layout is told which segment it is wrapping but not which page it
+     * ended up rendering, so the account gate had nothing to send a signed out
+     * visitor back to and dropped them on the home page. A link out of an
+     * email is exactly the case that matters, and it is the case that lost the
+     * most.
+     */
+    const headers = new Headers(request.headers);
+    headers.set(PATH_HEADER, pathname + request.nextUrl.search);
+
+    const response = await refreshSession(request, NextResponse.next({ request: { headers } }));
     rememberCountry(request, response);
     return response;
   }

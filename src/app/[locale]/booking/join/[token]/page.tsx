@@ -6,6 +6,7 @@ import { Topo } from "@/components/ui/Topo";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
 import { acceptInvite } from "@/lib/booking/actions";
+import { signInPath } from "@/lib/next-path";
 import { getUser } from "@/lib/supabase/server";
 
 export function generateMetadata(): Metadata {
@@ -39,8 +40,11 @@ export default async function JoinPage({ params }: PageProps<"/[locale]/booking/
           {user && result && !result.ok ? result.error : t("lead")}
         </p>
 
+        {/* The invite is the whole point of the visit, so signing in comes
+            back to it and the rider is joined to the booking on arrival,
+            rather than being left at the front door holding a used link. */}
         <Link
-          href={user ? "/account/bookings" : "/"}
+          href={user ? "/account/bookings" : signInPath(`/booking/join/${token}`)}
           className="border-cream-100/25 text-cream-100 hover:bg-cream-100/10 mt-9 inline-flex h-12 items-center rounded-full border px-7 text-[11px] font-bold tracking-[0.12em] uppercase transition-colors"
         >
           {user ? t("bookings") : t("signIn")}
