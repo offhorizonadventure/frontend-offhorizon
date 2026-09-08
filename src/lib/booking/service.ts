@@ -11,12 +11,12 @@ import { chargeCurrencyFor } from "./currency";
 import { startPayment, type PaymentFailure, type PaymentStarted } from "./payment";
 import { quoteBooking, type PricedDeparture } from "./quote";
 
-import { BALANCE_DUE_DAYS, DEPOSIT_SHARE, type BookingPlan, type Party } from "./types";
+import { BALANCE_DUE_DAYS, depositShare, type BookingPlan, type Party } from "./types";
 
 const DEPARTURE_COLUMNS = `
   id, tour_id, start_date, end_date, status, sold_out, kind, currency,
   visibility, assigned_user_id,
-  rider_discount, pillion_discount,
+  rider_discount, pillion_discount, deposit_percent,
   rider_price, pillion_price, damage_protection_price, single_room_price,
   seats, seats_taken,
   tour:tours(${TOUR_PRICE_COLUMNS}),
@@ -109,6 +109,7 @@ async function readDeparture(departureId: string) {
     tour_id: string;
     tour: TourPrices | null;
     rider_discount: number | null;
+    deposit_percent: number | null;
     pillion_discount: number | null;
     vehicles: {
       vehicle: {
@@ -206,7 +207,8 @@ export async function startBooking(input: {
   // Totalled from the lines rather than converted separately, so the sum shown
   // and the sum charged cannot drift apart by a rounded rupee.
   const total = money(lines.reduce((sum, line) => sum + line.amount, 0));
-  const deposit = input.plan === "full" ? total : money(total * DEPOSIT_SHARE);
+  const deposit =
+    input.plan === "full" ? total : money(total * depositShare(departure.deposit_percent));
 
   const supabase = createAdminClient();
 

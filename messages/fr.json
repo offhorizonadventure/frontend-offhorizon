@@ -1979,7 +1979,7 @@
     "planTitle": "Comment souhaitez-vous payer ?",
     "full": "Tout payer",
     "fullNote": "Réglé en une fois. Votre formulaire de documents s'ouvre aussitôt.",
-    "deposit": "Payer 20 pour cent maintenant",
+    "deposit": "Payer {percent} pour cent maintenant",
     "depositNote": "Retient votre place. Réglez le reste en plusieurs fois, la totalité étant due 14 jours avant le départ.",
     "detailsTitle": "Qui réserve",
     "name": "Nom complet",
@@ -2011,7 +2011,8 @@
     "signInTitle": "Connectez-vous pour finaliser cette réservation",
     "signInLead": "Utilisez le bouton compte dans la barre ci-dessus pour vous connecter ou créer un compte. Vos choix restent en place pendant ce temps, et cette page reprend dès que vous êtes connecté.",
     "people": "Personnes",
-    "depositClosed": "Ce départ est à moins de 14 jours : il doit être payé intégralement."
+    "depositClosed": "Ce départ est à moins de 14 jours : il doit être payé intégralement.",
+    "depositFull": "Cette expédition se règle intégralement à la réservation."
   },
   "bookings": {
     "title": "Mes réservations",

@@ -15,6 +15,7 @@ export type CheckoutLabels = {
   deposit: string;
   depositNote: string;
   depositClosed: string;
+  depositFull: string;
   detailsTitle: string;
   name: string;
   email: string;
@@ -39,6 +40,8 @@ type Props = {
   hidden: Record<string, string>;
   amounts: { full: string; deposit: string };
   depositAllowed: boolean;
+  /** True when this expedition takes the whole amount, whatever the date. */
+  paidInFull: boolean;
   profile: { name: string; email: string; phone: string };
   countries: CountryOption[];
   /** Guessed from where the request came from. The rider can change it. */
@@ -57,6 +60,7 @@ export function CheckoutForm({
   hidden,
   amounts,
   depositAllowed,
+  paidInFull,
   profile,
   countries,
   defaultCountry,
@@ -203,7 +207,7 @@ export function CheckoutForm({
           choice("deposit", labels.deposit, labels.depositNote, amounts.deposit)
         ) : (
           <p className="text-brand-800/55 border-brand-900/12 rounded-2xl border border-dashed px-4 py-3 text-[12.5px] leading-snug">
-            {labels.depositClosed}
+            {paidInFull ? labels.depositFull : labels.depositClosed}
           </p>
         )}
       </fieldset>

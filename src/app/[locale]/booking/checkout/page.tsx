@@ -73,6 +73,7 @@ export default async function CheckoutPage({
                   hidden={priced.hidden}
                   amounts={{ full: priced.totalLabel, deposit: priced.depositLabel }}
                   depositAllowed={priced.depositAllowed}
+                  paidInFull={priced.paidInFull}
                   profile={{
                     name: profile.full_name ?? "",
                     email: profile.email ?? "",
@@ -84,9 +85,12 @@ export default async function CheckoutPage({
                     planTitle: t("planTitle"),
                     full: t("full"),
                     fullNote: t("fullNote"),
-                    deposit: t("deposit"),
+                    // The share this expedition asks for, so the button never
+                    // promises twenty percent on a date that wants half.
+                    deposit: t("deposit", { percent: priced.depositPercent }),
                     depositNote: t("depositNote"),
                     depositClosed: t("depositClosed"),
+                    depositFull: t("depositFull"),
                     detailsTitle: t("detailsTitle"),
                     name: t("name"),
                     email: t("email"),

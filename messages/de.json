@@ -1977,7 +1977,7 @@
     "planTitle": "Wie möchten Sie zahlen?",
     "full": "Alles zahlen",
     "fullNote": "In einer Zahlung erledigt. Ihr Unterlagenformular öffnet sich sofort.",
-    "deposit": "Jetzt 20 Prozent zahlen",
+    "deposit": "Jetzt {percent} Prozent zahlen",
     "depositNote": "Sichert Ihren Platz. Den Rest in Raten, vollständig fällig 14 Tage vor Abreise.",
     "detailsTitle": "Wer bucht",
     "name": "Vollständiger Name",
@@ -2009,7 +2009,8 @@
     "signInTitle": "Melden Sie sich an, um diese Buchung abzuschließen",
     "signInLead": "Nutzen Sie die Kontoschaltfläche in der Leiste oben, um sich anzumelden oder ein Konto anzulegen. Ihre Auswahl bleibt so lange erhalten, und diese Seite macht weiter, sobald Sie angemeldet sind.",
     "people": "Personen",
-    "depositClosed": "Dieser Termin liegt innerhalb von 14 Tagen und muss vollständig bezahlt werden."
+    "depositClosed": "Dieser Termin liegt innerhalb von 14 Tagen und muss vollständig bezahlt werden.",
+    "depositFull": "Diese Expedition wird bei der Buchung vollständig bezahlt."
   },
   "bookings": {
     "title": "Meine Buchungen",

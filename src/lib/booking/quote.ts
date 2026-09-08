@@ -21,6 +21,8 @@ export type PricedDeparture = {
   prices: ResolvedPrices;
   seats: number | null;
   seats_taken: number;
+  /** Percent of the total that holds a place. Null uses the house default. */
+  deposit_percent?: number | null;
   visibility?: "public" | "private";
   assigned_user_id?: string | null;
   vehicles: {

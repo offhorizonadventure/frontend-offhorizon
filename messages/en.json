@@ -1971,7 +1971,7 @@
     "planTitle": "How would you like to pay?",
     "full": "Pay in full",
     "fullNote": "Settled in one payment. Your documents form opens straight away.",
-    "deposit": "Pay 20 percent now",
+    "deposit": "Pay {percent} percent now",
     "depositNote": "Holds your place. Pay the rest in instalments, all of it due 14 days before departure.",
     "detailsTitle": "Who is booking",
     "name": "Full name",
@@ -2003,7 +2003,8 @@
     "signInTitle": "Sign in to finish this booking",
     "signInLead": "Use the account button in the bar above to sign in or make an account. Your choices are held right here while you do, and this page carries on the moment you are in.",
     "people": "People",
-    "depositClosed": "This departure is inside 14 days, so it has to be paid in full."
+    "depositClosed": "This departure is inside 14 days, so it has to be paid in full.",
+    "depositFull": "This expedition is paid in full when you book."
   },
   "bookings": {
     "title": "My bookings",
