@@ -57,34 +57,36 @@ export const factList = (tour: Tour) => {
 /**
  * The price card on the tour page.
  *
- * Every line but the first is the tour's own list price, because that is what
- * this tour charges whenever it runs. Only the headline is a "from": the
- * cheapest a rider actually pays once the dates' discounts are applied, which
- * is what the word above it promises.
+ * Every figure here is the tour's own list price, undiscounted, because that
+ * is what this tour charges whenever it runs. A departure's discount belongs
+ * to that departure and is shown in the dates drawer, next to the date it
+ * applies to, with the list price struck through beside it.
  *
- * It used to take one departure, the cheapest, and show that departure's
- * rider, pillion, protection and room prices as the tour's. Adding a single
- * discounted date then rewrote the advertised price of every other date.
+ * The headline used to be the cheapest departure's rider price. One discounted
+ * date then rewrote the advertised price of the tour, and a visitor reading
+ * the card was quoted a number that most of the dates in the drawer did not
+ * charge. The two disagreed on the same screen.
+ *
+ * The fallbacks read the representative departure's resolved list prices,
+ * which are the tour's prices already, or the departure's own legacy columns
+ * where a database has not run `patch-tour-prices.sql` yet. Never the
+ * discounted figure.
  */
 export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
-  // What a rider actually pays, on the cheapest date that has a price. That is
-  // the only figure on this card that a departure gets a say in, and it is the
-  // one the word "From" sits above.
-  const paid = departures
-    .map((departure) => departure.prices.rider)
-    .filter((price): price is number => typeof price === "number" && price > 0);
-
-  const listRider = tour.rider_price ?? 0;
-  const from = paid.length ? Math.min(...paid) : listRider;
-
-  if (!from && !listRider) return [];
-
   // Only for the shape of the expedition (which machine, whether it is a 4x4).
   // None of the money below comes from here.
   const representative = departures[0] ?? null;
+  const fallback = representative?.prices ?? null;
+
+  const rider = tour.rider_price ?? fallback?.listRider ?? 0;
+  const pillion = tour.pillion_price ?? fallback?.listPillion ?? null;
+  const protection = tour.damage_protection_price ?? fallback?.protection ?? null;
+  const room = tour.single_room_price ?? fallback?.room ?? null;
+
+  if (!rider && !pillion) return [];
+
   const kind = representative?.kind ?? "motorbike";
   const machine = representative ? machineFor([representative]) : null;
-  const pillion = tour.pillion_price;
 
   const groups: PriceGroup[] = [
     {
@@ -93,7 +95,7 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
         {
           icon: "rider",
           label: kind === "4x4" ? "Person" : "Rider",
-          amount: from,
+          amount: rider,
         },
         ...(pillion
           ? [
@@ -131,13 +133,13 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
             },
           ]
         : []),
-    ...(tour.damage_protection_price
+    ...(protection
       ? [
           {
             icon: "shield" as const,
             label: "Full damage protection",
             note: "Waives the deposit on the expedition machine",
-            amount: tour.damage_protection_price,
+            amount: protection,
             addon: true,
           },
         ]
@@ -146,7 +148,7 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
 
   if (machineLines.length) groups.push({ title: "Machine", lines: machineLines });
 
-  if (tour.single_room_price) {
+  if (room) {
     groups.push({
       title: "Rooms",
       lines: [
@@ -154,7 +156,7 @@ export function pricing(tour: Tour, departures: Departure[]): PriceGroup[] {
           icon: "singleRoom",
           label: "Single room",
           note: "Your own room throughout",
-          amount: tour.single_room_price,
+          amount: room,
           addon: true,
         },
       ],

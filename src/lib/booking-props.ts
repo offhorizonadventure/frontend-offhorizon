@@ -45,11 +45,12 @@ export async function buildBooking({
     rate,
     locale,
     maxRiders: Number(groupSize.match(/\d+/)?.[0]) || 12,
-    // `prices` above is the cheapest departure's, which is what the card
-    // headline means by "from". Each departure carries its own as well, and
-    // the wizard switches to those the moment a date is picked: the rider who
-    // chooses June must be quoted June, not whatever date happens to be
-    // cheapest that season.
+    // `prices` above is the tour's list price, read off the same card the
+    // visitor was just looking at, so opening the drawer never changes the
+    // number in front of them. Each departure carries its own as well, and the
+    // wizard switches to those the moment a date is picked: the rider who
+    // chooses June must be quoted June, with the list price struck through
+    // beside it wherever June takes something off.
     departures: departures.map(
       ({ id, start, end, soldOut, seats, kind, prices, list, vehicles }) => ({
         id,
