@@ -1473,7 +1473,7 @@
       "body": "Pregunta por una fecha de la lista, o dinos cuándo puedes viajar y vemos qué encaja."
     },
     "price": {
-      "from": "Desde",
+      "heading": "Precio",
       "perRider": "por piloto",
       "included": "Incluido",
       "seeDates": "Ver fechas",
@@ -1505,7 +1505,7 @@
       "basics": {
         "duration": "Duración",
         "groupSize": "Tamaño del grupo",
-        "from": "Desde",
+        "price": "Precio",
         "perRider": "por piloto"
       },
       "year": {

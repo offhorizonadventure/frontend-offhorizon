@@ -13,7 +13,7 @@ export type BookingLabels = {
   next: string;
   decrease: string;
   increase: string;
-  basics: { duration: string; groupSize: string; from: string; perRider: string };
+  basics: { duration: string; groupSize: string; price: string; perRider: string };
   year: { title: string; help: string };
   date: {
     title: string;
@@ -205,7 +205,8 @@ export function BookingWizard({
    *
    * Only the rider and the pillion can be discounted: they are the two an
    * expedition sets its own money on. Nothing is struck through before a date
-   * is chosen, because there is no discount to show yet, only a "from".
+   * is chosen, because there is no discount to show yet, only the tour's own
+   * list price.
    */
   const withDiscount = (charged: number, list: number) => {
     if (!charged) return null;
@@ -334,7 +335,7 @@ export function BookingWizard({
           </div>
           <div>
             <dt className="text-brand-800/45 text-[9.5px] font-bold tracking-[0.16em] uppercase">
-              {labels.basics.from}
+              {labels.basics.price}
             </dt>
             <dd className="text-brand-900 mt-0.5 text-[13px] font-semibold tabular-nums">
               {price(active.rider)}

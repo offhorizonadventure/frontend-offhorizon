@@ -1477,7 +1477,7 @@
       "body": "Renseignez-vous sur une date de la liste, ou dites-nous quand vous pouvez partir et nous verrons ce qui convient."
     },
     "price": {
-      "from": "À partir de",
+      "heading": "Prix",
       "perRider": "par pilote",
       "included": "Compris",
       "seeDates": "Voir les dates",
@@ -1509,7 +1509,7 @@
       "basics": {
         "duration": "Durée",
         "groupSize": "Taille du groupe",
-        "from": "À partir de",
+        "price": "Prix",
         "perRider": "par pilote"
       },
       "year": {

@@ -1471,7 +1471,7 @@
       "body": "Ask about a date on the list, or tell us when you can travel and we will see what fits."
     },
     "price": {
-      "from": "From",
+      "heading": "Price",
       "perRider": "per rider",
       "included": "Included",
       "seeDates": "See dates",
@@ -1503,7 +1503,7 @@
       "basics": {
         "duration": "Duration",
         "groupSize": "Group size",
-        "from": "From",
+        "price": "Price",
         "perRider": "per rider"
       },
       "year": {

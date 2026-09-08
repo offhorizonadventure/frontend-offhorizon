@@ -51,7 +51,7 @@ export async function PriceCard({
       {headline?.price ? (
         <>
           <p className="text-brand-800/50 text-[9.5px] font-bold tracking-[0.18em] uppercase">
-            {t("price.from")}
+            {t("price.heading")}
           </p>
           <p className="mt-2 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
             <span className="font-display text-brand-900 text-[clamp(1.9rem,4vw,2.4rem)] leading-none font-extrabold tracking-[-0.035em] tabular-nums">

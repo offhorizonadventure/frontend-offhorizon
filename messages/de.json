@@ -1475,7 +1475,7 @@
       "body": "Fragen Sie zu einem Termin aus der Liste an, oder sagen Sie uns, wann Sie können, und wir schauen, was passt."
     },
     "price": {
-      "from": "Ab",
+      "heading": "Preis",
       "perRider": "pro Fahrer",
       "included": "Enthalten",
       "seeDates": "Termine ansehen",
@@ -1507,7 +1507,7 @@
       "basics": {
         "duration": "Dauer",
         "groupSize": "Gruppengröße",
-        "from": "Ab",
+        "price": "Preis",
         "perRider": "pro Fahrer"
       },
       "year": {
