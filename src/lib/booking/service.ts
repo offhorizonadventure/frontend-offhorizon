@@ -66,6 +66,7 @@ type NewBooking = {
   departure_id: string;
   tour_id: string;
   lead_user_id: string;
+  lead_country: string;
   plan: BookingPlan;
   status: "pending";
   riders: number;
@@ -134,7 +135,7 @@ export async function startBooking(input: {
   plan: BookingPlan;
   party: Party;
   preferredCurrency: string;
-  lead: { fullName: string; email: string; phone: string };
+  lead: { fullName: string; email: string; phone: string; country: string };
 }): Promise<PaymentStarted | PaymentFailure> {
   const departure = await readDeparture(input.departureId);
   if (!departure) return { ok: false, error: "That departure could not be found." };
@@ -214,6 +215,9 @@ export async function startBooking(input: {
     departure_id: departure.id,
     tour_id: departure.tour_id,
     lead_user_id: input.userId,
+    // Where the money is coming from, which is the office's question to answer
+    // and not the rider's home address. Two letters, ISO 3166-1.
+    lead_country: input.lead.country,
     plan: input.plan,
     status: "pending",
     riders: input.party.riders,
@@ -263,7 +267,11 @@ export async function startBooking(input: {
 
 function seats(
   bookingId: string,
-  input: { userId: string; party: Party; lead: { fullName: string; email: string; phone: string } },
+  input: {
+    userId: string;
+    party: Party;
+    lead: { fullName: string; email: string; phone: string; country: string };
+  },
 ) {
   return [
     {

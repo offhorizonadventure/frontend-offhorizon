@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { confirmPayment, createBooking } from "@/lib/booking/actions";
+import { CountrySelect } from "@/components/booking/CountrySelect";
+import type { CountryOption } from "@/lib/countries";
 import { openCheckout } from "@/lib/razorpay-checkout";
 
 export type CheckoutLabels = {
@@ -17,6 +19,11 @@ export type CheckoutLabels = {
   name: string;
   email: string;
   phone: string;
+  country: string;
+  countryHint: string;
+  countryPlaceholder: string;
+  countryNoMatch: string;
+  countryClear: string;
   pay: string;
   paying: string;
   opening: string;
@@ -33,6 +40,9 @@ type Props = {
   amounts: { full: string; deposit: string };
   depositAllowed: boolean;
   profile: { name: string; email: string; phone: string };
+  countries: CountryOption[];
+  /** Guessed from where the request came from. The rider can change it. */
+  defaultCountry: string | null;
   labels: CheckoutLabels;
 };
 
@@ -48,6 +58,8 @@ export function CheckoutForm({
   amounts,
   depositAllowed,
   profile,
+  countries,
+  defaultCountry,
   labels,
 }: Props) {
   const router = useRouter();
@@ -165,6 +177,23 @@ export function CheckoutForm({
           <span className={label}>{labels.phone}</span>
           <input name="phone" defaultValue={profile.phone} className={field} />
         </label>
+
+        {}
+        <div className="space-y-2">
+          <CountrySelect
+            name="country"
+            options={countries}
+            defaultValue={defaultCountry}
+            label={labels.country}
+            placeholder={labels.countryPlaceholder}
+            noMatch={labels.countryNoMatch}
+            clearLabel={labels.countryClear}
+            required
+            fieldClass={field}
+            labelClass={label}
+          />
+          <p className="text-brand-800/45 text-[11.5px] leading-snug">{labels.countryHint}</p>
+        </div>
       </div>
 
       <fieldset className="space-y-2.5">

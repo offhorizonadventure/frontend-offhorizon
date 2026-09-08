@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { currencyForVisitor } from "@/lib/currency";
 import { getLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/config";
+import { toCountryCode } from "@/lib/countries";
 import { withinLimit } from "@/lib/rate-limit";
 import { createClient, getUser } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
@@ -52,7 +53,13 @@ export async function createBooking(_: unknown, formData: FormData): Promise<Act
   const email = String(formData.get("email") ?? "").trim();
   const phone = String(formData.get("phone") ?? "").trim();
 
+  // Asked for because India wants to know where money arriving from abroad
+  // came from. Checked against the list rather than trusted, since the field
+  // the rider types into is a name and only the hidden code is submitted.
+  const country = toCountryCode(formData.get("country"));
+
   if (!fullName || !email) return { ok: false, error: "Your name and email address are needed." };
+  if (!country) return { ok: false, error: "Choose the country you are paying from." };
 
   const locale = (await getLocale()) as Locale;
   const preferred = await currencyForVisitor(locale);
@@ -63,7 +70,7 @@ export async function createBooking(_: unknown, formData: FormData): Promise<Act
     plan,
     party,
     preferredCurrency: preferred,
-    lead: { fullName, email, phone },
+    lead: { fullName, email, phone, country },
   });
 
   if (!started.ok) return started;

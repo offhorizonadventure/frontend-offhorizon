@@ -2,13 +2,17 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 
+import { cookies } from "next/headers";
+
 import { AskToSignIn } from "@/components/auth/AskToSignIn";
 import { CheckoutForm } from "@/components/booking/CheckoutForm";
 import { Summary } from "@/components/booking/Summary";
 import { Topo } from "@/components/ui/Topo";
+import { COUNTRY_COOKIE } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
 import { priceBooking } from "@/lib/booking/preview";
+import { countryOptions, toCountryCode } from "@/lib/countries";
 import { razorpayConfigured, razorpayKeyId } from "@/lib/booking/razorpay";
 import { getProfile } from "@/lib/profile";
 import { siteName } from "@/lib/seo";
@@ -29,6 +33,13 @@ export default async function CheckoutPage({
   if (!departureId) notFound();
 
   const profile = await getProfile();
+
+  // The country the visitor was already recognised as, set by the proxy from
+  // whatever the network said. A guess in the box the rider can correct beats
+  // an empty box they have to fill, and it is only a default: what gets stored
+  // is whatever the form comes back with.
+  const guessed = toCountryCode((await cookies()).get(COUNTRY_COOKIE)?.value);
+  const countries = countryOptions(locale);
 
   const priced = await priceBooking(locale, departureId, query);
   if (!priced) notFound();
@@ -67,6 +78,8 @@ export default async function CheckoutPage({
                     email: profile.email ?? "",
                     phone: profile.phone ?? "",
                   }}
+                  countries={countries}
+                  defaultCountry={guessed}
                   labels={{
                     planTitle: t("planTitle"),
                     full: t("full"),
@@ -78,6 +91,11 @@ export default async function CheckoutPage({
                     name: t("name"),
                     email: t("email"),
                     phone: t("phone"),
+                    country: t("country"),
+                    countryHint: t("countryHint"),
+                    countryPlaceholder: t("countryPlaceholder"),
+                    countryNoMatch: t("countryNoMatch"),
+                    countryClear: t("countryClear"),
                     pay: t("pay"),
                     paying: t("paying"),
                     opening: t("opening"),
