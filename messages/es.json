@@ -1702,11 +1702,11 @@
           "title": "Reserva y pago",
           "body": [
             "Una reserva queda confirmada cuando te lo hemos confirmado por escrito y el primer pago nos ha llegado. Hasta que ocurran las dos cosas, la plaza no está guardada.",
-            "Tú eliges cómo pagar: liquida la expedición de una vez, o paga el 20 por ciento para guardar la plaza y completa el resto antes de viajar.",
+            "Tú eliges cómo pagar: liquida la expedición de una vez, o paga un depósito para guardar la plaza y completa el resto antes de viajar. El depósito es el {percent} por ciento del total, salvo que esa expedición pida otra cantidad, y la cifra se muestra antes de pagar.",
             "Las plazas dejan de venderse 30 días antes de la salida. A partir de ahí el grupo está cerrado, los permisos están presentados y no podemos añadir a nadie."
           ],
           "list": [
-            "El 20 por ciento se paga al reservar y es lo que confirma la plaza",
+            "El depósito se paga al reservar y es lo que confirma la plaza",
             "El resto puede pagarse en tantos plazos como quieras, por el importe que quieras, cuando te venga bien",
             "Todo debe estar pagado como máximo 14 días antes de la fecha de salida",
             "Los precios se fijan en rupias indias y se cobran en tu moneda al cambio del día de la reserva, que queda fijado para el resto de la reserva"
@@ -1881,7 +1881,7 @@
   "bookingGuide": {
     "meta": {
       "title": "Cómo funciona la reserva | Offhorizon Adventures",
-      "description": "Cómo se reserva en Offhorizon: paga todo o guarda tu plaza con el 20 por ciento y liquida el resto antes del plazo de 14 días."
+      "description": "Cómo se reserva en Offhorizon: paga todo o guarda tu plaza con un depósito, el {percent} por ciento en la mayoría de las expediciones, y liquida el resto antes del plazo de 14 días."
     },
     "eyebrow": "Antes de pagar",
     "title": "Cómo funciona la reserva",
@@ -1897,8 +1897,8 @@
         "body": "Pilotos, acompañantes, habitaciones individuales, protección de daños y, en una expedición 4x4, el vehículo que quieras o el tuyo. El total cambia según eliges: sin sorpresas."
       },
       {
-        "title": "Paga todo, o paga el 20 por ciento",
-        "body": "Las dos formas guardan la plaza. Pagar todo lo deja cerrado; el 20 por ciento guarda la plaza y deja el resto para antes del viaje."
+        "title": "Paga todo, o paga un depósito",
+        "body": "Las dos formas guardan la plaza. Pagar todo lo deja cerrado; un depósito guarda la plaza y deja el resto para antes del viaje. En la mayoría de las expediciones el depósito es el {percent} por ciento, y el importe exacto aparece antes de pagar."
       },
       {
         "title": "La plaza es tuya",
@@ -1926,7 +1926,7 @@
       {
         "title": "Pagar el resto a plazos",
         "body": [
-          "No hay calendario que cumplir. Una vez pagado el 20 por ciento, paga lo que quieras, cuando quieras, tantas veces como quieras, hasta liquidar el resto.",
+          "No hay calendario que cumplir. Una vez pagado el depósito, paga lo que quieras, cuando quieras, tantas veces como quieras, hasta liquidar el resto.",
           "Abre la reserva en tu cuenta, escribe un importe y págalo. El saldo se actualiza al momento y el recibo te llega por correo."
         ]
       },
@@ -1948,7 +1948,7 @@
       {
         "title": "Expediciones a medida",
         "body": [
-          "Una expedición a medida se construye para ti y solo aparece en tu cuenta. Elige pilotos y acompañantes y paga entera o con el 20 por ciento, exactamente igual que arriba.",
+          "Una expedición a medida se construye para ti y solo aparece en tu cuenta. Elige pilotos y acompañantes y paga entera o con un depósito, exactamente igual que arriba.",
           "Solo la persona para la que se construyó la expedición puede pagarla. Los demás entran por el enlace de invitación y rellenan sus documentos."
         ]
       },

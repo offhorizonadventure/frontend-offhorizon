@@ -1703,11 +1703,11 @@
           "title": "Prenotazione e pagamento",
           "body": [
             "Una prenotazione è confermata quando te l'abbiamo confermata per iscritto e il primo pagamento ci è arrivato. Finché non accadono entrambe le cose, il posto non è bloccato.",
-            "Decidi tu come pagare: salda tutta la spedizione in una volta, oppure versa il 20 per cento per bloccare il posto e completa il resto prima di partire.",
+            "Decidi tu come pagare: salda tutta la spedizione in una volta, oppure versa un acconto per bloccare il posto e completa il resto prima di partire. L'acconto è il {percent} per cento del totale, salvo che la spedizione chieda un importo diverso, e la cifra è indicata prima del pagamento.",
             "I posti escono dalla vendita 30 giorni prima della partenza. Dopo, il gruppo è chiuso, i permessi sono depositati e non possiamo aggiungere nessuno."
           ],
           "list": [
-            "Il 20 per cento è dovuto al momento della prenotazione ed è ciò che conferma il posto",
+            "L'acconto è dovuto al momento della prenotazione ed è ciò che conferma il posto",
             "Il saldo può essere versato in quante rate vuoi, di qualsiasi importo, quando ti è comodo",
             "Tutto deve essere pagato entro 14 giorni prima della data di partenza",
             "I prezzi sono fissati in rupie indiane e addebitati nella tua valuta al cambio del giorno della prenotazione, poi bloccato per tutta la prenotazione"
@@ -1882,7 +1882,7 @@
   "bookingGuide": {
     "meta": {
       "title": "Come funziona la prenotazione | Offhorizon Adventures",
-      "description": "Come si prenota da Offhorizon: paghi tutto o blocchi il posto con il 20 per cento, poi salda il resto entro la scadenza dei 14 giorni."
+      "description": "Come si prenota da Offhorizon: paghi tutto o blocchi il posto con un acconto, il {percent} per cento sulla maggior parte delle spedizioni, poi saldi il resto entro la scadenza dei 14 giorni."
     },
     "eyebrow": "Prima di pagare",
     "title": "Come funziona la prenotazione",
@@ -1898,8 +1898,8 @@
         "body": "Piloti, passeggeri, camere singole, protezione danni e, su una spedizione 4x4, il veicolo che vuoi o il tuo. Il totale cambia mentre scegli: nessuna sorpresa."
       },
       {
-        "title": "Paga tutto, o paga il 20 per cento",
-        "body": "Entrambi bloccano il posto. Pagare tutto chiude la questione; il 20 per cento blocca il posto e lascia il resto da saldare prima di partire."
+        "title": "Paga tutto, o versa un acconto",
+        "body": "Entrambi bloccano il posto. Pagare tutto chiude la questione; un acconto blocca il posto e lascia il resto da saldare prima di partire. Sulla maggior parte delle spedizioni l'acconto è il {percent} per cento, e l'importo esatto compare prima del pagamento."
       },
       {
         "title": "Il posto è tuo",
@@ -1927,7 +1927,7 @@
       {
         "title": "Saldare a rate",
         "body": [
-          "Non c'è un piano da rispettare. Una volta versato il 20 per cento, paghi quanto vuoi, quando vuoi, tutte le volte che vuoi, finché il saldo non è chiuso.",
+          "Non c'è un piano da rispettare. Una volta versato l'acconto, paghi quanto vuoi, quando vuoi, tutte le volte che vuoi, finché il saldo non è chiuso.",
           "Apri la prenotazione nel tuo account, digita un importo e pagalo. Il saldo si aggiorna subito e la ricevuta ti arriva per email."
         ]
       },
@@ -1949,7 +1949,7 @@
       {
         "title": "Spedizioni su misura",
         "body": [
-          "Una spedizione su misura è costruita per te e compare solo nel tuo account. Scegli piloti e passeggeri e paga per intero o al 20 per cento, esattamente come sopra.",
+          "Una spedizione su misura è costruita per te e compare solo nel tuo account. Scegli piloti e passeggeri e paga per intero o con un acconto, esattamente come sopra.",
           "Solo la persona per cui la spedizione è stata costruita può pagarla. Tutti gli altri entrano dal link di invito e compilano i loro documenti."
         ]
       },

@@ -1700,11 +1700,11 @@
           "title": "Booking and payment",
           "body": [
             "A booking is confirmed when we have written to you to confirm it and the first payment has reached us. Until both have happened, the place is not held.",
-            "You choose how to pay. Either settle the whole expedition at once, or pay 20 percent to hold your place and clear the rest before you travel.",
+            "You choose how to pay. Either settle the whole expedition at once, or pay a deposit to hold your place and clear the rest before you travel. The deposit is {percent} percent of the total unless that expedition asks for a different amount, and the figure is shown before you pay.",
             "Places come off sale 30 days before departure. After that the group is closed, the permits are filed and we cannot add anyone."
           ],
           "list": [
-            "The 20 percent is due at the time of booking and is what confirms the place",
+            "The deposit is due at the time of booking and is what confirms the place",
             "The balance can be paid in as many instalments as you like, of any amount, whenever suits you",
             "Everything must be paid no later than 14 days before the departure date",
             "Prices are set in Indian rupees and charged in your own currency at the rate on the day you book, which is then fixed for the rest of the booking"
@@ -1879,7 +1879,7 @@
   "bookingGuide": {
     "meta": {
       "title": "How Booking Works | Offhorizon Adventures",
-      "description": "How booking works at Offhorizon: pay in full or hold your place with 20 percent, then settle the rest in instalments before the 14 day deadline."
+      "description": "How booking works at Offhorizon: pay in full or hold your place with a deposit, {percent} percent on most expeditions, then settle the rest in instalments before the 14 day deadline."
     },
     "eyebrow": "Before you pay",
     "title": "How booking works",
@@ -1895,8 +1895,8 @@
         "body": "Riders, pillions, single rooms, damage protection, and on a 4x4 expedition the car you want or your own. The total changes as you choose, so nothing is a surprise."
       },
       {
-        "title": "Pay in full, or pay 20 percent",
-        "body": "Either settles the place. Paying in full is done with it; paying 20 percent holds the place and leaves the rest to clear before you travel."
+        "title": "Pay in full, or pay a deposit",
+        "body": "Either settles the place. Paying in full is done with it; a deposit holds the place and leaves the rest to clear before you travel. The deposit is {percent} percent on most expeditions, and the checkout shows the exact amount before you pay."
       },
       {
         "title": "The place is yours",
@@ -1924,7 +1924,7 @@
       {
         "title": "Paying the balance in instalments",
         "body": [
-          "There is no schedule to keep to. Once the 20 percent is paid, you can pay whatever you like, whenever you like, as many times as you like, until the balance is clear.",
+          "There is no schedule to keep to. Once the deposit is paid, you can pay whatever you like, whenever you like, as many times as you like, until the balance is clear.",
           "Open the booking in your account, type an amount and pay it. The balance updates immediately and the receipt is emailed to you."
         ]
       },
@@ -1946,7 +1946,7 @@
       {
         "title": "Custom expeditions",
         "body": [
-          "A custom expedition is built for you and only appears in your account. Choose your riders and pillions, and pay in full or with 20 percent exactly as above.",
+          "A custom expedition is built for you and only appears in your account. Choose your riders and pillions, and pay in full or with a deposit exactly as above.",
           "Only the person the expedition was built for can pay for it. Everyone else joins through the invite link and fills in their documents."
         ]
       },

@@ -1704,11 +1704,11 @@
           "title": "Buchung und Zahlung",
           "body": [
             "Eine Buchung ist bestätigt, sobald wir sie Ihnen schriftlich bestätigt haben und die erste Zahlung bei uns eingegangen ist. Bis beides erfolgt ist, ist der Platz nicht reserviert.",
-            "Sie entscheiden, wie Sie zahlen: die Expedition auf einmal begleichen, oder 20 Prozent anzahlen, um den Platz zu sichern, und den Rest vor der Abreise ausgleichen.",
+            "Sie entscheiden, wie Sie zahlen: die Expedition auf einmal begleichen, oder eine Anzahlung leisten, um den Platz zu sichern, und den Rest vor der Abreise ausgleichen. Die Anzahlung beträgt {percent} Prozent der Gesamtsumme, sofern die Expedition keinen anderen Betrag verlangt, und der Betrag wird vor dem Bezahlen angezeigt.",
             "Plätze werden 30 Tage vor Abreise vom Verkauf genommen. Danach ist die Gruppe geschlossen, die Genehmigungen sind eingereicht und wir können niemanden mehr aufnehmen."
           ],
           "list": [
-            "Die 20 Prozent sind bei Buchung fällig und sichern den Platz",
+            "Die Anzahlung ist bei Buchung fällig und sichert den Platz",
             "Der Restbetrag kann in beliebig vielen Raten in beliebiger Höhe gezahlt werden, wann es Ihnen passt",
             "Alles muss spätestens 14 Tage vor dem Abreisedatum bezahlt sein",
             "Die Preise sind in indischen Rupien festgelegt und werden in Ihrer Währung zum Kurs des Buchungstages abgebucht, der danach für die gesamte Buchung fest bleibt"
@@ -1885,7 +1885,7 @@
   "bookingGuide": {
     "meta": {
       "title": "So funktioniert die Buchung | Offhorizon Adventures",
-      "description": "So buchen Sie bei Offhorizon: alles zahlen oder mit 20 Prozent den Platz sichern und den Rest vor der 14-Tage-Frist begleichen."
+      "description": "So buchen Sie bei Offhorizon: alles zahlen oder mit einer Anzahlung den Platz sichern, bei den meisten Expeditionen {percent} Prozent, und den Rest vor der 14-Tage-Frist begleichen."
     },
     "eyebrow": "Vor der Zahlung",
     "title": "So funktioniert die Buchung",
@@ -1901,8 +1901,8 @@
         "body": "Fahrer, Sozius, Einzelzimmer, Schadensschutz und auf einer 4x4-Expedition das gewünschte Fahrzeug oder Ihr eigenes. Die Summe ändert sich mit jeder Wahl, es gibt keine Überraschung."
       },
       {
-        "title": "Alles zahlen oder 20 Prozent",
-        "body": "Beides sichert den Platz. Wer alles zahlt, ist fertig; 20 Prozent halten den Platz und lassen den Rest bis zur Abreise offen."
+        "title": "Alles zahlen oder anzahlen",
+        "body": "Beides sichert den Platz. Wer alles zahlt, ist fertig; eine Anzahlung hält den Platz und lässt den Rest bis zur Abreise offen. Bei den meisten Expeditionen sind es {percent} Prozent, und der genaue Betrag steht vor dem Bezahlen auf dem Bildschirm."
       },
       {
         "title": "Der Platz gehört Ihnen",
@@ -1930,7 +1930,7 @@
       {
         "title": "Den Rest in Raten zahlen",
         "body": [
-          "Es gibt keinen Ratenplan. Sobald die 20 Prozent gezahlt sind, zahlen Sie, was Sie wollen, wann Sie wollen, so oft Sie wollen, bis nichts mehr offen ist.",
+          "Es gibt keinen Ratenplan. Sobald die Anzahlung gezahlt ist, zahlen Sie, was Sie wollen, wann Sie wollen, so oft Sie wollen, bis nichts mehr offen ist.",
           "Öffnen Sie die Buchung in Ihrem Konto, geben Sie einen Betrag ein und zahlen Sie ihn. Der offene Betrag ändert sich sofort, die Quittung kommt per E-Mail."
         ]
       },
@@ -1952,7 +1952,7 @@
       {
         "title": "Maßgeschneiderte Expeditionen",
         "body": [
-          "Eine maßgeschneiderte Expedition wird für Sie gebaut und erscheint nur in Ihrem Konto. Wählen Sie Fahrer und Sozius und zahlen Sie vollständig oder mit 20 Prozent, genau wie oben.",
+          "Eine maßgeschneiderte Expedition wird für Sie gebaut und erscheint nur in Ihrem Konto. Wählen Sie Fahrer und Sozius und zahlen Sie vollständig oder mit einer Anzahlung, genau wie oben.",
           "Nur die Person, für die die Expedition gebaut wurde, kann sie bezahlen. Alle anderen kommen über den Einladungslink dazu und füllen ihre Unterlagen aus."
         ]
       },

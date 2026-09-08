@@ -4,6 +4,7 @@ import { CtaBand } from "@/components/destinations/CtaBand";
 import { ArrowRight } from "@/components/ui/icons";
 import { Topo } from "@/components/ui/Topo";
 import type { Locale } from "@/i18n/config";
+import { fillPercent } from "@/lib/deposit-copy";
 
 import guideImage from "../../../public/destinations/pages/manali-to-leh.jpg";
 
@@ -13,9 +14,11 @@ type Clause = { title: string; body: string[] };
 export async function BookingGuide({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "bookingGuide" });
 
-  const steps = t.raw("steps") as Step[];
-  const clauses = t.raw("sections") as Clause[];
-  const deadline = t.raw("deadline.body") as string[];
+  // Read raw, so the placeholder in the copy is filled here rather than by
+  // next-intl, which never sees these strings.
+  const steps = fillPercent(t.raw("steps") as Step[]);
+  const clauses = fillPercent(t.raw("sections") as Clause[]);
+  const deadline = fillPercent(t.raw("deadline.body") as string[]);
 
   const schema = {
     "@context": "https://schema.org",

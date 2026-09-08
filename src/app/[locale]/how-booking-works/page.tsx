@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { BookingGuide } from "@/components/booking/BookingGuide";
 import { locales } from "@/i18n/config";
 import { resolveLocale } from "@/i18n/params";
+import { DEPOSIT_PERCENT } from "@/lib/deposit-copy";
 import { buildMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/how-book
     locale,
     path: "/how-booking-works",
     title: t("meta.title"),
-    description: t("meta.description"),
+    description: t("meta.description", { percent: DEPOSIT_PERCENT }),
   });
 }
 

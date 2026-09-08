@@ -1706,11 +1706,11 @@
           "title": "Réservation et paiement",
           "body": [
             "Une réservation est confirmée lorsque nous vous l'avons confirmée par écrit et que le premier versement nous est parvenu. Tant que ces deux conditions ne sont pas remplies, la place n'est pas retenue.",
-            "Vous choisissez votre mode de paiement. Réglez l'expédition en une fois, ou versez 20 pour cent pour retenir votre place et soldez le reste avant le départ.",
+            "Vous choisissez votre mode de paiement. Réglez l'expédition en une fois, ou versez un acompte pour retenir votre place et soldez le reste avant le départ. L'acompte est de {percent} pour cent du total, sauf si l'expédition demande un montant différent, et la somme est indiquée avant le paiement.",
             "Les places ne sont plus vendues 30 jours avant le départ. Passé ce délai, le groupe est clos, les permis sont déposés et nous ne pouvons ajouter personne."
           ],
           "list": [
-            "Les 20 pour cent sont dus à la réservation et c'est ce qui confirme la place",
+            "L'acompte est dû à la réservation et c'est ce qui confirme la place",
             "Le solde peut être réglé en autant de versements que vous voulez, du montant que vous voulez, quand cela vous arrange",
             "Tout doit être payé au plus tard 14 jours avant la date de départ",
             "Les prix sont fixés en roupies indiennes et débités dans votre devise au taux du jour de la réservation, taux ensuite figé pour toute la réservation"
@@ -1887,7 +1887,7 @@
   "bookingGuide": {
     "meta": {
       "title": "Comment réserver | Offhorizon Adventures",
-      "description": "Comment réserver chez Offhorizon : tout payer ou retenir sa place avec 20 pour cent, puis régler le reste avant la limite des 14 jours."
+      "description": "Comment réserver chez Offhorizon : tout payer ou retenir sa place avec un acompte, {percent} pour cent sur la plupart des expéditions, puis régler le reste avant la limite des 14 jours."
     },
     "eyebrow": "Avant de payer",
     "title": "Comment fonctionne la réservation",
@@ -1903,8 +1903,8 @@
         "body": "Pilotes, passagers, chambres individuelles, protection dommages, et sur une expédition 4x4 le véhicule souhaité ou le vôtre. Le total change à mesure que vous choisissez : aucune surprise."
       },
       {
-        "title": "Payez tout, ou payez 20 pour cent",
-        "body": "Les deux retiennent la place. Le paiement intégral clôt le sujet ; les 20 pour cent retiennent la place et laissent le solde à régler avant le départ."
+        "title": "Payez tout, ou versez un acompte",
+        "body": "Les deux retiennent la place. Le paiement intégral clôt le sujet ; un acompte retient la place et laisse le solde à régler avant le départ. L'acompte est de {percent} pour cent sur la plupart des expéditions, et le montant exact s'affiche avant le paiement."
       },
       {
         "title": "La place est à vous",
@@ -1932,7 +1932,7 @@
       {
         "title": "Régler le solde en plusieurs fois",
         "body": [
-          "Aucun échéancier à respecter. Une fois les 20 pour cent versés, payez le montant que vous voulez, quand vous voulez, autant de fois que vous voulez, jusqu'à extinction du solde.",
+          "Aucun échéancier à respecter. Une fois l'acompte versé, payez le montant que vous voulez, quand vous voulez, autant de fois que vous voulez, jusqu'à extinction du solde.",
           "Ouvrez la réservation dans votre compte, saisissez un montant et payez-le. Le solde se met à jour immédiatement et le reçu vous est envoyé par e-mail."
         ]
       },
@@ -1954,7 +1954,7 @@
       {
         "title": "Expéditions sur mesure",
         "body": [
-          "Une expédition sur mesure est construite pour vous et n'apparaît que dans votre compte. Choisissez vos pilotes et passagers, et payez intégralement ou à 20 pour cent, exactement comme ci-dessus.",
+          "Une expédition sur mesure est construite pour vous et n'apparaît que dans votre compte. Choisissez vos pilotes et passagers, et payez intégralement ou par acompte, exactement comme ci-dessus.",
           "Seule la personne pour qui l'expédition a été construite peut la payer. Les autres rejoignent le groupe par le lien d'invitation et remplissent leurs documents."
         ]
       },

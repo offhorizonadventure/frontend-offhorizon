@@ -4,6 +4,7 @@ import { Topo } from "@/components/ui/Topo";
 import { contact } from "@/config/contact";
 import type { Locale } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
+import { fillPercent } from "@/lib/deposit-copy";
 
 export type Clause = { title: string; body: string[]; list?: string[] };
 
@@ -19,7 +20,9 @@ export async function LegalPage({
   const t = await getTranslations({ locale, namespace: "legal" });
   const format = await getFormatter({ locale });
 
-  const clauses = t.raw(`${namespace}.sections`) as Clause[];
+  // Read raw, so the deposit placeholder in the terms is filled here rather
+  // than by next-intl, which never sees these strings.
+  const clauses = fillPercent(t.raw(`${namespace}.sections`) as Clause[]);
 
   return (
     <>
