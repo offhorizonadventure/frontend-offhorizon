@@ -85,6 +85,8 @@ export type TourFaq = { question: string; answer: string };
 export type Tour = {
   id: string;
   created_at: string;
+  /** When the tour was last edited. The sitemap reports it to Google. */
+  updated_at: string;
   slug: string;
   title: string;
   lead: string | null;
