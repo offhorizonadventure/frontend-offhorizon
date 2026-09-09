@@ -1970,9 +1970,9 @@
     "eyebrow": "Checkout",
     "planTitle": "How would you like to pay?",
     "full": "Pay in full",
-    "fullNote": "Settled in one payment. Your documents form opens straight away.",
+    "fullNote": "Pay the whole amount now. Your rider form opens right away.",
     "deposit": "Pay {percent} percent now",
-    "depositNote": "Holds your place. Pay the rest in instalments, all of it due 14 days before departure.",
+    "depositNote": "Books your seat now. Pay the rest any time before {date}.",
     "detailsTitle": "Who is booking",
     "name": "Full name",
     "email": "Email address",
@@ -2003,7 +2003,7 @@
     "signInTitle": "Sign in to finish this booking",
     "signInLead": "Use the account button in the bar above to sign in or make an account. Your choices are held right here while you do, and this page carries on the moment you are in.",
     "people": "People",
-    "depositClosed": "This departure is inside 14 days, so it has to be paid in full.",
+    "depositClosed": "This trip starts in less than {days} days, so the full amount has to be paid now.",
     "depositFull": "This expedition is paid in full when you book."
   },
   "bookings": {
@@ -2183,15 +2183,15 @@
     "next": "More departures"
   },
   "enquiryMail": {
-    "subject": "Thank you for getting in touch",
+    "subject": "Thank you for writing to us",
     "friend": "there",
     "yourRoute": "the route you have in mind",
     "greeting": "Hello {name},",
-    "received": "Your enquiry has reached our team in Manali. We will read it properly and reply personally, usually within one working day.",
-    "quickNext": "If your plans have a date or a route attached, send them over and we will come back with what is possible.",
-    "customNext": "We have your outline for {destination}. We will come back with dates, a route and a price built around it rather than a package off the shelf.",
-    "reply": "Anything you want to add in the meantime, just reply to this email. It comes straight to us.",
-    "meanwhile": "While you wait, every departure we have open is here: {link}"
+    "received": "Your message has reached our team in Manali. We will read it properly and write back to you ourselves, usually within one working day.",
+    "quickNext": "If you already know your dates or the route you want, send them to us. We will tell you what is possible.",
+    "customNext": "We have your plan for {destination}. We will send you dates, a route and a price made for you, not a ready made package.",
+    "reply": "Want to add something? Just reply to this email. It comes straight to us.",
+    "meanwhile": "While you wait, you can see all our open dates here: {link}"
   },
   "maintenance": {
     "eyebrow": "Back shortly",

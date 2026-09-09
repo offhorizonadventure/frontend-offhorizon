@@ -4,7 +4,7 @@ import { renderEmail, type EmailFact } from "@/lib/email-layout";
 import { sendMail } from "@/lib/mail";
 import { createAdminClient } from "@/lib/supabase/admin";
 
-import { BALANCE_DUE_DAYS } from "./types";
+import { cancelsAutomatically } from "./deadline";
 
 /**
  * Warnings before the balance deadline.
@@ -102,6 +102,13 @@ export async function remindBalances(): Promise<number> {
 
     if (!owed) continue;
 
+    // Whether missing this deadline actually cancels anything. On a booking
+    // made at the last minute the balance is simply due before the rider
+    // rides, and nothing will be cancelled, so nothing here says it will.
+    const enforced = row.departure
+      ? cancelsAutomatically(row.balance_due_on, row.departure.start_date)
+      : true;
+
     const { data: lead } = await supabase
       .from("booking_travellers")
       .select("email, full_name")
@@ -116,54 +123,66 @@ export async function remindBalances(): Promise<number> {
     const deadline = day(row.balance_due_on);
 
     const facts: EmailFact[] = [
-      ["Booking reference", row.reference],
-      ["Expedition", row.tour?.title ?? ""],
+      ["Booking number", row.reference],
+      ["Trip", row.tour?.title ?? ""],
       [
         "Dates",
-        row.departure
-          ? `${day(row.departure.start_date)} to ${day(row.departure.end_date)}`
-          : "",
+        row.departure ? `${day(row.departure.start_date)} to ${day(row.departure.end_date)}` : "",
       ],
-      ["Total", money(row.total_amount, row.currency)],
-      ["Paid so far", money(row.paid_amount, row.currency)],
-      ["Still to pay", money(left, row.currency)],
-      ["Due by", deadline],
+      ["Total price", money(row.total_amount, row.currency)],
+      ["Paid till now", money(row.paid_amount, row.currency)],
+      ["Left to pay", money(left, row.currency)],
+      ["Pay by", deadline],
     ];
 
-    const when =
-      daysLeft <= 0
-        ? "today"
-        : daysLeft === 1
-          ? "tomorrow"
-          : `in ${daysLeft} days`;
+    const when = daysLeft <= 0 ? "today" : daysLeft === 1 ? "tomorrow" : `in ${daysLeft} days`;
 
-    const { html, text } = renderEmail({
-      preheader: owed.final
-        ? `The balance on ${row.reference} is due ${when}.`
-        : `A reminder about the balance on ${row.reference}.`,
-      heading: owed.final ? "Your booking will be cancelled if this is not paid" : "Your balance is due soon",
-      figure: { label: "Still to pay", value: money(left, row.currency) },
-      paragraphs: owed.final
+    // Two different letters, because two different things happen next. A
+    // booking made at the last minute is not cancelled by anyone; the money is
+    // simply due before the rider rides, and saying otherwise would be a
+    // threat we do not carry out.
+    const paragraphs = enforced
+      ? owed.final
         ? [
             `Hello ${first},`,
-            `The balance on ${title} is due ${when}, on ${deadline}. That deadline is ${BALANCE_DUE_DAYS} days before the expedition leaves.`,
-            "If it is not paid by then the booking is cancelled and the places go back on sale. As set out in the terms you accepted when booking, money already paid is not refundable, so it is worth settling this today.",
+            `Your money for ${title} is due ${when}, on ${deadline}.`,
+            `Please pay ${money(left, row.currency)} before that date. If we do not get it, we will cancel your booking and give your seat to someone else.`,
+            "Money you have already paid will not come back to you. So please pay today if you can.",
           ]
         : [
             `Hello ${first},`,
-            `This is a reminder that the balance on ${title} is due ${when}, on ${deadline}. That deadline is ${BALANCE_DUE_DAYS} days before the expedition leaves.`,
-            "You can pay all of it or part of it, as many times as you like, until it is clear. A booking that still has a balance on the deadline is cancelled and the places go back on sale.",
-          ],
+            `This is a reminder. Your money for ${title} is due ${when}, on ${deadline}.`,
+            `You still have to pay ${money(left, row.currency)}. You can pay it all at once, or a little at a time. Pay as many times as you like.`,
+            "If the full money does not reach us by that date, we will cancel your booking and give your seat to someone else.",
+          ]
+      : [
+          `Hello ${first},`,
+          `Your trip ${title} starts soon. You still have to pay ${money(left, row.currency)}.`,
+          `Please pay it before ${deadline}, the day the trip starts. You can pay it all at once, or a little at a time.`,
+          "Your seat is safe. We only need the rest of the money before you ride.",
+        ];
+
+    const { html, text } = renderEmail({
+      preheader: enforced
+        ? `Please pay ${money(left, row.currency)} for booking ${row.reference}.`
+        : `${money(left, row.currency)} is left to pay on booking ${row.reference}.`,
+      heading: !enforced
+        ? "Please pay the rest before your trip"
+        : owed.final
+          ? "Last reminder: pay now or we will cancel your booking"
+          : "Your payment is due soon",
+      figure: { label: "Left to pay", value: money(left, row.currency) },
+      paragraphs,
       facts,
-      cta: { label: "Pay the balance", href: `${siteUrl()}/account/bookings/${row.reference}` },
-      note: "If you have already paid this, or anything here looks wrong, reply to this email and we will sort it out.",
+      cta: { label: "Pay now", href: `${siteUrl()}/account/bookings/${row.reference}` },
+      note: "Already paid? Or does something here look wrong? Just reply to this email and we will check it for you.",
     });
 
     const posted = await sendMail({
       to: lead.email,
-      subject: owed.final
-        ? `Last chance to pay ${row.reference} · ${title}`
-        : `Balance due ${when} for ${row.reference} · ${title}`,
+      subject: enforced && owed.final
+        ? `Last reminder: pay for ${row.reference} or it will be cancelled`
+        : `Payment due ${when} for your trip (${row.reference})`,
       text,
       html,
     });
@@ -186,9 +205,11 @@ export async function remindBalances(): Promise<number> {
       actor_id: null,
       actor_email: null,
       kind: "reminder",
-      message: owed.final
-        ? `Final warning sent to ${lead.email}. Balance due ${deadline}.`
-        : `Balance reminder sent to ${lead.email}. Due ${deadline}.`,
+      message: !enforced
+        ? `Payment reminder sent to ${lead.email}. Due ${deadline}, on the day it leaves, so nothing is cancelled automatically.`
+        : owed.final
+          ? `Final warning sent to ${lead.email}. Balance due ${deadline}.`
+          : `Balance reminder sent to ${lead.email}. Due ${deadline}.`,
     });
 
     sent += 1;

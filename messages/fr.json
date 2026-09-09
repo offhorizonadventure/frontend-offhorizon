@@ -1978,9 +1978,9 @@
     "eyebrow": "Paiement",
     "planTitle": "Comment souhaitez-vous payer ?",
     "full": "Tout payer",
-    "fullNote": "Réglé en une fois. Votre formulaire de documents s'ouvre aussitôt.",
+    "fullNote": "Payez la totalité maintenant. Votre formulaire s'ouvre aussitôt.",
     "deposit": "Payer {percent} pour cent maintenant",
-    "depositNote": "Retient votre place. Réglez le reste en plusieurs fois, la totalité étant due 14 jours avant le départ.",
+    "depositNote": "Votre place est retenue. Payez le reste quand vous voulez avant le {date}.",
     "detailsTitle": "Qui réserve",
     "name": "Nom complet",
     "email": "Adresse e-mail",
@@ -2011,7 +2011,7 @@
     "signInTitle": "Connectez-vous pour finaliser cette réservation",
     "signInLead": "Utilisez le bouton compte dans la barre ci-dessus pour vous connecter ou créer un compte. Vos choix restent en place pendant ce temps, et cette page reprend dès que vous êtes connecté.",
     "people": "Personnes",
-    "depositClosed": "Ce départ est à moins de 14 jours : il doit être payé intégralement.",
+    "depositClosed": "Ce départ a lieu dans moins de {days} jours : il doit être payé en totalité.",
     "depositFull": "Cette expédition se règle intégralement à la réservation."
   },
   "bookings": {

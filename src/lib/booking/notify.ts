@@ -59,40 +59,40 @@ export async function sendPaymentEmail(paymentId: string) {
 
   const { html, text } = renderEmail({
     preheader: settled
-      ? `${booking.tour.title} is paid in full.`
-      : `We have received ${money(data.amount, data.currency)} towards ${booking.tour.title}.`,
-    heading: settled ? "Paid in full" : "Payment received",
-    figure: { label: "Amount received", value: money(data.amount, data.currency) },
+      ? `${booking.tour.title} is fully paid.`
+      : `We got your payment of ${money(data.amount, data.currency)}.`,
+    heading: settled ? "Fully paid. You are all set." : "We have got your money",
+    figure: { label: "Money received", value: money(data.amount, data.currency) },
     paragraphs: [
       `Hello ${first},`,
       settled
-        ? "That settles your expedition in full. Your place is confirmed and there is nothing further to pay."
-        : "Thank you. Your place is confirmed, and the balance is set out below.",
+        ? "Thank you. Your trip is now fully paid. Your seat is booked and nothing more is left to pay."
+        : "Thank you. Your seat is booked. What is left to pay is written below.",
     ],
     facts: [
-      ["Expedition", booking.tour.title],
+      ["Trip", booking.tour.title],
       ["Dates", `${day(booking.departure.start_date)} to ${day(booking.departure.end_date)}`],
-      ["Booking reference", booking.reference],
-      ["Paid so far", money(booking.paid_amount, booking.currency)],
-      ["Expedition total", money(booking.total_amount, booking.currency)],
+      ["Booking number", booking.reference],
+      ["Paid till now", money(booking.paid_amount, booking.currency)],
+      ["Total price", money(booking.total_amount, booking.currency)],
       ...(settled
         ? []
         : ([
-            ["Still to pay", money(left, booking.currency)],
-            ["Due by", day(booking.balance_due_on)],
+            ["Left to pay", money(left, booking.currency)],
+            ["Pay by", day(booking.balance_due_on)],
           ] as [string, string][])),
     ],
-    cta: { label: "View your booking", href: bookingUrl },
+    cta: { label: "See your booking", href: bookingUrl },
     note: settled
-      ? "Your documents form is now open in your account, and we need it back before you travel. If anything here looks wrong, reply to this email and we will sort it out."
-      : "You can pay any amount towards the balance, as many times as you like, from your account. If anything here looks wrong, reply to this email and we will sort it out.",
+      ? "Please open your account and fill the rider form. We need it before you travel. If something here looks wrong, just reply to this email."
+      : "You can pay the rest any time from your account. Pay it all at once, or a little at a time. If something here looks wrong, just reply to this email.",
   });
 
   await sendMail({
     to,
     subject: settled
-      ? `${booking.tour.title} is paid in full (${booking.reference})`
-      : `Payment received for ${booking.tour.title} (${booking.reference})`,
+      ? `${booking.tour.title} is fully paid (${booking.reference})`
+      : `We got your payment for ${booking.tour.title} (${booking.reference})`,
     text,
     html,
   });

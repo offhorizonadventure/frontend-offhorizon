@@ -11,6 +11,7 @@ import { chargeCurrencyFor } from "./currency";
 import { startPayment, type PaymentFailure, type PaymentStarted } from "./payment";
 import { quoteBooking, type PricedDeparture } from "./quote";
 
+import { allowsLateDeposit, balanceDueOn } from "./deadline";
 import { BALANCE_DUE_DAYS, depositShare, type BookingPlan, type Party } from "./types";
 
 const DEPARTURE_COLUMNS = `
@@ -19,7 +20,7 @@ const DEPARTURE_COLUMNS = `
   rider_discount, pillion_discount, deposit_percent,
   rider_price, pillion_price, damage_protection_price, single_room_price,
   seats, seats_taken,
-  tour:tours(${TOUR_PRICE_COLUMNS}),
+  tour:tours(country, ${TOUR_PRICE_COLUMNS}),
   vehicles:departure_vehicles(vehicle:vehicles(id, name, per_day_price, seats))
 `;
 
@@ -44,13 +45,6 @@ function labelFor(key: string, departure: PricedDeparture, party: Party): string
 
   return vehicle?.name ?? "Vehicle";
 }
-
-const daysBefore = (date: string, days: number) => {
-  const at = new Date(`${date}T00:00:00Z`);
-  at.setUTCDate(at.getUTCDate() - days);
-
-  return at.toISOString().slice(0, 10);
-};
 
 /**
  * Every column the site must fill in when it writes a booking.
@@ -107,7 +101,7 @@ async function readDeparture(departureId: string) {
 
   const row = data as unknown as Omit<PricedDeparture, "vehicles" | "prices"> & {
     tour_id: string;
-    tour: TourPrices | null;
+    tour: (TourPrices & { country: string | null }) | null;
     rider_discount: number | null;
     deposit_percent: number | null;
     pillion_discount: number | null;
@@ -126,8 +120,10 @@ async function readDeparture(departureId: string) {
     // The one place the money that is actually charged is decided, so it can
     // never disagree with what the wizard quoted.
     prices: resolvePrices(row.tour, row),
+    // Read here so the deadline rule never has to reach back for the tour.
+    tourCountry: row.tour?.country ?? null,
     vehicles: (row.vehicles ?? []).map((entry) => entry.vehicle).filter(Boolean),
-  } as PricedDeparture & { tour_id: string };
+  } as PricedDeparture & { tour_id: string; tourCountry: string | null };
 }
 
 export async function startBooking(input: {
@@ -157,7 +153,11 @@ export async function startBooking(input: {
     return { ok: false, error: "That departure has already left." };
   }
 
-  if (input.plan === "deposit" && startsIn <= BALANCE_DUE_DAYS) {
+  const late = allowsLateDeposit(departure.tourCountry);
+
+  // Checked here as well as in the checkout, because the checkout is a screen
+  // and this is the thing that writes the row.
+  if (input.plan === "deposit" && startsIn <= BALANCE_DUE_DAYS && !late) {
     return {
       ok: false,
       error: `This departure is inside ${BALANCE_DUE_DAYS} days, so it has to be paid in full.`,
@@ -235,7 +235,7 @@ export async function startBooking(input: {
     base_total: quote.total,
     total_amount: total,
     deposit_amount: deposit,
-    balance_due_on: daysBefore(departure.start_date, BALANCE_DUE_DAYS),
+    balance_due_on: balanceDueOn(departure.start_date, departure.tourCountry),
   };
 
   const { data: booking, error } = await supabase

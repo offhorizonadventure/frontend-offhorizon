@@ -12,6 +12,7 @@ import { COUNTRY_COOKIE } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/params";
 import { priceBooking } from "@/lib/booking/preview";
+import { BALANCE_DUE_DAYS } from "@/lib/booking/types";
 import { countryOptions, toCountryCode } from "@/lib/countries";
 import { razorpayConfigured, razorpayKeyId } from "@/lib/booking/razorpay";
 import { getProfile } from "@/lib/profile";
@@ -43,6 +44,12 @@ export default async function CheckoutPage({
 
   const priced = await priceBooking(locale, departureId, query);
   if (!priced) notFound();
+
+  const dueLabel = new Intl.DateTimeFormat(locale, {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(`${priced.balanceDueOn}T00:00:00Z`));
 
   return (
     <>
@@ -88,8 +95,10 @@ export default async function CheckoutPage({
                     // The share this expedition asks for, so the button never
                     // promises twenty percent on a date that wants half.
                     deposit: t("deposit", { percent: priced.depositPercent }),
-                    depositNote: t("depositNote"),
-                    depositClosed: t("depositClosed"),
+                    // The real date this booking's balance falls due, rather
+                    // than a flat fortnight that is no longer true everywhere.
+                    depositNote: t("depositNote", { date: dueLabel }),
+                    depositClosed: t("depositClosed", { days: BALANCE_DUE_DAYS }),
                     depositFull: t("depositFull"),
                     detailsTitle: t("detailsTitle"),
                     name: t("name"),

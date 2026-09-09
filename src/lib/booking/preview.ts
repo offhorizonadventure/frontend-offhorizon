@@ -7,6 +7,7 @@ import { createClient } from "@/lib/supabase/server";
 
 import { chargeCurrencyFor } from "./currency";
 import { quoteBooking, type PricedDeparture } from "./quote";
+import { allowsLateDeposit, balanceDueOn, cancelsAutomatically } from "./deadline";
 import { BALANCE_DUE_DAYS, depositShare, type Party } from "./types";
 
 const COLUMNS = `
@@ -15,7 +16,7 @@ const COLUMNS = `
   rider_discount, pillion_discount, deposit_percent,
   rider_price, pillion_price, damage_protection_price, single_room_price,
   seats, seats_taken,
-  tour:tours(title, slug, ${TOUR_PRICE_COLUMNS}),
+  tour:tours(title, slug, country, ${TOUR_PRICE_COLUMNS}),
   vehicles:departure_vehicles(vehicle:vehicles(id, name, per_day_price, seats))
 `;
 
@@ -51,7 +52,7 @@ export async function priceBooking(
   type Named = { id: string; name: string; per_day_price: number | null; seats: number | null };
 
   const row = data as unknown as Omit<PricedDeparture, "vehicles" | "prices"> & {
-    tour: { title: string; slug: string } & TourPrices;
+    tour: { title: string; slug: string; country: string | null } & TourPrices;
     rider_discount: number | null;
     deposit_percent: number | null;
     pillion_discount: number | null;
@@ -88,6 +89,12 @@ export async function priceBooking(
   // date; a blank one falls back to the house rule.
   const share = depositShare(departure.deposit_percent);
   const deposit = money(total * share);
+
+  const late = allowsLateDeposit(row.tour.country);
+  // The country matters here as much as it does on the server. Without it the
+  // page would quote a deadline that had already passed while the booking it
+  // creates carries the right one.
+  const due = balanceDueOn(departure.start_date, row.tour.country);
   const format = (amount: number) => formatMoney(amount, currency as never, locale);
 
   const dates = new Intl.DateTimeFormat(locale, {
@@ -107,7 +114,14 @@ export async function priceBooking(
 
   return {
     kind: departure.kind,
-    depositAllowed: startsIn > BALANCE_DUE_DAYS && share < 1,
+    // An Indian expedition takes a deposit however close the date is; anywhere
+    // else the old fortnight still applies. Either way a hundred percent
+    // expedition has no deposit to offer.
+    depositAllowed: (late || startsIn > BALANCE_DUE_DAYS) && share < 1,
+    /** The day the balance falls due on a booking made now. */
+    balanceDueOn: due,
+    /** False when nothing will be cancelled for missing it, so nobody says it will. */
+    cancelled: cancelsAutomatically(due, departure.start_date),
     /** Set when the expedition itself asks for the whole amount, rather than
         when the departure is simply too close to take a deposit. The two want
         different sentences. */

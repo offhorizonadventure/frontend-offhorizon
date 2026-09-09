@@ -1976,9 +1976,9 @@
     "eyebrow": "Zahlung",
     "planTitle": "Wie möchten Sie zahlen?",
     "full": "Alles zahlen",
-    "fullNote": "In einer Zahlung erledigt. Ihr Unterlagenformular öffnet sich sofort.",
+    "fullNote": "Zahlen Sie jetzt den vollen Betrag. Ihr Fahrerformular öffnet sich sofort.",
     "deposit": "Jetzt {percent} Prozent zahlen",
-    "depositNote": "Sichert Ihren Platz. Den Rest in Raten, vollständig fällig 14 Tage vor Abreise.",
+    "depositNote": "Sichert Ihren Platz. Den Rest zahlen Sie jederzeit bis zum {date}.",
     "detailsTitle": "Wer bucht",
     "name": "Vollständiger Name",
     "email": "E-Mail-Adresse",
@@ -2009,7 +2009,7 @@
     "signInTitle": "Melden Sie sich an, um diese Buchung abzuschließen",
     "signInLead": "Nutzen Sie die Kontoschaltfläche in der Leiste oben, um sich anzumelden oder ein Konto anzulegen. Ihre Auswahl bleibt so lange erhalten, und diese Seite macht weiter, sobald Sie angemeldet sind.",
     "people": "Personen",
-    "depositClosed": "Dieser Termin liegt innerhalb von 14 Tagen und muss vollständig bezahlt werden.",
+    "depositClosed": "Diese Reise startet in weniger als {days} Tagen und muss voll bezahlt werden.",
     "depositFull": "Diese Expedition wird bei der Buchung vollständig bezahlt."
   },
   "bookings": {

@@ -5,6 +5,7 @@ import { sendMail } from "@/lib/mail";
 
 import { createAdminClient } from "@/lib/supabase/admin";
 
+import { cancelsAutomatically } from "./deadline";
 import { BALANCE_DUE_DAYS } from "./types";
 
 export async function cancelOverdue() {
@@ -15,7 +16,9 @@ export async function cancelOverdue() {
     .from("bookings")
     .select(
       `id, reference, riders, departure_id, seats_counted, total_amount, paid_amount, currency,
-       tour:tours(title)`,
+       balance_due_on,
+       tour:tours(title),
+       departure:departures(start_date)`,
     )
     .lt("balance_due_on", today)
     .in("status", ["pending", "confirmed"]);
@@ -26,6 +29,20 @@ export async function cancelOverdue() {
 
   for (const booking of overdue) {
     if (booking.paid_amount >= booking.total_amount) continue;
+
+    // A balance due on the day the expedition leaves was never a countdown to
+    // a cancellation, it was a thing to settle before riding. The earliest this
+    // job could act on one is the morning after the trip started, and
+    // cancelling a booking for a trip that has run is not a thing to do.
+    //
+    // Only Indian expeditions, which take a deposit at the last minute, ever
+    // get a deadline like that. Every other booking reaches this line exactly
+    // as it did before.
+    const departure = booking.departure as unknown as { start_date: string } | null;
+
+    if (departure && !cancelsAutomatically(booking.balance_due_on as string, departure.start_date)) {
+      continue;
+    }
 
     const { error } = await supabase
       .from("bookings")
@@ -80,18 +97,19 @@ export async function cancelOverdue() {
 
     if (lead?.email) {
       const { html, text } = renderEmail({
-        preheader: `The balance on ${booking.reference} was not settled in time.`,
-        heading: "Your booking has been cancelled",
+        preheader: `Booking ${booking.reference} has been cancelled.`,
+        heading: "We have cancelled your booking",
         paragraphs: [
           `Hello ${lead.full_name?.trim().split(/\s+/)[0] ?? "there"},`,
-          `The balance on ${tour?.title ?? "your expedition"} was not settled by the deadline, which is ${BALANCE_DUE_DAYS} days before departure, so the booking has been cancelled and the place has gone back on sale.`,
-          "As set out in the terms you accepted when booking, money already paid is not refundable.",
+          `We did not get the full money for ${tour?.title ?? "your trip"} by the last date, which is ${BALANCE_DUE_DAYS} days before the trip starts. So we have cancelled your booking and given your seat to someone else.`,
+          "The money you paid before will not come back to you. This was written in the terms you agreed to when you booked.",
+          "We are sorry. If you still want to ride with us, write to us and we will look for another date.",
         ],
         facts: [
-          ["Expedition", tour?.title ?? ""],
-          ["Booking reference", booking.reference],
+          ["Trip", tour?.title ?? ""],
+          ["Booking number", booking.reference],
         ],
-        note: "If you believe this is a mistake, reply to this email today and we will look at it.",
+        note: "Do you think this is a mistake? Reply to this email today and we will check it.",
       });
 
       await sendMail({
