@@ -5,6 +5,8 @@ import { sendMail } from "@/lib/mail";
 
 import { createAdminClient } from "@/lib/supabase/admin";
 
+import { BALANCE_DUE_DAYS } from "./types";
+
 export async function cancelOverdue() {
   const supabase = createAdminClient();
   const today = new Date().toISOString().slice(0, 10);
@@ -56,6 +58,17 @@ export async function cancelOverdue() {
 
     closed += 1;
 
+    // In the booking's own history, so the office reading it later can see
+    // that the reminders went out and this followed, rather than finding a
+    // cancellation with nothing in front of it.
+    await supabase.from("booking_events").insert({
+      booking_id: booking.id,
+      actor_id: null,
+      actor_email: null,
+      kind: "cancelled",
+      message: "Cancelled automatically: the balance was not paid by the deadline.",
+    });
+
     const { data: lead } = await supabase
       .from("booking_travellers")
       .select("email, full_name")
@@ -71,7 +84,7 @@ export async function cancelOverdue() {
         heading: "Your booking has been cancelled",
         paragraphs: [
           `Hello ${lead.full_name?.trim().split(/\s+/)[0] ?? "there"},`,
-          `The balance on ${tour?.title ?? "your expedition"} was not settled by the deadline, which is 14 days before departure, so the booking has been cancelled and the place has gone back on sale.`,
+          `The balance on ${tour?.title ?? "your expedition"} was not settled by the deadline, which is ${BALANCE_DUE_DAYS} days before departure, so the booking has been cancelled and the place has gone back on sale.`,
           "As set out in the terms you accepted when booking, money already paid is not refundable.",
         ],
         facts: [
