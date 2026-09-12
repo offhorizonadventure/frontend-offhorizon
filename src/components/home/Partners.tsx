@@ -24,8 +24,8 @@ export async function Partners() {
           </div>
 
           <div className="sm:text-right">
-            <p className="text-brand-800/55 max-w-xs text-[13.5px] leading-relaxed">{t("note")}</p>
-            <p className="text-brand-500 mt-3 text-[10px] font-bold tracking-[0.18em] uppercase tabular-nums">
+            <p className="text-brand-800/70 max-w-xs text-[13.5px] leading-relaxed">{t("note")}</p>
+            <p className="text-brand-600 mt-3 text-[10px] font-bold tracking-[0.18em] uppercase tabular-nums">
               {t("since", { year: FOUNDED_YEAR })}
             </p>
           </div>

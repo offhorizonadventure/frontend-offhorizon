@@ -52,6 +52,11 @@ export function AccountMenu({
       <button
         type="button"
         onClick={onSignIn}
+        // The label beside the icon is hidden below the sm breakpoint, which
+        // left this button with nothing but an SVG in it on every phone. A
+        // button with no name is a button a screen reader announces as
+        // "button", and one an agent reading the page cannot identify at all.
+        aria-label={signIn}
         className="border-brand-900/15 text-brand-900 hover:border-brand-900/35 hover:bg-brand-900/5 inline-flex h-9 items-center gap-2 rounded-full border px-3.5 text-[10.5px] font-bold tracking-[0.09em] whitespace-nowrap uppercase transition-colors duration-200"
       >
         <UserRound />
@@ -69,6 +74,8 @@ export function AccountMenu({
         type="button"
         aria-expanded={open}
         aria-haspopup="menu"
+        // This one never had a name at any width: it is the icon alone.
+        aria-label={account}
         onClick={() => setOpen((on) => !on)}
         className="bg-brand-800 text-cream-100 hover:bg-brand-900 grid size-9 place-items-center rounded-full transition-colors"
       >

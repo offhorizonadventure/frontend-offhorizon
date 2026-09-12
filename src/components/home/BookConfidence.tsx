@@ -87,7 +87,7 @@ export async function BookConfidence() {
                 {tc("title")}
               </h3>
 
-              <p className="text-brand-800/60 mt-4 max-w-md text-[15px] leading-[1.8]">
+              <p className="text-brand-800/70 mt-4 max-w-md text-[15px] leading-[1.8]">
                 {tc("subtitle")}
               </p>
 
@@ -99,7 +99,7 @@ export async function BookConfidence() {
                 <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
               </QuickEnquiryModal>
 
-              <p className="text-brand-800/45 mt-4 text-[12px]">{tc("note")}</p>
+              <p className="text-brand-800/70 mt-4 text-[12px]">{tc("note")}</p>
             </div>
 
             <div className="lg:col-span-5">
