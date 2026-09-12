@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
+import { isRemoved } from "@/config/removed-urls";
 import { COUNTRY_COOKIE, LOCALE_COOKIE, isLocale, localeFor } from "@/i18n/config";
 import { PATH_HEADER } from "@/lib/next-path";
 import { refreshSession } from "@/lib/supabase/proxy";
@@ -31,8 +32,31 @@ function detectLocale(request: NextRequest) {
   return localeFor(detectCountry(request));
 }
 
+/**
+ * Gone, and said so in the one word Google acts on quickly.
+ *
+ * No locale, no layout, no database: the fewer moving parts between the
+ * request and the answer, the sooner a thousand of these stop being crawled.
+ */
+const gone = () =>
+  new NextResponse("410 Gone", {
+    status: 410,
+    headers: {
+      "content-type": "text/plain; charset=utf-8",
+      "x-robots-tag": "noindex",
+      // Nothing should hold on to this, least of all a cache in front of it.
+      "cache-control": "no-store",
+    },
+  });
+
 export default async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // Before anything else, including the locale redirect. Those addresses used
+  // to be sent to /en and answered there, and the ones asking by WordPress post
+  // id answered 200 with the home page: two hundred and forty four casino
+  // addresses each serving a copy of it.
+  if (isRemoved(pathname, request.nextUrl.searchParams)) return gone();
 
   if (isLocale(pathname.split("/")[1])) {
     /**
