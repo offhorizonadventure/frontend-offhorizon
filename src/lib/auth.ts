@@ -8,7 +8,20 @@ import {
   signUpAction,
   updatePasswordAction,
 } from "@/lib/auth-actions";
-import { createClient } from "@/lib/supabase/client";
+/**
+ * Fetched when somebody uses it, not when somebody loads a page.
+ *
+ * This module is reached from the account button in the bar, so it is on every
+ * page on the site, and a static import put the whole Supabase browser client
+ * into the first load of all of them: a quarter of a megabyte of JavaScript
+ * parsed on a phone so that a button could say "Sign in".
+ *
+ * Four of the seven calls below never needed it. The three that do are all
+ * things a person clicks, so the wait for the chunk falls inside an action the
+ * visitor has already chosen to take, and a page nobody signs in from pays
+ * nothing at all.
+ */
+const browserClient = async () => (await import("@/lib/supabase/client")).createClient();
 
 export type AuthResult = { error: string | null };
 
@@ -36,7 +49,7 @@ export async function signUp(
  * the address has to travel with it or it is gone.
  */
 export async function signInWith(provider: Provider, next = "/account"): Promise<AuthResult> {
-  const supabase = createClient();
+  const supabase = await browserClient();
 
   const { error } = await supabase.auth.signInWithOAuth({
     provider,
@@ -55,12 +68,12 @@ export async function updatePassword(password: string): Promise<AuthResult> {
 }
 
 export async function signOut(): Promise<void> {
-  const supabase = createClient();
+  const supabase = await browserClient();
   await supabase.auth.signOut();
 }
 
 export async function updateProfile(profile: { name: string; phone: string }): Promise<AuthResult> {
-  const supabase = createClient();
+  const supabase = await browserClient();
 
   const { data, error: sessionError } = await supabase.auth.getUser();
   if (sessionError || !data.user) return { error: "You are not signed in." };

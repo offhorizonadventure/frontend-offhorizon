@@ -3,7 +3,33 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-import { BookingWizard, type BookingProps } from "@/components/tour/BookingWizard";
+import dynamic from "next/dynamic";
+
+import type { BookingProps } from "@/components/tour/BookingWizard";
+
+/**
+ * Fetched when the drawer opens, not when the page loads.
+ *
+ * The wizard is the largest client component on the site: five steps, every
+ * departure, every price and the whole set of labels in the reader's language.
+ * It is also behind a button, and the tour page renders it twice, once for the
+ * price card and once for the bar that follows you up the page on a phone. So a
+ * visitor who came to read about Ladakh was downloading and hydrating two
+ * copies of a booking form they had not asked for, on the slowest device they
+ * own, while waiting for the page to become usable.
+ *
+ * It only renders once `phase` leaves "closed", so the import costs nothing
+ * until somebody presses the button, and by then a spinner is expected anyway.
+ */
+const BookingWizard = dynamic(
+  () => import("@/components/tour/BookingWizard").then((m) => m.BookingWizard),
+  {
+    ssr: false,
+    loading: () => (
+      <p className="text-brand-800/50 py-8 text-center text-[13px]">Loading dates…</p>
+    ),
+  },
+);
 import { ChevronDown, Close } from "@/components/ui/icons";
 
 type Phase = "closed" | "open" | "closing";

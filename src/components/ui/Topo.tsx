@@ -4,9 +4,20 @@ type TopoProps = {
   className?: string;
 };
 
+/**
+ * One contour ring, written as moves relative to the last point.
+ *
+ * Every ring is seventy three points and every page draws seven rings worth of
+ * this, inline, in the HTML. Written as absolute coordinates each point cost
+ * four digits and a comma; written as the step from the one before it, most
+ * cost one or two. Same curve, same pixels, a fifth less HTML on every page on
+ * the site for decoration nobody is looking at.
+ */
 function contour(cx: number, cy: number, radius: number, seed: number, squash: number) {
   const steps = 72;
-  const points: string[] = [];
+  let path = "";
+  let lastX = 0;
+  let lastY = 0;
 
   for (let i = 0; i <= steps; i++) {
     const t = (i / steps) * Math.PI * 2;
@@ -18,12 +29,16 @@ function contour(cx: number, cy: number, radius: number, seed: number, squash: n
       0.02 * Math.sin(13 * t + seed * 3.1);
 
     const r = radius * wobble;
-    points.push(`${Math.round(cx + r * squash * Math.cos(t))},${Math.round(cy + r * Math.sin(t))}`);
+    const x = Math.round(cx + r * squash * Math.cos(t));
+    const y = Math.round(cy + r * Math.sin(t));
+
+    path += i === 0 ? `M${x},${y}` : `l${x - lastX},${y - lastY}`;
+    lastX = x;
+    lastY = y;
   }
 
-  return `M${points.join("L")}Z`;
+  return `${path}Z`;
 }
-
 export function Topo({ rings = 16, seed = 1.4, className = "" }: TopoProps) {
   const paths: { d: string; index: number }[] = [];
 
