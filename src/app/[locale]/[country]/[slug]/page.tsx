@@ -21,6 +21,7 @@ import { buildBooking } from "@/lib/booking-props";
 import {
   countryName,
   getTour,
+  getTourByOldSlug,
   imageUrl,
   listDepartures,
   listMyDepartures,
@@ -81,7 +82,16 @@ export default async function TourPage({ params }: PageProps<"/[locale]/[country
   const locale = await resolveLocale(params);
   const { country, slug } = await params;
   const source = await readTour(slug);
-  if (!source) notFound();
+
+  // Nothing answers on this address any more. Before giving up, see whether a
+  // tour used to live here: a renamed slug that 404s throws away every link
+  // anybody ever shared and every month of ranking the old address earned.
+  if (!source) {
+    const moved = await getTourByOldSlug(slug);
+    if (moved) permanentRedirect(`/${locale}${tourPath(moved)}`);
+
+    notFound();
+  }
 
   const path = tourPath(source);
 

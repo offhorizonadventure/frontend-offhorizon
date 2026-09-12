@@ -240,6 +240,34 @@ export const getTour = unstable_cache(
   { tags: [CATALOGUE_TAG], revalidate: DAY },
 );
 
+/**
+ * The tour that used to answer on this address.
+ *
+ * Read only when nothing answers on the address now, which is the moment a
+ * renamed tour would otherwise have returned 404 to a visitor who followed a
+ * link, or to Google, which reads a 404 as "gone, drop it" rather than "moved,
+ * carry the ranking across".
+ */
+export const getTourByOldSlug = unstable_cache(
+  async (slug: string): Promise<Tour | null> => {
+    const supabase = client();
+    if (!supabase) return null;
+
+    const { data, error } = await supabase
+      .from("tours")
+      .select("*")
+      .eq("status", "published")
+      .contains("previous_slugs", [slug])
+      .maybeSingle();
+
+    // A database that has not run `patch-previous-slugs.sql` yet has no such
+    // column, and a missing redirect is better than a broken page.
+    return !error && data ? shape(data) : null;
+  },
+  ["tour-old-slug"],
+  { tags: [CATALOGUE_TAG], revalidate: DAY },
+);
+
 export const listDepartures = unstable_cache(
   async (tourId?: string): Promise<Departure[]> => {
     const supabase = client();
