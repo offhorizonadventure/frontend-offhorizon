@@ -21,7 +21,7 @@ export async function DestinationGallery() {
   return (
     <GalleryMotion>
       <ul className="dg-rail">
-        {destinations.map((destination) => (
+        {destinations.map((destination, index) => (
           <li key={destination.key} data-dg-item className="dg-item">
             <Link href={destination.href} className="dg-panel group">
               {}
@@ -30,9 +30,16 @@ export async function DestinationGallery() {
                   src={destination.image}
                   alt={td(destination.key)}
                   fill
-                  priority
+                  // Only the first one. `priority` inside a map made all six
+                  // of these preload at once, and on a phone they then shared
+                  // one connection: the first panel is the largest thing on
+                  // the screen, so it is the score, and it was queued behind
+                  // five pictures nobody had scrolled to yet. Its load time
+                  // alone was 2.8 seconds. The rail scrolls sideways, so the
+                  // rest are off screen anyway and lazy is what they wanted.
+                  priority={index === 0}
                   sizes="(max-width: 767px) 78vw, (max-width: 1023px) 46vw, 40vw"
-                  quality={75}
+                  quality={60}
                   className="ease-out-expo object-cover transition-transform duration-[1400ms] group-hover:scale-[1.06]"
                 />
               </span>

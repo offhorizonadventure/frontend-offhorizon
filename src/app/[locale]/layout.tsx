@@ -3,8 +3,9 @@ import { getMessages, getTranslations } from "next-intl/server";
 
 import "../globals.css";
 
-import { MetaPixel, MetaPixelFrame } from "@/components/analytics/MetaPixel";
-import { TagManager, TagManagerFrame } from "@/components/analytics/TagManager";
+import { LazyTags } from "@/components/analytics/LazyTags";
+import { MetaPixelFrame } from "@/components/analytics/MetaPixel";
+import { TagManagerFrame } from "@/components/analytics/TagManager";
 import { Termly } from "@/components/analytics/Termly";
 import { ScrollMotion } from "@/components/motion/ScrollMotion";
 import { SiteSchema } from "@/components/seo/SiteSchema";
@@ -82,8 +83,10 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
 
         {}
         <Termly />
-        <TagManager />
-        <MetaPixel />
+        <LazyTags
+          gtm={process.env.NEXT_PUBLIC_GTM_ID ?? ""}
+          pixel={process.env.NEXT_PUBLIC_META_PIXEL_ID ?? ""}
+        />
       </head>
       <body className="bg-cream-50 flex min-h-full flex-col">
         <TagManagerFrame />

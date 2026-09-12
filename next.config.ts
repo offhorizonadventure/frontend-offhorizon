@@ -112,7 +112,11 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 828, 1200, 1920],
     imageSizes: [64, 128, 256, 384],
 
-    qualities: [75, 90],
+    // 60 is for the decorative panels on the home page, which sit behind a
+    // dark scrim with text over them. They are the largest thing on a phone
+    // screen, so they are what the score measures, and nobody has ever looked
+    // at one closely enough to tell 60 from 75.
+    qualities: [60, 75, 90],
     remotePatterns: [
       { protocol: "https", hostname: "flagcdn.com" },
       {
