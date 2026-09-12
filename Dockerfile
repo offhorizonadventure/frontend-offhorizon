@@ -44,6 +44,27 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# The cache directory has to exist in the image, and has to belong to the user
+# that runs the server.
+#
+# `--chown` on a COPY sets the owner of what was copied. The directories docker
+# creates on the way to it are not copied, so `/app/.next` came out owned by
+# root while everything inside it belonged to nextjs. The server then could not
+# create `/app/.next/cache`, and said so on every single request:
+#
+#   EACCES: permission denied, mkdir '/app/.next/cache/fetch-cache'
+#
+# With the root filesystem read only, that directory is the one place the
+# server is allowed to write, and it could not. So nothing was ever cached:
+# every page view queried the database again, every optimised image was
+# re-encoded on the spot, and revalidateTag had nothing to clear. It read as a
+# warning in the log. It was the whole cache layer being off.
+#
+# It also decides the named volume's ownership. Docker seeds an empty volume
+# from the image, permissions included, so creating the directory here is what
+# makes the mounted volume writable rather than root's.
+RUN mkdir -p .next/cache && chown -R nextjs:nodejs .next
+
 USER nextjs
 EXPOSE 3000
 

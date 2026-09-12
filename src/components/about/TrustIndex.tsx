@@ -51,9 +51,16 @@ export function TrustIndex() {
     };
 
     // Off the critical path, but not waiting to be scrolled to.
+    //
+    // The timeout used to be 1500ms, which is a promise to load the widget
+    // whether the browser is idle or not, and on a phone it is never idle that
+    // early. It forced four requests to a review service into the same second
+    // the visitor was waiting for the page. Six seconds is long enough that a
+    // busy main thread is left alone and short enough that the reviews are
+    // there before anybody scrolls to them.
     const idle = window.requestIdleCallback
-      ? window.requestIdleCallback(load, { timeout: 1500 })
-      : window.setTimeout(load, 200);
+      ? window.requestIdleCallback(load, { timeout: 6000 })
+      : window.setTimeout(load, 2500);
 
     return () => {
       cancelled = true;
