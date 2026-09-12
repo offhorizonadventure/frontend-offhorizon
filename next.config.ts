@@ -65,6 +65,26 @@ const nextConfig: NextConfig = {
      * twenty kilobytes before compression rather than a whole framework.
      */
     inlineCss: true,
+
+    /**
+     * One thread per picture, and read the source a piece at a time.
+     *
+     * Optimising an image decodes the whole thing into memory first. A tour
+     * page carries sixty of them, and left alone the encoder takes a thread
+     * per core and holds a full bitmap for each one it is working on. Twenty
+     * five at once put the container past the memory it is allowed and the
+     * kernel stopped it, which is why the page sometimes failed to load and
+     * was fine on a refresh: by then it had come back up.
+     *
+     * Reproduced before changing anything: twenty five concurrent requests to
+     * the optimiser, nine of them answered with a dropped connection.
+     *
+     * One thread makes each image slower and the machine never fall over,
+     * which is the right way round. With the cache below, each one is paid for
+     * once.
+     */
+    imgOptConcurrency: 1,
+    imgOptSequentialRead: true,
   },
 
   async redirects() {
@@ -125,6 +145,18 @@ const nextConfig: NextConfig = {
 
   images: {
     formats: ["image/avif", "image/webp"],
+
+    /**
+     * A month, against a default of four hours.
+     *
+     * The optimised copy is thrown away and made again when this expires, and
+     * making it is the expensive thing: every four hours the site was re-
+     * encoding every picture on it, for nobody. These are photographs of
+     * mountains that have not changed since the tour was written, and an edited
+     * one arrives under a new filename anyway, so there is nothing here that
+     * going stale can get wrong.
+     */
+    minimumCacheTTL: 2678400,
     deviceSizes: [640, 828, 1200, 1920],
     imageSizes: [64, 128, 256, 384],
 
