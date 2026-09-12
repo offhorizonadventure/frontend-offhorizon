@@ -73,11 +73,21 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
     <html lang={locale} className={`${fontVariables} h-full`}>
       <head>
         {}
-        <link rel="preconnect" href={SUPABASE_URL} crossOrigin="" />
+        {/* Only what the page reaches for while somebody is waiting for it.
+
+            A preconnect is a DNS lookup and a TLS handshake started up front,
+            and a phone has few connections to spend. Two of these were being
+            spent on nothing: the storage host serves no picture on the home
+            page, and the reviews widget does not ask for anything until the
+            browser has been idle for six seconds. Both were reported as unused
+            preconnects, which is a handshake taken from the image the score is
+            made of.
+
+            They keep a dns-prefetch, which is the lookup without the handshake
+            and costs almost nothing. flagcdn stays a full preconnect because the
+            flags are on screen immediately. */}
         <link rel="preconnect" href="https://flagcdn.com" crossOrigin="" />
-        {/* The reviews widget. Opening the connection early takes the DNS and
-            TLS handshake off the time it takes to appear. */}
-        <link rel="preconnect" href="https://cdn.trustindex.io" crossOrigin="" />
+        <link rel="dns-prefetch" href={SUPABASE_URL} />
         <link rel="dns-prefetch" href="https://cdn.trustindex.io" />
         <link rel="dns-prefetch" href="https://checkout.razorpay.com" />
 

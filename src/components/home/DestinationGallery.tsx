@@ -38,6 +38,11 @@ export async function DestinationGallery() {
                   // alone was 2.8 seconds. The rail scrolls sideways, so the
                   // rest are off screen anyway and lazy is what they wanted.
                   priority={index === 0}
+                  // Carried onto the preload link, which is what the LCP
+                  // request discovery check reads. Without it the browser is
+                  // told to fetch the picture early but not that it matters
+                  // more than everything else queued beside it.
+                  fetchPriority={index === 0 ? "high" : undefined}
                   sizes="(max-width: 767px) 78vw, (max-width: 1023px) 46vw, 40vw"
                   quality={60}
                   className="ease-out-expo object-cover transition-transform duration-[1400ms] group-hover:scale-[1.06]"

@@ -49,6 +49,22 @@ const nextConfig: NextConfig = {
 
   experimental: {
     optimizePackageImports: ["lucide-react", "react-icons", "gsap"],
+
+    /**
+     * The stylesheet arrives with the page instead of after it.
+     *
+     * The critical path was: fetch the HTML, parse it, find two <link> tags,
+     * go back out for them, and only then draw anything. Measured on a phone
+     * that chain was 818 ms, and nothing at all was on screen for the whole of
+     * it, because a stylesheet blocks rendering by definition.
+     *
+     * The trade this makes is that the CSS can no longer be cached on its own,
+     * so a returning visitor downloads it again inside the HTML. Here that
+     * costs nothing: the HTML is served no-store, so it was never being cached
+     * either. And Tailwind only emits the classes actually used, so it is
+     * twenty kilobytes before compression rather than a whole framework.
+     */
+    inlineCss: true,
   },
 
   async redirects() {
