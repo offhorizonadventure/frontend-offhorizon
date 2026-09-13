@@ -4,7 +4,7 @@ import { navToursByCountry, slugOf } from "@/lib/nav-tours";
 import { getTranslations } from "next-intl/server";
 
 import { Flag } from "@/components/ui/Flag";
-import { ArrowRight, ChevronDown } from "@/components/ui/icons";
+import { ArrowRight, ChevronDown, Compass } from "@/components/ui/icons";
 import { hasMegaMenu, isSecondary, mainNav, type NavItem } from "@/config/navigation";
 import { socialLinks } from "@/config/social";
 import { Link } from "@/i18n/navigation";
@@ -57,6 +57,27 @@ export async function MobileMenu() {
                           <Flag country={country.flag} />
                           {td(country.key)}
                         </Link>
+
+                        {/* The same gap as on the wide menu: a country with
+                            nothing running rendered a name and an empty list. */}
+                        {(byCountry.get(slugOf(country.href)) ?? []).length === 0 && (
+                          <Link
+                            href="/custom-expeditions"
+                            className="border-brand-900/12 mt-2.5 flex items-center gap-3.5 rounded-2xl border border-dashed p-2.5"
+                          >
+                            <span className="bg-brand-100/70 text-brand-500 flex size-12 shrink-0 items-center justify-center rounded-xl">
+                              <Compass />
+                            </span>
+                            <span className="min-w-0 flex-1">
+                              <span className="text-brand-900 block text-[13.5px] leading-snug font-semibold">
+                                {tb("comingSoon")}
+                              </span>
+                              <span className="text-brand-600/70 mt-0.5 block text-[11.5px] leading-snug text-pretty">
+                                {tb("comingSoonBody")}
+                              </span>
+                            </span>
+                          </Link>
+                        )}
 
                         <ul className="mt-2.5 space-y-2">
                           {(byCountry.get(slugOf(country.href)) ?? []).map((tour) => (

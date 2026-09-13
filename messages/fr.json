@@ -532,7 +532,9 @@
       "registerInterest": "Se manifester",
       "viewTour": "Voir le circuit",
       "faqEyebrow": "Avant de partir",
-      "bestSeller": "Meilleure vente"
+      "bestSeller": "Meilleure vente",
+      "comingSoon": "Bientôt disponible",
+      "comingSoonBody": "Nous préparons les itinéraires. Dites-nous quand vous voulez rouler."
     },
     "hub": {
       "meta": {

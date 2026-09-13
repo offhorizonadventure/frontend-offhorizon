@@ -532,7 +532,9 @@
       "registerInterest": "Register interest",
       "viewTour": "View the tour",
       "faqEyebrow": "Before you go",
-      "bestSeller": "Best seller"
+      "bestSeller": "Best seller",
+      "comingSoon": "Coming soon",
+      "comingSoonBody": "We are putting the routes together. Tell us when you want to ride."
     },
     "hub": {
       "meta": {

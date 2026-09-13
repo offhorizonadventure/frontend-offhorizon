@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { DestinationsMenu } from "@/components/layout/DestinationsMenu";
 import { Flag } from "@/components/ui/Flag";
-import { ArrowRight } from "@/components/ui/icons";
+import { ArrowRight, Compass } from "@/components/ui/icons";
 import { hasMegaMenu, mainNav, type Country } from "@/config/navigation";
 import { Link } from "@/i18n/navigation";
 import { navToursByCountry, slugOf, toursUnder } from "@/lib/nav-tours";
@@ -52,6 +52,16 @@ async function Panel({ countries }: { countries: Country[] }) {
           const mine = byCountry.get(slugOf(country.href)) ?? [];
           const slugs = country.regions.map((region) => slugOf(region.href));
 
+          // Whether anything at all will appear under this country.
+          //
+          // Asked of the headings rather than of the tour list, because they
+          // are what actually renders. A country with tours but no heading to
+          // hang them under would pass a check on the list and still draw a
+          // gap, which is the thing being fixed.
+          const shows = country.regions.some(
+            (_, index) => toursUnder(mine, slugs, index).length > 0,
+          );
+
           return (
             <section key={country.key} className="mb-8 break-inside-avoid last:mb-0">
               <Link
@@ -64,6 +74,34 @@ async function Panel({ countries }: { countries: Country[] }) {
                 </span>
                 <ArrowRight className="text-brand-500 -translate-x-1 opacity-0 transition-all duration-200 group-hover/c:translate-x-0 group-hover/c:opacity-100" />
               </Link>
+
+              {/* A country with nothing running at all.
+                  
+                  Six countries are offered and three of them have no dated
+                  expedition yet, so those columns were a flag, a name and a gap
+                  the height of the ones beside them. A menu that leaves holes
+                  reads as broken rather than as early, and the honest answer is
+                  also the useful one: the route is being put together, and the
+                  person reading can say when they want to ride. */}
+              {!shows && (
+                <Link
+                  href="/custom-expeditions"
+                  className="group/s border-brand-900/12 hover:border-brand-800/25 hover:bg-cream-100/70 mt-4 flex items-center gap-3.5 rounded-2xl border border-dashed p-2.5 transition-colors duration-200"
+                >
+                  <span className="bg-brand-100/70 text-brand-500 flex size-12 shrink-0 items-center justify-center rounded-xl">
+                    <Compass />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="text-brand-900 block text-[13px] leading-snug font-semibold">
+                      {tb("comingSoon")}
+                    </span>
+                    <span className="text-brand-600/75 mt-0.5 block text-[11.5px] leading-snug text-pretty">
+                      {tb("comingSoonBody")}
+                    </span>
+                  </span>
+                  <ArrowRight className="text-brand-500 shrink-0 -translate-x-1 opacity-0 transition-all duration-200 group-hover/s:translate-x-0 group-hover/s:opacity-100" />
+                </Link>
+              )}
 
               {country.regions.map((region, index) => {
                 const tours = toursUnder(mine, slugs, index);

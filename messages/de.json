@@ -532,7 +532,9 @@
       "registerInterest": "Interesse anmelden",
       "viewTour": "Tour ansehen",
       "faqEyebrow": "Vor der Abreise",
-      "bestSeller": "Bestseller"
+      "bestSeller": "Bestseller",
+      "comingSoon": "Demnächst",
+      "comingSoonBody": "Wir stellen die Routen zusammen. Sagen Sie uns, wann Sie fahren möchten."
     },
     "hub": {
       "meta": {

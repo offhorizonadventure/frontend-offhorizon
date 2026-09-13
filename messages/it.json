@@ -532,7 +532,9 @@
       "registerInterest": "Segnala interesse",
       "viewTour": "Vedi il tour",
       "faqEyebrow": "Prima di partire",
-      "bestSeller": "Più venduto"
+      "bestSeller": "Più venduto",
+      "comingSoon": "Presto disponibile",
+      "comingSoonBody": "Stiamo preparando gli itinerari. Dicci quando vuoi partire."
     },
     "hub": {
       "meta": {
