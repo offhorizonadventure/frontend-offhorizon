@@ -24,6 +24,8 @@ export type BookingRow = {
     end_date: string;
     kind: string;
     bike_name: string | null;
+    /** Private means a custom expedition, where each person pays their own part. */
+    visibility: "public" | "private";
   } | null;
 };
 
@@ -38,6 +40,12 @@ export type TravellerRow = {
   invite_token: string | null;
   joined_at: string | null;
   form_submitted: boolean;
+  /** The extras this person asked for, and charged to them. */
+  wants_room: boolean;
+  wants_protection: boolean;
+  /** What they owe on their own account, and what they have paid of it. */
+  amount: number;
+  paid_amount: number;
 };
 
 export type PaymentRow = {
@@ -54,7 +62,7 @@ const BOOKING_COLUMNS = `
   id, reference, status, plan, riders, pillions, currency, total_amount,
   deposit_amount, paid_amount, balance_due_on, created_at, own_vehicle, departure_id,
   tour:tours(slug, title, hero_path, google_form_url),
-  departure:departures(start_date, end_date, kind, bike_name)
+  departure:departures(start_date, end_date, kind, bike_name, visibility)
 `;
 
 export const isOverdue = (
@@ -101,7 +109,7 @@ export async function getMyBooking(reference: string) {
     supabase
       .from("booking_travellers")
       .select(
-        "id, role, position, user_id, is_lead, full_name, email, invite_token, joined_at, form_submitted",
+        "id, role, position, user_id, is_lead, full_name, email, invite_token, joined_at, form_submitted, wants_room, wants_protection, amount, paid_amount",
       )
       .eq("booking_id", row.id)
       .order("role")
@@ -117,6 +125,9 @@ export async function getMyBooking(reference: string) {
   const mine = (travellers ?? []).find((entry) => entry.user_id === user.id) ?? null;
   const isLead = Boolean(mine?.is_lead);
 
+  // Everybody on a booking can already read the booking, so there is nothing to
+  // hide by trimming the amounts: they add up to the total, which is on screen.
+  // The invite token stays the lead's, because that one is a key.
   const visible = (travellers ?? []).map((entry) => ({
     ...entry,
     invite_token: isLead ? entry.invite_token : null,

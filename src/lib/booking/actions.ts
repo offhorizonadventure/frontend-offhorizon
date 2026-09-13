@@ -103,7 +103,11 @@ export async function payInstalment(_: unknown, formData: FormData): Promise<Act
   const read = () =>
     supabase
       .from("bookings")
-      .select("id, reference, status, currency, total_amount, paid_amount, lead_user_id")
+      .select(
+        `id, reference, status, currency, total_amount, paid_amount, lead_user_id,
+         departure:departures(visibility),
+         travellers:booking_travellers(id, user_id, amount, paid_amount)`,
+      )
       .eq("reference", reference)
       .maybeSingle();
 
@@ -113,21 +117,65 @@ export async function payInstalment(_: unknown, formData: FormData): Promise<Act
 
   // Anything already paid but not yet settled is settled first, so nobody is
   // asked for money they have handed over once already.
-  if (booking.lead_user_id === user.id && (await reconcileBooking(booking.id))) {
+  // Settled for anybody on the booking, not only the lead. A rider paying their
+  // own part should not be asked for money that arrived an hour ago and has not
+  // been written down yet, just because they are not the one who booked.
+  const onTheBooking =
+    booking.lead_user_id === user.id ||
+    ((booking.travellers ?? []) as unknown as { user_id: string | null }[]).some(
+      (person) => person.user_id === user.id,
+    );
+
+  if (onTheBooking && (await reconcileBooking(booking.id))) {
     booking = (await read()).data ?? booking;
-  }
-  if (booking.lead_user_id !== user.id) {
-    return { ok: false, error: "Only the rider who made the booking can pay towards it." };
   }
   if (booking.status === "cancelled") return { ok: false, error: "That booking was cancelled." };
 
-  const left = Math.max(0, Math.round((booking.total_amount - booking.paid_amount) * 100) / 100);
-  if (left <= 0) return { ok: false, error: "This booking is paid in full." };
+  /**
+   * Whose money this is, and how much of it there is to pay.
+   *
+   * On a custom expedition every person on the list settles their own part, so
+   * anybody on it may pay and the ceiling is their own balance rather than the
+   * booking's. Anywhere else it is the lead's booking and the lead's whole
+   * balance, exactly as before.
+   *
+   * The ceiling matters as much as the permission. Without it one of five could
+   * pay the whole expedition by typing a bigger number, and then four of them
+   * are owed a refund by a system that has no idea it took one.
+   */
+  const custom =
+    (booking.departure as unknown as { visibility?: string } | null)?.visibility === "private";
+
+  const people = (booking.travellers ?? []) as unknown as {
+    id: string;
+    user_id: string | null;
+    amount: number;
+    paid_amount: number;
+  }[];
+
+  const me = people.find((person) => person.user_id === user.id) ?? null;
+  const paysOwnShare = custom && me !== null && me.amount > 0;
+
+  if (!paysOwnShare && booking.lead_user_id !== user.id) {
+    return { ok: false, error: "Only the rider who made the booking can pay towards it." };
+  }
+
+  const left = paysOwnShare
+    ? Math.max(0, Math.round((me!.amount - me!.paid_amount) * 100) / 100)
+    : Math.max(0, Math.round((booking.total_amount - booking.paid_amount) * 100) / 100);
+
+  if (left <= 0) {
+    return {
+      ok: false,
+      error: paysOwnShare ? "Your part is paid in full." : "This booking is paid in full.",
+    };
+  }
 
   const started = await startPayment({
     bookingId: booking.id,
     reference: booking.reference,
     amount: Math.min(amount, left),
+    travellerId: paysOwnShare ? me!.id : null,
     currency: booking.currency,
     kind: "instalment",
   });

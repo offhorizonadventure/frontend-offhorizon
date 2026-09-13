@@ -23,6 +23,15 @@ export async function startPayment(input: {
   amount: number;
   currency: string;
   kind: "deposit" | "full" | "instalment";
+  /**
+   * Who this money is for.
+   *
+   * On a custom expedition everybody settles their own part, so a payment has
+   * to say whose part it settled or the booking knows it has the money and
+   * nobody knows which of them is still short. Null means it counts towards the
+   * booking and towards nobody in particular, which is every scheduled tour.
+   */
+  travellerId?: string | null;
 }): Promise<PaymentStarted | PaymentFailure> {
   const supabase = createAdminClient();
   const amountMinor = toMinorUnits(input.amount);
@@ -33,6 +42,7 @@ export async function startPayment(input: {
     .from("payments")
     .insert({
       booking_id: input.bookingId,
+      traveller_id: input.travellerId ?? null,
       kind: input.kind,
       status: "created",
       amount: input.amount,

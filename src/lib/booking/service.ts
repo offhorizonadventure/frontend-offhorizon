@@ -250,7 +250,7 @@ export async function startBooking(input: {
 
   const { error: seatError } = await supabase
     .from("booking_travellers")
-    .insert(seats(booking.id, input));
+    .insert(seats(booking.id, input, lines));
 
   if (seatError) {
     await supabase.from("bookings").delete().eq("id", booking.id);
@@ -267,6 +267,18 @@ export async function startBooking(input: {
   });
 }
 
+/**
+ * One row per person, with the extras written against whoever gets them.
+ *
+ * The wizard asks how many single rooms and how much cover the party wants, not
+ * which of them takes what, because at the time of booking half the names are
+ * still blank. The counts are handed out here in a fixed order, riders first
+ * and then pillions, so a booking always comes out the same way and the room a
+ * booking is charged for always belongs to somebody.
+ *
+ * Protection covers a machine and a pillion does not ride one, which is the
+ * same rule the wizard uses to cap the number.
+ */
 function seats(
   bookingId: string,
   input: {
@@ -274,30 +286,80 @@ function seats(
     party: Party;
     lead: { fullName: string; email: string; phone: string; country: string };
   },
+  lines: { key: string; unit: number; amount: number }[],
 ) {
+  const { riders, pillions, singleRooms, damageProtection } = input.party;
+
+  // Riders take the first rooms, then pillions. Everybody who rides is eligible
+  // for cover; nobody who does not, is.
+  const roomsForRiders = Math.min(riders, singleRooms);
+  const roomsForPillions = Math.max(0, Math.min(pillions, singleRooms - roomsForRiders));
+  const covered = Math.min(riders, damageProtection);
+
+  // What each of them owes, in the currency being charged.
+  //
+  // A custom expedition is settled by the people on it rather than by whoever
+  // pressed the button, so everybody carries their own figure from the moment
+  // the booking exists. On a scheduled tour nothing reads these yet and the
+  // lead still pays the lot, but they are written all the same: a column that
+  // is only filled in sometimes is a column nobody can trust.
+  const unit = (key: string) => lines.find((line) => line.key === key)?.unit ?? 0;
+  const heads = riders + pillions;
+
+  // A car is one car. Split in whole paise so the parts add back to the whole,
+  // with the odd unit going to the earliest place.
+  const carPaise = Math.round(
+    lines.filter((line) => line.key === "vehicle").reduce((sum, line) => sum + line.amount, 0) * 100,
+  );
+  const eachPaise = heads > 0 ? Math.floor(carPaise / heads) : 0;
+  const overPaise = carPaise - eachPaise * heads;
+
+  // Riders come first in this order, then pillions, which is the order the rows
+  // are built in below.
+  const carShare = (rank: number) => (eachPaise + (rank < overPaise ? 1 : 0)) / 100;
+
+  const round = (value: number) => Math.round(value * 100) / 100;
+
+  const rider = (position: number) => ({
+    booking_id: bookingId,
+    role: "rider",
+    position,
+    is_lead: false,
+    wants_room: position < roomsForRiders,
+    wants_protection: position < covered,
+    amount: round(
+      unit("rider") +
+        (position < roomsForRiders ? unit("room") : 0) +
+        (position < covered ? unit("protection") : 0) +
+        carShare(position),
+    ),
+  });
+
   return [
     {
-      booking_id: bookingId,
-      role: "rider",
-      position: 0,
+      ...rider(0),
       user_id: input.userId,
       is_lead: true,
       full_name: input.lead.fullName,
       email: input.lead.email,
       phone: input.lead.phone,
     },
-    ...Array.from({ length: input.party.riders - 1 }, (_, index) => ({
-      booking_id: bookingId,
-      role: "rider",
-      position: index + 1,
-      is_lead: false,
+    ...Array.from({ length: riders - 1 }, (_, index) => ({
+      ...rider(index + 1),
       invite_token: randomBytes(24).toString("base64url"),
     })),
-    ...Array.from({ length: input.party.pillions }, (_, index) => ({
+    ...Array.from({ length: pillions }, (_, index) => ({
       booking_id: bookingId,
       role: "pillion",
       position: index,
       is_lead: false,
+      wants_room: index < roomsForPillions,
+      wants_protection: false,
+      amount: round(
+        unit("pillion") +
+          (index < roomsForPillions ? unit("room") : 0) +
+          carShare(riders + index),
+      ),
     })),
   ];
 }

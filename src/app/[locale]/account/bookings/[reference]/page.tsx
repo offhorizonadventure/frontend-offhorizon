@@ -34,6 +34,21 @@ export default async function BookingPage({
   const profile = await getProfile();
 
   const left = outstanding(booking);
+
+  /**
+   * What this reader owes, when the answer is not "the whole booking".
+   *
+   * On a custom expedition the group agreed to ride together and each of them
+   * settles their own part, so showing somebody the expedition's total and a
+   * button to pay it is showing them four other people's money. They see their
+   * own figure and pay their own figure; the booking's totals stay on the page
+   * because the group is still a group and the numbers should add up in public.
+   */
+  const custom = booking.departure?.visibility === "private";
+  const share = custom && mine && mine.amount > 0 ? mine : null;
+  const myLeft = share
+    ? Math.max(0, Math.round((share.amount - share.paid_amount) * 100) / 100)
+    : left;
   const money = (amount: number) => formatMoney(amount, booking.currency as never, locale);
   const day = (value: string) =>
     new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric" }).format(
@@ -67,6 +82,17 @@ export default async function BookingPage({
     { label: t("detail.total"), value: money(booking.total_amount) },
     { label: t("detail.paid"), value: money(booking.paid_amount) },
     { label: t("detail.outstanding"), value: money(left) },
+    // Their own three lines first in the reader's mind, even though they sit
+    // after the group's: the group total answers "what is this trip", their
+    // share answers "what do I owe", and only one of those is a question they
+    // came here with.
+    ...(share
+      ? [
+          { label: t("detail.yourShare"), value: money(share.amount) },
+          { label: t("detail.youPaid"), value: money(share.paid_amount) },
+          { label: t("detail.youOwe"), value: money(myLeft) },
+        ]
+      : []),
   ];
 
   return (
@@ -111,15 +137,18 @@ export default async function BookingPage({
         </dl>
       </Panel>
 
-      {left > 0 && booking.status !== "cancelled" && (
-        <Panel title={t("detail.payTitle")} lead={isLead ? t("detail.payLead") : undefined}>
-          {isLead ? (
+      {(share ? myLeft : left) > 0 && booking.status !== "cancelled" && (
+        <Panel
+          title={t("detail.payTitle")}
+          lead={share ? t("detail.payOwnLead") : isLead ? t("detail.payLead") : undefined}
+        >
+          {share || isLead ? (
             <InstalmentForm
               keyId={razorpayConfigured() ? razorpayKeyId() : ""}
               siteName={siteName}
               reference={booking.reference}
               currency={booking.currency}
-              outstanding={left}
+              outstanding={share ? myLeft : left}
               profile={{
                 name: profile?.full_name ?? "",
                 email: profile?.email ?? "",
