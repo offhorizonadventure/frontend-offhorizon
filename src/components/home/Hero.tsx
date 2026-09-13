@@ -4,7 +4,8 @@ import { ArrowRight, Compass } from "@/components/ui/icons";
 import { Link } from "@/i18n/navigation";
 
 import { Topo } from "@/components/ui/Topo";
-import { COUNTRY_COUNT, crewCount, HIGHEST_PASS_METRES, yearsRunning } from "@/config/facts";
+import { COUNTRY_COUNT, HIGHEST_PASS_METRES, yearsRunning } from "@/config/facts";
+import { crewCount } from "@/lib/team";
 
 import { DestinationGallery } from "./DestinationGallery";
 
@@ -17,7 +18,7 @@ export async function Hero() {
     { value: format.number(yearsRunning), key: "years" },
     { value: format.number(COUNTRY_COUNT), key: "countries" },
     { value: `${format.number(HIGHEST_PASS_METRES)} m`, key: "highestPass" },
-    { value: format.number(crewCount), key: "crew" },
+    { value: format.number(await crewCount()), key: "crew" },
   ] as const;
 
   return (

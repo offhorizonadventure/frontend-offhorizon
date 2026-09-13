@@ -1,15 +1,46 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
-import { Instagram, LinkedIn } from "@/components/ui/icons";
+import { Certificate, Instagram, LinkedIn } from "@/components/ui/icons";
 import { Topo } from "@/components/ui/Topo";
-import { team, type Member } from "@/config/team";
+import { crewByGroup, crewMediaUrl, TEAM_GROUPS, type CrewMember } from "@/lib/team";
 import { cn } from "@/lib/cn";
+
+/**
+ * What somebody's job is called, in the reader's language where there is one.
+ *
+ * The office may write a role the site has no translation for, and then it is
+ * shown as written. That is the trade for being able to add a drone pilot on a
+ * Tuesday without a deploy, and it is the right way round: a role in English is
+ * better than a missing person.
+ */
+function roleOf(member: CrewMember, translate: (key: string) => string) {
+  const written = member.role_label?.trim();
+  if (written) return written;
+  if (!member.role_key) return "";
+
+  const key = `roles.${member.role_key}`;
+  const found = translate(key);
+
+  return found === key ? member.role_key : found;
+}
 
 export async function Team() {
   const t = await getTranslations("about.team");
 
-  const [lead, ...groups] = team;
+  const grouped = await crewByGroup();
+  const lead = grouped.get("lead")?.[0] ?? null;
+
+  // Every block but the founder's, and only the ones with somebody in them: a
+  // heading over nothing is a hole, and the office may well be between
+  // mechanics.
+  const groups = TEAM_GROUPS.filter((key) => key !== "lead")
+    .map((key) => ({ key, members: grouped.get(key) ?? [] }))
+    .filter((group) => group.members.length > 0);
+
+  // Nobody at all means the table has not been filled in yet. Drawing the
+  // heading and an empty page under it would be worse than not drawing it.
+  if (!lead && groups.length === 0) return null;
 
   return (
     <section className="bg-white py-20 sm:py-28">
@@ -38,8 +69,8 @@ export async function Team() {
             <div className="lg:col-span-5">
               <div className="bg-brand-100 relative aspect-[4/5] overflow-hidden rounded-[24px] lg:aspect-auto lg:h-full lg:min-h-[26rem]">
                 <Image
-                  src={lead.members[0].photo!}
-                  alt={lead.members[0].name}
+                  src={crewMediaUrl(lead?.photo_path) ?? "/team/hob-st.jpg"}
+                  alt={lead?.name ?? ""}
                   fill
                   sizes="(max-width: 1023px) 90vw, 420px"
                   className="object-cover"
@@ -54,7 +85,7 @@ export async function Team() {
               </span>
 
               <p className="font-display text-brand-900 mt-5 text-[clamp(2rem,5vw,3.4rem)] leading-[0.98] font-extrabold tracking-[-0.04em]">
-                {lead.members[0].name}
+                {lead?.name}
               </p>
 
               <p className="text-brand-800/60 mt-6 max-w-lg text-[15px] leading-[1.85] text-pretty sm:text-[16px]">
@@ -103,8 +134,8 @@ export async function Team() {
               className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
             >
               {group.members.map((member) => (
-                <li key={member.name}>
-                  <MemberCard member={member} role={t(`roles.${member.role}`)} />
+                <li key={member.id}>
+                  <MemberCard member={member} role={roleOf(member, (key) => t(key as never))} />
                 </li>
               ))}
             </ul>
@@ -137,17 +168,21 @@ function MemberCard({
   role,
   className,
 }: {
-  member: Member;
+  member: CrewMember;
   role: string;
   className?: string;
 }) {
+  const photo = crewMediaUrl(member.photo_path);
+  const certificate = crewMediaUrl(member.certificate_path);
+  const links = member.linkedin_url || member.instagram_url;
+
   return (
     <figure className={cn("group", className)}>
       <div className="bg-brand-100 relative aspect-[3/4] overflow-hidden rounded-2xl">
-        {member.photo ? (
+        {photo ? (
           <>
             <Image
-              src={member.photo}
+              src={photo}
               alt={member.name}
               fill
               sizes="(max-width: 639px) 44vw, (max-width: 1023px) 30vw, 220px"
@@ -172,12 +207,18 @@ function MemberCard({
             <span className="text-brand-800/50 mt-1 block text-[11.5px] leading-snug">{role}</span>
           </span>
 
-          {}
-          {member.links && (
+          {/* One slot, two jobs.
+
+              The website developer is on this page to be found, so they show
+              where to find them. A mechanic or a doctor is on it to be
+              trusted, so they show what they are qualified in. Nobody needs
+              both, and a page carrying a doctor's Instagram would be a
+              different kind of page. */}
+          {links ? (
             <span className="flex shrink-0 items-center gap-2">
-              {member.links.linkedin && (
+              {member.linkedin_url && (
                 <a
-                  href={member.links.linkedin}
+                  href={member.linkedin_url}
                   target="_blank"
                   rel="noopener noreferrer me"
                   aria-label={`${member.name} on LinkedIn`}
@@ -186,9 +227,9 @@ function MemberCard({
                   <LinkedIn className="h-3.5 w-3.5" />
                 </a>
               )}
-              {member.links.instagram && (
+              {member.instagram_url && (
                 <a
-                  href={member.links.instagram}
+                  href={member.instagram_url}
                   target="_blank"
                   rel="noopener noreferrer me"
                   aria-label={`${member.name} on Instagram`}
@@ -198,6 +239,18 @@ function MemberCard({
                 </a>
               )}
             </span>
+          ) : (
+            certificate && (
+              <a
+                href={certificate}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${member.name}’s certificate`}
+                className="text-brand-800/35 hover:text-brand-900 shrink-0 transition-colors"
+              >
+                <Certificate className="h-3.5 w-3.5" />
+              </a>
+            )
           )}
         </span>
 

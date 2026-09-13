@@ -1,16 +1,19 @@
 import { getTranslations } from "next-intl/server";
 
 import { Topo } from "@/components/ui/Topo";
-import { COUNTRY_COUNT, crewCount, FOUNDED_YEAR } from "@/config/facts";
-
-const facts = [
-  { value: String(FOUNDED_YEAR), key: "since" },
-  { value: String(COUNTRY_COUNT), key: "countries" },
-  { value: String(crewCount), key: "crew" },
-] as const;
+import { COUNTRY_COUNT, FOUNDED_YEAR } from "@/config/facts";
+import { crewCount } from "@/lib/team";
 
 export async function AboutHero() {
   const t = await getTranslations("about.hero");
+
+  // Counted when the page is built rather than written down, so the crew
+  // figure follows whoever is actually on the team.
+  const facts = [
+    { value: String(FOUNDED_YEAR), key: "since" },
+    { value: String(COUNTRY_COUNT), key: "countries" },
+    { value: String(await crewCount()), key: "crew" },
+  ] as const;
 
   return (
     <section className="bg-brand-950 text-cream-100 relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">

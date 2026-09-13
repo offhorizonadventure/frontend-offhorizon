@@ -6,6 +6,7 @@ import {
   Car as LuCar,
   ChevronDown as LuChevronDown,
   Compass as LuCompass,
+  FileBadge as LuFileBadge,
   DoorClosed as LuDoorClosed,
   Gauge as LuGauge,
   MapPin as LuMapPin,
@@ -50,6 +51,11 @@ export const UserRound = ({ className = "" }: IconProps) => (
 
 export const Compass = ({ className = "" }: IconProps) => (
   <LuCompass size={16} strokeWidth={1.75} aria-hidden className={`shrink-0 ${className}`} />
+);
+
+/** A qualification somebody can show: the certificate link on a crew card. */
+export const Certificate = ({ className = "" }: IconProps) => (
+  <LuFileBadge size={16} strokeWidth={1.75} aria-hidden className={`shrink-0 ${className}`} />
 );
 
 export const Star = ({ className = "" }: IconProps) => (
