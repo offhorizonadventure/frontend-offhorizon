@@ -86,7 +86,7 @@ async function Panel({ countries }: { countries: Country[] }) {
               {!shows && (
                 <Link
                   href="/custom-expeditions"
-                  className="group/s border-brand-900/12 hover:border-brand-800/25 hover:bg-cream-100/70 mt-4 flex items-center gap-3.5 rounded-2xl border border-dashed p-2.5 transition-colors duration-200"
+                  className="group/s border-brand-900/12 hover:border-brand-800/25 mt-4 flex items-center gap-3.5 rounded-2xl border border-dashed bg-white p-2.5 transition-colors duration-200"
                 >
                   <span className="bg-brand-100/70 text-brand-500 flex size-12 shrink-0 items-center justify-center rounded-xl">
                     <Compass />

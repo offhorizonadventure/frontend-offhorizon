@@ -63,7 +63,7 @@ export async function MobileMenu() {
                         {(byCountry.get(slugOf(country.href)) ?? []).length === 0 && (
                           <Link
                             href="/custom-expeditions"
-                            className="border-brand-900/12 mt-2.5 flex items-center gap-3.5 rounded-2xl border border-dashed p-2.5"
+                            className="border-brand-900/12 mt-2.5 flex items-center gap-3.5 rounded-2xl border border-dashed bg-white p-2.5"
                           >
                             <span className="bg-brand-100/70 text-brand-500 flex size-12 shrink-0 items-center justify-center rounded-xl">
                               <Compass />
